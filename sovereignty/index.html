@@ -94,6 +94,7 @@
         --c-bluesoft: #b8d4ee;
         --c-gray: #b0aea5;
         --c-deep: #5e7bb0;
+        --site-header-h: 60px;
       }
       * {
         box-sizing: border-box;
@@ -142,7 +143,7 @@
         left: 0;
         right: 0;
         z-index: 55;
-        height: 60px;
+        height: var(--site-header-h);
         display: flex;
         align-items: center;
         gap: 16px;
@@ -150,6 +151,12 @@
         background: rgba(255, 254, 253, 0.82);
         backdrop-filter: saturate(140%) blur(8px);
         border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: inline-flex;
+        flex: none;
+        line-height: 0;
+        text-decoration: none;
       }
       .site-header .logo {
         height: 24px;
@@ -377,27 +384,26 @@
         width: auto;
         max-width: 100%;
         border-radius: 12px;
-        border: 1px solid var(--gy-line-soft);
       }
       .figlayer[data-vis="img-wright"] img {
         max-height: 63vh;
         max-width: 85%;
       }
-      .figlayer[data-vis="chart-gemini"] img {
-        max-height: 78vh;
-        max-width: min(100%, 720px);
+      .figlayer[data-vis="chart-gemini"] .bench-chart-wrap,
+      .figlayer[data-vis="chart-glm"] .bench-chart-wrap {
         width: 100%;
-        object-fit: contain;
-        border: none;
-        border-radius: 0;
+        max-width: min(100%, 720px);
+        max-height: 78vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 8px;
       }
-      .figlayer[data-vis="chart-glm"] img {
-        max-height: 78vh;
-        max-width: min(100%, 720px);
-        width: 100%;
-        object-fit: contain;
-        border: none;
-        border-radius: 0;
+      .bench-chart-head {
+        flex: none;
+      }
+      .scrolly-04 .stage:has(.figlayer[data-vis="chart-glm"].active) {
+        max-width: 700px;
       }
       .dataset-trio {
         display: flex;
@@ -577,6 +583,73 @@
         font-size: 11.5px;
         font-weight: 600;
         font-family: var(--gy-font-sans);
+      }
+      #pubChart text.tick {
+        font-size: 14px;
+      }
+      #pubLegend .li {
+        font-size: 13.5px;
+      }
+      #dcChart text.tick {
+        font-size: 14px;
+      }
+      #dcChart text.axlbl {
+        font-size: 14px;
+      }
+      #dcLegend .li {
+        font-size: 13.5px;
+      }
+      .bench-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        padding: 16px 0 4px;
+      }
+      .bench-chip {
+        appearance: none;
+        border: 1.5px solid var(--gy-line);
+        background: var(--gy-surface-50);
+        color: var(--gy-ink-muted);
+        border-radius: var(--gy-radius-full);
+        padding: 6px 14px;
+        font-family: var(--gy-font-sans);
+        font-size: 13.5px;
+        font-weight: 600;
+        line-height: 1.2;
+        cursor: pointer;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .bench-chip:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        color: var(--gy-ink);
+      }
+      .bench-chip.active {
+        background: var(--gy-ink);
+        border-color: var(--gy-ink);
+        color: var(--gy-white);
+      }
+      .bench-panels {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
+        flex: 1;
+        min-height: 430px;
+        overflow: hidden;
+      }
+      .bench-panel {
+        flex: none;
+      }
+      .bench-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        overflow: visible;
       }
       .dot {
         cursor: pointer;
@@ -767,6 +840,52 @@
       }
       .step-text-cols-figure figcaption a {
         color: inherit;
+      }
+      .hausa-scatter-wrap {
+        width: 100%;
+        background: rgb(232, 240, 248);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 12px;
+        padding: 10px 8px 6px;
+      }
+      .hausa-scatter-wrap h4 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.3;
+        margin: 0;
+        padding: 6px 12px 0;
+        text-align: center;
+        color: var(--gy-ink);
+      }
+      .hausa-scatter-wrap .hausa-scatter-byline {
+        margin: 0;
+        padding: 0 12px 8px;
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        line-height: 1.4;
+        color: var(--gy-ink-meta);
+        text-align: center;
+      }
+      .hausa-scatter-wrap .hausa-scatter-byline a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .hausa-scatter-svg .hausa-scatter-brand-logo {
+        pointer-events: none;
+      }
+      .hausa-scatter-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        overflow: visible;
+      }
+      .hausa-scatter-svg .dot-hit {
+        cursor: pointer;
+      }
+      .hausa-scatter-svg .dot-logo {
+        pointer-events: none;
       }
       .step-text-cols-figure-below {
         margin-top: clamp(32px, 4vh, 48px);
@@ -1063,7 +1182,8 @@
         padding-bottom: 3vh;
       }
       .scrolly-recs .hscroll-pin {
-        padding-top: 10vh;
+        align-items: center;
+        padding-top: 0;
       }
       .scrolly-recs .hscroll-track .hcard {
         flex: 0 0 min(506px, calc(100vw - clamp(24px, 6vw, 96px) * 2));
@@ -1084,16 +1204,17 @@
           padding-bottom: 3vh;
         }
         .scrolly-03 .hscroll-pin {
-          padding-top: 8vh;
+          align-items: center;
+          padding-top: 0;
         }
       }
       .hscroll-pin {
         position: sticky;
-        top: 0;
-        height: 100vh;
+        top: var(--site-header-h);
+        height: calc(100vh - var(--site-header-h));
         display: flex;
-        align-items: flex-start;
-        padding-top: 14vh;
+        align-items: center;
+        padding-top: 0;
         overflow: hidden;
       }
       .hscroll-track {
@@ -1236,6 +1357,14 @@
       }
 
       @media (max-width: 900px) {
+        .mobile-flow .scrolly:not(.scrolly-hscroll) {
+          overflow-x: clip;
+          max-width: 100%;
+        }
+        .mobile-flow .col-text {
+          max-width: 100%;
+          min-width: 0;
+        }
         .hero {
           min-height: auto;
           flex-direction: column;
@@ -1289,15 +1418,53 @@
         }
         .mobile-flow .inline-vis {
           display: block;
+          position: relative;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
+          overflow: hidden;
           padding: 8px 0 32px;
+          margin: 0;
         }
         .mobile-flow .inline-vis .figlayer {
-          position: relative;
-          inset: auto;
+          position: relative !important;
+          inset: unset !important;
+          top: auto !important;
+          right: auto !important;
+          bottom: auto !important;
+          left: auto !important;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          margin: 0;
+          align-items: stretch;
+          justify-content: flex-start;
           opacity: 1 !important;
           transform: none !important;
           pointer-events: auto;
           gap: 10px;
+        }
+        .mobile-flow .inline-vis .chartwrap,
+        .mobile-flow .inline-vis .csvg,
+        .mobile-flow .inline-vis .bench-chart-wrap,
+        .mobile-flow .inline-vis .bench-panels,
+        .mobile-flow .inline-vis .bench-panel,
+        .mobile-flow .inline-vis .bench-svg,
+        .mobile-flow .inline-vis .hausa-scatter-wrap,
+        .mobile-flow .inline-vis .hausa-scatter-svg,
+        .mobile-flow .inline-vis .dataset-trio,
+        .mobile-flow .inline-vis .culture-stack,
+        .mobile-flow .inline-vis .artbox,
+        .mobile-flow .step-text-cols-figure .hausa-scatter-wrap,
+        .mobile-flow .step-text-cols-figure .hausa-scatter-svg {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
+        }
+        .mobile-flow .inline-vis .figlayer figcaption {
+          max-width: 100%;
         }
         .mobile-flow .inline-vis .figlayer > img {
           max-width: 100%;
@@ -1355,17 +1522,18 @@
           max-height: 60vh;
           max-width: 85%;
         }
-        .mobile-flow .inline-vis .figlayer[data-vis="chart-gemini"] > img {
-          max-height: 70vh;
-          max-width: 100%;
-          border: none;
-          border-radius: 0;
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-gemini"] .bench-chart-wrap,
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-glm"] .bench-chart-wrap {
+          max-height: none;
         }
-        .mobile-flow .inline-vis .figlayer[data-vis="chart-glm"] > img {
-          max-height: 70vh;
-          max-width: 100%;
-          border: none;
-          border-radius: 0;
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-gemini"] .chart-brand,
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-glm"] .chart-brand {
+          font-size: 15px;
+        }
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-gemini"] .bench-chip,
+        .mobile-flow .inline-vis .figlayer[data-vis="chart-glm"] .bench-chip {
+          font-size: 15px;
+          padding: 7px 15px;
         }
         .mobile-flow .inline-vis .figlayer[data-vis="art-actors"] > img {
           border: none;
@@ -1375,7 +1543,10 @@
           max-height: 50vh;
         }
         .mobile-flow .inline-vis .csvg {
+          width: 100%;
+          max-width: 100%;
           max-height: 45vh;
+          overflow: hidden;
         }
         .mobile-flow .inline-vis .lever-grid {
           max-width: none;
@@ -1400,6 +1571,10 @@
         .step p {
           font-size: 17px;
         }
+        .hausa-scatter-wrap .hausa-scatter-byline {
+          font-size: 13px;
+          line-height: 1.4;
+        }
         .step-text-cols-grid {
           grid-template-columns: 1fr;
           gap: 18px;
@@ -1419,14 +1594,17 @@
           margin-top: 24px;
           text-align: right;
         }
+        .scrolly.scrolly-img-slide {
+          padding: 0;
+        }
         .scrolly-img-slide .step-img-slide {
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 64px 20px 48px;
+          padding: 0;
         }
         .scrolly-img-slide .step-img-slide-figure img {
-          max-height: calc(100vh - 120px);
-          max-height: calc(100dvh - 120px);
+          max-height: 100vh;
+          max-height: 100dvh;
         }
         .scrolly-img-slide .stage-meta {
           right: 20px;
@@ -1574,16 +1752,17 @@
   <body>
     <div class="progress"><i id="progbar"></i></div>
     <header class="site-header" id="siteHeader">
-      <img
-        class="logo"
-        src="assets/gooey-logo.png"
-        alt="Gooey.AI"
-      />
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img
+          class="logo"
+          src="assets/gooey-logo.png"
+          alt="Gooey.AI"
+        />
+      </a>
       <span class="h-title"
         >How Middle Powers Cooperate for AI Sovereignty</span
       >
-      <a class="login-btn" href="https://gooey.ai/login/">Login</a
-      >
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
     </header>
 
     <!-- ===================== HERO ===================== -->
@@ -2014,14 +2193,32 @@
             <div class="artbox"></div>
           </figure>
           <figure class="figlayer" data-vis="chart-gemini">
-            <img
-              src="images/image43.png"
-              alt="Gemini 3.5 Flash performance benchmarks — coding, agentic, UI control, expert tasks, multimodal, long context, and reasoning"
-            />
+            <div class="chartwrap bench-chart-wrap">
+              <div class="bench-chart-head">
+                <div class="chart-brand">
+                  <img
+                    src="https://www.google.com/s2/favicons?domain=deepmind.google&amp;sz=32"
+                    width="22"
+                    height="22"
+                    alt=""
+                  /><span
+                    >Gemini 3.5 Flash benchmarks ·
+                    <a
+                      href="https://deepmind.google/models/gemini/flash/#performance"
+                      target="_blank"
+                      rel="noopener"
+                      >Google DeepMind</a
+                    ></span
+                  >
+                </div>
+                <div class="bench-chips" id="geminiBenchChips"></div>
+              </div>
+              <div class="bench-panels" id="geminiBenchPanels"></div>
+            </div>
             <figcaption>
-              Performance · Gemini 3.5 Flash benchmarks ·
+              Benchmarks showcased by Gemini 3.5 Flash on release ·
               <a
-                href="https://deepmind.google/models/gemini/flash/"
+                href="https://deepmind.google/models/gemini/flash/#performance"
                 target="_blank"
                 rel="noopener"
                 >Google DeepMind</a
@@ -2029,12 +2226,30 @@
             </figcaption>
           </figure>
           <figure class="figlayer" data-vis="chart-glm">
-            <img
-              src="images/image44.png"
-              alt="LLM Performance Evaluation — GLM 5.2 benchmarks across SWE-bench Pro, Terminal-Bench, NL2Repo, DeepSWE, ProgramBench, MCP-Atlas, Tool-Decathlon, and Humanity's Last Exam"
-            />
+            <div class="chartwrap bench-chart-wrap">
+              <div class="bench-chart-head">
+                <div class="chart-brand">
+                  <img
+                    src="assets/zhipu-logo.svg"
+                    width="22"
+                    height="22"
+                    alt=""
+                  /><span
+                    >GLM 5.2 benchmarks ·
+                    <a
+                      href="https://docs.z.ai/guides/llm/glm-5.2"
+                      target="_blank"
+                      rel="noopener"
+                      >Z.ai</a
+                    ></span
+                  >
+                </div>
+                <div class="bench-chips" id="glmBenchChips"></div>
+              </div>
+              <div class="bench-panels" id="glmBenchPanels"></div>
+            </div>
             <figcaption>
-              LLM Performance Evaluation · GLM 5.2 benchmarks ·
+              Benchmarks showcased by GLM 5.2 on release ·
               <a
                 href="https://docs.z.ai/guides/llm/glm-5.2"
                 target="_blank"
@@ -2049,7 +2264,6 @@
               alt="Benchmark opportunity for middle powers — agriculture and local productivity"
             />
           </figure>
-    
           <figure class="figlayer" data-vis="img-culture7">
             <div class="culture-stack">
               <img
@@ -2298,20 +2512,26 @@
                 open source models.
               </p>
               <figure class="step-text-cols-figure">
-                <img
-                  src="images/image45.png"
-                  alt="Hausa Evaluation of Audio AI Models — accuracy vs latency scatter plot comparing AI models on Hausa language tasks"
-                />
-                <figcaption>
-                  Hausa evaluation of audio AI models · 15 June 2026 ·
-                  <a
-                    href="https://gooey.ai/language"
-                    target="_blank"
-                    rel="noopener"
-                    >gooey.ai/language</a
-                  >
-                  · Gooey.AI, ClearGlobal &amp; the Gates Foundation.
-                </figcaption>
+                <div class="hausa-scatter-wrap">
+                  <h4>Hausa Evaluation of Audio AI Models</h4>
+                  <p class="hausa-scatter-byline">
+                    By Gooey.AI, ClearGlobal and the Gates Foundation · 15 June
+                    2026 ·
+                    <a
+                      href="https://gooey.ai/language"
+                      target="_blank"
+                      rel="noopener"
+                      >Gooey.AI/language</a
+                    >
+                  </p>
+                  <svg
+                    class="hausa-scatter-svg"
+                    data-hausa-scatter
+                    viewBox="0 0 560 327"
+                    role="img"
+                    aria-label="Hausa evaluation — accuracy vs latency scatter plot comparing AI models"
+                  ></svg>
+                </div>
               </figure>
               <h3>Productivity needs &amp; domain-specific reasoning</h3>
               <p>
@@ -3378,17 +3598,484 @@
         deep: "#5E7BB0",
       };
 
-      /* ---------- data ---------- */
-      const DC_USERS = {
-        Anthropic: PALETTE.orange,
-        "Google DeepMind": PALETTE.blue,
-        Meta: PALETTE.blue2,
-        OpenAI: PALETTE.green,
-        xAI: PALETTE.ink,
-        Alibaba: PALETTE.purple,
-        Microsoft: PALETTE.red,
-        Other: PALETTE.gray,
+      /* Brand colors aligned with Artificial Analysis model charts */
+      const COMPANY_COLORS = {
+        Anthropic: "#d97757",
+        "Google DeepMind": "#34A853",
+        Meta: "#0668E1",
+        OpenAI: "#1D1D1D",
+        xAI: "#7469B6",
+        Alibaba: "#FF7F27",
+        Microsoft: "#4EA2E9",
+        Other: "#B0AEA5",
       };
+
+      const GEMINI_MODELS = [
+        {
+          k: "gem35f",
+          label: "Gemini 3.5 Flash",
+          c: "#4285F4",
+          hl: true,
+        },
+        {
+          k: "gem3f",
+          label: "Gemini 3 Flash",
+          c: COMPANY_COLORS["Google DeepMind"],
+        },
+        {
+          k: "gem31p",
+          label: "Gemini 3.1 Pro",
+          c: COMPANY_COLORS["Google DeepMind"],
+        },
+        {
+          k: "son46",
+          label: "Claude Sonnet 4.6",
+          c: COMPANY_COLORS.Anthropic,
+        },
+        {
+          k: "op47",
+          label: "Claude Opus 4.7",
+          c: COMPANY_COLORS.Anthropic,
+        },
+        {
+          k: "gpt55",
+          label: "GPT-5.5",
+          c: COMPANY_COLORS.OpenAI,
+        },
+      ];
+      const GEMINI_CATEGORIES = [
+        {
+          id: "coding",
+          label: "Coding",
+          benchmarks: [
+            {
+              name: "Terminal-bench 2.1",
+              subtitle: "Agentic terminal coding",
+              unit: "pct",
+              scores: {
+                gem35f: 76.2,
+                gem3f: 58.0,
+                gem31p: 70.3,
+                op47: 66.1,
+                gpt55: 78.2,
+              },
+            },
+            {
+              name: "SWE-Bench Pro (Public)",
+              subtitle: "Diverse agentic coding tasks",
+              unit: "pct",
+              scores: {
+                gem35f: 55.1,
+                gem3f: 49.6,
+                gem31p: 54.2,
+                op47: 64.3,
+                gpt55: 58.6,
+              },
+            },
+          ],
+        },
+        {
+          id: "agentic",
+          label: "Agentic",
+          benchmarks: [
+            {
+              name: "MCP Atlas",
+              subtitle: "Multi-step workflows using MCP",
+              unit: "pct",
+              scores: {
+                gem35f: 83.6,
+                gem3f: 62.0,
+                gem31p: 78.2,
+                son46: 69.5,
+                op47: 79.1,
+                gpt55: 75.3,
+              },
+            },
+            {
+              name: "Toolathlon",
+              subtitle: "Real-world general tool use",
+              unit: "pct",
+              scores: { gem35f: 56.5, gem3f: 49.4, gpt55: 55.6 },
+            },
+          ],
+        },
+        {
+          id: "ui",
+          label: "UI Control",
+          benchmarks: [
+            {
+              name: "OSWorld-Verified",
+              subtitle: "Agentic computer use",
+              unit: "pct",
+              scores: {
+                gem35f: 78.4,
+                gem3f: 65.1,
+                gem31p: 76.2,
+                son46: 72.5,
+                op47: 78.0,
+                gpt55: 78.7,
+              },
+            },
+          ],
+        },
+        {
+          id: "expert",
+          label: "Expert",
+          benchmarks: [
+            {
+              name: "Finance Agent v2",
+              subtitle: "Financial analysis and decision-making",
+              unit: "pct",
+              scores: {
+                gem35f: 57.9,
+                gem3f: 42.6,
+                gem31p: 43.0,
+                son46: 51.0,
+                op47: 51.5,
+                gpt55: 51.8,
+              },
+            },
+            {
+              name: "GDPval-AA",
+              subtitle: "Economically valuable knowledge work",
+              unit: "elo",
+              max: 2000,
+              scores: {
+                gem35f: 1656,
+                gem3f: 1204,
+                gem31p: 1314,
+                son46: 1676,
+                op47: 1753,
+                gpt55: 1769,
+              },
+            },
+          ],
+        },
+        {
+          id: "multimodal",
+          label: "Multimodal",
+          benchmarks: [
+            {
+              name: "CharXiv Reasoning",
+              subtitle: "Information synthesis from complex charts",
+              unit: "pct",
+              scores: {
+                gem35f: 84.2,
+                gem3f: 80.3,
+                gem31p: 83.3,
+                son46: 72.4,
+                op47: 82.1,
+                gpt55: 84.1,
+              },
+            },
+            {
+              name: "MMMU-Pro",
+              subtitle: "Multimodal understanding and reasoning",
+              unit: "pct",
+              scores: {
+                gem35f: 83.6,
+                gem3f: 81.2,
+                gem31p: 80.5,
+                son46: 74.5,
+                op47: 75.2,
+                gpt55: 81.2,
+              },
+            },
+          ],
+        },
+        {
+          id: "longctx",
+          label: "Long context",
+          benchmarks: [
+            {
+              name: "MRCR v2 (8-needle)",
+              subtitle: "Long context performance · 128k average",
+              unit: "pct",
+              scores: {
+                gem35f: 77.3,
+                gem3f: 67.2,
+                gem31p: 84.9,
+                son46: 84.9,
+                op47: 59.3,
+                gpt55: 94.8,
+              },
+            },
+            {
+              name: "MRCR v2 (8-needle)",
+              subtitle: "Long context performance · 1M pointwise",
+              unit: "pct",
+              scores: {
+                gem35f: 26.6,
+                gem3f: 22.1,
+                gem31p: 26.3,
+              },
+            },
+          ],
+        },
+        {
+          id: "reasoning",
+          label: "Reasoning",
+          benchmarks: [
+            {
+              name: "Humanity's Last Exam",
+              subtitle: "Academic reasoning",
+              unit: "pct",
+              scores: {
+                gem35f: 40.2,
+                gem3f: 33.7,
+                gem31p: 44.4,
+                son46: 33.2,
+                op47: 46.9,
+                gpt55: 41.4,
+              },
+            },
+            {
+              name: "ARC-AGI-2",
+              subtitle: "Abstract reasoning puzzles",
+              unit: "pct",
+              scores: {
+                gem35f: 72.1,
+                gem3f: 33.6,
+                gem31p: 77.1,
+                son46: 58.3,
+                op47: 75.8,
+                gpt55: 84.6,
+              },
+            },
+          ],
+        },
+      ];
+      let geminiBenchCat = "coding";
+
+      const GLM_MODELS = [
+        {
+          k: "glm52",
+          label: "GLM-5.2",
+          c: "#0066FF",
+          hl: true,
+        },
+        {
+          k: "glm51",
+          label: "GLM-5.1",
+          c: "#4B93FF",
+        },
+        {
+          k: "op48",
+          label: "Claude Opus 4.8",
+          c: COMPANY_COLORS.Anthropic,
+        },
+        {
+          k: "gpt55",
+          label: "GPT-5.5",
+          c: COMPANY_COLORS.OpenAI,
+        },
+        {
+          k: "gem31p",
+          label: "Gemini 3.1 Pro",
+          c: COMPANY_COLORS["Google DeepMind"],
+        },
+      ];
+      const GLM_CATEGORIES = [
+        {
+          id: "coding",
+          label: "Coding",
+          benchmarks: [
+            {
+              name: "Terminal-bench 2.1",
+              subtitle: "Agentic terminal coding",
+              unit: "pct",
+              scores: {
+                glm52: 81.0,
+                glm51: 63.5,
+                op48: 85.0,
+                gpt55: 84.0,
+                gem31p: 74.0,
+              },
+            },
+            {
+              name: "SWE-Bench Pro",
+              subtitle: "Diverse agentic coding tasks",
+              unit: "pct",
+              scores: {
+                glm52: 62.1,
+                glm51: 58.4,
+                op48: 69.2,
+                gpt55: 58.6,
+                gem31p: 54.2,
+              },
+            },
+            {
+              name: "NL2Repo",
+              subtitle: "Natural language to repository",
+              unit: "pct",
+              scores: {
+                glm52: 48.9,
+                glm51: 42.7,
+                op48: 69.7,
+                gpt55: 50.7,
+                gem31p: 33.4,
+              },
+            },
+            {
+              name: "DeepSWE",
+              subtitle: "Deep software engineering",
+              unit: "pct",
+              scores: {
+                glm52: 46.2,
+                glm51: 18.0,
+                op48: 58.0,
+                gpt55: 70.0,
+                gem31p: 10.0,
+              },
+            },
+            {
+              name: "ProgramBench",
+              subtitle: "Program synthesis and repair",
+              unit: "pct",
+              scores: {
+                glm52: 63.7,
+                glm51: 50.9,
+                op48: 71.9,
+                gpt55: 70.8,
+                gem31p: 39.5,
+              },
+            },
+          ],
+        },
+        {
+          id: "agentic",
+          label: "Agentic",
+          benchmarks: [
+            {
+              name: "MCP Atlas",
+              subtitle: "Multi-step workflows using MCP",
+              unit: "pct",
+              scores: {
+                glm52: 77.0,
+                glm51: 71.8,
+                op48: 77.8,
+                gpt55: 75.3,
+                gem31p: 69.2,
+              },
+            },
+            {
+              name: "Tool-Decathlon",
+              subtitle: "Real-world general tool use",
+              unit: "pct",
+              scores: {
+                glm52: 48.2,
+                glm51: 40.7,
+                op48: 59.9,
+                gpt55: 55.6,
+                gem31p: 48.8,
+              },
+            },
+          ],
+        },
+        {
+          id: "reasoning",
+          label: "Reasoning",
+          benchmarks: [
+            {
+              name: "Humanity's Last Exam",
+              subtitle: "Academic reasoning · w/ tools",
+              unit: "pct",
+              scores: {
+                glm52: 54.7,
+                glm51: 52.3,
+                op48: 57.9,
+                gpt55: 52.2,
+                gem31p: 51.4,
+              },
+            },
+          ],
+        },
+      ];
+      let glmBenchCat = "coding";
+
+      const NVIDIA_LOGO_PATH =
+        "M11.6925 17.7697V15.8762C11.8738 15.8633 12.0563 15.8528 12.2422 15.847C17.3372 15.6837 20.68 20.2978 20.68 20.2978C20.68 20.2978 17.0699 25.3962 13.1992 25.3962C12.6415 25.3962 12.1423 25.3052 11.6925 25.1511V19.4077C13.6766 19.6515 14.0748 20.5417 15.2671 22.5623L17.919 20.2885C17.919 20.2885 15.9831 17.7067 12.7195 17.7067C12.3649 17.7067 12.0253 17.7323 11.6913 17.7685L11.6925 17.7697ZM11.6913 11.5128V14.342C11.8738 14.3268 12.0574 14.3152 12.241 14.3082C19.3259 14.0655 23.9425 20.2162 23.9425 20.2162C23.9425 20.2162 18.6408 26.7705 13.1166 26.7705C12.6105 26.7705 12.1366 26.7227 11.6913 26.6433V28.3922C12.0723 28.4412 12.4671 28.4703 12.8779 28.4703C18.0177 28.4703 21.7358 25.8021 25.3356 22.6428C25.9323 23.1281 28.3754 24.31 28.8781 24.828C25.4549 27.7412 17.4795 30.0885 12.9571 30.0885C12.521 30.0885 12.1022 30.0617 11.6913 30.022V32.479H31.2282V11.514H11.6925L11.6913 11.5128ZM11.6913 25.15V26.6433C6.93708 25.7812 5.6174 20.7575 5.6174 20.7575C5.6174 20.7575 7.89986 18.1862 11.6913 17.7697V19.4077C11.6913 19.4077 11.6867 19.4077 11.6845 19.4077C9.69462 19.165 8.14085 21.055 8.14085 21.055C8.14085 21.055 9.01183 24.2365 11.6925 25.1523L11.6913 25.15ZM3.24888 20.5417C3.24888 20.5417 6.06609 16.3148 11.6925 15.8773V14.3443C5.46134 14.853 0.0644531 20.2185 0.0644531 20.2185C0.0644531 20.2185 3.12036 29.2018 11.6925 30.0243V28.3945C5.40167 27.5895 3.24888 20.5417 3.24888 20.5417Z";
+
+      const HAUSA_MODELS = [
+        {
+          id: 0,
+          label: "MiniMax M3 + Omni",
+          accuracy: 0.67,
+          latency: 14.93,
+          logo: "https://www.google.com/s2/favicons?domain=minimax.io&sz=64",
+          anchor: "bl",
+        },
+        {
+          id: 1,
+          label: "Kimi K2.6 + Omni",
+          accuracy: 0.54,
+          latency: 20.55,
+          logo: "https://www.google.com/s2/favicons?domain=moonshot.cn&sz=64",
+          ox: -18,
+          oy: 18,
+        },
+        {
+          id: 2,
+          label: "Nemotron 3 Ultra + Omni",
+          accuracy: 0.3,
+          latency: 10.38,
+          logoPath: NVIDIA_LOGO_PATH,
+          logoViewBox: "0 10 32 24",
+          logoPad: 2,
+          ox: -16,
+          oy: -16,
+        },
+        {
+          id: 3,
+          label: "DeepSeek V4 + Omni",
+          accuracy: 0.65,
+          latency: 12.18,
+          logo: "https://www.google.com/s2/favicons?domain=deepseek.com&sz=64",
+          anchor: "tr",
+          logoPad: 2,
+        },
+        {
+          id: 4,
+          label: "GLM-5.1 + Omni",
+          accuracy: 0.61,
+          latency: 20.95,
+          logo: "assets/zhipu-logo.svg",
+          ox: 22,
+          oy: -20,
+        },
+        {
+          id: 5,
+          label: "Qwen 3.7 Max + Omni",
+          accuracy: 0.69,
+          latency: 29.98,
+          logo: "https://www.google.com/s2/favicons?domain=qwen.ai&sz=64",
+          badge: "Most Accurate",
+          ox: 6,
+          oy: -4,
+        },
+        {
+          id: 6,
+          label: "GPT-OSS 120b + Meta",
+          accuracy: 0.57,
+          latency: 10.01,
+          logo: "https://www.google.com/s2/favicons?domain=meta.com&sz=64",
+          badge: "Fastest",
+          ox: -18,
+          oy: 14,
+        },
+        {
+          id: 7,
+          label: "Gemma 4 26B + Omni",
+          accuracy: 0.41,
+          latency: 14.54,
+          logo: "https://www.google.com/s2/favicons?domain=google.com&sz=64",
+          ox: -16,
+          oy: 16,
+        },
+      ];
+
+      /* ---------- data ---------- */
+      const DC_USERS = COMPANY_COLORS;
       const DC = [
         {
           name: "xAI Colossus 1 (Memphis)",
@@ -3725,7 +4412,7 @@
             s += `<circle class="linedot" data-s="${si}" data-i="${i}" cx="${px(i)}" cy="${py(v)}" r="3" fill="${ser.c}"/>`;
           });
           const ly = py(ser.d[ser.d.length - 1]);
-          s += `<text x="${px(PUB_YEARS.length - 1) - 3}" y="${ly - 7}" text-anchor="end" style="font-size:10.5px;font-weight:700;fill:${ser.c}">${ser.n} ${ser.d[ser.d.length - 1]}%</text>`;
+          s += `<text x="${px(PUB_YEARS.length - 1) - 3}" y="${ly - 7}" text-anchor="end" style="font-size:14px;font-weight:700;fill:${ser.c}">${ser.n} ${ser.d[ser.d.length - 1]}%</text>`;
         });
         s += `<line class="pub-vline" x1="${m.l}" y1="${m.t}" x2="${m.l}" y2="${H - m.b}" stroke="var(--gy-ink-soft)" stroke-width="1" stroke-dasharray="4 3" opacity="0"/>`;
         s += `<rect class="pub-hit" x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent"/>`;
@@ -3791,6 +4478,259 @@
               renderPub();
             }),
         );
+      }
+      function renderBenchSvg(svg, bench, models) {
+        const mobile = isMobileLayout();
+        const W = 700;
+        const labelW = mobile ? 148 : 138;
+        const scoreW = mobile ? 60 : 56;
+        const rowH = mobile ? 30 : 26;
+        const barH = mobile ? 22 : 18;
+        const fontSize = mobile ? 15 : 13.5;
+        const barX = labelW + 10;
+        const barMax = W - barX - scoreW - 12;
+        const isElo = bench.unit === "elo";
+        const max = bench.max || (isElo ? 2000 : 100);
+        const entries = models
+          .map((m) => ({
+            ...m,
+            score: bench.scores[m.k],
+          }))
+          .filter((e) => e.score != null)
+          .sort((a, b) => b.score - a.score);
+        const titleH = mobile ? 34 : 32;
+        const rowGap = mobile ? 8 : 7;
+        const H = titleH + entries.length * (rowH + rowGap) + 6;
+        let s = `<text x="0" y="17" style="font-size:15px;fill:var(--gy-ink)"><tspan font-weight="700">${bench.name}</tspan><tspan dx="8" style="font-size:${fontSize}px;fill:var(--gy-ink-soft)">${bench.subtitle}</tspan></text>`;
+        entries.forEach((e, i) => {
+          const y = titleH + i * (rowH + rowGap);
+          const norm = e.score / max;
+          const w = Math.max(norm * barMax, e.score > 0 ? 2 : 0);
+          const fmt = isElo ? e.score : `${e.score}%`;
+          const barY = y + (rowH - barH) / 2;
+          const textY = y + (mobile ? 18 : 17);
+          s += `<text x="0" y="${textY}" style="font-size:${fontSize}px;font-weight:${e.hl ? 700 : 500};fill:var(--gy-ink)">${e.label}</text>`;
+          s += `<rect class="barseg" data-model="${e.k}" x="${barX}" y="${barY}" width="${w}" height="${barH}" rx="3" fill="${e.c}" fill-opacity="${e.hl ? 0.95 : 0.82}"/>`;
+          s += `<text x="${barX + w + 6}" y="${textY}" style="font-size:${fontSize}px;font-weight:${e.hl ? 700 : 400};fill:var(--gy-ink)">${fmt}</text>`;
+        });
+        svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+        svg.innerHTML = s;
+        svg.querySelectorAll(".barseg").forEach((b) => {
+          const model = models.find((m) => m.k === b.dataset.model);
+          b.addEventListener("mouseenter", (ev) => {
+            showTip(
+              `<b>${model.label}</b><div class="muted">${bench.name} · ${bench.subtitle}</div><div class="tt-row" style="margin-top:3px"><span class="tt-k">Score</span><span>${isElo ? bench.scores[model.k] : bench.scores[model.k] + "%"}</span></div>`,
+              ev,
+            );
+            b.setAttribute("fill-opacity", 1);
+          });
+          b.addEventListener("mousemove", moveTip);
+          b.addEventListener("mouseleave", () => {
+            hideTip();
+            b.setAttribute("fill-opacity", model.hl ? 0.95 : 0.82);
+          });
+        });
+      }
+      function renderBenchPanels(panelsEl, cat, models) {
+        if (!panelsEl || !cat) return;
+        panelsEl.innerHTML = cat.benchmarks
+          .slice(0, 2)
+          .map(
+            (bench, bi) =>
+              `<div class="bench-panel"><svg class="bench-svg" data-bench="${bi}" viewBox="0 0 700 0" role="img" aria-label="${bench.name}"></svg></div>`,
+          )
+          .join("");
+        cat.benchmarks.slice(0, 2).forEach((bench, bi) => {
+          const svg = panelsEl.querySelector(`svg[data-bench="${bi}"]`);
+          if (svg) renderBenchSvg(svg, bench, models);
+        });
+      }
+      function updateBenchChips(chipsSelector, activeCat) {
+        document.querySelectorAll(`${chipsSelector} .bench-chip`).forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.cat === activeCat);
+        });
+      }
+      function initBenchChart({
+        chipsId,
+        panelsId,
+        models,
+        categories,
+        getCat,
+        setCat,
+      }) {
+        const chipsEl = document.getElementById(chipsId);
+        const panelsEl = document.getElementById(panelsId);
+        if (!chipsEl || !panelsEl) return;
+        if (!chipsEl.dataset.ready) {
+          chipsEl.innerHTML = categories
+            .map(
+              (c) =>
+                `<button type="button" class="bench-chip${c.id === getCat() ? " active" : ""}" data-cat="${c.id}">${c.label}</button>`,
+            )
+            .join("");
+          chipsEl.querySelectorAll(".bench-chip").forEach((btn) => {
+            btn.onclick = () => {
+              setCat(btn.dataset.cat);
+              updateBenchChips(`#${chipsId}`, getCat());
+              const cat =
+                categories.find((c) => c.id === getCat()) || categories[0];
+              renderBenchPanels(panelsEl, cat, models);
+            };
+          });
+          chipsEl.dataset.ready = "1";
+        }
+        updateBenchChips(`#${chipsId}`, getCat());
+        const cat =
+          categories.find((c) => c.id === getCat()) || categories[0];
+        renderBenchPanels(panelsEl, cat, models);
+      }
+      function renderGeminiBenchPanels() {
+        const panelsEl = document.getElementById("geminiBenchPanels");
+        const cat =
+          GEMINI_CATEGORIES.find((c) => c.id === geminiBenchCat) ||
+          GEMINI_CATEGORIES[0];
+        renderBenchPanels(panelsEl, cat, GEMINI_MODELS);
+      }
+      function initGeminiBench() {
+        initBenchChart({
+          chipsId: "geminiBenchChips",
+          panelsId: "geminiBenchPanels",
+          models: GEMINI_MODELS,
+          categories: GEMINI_CATEGORIES,
+          getCat: () => geminiBenchCat,
+          setCat: (id) => {
+            geminiBenchCat = id;
+          },
+        });
+      }
+      function renderGlmBenchPanels() {
+        const panelsEl = document.getElementById("glmBenchPanels");
+        const cat =
+          GLM_CATEGORIES.find((c) => c.id === glmBenchCat) || GLM_CATEGORIES[0];
+        renderBenchPanels(panelsEl, cat, GLM_MODELS);
+      }
+      function initGlmBench() {
+        initBenchChart({
+          chipsId: "glmBenchChips",
+          panelsId: "glmBenchPanels",
+          models: GLM_MODELS,
+          categories: GLM_CATEGORIES,
+          getCat: () => glmBenchCat,
+          setCat: (id) => {
+            glmBenchCat = id;
+          },
+        });
+      }
+      function renderHausaScatter(svg) {
+        const W = 560,
+          H = 327;
+        const m = { l: 52, r: 18, t: 0, b: 50 };
+        const plotW = W - m.l - m.r;
+        const plotH = H - m.t - m.b;
+        const x0 = 0.25,
+          x1 = 0.8;
+        const y0 = 0,
+          y1 = 32;
+        const px = (v) => m.l + ((v - x0) / (x1 - x0)) * plotW;
+        const py = (v) => m.t + plotH - ((v - y0) / (y1 - y0)) * plotH;
+        const logoSize = 24;
+        const logoR = logoSize / 2;
+        const logoRx = 4;
+        function logoBox(d) {
+          const ax = px(d.accuracy),
+            ay = py(d.latency);
+          let lx, ly;
+          if (d.anchor === "tr") {
+            lx = ax - logoSize;
+            ly = ay;
+          } else if (d.anchor === "bl") {
+            lx = ax;
+            ly = ay - logoSize;
+          } else {
+            lx = ax + (d.ox || 0) - logoR;
+            ly = ay + (d.oy || 0) - logoR;
+          }
+          return { lx, ly, cx: lx + logoR, cy: ly + logoR };
+        }
+        let s = `<rect x="${m.l}" y="${m.t}" width="${plotW}" height="${plotH}" rx="10" fill="#fff" fill-opacity="0.55"/>`;
+        for (let v = 0; v <= 30; v += 5) {
+          const y = py(v);
+          s += `<line x1="${m.l}" y1="${y}" x2="${W - m.r}" y2="${y}" stroke="rgba(10,16,33,0.08)" stroke-width="1" stroke-dasharray="3 4"/>`;
+          if (v % 10 === 0 || v === 5) {
+            s += `<text class="tick" x="${m.l - 8}" y="${y + 4}" text-anchor="end" style="font-size:13.5px;fill:var(--gy-ink-soft)">${v}</text>`;
+          }
+        }
+        for (let v = 0.3; v <= 0.8; v += 0.1) {
+          const x = px(v);
+          s += `<line x1="${x}" y1="${m.t}" x2="${x}" y2="${H - m.b}" stroke="rgba(10,16,33,0.08)" stroke-width="1" stroke-dasharray="3 4"/>`;
+          s += `<text class="tick" x="${x}" y="${H - m.b + 18}" text-anchor="middle" style="font-size:13.5px;fill:var(--gy-ink-soft)">${v.toFixed(1)}</text>`;
+        }
+        s += `<text x="${m.l + plotW / 2}" y="${H - 8}" text-anchor="middle" style="font-size:13.5px;font-weight:600;fill:var(--gy-ink)">🧠 Accuracy (mean)</text>`;
+        const brandLineY = H - 8;
+        const brandWordH = 16;
+        const brandWordW = (550 / 102) * brandWordH;
+        const brandImgX = W - m.r - brandWordW;
+        const brandImgY = brandLineY - brandWordH + 1;
+        s += `<text x="${brandImgX - 5}" y="${brandLineY}" text-anchor="end" style="font-size:12px;fill:var(--gy-ink)">©</text>`;
+        s += `<image class="hausa-scatter-brand-logo" href="assets/gooey-wordmark.png" x="${brandImgX}" y="${brandImgY}" width="${brandWordW}" height="${brandWordH}" aria-label="Gooey.AI"/>`;
+        s += `<text x="${W - m.r - 10}" y="${m.t + plotH - 10}" text-anchor="end" style="font-size:13.5px;fill:var(--gy-ink-soft)">More accurate →</text>`;
+        s += `<text transform="translate(16 ${m.t + plotH / 2}) rotate(-90)" text-anchor="middle" style="font-size:13.5px;font-weight:600;fill:var(--gy-ink)">🐇 Latency (median)</text>`;
+        s += `<text x="${m.l + 10}" y="${m.t + 18}" style="font-size:13.5px;fill:var(--gy-ink-soft)">↓ Lower is better</text>`;
+        let defs = "";
+        HAUSA_MODELS.forEach((d) => {
+          const { lx, ly, cx, cy } = logoBox(d);
+          const clipId = `hausalogo-${d.id}`;
+          const pad = d.logoPad || 0;
+          const inner = logoSize - pad * 2;
+          const ix = lx + pad;
+          const iy = ly + pad;
+          defs += `<clipPath id="${clipId}"><rect x="${lx}" y="${ly}" width="${logoSize}" height="${logoSize}" rx="${logoRx}"/></clipPath>`;
+          s += `<g class="dot-hit" data-id="${d.id}">`;
+          s += `<rect class="dot-box" x="${lx}" y="${ly}" width="${logoSize}" height="${logoSize}" rx="${logoRx}" fill="#fff" stroke="var(--gy-line-soft)" stroke-width="1"/>`;
+          s += `<g clip-path="url(#${clipId})">`;
+          if (d.logoPath) {
+            s += `<svg class="dot-logo" x="${ix}" y="${iy}" width="${inner}" height="${inner}" viewBox="${d.logoViewBox || "0 0 32 32"}"><path d="${d.logoPath}" fill="#76B900"/></svg>`;
+          } else {
+            s += `<image class="dot-logo" href="${d.logo}" x="${ix}" y="${iy}" width="${inner}" height="${inner}" preserveAspectRatio="xMidYMid meet"/>`;
+          }
+          s += `</g>`;
+          s += `<rect x="${lx - 2}" y="${ly - 2}" width="${logoSize + 4}" height="${logoSize + 4}" fill="transparent"/>`;
+          if (d.badge) {
+            const badgePadL = 12;
+            const badgePadR = 12;
+            const badgeLabel =
+              (d.badge === "Most Accurate" ? "🧠 " : "🐇 ") + d.badge;
+            const bw = badgePadL + badgeLabel.length * 7.2 + badgePadR;
+            const bx = cx - bw / 2;
+            const by = cy + logoR + 6;
+            s += `<rect x="${bx}" y="${by}" width="${bw}" height="22" rx="11" fill="#E8F6F4" stroke="#99D5CC" stroke-width="1"/>`;
+            s += `<text x="${bx + badgePadL}" y="${by + 15}" style="font-size:13.5px;font-weight:600;fill:var(--gy-orange)">${badgeLabel}</text>`;
+          }
+          s += `</g>`;
+        });
+        svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+        svg.innerHTML = `<defs>${defs}</defs>${s}`;
+        svg.querySelectorAll(".dot-hit").forEach((g) => {
+          const d = HAUSA_MODELS[+g.dataset.id];
+          g.addEventListener("mouseenter", (e) => {
+            showTip(
+              `<b>${d.label}</b><div class="tt-row"><span class="tt-k">Accuracy</span><span>${d.accuracy.toFixed(2)}</span></div><div class="tt-row"><span class="tt-k">Latency</span><span>${d.latency.toFixed(2)}</span></div>`,
+              e,
+            );
+            g.querySelector(".dot-box")?.setAttribute("stroke", "var(--gy-orange)");
+          });
+          g.addEventListener("mousemove", moveTip);
+          g.addEventListener("mouseleave", () => {
+            hideTip();
+            g.querySelector(".dot-box")?.setAttribute(
+              "stroke",
+              "var(--gy-line-soft)",
+            );
+          });
+        });
+      }
+      function initHausaScatter() {
+        document.querySelectorAll("[data-hausa-scatter]").forEach(renderHausaScatter);
       }
       function renderClaude() {
         const svg = document.getElementById("claudeChart");
@@ -3975,6 +4915,8 @@
 
       const MOBILE_BP = 900;
       const stageOrders = new WeakMap();
+      let geminiBenchMobile = null;
+      let glmBenchMobile = null;
 
       function isMobileLayout() {
         return innerWidth <= MOBILE_BP;
@@ -4034,6 +4976,19 @@
         canvas.classList.remove("globe-in-hero");
       }
 
+      function resetFiglayerForInline(layer) {
+        layer.classList.add("active");
+        layer.classList.remove("fly-in");
+        layer.style.removeProperty("--fly-y");
+        layer.style.removeProperty("left");
+        layer.style.removeProperty("top");
+        layer.style.removeProperty("right");
+        layer.style.removeProperty("bottom");
+        layer.style.removeProperty("width");
+        layer.style.removeProperty("height");
+        layer.style.removeProperty("transform");
+      }
+
       function syncMobileLayout(reactivate) {
         rememberStageOrders();
         const mobile = isMobileLayout();
@@ -4059,12 +5014,20 @@
                 const slot = ensureInlineSlot(step, vis);
                 if (mobile) {
                   slot.appendChild(layer);
-                  layer.classList.add("active");
+                  resetFiglayerForInline(layer);
                 }
               });
             if (!mobile) restoreStageFiglayers(stage);
           });
         syncGlobeHost(mobile);
+        if (mobile !== geminiBenchMobile) {
+          geminiBenchMobile = mobile;
+          renderGeminiBenchPanels();
+        }
+        if (mobile !== glmBenchMobile) {
+          glmBenchMobile = mobile;
+          renderGlmBenchPanels();
+        }
         if (reactivate && window.sovereignReactivateStep)
           window.sovereignReactivateStep();
         if (window.sovereignGlobeReady) window.sovereignGlobeReady();
@@ -4290,6 +5253,8 @@
       function initChrome() {
         const header = document.getElementById("siteHeader"),
           pb = document.getElementById("progbar");
+        const loginBtn = header?.querySelector(".login-btn");
+        if (loginBtn && loginBtn.textContent.trim() !== "Login") loginBtn.remove();
         const on = () => {
           const h = document.documentElement,
             sc = h.scrollTop,
@@ -4310,6 +5275,9 @@
         const updateGlobeFlight = globeCtrl ? initGlobeFlight(globeCtrl) : null;
         renderDC();
         renderPub();
+        initGeminiBench();
+        initGlmBench();
+        initHausaScatter();
         injectArt();
         initMobileFlow();
         initScrolly(globeCtrl, updateGlobeFlight);
