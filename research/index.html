@@ -1,0 +1,1374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <title>Research — Gooey.AI</title>
+    <meta
+      name="description"
+      content="Research at the intersection of AI infrastructure, human-centered design, and global impact, built with communities, for communities."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Research — Gooey.AI" />
+    <meta
+      property="og:description"
+      content="Research at the intersection of AI infrastructure, human-centered design, and global impact, built with communities, for communities."
+    />
+    <meta property="og:url" content="https://gooey.ai/research/" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Research — Gooey.AI" />
+    <meta
+      name="twitter:description"
+      content="Research at the intersection of AI infrastructure, human-centered design, and global impact, built with communities, for communities."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/8af9787bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Tokens lifted from the Gooey.AI design system (colors_and_type.css) */
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-soft: rgb(137, 148, 177);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: rgb(255, 255, 255);
+        --gy-surface-50: rgb(251, 250, 248);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-surface-200: rgb(241, 238, 234);
+        --gy-surface-300: rgb(235, 231, 226);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-teal-700: #00998a;
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+        /* the design's container rhythm */
+        --pad-x: clamp(20px, 4vw, 60px);
+        --pad-y: clamp(40px, 5vw, 60px);
+        --maxw: 1320px;
+        --site-header-h: 60px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+      }
+      a {
+        color: var(--gy-ink);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- site header (page chrome, not part of the artboard) ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: var(--site-header-h);
+        padding: 0 var(--pad-x);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 26px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 15px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        padding: 8px 20px;
+        border: 1px solid var(--gy-line);
+        border-radius: 32px;
+        font-size: 14px;
+        font-weight: 500;
+        background: var(--gy-white);
+      }
+      .site-header .login-btn:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+
+      /* ---------- layout ---------- */
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: var(--pad-y) var(--pad-x);
+      }
+      section {
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      h2.sec-title {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(26px, 3.4vw, 32px);
+        line-height: 110%;
+        margin: 0 0 clamp(24px, 3vw, 32px);
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: clamp(48px, 7vw, 80px) var(--pad-x) clamp(40px, 5vw, 60px);
+        display: grid;
+        /* the intro always flows beneath the brand lockup, at every width */
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(20px, 2.4vw, 28px);
+        align-items: start;
+      }
+      .hero h1 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(44px, 7vw, 64px);
+        line-height: 100%;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .hero h1.lockup {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.26em;
+      }
+      .hero h1 .mark {
+        height: 0.8em;
+        width: auto;
+      }
+      .hero h1 .wordmark {
+        height: 0.52em;
+        width: auto;
+        margin-right: 0.1em;
+      }
+      .hero h1 .rule {
+        width: 1px;
+        height: 0.82em;
+        margin: 0 0.12em;
+        background: var(--gy-line);
+      }
+      .hero-side {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 6px;
+      }
+      .hero-lede {
+        margin: 0;
+        font-size: clamp(17px, 1.6vw, 20px);
+        line-height: 150%;
+        text-wrap: pretty;
+        max-width: 62ch;
+      }
+
+      /* ---------- papers ---------- */
+      .papers-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .papers-head h2 {
+        margin: 0;
+      }
+      .showing {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gy-ink-muted);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin: 0 0 32px;
+        padding: 0;
+        list-style: none;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .chips::-webkit-scrollbar {
+        display: none;
+      }
+      .chips li {
+        display: flex;
+        flex: 0 0 auto;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 100%;
+        padding: 11px 16px;
+        border-radius: 32px;
+        cursor: pointer;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        border: 1px solid var(--gy-line);
+        transition:
+          background 0.15s ease,
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .chip:hover {
+        background: var(--gy-surface-100);
+      }
+      .chip[aria-pressed="true"] {
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-color: var(--gy-ink);
+      }
+      .chip .ic {
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      .paper-list {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--gy-line-soft);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .paper {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: clamp(16px, 3vw, 32px);
+        padding: 36px 0;
+        border-bottom: 1px solid var(--gy-line-soft);
+        align-items: start;
+      }
+      .paper:last-child {
+        border-bottom: none;
+      }
+      .paper-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 280px;
+        align-items: flex-end;
+        text-align: right;
+      }
+      .paper-type {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gy-teal-700);
+      }
+      .paper-where {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gy-ink);
+      }
+      .paper-logo {
+        height: 40px;
+        width: 100%;
+        max-width: 220px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right center;
+        margin: 2px 0;
+      }
+      .paper-note {
+        font-size: 14px;
+        line-height: 140%;
+        color: var(--gy-ink-muted);
+      }
+      .paper-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .paper-titlerow {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .paper-title {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 130%;
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .paper-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .paper-title a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .pdf-btn {
+        display: inline-flex;
+        flex: none;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 7px 12px;
+        border-radius: 8px;
+        color: var(--gy-ink-muted);
+        background: transparent;
+        transition: background 0.15s ease;
+      }
+      .pdf-btn:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+      .paper-blurb {
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .paper-authors {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .paper-orgs {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .paper-orgs img {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex: none;
+        display: block;
+      }
+      .paper-orgs img[alt="Gooey.AI"] {
+        object-fit: contain;
+        background: var(--gy-surface-100);
+        padding: 3px;
+      }
+      .paper-authornames {
+        font-size: 14px;
+        line-height: 140%;
+        color: var(--gy-ink-meta);
+      }
+      .empty {
+        padding: 36px 0;
+        color: var(--gy-ink-soft);
+      }
+
+      /* ---------- vision ---------- */
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: clamp(24px, 4vw, 60px);
+        align-items: start;
+      }
+      .two-col > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 16px;
+        line-height: 150%;
+      }
+      .two-col p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .two-col ul {
+        margin: 0;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* ---------- focus areas ---------- */
+      .focus {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: clamp(20px, 2.5vw, 24px);
+      }
+      .focus > div {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding-right: 16px;
+      }
+      .focus .ic {
+        font-size: 32px;
+        color: var(--gy-teal-700);
+        line-height: 1;
+      }
+      .focus h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        margin: 0;
+        text-wrap: pretty;
+      }
+
+      /* ---------- profiles ---------- */
+      .profiles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(24px, 3vw, 32px);
+      }
+      .profile {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding-right: 16px;
+      }
+      .profile .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        flex: none;
+        background-color: var(--gy-surface-300);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .profile .avatar-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gy-ink-soft);
+        font-size: 26px;
+        font-weight: 600;
+      }
+      .profile-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 4px;
+        min-width: 0;
+      }
+      .profile h3 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 120%;
+        margin: 0;
+      }
+      .profile .role {
+        font-size: 14px;
+        line-height: 140%;
+        color: var(--gy-ink-muted);
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .profile .plink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gy-teal-700);
+        align-self: flex-start;
+      }
+
+      /* ---------- featured articles ---------- */
+      .articles-sec {
+        background: var(--gy-surface-50);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: clamp(16px, 2vw, 24px);
+      }
+      .card {
+        background: var(--gy-white);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 24px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .card-head .label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card-head .ic {
+        font-size: 16px;
+        color: var(--gy-teal-700);
+        line-height: 1;
+      }
+      .card-head h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 18px;
+        margin: 0;
+      }
+      .card-head .all {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gy-ink-muted);
+      }
+      .card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .card li a,
+      .card li > span {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .card li .title {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 140%;
+        text-wrap: pretty;
+      }
+      .card li .meta {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--gy-ink-meta);
+      }
+
+      /* ---------- responsive (breakpoints match the design) ---------- */
+      @media (max-width: 1199px) {
+        .profiles {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 1119px) {
+        .focus {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 820px) {
+        .paper {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .paper-meta {
+          max-width: none;
+          align-items: flex-start;
+          text-align: left;
+          flex-flow: row wrap;
+          gap: 8px 12px;
+        }
+        .paper-logo {
+          background-position: left center;
+          max-width: 180px;
+          height: 34px;
+        }
+        .paper-note {
+          flex-basis: 100%;
+        }
+      }
+      @media (max-width: 779px) {
+        .focus {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 639px) {
+        .profiles {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 519px) {
+        .focus {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* below this the lockup wraps; a trailing rule would dangle */
+      @media (max-width: 440px) {
+        .hero h1 .rule {
+          display: none;
+        }
+        .hero h1 .section {
+          flex-basis: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Gooey.AI Research</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+
+    <!-- hero -->
+    <header class="hero">
+      <div>
+        <h1 class="lockup">
+          <img class="mark" src="assets/gooey-robot.png" alt="" />
+          <img class="wordmark" src="assets/gooey-wordmark.png" alt="Gooey.AI" />
+          <span class="rule" aria-hidden="true"></span>
+          <span class="section">Research</span>
+        </h1>
+      </div>
+      <div class="hero-side">
+        <p class="hero-lede">
+          Research at the intersection of AI infrastructure, human-centered
+          design, and global impact, built with communities, for communities.
+        </p>
+      </div>
+    </header>
+
+    <!-- papers -->
+    <section>
+      <div class="wrap">
+        <div class="papers-head">
+          <h2 class="sec-title">Papers and Presentations</h2>
+          <span class="showing" id="showing"></span>
+        </div>
+        <ul class="chips" id="chips"></ul>
+        <ul class="paper-list" id="paperList"></ul>
+      </div>
+    </section>
+
+    <!-- vision -->
+    <section>
+      <div class="wrap">
+        <h2 class="sec-title">Our vision</h2>
+        <div class="two-col">
+          <div>
+            <p>
+              At Gooey.AI, we research how AI can become more
+              <strong
+                >accessible, collaborative, transparent, and socially
+                grounded</strong
+              >, especially for the organizations and communities working on the
+              world's most urgent challenges.
+            </p>
+            <p>
+              Our research sits at the intersection of AI infrastructure,
+              human-centered design, public-interest technology, and global
+              impact. We work with communities, educators, artists, public
+              institutions, funders, and frontline organizations to understand
+              how AI systems can be made more useful, inclusive, accountable,
+              and adaptable to local needs.
+            </p>
+            <p>
+              We believe the future of AI will not be shaped by models alone,
+              but by the workflows, evaluations, communities, and governance
+              practices that determine how those models are used.
+            </p>
+          </div>
+          <div>
+            <p>
+              Our research asks <strong>practical questions</strong> such as:
+            </p>
+            <ul>
+              <li>
+                How can AI models better serve low-resource languages, local
+                contexts, and frontline use cases?
+              </li>
+              <li>
+                How can AI be deployed in ways that are transparent,
+                privacy-preserving, sovereign, and vendor-neutral?
+              </li>
+              <li>
+                How can reusable AI workflows accelerate innovation across
+                agriculture, health, education, science, culture, and public
+                services?
+              </li>
+              <li>
+                How is AI reshaping creativity, culture, knowledge production,
+                and collective intelligence?
+              </li>
+            </ul>
+            <p>
+              Our research is grounded in real-world deployment and seeks to
+              make AI more
+              <strong
+                >useful, understandable, accountable, and shareable.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- focus areas -->
+    <section>
+      <div class="wrap">
+        <h2 class="sec-title">Focus areas</h2>
+        <div class="focus" id="focus"></div>
+      </div>
+    </section>
+
+    <!-- profiles -->
+    <section>
+      <div class="wrap">
+        <h2 class="sec-title">Profiles</h2>
+        <div class="profiles" id="profiles"></div>
+      </div>
+    </section>
+
+    <!-- featured articles -->
+    <section class="articles-sec">
+      <div class="wrap">
+        <h2 class="sec-title">Featured Articles</h2>
+        <div class="cards" id="cards"></div>
+      </div>
+    </section>
+
+    <!-- Content snapshot from the Google Sheet. Regenerate with
+         scripts/sync_research.py — do not hand-edit. -->
+    <script type="application/json" id="research-data">
+{
+"papers": [
+{
+"type": "Upcoming",
+"title": "Rethinking AI literacy as a participatory practice",
+"venue": "Montreal AI Ethics Institute",
+"date": "2026",
+"note": "Chapter in the State of AI Ethics Report, Volume 8",
+"note_url": "",
+"logo": "images/venues/maiei.png",
+"blurb": "The chapter will focus on rethinking AI literacy as a participatory practice, examining how communities can move from being passive consumers of AI to actively shaping its datasets, and tools. It will be a part of the section on Coalition-Building Across Fractured Movements.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "",
+"tags": "Education",
+"hidden": ""
+},
+{
+"type": "Paper",
+"title": "Shaping AI: Ethics, Power and Responsibility",
+"venue": "Espoo, Finland",
+"date": "25–27 November",
+"note": "Art of Research Conference 2026",
+"note_url": "https://www.aalto.fi/en/department-of-design/art-of-research-conference",
+"logo": "images/venues/art-of-research-2026.png",
+"blurb": "This paper examines how AI systems reproduce racial bias and proposed culturally grounded, participatory approaches to developing more inclusive and representative AI systems.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "https://docs.google.com/document/d/1vYDSvMcp-A9s7k41918cRd_Iwd92niT7/edit?usp=sharing",
+"tags": "Culture",
+"hidden": ""
+},
+{
+"type": "Paper",
+"title": "Where textile practice meets machine intelligence",
+"venue": "London, UK",
+"date": "16 September",
+"note": "Doctoral Consortium, Textile Intersections 2026",
+"note_url": "https://www.textile-intersections.com/call-for-doctoral-consortium/",
+"logo": "images/venues/textile-intersections-2026.png",
+"blurb": "Through projects including Shaping AI, Andal Meets Ada, and LokaLibraries, Archana's Ph.D research explores how community-led participation, heritage knowledge systems, and cultural memory can shape more inclusive and non-extractive AI infrastructures.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "",
+"tags": "Culture, India",
+"hidden": ""
+},
+{
+"type": "Paper",
+"title": "Beyond Bias: Participatory & Reflective Approaches to Cultural AI",
+"venue": "London, UK",
+"date": "13 July",
+"note": "RICE Workshop, ACM Creativity and Cognition 2026",
+"note_url": "https://riceworkshop.github.io/",
+"logo": "images/venues/creativity-cognition-2026.png",
+"blurb": "This paper positions creative AI as a tool for ethical reflection, collaborative dataset creation, and culturally grounded approaches to inclusive AI design.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "https://drive.google.com/file/d/1u2B5R2s6s_bdA47PRFlZB_3QD2GsvaeP/view?usp=sharing",
+"tags": "Culture",
+"hidden": ""
+},
+{
+"type": "Paper",
+"title": "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation",
+"venue": "Seoul, South Korea",
+"date": "10–11 July",
+"note": "Culture × AI Workshop, ICML 2026",
+"note_url": "https://www.doingaidifferently.org/culturexaiworkshop",
+"logo": "images/venues/icml-2026.png",
+"blurb": "The paper highlighted how participatory dataset creation, artist-led model training, and culturally grounded AI workflows can create more inclusive and context-aware AI systems.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "https://drive.google.com/drive/folders/1jcNMpIcOEGOC_iPMSofPC4zv9MViPmr3",
+"tags": "Culture",
+"hidden": ""
+},
+{
+"type": "Poster",
+"title": "Beyond Bias: Participatory Design for Inclusive AI",
+"venue": "Utrecht, Netherlands",
+"date": "12 June",
+"note": "Inclusive AI Lab, Data Care Festival 2026",
+"note_url": "https://datacare.inclusiveailab.nl",
+"logo": "images/venues/data-care-festival.png",
+"blurb": "This research poster for Inclusive AI Lab covered the Beyond Bias initiative, exploring participatory design approaches for more inclusive and culturally grounded generative AI systems.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "https://drive.google.com/file/d/1cmpax7xvufKBDJ8AAn4rdnSDIhxv8Vvt/view?usp=sharing",
+"tags": "Culture",
+"hidden": ""
+},
+{
+"type": "Paper",
+"title": "AI Across Cultures: Shaping AI",
+"venue": "Barcelona, Spain",
+"date": "16 April",
+"note": "AI Across Cultures Workshop, CHI 2026",
+"note_url": "https://aiacrosscultures.web.app",
+"logo": "images/venues/chi-2026.png",
+"blurb": "The paper explored how social inequalities shape access to AI, and why inclusive, community-led approaches are essential for building culturally grounded AI systems.",
+"authors": "Archana Prasad, Isha Singh, Tom Simmons",
+"pdf_url": "https://drive.google.com/file/d/1Pmke2fki_Jb5nhNHlNGJYq5a9y7XO9Ok/view?usp=sharing",
+"tags": "Culture",
+"hidden": ""
+}
+],
+"articles": [
+{
+"column": "Medium",
+"title": "What participatory evaluation actually looked like in six field sites",
+"meta": "12 min read · July 2026",
+"url": "https://medium.com/@seanb",
+"hidden": ""
+},
+{
+"column": "Medium",
+"title": "Notes on running a copilot in eleven languages",
+"meta": "8 min read · May 2026",
+"url": "https://medium.com/@seanb",
+"hidden": ""
+},
+{
+"column": "Medium",
+"title": "Craft as a method for reading generative models",
+"meta": "6 min read · March 2026",
+"url": "https://medium.com/@seanb",
+"hidden": ""
+},
+{
+"column": "Gooey Blog",
+"title": "Bulk Runner: how we evaluate agents against human judgement",
+"meta": "Product · June 2026",
+"url": "https://blog.gooey.ai/",
+"hidden": ""
+},
+{
+"column": "Gooey Blog",
+"title": "Building an agent with a farmer co-operative, start to finish",
+"meta": "Case study · April 2026",
+"url": "https://blog.gooey.ai/",
+"hidden": ""
+},
+{
+"column": "Gooey Blog",
+"title": "Why our evaluators are people before they are metrics",
+"meta": "Method · February 2026",
+"url": "https://blog.gooey.ai/",
+"hidden": ""
+},
+{
+"column": "Events & Press",
+"title": "Asian Voice: \"It's Already Homogenising Us\": Can Artists Push AI to Protect, Not Erase?",
+"meta": "Interview · June 2026",
+"url": "https://drive.google.com/file/d/1vhAOJa-vv_5UoDvmmiD0OZRiWj6nLV0r/view?usp=sharing",
+"hidden": ""
+},
+{
+"column": "Events & Press",
+"title": "Hindustan Times: Advancing India's Creative Economy Through Skill Development",
+"meta": "Feature · November 2025",
+"url": "https://drive.google.com/file/d/1YYqw7eLCsNShbwtZI29EoeO-Dwg8UHBQ/view?usp=sharing",
+"hidden": ""
+},
+{
+"column": "Events & Press",
+"title": "NVIDIA: Building More Builders — Gooey.AI Makes AI More Accessible Across Communities",
+"meta": "Podcast · February 2025",
+"url": "https://drive.google.com/file/d/11YbSwT_Agka5PH2mZ2FMceGedm-k_V_G/view?usp=sharing",
+"hidden": ""
+}
+],
+"profiles": [
+{
+"name": "Sean Blagsvedt",
+"role": "Founder and CEO",
+"photo": "images/people/sean-blagsvedt.jpg",
+"link_label": "Google Scholar",
+"link_url": "https://scholar.google.com/citations?user=WI7RjwgAAAAJ&hl=en",
+"hidden": ""
+},
+{
+"name": "Archana Prasad",
+"role": "Founder and CCO",
+"photo": "images/people/archana-prasad.jpg",
+"link_label": "Google Scholar",
+"link_url": "https://scholar.google.com/citations?user=zOF3CmoAAAAJ&hl=en",
+"hidden": ""
+},
+{
+"name": "Dev Aggarwal",
+"role": "Co-Founder and CTO",
+"photo": "images/people/dev-aggarwal.jpg",
+"link_label": "",
+"link_url": "",
+"hidden": ""
+},
+{
+"name": "Isha Singh",
+"role": "Communications Manager",
+"photo": "images/people/isha-singh.jpg",
+"link_label": "Profile",
+"link_url": "https://gooey.ai/isha25/",
+"hidden": ""
+}
+],
+"_meta": {
+"generatedAt": "2026-09-16T12:45:41Z",
+"sheetId": "1sk_HB3sJgYer0shLibe8MvNRmRmdPzWE48U_GxXmIxY"
+}
+}
+    </script>
+
+    <script>
+      /* =====================================================================
+         CONTENT — baked in, no network at page load
+         ---------------------------------------------------------------------
+         The papers, articles and profiles below are a local copy of the
+         Google Sheet, inlined into this file. The page never contacts Google
+         when a visitor loads it.
+
+         To pull new content from the sheet:      scripts/sync_research.py
+         That rewrites research/data/*.csv and the JSON block above, which you
+         then commit and push like any other change.
+         ===================================================================== */
+      const DATA = (() => {
+        try {
+          return JSON.parse(
+            document.getElementById("research-data").textContent,
+          );
+        } catch (err) {
+          console.error("[research] could not read inlined content:", err);
+          return { papers: [], articles: [], profiles: [] };
+        }
+      })();
+
+      /* BEGIN PAPER PAGES — generated by scripts/build_papers.py, do not hand-edit */
+      const PAPER_PAGES = {
+        "AI Across Cultures: Shaping AI": {
+                "page": "papers/ai-across-cultures-shaping-ai/",
+                "pdf": "pdf/ai-across-cultures-shaping-ai.pdf"
+        },
+        "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation": {
+                "page": "papers/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation/",
+                "pdf": "pdf/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation.pdf"
+        },
+        "Beyond Bias: Participatory & Reflective Approaches to Cultural AI": {
+                "page": "papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/",
+                "pdf": "pdf/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai.pdf"
+        },
+        "Shaping AI: Ethics, Power and Responsibility": {
+                "page": "papers/shaping-ai-ethics-power-and-responsibility/",
+                "pdf": "pdf/shaping-ai-ethics-power-and-responsibility.pdf"
+        }
+};
+      /* END PAPER PAGES */
+
+      /* "All" links in the Featured Articles card headers, by column name. */
+      const COLUMN_LINKS = {
+        Medium: "https://medium.com/@seanb",
+        "Gooey Blog": "https://blog.gooey.ai/",
+      };
+      const COLUMN_ICONS = {
+        Medium: ["fa-brands fa-medium", "📰"],
+        "Gooey Blog": ["fa-regular fa-pen-nib", "✍️"],
+        "Events & Press": ["fa-regular fa-microphone", "🎙️"],
+      };
+      const TAG_ICONS = {
+        All: ["fa-regular fa-layer-group", "🗂️"],
+        Culture: ["fa-regular fa-masks-theater", "🎭"],
+        Education: ["fa-regular fa-graduation-cap", "🎓"],
+        Language: ["fa-regular fa-language", "🌐"],
+        India: ["fa-regular fa-location-dot", "📍"],
+      };
+      const FOCUS_AREAS = [
+        ["fa-regular fa-people-group", "👥", "Participatory AI"],
+        ["fa-regular fa-lightbulb", "💡", "AI Literacy &amp; Public Understanding"],
+        ["fa-regular fa-palette", "🎨", "Creative &amp; Cultural AI Technologies"],
+        ["fa-regular fa-language", "🌐", "Multilingual &amp; Accessible AI"],
+        ["fa-regular fa-scale-balanced", "⚖️", "Societal Impacts of AI"],
+      ];
+
+      /* ---------------- helpers ---------------- */
+      const esc = (s) =>
+        String(s ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
+      /* Sheet content is editable by everyone at Gooey, so never trust a URL:
+         allow only http(s) links and same-folder relative image paths. */
+      const safeUrl = (u) => {
+        const v = String(u ?? "").trim();
+        if (!v) return "";
+        if (/^https?:\/\//i.test(v)) return v;
+        return "";
+      };
+      const safeImg = (u) => {
+        const v = String(u ?? "").trim();
+        if (!v) return "";
+        if (/^https?:\/\//i.test(v)) return v;
+        if (/^(images|assets)\/[\w./-]+$/i.test(v)) return v;
+        return "";
+      };
+      const isHidden = (v) =>
+        /^(y|yes|true|1|x|hide|hidden)$/i.test(String(v ?? "").trim());
+
+      const icon = (pair, cls) => {
+        if (!pair) return "";
+        const [fa, emoji] = pair;
+        return `<i class="ic ${esc(fa)}${cls ? " " + cls : ""}" data-emoji="${esc(
+          emoji,
+        )}" aria-hidden="true"></i>`;
+      };
+
+      /* ---------------- papers ---------------- */
+      let PAPERS = [],
+        activeTag = "All";
+
+      function paperTags(p) {
+        return String(p.tags || "")
+          .split(/[,;|]/)
+          .map((t) => t.trim())
+          .filter(Boolean);
+      }
+
+      function renderChips() {
+        const tags = [];
+        PAPERS.forEach((p) =>
+          paperTags(p).forEach((t) => {
+            if (!tags.includes(t)) tags.push(t);
+          }),
+        );
+        const all = ["All", ...tags.sort((a, b) => a.localeCompare(b))];
+        document.getElementById("chips").innerHTML = all
+          .map(
+            (t) =>
+              `<li><button class="chip" type="button" data-tag="${esc(t)}" aria-pressed="${
+                t === activeTag
+              }">${icon(TAG_ICONS[t] || ["fa-regular fa-tag", "🏷️"])}<span>${esc(
+                t,
+              )}</span></button></li>`,
+          )
+          .join("");
+        document.querySelectorAll(".chip").forEach((b) =>
+          b.addEventListener("click", () => {
+            activeTag = b.dataset.tag;
+            renderChips();
+            renderPapers();
+          }),
+        );
+      }
+
+      function renderPapers() {
+        const shown =
+          activeTag === "All"
+            ? PAPERS
+            : PAPERS.filter((p) => paperTags(p).includes(activeTag));
+
+        document.getElementById("showing").textContent = PAPERS.length
+          ? activeTag === "All"
+            ? `Showing all ${PAPERS.length}`
+            : `Showing ${shown.length} of ${PAPERS.length}`
+          : "";
+
+        const list = document.getElementById("paperList");
+        if (!shown.length) {
+          list.innerHTML = `<li class="empty">No papers tagged "${esc(
+            activeTag,
+          )}" yet.</li>`;
+          return;
+        }
+
+        list.innerHTML = shown
+          .map((p) => {
+            const where = [p.venue, p.date].filter(Boolean).join(" · ");
+            const logo = safeImg(p.logo);
+            const noteUrl = safeUrl(p.note_url);
+            /* A paper is only linked when we host its PDF and built its page. */
+            const entry = PAPER_PAGES[p.title] || null;
+            const pdf = entry ? entry.pdf : "";
+            const page = entry ? entry.page : "";
+            const note = p.note
+              ? noteUrl
+                ? `<a class="paper-note" href="${esc(
+                    noteUrl,
+                  )}" target="_blank" rel="noopener">${esc(p.note)}</a>`
+                : `<span class="paper-note">${esc(p.note)}</span>`
+              : "";
+            return `<li class="paper">
+              <div class="paper-meta">
+                ${p.type ? `<span class="paper-type">${esc(p.type)}</span>` : ""}
+                ${where ? `<span class="paper-where">${esc(where)}</span>` : ""}
+                ${
+                  logo
+                    ? `<div class="paper-logo" role="img" style="background-image:url('${esc(
+                        logo,
+                      )}')"></div>`
+                    : ""
+                }
+                ${note}
+              </div>
+              <div class="paper-body">
+                <div class="paper-titlerow">
+                  <h3 class="paper-title">${
+                    page
+                      ? `<a href="${esc(page)}">${esc(p.title)}</a>`
+                      : esc(p.title)
+                  }</h3>
+                  ${
+                    pdf
+                      ? `<a class="pdf-btn" href="${esc(
+                          pdf,
+                        )}" target="_blank" rel="noopener">${icon([
+                          "fa-regular fa-file-pdf",
+                          "📄",
+                        ])}<span>PDF</span></a>`
+                      : ""
+                  }
+                </div>
+                ${p.blurb ? `<p class="paper-blurb">${esc(p.blurb)}</p>` : ""}
+                ${
+                  p.authors
+                    ? `<div class="paper-authors"><span class="paper-orgs"><img src="assets/gooey-robot.png" alt="Gooey.AI" /><img src="images/orgs/rca.png" alt="Royal College of Art" /></span><span class="paper-authornames">${esc(
+                        p.authors,
+                      )}</span></div>`
+                    : ""
+                }
+              </div>
+            </li>`;
+          })
+          .join("");
+      }
+
+      /* ---------------- profiles ---------------- */
+      function renderProfiles(rows) {
+        const initials = (n) =>
+          String(n)
+            .split(/\s+/)
+            .slice(0, 2)
+            .map((w) => w[0] || "")
+            .join("")
+            .toUpperCase();
+
+        document.getElementById("profiles").innerHTML = rows
+          .map((r) => {
+            const photo = safeImg(r.photo);
+            const url = safeUrl(r.link_url);
+            const label = r.link_label || "Profile";
+            return `<div class="profile">
+              ${
+                photo
+                  ? `<div class="avatar" role="img" aria-label="${esc(
+                      r.name,
+                    )}" style="background-image:url('${esc(photo)}')"></div>`
+                  : `<div class="avatar avatar-fallback" aria-hidden="true">${esc(
+                      initials(r.name),
+                    )}</div>`
+              }
+              <div class="profile-body">
+                <h3>${esc(r.name)}</h3>
+                <p class="role">${esc(r.role)}</p>
+                ${
+                  url
+                    ? `<a class="plink" href="${esc(
+                        url,
+                      )}" target="_blank" rel="noopener">${icon([
+                        "fa-regular fa-graduation-cap",
+                        "🎓",
+                      ])}<span>${esc(label)}</span></a>`
+                    : ""
+                }
+              </div>
+            </div>`;
+          })
+          .join("");
+      }
+
+      /* ---------------- featured articles ---------------- */
+      function renderArticles(rows) {
+        const cols = [];
+        rows.forEach((r) => {
+          const c = r.column || "Other";
+          let g = cols.find((x) => x.name === c);
+          if (!g) cols.push((g = { name: c, items: [] }));
+          g.items.push(r);
+        });
+
+        document.getElementById("cards").innerHTML = cols
+          .map((c) => {
+            const all = COLUMN_LINKS[c.name];
+            return `<div class="card">
+              <div class="card-head">
+                <span class="label">
+                  ${icon(COLUMN_ICONS[c.name] || ["fa-regular fa-newspaper", "📰"])}
+                  <h3>${esc(c.name)}</h3>
+                </span>
+                ${
+                  all
+                    ? `<a class="all" href="${esc(
+                        all,
+                      )}" target="_blank" rel="noopener">All</a>`
+                    : ""
+                }
+              </div>
+              <ul>
+                ${c.items
+                  .map((it) => {
+                    const u = safeUrl(it.url);
+                    const inner = `<span class="title">${esc(
+                      it.title,
+                    )}</span><span class="meta">${esc(it.meta)}</span>`;
+                    return `<li>${
+                      u
+                        ? `<a href="${esc(
+                            u,
+                          )}" target="_blank" rel="noopener">${inner}</a>`
+                        : `<span>${inner}</span>`
+                    }</li>`;
+                  })
+                  .join("")}
+              </ul>
+            </div>`;
+          })
+          .join("");
+      }
+
+      function renderFocus() {
+        document.getElementById("focus").innerHTML = FOCUS_AREAS.map(
+          ([fa, em, label]) =>
+            `<div>${icon([fa, em])}<h3>${label}</h3></div>`,
+        ).join("");
+      }
+
+      /* Font Awesome kit can fail (offline, blocked) — swap in emoji if the
+         glyphs never render. */
+      function faFallback() {
+        const probe = document.querySelector("i.ic");
+        if (!probe) return;
+        const fam = getComputedStyle(probe, "::before").fontFamily || "";
+        if (/font awesome/i.test(fam)) return;
+        document.querySelectorAll("i.ic[data-emoji]").forEach((el) => {
+          el.textContent = el.dataset.emoji;
+          el.className = el.className.replace(/fa-[\w-]+/g, "").trim();
+          el.style.fontStyle = "normal";
+        });
+      }
+
+      /* ---------------- boot ---------------- */
+      (function init() {
+        renderFocus();
+
+        PAPERS = (DATA.papers || []).filter(
+          (p) => p.title && !isHidden(p.hidden),
+        );
+        renderChips();
+        renderPapers();
+        renderProfiles(
+          (DATA.profiles || []).filter((r) => r.name && !isHidden(r.hidden)),
+        );
+        renderArticles(
+          (DATA.articles || []).filter((r) => r.title && !isHidden(r.hidden)),
+        );
+
+        setTimeout(faFallback, 1200);
+      })();
+
+      const header = document.getElementById("siteHeader");
+      const onScroll = () =>
+        header.classList.toggle("scrolled", window.scrollY > 220);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>
