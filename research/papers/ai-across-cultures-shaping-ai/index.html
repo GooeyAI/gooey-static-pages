@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <base href="../../" />
+    <title>Shaping AI: Ethics, Power, and Responsibility — Gooey.AI Research</title>
+    <meta name="description" content="This paper examines how AI is subtly shaped by racist undertones and perpetuates bias. It presents an overview of the roundtable Shaping AI, held in New Delhi in December 2025,…" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Shaping AI: Ethics, Power, and Responsibility — Gooey.AI Research" />
+    <meta property="og:description" content="This paper examines how AI is subtly shaped by racist undertones and perpetuates bias. It presents an overview of the roundtable Shaping AI, held in New Delhi in December 2025,…" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/8af9787bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: rgb(255, 255, 255);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-teal-700: #00998a;
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: var(--gy-teal-700);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- top bar ---------- */
+      .topbar {
+        border-bottom: 1px solid var(--gy-line-soft);
+        background: var(--gy-white);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 14px clamp(20px, 4vw, 40px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        margin-left: -12px;
+        border-radius: 8px;
+        color: var(--gy-ink);
+        font-weight: 500;
+        background: transparent;
+      }
+      .back:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+      .back i {
+        font-size: 12px;
+      }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gy-ink-meta);
+      }
+      .topbar-right .sep {
+        color: var(--gy-line);
+      }
+      .topbar-right .pdf {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        margin-right: -12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--gy-ink-muted);
+      }
+      .topbar-right .pdf:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+
+      /* ---------- layout ---------- */
+      .shell {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(32px, 5vw, 60px) clamp(20px, 4vw, 40px) 120px;
+        display: grid;
+        grid-template-columns: 212px minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 56px);
+        align-items: start;
+      }
+      nav.toc {
+        position: sticky;
+        top: 88px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        line-height: 140%;
+        border-right: 1px solid var(--gy-line-soft);
+        padding-right: 20px;
+      }
+      nav.toc .toc-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gy-ink-meta);
+      }
+      nav.toc a {
+        color: var(--gy-ink);
+        text-wrap: pretty;
+      }
+      nav.toc a.active {
+        color: var(--gy-teal-700);
+      }
+      article {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 172%;
+      }
+
+      /* ---------- header ---------- */
+      article > header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: clamp(28px, 4vw, 40px);
+      }
+      article > header h1 {
+        font-size: clamp(32px, 4.4vw, 40px);
+        line-height: 122%;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: -0.01em;
+        text-wrap: pretty;
+      }
+      .authors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 28px;
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+        line-height: 150%;
+      }
+      .authors > div {
+        display: flex;
+        flex-direction: column;
+      }
+      .authors .affil {
+        color: var(--gy-ink-meta);
+      }
+
+      /* ---------- abstract ---------- */
+      .abstract {
+        background: var(--gy-surface-100);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        padding: clamp(20px, 3vw, 28px);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: clamp(28px, 4vw, 40px);
+      }
+      .abstract h2 {
+        font-family: var(--gy-font-sans);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gy-ink-meta);
+        margin: 0;
+      }
+      .abstract p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 170%;
+        text-wrap: pretty;
+      }
+      .abstract-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 14px;
+        border-top: 1px solid var(--gy-line-soft);
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+        line-height: 160%;
+      }
+      .abstract-meta .k {
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--gy-ink-meta);
+        font-size: 12px;
+        font-weight: 500;
+        margin-right: 6px;
+      }
+      .abstract-meta .v {
+        color: var(--gy-teal-700);
+      }
+
+      /* ---------- body ---------- */
+      article section {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: clamp(32px, 4vw, 44px);
+      }
+      article section h2 {
+        font-size: 24px;
+        line-height: 130%;
+        font-weight: 600;
+        margin: 0;
+        text-wrap: pretty;
+      }
+      article section h2 .secnum {
+        color: var(--gy-ink-meta);
+        font-family: var(--gy-font-sans);
+        font-size: 18px;
+        margin-right: 12px;
+      }
+      article section h3 {
+        font-size: 19px;
+        line-height: 135%;
+        font-weight: 600;
+        margin: 6px 0 -4px;
+        text-wrap: pretty;
+      }
+      article p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      article ul {
+        margin: 0;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      article li {
+        text-wrap: pretty;
+      }
+      figure {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      figcaption {
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+      }
+      blockquote {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: var(--gy-surface-100);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        padding: clamp(20px, 3vw, 24px);
+      }
+      blockquote p {
+        margin: 0;
+      }
+      blockquote cite {
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        font-style: normal;
+        color: var(--gy-ink-meta);
+      }
+
+      /* sections that close the paper */
+      article section.tight {
+        gap: 14px;
+      }
+      article section.tight h2,
+      article section.ruled h2 {
+        font-size: 20px;
+      }
+      article section.ruled {
+        padding-top: clamp(24px, 3vw, 32px);
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      article section.ruled ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        font-size: 15px;
+        line-height: 165%;
+      }
+      article section.ruled ol li {
+        display: flex;
+        gap: 10px;
+      }
+      article section.ruled ol li .n {
+        color: var(--gy-ink-meta);
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        flex: none;
+        min-width: 22px;
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        nav.toc {
+          position: static;
+          border-right: 0;
+          border-bottom: 1px solid var(--gy-line-soft);
+          padding-right: 0;
+          padding-bottom: 20px;
+        }
+        article {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <a class="back" href="index.html"
+          ><i class="fa-regular fa-arrow-left" aria-hidden="true"></i
+          ><span>Gooey.AI Research</span></a
+        >
+        <div class="topbar-right">
+          <span>Preprint</span>
+          <span class="sep">/</span>
+          <a class="pdf" href="pdf/ai-across-cultures-shaping-ai.pdf" target="_blank" rel="noopener"
+            ><i class="fa-regular fa-file-pdf" aria-hidden="true"></i
+            ><span>PDF</span></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="shell">
+      <nav class="toc">
+        <div class="toc-label">Contents</div>
+        <a href="#abstract">Abstract</a>
+        <a href="#broader-context">1 The Broader Context</a>
+        <a href="#structural-barriers">2 Structural Barriers and Societal Challenges in Indian Society</a>
+        <a href="#roundtable-design">3 Roundtable Design and Methodology</a>
+        <a href="#recommendations">4 Recommendations</a>
+        <a href="#concluding-remarks">5 Concluding Remarks</a>
+        <a href="#acknowledgments">Acknowledgments</a>
+        <a href="#references">References</a>
+        <a href="#appendix">Appendix: Participant Perspectives</a>
+      </nav>
+
+      <article>
+        <header>
+          <h1>Shaping AI: Ethics, Power, and Responsibility</h1>
+          <div class="authors">
+            <div><span>Archana Prasad</span><span class="affil">Royal College of Art</span><a href="mailto:archana.prasad@network.rca.ac.uk">archana.prasad@network.rca.ac.uk</a></div>
+            <div><span>Isha Singh</span><span class="affil">Gooey.AI</span><a href="mailto:isha@gooey.ai">isha@gooey.ai</a></div>
+            <div><span>Tom Simmons</span><span class="affil">Royal College of Art</span><a href="mailto:tom.simmons@rca.ac.uk">tom.simmons@rca.ac.uk</a></div>
+          </div>
+        </header>
+
+        <section class="abstract" id="abstract">
+          <h2>Abstract</h2>
+          <p>This paper examines how AI is subtly shaped by racist undertones and perpetuates bias. It presents an overview of the roundtable Shaping AI, held in New Delhi in December 2025, which brought together community journalists to probe the overt and covert forms of racism they encounter in their professional lives and in their interactions with AI systems. The paper further explores how large language models can be shaped and trained to enable greater inclusivity and representation, while actively combating racial bias.</p>
+          <div class="abstract-meta">
+          <div><span class="k">CCS Concepts</span><span class="v">Computing methodologies → Artificial intelligence; Human-centered computing → Collaborative and social computing; Social and professional topics → Race and ethnicity</span></div>
+          <div><span class="k">Keywords</span><span class="v">Artificial intelligence, racism, bias, large language models, inclusive AI, journalism, Global South</span></div>
+          </div>
+        </section>
+
+      <section id="broader-context">
+        <h2><span class="secnum">1</span>The Broader Context</h2>
+        <p>Imagine you&#x27;re a young girl in rural Uttar Pradesh and your access to a smartphone is mediated entirely through your brother&#x27;s phone. Your everyday life is shaped by entrenched gendered bias and explicit prohibitions from local power authorities known as khap panchayats that restrict the use of phones for girls. You encounter racism daily but have no safe spaces to process your experiences with this systemic issue. Meanwhile, your urban, formally educated peers not only use smartphones but engage with AI tools with ease, thus shaping who gets access to new technologies.</p>
+        <p>In a world where the rise of AI tools has meant that there are millions of people using AI to learn, upskill or pivot their careers or lives, the burdens of caste, gender and geographic location mean that being excluded from this and similar emerging technologies is a lived reality for many. While AI has the potential to democratise storytelling, existing social hierarchies are also reproduced and intensified through unequal access and representation to digital technologies and shaping the underlying data that drives them.</p>
+        <figure><img src="papers/ai-across-cultures-shaping-ai/fig-1.jpg" alt="Figure 1: Participants gathered for the roundtable discussion" loading="lazy" /><figcaption>Figure 1: Participants gathered for the roundtable discussion</figcaption></figure>
+        <p>Racism, an inherent part of societal structures and cultures, including design, also risks getting reflected in AI tools which may unintentionally perpetuate these biases. As Sasha Costanza-Chock argues, universalist design practices tend to erase intersectionally disadvantaged groups by assuming a &#x27;neutral&#x27; user that does not exist [1]. In fact, a 2024 study published in Nature found that AI language models discriminate between people based on their dialects, as they mirror known human prejudices [2].</p>
+        <p>This white paper examines a two-day roundtable in Delhi, held on 2–3 December 2025, that sought to address these challenges. The event was a collaborative initiative supported by the Goethe-Institut New Delhi, India, The Federal Agency for Civic Education (BpB) in Germany and Gooey.AI.</p>
+        <p>The roundtable&#x27;s central aim was to identify how racism impacts AI participation in India, and how AI systems reinforce existing biases, alongside developing mitigating strategies for equal access to AI.</p>
+      </section>
+
+      <section id="structural-barriers">
+        <h2><span class="secnum">2</span>Structural Barriers and Societal Challenges in Indian Society</h2>
+        <p>The roundtable featured 16 journalists from community media organizations like Chambal Media and Video Volunteers, with many representing marginalized communities themselves. These journalists were chosen for their engagement with rural, underrepresented populations in Uttar Pradesh, Madhya Pradesh, Rajasthan and other states across the country. Participants highlighted entrenched gender, caste, and class hierarchies that hinder access to AI technology.</p>
+        <p>During the roundtable, participants shared common experiences which included constrained access to mobile devices and the internet for women, often controlled by male members of the family. They also discussed that women and marginalized individuals faced negative social perceptions for engaging with technology, often being told that their pictures would get “morphed” and misused by AI tools. This would further exacerbate fears around AI, thus leading to self-limited exposure to emerging tech. In a vicious disruptive cycle, these constraints lead to rural and underserved communities being further excluded from AI and wealthy, urbane and largely global north tech organisations gaining unfair and unequal narrative control on representation. In fact, seeing that LLMs did not have much Icelandic data, the government of Iceland decided the best option was to give OpenAI extensive Icelandic language resources to improve model accuracy [3].</p>
+        <p>As a diverse population, India has various linguistic, social and cultural groups which are unrepresented or misrepresented or simply ignored entirely in AI training data, with the looming threat of erasure. As AI gets more fluent in dominant languages and power structure, the generated content fails to represent these rural communities. As successive Large Language Models (LLMs) are trained on these biased foundational datasets, bias is recursively accumulated, progressively amplifying and entrenching systemic inequalities over time. As Chen et al. argue, “If the data used to train the model are not representative of the population, or if certain groups are underrepresented or excluded in the data, then biases are likely to exist in collection and preparation of the data” [4].</p>
+        <p>To address these gaps, the roundtable aimed to expand participation in AI development by amplifying underrepresented voices in AI storytelling. Participants were invited to actively shape the direction, insights, and design of AI training processes, grounding these interventions in the lived realities of gender- and caste-based discrimination in order to confront systemic exclusion and contribute to the creation of more culturally attuned datasets.</p>
+      </section>
+
+      <section id="roundtable-design">
+        <h2><span class="secnum">3</span>Roundtable Design and Methodology</h2>
+        <p>As the roundtable foregrounded community participation and interrogated the complex dynamics of racism embedded within technological systems, it adopted a community-centred, participatory methodology. Journalists from two rural media organisations were brought together to exchange experiences grounded in their local contexts. Participants were introduced to AI tools for creative practice and critically exposed to the ways in which AI training data can be exclusionary or biased. This need was further underscored by a Thomson Reuters Foundation survey indicating that 57.6% of journalists are self-taught in AI, highlighting a significant gap in structured AI training [5].</p>
+        <p>When even urban journalists in the Global Majority lack access to meaningful AI training, the idea that such knowledge will organically trickle down to rural newsrooms is an illusion. The roundtable&#x27;s engagement with underrepresented populations was intentional in tackling this nonlinear knowledge diffusion of AI technology.</p>
+        <p>We structured the roundtable into the following key activities:</p>
+        <ul><li><strong>Story Sharing and Reflection Sessions:</strong> The participants shared their experiences of caste, gender and class-based racism and how covert racism reflects in their professional lives.</li><li><strong>Digging Deeper, Huddles, and Blue-Sky Speculations on AI Futures:</strong> These deep-dives allowed participants to explore how racism manifests in AI systems and what kind of strategies are needed to design more inclusive, context-aware AI tools.</li><li><strong>Hands-on Practices with the Model Image and Video Trainer Tools:</strong> Gooey.AI, as the driving tech force behind this initiative had created a Model Image Trainer Tool as well as a Video Generation tool. To create more equitable access to tech and to solve the language barrier, we created an AI agent which participants could use to speak in Hindi and generate prompts for the tools in English. Using the AI tools, participants trained their model trainer in their unique, aesthetic styles thus experimenting with narrative generation and image and video creation. Our digital interventions confronted UX challenges for non-English speakers and instilled confidence in them regarding AI.</li></ul>
+        <figure><img src="papers/ai-across-cultures-shaping-ai/fig-2.jpg" alt="Figure 2: Participants noting down their thoughts during a group exercise" loading="lazy" /><figcaption>Figure 2: Participants noting down their thoughts during a group exercise</figcaption></figure>
+        <ul><li><strong>Peer Learning and Support:</strong> We devised the roundtable in a way that participants could form cross-sector networks and connect beyond the project as well. This was meant to sustain collaboration and community-driven AI development.</li><li><strong>An AI Curriculum for Journalists:</strong> In order to bridge the data divide between AI users and rural communities with no access to AI, we used methods like reverse ideations and core huddles to create an AI curriculum for journalists from marginalised communities.</li></ul>
+      </section>
+
+      <section id="recommendations">
+        <h2><span class="secnum">4</span>Recommendations</h2>
+        <p>The imbalance within AI is not incidental but a structural flaw from bias in training data and non-inclusive systems and infrastructures design. As Dr. Katelyn Jones observes: 95 percent of images used to train AI models depict white skin, while medical algorithms often draw on U.S. military datasets in which women may constitute only six percent of subjects [6].</p>
+        <p>The AI Now Institute notes, “claims of objectivity and neutrality in AI systems often mask underlying power relations and systemic biases embedded in the data and the institutions that produce it” [7]. This shocking statistic highlights what we have known all this while: data merely masquerades as objective while being riddled with biases. The centrality of community and creative participation thus becomes paramount and this roundtable was a small but important step towards that process. From the learnings at the roundtable, we gleaned the following recommendations:</p>
+        <ul><li><strong>Establishing a safe context for AI training for Journalists from Rural Communities:</strong> It is imperative to create safe and financially supported spaces for women and other journalists from marginalised communities to experiment with AI and express themselves creatively. Our roundtable provided a space to a cohort of journalists to create images and videos in their creative styles, centering their everyday experiences and cultural contexts.</li></ul>
+        <figure><img src="papers/ai-across-cultures-shaping-ai/fig-3.jpg" alt="Figure 3: Cultural and context-aware outputs from our model image trainer — a contemporary Mughal-miniature style depiction of women on a motorbike and a journalistic avatar" loading="lazy" /><figcaption>Figure 3: Cultural and context-aware outputs from our model image trainer — a contemporary Mughal-miniature style depiction of women on a motorbike and a journalistic avatar</figcaption></figure>
+        <ul><li><strong>Anti-Racist AI Practices:</strong> The roundtable delved deep into the question of what constitutes an anti-racist AI. Can an AI which is shaped by the biases of contemporary society be changed and made anti-racist by formulating legal frameworks? Or do we need different kinds of AI systems, which are the “utopian” versions of present AI from big tech? How can underrepresented voices be empowered in AI participation so that present-day AI is trained better and we also work towards an inclusive, sustainable AI for good? As Dancy and Saucier contend, focusing merely on bias in AI is insufficient and we must move towards examining the “design, development and deployment of AI systems” and cultures [8]. An anti-racist AI would reflect linguistic and cultural diversity and prevent cultural misappropriation. During the roundtable, participants observed how they could find stereotypes about their region, and gender in AI generated news content.</li><li><strong>Capacity Building Exercises for Digital Confidence:</strong> The hands-on exercises with Gooey tools demonstrated that participants could build AI confidence even without prior knowledge of AI. For this, we need tools which are tailored for different contexts. By creating an AI agent for Image Prompting, Gooey helped non-English speakers use the tools with ease.</li><li><strong>Mitigating Biases in AI Systems through AI Literacy:</strong> The roundtable showed that learning AI enabled storytelling allowed participants to engage more closely with algorithmic biases and relate them with their lived experiences. This turned their focus towards developing mitigating strategies like an AI curriculum for their peers and brainstorming on ethical frameworks for AI. Participants also viewed AI through a feminist lens, noting how it has stereotypes about what Indian women should look like. An AI generated image of an Indian woman had long dark hair, was clad in a kurta set and wore a bindi. Participants who were dressed differently from this AI representation and in varied ways understood the importance of creating AI images rooted in their personal and cultural narratives.</li><li><strong>Tool Iterations and Ethical Frameworks for an Inclusive AI:</strong> The Gooey Model Image Trainer is designed in a way that it can be iterated with participant feedback. Following the roundtable, the Gooey team incorporated participant feedback and turned the image trainer tool into an AI agent which works on WhatsApp. The roundtable also brought fresh perspectives on ethical frameworks for safe and practical engagement with AI, like ensuring data privacy, attribution, and culturally sensitive use of AI outputs.</li></ul>
+      </section>
+
+      <section id="concluding-remarks">
+        <h2><span class="secnum">5</span>Concluding Remarks</h2>
+        <p>The Shaping AI roundtable unearthed how AI surfaces racist stereotypes and linked it to everyday realities of gender and caste based discrimination. It demonstrated how inclusive AI design needs to be intentional and participatory. While big tech firms use training data for fine-tuning their AI models, they do not collaborate with marginalized communities to truly erase biases or minimize them. This gap opens up the possibilities for open-source models which can be developed to be more culturally sensitive and nuanced through greater collaboration and transparency.</p>
+        <p>“Designing for ethical and inclusive AI refers to the intentional incorporation of human worth, autonomy, and identity into the fabric of AI systems” [9]. This roundtable showed that with intent, organisations can create spaces for pilot projects and training for AI, center lived experiences and reflect diverse cultural perspectives in AI. To commit to an AI that is inclusive, anti-racist and equitable for all, organisations and policymakers need long-term community engagement. So that one day, a girl from a marginalized community in rural Uttar Pradesh can create an AI news anchor in her likeness rather than a white one, to report stories from her region, in her voice.</p>
+      </section>
+
+      <section id="acknowledgments" class="tight">
+        <h2>Acknowledgments</h2>
+        <p>We thank the community journalists from Chambal Media and Video Volunteers for sharing their insights with us. We would also like to thank the Goethe-Institut New Delhi, and the Federal Agency for Civic Education (BpB), for their support.</p>
+      </section>
+
+      <section id="references" class="ruled refs">
+        <h2>References</h2>
+        <ol><li><span class="n">[1]</span><span>Sasha Costanza-Chock. 2018. Design justice, A.I., and escape from the matrix of domination. <em>Journal of Design and Science</em>, 3. MIT Press. <a href="https://jods.mitpress.mit.edu/pub/costanza-chock/release/4" target="_blank" rel="noopener">jods.mitpress.mit.edu</a></span></li><li><span class="n">[2]</span><span>Valentin Hofmann, Pratyusha Ria Kalluri, Dan Jurafsky, et al. 2024. AI generates covertly racist decisions about people based on their dialect. <em>Nature</em> 633 (2024), 147–154. <a href="https://doi.org/10.1038/s41586-024-07856-5" target="_blank" rel="noopener">doi.org/10.1038/s41586-024-07856-5</a></span></li><li><span class="n">[3]</span><span>Anya Schiffrin. n.d. AI and the future of journalism: An issue brief for stakeholders. <em>World Trends in Freedom of Expression and Media Development</em>. UNESCO.</span></li><li><span class="n">[4]</span><span>You Chen, Ellen Wright Clayton, Laurie Lovett Novak, Shilo Anders, and Bradley Malin. 2023. Human-centered design to address biases in artificial intelligence. <em>Journal of Medical Internet Research</em> 25 (2023).</span></li><li><span class="n">[5]</span><span>Damian Radcliffe. 2025. Journalism in the AI era: Opportunities and challenges in the Global South and emerging economies. <em>Thomson Reuters Foundation Insights Report</em>. <a href="https://www.trust.org/wp-content/uploads/2025/01/TRF-Insights-Journalism-in-the-AI-Era.pdf" target="_blank" rel="noopener">trust.org</a></span></li><li><span class="n">[6]</span><span>Katelyn Jones and Nicole Mattea. 2020. We need a feminist approach to AI development. <em>Women in International Security (WIIS Global)</em>, June 5, 2020. <a href="https://wiisglobal.org/we-need-a-feminist-approach-to-ai-development/" target="_blank" rel="noopener">wiisglobal.org</a></span></li><li><span class="n">[7]</span><span>S. M. West, M. Whittaker, and K. Crawford. 2019. Discriminating systems: Gender, race, and power in AI. <em>AI Now Institute</em>. <a href="https://ainowinstitute.org/publications/discriminating-systems-gender-race-and-power-in-ai-2" target="_blank" rel="noopener">ainowinstitute.org</a></span></li><li><span class="n">[8]</span><span>Christopher L. Dancy and P. Khalil Saucier. 2021. AI and Blackness: Toward moving beyond bias and representation. <em>IEEE Transactions on Technology and Society</em> PP, 99 (2021), 1–1. <a href="https://doi.org/10.1109/TTS.2021.3125998" target="_blank" rel="noopener">doi.org/10.1109/TTS.2021.3125998</a></span></li><li><span class="n">[9]</span><span>Anushree Jain. 2025. Designing for ethical and inclusive AI through a human-centered design lens. <em>Global Business &amp; Economics Journal</em>, June 5, 2025. <a href="https://gbej.org/articles/designing-for-ethical-and-inclusive-ai-through-a-human-centered-design-lens/" target="_blank" rel="noopener">gbej.org</a></span></li></ol>
+      </section>
+
+      <section id="appendix" class="ruled">
+        <h2>Appendix: Participant Perspectives</h2>
+        <p>Several participants highlighted the importance of creating safe learning environments for AI like the Shaping AI roundtable, which was a critical step towards a more inclusive, anti-racist AI designed in participatory ways.</p>
+        <blockquote><p>We could make AI better by providing a space to learn safely while still protecting personal art and its equivalent. It shifts power as creators and communities get to decide how to share and protect their culture and stories.</p><cite>Nidhi Thachankary, Chief Business Officer, Chambal Academy</cite></blockquote>
+        <p>Others drew attention to the representation gap within AI ecosystems, particularly for organizations like Chambal Media working at the intersections of gender, caste, and class.</p>
+        <blockquote><p>As an organization which works with marginalized communities, and understands gender, caste, class in a much deeper way, we feel a huge gap when it comes to AI. The targeted audiences are also very different. What we need in this technology space is to make it more inclusive and to have more representation.</p><cite>Priya Thuvassery, Co-CEO, Chambal Media</cite></blockquote>
+      </section>
+      </article>
+    </div>
+
+    <script>
+      /* highlight the contents entry for the section in view */
+      const links = [...document.querySelectorAll("nav.toc a")];
+      const byId = new Map(
+        links.map((a) => [a.getAttribute("href").slice(1), a]),
+      );
+      const seen = new Set();
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) seen.add(e.target.id);
+            else seen.delete(e.target.id);
+          });
+          links.forEach((a) =>
+            a.classList.toggle(
+              "active",
+              seen.has(a.getAttribute("href").slice(1)),
+            ),
+          );
+        },
+        { rootMargin: "-88px 0px -70% 0px" },
+      );
+      document
+        .querySelectorAll("article section[id]")
+        .forEach((s) => io.observe(s));
+    </script>
+  </body>
+</html>

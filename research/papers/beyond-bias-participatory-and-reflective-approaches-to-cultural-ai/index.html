@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <base href="../../" />
+    <title>Beyond Bias: Participatory and Reflective Approaches to Cultural AI — Gooey.AI Research</title>
+    <meta name="description" content="Generative AI systems increasingly shape cultural production, yet creative intentions, cultural meanings, and interpretive practices often can&#x27;t be articulated through…" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Beyond Bias: Participatory and Reflective Approaches to Cultural AI — Gooey.AI Research" />
+    <meta property="og:description" content="Generative AI systems increasingly shape cultural production, yet creative intentions, cultural meanings, and interpretive practices often can&#x27;t be articulated through…" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/8af9787bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: rgb(255, 255, 255);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-teal-700: #00998a;
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      a {
+        color: var(--gy-teal-700);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- top bar ---------- */
+      .topbar {
+        border-bottom: 1px solid var(--gy-line-soft);
+        background: var(--gy-white);
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 14px clamp(20px, 4vw, 40px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+      }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        margin-left: -12px;
+        border-radius: 8px;
+        color: var(--gy-ink);
+        font-weight: 500;
+        background: transparent;
+      }
+      .back:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+      .back i {
+        font-size: 12px;
+      }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--gy-ink-meta);
+      }
+      .topbar-right .sep {
+        color: var(--gy-line);
+      }
+      .topbar-right .pdf {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        margin-right: -12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--gy-ink-muted);
+      }
+      .topbar-right .pdf:hover {
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+
+      /* ---------- layout ---------- */
+      .shell {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(32px, 5vw, 60px) clamp(20px, 4vw, 40px) 120px;
+        display: grid;
+        grid-template-columns: 212px minmax(0, 1fr);
+        gap: clamp(28px, 4vw, 56px);
+        align-items: start;
+      }
+      nav.toc {
+        position: sticky;
+        top: 88px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        line-height: 140%;
+        border-right: 1px solid var(--gy-line-soft);
+        padding-right: 20px;
+      }
+      nav.toc .toc-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gy-ink-meta);
+      }
+      nav.toc a {
+        color: var(--gy-ink);
+        text-wrap: pretty;
+      }
+      nav.toc a.active {
+        color: var(--gy-teal-700);
+      }
+      article {
+        max-width: 760px;
+        font-size: 17px;
+        line-height: 172%;
+      }
+
+      /* ---------- header ---------- */
+      article > header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: clamp(28px, 4vw, 40px);
+      }
+      article > header h1 {
+        font-size: clamp(32px, 4.4vw, 40px);
+        line-height: 122%;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: -0.01em;
+        text-wrap: pretty;
+      }
+      .authors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 28px;
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+        line-height: 150%;
+      }
+      .authors > div {
+        display: flex;
+        flex-direction: column;
+      }
+      .authors .affil {
+        color: var(--gy-ink-meta);
+      }
+
+      /* ---------- abstract ---------- */
+      .abstract {
+        background: var(--gy-surface-100);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        padding: clamp(20px, 3vw, 28px);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: clamp(28px, 4vw, 40px);
+      }
+      .abstract h2 {
+        font-family: var(--gy-font-sans);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gy-ink-meta);
+        margin: 0;
+      }
+      .abstract p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 170%;
+        text-wrap: pretty;
+      }
+      .abstract-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 14px;
+        border-top: 1px solid var(--gy-line-soft);
+        font-family: var(--gy-font-sans);
+        font-size: 14px;
+        line-height: 160%;
+      }
+      .abstract-meta .k {
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--gy-ink-meta);
+        font-size: 12px;
+        font-weight: 500;
+        margin-right: 6px;
+      }
+      .abstract-meta .v {
+        color: var(--gy-teal-700);
+      }
+
+      /* ---------- body ---------- */
+      article section {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: clamp(32px, 4vw, 44px);
+      }
+      article section h2 {
+        font-size: 24px;
+        line-height: 130%;
+        font-weight: 600;
+        margin: 0;
+        text-wrap: pretty;
+      }
+      article section h2 .secnum {
+        color: var(--gy-ink-meta);
+        font-family: var(--gy-font-sans);
+        font-size: 18px;
+        margin-right: 12px;
+      }
+      article section h3 {
+        font-size: 19px;
+        line-height: 135%;
+        font-weight: 600;
+        margin: 6px 0 -4px;
+        text-wrap: pretty;
+      }
+      article p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      article ul {
+        margin: 0;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      article li {
+        text-wrap: pretty;
+      }
+      figure {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      figure img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      figcaption {
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+      }
+      blockquote {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: var(--gy-surface-100);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        padding: clamp(20px, 3vw, 24px);
+      }
+      blockquote p {
+        margin: 0;
+      }
+      blockquote cite {
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        font-style: normal;
+        color: var(--gy-ink-meta);
+      }
+
+      /* sections that close the paper */
+      article section.tight {
+        gap: 14px;
+      }
+      article section.tight h2,
+      article section.ruled h2 {
+        font-size: 20px;
+      }
+      article section.ruled {
+        padding-top: clamp(24px, 3vw, 32px);
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      article section.ruled ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        font-size: 15px;
+        line-height: 165%;
+      }
+      article section.ruled ol li {
+        display: flex;
+        gap: 10px;
+      }
+      article section.ruled ol li .n {
+        color: var(--gy-ink-meta);
+        font-family: var(--gy-font-sans);
+        font-size: 13px;
+        flex: none;
+        min-width: 22px;
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        nav.toc {
+          position: static;
+          border-right: 0;
+          border-bottom: 1px solid var(--gy-line-soft);
+          padding-right: 0;
+          padding-bottom: 20px;
+        }
+        article {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <a class="back" href="index.html"
+          ><i class="fa-regular fa-arrow-left" aria-hidden="true"></i
+          ><span>Gooey.AI Research</span></a
+        >
+        <div class="topbar-right">
+          <span>Preprint</span>
+          <span class="sep">/</span>
+          <a class="pdf" href="pdf/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai.pdf" target="_blank" rel="noopener"
+            ><i class="fa-regular fa-file-pdf" aria-hidden="true"></i
+            ><span>PDF</span></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="shell">
+      <nav class="toc">
+        <div class="toc-label">Contents</div>
+        <a href="#abstract">Abstract</a>
+        <a href="#introduction">1 Introduction</a>
+        <a href="#cultural-participatory-approaches">2 Cultural and Participatory Approaches</a>
+        <a href="#beyond-bias-initiative">3 The Beyond Bias Initiative</a>
+        <a href="#framework">4 A Framework for Cultural AI</a>
+        <a href="#conclusion">5 Conclusion</a>
+        <a href="#acknowledgments">Acknowledgments</a>
+        <a href="#references">References</a>
+      </nav>
+
+      <article>
+        <header>
+          <h1>Beyond Bias: Participatory and Reflective Approaches to Cultural AI</h1>
+          <div class="authors">
+            <div><span>Archana Prasad</span><span class="affil">Royal College of Art, London, UK</span><a href="mailto:archana.prasad@network.rca.ac.uk">archana.prasad@network.rca.ac.uk</a></div>
+            <div><span>Isha Singh</span><span class="affil">Gooey.AI, Lucknow, India</span><a href="mailto:coordinator@dara.network">coordinator@dara.network</a></div>
+            <div><span>Tom Simmons</span><span class="affil">Royal College of Art, London, UK</span><a href="mailto:tom.simmons@rca.ac.uk">tom.simmons@rca.ac.uk</a></div>
+          </div>
+        </header>
+
+        <section class="abstract" id="abstract">
+          <h2>Abstract</h2>
+          <p>Generative AI systems increasingly shape cultural production, yet creative intentions, cultural meanings, and interpretive practices often can&#x27;t be articulated through computational metrics alone. This paper presents Beyond Bias, a collaboration between Gooey.AI and Goethe-Institut India, as a participatory approach to cultural AI which includes collaborative dataset creation, reflective AI tooling, artist-led model fine-tuning, and co-authored governance practices. Across 9 workshops involving over 200 participants, artists and cultural practitioners engaged with AI systems through experimentation, iteration, and collaborative LoRA training. Participants used their AI-generated outputs and visualizations as reflective interfaces for exploring symbolism, memory, authorship, and cultural contexts. Comparing contemporary generative AI outputs with participant fine-tuned outputs helped participants reflect on cultural details missing in big tech AI systems.</p>
+          <div class="abstract-meta">
+          <div><span class="k">Keywords</span><span class="v">Cultural AI, Human-AI Co-Creation, Reflective Creative Practice, Participatory Design, Creative Agency, Interpretive AI, Creative Interaction, AI and Creativity, Community-Centered AI, Generative AI</span></div>
+          <div><span class="k">Reference</span><span class="v">Archana Prasad, Isha Singh, and Tom Simmons. 2026. Beyond Bias: Participatory and Reflective Approaches to Cultural AI. In Proceedings of The First Reflection in Creative Experience (RiCE) Workshop (RiCE W1). ACM Creativity &amp; Cognition 2026, London, UK.</span></div>
+          </div>
+        </section>
+
+      <section id="introduction">
+        <h2><span class="secnum">1</span>Introduction</h2>
+        <p>Generative AI systems increasingly participate in cultural production. Image, language, and video models shape aesthetic norms, social narratives, and forms of expression across everyday life. As these systems become embedded within creative practice, they must be understood not only as computational tools but also as cultural technologies that mediate representation and meaning-making [1,4].</p>
+        <p>Current approaches to evaluating generative AI systems have primarily focused on harm mitigation, including bias, toxicity, and misinformation. While these approaches remain necessary, they imply a limited definition of cultural success: systems are considered successful when they avoid harmful outputs [2]. This framing leaves a broader question unanswered: what does it mean for AI systems to engage culture well?</p>
+        <p>Generative models frequently reproduce dominant Western visual and linguistic norms while flattening regional aesthetics and contextual forms of knowledge into generalized representations [1,3]. Cultural forms are often reduced to stylistic markers detached from lived practices, histories, and symbolism or erased altogether [4].</p>
+        <p>This paper presents Beyond Bias, a collaborative initiative between Gooey.AI and Goethe-Institut India launched in March 2025, exploring participatory approaches to cultural AI through collaborative dataset creation, reflective tooling, and artist-led fine-tuning.</p>
+        <p>This paper contributes reflective AI tooling approaches foregrounding transparency, stewardship, and community participation; findings from participatory workshops examining how generative AI visualizations mediate cultural representation and interpretive practice; and a framework for cultural AI grounded in cultural integrity, and reflective practice.</p>
+      </section>
+
+      <section id="cultural-participatory-approaches">
+        <h2><span class="secnum">2</span>Cultural and Participatory Approaches</h2>
+        <p>Research on fairness and bias in AI has demonstrated how machine learning systems reproduce inequalities embedded within datasets and computational infrastructures [2]. Generative systems have been shown to privilege dominant Western visual and linguistic norms while not engaging with under-represented communities. Image generation by big tech models often shows stereotyped outputs for certain communities. E.g. Indian women may be represented as clad in sarees, with bindis and luscious black hair.</p>
+        <p>Recent scholarships increasingly frame generative AI systems as cultural technologies rather than purely informational systems. Crawford describes AI infrastructures as deeply entangled with social, political, and material systems [1]. Critical scholars have also argued that contemporary AI infrastructures frequently reproduce extractive relationships between platforms, datasets, and communities [3,6]. These concerns become particularly important in cultural contexts where local knowledge, aesthetics, and histories may be absorbed into AI datasets without meaningful consent, attribution, or governance.</p>
+        <p>Participatory and human-centered approaches to AI development emphasize stakeholder involvement, situated expertise, and collaborative design [5]. Through Beyond Bias, we build upon participatory approaches by positioning artists and cultural practitioners not only as users of AI systems, but as co-creators and active participants in dataset creation, fine-tuning, interpretation, and governance.</p>
+      </section>
+
+      <section id="beyond-bias-initiative">
+        <h2><span class="secnum">3</span>The Beyond Bias Initiative</h2>
+        <p>Beyond Bias involved over 200 participants and 24 organizations across nine workshops involving collaborative dataset creation, prompt experimentation, LoRA training, and reflective discussion. We co-created an open manifesto with participants and used that as scaffolding to inform the development of AI tools.</p>
+        <p>The initiative began by creating a consortia of institutional stakeholders across US, UK, EU and India. Over two roundtables they collaboratively authored an open manifesto articulating principles for culturally grounded AI development for model makers. Themes included cultural integrity, transparency, environmental accountability, fair compensation, and community stewardship. The manifesto functioned not only as an ethical framework and instigation for technical development of AI tools for cultural practitioners but also as a governance experiment that foregrounded collective authorship and participatory decision-making within AI development processes. Each Beyond Bias workshop was an iteration on the previous one, and led to updates in our two major tools — the AI Image Trainer tool and the Video Generation tool.</p>
+        <h3>3.1 Reflective Tool Design</h3>
+        <p>A central component of the initiative involved the development of reflective AI tools designed not only for generation, but also for transparency, participation, and stewardship.</p>
+        <p>The project developed accessible image fine-tuning and video-generation tools that enabled participants without extensive tech expertise to train LoRAs using collaboratively curated datasets. Participants could experiment with multilingual prompting workflows, including Hindi-to-English prompt translation systems designed to support under-resourced languages. Images were trained using Flux, and participants could choose from multiple models to generate their outputs, thus supporting creative agency and intent.</p>
+        <figure><img src="papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/fig-1.jpg" alt="Figure 1: AI Image Trainer Tool with ecological costs displayed at the bottom" loading="lazy" /><figcaption>Figure 1: AI Image Trainer Tool with ecological costs displayed at the bottom</figcaption></figure>
+        <p>The tools also incorporated low-resolution generation options and lightweight pathways that foregrounded environmental awareness. Tools shared the eco cost of each run, in terms of water and electricity usage. This reflected broader concerns around the material and ecological costs of AI infrastructures [1]. Discussions surrounding privacy, consent, and cultural extraction informed the sessions as well. Our recent Beyond Bias workshop at the Royal College of Art, conducted in collaboration with the Mozilla Foundation, enabled participants to choose whether their generated datasets could be shared publicly and contribute to the training of future AI models.</p>
+        <p>Rather than positioning participants solely as end-users of AI systems, the project explored how localized fine-tuning and participatory tooling could create pathways for communities to influence broader generative ecosystems.</p>
+        <h3>3.2 Participatory Workshops and Cultural Outputs</h3>
+        <p>Participants frequently observed that LLMs produced flattened and generalized representations of culturally specific aesthetics. Prompts referencing Mughal miniatures, regional folk art, or embroidery traditions often generated outputs that appeared visually ornate while overlooking compositional structure, symbolism, material texture, and regional variation.</p>
+        <p>For example, prompts related to Mughal miniature traditions frequently resulted in generic “Indian royal court” imagery characterized by symmetrical palace settings, decorative clothing, and homogenized visual motifs. Participants noted that these outputs lacked the narrative density, and layered symbolism associated with miniature traditions. Outputs associated with “Indian art” often emphasized saturated colors, exoticized ornamentation, or spiritual symbolism. Similarly, prompts related to embroidery and folk-art practices often turned distinct regional aesthetics into generalized craft imagery. One participant generated image and video outputs based on her embroidery practice, allowing local histories and material traditions to inform the AI-generated outputs.</p>
+        <figure><img src="papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/fig-2.jpg" alt="Figure 2: Participants during the Beyond Bias Promptathon in New Delhi, October 2025" loading="lazy" /><figcaption>Figure 2: Participants during the Beyond Bias Promptathon in New Delhi, October 2025</figcaption></figure>
+        <p>Participants also created variants of the Lascaux Cave Paintings, a style intentionally introduced to examine how generative AI systems engage with forms of cultural heritage that fall outside dominant contemporary or commercially visible aesthetic categories. While baseline AI systems often generated generic prehistoric cave scenes, participants were able to create outputs that better reflected the textures, animal forms, and visual style of the original paintings.</p>
+        <blockquote><p>The conversation wasn&#x27;t only on developing or improving AI models but on questions of bias and representation embedded within the dataset itself.</p><cite>Workshop participant</cite></blockquote>
+        <p>This highlighted how workshops became spaces for critical reflection on the cultural assumptions shaping generative AI systems. These interactions prompted broader discussions concerning how generative systems encode dominant cultural assumptions and flatten contextual forms of knowledge [3,4].</p>
+        <p>Participants generated alternative outputs reflecting more situated cultural interpretations like reinterpretations of Mughal miniature traditions depicting women protesting in New Delhi, riding bicycles, and engaging contemporary political contexts.</p>
+        <figure><img src="papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/fig-3.jpg" alt="Figure 3: Women riding a bike — output in Mughal miniature style" loading="lazy" /><figcaption>Figure 3: Women riding a bike — output in Mughal miniature style</figcaption></figure>
+        <p>Across workshops, participants conducted more than 1,600 generation runs involving iterative experimentation with prompts, datasets, and fine-tuned models. Workshops functioned as iterative cycles of co-design in which participant feedback directly informed subsequent tooling decisions, dataset practices, and governance discussions [5]. Participants increasingly described the tools not simply as systems for image generation, but as creative scaffolds for reflecting on authorship, representation, and cultural interpretation itself.</p>
+        <figure><img src="papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/fig-4.jpg" alt="Figure 4: Metrics from the Beyond Bias workshop in Pune, with 242 runs" loading="lazy" /><figcaption>Figure 4: Metrics from the Beyond Bias workshop in Pune, with 242 runs</figcaption></figure>
+      </section>
+
+      <section id="framework">
+        <h2><span class="secnum">4</span>A Framework for Cultural AI</h2>
+        <p>Beyond Bias emphasized the importance of contextual understanding, interpretive agency, and community stewardship within generative systems. Based on workshop reflections, participatory tooling practices, and collaborative experimentation, we propose four interconnected dimensions for cultural AI:</p>
+        <ul><li><strong>Cultural Integrity:</strong> Cultural AI systems should preserve contextual meaning, symbolism, provenance, and historical relationships embedded within cultural forms rather than reducing culture to surface-level visual aesthetics [4]. Participants repeatedly emphasized that generated outputs may appear stylistically accurate while still failing to represent the social, political, and historical meanings associated with cultural practices.</li><li><strong>Participation and Agency:</strong> Participants emphasized that communities should be able to shape AI systems directly through dataset curation, fine-tuning, prompting workflows, and governance discussions. Participatory approaches therefore position cultural practitioners not only as users of AI systems, but as co-creators of generative infrastructures [5].</li><li><strong>Interpretive Capacity:</strong> Participants frequently used generated outputs as prompts for reflection and reinterpretation rather than as final creative artefacts. Workshops became spaces where participants critically examined how prompts, datasets, and interfaces shaped representation itself. Cultural AI systems therefore require the capacity to support dialogue and critical engagement rather than simply automating cultural reproduction [4].</li><li><strong>Stewardship and Governance:</strong> Participants also foregrounded concerns surrounding ownership, consent, environmental impact, and cultural extraction within generative AI systems [1,6].</li></ul>
+      </section>
+
+      <section id="conclusion">
+        <h2><span class="secnum">5</span>Conclusion</h2>
+        <p>Participatory approaches to cultural AI create new possibilities for representation and creative agency while also introducing tensions concerning ownership, labor, consent, and scalability. A participant described the initiative as “wielding a machete through the jungle of AI bias with fellow explorers,” emphasizing the experimental, collaborative, and uncertain nature of navigating AI systems.</p>
+        <p>Although collaborative fine-tuning enabled more culturally situated outputs, participants frequently reflected on the limitations of working within commercial foundation-model ecosystems trained on opaque datasets [1,6].</p>
+        <p>Beyond Bias suggests that participatory cultural AI requires moving beyond harm mitigation toward systems that support cultural integrity, interpretive agency, and community stewardship. Rather than treating culture as extractable data, cultural AI frameworks that foreground reflection may enable communities to become active co-creators of AI.</p>
+      </section>
+
+      <section id="acknowledgments" class="tight">
+        <h2>Acknowledgments</h2>
+        <p>We thank Dev Aggarwal, CTO of Gooey.AI and Computational Mama (Head of Developer Relations) for their technical guidance and support throughout the Beyond Bias initiative. We also gratefully acknowledge Goethe-Institut / Max Mueller Bhavan New Delhi for its partnership and collaboration in enabling the Beyond Bias workshops and participatory research that informed this work.</p>
+      </section>
+
+      <section id="references" class="ruled refs">
+        <h2>References</h2>
+        <ol><li><span class="n">[1]</span><span>Kate Crawford. 2021. <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence.</em> Yale University Press.</span></li><li><span class="n">[2]</span><span>Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the dangers of stochastic parrots: Can language models be too big? In <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>. 610–623.</span></li><li><span class="n">[3]</span><span>Abeba Birhane. 2021. Algorithmic colonization of Africa. <em>SCRIPTed</em> 17, 2 (2020), 389–409.</span></li><li><span class="n">[4]</span><span>Stuart Hall. 1997. <em>Representation: Cultural Representations and Signifying Practices.</em> Sage Publications.</span></li><li><span class="n">[5]</span><span>Elizabeth B.-N. Sanders and Pieter Jan Stappers. 2008. Co-creation and the new landscapes of design. <em>CoDesign</em> 4, 1 (2008), 5–18.</span></li><li><span class="n">[6]</span><span>Nick Couldry and Ulises A. Mejias. 2019. <em>The Costs of Connection: How Data Is Colonizing Human Life and Appropriating It for Capitalism.</em> Stanford University Press.</span></li></ol>
+      </section>
+      </article>
+    </div>
+
+    <script>
+      /* highlight the contents entry for the section in view */
+      const links = [...document.querySelectorAll("nav.toc a")];
+      const byId = new Map(
+        links.map((a) => [a.getAttribute("href").slice(1), a]),
+      );
+      const seen = new Set();
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) seen.add(e.target.id);
+            else seen.delete(e.target.id);
+          });
+          links.forEach((a) =>
+            a.classList.toggle(
+              "active",
+              seen.has(a.getAttribute("href").slice(1)),
+            ),
+          );
+        },
+        { rootMargin: "-88px 0px -70% 0px" },
+      );
+      document
+        .querySelectorAll("article section[id]")
+        .forEach((s) => io.observe(s));
+    </script>
+  </body>
+</html>
