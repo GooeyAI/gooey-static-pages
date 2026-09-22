@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <title>EcoCost labeling for AI inference — Gooey.AI</title>
+    <meta
+      name="description"
+      content="A proposal for making the environmental cost of AI visible."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="EcoCost labeling for AI inference — Gooey.AI"
+    />
+    <meta
+      property="og:description"
+      content="A proposal for making the environmental cost of AI visible."
+    />
+    <meta property="og:url" content="https://gooey.ai/ecocost/" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta
+      property="og:image"
+      content="https://gooey.ai/ecocost/images/mockup-expanded-view.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="EcoCost labeling for AI inference — Gooey.AI"
+    />
+    <meta
+      name="twitter:description"
+      content="A proposal for making the environmental cost of AI visible."
+    />
+    <meta
+      name="twitter:image"
+      content="https://gooey.ai/ecocost/images/mockup-expanded-view.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/8af9787bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Tokens lifted from the Gooey.AI design system (colors_and_type.css) */
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-soft: rgb(137, 148, 177);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: rgb(255, 255, 255);
+        --gy-surface-50: rgb(251, 250, 248);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-surface-200: rgb(241, 238, 234);
+        --gy-surface-300: rgb(235, 231, 226);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-line-strong: rgb(185, 185, 185);
+        --gy-teal-700: #00998a;
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+        /* the design's container rhythm */
+        --pad-x: clamp(20px, 4vw, 60px);
+        --pad-y: clamp(40px, 5vw, 60px);
+        --maxw: 1320px;
+        --site-header-h: 60px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+      }
+      a {
+        color: var(--gy-ink);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- reading progress ---------- */
+      .progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 60;
+        background: transparent;
+      }
+      .progress > i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--gy-teal-700);
+        transition: width 90ms linear;
+      }
+
+      /* ---------- site header (page chrome, not part of the artboard) ---------- */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: var(--site-header-h);
+        padding: 0 var(--pad-x);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 26px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+
+      /* ---------- layout ---------- */
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: var(--pad-y) var(--pad-x);
+      }
+      section {
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      h2.sec-title {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(26px, 3.4vw, 32px);
+        line-height: 110%;
+        margin: 0 0 clamp(20px, 2.6vw, 28px);
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: clamp(48px, 7vw, 80px) var(--pad-x) clamp(40px, 5vw, 60px);
+      }
+      .hero .tag {
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--gy-teal-700);
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(38px, 5.6vw, 58px);
+        line-height: 106%;
+        margin: 0 0 20px;
+        letter-spacing: -0.01em;
+        max-width: 18ch;
+        text-wrap: pretty;
+      }
+      .hero-dek {
+        font-family: var(--gy-font-serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(19px, 2vw, 22px);
+        line-height: 140%;
+        color: var(--gy-ink-muted);
+        margin: 0 0 18px;
+        max-width: 52ch;
+        text-wrap: pretty;
+      }
+      .hero-lede {
+        margin: 0;
+        font-size: clamp(16px, 1.4vw, 17px);
+        line-height: 160%;
+        color: var(--gy-ink);
+        max-width: 68ch;
+        text-wrap: pretty;
+      }
+
+      /* ---------- prose ---------- */
+      .prose {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 16px;
+        line-height: 150%;
+        max-width: 70ch;
+      }
+      .prose p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .prose.muted {
+        color: var(--gy-ink-muted);
+      }
+      .prose i {
+        color: var(--gy-ink-muted);
+      }
+
+      /* ---------- two-col (problem / theory of change) ---------- */
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: clamp(24px, 4vw, 60px);
+        align-items: start;
+      }
+      .two-col > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 16px;
+        line-height: 150%;
+      }
+      .two-col h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(20px, 2.2vw, 24px);
+        line-height: 120%;
+        margin: 0;
+      }
+      .two-col p {
+        margin: 0;
+        color: var(--gy-ink-muted);
+        text-wrap: pretty;
+      }
+
+      /* ---------- pills ---------- */
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 32px;
+        border: 1px solid var(--gy-line);
+        color: var(--gy-ink-muted);
+        background: var(--gy-surface-50);
+      }
+
+      /* ---------- coalition ---------- */
+      .coalition {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: clamp(16px, 2vw, 20px);
+        margin-top: 8px;
+      }
+      .coalition > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 22px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+      }
+      .coalition .ic {
+        font-size: 24px;
+        color: var(--gy-teal-700);
+        line-height: 1;
+      }
+      .coalition h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        margin: 0;
+      }
+      .coalition p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+        text-wrap: pretty;
+      }
+
+      /* ---------- figures ---------- */
+      .figure-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(24px, 3vw, 32px);
+        margin-top: 24px;
+      }
+      figure.figure {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      figure.figure img {
+        width: 100%;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid var(--gy-line-soft);
+        box-shadow: 0 0 20px 0 rgba(10, 16, 33, 0.06);
+      }
+      figure.figure figcaption {
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--gy-ink-meta);
+      }
+      .figure-grid + .prose {
+        margin-top: 24px;
+      }
+
+      /* ---------- steps ---------- */
+      ol.steps {
+        list-style: none;
+        margin: 28px 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      ol.steps > li {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: clamp(12px, 3vw, 24px);
+        padding: 28px 0;
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .step-n {
+        font-family: var(--gy-font-serif);
+        font-size: 22px;
+        color: var(--gy-teal-700);
+      }
+      .steps h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 19px;
+        margin: 0 0 8px;
+      }
+      .steps p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 155%;
+        color: var(--gy-ink-muted);
+        text-wrap: pretty;
+      }
+      .steps ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 14px;
+        line-height: 145%;
+        color: var(--gy-ink-muted);
+      }
+
+      /* ---------- data tables ---------- */
+      .tbl-head {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 19px;
+        margin: 32px 0 4px;
+      }
+      .tbl-wrap {
+        margin-top: 14px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        overflow-x: auto;
+        box-shadow: 0 1px 3px 0 rgba(10, 16, 33, 0.05);
+      }
+      table.tbl {
+        width: 100%;
+        min-width: 520px;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      table.tbl thead tr {
+        background: var(--gy-surface-100);
+      }
+      table.tbl th {
+        text-align: left;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--gy-teal-700);
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--gy-line);
+        white-space: nowrap;
+      }
+      table.tbl td {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--gy-line-soft);
+        vertical-align: top;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+      }
+      table.tbl td:first-child {
+        font-weight: 600;
+        color: var(--gy-ink);
+        width: 30%;
+        white-space: nowrap;
+      }
+      table.tbl tbody tr:nth-child(even) {
+        background: var(--gy-surface-50);
+      }
+      table.tbl tbody tr:hover {
+        background: var(--gy-surface-100);
+      }
+      table.tbl tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* ---------- get involved / CTA ---------- */
+      .cta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 28px;
+        max-width: 840px;
+      }
+      .cta-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 28px;
+        border-radius: 20px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      .cta-card.primary {
+        background: var(--gy-ink);
+        border-color: var(--gy-ink);
+      }
+      .cta-card .ic {
+        font-size: 22px;
+        color: var(--gy-teal-700);
+      }
+      .cta-card.primary .ic {
+        color: #7fe7db;
+      }
+      .cta-card h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 19px;
+        margin: 4px 0 0;
+      }
+      .cta-card.primary h3 {
+        color: var(--gy-white);
+      }
+      .cta-card p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 155%;
+        color: var(--gy-ink-muted);
+      }
+      .cta-card.primary p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        align-self: flex-start;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 32px;
+        background: var(--gy-teal-700);
+        color: #fff;
+        margin-top: 6px;
+      }
+      .cta-btn:hover {
+        text-decoration: none;
+        opacity: 0.88;
+      }
+      .badge-soon {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        align-self: flex-start;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 8px 14px;
+        border-radius: 32px;
+        border: 1px dashed rgba(255, 255, 255, 0.35);
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 6px;
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 28px var(--pad-x);
+        background: var(--gy-surface-50);
+      }
+      .site-footer .flogo {
+        height: 20px;
+        width: auto;
+        opacity: 0.85;
+      }
+      .site-footer small {
+        font-size: 13px;
+        color: var(--gy-ink-meta);
+      }
+      .site-footer a {
+        color: var(--gy-ink-muted);
+      }
+
+      /* ---------- scroll reveal ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 640px) {
+        ol.steps > li {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="progress"><i id="progbar"></i></div>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">EcoCost</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+
+    <!-- hero -->
+    <header class="hero" id="top">
+      <span class="tag">Gooey.AI · Proposal</span>
+      <h1>EcoCost labeling for AI&nbsp;inference</h1>
+      <p class="hero-dek">
+        A proposal for making the environmental cost of AI visible.
+      </p>
+      <p class="hero-lede">
+        EcoCost would give consumers and organizations a common way to
+        understand the environmental impact of AI use. A public repository
+        and API would provide estimates of energy use, emissions, and water
+        consumption, allowing AI tools to display environmental cost
+        alongside price and performance.
+      </p>
+    </header>
+
+    <!-- the problem / theory of change / how it works -->
+    <section class="reveal">
+      <div class="wrap">
+        <div class="two-col">
+          <div>
+            <h3>The problem</h3>
+            <p>
+              Every AI query consumes electricity and water, but AI users and
+              bot builders lack a common resource for comparing environmental
+              performance across models and server regions. Without that
+              information, they cannot readily factor environmental impact
+              into their choices.
+            </p>
+          </div>
+          <div>
+            <h3>Theory of change</h3>
+            <p>
+              If AI services displayed their environmental impact, users
+              could consider eco-cost when choosing models and providers,
+              alongside accuracy, latency, and price. The proposal assumes
+              that stronger customer demand for environmental performance
+              would encourage AI labs and hyperscalers to optimize for it.
+            </p>
+          </div>
+          <div>
+            <h3>How it works</h3>
+            <p>
+              A public repository would collate per-token estimates for
+              energy, emissions, and water use. Data scientists, researchers,
+              hyperscalers, and AI research agents would contribute data.
+              People and agents would continually curate the information to
+              improve confidence in the estimates. Connected AI platforms
+              would let consumers and organizations evaluate eco-cost for
+              each run, compare models and server regions, and track the
+              impact of their AI usage over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- building the coalition -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">Building the coalition</h2>
+        <div class="coalition">
+          <div>
+            <i class="ic fa-regular fa-magnifying-glass-chart" aria-hidden="true"></i>
+            <h3>Research and data</h3>
+            <p>
+              Researchers, data scientists, and organizations would develop
+              evaluation and estimation methods, publish data, and perform
+              monitoring.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-layer-group" aria-hidden="true"></i>
+            <h3>Products and platforms</h3>
+            <p>
+              Like-minded product and platform providers would publish data
+              and make eco-cost information accessible to users.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-hand-holding-heart" aria-hidden="true"></i>
+            <h3>Funders and philanthropies</h3>
+            <p>
+              Funding would establish the repository and API and support
+              research.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-server" aria-hidden="true"></i>
+            <h3>Hyperscalers and providers</h3>
+            <p>
+              Participating providers would contribute vetted inference
+              energy data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ecocost in the product -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">EcoCost in the product</h2>
+        <div class="prose muted">
+          <p>
+            The Gooey.AI mockups show environmental information within an AI
+            workflow. A compact label beside the run price surfaces
+            emissions, and an expanded view explains resource use, compute
+            time, and the location and energy mix behind the estimate.
+          </p>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="figure">
+            <img
+              src="images/mockup-run-label.png"
+              alt="Mobile and desktop Farmer.AI interfaces with an eco-cost label beside the desktop run price"
+            />
+            <figcaption>
+              Mobile and desktop Farmer.AI interfaces with an eco-cost label
+              beside the desktop run price.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="images/mockup-expanded-view.png"
+              alt="An expanded cost and environmental impact view, showing carbon, water, energy, compute time, and grid energy mix"
+            />
+            <figcaption>An expanded cost and environmental impact view.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose muted">
+          <p>
+            The mockup shows a $0.109 run cost and approximately 5 g CO₂e,
+            compared with driving 30 m. It also shows two glasses of water
+            (approximately 500 ml), seven minutes of average EU household
+            energy use, and 18 seconds of H100-equivalent compute time. These
+            are illustrative figures.
+          </p>
+          <p>
+            Its location example is France in Western Europe, with a grid
+            mix of 72% nuclear, 20% renewables, 6% natural gas, and 2% other
+            sources. The interface describes this as relatively low carbon
+            grid intensity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- system architecture -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">System architecture</h2>
+        <div class="prose muted">
+          <p>
+            The proposed architecture connects source data to estimates
+            through five stages. Its shared principles are transparency,
+            confidence, documented methodology, energy data that accounts
+            for region, and eco-cost breakdowns for individual models.
+          </p>
+        </div>
+        <ul class="pills">
+          <li class="pill">Transparency</li>
+          <li class="pill">Confidence</li>
+          <li class="pill">Documented methodology</li>
+          <li class="pill">Region-aware energy data</li>
+          <li class="pill">Per-model eco-cost breakdowns</li>
+        </ul>
+
+        <ol class="steps">
+          <li>
+            <span class="step-n">01</span>
+            <div>
+              <h3>Source data</h3>
+              <p>
+                Inputs would include academic research, industry reports,
+                websites and blogs, operational data and efficiency metrics
+                from data centers, and public disclosures from hyperscalers
+                and model providers. Example sources include Epoch AI,
+                nScale, Google, Anthropic, and OpenAI.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">02</span>
+            <div>
+              <h3>Curation and contributions</h3>
+              <p>
+                Human contributors would review data, update methodologies,
+                and validate results. Research agents would automate
+                collection and analysis across the web. Providers could
+                directly submit environmental data, regional information,
+                and infrastructure details.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">03</span>
+            <div>
+              <h3>Open source repository and estimation engine</h3>
+              <p>
+                A community-maintained repository, hosted on GitHub, would
+                expose a public API and hold the components needed to turn
+                varied source data into estimates:
+              </p>
+              <ul>
+                <li>A wiki and methodology documentation defining standards.</li>
+                <li>Calculator logic that converts inputs into eco-costs.</li>
+                <li>Data normalization to standardize and reconcile inputs.</li>
+                <li>
+                  Data quality assessment, including validation and anomaly
+                  checks.
+                </li>
+                <li>Confidence scoring to quantify uncertainty.</li>
+                <li>Versioning to track changes and releases.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">04</span>
+            <div>
+              <h3>API contract</h3>
+              <p>
+                A standard interface would let tools submit information
+                about an AI run and receive environmental estimates. See the
+                proposed contract below.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">05</span>
+            <div>
+              <h3>Product interfaces</h3>
+              <p>
+                Gooey.AI, environmental dashboards, chat interfaces, and
+                partner applications would display the estimates. Users
+                could explore and compare impact, track usage, and expand a
+                label to see model-level details such as tokens, usage,
+                cost, eco-costs, and confidence.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- proposed api contract -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">Proposed API contract</h2>
+        <div class="prose muted">
+          <p>
+            The interface would accept run details and return eco-cost
+            estimates. <i
+              >Values below are examples from the architecture diagram,
+              rather than validated measurements or a finalized API
+              specification.</i
+            >
+          </p>
+        </div>
+
+        <h3 class="tbl-head">Inputs from AI tools</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Example or purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Date and time</td>
+                <td>2024-01-01T12:00:00Z</td>
+              </tr>
+              <tr>
+                <td>Token counts</td>
+                <td>1,000</td>
+              </tr>
+              <tr>
+                <td>Model</td>
+                <td>gpt-4o</td>
+              </tr>
+              <tr>
+                <td>Provider</td>
+                <td>OpenAI</td>
+              </tr>
+              <tr>
+                <td>Data center region</td>
+                <td>Optional. Example: us-east-1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="tbl-head">Estimates returned to tools</h3>
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Example or purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Water</td>
+                <td>Two glasses, or 0.5 L</td>
+              </tr>
+              <tr>
+                <td>Energy</td>
+                <td>
+                  0.02 kWh, illustrated as seven minutes of EU household
+                  energy use
+                </td>
+              </tr>
+              <tr>
+                <td>Carbon</td>
+                <td>5 g CO₂e</td>
+              </tr>
+              <tr>
+                <td>H100-equivalent compute time</td>
+                <td>18 seconds</td>
+              </tr>
+              <tr>
+                <td>Confidence</td>
+                <td>0.8, described as high</td>
+              </tr>
+              <tr>
+                <td>Region and grid energy mix</td>
+                <td>
+                  Example: Kenya rural microgrid, with 60% LPG, 30% solar,
+                  and 10% other sources
+                </td>
+              </tr>
+              <tr>
+                <td>Per-model breakdown</td>
+                <td>Optional detailed component estimates</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="tbl-head">Displaying the results</h3>
+        <div class="prose muted">
+          <p>
+            The compact example label combines carbon, water, energy, and
+            compute time. An expanded view would add the assumptions and
+            context needed to interpret those figures, including region,
+            grid energy mix, and confidence, with optional detail by model.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- get involved -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">Get involved</h2>
+        <div class="prose muted">
+          <p>
+            EcoCost is an early-stage proposal. We're looking for
+            researchers and data scientists, product and platform teams,
+            funders, and hyperscalers to help build it out — from
+            methodology and data to the public repository and API.
+          </p>
+        </div>
+
+        <div class="cta-grid">
+          <div class="cta-card primary">
+            <i class="ic fa-regular fa-envelope" aria-hidden="true"></i>
+            <h3>Email us</h3>
+            <p>Tell us how you'd like to contribute, or ask a question.</p>
+            <a
+              class="cta-btn"
+              href="mailto:research@gooey.ai?subject=EcoCost%20%E2%80%94%20I%27d%20like%20to%20get%20involved"
+              >research@gooey.ai</a
+            >
+          </div>
+          <div class="cta-card primary">
+            <i class="ic fa-brands fa-github" aria-hidden="true"></i>
+            <h3>Open-source repository</h3>
+            <p>
+              The public repository, methodology docs, and API will be
+              hosted on GitHub.
+            </p>
+            <span class="badge-soon">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+          <img class="flogo" src="assets/gooey-wordmark.png" alt="Gooey.AI" />
+        </a>
+        <small
+          >A proposal from <a href="https://gooey.ai/">Gooey.AI</a>. Get in
+          touch at
+          <a href="mailto:research@gooey.ai">research@gooey.ai</a>.</small
+        >
+      </div>
+    </footer>
+
+    <script>
+      // Replace the Login button with the logged-in user's name, if any.
+      (function () {
+        try {
+          var loginBtn = document.querySelector(".login-btn");
+          var name =
+            window.gooeyUser && window.gooeyUser.name
+              ? window.gooeyUser.name
+              : null;
+          if (loginBtn && name) loginBtn.textContent = name;
+        } catch (e) {}
+      })();
+
+      // Reading progress bar.
+      (function () {
+        var bar = document.getElementById("progbar");
+        if (!bar) return;
+        var onScroll = function () {
+          var h = document.documentElement;
+          var max = h.scrollHeight - h.clientHeight;
+          bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+        };
+        addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      // Fade sections in as they scroll into view.
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window) || !els.length) {
+          els.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
