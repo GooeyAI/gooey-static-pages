@@ -1012,7 +1012,7 @@
           <figure class="figure">
             <img
               src="images/mockup-desktop.png"
-              alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, the Norway grid mix, and a low-confidence label"
+              alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, and the Norway grid mix"
             />
             <figcaption>
               Desktop: the eco-cost sits beside the run price and expands
@@ -1039,11 +1039,8 @@
           </p>
           <p>
             The request ran in Norway, where ecocost's grid data shows about
-            90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). nScale
-            doesn't publish its cooling water use or serving overhead, and
-            the hardware's embodied carbon is assumed too, so the likely
-            range spans 12× and the label shows low confidence, with a link
-            to how the estimate is made.
+            90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). A link
+            explains how the estimate is made.
           </p>
         </div>
       </div>
@@ -1235,8 +1232,7 @@
                   published, derived, or assumed.
                 </li>
                 <li>
-                  A likely range and a worst case for every figure, plus a
-                  confidence level computed from the width of that range.
+                  A likely range and a worst case for every figure.
                 </li>
                 <li>
                   Versioning. Every result records the method version that
@@ -1372,14 +1368,6 @@
                 <td>0.79 seconds (likely 0.25–2.2 s)</td>
               </tr>
               <tr>
-                <td>Confidence</td>
-                <td>
-                  Low. The likely range spans 15×. The result lists the
-                  assumed inputs behind that rating: undisclosed model size,
-                  chip utilization, serving overhead, and embodied carbon.
-                </td>
-              </tr>
-              <tr>
                 <td>Region and grid energy mix</td>
                 <td>
                   US, 373 g CO₂e per kWh (195–591 across OpenAI's candidate
@@ -1410,7 +1398,7 @@
             The compact example label combines carbon, water, energy, and
             compute time. An expanded view would add the assumptions and
             context needed to interpret those figures, including region,
-            grid energy mix, confidence, and the likely range, with optional
+            grid energy mix, and the likely range, with optional
             detail by model.
           </p>
         </div>
