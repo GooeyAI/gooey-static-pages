@@ -58,6 +58,7 @@
         --gy-surface-300: rgb(235, 231, 226);
         --gy-line: rgb(217, 217, 217);
         --gy-line-soft: rgb(230, 230, 230);
+        --gy-line-strong: rgb(185, 185, 185);
         --gy-teal-700: #00998a;
         --gy-font-sans:
           "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
@@ -103,17 +104,20 @@
       }
 
       /* ---------- site header (page chrome, not part of the artboard) ---------- */
+      /* matches sovereignty/index.html — same chrome across the site */
       .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 50;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
         display: flex;
         align-items: center;
         gap: 16px;
-        height: var(--site-header-h);
-        padding: 0 var(--pad-x);
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: saturate(180%) blur(12px);
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
         border-bottom: 1px solid var(--gy-line-soft);
       }
       .site-header .logo-link {
@@ -121,18 +125,19 @@
         align-items: center;
       }
       .site-header .logo {
-        height: 26px;
+        height: 24px;
         width: auto;
         display: block;
       }
       .site-header .h-title {
         font-family: var(--gy-font-serif);
-        font-size: 15px;
-        opacity: 0;
-        transition: opacity 0.25s ease;
+        font-size: 14px;
+        flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
       }
       .site-header.scrolled .h-title {
         opacity: 1;
@@ -140,14 +145,25 @@
       .site-header .login-btn {
         margin-left: auto;
         flex: none;
-        padding: 8px 20px;
-        border: 1px solid var(--gy-line);
-        border-radius: 32px;
-        font-size: 14px;
-        font-weight: 500;
-        background: var(--gy-white);
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
       }
       .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
         background: var(--gy-surface-100);
         text-decoration: none;
       }
@@ -173,7 +189,7 @@
       .hero {
         max-width: var(--maxw);
         margin: 0 auto;
-        padding: clamp(48px, 7vw, 80px) var(--pad-x) clamp(40px, 5vw, 60px);
+        padding: 80px var(--pad-x) clamp(40px, 5vw, 60px);
         display: grid;
         /* the intro always flows beneath the brand lockup, at every width */
         grid-template-columns: minmax(0, 1fr);
@@ -806,16 +822,17 @@
 "papers": [
 {
 "type": "Upcoming",
-"title": "Rethinking AI literacy as a participatory practice",
+"title": "Upcoming Chapter in the State of AI Ethics Report (Volume 8) 2026",
 "venue": "Montreal AI Ethics Institute",
 "date": "2026",
 "note": "Chapter in the State of AI Ethics Report, Volume 8",
-"note_url": "",
+"note_url": "https://montrealethics.ai/saier-vol-8-contribute/",
 "logo": "images/venues/maiei.png",
 "blurb": "The chapter will focus on rethinking AI literacy as a participatory practice, examining how communities can move from being passive consumers of AI to actively shaping its datasets, and tools. It will be a part of the section on Coalition-Building Across Fractured Movements.",
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "",
 "tags": "Education",
+"slug": "",
 "hidden": ""
 },
 {
@@ -830,6 +847,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "https://docs.google.com/document/d/1vYDSvMcp-A9s7k41918cRd_Iwd92niT7/edit?usp=sharing",
 "tags": "Culture",
+"slug": "shaping-ai-ethics-power-and-responsibility",
 "hidden": ""
 },
 {
@@ -844,6 +862,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "",
 "tags": "Culture, India",
+"slug": "",
 "hidden": ""
 },
 {
@@ -858,6 +877,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "https://drive.google.com/file/d/1u2B5R2s6s_bdA47PRFlZB_3QD2GsvaeP/view?usp=sharing",
 "tags": "Culture",
+"slug": "beyond-bias-participatory-and-reflective-approaches-to-cultural-ai",
 "hidden": ""
 },
 {
@@ -872,6 +892,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "https://drive.google.com/drive/folders/1jcNMpIcOEGOC_iPMSofPC4zv9MViPmr3",
 "tags": "Culture",
+"slug": "beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation",
 "hidden": ""
 },
 {
@@ -886,6 +907,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "https://drive.google.com/file/d/1cmpax7xvufKBDJ8AAn4rdnSDIhxv8Vvt/view?usp=sharing",
 "tags": "Culture",
+"slug": "",
 "hidden": ""
 },
 {
@@ -900,6 +922,7 @@
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
 "pdf_url": "https://drive.google.com/file/d/1Pmke2fki_Jb5nhNHlNGJYq5a9y7XO9Ok/view?usp=sharing",
 "tags": "Culture",
+"slug": "ai-across-cultures-shaping-ai",
 "hidden": ""
 }
 ],
@@ -989,8 +1012,8 @@
 "name": "Dev Aggarwal",
 "role": "Co-Founder and CTO",
 "photo": "images/people/dev-aggarwal.jpg",
-"link_label": "",
-"link_url": "",
+"link_label": "Profile",
+"link_url": "https://devxpy.com/",
 "hidden": ""
 },
 {
@@ -1003,7 +1026,7 @@
 }
 ],
 "_meta": {
-"generatedAt": "2026-09-16T12:45:41Z",
+"generatedAt": "2026-09-23T08:21:42Z",
 "sheetId": "1sk_HB3sJgYer0shLibe8MvNRmRmdPzWE48U_GxXmIxY"
 }
 }
@@ -1034,24 +1057,34 @@
 
       /* BEGIN PAPER PAGES — generated by scripts/build_papers.py, do not hand-edit */
       const PAPER_PAGES = {
-        "AI Across Cultures: Shaping AI": {
+        "ai-across-cultures-shaping-ai": {
                 "page": "papers/ai-across-cultures-shaping-ai/",
                 "pdf": "pdf/ai-across-cultures-shaping-ai.pdf"
         },
-        "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation": {
+        "beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation": {
                 "page": "papers/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation/",
                 "pdf": "pdf/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation.pdf"
         },
-        "Beyond Bias: Participatory & Reflective Approaches to Cultural AI": {
+        "beyond-bias-participatory-and-reflective-approaches-to-cultural-ai": {
                 "page": "papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/",
                 "pdf": "pdf/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai.pdf"
         },
-        "Shaping AI: Ethics, Power and Responsibility": {
+        "shaping-ai-ethics-power-and-responsibility": {
                 "page": "papers/shaping-ai-ethics-power-and-responsibility/",
                 "pdf": "pdf/shaping-ai-ethics-power-and-responsibility.pdf"
         }
 };
       /* END PAPER PAGES */
+
+      /* A paper row finds its page by slug: the Sheet's `slug` column, or one
+         derived from the title when that cell is blank. Must stay in step with
+         slugify() in scripts/build_papers.py. */
+      const slugify = (title) =>
+        String(title || "")
+          .replace(/&/g, " and ")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
 
       /* "All" links in the Featured Articles card headers, by column name. */
       const COLUMN_LINKS = {
@@ -1176,7 +1209,8 @@
             const logo = safeImg(p.logo);
             const noteUrl = safeUrl(p.note_url);
             /* A paper is only linked when we host its PDF and built its page. */
-            const entry = PAPER_PAGES[p.title] || null;
+            const entry =
+              PAPER_PAGES[(p.slug || "").trim() || slugify(p.title)] || null;
             const pdf = entry ? entry.pdf : "";
             const page = entry ? entry.page : "";
             const note = p.note
