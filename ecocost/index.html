@@ -768,18 +768,16 @@
       .pg-conf.low {
         color: #b04a2f;
       }
-      .pg-reasons {
-        margin: 12px 0 0;
-        padding-left: 18px;
+      .pg-conf-row {
         display: flex;
-        flex-direction: column;
-        gap: 4px;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 16px;
+        margin-top: 12px;
         font-size: 14px;
-        line-height: 145%;
-        color: var(--gy-ink-muted);
       }
-      .pg-reasons:empty {
-        display: none;
+      .pg-conf-row a {
+        font-weight: 600;
       }
       .pg-mix {
         display: flex;
@@ -1410,12 +1408,12 @@
                 </div>
               </div>
 
-              <div class="pg-block">
-                <div class="pg-row">
-                  <span class="pg-conf" data-f="conf_level"></span>
-                  <span class="pg-meta" data-f="conf_ratio"></span>
-                </div>
-                <ul class="pg-reasons" id="pgReasons"></ul>
+              <div class="pg-conf-row">
+                <span class="pg-conf" data-f="conf_level"></span>
+                <a
+                  href="https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md"
+                  >How this is estimated &#8599;</a
+                >
               </div>
 
               <div class="pg-block">
@@ -1560,32 +1558,6 @@
         var resultEl = document.getElementById("pgResult");
         var snippetEl = document.getElementById("pgSnippet");
 
-        var REASONS = {
-          provider_unknown:
-            "No provider identified, so an unnamed US provider is assumed.",
-          provider_inferred_from_model:
-            "Provider inferred from the model's vendor; wrong if you used a reseller.",
-          active_params_undisclosed:
-            "The vendor doesn't publish the model's size; it comes from outside estimates.",
-          active_params_assumed:
-            "The model's active parameter count is a rough estimate.",
-          region_assumed:
-            "The provider doesn't say where it runs, so every plausible site is covered.",
-          chips_assumed:
-            "The provider doesn't say which accelerators it uses.",
-          pue_assumed:
-            "The provider doesn't publish its data center PUE; an industry figure is used.",
-          wue_assumed:
-            "The provider doesn't publish its cooling water use (WUE).",
-          decode_utilization_assumed:
-            "Chip utilization while generating depends on batch size, which nobody publishes.",
-          serving_overhead_assumed:
-            "Energy beyond the accelerators uses a default multiplier.",
-          grid_intensity_assumed:
-            "The grid's carbon intensity is itself a rough estimate.",
-          embodied_carbon_assumed:
-            "Hardware lifetime and utilization for embodied carbon are policy defaults.",
-        };
         var MIX_COLORS = {
           hydro: "#3b82c4",
           wind: "#2bb39a",
@@ -1792,18 +1764,6 @@
             r.confidence.level.charAt(0).toUpperCase() +
             r.confidence.level.slice(1) +
             " confidence";
-          setField(
-            "conf_ratio",
-            "likely range spans " + sig(r.confidence.range_ratio) + "×",
-          );
-          var reasons = document.getElementById("pgReasons");
-          reasons.textContent = "";
-          r.confidence.reasons.forEach(function (code) {
-            var li = document.createElement("li");
-            li.textContent = REASONS[code] || code;
-            li.title = code;
-            reasons.appendChild(li);
-          });
 
           var g = r.grid;
           setField("grid_label", fmt.region_label);
