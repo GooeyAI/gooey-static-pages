@@ -956,6 +956,116 @@
       </div>
     </section>
 
+    <!-- building the coalition -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">Building the coalition</h2>
+        <div class="coalition">
+          <div>
+            <i class="ic fa-regular fa-magnifying-glass-chart" aria-hidden="true"></i>
+            <h3>Research and data</h3>
+            <p>
+              Researchers, data scientists, and organizations would develop
+              evaluation and estimation methods, publish data, and perform
+              monitoring.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-layer-group" aria-hidden="true"></i>
+            <h3>Products and platforms</h3>
+            <p>
+              Like-minded product and platform providers would publish data
+              and make eco-cost information accessible to users.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-hand-holding-heart" aria-hidden="true"></i>
+            <h3>Funders and philanthropies</h3>
+            <p>
+              Funding would establish the repository and API and support
+              research.
+            </p>
+          </div>
+          <div>
+            <i class="ic fa-regular fa-server" aria-hidden="true"></i>
+            <h3>Hyperscalers and providers</h3>
+            <p>
+              Participating providers would contribute vetted inference
+              energy data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ecocost in the product -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">EcoCost in the product</h2>
+        <div class="prose muted">
+          <p>
+            The Gooey.AI mockups show environmental information within an AI
+            workflow. A compact label beside the run price surfaces
+            emissions, and an expanded view explains resource use, compute
+            time, and the location and energy mix behind the estimate.
+          </p>
+        </div>
+
+        <div class="figure-grid">
+          <figure class="figure">
+            <img
+              src="images/mockup-run-label.png"
+              alt="Mobile and desktop Farmer.AI interfaces with an eco-cost label beside the desktop run price"
+            />
+            <figcaption>
+              Mobile and desktop Farmer.AI interfaces with an eco-cost label
+              beside the desktop run price. The 5 g CO₂ here is a placeholder
+              from an early design.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="figure-grid mockups">
+          <figure class="figure">
+            <img
+              src="images/mockup-desktop.png"
+              alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, the Norway grid mix, and a low-confidence label"
+            />
+            <figcaption>
+              Desktop: the eco-cost sits beside the run price and expands
+              into the full breakdown.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img
+              src="images/mockup-mobile.png"
+              alt="The same Run Cost &amp; Environment Impact view as a bottom sheet on mobile"
+            />
+            <figcaption>The same view as a bottom sheet on mobile.</figcaption>
+          </figure>
+        </div>
+
+        <div class="prose muted">
+          <p>
+            The figures in the mockups come straight from ecocost. The run
+            used GPT OSS 20B on nScale, with 2,100 input and 219 output
+            tokens. It came to 0.97 mg CO₂e (likely range 0.28–3.4 mg),
+            about 0.15 ml of water (almost all of it at the power plant),
+            and 22 mWh of electricity, about 8 seconds of a 10 W LED bulb.
+            A slider scales the figures by the number of conversation turns.
+          </p>
+          <p>
+            The request ran in Norway, where ecocost's grid data shows about
+            90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). nScale
+            doesn't publish its cooling water use or serving overhead, and
+            the hardware's embodied carbon is assumed too, so the likely
+            range spans 12× and the label shows low confidence, with a link
+            to how the estimate is made.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- playground: runs the real ecocost package in the browser via Pyodide -->
     <section class="reveal" id="playground">
       <div class="wrap">
@@ -1065,116 +1175,6 @@
               </details>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- building the coalition -->
-    <section class="reveal">
-      <div class="wrap">
-        <h2 class="sec-title">Building the coalition</h2>
-        <div class="coalition">
-          <div>
-            <i class="ic fa-regular fa-magnifying-glass-chart" aria-hidden="true"></i>
-            <h3>Research and data</h3>
-            <p>
-              Researchers, data scientists, and organizations would develop
-              evaluation and estimation methods, publish data, and perform
-              monitoring.
-            </p>
-          </div>
-          <div>
-            <i class="ic fa-regular fa-layer-group" aria-hidden="true"></i>
-            <h3>Products and platforms</h3>
-            <p>
-              Like-minded product and platform providers would publish data
-              and make eco-cost information accessible to users.
-            </p>
-          </div>
-          <div>
-            <i class="ic fa-regular fa-hand-holding-heart" aria-hidden="true"></i>
-            <h3>Funders and philanthropies</h3>
-            <p>
-              Funding would establish the repository and API and support
-              research.
-            </p>
-          </div>
-          <div>
-            <i class="ic fa-regular fa-server" aria-hidden="true"></i>
-            <h3>Hyperscalers and providers</h3>
-            <p>
-              Participating providers would contribute vetted inference
-              energy data.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ecocost in the product -->
-    <section class="reveal">
-      <div class="wrap">
-        <h2 class="sec-title">EcoCost in the product</h2>
-        <div class="prose muted">
-          <p>
-            The Gooey.AI mockups show environmental information within an AI
-            workflow. A compact label beside the run price surfaces
-            emissions, and an expanded view explains resource use, compute
-            time, and the location and energy mix behind the estimate.
-          </p>
-        </div>
-
-        <div class="figure-grid">
-          <figure class="figure">
-            <img
-              src="images/mockup-run-label.png"
-              alt="Mobile and desktop Farmer.AI interfaces with an eco-cost label beside the desktop run price"
-            />
-            <figcaption>
-              Mobile and desktop Farmer.AI interfaces with an eco-cost label
-              beside the desktop run price. The 5 g CO₂ here is a placeholder
-              from an early design.
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="figure-grid mockups">
-          <figure class="figure">
-            <img
-              src="images/mockup-desktop.png"
-              alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, the Norway grid mix, and a low-confidence label"
-            />
-            <figcaption>
-              Desktop: the eco-cost sits beside the run price and expands
-              into the full breakdown.
-            </figcaption>
-          </figure>
-          <figure class="figure">
-            <img
-              src="images/mockup-mobile.png"
-              alt="The same Run Cost &amp; Environment Impact view as a bottom sheet on mobile"
-            />
-            <figcaption>The same view as a bottom sheet on mobile.</figcaption>
-          </figure>
-        </div>
-
-        <div class="prose muted">
-          <p>
-            The figures in the mockups come straight from ecocost. The run
-            used GPT OSS 20B on nScale, with 2,100 input and 219 output
-            tokens. It came to 0.97 mg CO₂e (likely range 0.28–3.4 mg),
-            about 0.15 ml of water (almost all of it at the power plant),
-            and 22 mWh of electricity, about 8 seconds of a 10 W LED bulb.
-            A slider scales the figures by the number of conversation turns.
-          </p>
-          <p>
-            The request ran in Norway, where ecocost's grid data shows about
-            90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). nScale
-            doesn't publish its cooling water use or serving overhead, and
-            the hardware's embodied carbon is assumed too, so the likely
-            range spans 12× and the label shows low confidence, with a link
-            to how the estimate is made.
-          </p>
         </div>
       </div>
     </section>
