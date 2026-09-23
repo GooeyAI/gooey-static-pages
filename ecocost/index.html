@@ -956,6 +956,119 @@
       </div>
     </section>
 
+    <!-- playground: runs the real ecocost package in the browser via Pyodide -->
+    <section class="reveal" id="playground">
+      <div class="wrap">
+        <h2 class="sec-title">Try the API</h2>
+        <div class="prose muted">
+          <p>
+            This playground runs the real
+            <a href="https://pypi.org/project/ecocost/">ecocost</a> Python
+            package in your browser, so nothing is sent to a server. Pick a
+            model and provider, set the token counts, and the estimate
+            updates as you go.
+          </p>
+        </div>
+
+        <div class="pg" aria-busy="true">
+          <form class="pg-form" id="pgForm" autocomplete="off">
+            <label>
+              <span>Model</span>
+              <select name="model" disabled>
+                <option value="muse-glimmer-30b">Muse Glimmer 30B</option>
+              </select>
+            </label>
+            <label>
+              <span>Provider</span>
+              <select name="provider" disabled>
+                <option value="nscale">nScale</option>
+              </select>
+            </label>
+            <label>
+              <span>Grid region</span>
+              <select name="region" disabled>
+                <option value="">Provider's sites</option>
+              </select>
+            </label>
+            <div class="pg-tokens">
+              <label>
+                <span>Input tokens</span>
+                <input name="input_tokens" type="number" min="0" step="1" value="2100" disabled />
+              </label>
+              <label>
+                <span>Output tokens</span>
+                <input name="output_tokens" type="number" min="0" step="1" value="219" disabled />
+              </label>
+              <label>
+                <span>Cached input</span>
+                <input name="cached_input_tokens" type="number" min="0" step="1" value="0" disabled />
+              </label>
+            </div>
+            <div class="pg-code">
+              <div class="pg-code-head">
+                <span>Python</span>
+                <button type="button" id="pgCopy">Copy</button>
+              </div>
+              <pre><code id="pgSnippet"></code></pre>
+            </div>
+          </form>
+
+          <div class="pg-out" aria-live="polite">
+            <p class="pg-status" id="pgStatus">
+              <i class="fa-regular fa-spinner-third fa-spin" aria-hidden="true"></i>
+              <span>Loading the playground…</span>
+            </p>
+            <div id="pgResult" hidden>
+              <div class="pg-stats">
+                <div>
+                  <span class="k">Carbon</span>
+                  <b data-f="carbon"></b>
+                  <small data-f="carbon_range"></small>
+                </div>
+                <div>
+                  <span class="k">Energy</span>
+                  <b data-f="energy"></b>
+                  <small data-f="energy_range"></small>
+                </div>
+                <div>
+                  <span class="k">Water</span>
+                  <b data-f="water"></b>
+                  <small data-f="water_split"></small>
+                </div>
+                <div>
+                  <span class="k">H100 compute</span>
+                  <b data-f="compute"></b>
+                  <small data-f="compute_range"></small>
+                </div>
+              </div>
+
+              <div class="pg-conf-row">
+                <span class="pg-conf" data-f="conf_level"></span>
+                <a
+                  href="https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md"
+                  >How this is estimated &#8599;</a
+                >
+              </div>
+
+              <div class="pg-block">
+                <div class="pg-row">
+                  <b data-f="grid_label"></b>
+                  <span class="pg-meta" data-f="grid_intensity"></span>
+                </div>
+                <div class="pg-mix" id="pgMix"></div>
+                <ul class="pg-legend" id="pgLegend"></ul>
+              </div>
+
+              <details class="pg-json">
+                <summary>Full response (JSON)</summary>
+                <pre><code id="pgJson"></code></pre>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- building the coalition -->
     <section class="reveal">
       <div class="wrap">
@@ -1196,7 +1309,7 @@
             once per model and add up the results. See the
             <a href="https://github.com/GooeyAI/ecocost/blob/main/API.md"
               >full API reference</a
-            >, or <a href="#playground">try it below</a>.
+            >, or <a href="#playground">try it above</a>.
           </p>
         </div>
 
@@ -1318,119 +1431,6 @@
             grid energy mix, confidence, and the likely range, with optional
             detail by model.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- playground: runs the real ecocost package in the browser via Pyodide -->
-    <section class="reveal" id="playground">
-      <div class="wrap">
-        <h2 class="sec-title">Try the API</h2>
-        <div class="prose muted">
-          <p>
-            This playground runs the real
-            <a href="https://pypi.org/project/ecocost/">ecocost</a> Python
-            package in your browser, so nothing is sent to a server. Pick a
-            model and provider, set the token counts, and the estimate
-            updates as you go.
-          </p>
-        </div>
-
-        <div class="pg" aria-busy="true">
-          <form class="pg-form" id="pgForm" autocomplete="off">
-            <label>
-              <span>Model</span>
-              <select name="model" disabled>
-                <option value="gpt-oss-20b">GPT OSS 20B</option>
-              </select>
-            </label>
-            <label>
-              <span>Provider</span>
-              <select name="provider" disabled>
-                <option value="nscale">nScale</option>
-              </select>
-            </label>
-            <label>
-              <span>Grid region</span>
-              <select name="region" disabled>
-                <option value="">Provider's sites</option>
-              </select>
-            </label>
-            <div class="pg-tokens">
-              <label>
-                <span>Input tokens</span>
-                <input name="input_tokens" type="number" min="0" step="1" value="2100" disabled />
-              </label>
-              <label>
-                <span>Output tokens</span>
-                <input name="output_tokens" type="number" min="0" step="1" value="219" disabled />
-              </label>
-              <label>
-                <span>Cached input</span>
-                <input name="cached_input_tokens" type="number" min="0" step="1" value="0" disabled />
-              </label>
-            </div>
-            <div class="pg-code">
-              <div class="pg-code-head">
-                <span>Python</span>
-                <button type="button" id="pgCopy">Copy</button>
-              </div>
-              <pre><code id="pgSnippet"></code></pre>
-            </div>
-          </form>
-
-          <div class="pg-out" aria-live="polite">
-            <p class="pg-status" id="pgStatus">
-              <i class="fa-regular fa-spinner-third fa-spin" aria-hidden="true"></i>
-              <span>Loading the playground…</span>
-            </p>
-            <div id="pgResult" hidden>
-              <div class="pg-stats">
-                <div>
-                  <span class="k">Carbon</span>
-                  <b data-f="carbon"></b>
-                  <small data-f="carbon_range"></small>
-                </div>
-                <div>
-                  <span class="k">Energy</span>
-                  <b data-f="energy"></b>
-                  <small data-f="energy_range"></small>
-                </div>
-                <div>
-                  <span class="k">Water</span>
-                  <b data-f="water"></b>
-                  <small data-f="water_split"></small>
-                </div>
-                <div>
-                  <span class="k">H100 compute</span>
-                  <b data-f="compute"></b>
-                  <small data-f="compute_range"></small>
-                </div>
-              </div>
-
-              <div class="pg-conf-row">
-                <span class="pg-conf" data-f="conf_level"></span>
-                <a
-                  href="https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md"
-                  >How this is estimated &#8599;</a
-                >
-              </div>
-
-              <div class="pg-block">
-                <div class="pg-row">
-                  <b data-f="grid_label"></b>
-                  <span class="pg-meta" data-f="grid_intensity"></span>
-                </div>
-                <div class="pg-mix" id="pgMix"></div>
-                <ul class="pg-legend" id="pgLegend"></ul>
-              </div>
-
-              <details class="pg-json">
-                <summary>Full response (JSON)</summary>
-                <pre><code id="pgJson"></code></pre>
-              </details>
-            </div>
-          </div>
         </div>
       </div>
     </section>
