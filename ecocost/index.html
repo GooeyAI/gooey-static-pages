@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Gooey.AI" />
     <meta
       property="og:image"
-      content="https://gooey.ai/ecocost/images/mockup-expanded-view.png"
+      content="https://gooey.ai/ecocost/images/mockup-desktop.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -35,7 +35,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://gooey.ai/ecocost/images/mockup-expanded-view.png"
+      content="https://gooey.ai/ecocost/images/mockup-desktop.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -115,6 +115,16 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+      .hero-lede a,
+      .prose a,
+      .steps a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.92em;
       }
 
       /* ---------- reading progress ---------- */
@@ -382,6 +392,19 @@
         line-height: 150%;
         color: var(--gy-ink-meta);
       }
+      /* desktop and mobile mockups side by side at equal height */
+      .figure-grid.mockups {
+        grid-template-columns: minmax(0, 3.6fr) minmax(0, 1fr);
+        align-items: start;
+      }
+      @media (max-width: 760px) {
+        .figure-grid.mockups {
+          grid-template-columns: 1fr;
+        }
+        .figure-grid.mockups figure:last-child img {
+          max-width: 320px;
+        }
+      }
       .figure-grid + .prose {
         margin-top: 24px;
       }
@@ -566,6 +589,234 @@
         margin-top: 6px;
       }
 
+      /* ---------- playground ---------- */
+      .pg {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: clamp(20px, 3vw, 32px);
+        margin-top: 28px;
+        align-items: start;
+      }
+      .pg-form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        background: var(--gy-surface-50);
+      }
+      .pg-form label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .pg-form label > span {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--gy-ink-muted);
+      }
+      .pg-form select,
+      .pg-form input {
+        width: 100%;
+        font: inherit;
+        font-size: 15px;
+        color: var(--gy-ink);
+        padding: 10px 12px;
+        border: 1px solid var(--gy-line);
+        border-radius: 10px;
+        background: var(--gy-white);
+      }
+      .pg-form select:focus,
+      .pg-form input:focus {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: -1px;
+        border-color: transparent;
+      }
+      .pg-form :disabled {
+        color: var(--gy-ink-soft);
+        cursor: progress;
+      }
+      .pg-tokens {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .pg-code {
+        border-radius: 12px;
+        background: var(--gy-ink);
+        overflow: hidden;
+      }
+      .pg-code-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 14px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .pg-code-head button {
+        font: inherit;
+        color: #7fe7db;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+      }
+      .pg-code pre,
+      .pg-json pre {
+        margin: 0;
+        padding: 14px;
+        overflow-x: auto;
+        font-size: 13px;
+        line-height: 150%;
+      }
+      .pg-code pre {
+        color: #e6edf3;
+      }
+      .pg-out {
+        min-width: 0;
+      }
+      .pg-status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 24px;
+        border: 1px dashed var(--gy-line);
+        border-radius: 16px;
+        font-size: 15px;
+        color: var(--gy-ink-muted);
+      }
+      .pg-status[hidden] {
+        display: none;
+      }
+      .pg-status.error {
+        border-style: solid;
+        border-color: #f0c2b8;
+        background: #fdf4f2;
+        color: #8a2d1c;
+        white-space: pre-wrap;
+        align-items: flex-start;
+      }
+      .pg-status + #pgResult {
+        margin-top: 16px;
+      }
+      .pg-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .pg-stats > div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 18px 20px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+      }
+      .pg-stats .k {
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+      .pg-stats b {
+        font-size: clamp(24px, 2.6vw, 30px);
+        font-weight: 600;
+        line-height: 120%;
+      }
+      .pg-stats > div:first-child b {
+        color: var(--gy-teal-700);
+      }
+      .pg-stats small {
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+      .pg-block {
+        margin-top: 12px;
+        padding: 18px 20px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+      }
+      .pg-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px 12px;
+      }
+      .pg-meta {
+        font-size: 14px;
+        color: var(--gy-ink-muted);
+      }
+      .pg-method {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 16px;
+        margin-top: 12px;
+        font-size: 14px;
+      }
+      .pg-method a {
+        font-weight: 600;
+      }
+      .pg-mix {
+        display: flex;
+        height: 10px;
+        margin-top: 14px;
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--gy-surface-200);
+      }
+      .pg-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+      .pg-legend i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+        vertical-align: -1px;
+      }
+      .pg-json {
+        margin-top: 12px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .pg-json summary {
+        padding: 14px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .pg-json pre {
+        max-height: 360px;
+        border-top: 1px solid var(--gy-line-soft);
+        background: var(--gy-surface-50);
+      }
+      @media (max-width: 900px) {
+        .pg {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .pg-tokens,
+        .pg-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* ---------- footer ---------- */
       .site-footer .wrap {
         display: flex;
@@ -641,7 +892,9 @@
         understand the environmental impact of AI use. A public repository
         and API would provide estimates of energy use, emissions, and water
         consumption, allowing AI tools to display environmental cost
-        alongside price and performance.
+        alongside price and performance. The first version is available now
+        as an open-source Python library,
+        <a href="https://github.com/GooeyAI/ecocost">ecocost</a>.
       </p>
     </header>
 
@@ -672,8 +925,8 @@
           <div>
             <h3>How it works</h3>
             <p>
-              A public repository would collate per-token estimates for
-              energy, emissions, and water use. Data scientists, researchers,
+              A public repository would collate the data behind per-request
+              estimates of energy, emissions, and water use. Data scientists, researchers,
               hyperscalers, and AI research agents would contribute data.
               People and agents would continually curate the information to
               improve confidence in the estimates. Connected AI platforms
@@ -749,32 +1002,158 @@
             />
             <figcaption>
               Mobile and desktop Farmer.AI interfaces with an eco-cost label
-              beside the desktop run price.
+              beside the desktop run price. The 5 g CO₂ here is a placeholder
+              from an early design.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="figure-grid mockups">
+          <figure class="figure">
+            <img
+              src="images/mockup-desktop.png"
+              alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, and the Norway grid mix"
+            />
+            <figcaption>
+              Desktop: the eco-cost sits beside the run price and expands
+              into the full breakdown.
             </figcaption>
           </figure>
           <figure class="figure">
             <img
-              src="images/mockup-expanded-view.png"
-              alt="An expanded cost and environmental impact view, showing carbon, water, energy, compute time, and grid energy mix"
+              src="images/mockup-mobile.png"
+              alt="The same Run Cost &amp; Environment Impact view as a bottom sheet on mobile"
             />
-            <figcaption>An expanded cost and environmental impact view.</figcaption>
+            <figcaption>The same view as a bottom sheet on mobile.</figcaption>
           </figure>
         </div>
 
         <div class="prose muted">
           <p>
-            The mockup shows a $0.109 run cost and approximately 5 g CO₂e,
-            compared with driving 30 m. It also shows two glasses of water
-            (approximately 500 ml), seven minutes of average EU household
-            energy use, and 18 seconds of H100-equivalent compute time. These
-            are illustrative figures.
+            The figures in the mockups come straight from ecocost. The run
+            used GPT OSS 20B on nScale, with 2,100 input and 219 output
+            tokens. It came to 0.97 mg CO₂e (likely range 0.28–3.4 mg),
+            about 0.15 ml of water (almost all of it at the power plant),
+            and 22 mWh of electricity, about 8 seconds of a 10 W LED bulb.
+            A slider scales the figures by the number of conversation turns.
           </p>
           <p>
-            Its location example is France in Western Europe, with a grid
-            mix of 72% nuclear, 20% renewables, 6% natural gas, and 2% other
-            sources. The interface describes this as relatively low carbon
-            grid intensity.
+            The request ran in Norway, where ecocost's grid data shows about
+            90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). A link
+            explains how the estimate is made.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- playground: runs the real ecocost package in the browser via Pyodide -->
+    <section class="reveal" id="playground">
+      <div class="wrap">
+        <h2 class="sec-title">Try the API</h2>
+        <div class="prose muted">
+          <p>
+            This playground runs the real
+            <a href="https://pypi.org/project/ecocost/">ecocost</a> Python
+            package in your browser, so nothing is sent to a server. Pick a
+            model and provider, set the token counts, and the estimate
+            updates as you go.
+          </p>
+        </div>
+
+        <div class="pg" aria-busy="true">
+          <form class="pg-form" id="pgForm" autocomplete="off">
+            <label>
+              <span>Model</span>
+              <select name="model" disabled>
+                <option value="muse-glimmer-30b">Muse Glimmer 30B</option>
+              </select>
+            </label>
+            <label>
+              <span>Provider</span>
+              <select name="provider" disabled>
+                <option value="nscale">nScale</option>
+              </select>
+            </label>
+            <label>
+              <span>Grid region</span>
+              <select name="region" disabled>
+                <option value="">Provider's sites</option>
+              </select>
+            </label>
+            <div class="pg-tokens">
+              <label>
+                <span>Input tokens</span>
+                <input name="input_tokens" type="number" min="0" step="1" value="2100" disabled />
+              </label>
+              <label>
+                <span>Output tokens</span>
+                <input name="output_tokens" type="number" min="0" step="1" value="219" disabled />
+              </label>
+              <label>
+                <span>Cached input</span>
+                <input name="cached_input_tokens" type="number" min="0" step="1" value="0" disabled />
+              </label>
+            </div>
+            <div class="pg-code">
+              <div class="pg-code-head">
+                <span>Python</span>
+                <button type="button" id="pgCopy">Copy</button>
+              </div>
+              <pre><code id="pgSnippet"></code></pre>
+            </div>
+          </form>
+
+          <div class="pg-out" aria-live="polite">
+            <p class="pg-status" id="pgStatus">
+              <i class="fa-regular fa-spinner-third fa-spin" aria-hidden="true"></i>
+              <span>Loading the playground…</span>
+            </p>
+            <div id="pgResult" hidden>
+              <div class="pg-stats">
+                <div>
+                  <span class="k">Carbon</span>
+                  <b data-f="carbon"></b>
+                  <small data-f="carbon_range"></small>
+                </div>
+                <div>
+                  <span class="k">Energy</span>
+                  <b data-f="energy"></b>
+                  <small data-f="energy_range"></small>
+                </div>
+                <div>
+                  <span class="k">Water</span>
+                  <b data-f="water"></b>
+                  <small data-f="water_split"></small>
+                </div>
+                <div>
+                  <span class="k">H100 compute</span>
+                  <b data-f="compute"></b>
+                  <small data-f="compute_range"></small>
+                </div>
+              </div>
+
+              <div class="pg-method">
+                <a
+                  href="https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md"
+                  >How this is estimated &#8599;</a
+                >
+              </div>
+
+              <div class="pg-block">
+                <div class="pg-row">
+                  <b data-f="grid_label"></b>
+                  <span class="pg-meta" data-f="grid_intensity"></span>
+                </div>
+                <div class="pg-mix" id="pgMix"></div>
+                <ul class="pg-legend" id="pgLegend"></ul>
+              </div>
+
+              <details class="pg-json">
+                <summary>Full response (JSON)</summary>
+                <pre><code id="pgJson"></code></pre>
+              </details>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -831,21 +1210,39 @@
             <div>
               <h3>Open source repository and estimation engine</h3>
               <p>
-                A community-maintained repository, hosted on GitHub, would
-                expose a public API and hold the components needed to turn
-                varied source data into estimates:
+                The first version is live:
+                <a href="https://github.com/GooeyAI/ecocost">GooeyAI/ecocost</a>
+                on GitHub, installable with <code>pip install ecocost</code>.
+                It is community-maintained and open to pull requests, and it
+                contains:
               </p>
               <ul>
-                <li>A wiki and methodology documentation defining standards.</li>
-                <li>Calculator logic that converts inputs into eco-costs.</li>
-                <li>Data normalization to standardize and reconcile inputs.</li>
                 <li>
-                  Data quality assessment, including validation and anomaly
-                  checks.
+                  Methodology documentation covering the calculation, the
+                  sources behind every default, and calibration against
+                  published measurements.
                 </li>
-                <li>Confidence scoring to quantify uncertainty.</li>
-                <li>Versioning to track changes and releases.</li>
+                <li>
+                  Calculator logic that converts tokens into compute, energy,
+                  carbon, and water.
+                </li>
+                <li>
+                  An open knowledge base of models, providers, grid regions,
+                  and hardware. Every value has a source and an evidence tier:
+                  published, derived, or assumed.
+                </li>
+                <li>
+                  A likely range and a worst case for every figure.
+                </li>
+                <li>
+                  Versioning. Every result records the method version that
+                  produced it.
+                </li>
               </ul>
+              <p>
+                Planned additions include research agents that gather new
+                data and automated checks for anomalies.
+              </p>
             </div>
           </li>
           <li>
@@ -853,9 +1250,9 @@
             <div>
               <h3>API contract</h3>
               <p>
-                A standard interface would let tools submit information
-                about an AI run and receive environmental estimates. See the
-                proposed contract below.
+                A standard interface lets tools submit information about an
+                AI request and receive environmental estimates. See the
+                contract below.
               </p>
             </div>
           </li>
@@ -879,15 +1276,18 @@
     <!-- proposed api contract -->
     <section class="reveal">
       <div class="wrap">
-        <h2 class="sec-title">Proposed API contract</h2>
+        <h2 class="sec-title">API contract</h2>
         <div class="prose muted">
           <p>
-            The interface would accept run details and return eco-cost
-            estimates. <i
-              >Values below are examples from the architecture diagram,
-              rather than validated measurements or a finalized API
-              specification.</i
-            >
+            The ecocost library has one function, <code>estimate()</code>. It
+            takes the details of a single request and returns eco-cost
+            estimates. The example values below come from ecocost 0.2.0
+            (method 0.3.0) for GPT-4o on OpenAI's API with 700 input and 300
+            output tokens. To estimate a run that uses several models, call it
+            once per model and add up the results. See the
+            <a href="https://github.com/GooeyAI/ecocost/blob/main/API.md"
+              >full API reference</a
+            >, or <a href="#playground">try it above</a>.
           </p>
         </div>
 
@@ -902,24 +1302,33 @@
             </thead>
             <tbody>
               <tr>
-                <td>Date and time</td>
-                <td>2024-01-01T12:00:00Z</td>
+                <td>Model</td>
+                <td>
+                  <code>gpt-4o</code>. Provider-specific model ids resolve to
+                  the same model.
+                </td>
               </tr>
               <tr>
                 <td>Token counts</td>
-                <td>1,000</td>
-              </tr>
-              <tr>
-                <td>Model</td>
-                <td>gpt-4o</td>
+                <td>
+                  Input tokens (700), output tokens (300), and cached input
+                  tokens (optional)
+                </td>
               </tr>
               <tr>
                 <td>Provider</td>
-                <td>OpenAI</td>
+                <td>
+                  <code>openai</code>. Optional: ecocost can infer it from the
+                  endpoint URL or, for closed models, from the model's vendor.
+                </td>
               </tr>
               <tr>
-                <td>Data center region</td>
-                <td>Optional. Example: us-east-1</td>
+                <td>Grid region</td>
+                <td>
+                  Optional. A grid id such as <code>US-VA</code> or
+                  <code>FR</code>, if you know where the request ran.
+                  Otherwise ecocost uses the provider's known sites.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -936,38 +1345,48 @@
             </thead>
             <tbody>
               <tr>
-                <td>Water</td>
-                <td>Two glasses, or 0.5 L</td>
-              </tr>
-              <tr>
-                <td>Energy</td>
+                <td>Carbon</td>
                 <td>
-                  0.02 kWh, illustrated as seven minutes of EU household
-                  energy use
+                  0.099 g CO₂e (likely 0.025–0.37 g). Split into operational
+                  emissions, from generating the electricity, and embodied
+                  emissions, from manufacturing the hardware.
                 </td>
               </tr>
               <tr>
-                <td>Carbon</td>
-                <td>5 g CO₂e</td>
+                <td>Energy</td>
+                <td>0.26 Wh at the data center meter (likely 0.075–0.88 Wh)</td>
+              </tr>
+              <tr>
+                <td>Water</td>
+                <td>
+                  0.95 ml consumed (likely 0.15–6.1 ml): 0.06 ml for data
+                  center cooling and 0.89 ml at the power plant
+                </td>
               </tr>
               <tr>
                 <td>H100-equivalent compute time</td>
-                <td>18 seconds</td>
-              </tr>
-              <tr>
-                <td>Confidence</td>
-                <td>0.8, described as high</td>
+                <td>0.79 seconds (likely 0.25–2.2 s)</td>
               </tr>
               <tr>
                 <td>Region and grid energy mix</td>
                 <td>
-                  Example: Kenya rural microgrid, with 60% LPG, 30% solar,
-                  and 10% other sources
+                  US, 373 g CO₂e per kWh (195–591 across OpenAI's candidate
+                  sites). Largest source: natural gas (40%).
                 </td>
               </tr>
               <tr>
-                <td>Per-model breakdown</td>
-                <td>Optional detailed component estimates</td>
+                <td>Worst case</td>
+                <td>
+                  The same figures with every input set to its extreme at
+                  once
+                </td>
+              </tr>
+              <tr>
+                <td>Provenance</td>
+                <td>
+                  Review status of each model, provider, region, and hardware
+                  record used
+                </td>
               </tr>
             </tbody>
           </table>
@@ -979,7 +1398,8 @@
             The compact example label combines carbon, water, energy, and
             compute time. An expanded view would add the assumptions and
             context needed to interpret those figures, including region,
-            grid energy mix, and confidence, with optional detail by model.
+            grid energy mix, and the likely range, with optional
+            detail by model.
           </p>
         </div>
       </div>
@@ -991,10 +1411,11 @@
         <h2 class="sec-title">Get involved</h2>
         <div class="prose muted">
           <p>
-            EcoCost is an early-stage proposal. We're looking for
-            researchers and data scientists, product and platform teams,
-            funders, and hyperscalers to help build it out — from
-            methodology and data to the public repository and API.
+            EcoCost is at an early stage. The first version of the library is
+            public, and we're looking for researchers and data scientists,
+            product and platform teams, funders, and hyperscalers to help
+            improve its methodology and data, and to add more models and
+            providers.
           </p>
         </div>
 
@@ -1013,10 +1434,12 @@
             <i class="ic fa-brands fa-github" aria-hidden="true"></i>
             <h3>Open-source repository</h3>
             <p>
-              The public repository, methodology docs, and API will be
-              hosted on GitHub.
+              Browse the code, methodology, and data. You can open a pull
+              request to correct a figure or add a model or provider.
             </p>
-            <span class="badge-soon">Coming soon</span>
+            <a class="cta-btn" href="https://github.com/GooeyAI/ecocost"
+              >GooeyAI/ecocost</a
+            >
           </div>
         </div>
       </div>
@@ -1029,7 +1452,8 @@
           <img class="flogo" src="assets/gooey-wordmark.png" alt="Gooey.AI" />
         </a>
         <small
-          >A proposal from <a href="https://gooey.ai/">Gooey.AI</a>. Get in
+          >A proposal from <a href="https://gooey.ai/">Gooey.AI</a>. Code on
+          <a href="https://github.com/GooeyAI/ecocost">GitHub</a>. Get in
           touch at
           <a href="mailto:research@gooey.ai">research@gooey.ai</a>.</small
         >
@@ -1085,6 +1509,328 @@
         els.forEach(function (el) {
           io.observe(el);
         });
+      })();
+    </script>
+
+    <script>
+      // API playground. Loads Pyodide and the published ecocost wheel on first
+      // approach, then calls estimate() on every form change. Bump
+      // ECOCOST_VERSION together with the example figures quoted on this page.
+      (function () {
+        var PYODIDE_URL = "https://cdn.jsdelivr.net/pyodide/v314.0.7/full/";
+        var ECOCOST_VERSION = "0.2.0";
+
+        var root = document.getElementById("playground");
+        var form = document.getElementById("pgForm");
+        if (!root || !form) return;
+        var box = root.querySelector(".pg");
+        var statusEl = document.getElementById("pgStatus");
+        var resultEl = document.getElementById("pgResult");
+        var snippetEl = document.getElementById("pgSnippet");
+
+        var MIX_COLORS = {
+          hydro: "#3b82c4",
+          wind: "#2bb39a",
+          solar: "#f2b632",
+          nuclear: "#8b6fd1",
+          geothermal: "#c9733b",
+          biomass: "#7fb24a",
+          gas: "#e8913a",
+          oil: "#8a7f72",
+          coal: "#4a4a4a",
+          other: "#bdbdbd",
+        };
+
+        var PY = [
+          "import json",
+          "import ecocost",
+          "from ecocost import estimate",
+          "from ecocost.loader import get_kb",
+          "from ecocost.display import format_grams, format_wh, format_ml",
+          "kb = get_kb()",
+          "def pg_catalog():",
+          "    return json.dumps({",
+          "        'version': ecocost.__version__,",
+          "        'models': [{'id': m.id, 'label': m.label, 'creator': m.creator} for m in kb.models.values()],",
+          "        'providers': [{'id': p.id, 'label': p.label} for p in kb.providers.values()],",
+          "        'regions': [{'id': r.id, 'label': r.label} for r in kb.regions.values()],",
+          "    })",
+          "def pg_run(args):",
+          "    a = json.loads(args)",
+          "    try:",
+          "        r = estimate(a['model'], provider=a['provider'] or None, region=a['region'] or None,",
+          "                     input_tokens=a['input_tokens'], output_tokens=a['output_tokens'],",
+          "                     cached_input_tokens=a['cached_input_tokens'])",
+          "    except (LookupError, ValueError, TypeError) as e:",
+          "        return json.dumps({'error': str(e)})",
+          "    c, e, w = r['carbon'], r['energy'], r['water']",
+          "    fmt = {",
+          "        'carbon': format_grams(c['value']),",
+          "        'carbon_range': format_grams(c['min']) + ' – ' + format_grams(c['max']),",
+          "        'energy': format_wh(e['value']),",
+          "        'energy_range': format_wh(e['min']) + ' – ' + format_wh(e['max']),",
+          "        'water': format_ml(w['value']),",
+          "        'water_dc': format_ml(w['data_center']['value']),",
+          "        'water_pp': format_ml(w['power_plant']['value']),",
+          "        'region_label': kb.regions[r['grid']['region']].label if r['grid']['region'] in kb.regions else r['grid']['region'],",
+          "    }",
+          "    return json.dumps({'result': r, 'fmt': fmt}, default=str)",
+        ].join("\n");
+
+        var py = null;
+        var booting = false;
+
+        function setStatus(text, isError) {
+          statusEl.hidden = false;
+          statusEl.classList.toggle("error", !!isError);
+          statusEl.textContent = "";
+          if (!isError) {
+            var spin = document.createElement("i");
+            spin.className = "fa-regular fa-spinner-third fa-spin";
+            spin.setAttribute("aria-hidden", "true");
+            statusEl.appendChild(spin);
+          }
+          var span = document.createElement("span");
+          span.textContent = text;
+          statusEl.appendChild(span);
+        }
+
+        function loadScript(src) {
+          return new Promise(function (resolve, reject) {
+            var s = document.createElement("script");
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = function () {
+              reject(new Error("Couldn't load " + src));
+            };
+            document.head.appendChild(s);
+          });
+        }
+
+        function fillSelect(sel, items, current, groupBy) {
+          sel.textContent = "";
+          var keep = sel.name === "region" || sel.name === "provider";
+          if (keep) {
+            var none = document.createElement("option");
+            none.value = "";
+            none.textContent =
+              sel.name === "region" ? "Provider's sites" : "Don't know (infer it)";
+            sel.appendChild(none);
+          }
+          var parent = sel;
+          var lastGroup = null;
+          items.forEach(function (it) {
+            if (groupBy && it[groupBy] !== lastGroup) {
+              lastGroup = it[groupBy];
+              parent = document.createElement("optgroup");
+              parent.label = lastGroup;
+              sel.appendChild(parent);
+            }
+            var o = document.createElement("option");
+            o.value = it.id;
+            o.textContent = it.label + (groupBy ? "" : " (" + it.id + ")");
+            parent.appendChild(o);
+          });
+          sel.value = current;
+        }
+
+        async function boot() {
+          if (booting) return;
+          booting = true;
+          try {
+            setStatus("Loading Python in your browser (about 10 MB, once)…");
+            await loadScript(PYODIDE_URL + "pyodide.js");
+            py = await loadPyodide({ indexURL: PYODIDE_URL });
+            setStatus("Installing ecocost " + ECOCOST_VERSION + "…");
+            await py.loadPackage(["micropip", "pyyaml"]);
+            await py
+              .pyimport("micropip")
+              .install("ecocost==" + ECOCOST_VERSION);
+            py.runPython(PY);
+            var cat = JSON.parse(py.globals.get("pg_catalog")());
+            var models = cat.models.slice().sort(function (a, b) {
+              return (
+                a.creator.localeCompare(b.creator) ||
+                a.label.localeCompare(b.label)
+              );
+            });
+            fillSelect(form.model, models, form.model.value, "creator");
+            fillSelect(form.provider, cat.providers, form.provider.value);
+            fillSelect(form.region, cat.regions, form.region.value);
+            Array.prototype.forEach.call(form.elements, function (el) {
+              el.disabled = false;
+            });
+            box.setAttribute("aria-busy", "false");
+            run();
+          } catch (err) {
+            console.error(err);
+            setStatus(
+              "The playground couldn't load in this browser. You can run the same estimate locally with: pip install ecocost",
+              true,
+            );
+          }
+        }
+
+        function args() {
+          var n = function (el) {
+            var v = parseInt(el.value, 10);
+            return isNaN(v) ? 0 : v;
+          };
+          return {
+            model: form.model.value,
+            provider: form.provider.value,
+            region: form.region.value,
+            input_tokens: n(form.input_tokens),
+            output_tokens: n(form.output_tokens),
+            cached_input_tokens: n(form.cached_input_tokens),
+          };
+        }
+
+        function renderSnippet(a) {
+          var lines = ["from ecocost import estimate", "", "estimate("];
+          lines.push('    "' + a.model + '",');
+          if (a.provider) lines.push('    provider="' + a.provider + '",');
+          if (a.region) lines.push('    region="' + a.region + '",');
+          lines.push("    input_tokens=" + a.input_tokens + ",");
+          lines.push("    output_tokens=" + a.output_tokens + ",");
+          if (a.cached_input_tokens)
+            lines.push("    cached_input_tokens=" + a.cached_input_tokens + ",");
+          lines.push(")");
+          snippetEl.textContent = lines.join("\n");
+        }
+
+        function sig(x) {
+          return Number(Number(x).toPrecision(2)).toLocaleString("en-US", {
+            maximumFractionDigits: 10,
+          });
+        }
+        function seconds(s) {
+          return s >= 60 ? sig(s / 60) + " min" : sig(s) + " s";
+        }
+
+        function setField(name, text) {
+          resultEl.querySelector('[data-f="' + name + '"]').textContent = text;
+        }
+
+        function render(r, fmt) {
+          setField("carbon", fmt.carbon + " CO₂e");
+          setField("carbon_range", "likely " + fmt.carbon_range);
+          setField("energy", fmt.energy);
+          setField("energy_range", "likely " + fmt.energy_range + " at the meter");
+          setField("water", fmt.water);
+          setField(
+            "water_split",
+            fmt.water_dc + " cooling · " + fmt.water_pp + " power plants",
+          );
+          setField("compute", seconds(r.compute.value));
+          setField(
+            "compute_range",
+            "likely " + seconds(r.compute.min) + " – " + seconds(r.compute.max),
+          );
+
+
+          var g = r.grid;
+          setField("grid_label", fmt.region_label);
+          setField(
+            "grid_intensity",
+            Math.round(g.carbon_intensity.value) +
+              " gCO₂e/kWh (" +
+              Math.round(g.carbon_intensity.min) +
+              "–" +
+              Math.round(g.carbon_intensity.max) +
+              ") · " +
+              g.data_year,
+          );
+          var mix = Object.keys(g.mix)
+            .map(function (k) {
+              return [k, g.mix[k]];
+            })
+            .sort(function (a, b) {
+              return b[1] - a[1];
+            });
+          var bar = document.getElementById("pgMix");
+          var legend = document.getElementById("pgLegend");
+          bar.textContent = "";
+          legend.textContent = "";
+          mix.forEach(function (m) {
+            var color = MIX_COLORS[m[0]] || MIX_COLORS.other;
+            var seg = document.createElement("span");
+            seg.style.width = m[1] * 100 + "%";
+            seg.style.background = color;
+            bar.appendChild(seg);
+            if (m[1] < 0.01) return;
+            var li = document.createElement("li");
+            var dot = document.createElement("i");
+            dot.style.background = color;
+            li.appendChild(dot);
+            li.appendChild(
+              document.createTextNode(
+                m[0].charAt(0).toUpperCase() +
+                  m[0].slice(1) +
+                  " " +
+                  Math.round(m[1] * 100) +
+                  "%",
+              ),
+            );
+            legend.appendChild(li);
+          });
+
+          document.getElementById("pgJson").textContent = JSON.stringify(
+            r,
+            null,
+            2,
+          );
+        }
+
+        function run() {
+          var a = args();
+          renderSnippet(a);
+          if (!py) return;
+          var out = JSON.parse(py.globals.get("pg_run")(JSON.stringify(a)));
+          if (out.error) {
+            setStatus(out.error, true);
+            resultEl.hidden = true;
+            return;
+          }
+          statusEl.hidden = true;
+          render(out.result, out.fmt);
+          resultEl.hidden = false;
+        }
+
+        var timer = null;
+        form.addEventListener("input", function () {
+          clearTimeout(timer);
+          timer = setTimeout(run, 120);
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+        });
+        document.getElementById("pgCopy").addEventListener("click", function () {
+          var btn = this;
+          navigator.clipboard.writeText(snippetEl.textContent).then(function () {
+            btn.textContent = "Copied";
+            setTimeout(function () {
+              btn.textContent = "Copy";
+            }, 1500);
+          });
+        });
+
+        renderSnippet(args());
+        // Start loading shortly before the section scrolls into view.
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              if (entries.some(function (e) { return e.isIntersecting; })) {
+                io.disconnect();
+                boot();
+              }
+            },
+            { rootMargin: "600px 0px" },
+          );
+          io.observe(root);
+        } else {
+          boot();
+        }
       })();
     </script>
   </body>
