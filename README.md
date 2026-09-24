@@ -2,6 +2,10 @@
 
 Static pages hosted on **Cloudflare Pages** (project: `gooey-static-pages`) and served through gooey.ai via a proxy (`serve_static_file`).
 
+Adding or editing a page? See [AGENTS.md](AGENTS.md) — it covers the two
+repo-wide checks (link validity, header/button consistency) that CI runs on
+every PR.
+
 Each top-level folder maps to a URL path:
 
 ```
