@@ -389,7 +389,7 @@
       }
       /* desktop and mobile mockups side by side at equal height */
       .figure-grid.mockups {
-        grid-template-columns: minmax(0, 3.6fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 3.07fr) minmax(0, 1fr);
         align-items: start;
       }
       @media (max-width: 760px) {
@@ -397,8 +397,14 @@
           grid-template-columns: 1fr;
         }
         .figure-grid.mockups figure:last-child img {
-          max-width: 320px;
+          max-width: 300px;
         }
+      }
+      /* the phone mockup brings its own device frame */
+      figure.figure img.device {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
       }
       .figure-grid + .prose {
         margin-top: 24px;
@@ -910,7 +916,7 @@
             <p>
               If AI services displayed their environmental impact, users, organizations and governments
               could consider ecological costs when choosing models and providers,
-              alongside accuracy, latency, <a href="https://gooey.ai/sovereignity">sovereign-deployability</a> and price. 
+              alongside accuracy, latency, <a href="https://gooey.ai/sovereignty">sovereign-deployability</a> and price. 
               It's our hope that like other forms of product labeling of externalities (think "organic" or the nutrition information), displaying ecocosts will
               shape market demand, push consumers to demand cleaner AI and create greater economic incentives for frontier labs and datacenters to optimize to lower the water, carbon and power consumption.
             </p>
@@ -1015,6 +1021,7 @@
           </figure>
           <figure class="figure">
             <img
+              class="device"
               src="images/mockup-mobile.png"
               alt="The same Run Cost &amp; Environment Impact view as a bottom sheet on mobile"
             />
