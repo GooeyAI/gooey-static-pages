@@ -389,7 +389,7 @@
       }
       /* desktop and mobile mockups side by side at equal height */
       .figure-grid.mockups {
-        grid-template-columns: minmax(0, 3.6fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 3.07fr) minmax(0, 1fr);
         align-items: start;
       }
       @media (max-width: 760px) {
@@ -397,8 +397,14 @@
           grid-template-columns: 1fr;
         }
         .figure-grid.mockups figure:last-child img {
-          max-width: 320px;
+          max-width: 300px;
         }
+      }
+      /* the phone mockup brings its own device frame */
+      figure.figure img.device {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
       }
       .figure-grid + .prose {
         margin-top: 24px;
@@ -1015,6 +1021,7 @@
           </figure>
           <figure class="figure">
             <img
+              class="device"
               src="images/mockup-mobile.png"
               alt="The same Run Cost &amp; Environment Impact view as a bottom sheet on mobile"
             />
