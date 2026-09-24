@@ -1,0 +1,19 @@
+name: page checks
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  links-and-header:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check links (no dummy/placeholder/dead links)
+        run: python3 scripts/check_links.py
+      - name: Check header/button consistency across pages
+        run: python3 scripts/check_site_header.py
