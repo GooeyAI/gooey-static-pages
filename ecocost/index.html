@@ -147,16 +147,18 @@
 
       /* ---------- site header (page chrome, not part of the artboard) ---------- */
       .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 50;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
         display: flex;
         align-items: center;
         gap: 16px;
-        height: var(--site-header-h);
-        padding: 0 var(--pad-x);
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: saturate(180%) blur(12px);
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
         border-bottom: 1px solid var(--gy-line-soft);
       }
       .site-header .logo-link {
@@ -164,18 +166,19 @@
         align-items: center;
       }
       .site-header .logo {
-        height: 26px;
+        height: 24px;
         width: auto;
         display: block;
       }
       .site-header .h-title {
         font-family: var(--gy-font-serif);
-        font-size: 15px;
-        opacity: 0;
-        transition: opacity 0.25s ease;
+        font-size: 14px;
+        flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
       }
       .site-header.scrolled .h-title {
         opacity: 1;
@@ -183,15 +186,25 @@
       .site-header .login-btn {
         margin-left: auto;
         flex: none;
-        padding: 8px 20px;
-        border: 1px solid var(--gy-line);
-        border-radius: 32px;
-        font-size: 14px;
-        font-weight: 500;
-        background: var(--gy-white);
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
         text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
       }
       .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
         background: var(--gy-surface-100);
         text-decoration: none;
       }
@@ -217,7 +230,8 @@
       .hero {
         max-width: var(--maxw);
         margin: 0 auto;
-        padding: clamp(48px, 7vw, 80px) var(--pad-x) clamp(40px, 5vw, 60px);
+        padding: calc(var(--site-header-h) + clamp(48px, 7vw, 80px)) var(--pad-x)
+          clamp(40px, 5vw, 60px);
       }
       .hero .tag {
         display: inline-flex;
