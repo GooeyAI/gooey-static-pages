@@ -27,16 +27,18 @@ PAGES = {
 }
 
 HEADER_CSS = """      .site-header {
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 50;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
         display: flex;
         align-items: center;
         gap: 16px;
-        height: var(--site-header-h);
-        padding: 0 var(--pad-x);
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: saturate(180%) blur(12px);
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
         border-bottom: 1px solid var(--gy-line-soft);
       }
       .site-header .logo-link {
@@ -44,18 +46,19 @@ HEADER_CSS = """      .site-header {
         align-items: center;
       }
       .site-header .logo {
-        height: 26px;
+        height: 24px;
         width: auto;
         display: block;
       }
       .site-header .h-title {
         font-family: var(--gy-font-serif);
-        font-size: 15px;
-        opacity: 0;
-        transition: opacity 0.25s ease;
+        font-size: 14px;
+        flex: 1;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
       }
       .site-header.scrolled .h-title {
         opacity: 1;
@@ -63,15 +66,25 @@ HEADER_CSS = """      .site-header {
       .site-header .login-btn {
         margin-left: auto;
         flex: none;
-        padding: 8px 20px;
-        border: 1px solid var(--gy-line);
-        border-radius: 32px;
-        font-size: 14px;
-        font-weight: 500;
-        background: var(--gy-white);
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
         text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
       }
       .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
         background: var(--gy-surface-100);
         text-decoration: none;
       }"""
@@ -85,12 +98,21 @@ HEADER_HTML = """    <header class="site-header" id="siteHeader">
       <a class="login-btn" href="https://gooey.ai/login/">Login</a>
     </header>"""
 
-# A page also needs a `--pad-x` and `--site-header-h` custom property in its
-# :root (both `clamp(20px, 4vw, 60px)` / `60px` in the pages above), and a
-# scroll listener toggling `.scrolled` on #siteHeader so the title fades in
+# A page also needs a `--site-header-h: 60px` custom property in its :root, and
+# a scroll listener toggling `.scrolled` on #siteHeader so the title fades in
 # — see the bottom of research/index.html for the simplest version:
 #
 #   const header = document.getElementById("siteHeader");
 #   const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 220);
 #   window.addEventListener("scroll", onScroll, { passive: true });
 #   onScroll();
+#
+# The header is `position: fixed`, so it is out of flow and covers the top
+# `--site-header-h` of the page. Whatever comes first (the hero, normally) has
+# to carry that height itself in its own top padding, on top of whatever
+# spacing it wanted anyway — `80px` in research, `calc(var(--site-header-h) +
+# clamp(48px, 7vw, 80px))` in ecocost. Forget it and the first heading sits
+# under the header.
+#
+# `--pad-x: clamp(20px, 4vw, 60px)` is still worth defining: the header uses a
+# flat 26px gutter, but every page's content column uses --pad-x.
