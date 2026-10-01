@@ -391,6 +391,7 @@
       }
       figure.figure img {
         width: 100%;
+        height: auto;
         display: block;
         border-radius: 16px;
         border: 1px solid var(--gy-line-soft);
@@ -855,6 +856,67 @@
         color: var(--gy-ink-muted);
       }
 
+      /* ---------- figure spotlight (click to enlarge) ---------- */
+      figure.figure img {
+        cursor: zoom-in;
+      }
+      figure.figure img:focus-visible {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 3px;
+      }
+      .spotlight {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(16px, 4vw, 48px);
+        background: rgba(10, 16, 33, 0.82);
+        cursor: zoom-out;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .spotlight[hidden] {
+        display: none;
+      }
+      .spotlight.open {
+        opacity: 1;
+      }
+      .spotlight img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 12px;
+        background: var(--gy-white);
+        box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.12);
+      }
+      .spotlight-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.14);
+        color: var(--gy-white);
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .spotlight-close:hover {
+        background: rgba(255, 255, 255, 0.24);
+      }
+      body.spotlight-on {
+        overflow: hidden;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .spotlight {
+          transition: none;
+        }
+      }
+
       /* ---------- scroll reveal ---------- */
       .reveal {
         opacity: 0;
@@ -1193,6 +1255,18 @@
           <li class="pill">Per-model eco-cost breakdowns</li>
         </ul>
 
+        <div class="figure-grid">
+          <figure class="figure">
+            <img
+              src="images/ecocost-architecture.webp"
+              width="2000"
+              height="1123"
+              loading="lazy"
+              alt="Eco-cost labeling architecture in five stages: source data from research papers, data centers, and model providers; curation by human contributors, research agents, and providers; the open source repository and estimation engine; the API contract that tools send inputs to and get eco-cost estimates back from; and product interfaces such as the Gooey.AI run label, dashboards, chat interfaces, and partner apps"
+            />
+          </figure>
+        </div>
+
         <ol class="steps">
           <li>
             <span class="step-n">01</span>
@@ -1510,6 +1584,63 @@
         };
         addEventListener("scroll", onScroll, { passive: true });
         onScroll();
+      })();
+
+      // Spotlight: click (or Enter/Space on) a figure to see it full screen.
+      // Click anywhere, press Escape, or use the close button to dismiss.
+      (function () {
+        var imgs = document.querySelectorAll("figure.figure img");
+        if (!imgs.length) return;
+        var box = document.createElement("div");
+        box.className = "spotlight";
+        box.hidden = true;
+        box.setAttribute("role", "dialog");
+        box.setAttribute("aria-modal", "true");
+        box.setAttribute("aria-label", "Enlarged image");
+        box.innerHTML =
+          '<button class="spotlight-close" type="button" aria-label="Close">' +
+          '<i class="fa-regular fa-xmark" aria-hidden="true"></i></button>' +
+          "<img alt='' />";
+        document.body.appendChild(box);
+        var big = box.querySelector("img");
+        var closeBtn = box.querySelector(".spotlight-close");
+        var lastFocus = null;
+        var open = function (img) {
+          lastFocus = img;
+          big.src = img.currentSrc || img.src;
+          big.alt = img.alt;
+          box.hidden = false;
+          document.body.classList.add("spotlight-on");
+          requestAnimationFrame(function () {
+            box.classList.add("open");
+          });
+          closeBtn.focus();
+        };
+        var close = function () {
+          if (box.hidden) return;
+          box.classList.remove("open");
+          box.hidden = true;
+          document.body.classList.remove("spotlight-on");
+          if (lastFocus) lastFocus.focus();
+        };
+        imgs.forEach(function (img) {
+          img.tabIndex = 0;
+          img.setAttribute("role", "button");
+          img.setAttribute("aria-haspopup", "dialog");
+          img.addEventListener("click", function () {
+            open(img);
+          });
+          img.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open(img);
+            }
+          });
+        });
+        box.addEventListener("click", close);
+        addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
       })();
 
       // Fade sections in as they scroll into view.
