@@ -106,18 +106,16 @@
       /* ---------- site header (page chrome, not part of the artboard) ---------- */
       /* matches sovereignty/index.html — same chrome across the site */
       .site-header {
-        position: fixed;
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
-        z-index: 55;
-        height: var(--site-header-h);
+        z-index: 50;
         display: flex;
         align-items: center;
         gap: 16px;
-        padding: 0 26px;
-        background: rgba(255, 254, 253, 0.82);
-        backdrop-filter: saturate(140%) blur(8px);
+        height: var(--site-header-h);
+        padding: 0 var(--pad-x);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(12px);
         border-bottom: 1px solid var(--gy-line-soft);
       }
       .site-header .logo-link {
@@ -125,19 +123,18 @@
         align-items: center;
       }
       .site-header .logo {
-        height: 24px;
+        height: 26px;
         width: auto;
         display: block;
       }
       .site-header .h-title {
         font-family: var(--gy-font-serif);
-        font-size: 14px;
-        flex: 1;
+        font-size: 15px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        opacity: 0;
-        transition: opacity 0.2s ease;
       }
       .site-header.scrolled .h-title {
         opacity: 1;
@@ -145,25 +142,15 @@
       .site-header .login-btn {
         margin-left: auto;
         flex: none;
-        display: inline-flex;
-        align-items: center;
-        padding: 9px 22px;
-        border-radius: 12px;
-        background: transparent;
-        color: var(--gy-ink);
-        border: 1.5px solid var(--gy-line);
-        font-family: var(--gy-font-sans);
-        font-size: 15px;
-        font-weight: 600;
-        line-height: 1;
+        padding: 8px 20px;
+        border: 1px solid var(--gy-line);
+        border-radius: 32px;
+        font-size: 14px;
+        font-weight: 500;
+        background: var(--gy-white);
         text-decoration: none;
-        white-space: nowrap;
-        transition:
-          border-color 0.15s ease,
-          background 0.15s ease;
       }
       .site-header .login-btn:hover {
-        border-color: var(--gy-line-strong);
         background: var(--gy-surface-100);
         text-decoration: none;
       }
@@ -189,7 +176,8 @@
       .hero {
         max-width: var(--maxw);
         margin: 0 auto;
-        padding: 80px var(--pad-x) clamp(40px, 5vw, 60px);
+        /* the sticky header already takes its 60px in the flow */
+        padding: 20px var(--pad-x) clamp(40px, 5vw, 60px);
         display: grid;
         /* the intro always flows beneath the brand lockup, at every width */
         grid-template-columns: minmax(0, 1fr);
