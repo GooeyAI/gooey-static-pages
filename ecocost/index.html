@@ -63,7 +63,7 @@
       :root {
         --gy-ink: rgb(10, 16, 33);
         --gy-ink-muted: rgb(75, 88, 122);
-        --gy-ink-soft: rgb(137, 148, 177);
+        --gy-ink-soft: rgb(90, 98, 117);
         --gy-ink-meta: rgb(99, 99, 99);
         --gy-white: rgb(255, 255, 255);
         --gy-surface-50: rgb(251, 250, 248);
@@ -115,6 +115,32 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      [tabindex]:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -48px;
+        z-index: 100;
+        padding: 8px 16px;
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus-visible {
+        top: 8px;
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
       }
       .hero-lede a,
       .prose a,
@@ -474,7 +500,7 @@
       }
       table.tbl th {
         text-align: left;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.07em;
         text-transform: uppercase;
@@ -560,7 +586,7 @@
         font-weight: 600;
         padding: 10px 20px;
         border-radius: 32px;
-        background: var(--gy-teal-700);
+        background: var(--gy-ink);
         color: #fff;
         margin-top: 6px;
       }
@@ -573,7 +599,7 @@
         align-items: center;
         gap: 6px;
         align-self: flex-start;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.05em;
         text-transform: uppercase;
@@ -848,6 +874,9 @@
         transform: none;
       }
       @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
         .reveal {
           opacity: 1;
           transform: none;
@@ -866,6 +895,7 @@
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="progress"><i id="progbar"></i></div>
     <header class="site-header" id="siteHeader">
       <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
@@ -874,6 +904,7 @@
       <span class="h-title">EcoCost</span>
       <a class="login-btn" href="https://gooey.ai/login/">Login</a>
     </header>
+    <main id="main">
 
     <!-- hero -->
     <header class="hero" id="top">
@@ -896,7 +927,7 @@
       <div class="wrap">
         <div class="two-col">
           <div>
-            <h3>The problem</h3>
+            <h2>The problem</h2>
             <p>
               Every AI query consumes electricity and water, but AI users and
               builders lack a common resource for comparing environmental
@@ -906,7 +937,7 @@
             </p>
           </div>
           <div>
-            <h3>Theory of change</h3>
+            <h2>Theory of change</h2>
             <p>
               If AI services displayed their environmental impact, users, organizations and governments
               could consider ecological costs when choosing models and providers,
@@ -916,7 +947,7 @@
             </p>
           </div>
           <div>
-            <h3>How it works</h3>
+            <h2>How it works</h2>
             <p>
               The hard part is actually aggregating worldwide research and estimates of emissions. 
               This public repository is an ecosystem attempt to collate emissions data into standardized, easy to integrate estimates of per-token
@@ -1440,6 +1471,7 @@
     </section>
 
     <!-- footer -->
+    </main>
     <footer class="site-footer">
       <div class="wrap">
         <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">

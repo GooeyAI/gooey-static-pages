@@ -49,7 +49,7 @@
       :root {
         --gy-ink: rgb(10, 16, 33);
         --gy-ink-muted: rgb(75, 88, 122);
-        --gy-ink-soft: rgb(137, 148, 177);
+        --gy-ink-soft: rgb(90, 98, 117);
         --gy-ink-meta: rgb(99, 99, 99);
         --gy-white: rgb(255, 255, 255);
         --gy-surface-50: rgb(251, 250, 248);
@@ -60,6 +60,7 @@
         --gy-line-soft: rgb(230, 230, 230);
         --gy-line-strong: rgb(185, 185, 185);
         --gy-teal-700: #00998a;
+        --gy-teal-800: #00766b;
         --gy-font-sans:
           "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
           sans-serif;
@@ -101,6 +102,32 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      [tabindex]:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -48px;
+        z-index: 100;
+        padding: 8px 16px;
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus-visible {
+        top: 8px;
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
       }
 
       /* ---------- site header (page chrome, not part of the artboard) ---------- */
@@ -336,11 +363,11 @@
         text-align: right;
       }
       .paper-type {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--gy-teal-700);
+        color: var(--gy-teal-800);
       }
       .paper-where {
         font-size: 14px;
@@ -626,7 +653,7 @@
         text-wrap: pretty;
       }
       .card li .meta {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         color: var(--gy-ink-meta);
       }
@@ -686,10 +713,21 @@
           flex-basis: 100%;
         }
       }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition: none;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header" id="siteHeader">
       <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
         <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
@@ -697,6 +735,7 @@
       <span class="h-title">Gooey.AI Research</span>
       <a class="login-btn" href="https://gooey.ai/login/">Login</a>
     </header>
+    <main id="main">
 
     <!-- hero -->
     <header class="hero">
@@ -720,7 +759,7 @@
     <section>
       <div class="wrap">
         <div class="papers-head">
-          <h2 class="sec-title">Papers and Presentations</h2>
+          <h2 class="sec-title">Papers and presentations</h2>
           <span class="showing" id="showing"></span>
         </div>
         <ul class="chips" id="chips"></ul>
@@ -810,10 +849,11 @@
     <!-- featured articles -->
     <section class="articles-sec">
       <div class="wrap">
-        <h2 class="sec-title">Featured Articles</h2>
+        <h2 class="sec-title">Featured articles</h2>
         <div class="cards" id="cards"></div>
       </div>
     </section>
+    </main>
 
     <!-- Content snapshot from the Google Sheet. Regenerate with
          scripts/sync_research.py — do not hand-edit. -->
