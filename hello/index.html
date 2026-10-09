@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Hello World — Gooey.AI</title>
+    <meta
+      name="description"
+      content="A hello world page for the gooey-static-pages repo."
+    />
+    <style>
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-white: rgb(255, 255, 255);
+        --gy-line-strong: rgb(185, 185, 185);
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif: Georgia, "Times New Roman", serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .hero {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: clamp(48px, 7vw, 80px) 32px 64px;
+      }
+      .hero h1 {
+        font-family: var(--gy-font-serif);
+        font-size: clamp(42px, 7vw, 84px);
+        line-height: 1.02;
+        letter-spacing: -0.018em;
+        margin: 0 0 22px;
+      }
+      .hero .byline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 15px;
+        color: var(--gy-ink-muted);
+        flex-wrap: wrap;
+      }
+      .hero .byline b {
+        color: var(--gy-ink);
+        font-weight: 600;
+      }
+      .hero .byline .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--gy-line-strong);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="hero">
+      <h1>Hello world</h1>
+      <div class="byline">
+        <span>By <b>Sean Blagsvedt</b></span
+        ><span class="dot"></span><span>Friday, October 09, 2026</span>
+      </div>
+    </main>
+  </body>
+</html>
