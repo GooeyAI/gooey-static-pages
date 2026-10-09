@@ -952,7 +952,7 @@
 "logo": "images/venues/data-care-festival.png",
 "blurb": "This research poster for Inclusive AI Lab covered the Beyond Bias initiative, exploring participatory design approaches for more inclusive and culturally grounded generative AI systems.",
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
-"pdf_url": "https://drive.google.com/file/d/1cmpax7xvufKBDJ8AAn4rdnSDIhxv8Vvt/view?usp=sharing",
+"pdf_url": "https://drive.google.com/file/d/1ZkkEE0r4npDZHhIy9PtKyK7QW_1CZVyv/view?usp=sharing",
 "tags": "Culture",
 "slug": "",
 "hidden": ""
@@ -1262,11 +1262,11 @@
             const where = [p.venue, p.date].filter(Boolean).join(" · ");
             const logo = safeImg(p.logo);
             const noteUrl = safeUrl(p.note_url);
-            /* A paper is only linked when we host its PDF and built its page. */
+            /* A paper with a hosted page links to the page; otherwise fall back to its external pdf_url so the title stays clickable. */
             const entry =
               PAPER_PAGES[(p.slug || "").trim() || slugify(p.title)] || null;
-            const pdf = entry ? entry.pdf : "";
-            const page = entry ? entry.page : "";
+            const pdf = entry ? entry.pdf : safeUrl(p.pdf_url);
+            const page = entry ? entry.page : safeUrl(p.pdf_url);
             const note = p.note
               ? noteUrl
                 ? `<a class="paper-note" href="${esc(
