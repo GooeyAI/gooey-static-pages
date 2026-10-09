@@ -57,7 +57,7 @@
       :root {
         --gy-ink: rgb(10, 16, 33);
         --gy-ink-muted: rgb(75, 88, 122);
-        --gy-ink-soft: rgb(137, 148, 177);
+        --gy-ink-soft: rgb(90, 98, 117);
         --gy-ink-meta: rgb(99, 99, 99);
         --gy-white: #fff;
         --gy-bg: rgb(255, 254, 253);
@@ -68,7 +68,7 @@
         --gy-line: rgb(217, 217, 217);
         --gy-line-soft: rgb(230, 230, 230);
         --gy-line-strong: rgb(185, 185, 185);
-        --gy-orange: rgb(0, 153, 138);
+        --gy-teal-700: rgb(0, 153, 138);
         --gy-green: rgb(34, 167, 93);
         --gy-red: rgb(220, 53, 69);
         --gy-blue: rgb(120, 158, 214);
@@ -87,10 +87,8 @@
         --c-ink: #0a1021;
         --c-blue: #789ed6;
         --c-blue2: #8eb4e8;
-        --c-orange: #00998a;
-        --c-green: #22a75d;
+        --c-teal: #00998a;
         --c-purple: #c59be8;
-        --c-red: #dc3545;
         --c-bluesoft: #b8d4ee;
         --c-gray: #b0aea5;
         --c-deep: #5e7bb0;
@@ -120,6 +118,32 @@
         color: var(--gy-ink);
         text-underline-offset: 2px;
       }
+      a:focus-visible,
+      button:focus-visible,
+      [tabindex]:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -48px;
+        z-index: 100;
+        padding: 8px 16px;
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus-visible {
+        top: 8px;
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
 
       /* progress + header */
       .progress {
@@ -135,7 +159,7 @@
         display: block;
         height: 100%;
         width: 0;
-        background: var(--gy-orange);
+        background: var(--gy-teal-700);
         transition: width 90ms linear;
       }
       .site-header {
@@ -429,7 +453,7 @@
         border: 1px solid var(--gy-line-soft);
       }
       .dataset-trio-item figcaption {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--gy-ink-meta);
         text-align: center;
         line-height: 1.4;
@@ -449,7 +473,7 @@
         min-width: 0;
       }
       .culture-stack-item figcaption {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--gy-ink-meta);
         text-align: center;
         line-height: 1.4;
@@ -499,7 +523,7 @@
         position: absolute;
         top: -2px;
         left: 0;
-        font-size: 10.5px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -551,7 +575,7 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-size: 11.5px;
+        font-size: 12px;
         color: var(--gy-ink-muted);
         cursor: pointer;
         user-select: none;
@@ -577,12 +601,12 @@
       }
       text.tick {
         fill: var(--gy-ink-soft);
-        font-size: 11px;
+        font-size: 12px;
         font-family: var(--gy-font-sans);
       }
       text.axlbl {
         fill: var(--gy-ink-muted);
-        font-size: 11.5px;
+        font-size: 12px;
         font-weight: 600;
         font-family: var(--gy-font-sans);
       }
@@ -685,11 +709,11 @@
         margin-bottom: 4px;
       }
       .gem-cat {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--gy-orange);
+        color: var(--gy-teal-700);
         text-align: center;
       }
 
@@ -715,11 +739,11 @@
         display: inline-flex;
         align-items: center;
         gap: 9px;
-        font-size: 11.5px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: var(--gy-orange);
+        color: var(--gy-teal-700);
         margin-bottom: 16px;
       }
       .step-eyebrow .n {
@@ -763,7 +787,7 @@
       .step .pull {
         margin: 6px 0 0;
         padding: 4px 0 4px 22px;
-        border-left: 3px solid var(--gy-orange);
+        border-left: 3px solid var(--gy-teal-700);
       }
       .step .pull p {
         font-family: var(--gy-font-serif);
@@ -970,7 +994,7 @@
       .step .goal-n {
         font-size: 12px;
         font-weight: 700;
-        color: var(--gy-orange);
+        color: var(--gy-teal-700);
         letter-spacing: 0.06em;
         margin-top: 22px;
       }
@@ -1015,7 +1039,7 @@
         gap: 6px;
       }
       .lever-grid .lg-card i {
-        color: var(--gy-orange);
+        color: var(--gy-teal-700);
         font-size: 16px;
         line-height: 1;
       }
@@ -1250,7 +1274,7 @@
         margin-top: 12px;
       }
       .hscroll-track-inline:focus {
-        outline: 2px solid var(--gy-orange);
+        outline: 2px solid var(--gy-teal-700);
         outline-offset: 4px;
       }
       .hcard {
@@ -1291,7 +1315,7 @@
         right: 0;
         bottom: 0;
         padding: 8px 12px;
-        font-size: 11px;
+        font-size: 12px;
         line-height: 1.45;
         text-align: center;
         background: rgba(10, 16, 33, 0.88);
@@ -1311,7 +1335,7 @@
         text-underline-offset: 2px;
       }
       .hcard-cite a:hover {
-        color: var(--gy-orange);
+        color: var(--gy-teal-700);
       }
       .hcard h3 {
         font-family: var(--gy-font-serif);
@@ -1554,7 +1578,7 @@
           max-width: none;
         }
         .mobile-flow .inline-vis .figlayer figcaption {
-          font-size: 11px;
+          font-size: 12px;
         }
         .col-text {
           max-width: none;
@@ -1627,6 +1651,9 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
         .figlayer {
           transition: none;
         }
@@ -1752,6 +1779,7 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="progress"><i id="progbar"></i></div>
     <header class="site-header" id="siteHeader">
       <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
@@ -1760,6 +1788,7 @@
       <span class="h-title">How Middle Powers Cooperate for AI Sovereignty</span>
       <a class="login-btn" href="https://gooey.ai/login/">Login</a>
     </header>
+    <main id="main">
 
     <!-- ===================== HERO ===================== -->
     <header class="hero" id="top">
@@ -2408,7 +2437,7 @@
           <span class="step-eyebrow"
             ><span class="n">Lever 02</span> Publish Datasets</span
           >
-          <h2>Publish Representative Datasets</h2>
+          <h2>Publish representative datasets</h2>
           <p>
             All AI models are reflections of their training datasets. AI model
             makers trained their models on
@@ -2720,7 +2749,7 @@
           </p>
           <div class="step-text-cols-grid">
             <div class="step-text-cols-col">
-              <h4>The United States</h4>
+              <h3>The United States</h3>
               <p>
                 The US (and its BigTech giants that now make up more than
                 <a
@@ -2761,7 +2790,7 @@
               </p>
             </div>
             <div class="step-text-cols-col">
-              <h4>China</h4>
+              <h3>China</h3>
               <p>
                 China leads the world in manufacturing, has the 2nd best compute
                 resources and strategically wants to disrupt US AI with open-source,
@@ -2781,7 +2810,7 @@
                 are currently creating the world's most intelligent AI models that
                 can be deployed in sovereign data centers.
               </p>
-              <h4>Middle powers</h4>
+              <h3>Middle powers</h3>
               <p>
                 Middle powers on the upper end of the AI spectrum — India, the UK,
                 the EU, Korea — are attempting to create their own LLMs but none
@@ -3314,24 +3343,24 @@
             <div class="lever-grid" aria-label="Four levers for AI sovereignty">
               <article class="lg-card">
                 <i class="fa-regular fa-ruler"></i>
-                <h5>Shape Benchmarks</h5>
+                <h3>Shape benchmarks</h3>
                 <p>around each country’s languages and domain-specific needs.</p>
               </article>
               <article class="lg-card">
                 <i class="fa-regular fa-database"></i>
-                <h5>Publish Datasets</h5>
+                <h3>Publish datasets</h3>
                 <p>
                   that make underrepresented cultures visible and drive the next wave of productivity for everyone.
                 </p>
               </article>
               <article class="lg-card">
                 <i class="fa-regular fa-microchip"></i>
-                <h5>Commoditize Models</h5>
+                <h3>Commoditize models</h3>
                 <p>through standards, abstraction, local deployability & swappability.</p>
               </article>
               <article class="lg-card">
                 <i class="fa-regular fa-diagram-project"></i>
-                <h5>Spread impactful AI recipes</h5>
+                <h3>Spread impactful AI recipes</h3>
                 <p>that every nation can adapt.</p>
               </article>
             </div>
@@ -3385,7 +3414,7 @@
             style="
               font-family: var(--gy-font-serif);
               font-size: 22px;
-              color: var(--gy-orange);
+              color: var(--gy-teal-700);
             "
           >
             That is the sovereignty worth building.
@@ -3404,10 +3433,11 @@
       </div>
     </div>
     <!-- ===================== FOOTER ===================== -->
+    </main>
     <footer class="site-footer">
       <div class="wrap">
         <div class="ack">
-          <h4>Acknowledgements &amp; thanks to</h4>
+          <h3>Acknowledgements &amp; thanks to</h3>
           <ul>
             <li>
               <b>Rishita Chaudhary, Isha Singh, <a href="https://devxpy.com/">Dev Aggarwal</a></b> — Gooey.AI
@@ -3418,7 +3448,7 @@
           </ul>
         
           <div class="refs">
-            <h4>References</h4>
+            <h3>References</h3>
             <ol class="ref-list">
               <li>
                 Caulfield, B. (2024, February 12). NVIDIA CEO: Every country
@@ -3609,7 +3639,7 @@
         ink: "#0A1021",
         blue: "#789ED6",
         blue2: "#8EB4E8",
-        orange: "#00998A",
+        teal: "#00998A",
         green: "#22A75D",
         purple: "#C59BE8",
         red: "#DC3545",
@@ -4251,7 +4281,7 @@
         },
         {
           n: "India",
-          c: PALETTE.orange,
+          c: PALETTE.teal,
           on: true,
           d: [4.0, 4.3, 4.7, 5.2, 5.8, 6.4, 6.9, 7.4, 7.8, 8.1, 8.4],
         },
@@ -4281,7 +4311,7 @@
         },
       ];
       const CLAUDE_COLS = [
-        { k: "op48", label: "Opus 4.8", hl: true, c: PALETTE.orange },
+        { k: "op48", label: "Opus 4.8", hl: true, c: PALETTE.teal },
         { k: "op47", label: "Opus 4.7", c: PALETTE.blue2 },
         { k: "gpt55", label: "GPT-5.5", c: PALETTE.green },
         { k: "gem31", label: "Gemini 3.1 Pro", c: PALETTE.blue },
@@ -4365,7 +4395,7 @@
         const px = (v) => m.l + ((v - x0) / (x1 - x0)) * (W - m.l - m.r);
         const py = (v) => H - m.b - ((v - y0) / (y1 - y0)) * (H - m.t - m.b);
         let s = `<rect x="${px(2026)}" y="${m.t}" width="${px(x1) - px(2026)}" height="${H - m.t - m.b}" fill="rgba(0,153,138,0.05)"/>`;
-        s += `<text class="tick" x="${px(2027.4)}" y="${m.t + 14}" text-anchor="middle" fill="${PALETTE.orange}" style="font-weight:600">Future plans →</text>`;
+        s += `<text class="tick" x="${px(2027.4)}" y="${m.t + 14}" text-anchor="middle" fill="${PALETTE.teal}" style="font-weight:600">Future plans →</text>`;
         for (let v = 0; v <= 100; v += 25) {
           const y = py(v);
           s += `<line x1="${m.l}" y1="${y}" x2="${W - m.r}" y2="${y}" stroke="var(--gy-line-soft)"/><text class="tick" x="${m.l - 8}" y="${y + 4}" text-anchor="end">$${v}B</text>`;
@@ -4724,7 +4754,7 @@
             const bx = cx - bw / 2;
             const by = cy + logoR + 6;
             s += `<rect x="${bx}" y="${by}" width="${bw}" height="22" rx="11" fill="#E8F6F4" stroke="#99D5CC" stroke-width="1"/>`;
-            s += `<text x="${bx + badgePadL}" y="${by + 15}" style="font-size:13.5px;font-weight:600;fill:var(--gy-orange)">${badgeLabel}</text>`;
+            s += `<text x="${bx + badgePadL}" y="${by + 15}" style="font-size:13.5px;font-weight:600;fill:var(--gy-teal-700)">${badgeLabel}</text>`;
           }
           s += `</g>`;
         });
@@ -4737,7 +4767,7 @@
               `<b>${d.label}</b><div class="tt-row"><span class="tt-k">Accuracy</span><span>${d.accuracy.toFixed(2)}</span></div><div class="tt-row"><span class="tt-k">Latency</span><span>${d.latency.toFixed(2)}</span></div>`,
               e,
             );
-            g.querySelector(".dot-box")?.setAttribute("stroke", "var(--gy-orange)");
+            g.querySelector(".dot-box")?.setAttribute("stroke", "var(--gy-teal-700)");
           });
           g.addEventListener("mousemove", moveTip);
           g.addEventListener("mouseleave", () => {
@@ -4766,7 +4796,7 @@
           const gy = m.t + gi * gh;
           const isElo = row.unit === "elo";
           s += `<text x="0" y="${gy + 13}" style="font-size:12.5px;font-weight:600;fill:var(--gy-ink)">${row.bench}</text>`;
-          s += `<text x="0" y="${gy + 27}" style="font-size:10.5px;fill:var(--gy-ink-soft)">${row.set}</text>`;
+          s += `<text x="0" y="${gy + 27}" style="font-size:12px;fill:var(--gy-ink-soft)">${row.set}</text>`;
           CLAUDE_COLS.forEach((col, ci) => {
             const raw = row.v[col.k];
             const norm = isElo ? raw / eloMax : raw / 100;
@@ -4774,7 +4804,7 @@
             const by = gy + 34 + ci * ((gh - 40) / 4);
             const bh = (gh - 40) / 4 - 3;
             s += `<rect class="barseg" data-g="${gi}" data-c="${ci}" x="120" y="${by}" width="${w}" height="${bh}" rx="2.5" fill="${col.c}" fill-opacity="${col.hl ? 0.95 : 0.8}"/>`;
-            s += `<text x="${120 + w + 5}" y="${by + bh - 1}" style="font-size:10px;font-weight:${col.hl ? 700 : 400};fill:var(--gy-ink)">${isElo ? raw : raw + "%"}</text>`;
+            s += `<text x="${120 + w + 5}" y="${by + bh - 1}" style="font-size:12px;font-weight:${col.hl ? 700 : 400};fill:var(--gy-ink)">${isElo ? raw : raw + "%"}</text>`;
           });
         });
         svg.innerHTML = s;
