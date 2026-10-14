@@ -24,6 +24,7 @@ PAGES = {
     "sovereignty/index.html": "How Middle Powers Cooperate for AI Sovereignty",
     "research/index.html": "Gooey.AI Research",
     "ecocost/index.html": "EcoCost",
+    "lokalibrary/index.html": "LokaLibrary",
 }
 
 HEADER_CSS = """      .site-header {

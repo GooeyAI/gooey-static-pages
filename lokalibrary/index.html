@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <title>LokaLibrary — Where Communities Shape Intelligence — Gooey.AI</title>
+    <meta
+      name="description"
+      content="From cataloguing books to curating data — librarians lead India's AI literacy movement."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="LokaLibrary — Where Communities Shape Intelligence — Gooey.AI"
+    />
+    <meta
+      property="og:description"
+      content="From cataloguing books to curating data — librarians lead India's AI literacy movement."
+    />
+    <meta property="og:url" content="https://gooey.ai/lokalibrary/" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="LokaLibrary — Where Communities Shape Intelligence — Gooey.AI"
+    />
+    <meta
+      name="twitter:description"
+      content="From cataloguing books to curating data — librarians lead India's AI literacy movement."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/8af9787bd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* Tokens lifted from the Gooey.AI design system (colors_and_type.css) */
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-soft: rgb(90, 98, 117);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: rgb(255, 255, 255);
+        --gy-surface-50: rgb(251, 250, 248);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-surface-200: rgb(241, 238, 234);
+        --gy-surface-300: rgb(235, 231, 226);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-line-strong: rgb(185, 185, 185);
+        --gy-teal-700: #00998a;
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+        /* the design's container rhythm */
+        --pad-x: clamp(20px, 4vw, 60px);
+        --pad-y: clamp(40px, 5vw, 60px);
+        --maxw: 1320px;
+        --site-header-h: 60px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--gy-white);
+        color: var(--gy-ink);
+        font-family: var(--gy-font-sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+      }
+      a {
+        color: var(--gy-ink);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      [tabindex]:focus-visible {
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -48px;
+        z-index: 100;
+        padding: 8px 16px;
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus-visible {
+        top: 8px;
+        outline: 2px solid var(--gy-teal-700);
+        outline-offset: 2px;
+      }
+      .hero-lede a,
+      .prose a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      /* ---------- reading progress ---------- */
+      .progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        z-index: 60;
+        background: transparent;
+      }
+      .progress > i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--gy-teal-700);
+        transition: width 90ms linear;
+      }
+
+      /* ---------- site header (page chrome, not part of the artboard) ---------- */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+
+      /* ---------- layout ---------- */
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: var(--pad-y) var(--pad-x);
+      }
+      section {
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      h2.sec-title {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(26px, 3.4vw, 32px);
+        line-height: 110%;
+        margin: 0 0 clamp(20px, 2.6vw, 28px);
+      }
+
+      /* ---------- brandmark title ---------- */
+      .brandmark-title {
+        margin: 0 0 20px;
+      }
+      .brandmark-title img {
+        display: block;
+        height: clamp(88px, 14vw, 150px);
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: calc(var(--site-header-h) + clamp(48px, 7vw, 80px)) var(--pad-x)
+          clamp(40px, 5vw, 60px);
+      }
+      .hero .tag {
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--gy-teal-700);
+        margin-bottom: 18px;
+      }
+      .hero-dek {
+        font-family: var(--gy-font-serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(19px, 2vw, 22px);
+        line-height: 140%;
+        color: var(--gy-ink-muted);
+        margin: 0 0 18px;
+        max-width: 52ch;
+        text-wrap: pretty;
+      }
+      .hero-lede {
+        margin: 0;
+        font-size: clamp(16px, 1.4vw, 17px);
+        line-height: 160%;
+        color: var(--gy-ink);
+        max-width: 68ch;
+        text-wrap: pretty;
+      }
+
+      /* ---------- prose ---------- */
+      .prose {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        font-size: 16px;
+        line-height: 150%;
+        max-width: 70ch;
+      }
+      .prose p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+      .prose.muted {
+        color: var(--gy-ink-muted);
+      }
+      .prose.wide {
+        max-width: 100ch;
+      }
+
+      /* ---------- overview grid + gallery ---------- */
+      .overview-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: clamp(24px, 3vw, 40px);
+        align-items: start;
+      }
+      .gallery {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        margin: 0;
+      }
+      .gallery figure {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      .gallery figcaption {
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--gy-ink-meta);
+      }
+      @media (max-width: 900px) {
+        .overview-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery img {
+          height: 260px;
+        }
+      }
+      /* ---------- aims list ---------- */
+      .aims {
+        margin: 16px 0 0;
+        padding-left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+        max-width: 70ch;
+      }
+
+      /* ---------- pills ---------- */
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 32px;
+        border: 1px solid var(--gy-line);
+        color: var(--gy-ink-muted);
+        background: var(--gy-surface-50);
+      }
+
+      /* ---------- stat band ---------- */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: clamp(16px, 2vw, 20px);
+        margin-top: 28px;
+      }
+      .stats > div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 18px 20px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+        background: var(--gy-surface-50);
+      }
+      .stats .k {
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+      .stats b {
+        font-size: clamp(24px, 2.6vw, 30px);
+        font-weight: 600;
+        line-height: 120%;
+      }
+      .stats > div:first-child b {
+        color: var(--gy-teal-700);
+      }
+      .stats small {
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+
+      /* ---------- cards (aims / partners / outputs) ---------- */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: clamp(16px, 2vw, 20px);
+        margin-top: 8px;
+      }
+      .cards > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 22px;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 16px;
+      }
+      .cards .ic {
+        font-size: 24px;
+        color: var(--gy-teal-700);
+        line-height: 1;
+      }
+      .cards h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        margin: 0;
+      }
+      .cards p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 150%;
+        color: var(--gy-ink-muted);
+        text-wrap: pretty;
+      }
+      .cards img.plogo {
+        height: 56px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        align-self: flex-start;
+      }
+      .cards .bignum {
+        font-family: var(--gy-font-serif);
+        font-size: clamp(28px, 3vw, 34px);
+        line-height: 110%;
+        color: var(--gy-teal-700);
+      }
+
+      /* ---------- steps ---------- */
+      ol.steps {
+        list-style: none;
+        margin: 28px 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      ol.steps > li {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: clamp(12px, 3vw, 24px);
+        padding: 28px 0;
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      ol.steps > li:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+      .step-n {
+        font-family: var(--gy-font-serif);
+        font-size: 22px;
+        color: var(--gy-teal-700);
+      }
+      .steps h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 19px;
+        margin: 0 0 8px;
+      }
+      .steps p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 155%;
+        color: var(--gy-ink-muted);
+        text-wrap: pretty;
+      }
+
+      /* ---------- get involved / CTA ---------- */
+      .cta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 28px;
+        max-width: 840px;
+      }
+      .cta-card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 28px;
+        border-radius: 20px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      .cta-card.primary {
+        background: var(--gy-ink);
+        border-color: var(--gy-ink);
+      }
+      .cta-card .ic {
+        font-size: 22px;
+        color: var(--gy-teal-700);
+      }
+      .cta-card.primary .ic {
+        color: #7fe7db;
+      }
+      .cta-card h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 19px;
+        margin: 4px 0 0;
+      }
+      .cta-card.primary h3 {
+        color: var(--gy-white);
+      }
+      .cta-card p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 155%;
+        color: var(--gy-ink-muted);
+      }
+      .cta-card.primary p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        align-self: flex-start;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 32px;
+        background: var(--gy-ink);
+        color: #fff;
+        margin-top: 6px;
+      }
+      .cta-btn:hover {
+        text-decoration: none;
+        opacity: 0.88;
+      }
+
+      /* ---------- footer ---------- */
+      .site-footer .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        padding: 28px var(--pad-x);
+        background: var(--gy-surface-50);
+      }
+      .site-footer .flogo {
+        height: 20px;
+        width: auto;
+        opacity: 0.85;
+      }
+      .site-footer small {
+        font-size: 13px;
+        color: var(--gy-ink-meta);
+      }
+      .site-footer a {
+        color: var(--gy-ink-muted);
+      }
+
+      /* ---------- scroll reveal ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 640px) {
+        ol.steps > li {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="progress"><i id="progbar"></i></div>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">LokaLibrary</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+    <main id="main">
+      <!-- hero -->
+      <header class="hero" id="top">
+        <h1 class="brandmark-title">
+          <img
+            src="images/lokalibrary-brandmark.png"
+            alt="LokaLibrary"
+          />
+        </h1>
+        <p class="hero-lede">
+          LokaLibrary positions Karnataka&rsquo;s librarians as cultural data
+          stewards in the age of AI, bridging public knowledge, technology,
+          and community identity.
+        </p>
+        <ul class="pills">
+          <li class="pill">Participatory AI</li>
+          <li class="pill">AI Literacy</li>
+          <li class="pill">Kannada &amp; multilingual</li>
+          <li class="pill">Culturally grounded datasets</li>
+          <li class="pill">Libraries as living labs</li>
+        </ul>
+        <div class="stats">
+          <div>
+            <span class="k">Librarians</span>
+            <b>19,000+</b>
+            <small>across 8,000+ libraries in Karnataka</small>
+          </div>
+          <div>
+            <span class="k">Pilot fellows</span>
+            <b>31</b>
+            <small>Fellows across districts, 3-month pilot</small>
+          </div>
+          <div>
+            <span class="k">Commitment</span>
+            <b>10 hrs / week</b>
+            <small>workshops, learning &amp; assignments</small>
+          </div>
+          <div>
+            <span class="k">Outputs</span>
+            <b>10 datasets</b>
+            <small>plus 5 short films &amp; a public showcase</small>
+          </div>
+        </div>
+      </header>
+
+      <!-- overview -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Overview</h2>
+          <div class="overview-grid">
+            <div>
+              <div class="prose muted">
+                <p>
+                  Karnataka's 8,000+ libraries and 19,000+ librarians serve as
+              knowledge mediators
+                  between diverse communities and digital information ecosystems,
+                  from village panchayat libraries to city public archives.
+                </p>
+                <p>
+                  As AI reshapes access to information, this group stands at the
+                  frontline of digital inclusion, yet most lack a conceptual or
+                  practical understanding of AI and Generative AI tools. This
+                  initiative aims to:
+                </p>
+              </div>
+              <ul class="aims">
+                <li>
+                  Demystify AI for librarians, enabling them to act as trusted
+                  interpreters for their communities.
+                </li>
+                <li>
+                  Localise AI literacy through Kannada and regional contexts.
+                </li>
+                <li>
+                  Engage librarians to co-create culturally grounded datasets that
+                  reflect local knowledge, imagery, and narratives — helping
+                  "teach" AI about Karnataka's diversity.
+                </li>
+              </ul>
+            </div>
+            <div class="gallery" aria-label="LokaLibrary in the field">
+              <figure>
+                <img
+                  src="images/overview-1.jpg"
+                  alt="Illustrated Karnataka birds — roller, hornbill, peacock, egret and kingfisher"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="images/overview-2.jpg"
+                  alt="Community bird field-guide plate — roller, peacock, hornbill, kingfisher and bulbul"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="images/overview-library.jpg"
+                  alt="Librarians and community members co-creating a bird field guide in a library"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- partners -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Partners</h2>
+          <div class="cards">
+            <div>
+              <img
+                class="plogo"
+                src="images/karnataka-emblem.svg"
+                alt="Emblem of Karnataka"
+              />
+              <h3>
+                Rural Development and Panchayat Raj Department, Government of
+                Karnataka
+              </h3>
+            </div>
+            <div>
+              <img
+                class="plogo"
+                src="images/goethe-institut.svg"
+                alt="Goethe-Institut"
+              />
+              <h3>Goethe-Institut India</h3>
+            </div>
+            <div>
+              <img
+                class="plogo"
+                src="assets/gooey-logo.png"
+                alt="Gooey.AI"
+              />
+              <h3>Gooey.AI</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- key aspects -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Key aspects</h2>
+          <div class="prose muted">
+            <p>
+              Unlike generic digital literacy efforts, the program fuses AI
+              toolmaking, open-data ethics, and cultural participation into one
+              integrated framework — delivered bilingually through
+              Gooey.AI&rsquo;s participatory workflows.
+            </p>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-n">01</span>
+              <div>
+                <h3>Participatory design process</h3>
+                <p>
+                  A co-created approach beginning with a working roundtable
+                  that brings together partners and community representatives
+                  to shape the fellowship around real needs and aspirations.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">02</span>
+              <div>
+                <h3>Inclusive AI platform</h3>
+                <p>
+                  Gooey.AI provides low-code, multilingual generative AI
+                  storytelling tools tailored for accessibility, enabling
+                  participants to create and publish content in their own
+                  languages and cultural contexts.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">03</span>
+              <div>
+                <h3>Anchored cultural collaboration</h3>
+                <p>
+                  Combines international cultural exchange and educational
+                  expertise to situate local voices within global conversations
+                  on AI literacy and future-proofing librarians.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">04</span>
+              <div>
+                <h3>Field-grounded expertise</h3>
+                <p>
+                  Leverages networks of rural and peri-urban storytellers and
+                  community journalists to ensure the program remains
+                  authentic, relevant, and socially rooted.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">05</span>
+              <div>
+                <h3>Evidence-driven pilot</h3>
+                <p>
+                  Builds on Jaaga&rsquo;s experience from the AI Futures
+                  Fellowship for Women to scale a tailored version of the
+                  program to this group.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">06</span>
+              <div>
+                <h3>Multilingual storytelling capability</h3>
+                <p>
+                  Integrates AI tools that support creation in Kannada,
+                  addressing linguistic bias and expanding digital inclusion.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span class="step-n">07</span>
+              <div>
+                <h3>Scalable fellowship model</h3>
+                <p>
+                  Designed for replication across geographies and communities,
+                  creating a blueprint for inclusive, community-led AI
+                  education and creative expression.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- vision -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Our vision</h2>
+          <div class="prose muted wide">
+            <p>
+              This initiative uniquely positions Karnataka's librarians as
+              cultural data stewards in the age of AI, bridging public
+              knowledge, technology, and community identity. Unlike generic
+              digital literacy efforts, it fuses AI toolmaking, open-data
+              ethics, and cultural participation into one integrated framework.
+              Delivered bilingually through Gooey.AI's participatory
+              workflows, the program empowers librarians to not only
+              understand AI but to shape it, curating datasets that reflect
+              Karnataka's languages, imagery, and heritage.
+            </p>
+            <p>
+              The vision is to transform libraries into living laboratories of
+              inclusive innovation, where citizens encounter AI as something
+              they can question, train, and trust. By teaching AI to see
+              Karnataka through its libraries, the project models how public
+              institutions can lead in building ethical, locally grounded, and
+              globally resonant AI ecosystems, a blueprint for participatory
+              AI emerging from the Global South
+            </p>
+            <p>
+              Working with librarians as co-designers, we will develop
+              local community created bird field-guides that document local bird species
+              through naming, observation, description, and collective
+              knowledge gathering. Librarians will facilitate participatory
+              processes within their communities, creating place-based guides
+              that foreground local perspectives and knowledge systems and
+              offer alternatives to more conventionally colonial approaches
+              to natural history documentation. Each participating library
+              will contribute pages to a community-fuelled guide of birds
+              across Karnataka, collectively creating a rich, plural, and
+              regionally grounded record of avian life.
+            </p>
+            <p>
+              Building on these field-guides, librarians and their communities
+              will explore how birds live within local stories, literature,
+              and folk art traditions. From the pages they create, librarians
+              will selectively develop fantastical animated birds, reimagining
+              species through local narratives, legends, and heroes. Each
+              librarian will then be invited to create a short looped video
+              clip that brings these interpretations to life, interweaving
+              folk representations of birds with observations and footage of
+              the birds themselves. The programme and its outcomes will be
+              co-developed with participating librarians, ensuring that both
+              process and outputs emerge from local contexts and community
+              knowledge.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- timeline & outputs -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Timeline &amp; outputs</h2>
+          <div class="prose muted">
+            <p>
+              A 3-month pilot program with 31 Fellows across
+              districts — combining online AI foundations, workshops, hands-on
+              assignments, and the development of the Beyond Bias AI Library
+              of Commons. Librarians can expect to dedicate approximately 10
+              hours per week to workshops, learning activities, and
+              assignments throughout the program.
+            </p>
+          </div>
+          <div class="cards" style="margin-top: 24px">
+            <div>
+              <span class="bignum">31</span>
+              <h3>Fellows</h3>
+            </div>
+            <div>
+              <span class="bignum">10</span>
+              <h3>Unique datasets</h3>
+            </div>
+            <div>
+              <span class="bignum">5</span>
+              <h3>Short films</h3>
+            </div>
+            <div>
+              <i class="ic fa-regular fa-books" aria-hidden="true"></i>
+              <h3>AI Library of Commons</h3>
+              <p>Open repository of community-created datasets and works.</p>
+            </div>
+            <div>
+              <i class="ic fa-regular fa-monitor-waveform" aria-hidden="true"></i>
+              <h3>Public online showcase</h3>
+              <p>Celebrating the fellows&rsquo; work and the commons.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- get involved -->
+      <section class="reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Get involved</h2>
+          <div class="cta-grid">
+            <div class="cta-card primary">
+              <i class="ic fa-regular fa-envelope" aria-hidden="true"></i>
+              <h3>Email us</h3>
+              <p>Tell us how you&rsquo;d like to contribute, or ask a question.</p>
+              <a
+                class="cta-btn"
+                href="mailto:research@gooey.ai?subject=LokaLibrary%20%E2%80%94%20I%27d%20like%20to%20get%20involved"
+                >research@gooey.ai</a
+              >
+            </div>
+            <div class="cta-card primary">
+              <i class="ic fa-regular fa-compass" aria-hidden="true"></i>
+              <h3>Explore Gooey.AI</h3>
+              <p>
+                Try the low-code, multilingual AI tools the fellows use to
+                create and publish in their own languages.
+              </p>
+              <a class="cta-btn" href="https://gooey.ai/">Gooey.AI</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+          <img class="flogo" src="assets/gooey-wordmark.png" alt="Gooey.AI" />
+        </a>
+        <small
+          >A Beyond Bias initiative from
+          <a href="https://gooey.ai/">Gooey.AI</a>. Get in touch at
+          <a href="mailto:research@gooey.ai">research@gooey.ai</a>.</small
+        >
+      </div>
+    </footer>
+
+    <script>
+      // Replace the Login button with the logged-in user's name, if any.
+      (function () {
+        try {
+          var loginBtn = document.querySelector(".login-btn");
+          var name =
+            window.gooeyUser && window.gooeyUser.name
+              ? window.gooeyUser.name
+              : null;
+          if (loginBtn && name) loginBtn.textContent = name;
+        } catch (e) {}
+      })();
+
+      // Fade the header title in once the hero has scrolled past.
+      (function () {
+        var header = document.getElementById("siteHeader");
+        if (!header) return;
+        var onScroll = function () {
+          header.classList.toggle("scrolled", window.scrollY > 220);
+        };
+        addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      // Reading progress bar.
+      (function () {
+        var bar = document.getElementById("progbar");
+        if (!bar) return;
+        var onScroll = function () {
+          var h = document.documentElement;
+          var max = h.scrollHeight - h.clientHeight;
+          bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+        };
+        addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      // Fade sections in as they scroll into view.
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window) || !els.length) {
+          els.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
