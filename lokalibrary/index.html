@@ -303,6 +303,50 @@
         color: var(--gy-ink-muted);
       }
 
+      /* ---------- overview grid + gallery ---------- */
+      .overview-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        gap: clamp(24px, 3vw, 40px);
+        align-items: start;
+      }
+      .gallery {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        margin: 0;
+      }
+      .gallery figure {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+        border: 1px solid var(--gy-line-soft);
+      }
+      .gallery figcaption {
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--gy-ink-meta);
+      }
+      @media (max-width: 900px) {
+        .overview-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery img {
+          height: 260px;
+        }
+      }
       /* ---------- aims list ---------- */
       .aims {
         margin: 16px 0 0;
@@ -631,33 +675,57 @@
       <section class="reveal">
         <div class="wrap">
           <h2 class="sec-title">Overview</h2>
-          <div class="prose muted">
-            <p>
-              Karnataka's 5,000+ librarians serve as knowledge mediators
-              between diverse communities and digital information ecosystems,
-              from village panchayat libraries to city public archives.
-            </p>
-            <p>
-              As AI reshapes access to information, this group stands at the
-              frontline of digital inclusion, yet most lack a conceptual or
-              practical understanding of AI and Generative AI tools. This
-              initiative aims to:
-            </p>
+          <div class="overview-grid">
+            <div>
+              <div class="prose muted">
+                <p>
+                  Karnataka's 5,000+ librarians serve as knowledge mediators
+                  between diverse communities and digital information ecosystems,
+                  from village panchayat libraries to city public archives.
+                </p>
+                <p>
+                  As AI reshapes access to information, this group stands at the
+                  frontline of digital inclusion, yet most lack a conceptual or
+                  practical understanding of AI and Generative AI tools. This
+                  initiative aims to:
+                </p>
+              </div>
+              <ul class="aims">
+                <li>
+                  Demystify AI for librarians, enabling them to act as trusted
+                  interpreters for their communities.
+                </li>
+                <li>
+                  Localise AI literacy through Kannada and regional contexts.
+                </li>
+                <li>
+                  Engage librarians to co-create culturally grounded datasets that
+                  reflect local knowledge, imagery, and narratives — helping
+                  "teach" AI about Karnataka's diversity.
+                </li>
+              </ul>
+            </div>
+            <div class="gallery" aria-label="LokaLibrary in the field">
+              <figure>
+                <img
+                  src="images/overview-1.jpg"
+                  alt="Illustrated Karnataka birds — roller, hornbill, peacock, egret and kingfisher"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="images/overview-2.jpg"
+                  alt="Community bird field-guide plate — roller, peacock, hornbill, kingfisher and bulbul"
+                />
+              </figure>
+              <figure>
+                <img
+                  src="images/overview-3.jpg"
+                  alt="Librarians and community members co-creating a bird field guide in a library"
+                />
+              </figure>
+            </div>
           </div>
-          <ul class="aims">
-            <li>
-              Demystify AI for librarians, enabling them to act as trusted
-              interpreters for their communities.
-            </li>
-            <li>
-              Localise AI literacy through Kannada and regional contexts.
-            </li>
-            <li>
-              Engage librarians to co-create culturally grounded datasets that
-              reflect local knowledge, imagery, and narratives — helping
-              "teach" AI about Karnataka's diversity.
-            </li>
-          </ul>
         </div>
       </section>
 
