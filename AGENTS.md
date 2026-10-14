@@ -6,11 +6,24 @@ Each top-level folder (`sovereignty/`, `research/`, `ecocost/`, ...) is one
 page, hand-written as a single self-contained `index.html`. There's no
 build step, no bundler, no JS framework — pages are edited directly.
 
-Two things have already gone wrong once in this repo and are easy to get
+Four things have already gone wrong once in this repo and are easy to get
 wrong again, so they're enforced by scripts instead of just written down
 here:
 
-## 1. Every page's links must be real
+## 1. Pull the latest changes before editing anything
+
+**Every agent must run `git pull --ff-only` before making any change in this
+repository, even for a small follow-up edit.** Do not read the current checkout
+and begin editing first. Check `git status`, preserve any existing user changes,
+then pull. If local changes prevent the pull, do not overwrite, reset, or discard
+them: preserve them safely (for example with a targeted stash), pull, restore
+them, and resolve any conflict without losing either side. If that cannot be
+done safely, stop and ask the user.
+
+The pull must happen during the current user task; do not assume a pull from an
+earlier session means the checkout is still current.
+
+## 2. Every page's links must be real
 
 A page must not ship with placeholder/dummy links (`href="#"`, an empty
 `href`, `javascript:void(0)`, an `example.com`/`test.com`-style stand-in
@@ -39,7 +52,31 @@ you have no network).
 This runs in CI on every PR (`.github/workflows/checks.yml`) — but run it
 yourself first, it's faster than waiting on CI.
 
-## 2. The header (logo + title + Login button) must look identical on every page
+## 3. A new page's Gooey URL must not clash with an existing route
+
+Creating a top-level folder does not guarantee that its matching Gooey URL is
+available. Gooey application routes — including profiles, workflows, and other
+pages — take precedence over the static-page proxy. For example, a new
+`lokalibrary/` folder cannot appear at `gooey.ai/lokalibrary` if that URL is
+already assigned to a profile.
+
+**Before opening a PR that adds or renames a top-level page**, run:
+
+```bash
+python3 scripts/check_route_clashes.py
+```
+
+The check requests every prospective `gooey.ai/<folder>` URL. It accepts a 404
+(the slug is free and the new page is not deployed yet) or a page already
+proxied to the matching folder in this repository. Any other successful page is
+an existing Gooey route and fails as a collision. Do not merge the static page
+until that existing route has been renamed or a different folder/URL slug has
+been chosen. Never infer that a route is free merely because its raw
+`gooey-static-pages.pages.dev` URL works.
+
+This runs in CI on every PR (`.github/workflows/checks.yml`).
+
+## 4. The header (logo + title + Login button) must look identical on every page
 
 It didn't, until this file existed: sovereignty, research, and ecocost each
 had their own slightly different header CSS (different position, button
@@ -71,7 +108,10 @@ This also runs in CI on every PR.
 
 ## Before opening a PR for a new or edited page
 
-1. `python3 scripts/check_links.py`
-2. `python3 scripts/check_site_header.py` (if the page has the shared header)
-3. Actually load the page in a browser and check it — these scripts catch
+1. Before making any change, run `git status` and `git pull --ff-only` as
+   described above.
+2. `python3 scripts/check_route_clashes.py`
+3. `python3 scripts/check_links.py`
+4. `python3 scripts/check_site_header.py` (if the page has the shared header)
+5. Actually load the page in a browser and check it — these scripts catch
    drift and dead links, not visual regressions.
