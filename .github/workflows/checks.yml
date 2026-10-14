@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+      - name: Check Gooey URL route clashes
+        run: python3 scripts/check_route_clashes.py
       - name: Check links (no dummy/placeholder/dead links)
         run: python3 scripts/check_links.py
       - name: Check header/button consistency across pages
