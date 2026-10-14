@@ -237,18 +237,40 @@
         margin: 0 0 clamp(20px, 2.6vw, 28px);
       }
 
-      /* ---------- brandmark ---------- */
-      .brandmark {
+      /* ---------- title row + tagline ---------- */
+      .title-row {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin: 0 0 20px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 0 0 16px;
+      }
+      .title-row h1 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(34px, 4.6vw, 52px);
+        line-height: 106%;
+        letter-spacing: -0.01em;
+        margin: 0;
+        text-wrap: pretty;
       }
       .brandmark-img {
-        height: clamp(72px, 11vw, 120px);
+        height: clamp(28px, 3.6vw, 40px);
         width: auto;
-        max-width: 100%;
-        align-self: flex-start;
+        max-width: 38%;
+        object-fit: contain;
+        flex: none;
+      }
+      .tagline {
+        font-family: var(--gy-font-serif);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(19px, 2vw, 22px);
+        line-height: 140%;
+        color: var(--gy-teal-700);
+        margin: 0 0 18px;
+        max-width: 52ch;
+        text-wrap: pretty;
       }
 
       /* ---------- hero ---------- */
@@ -267,16 +289,6 @@
         text-transform: uppercase;
         color: var(--gy-teal-700);
         margin-bottom: 18px;
-      }
-      .hero h1 {
-        font-family: var(--gy-font-serif);
-        font-weight: 400;
-        font-size: clamp(30px, 4vw, 44px);
-        line-height: 106%;
-        margin: 0 0 20px;
-        letter-spacing: -0.01em;
-        max-width: 18ch;
-        text-wrap: pretty;
       }
       .hero-dek {
         font-family: var(--gy-font-serif);
@@ -584,14 +596,15 @@
     <main id="main">
       <!-- hero -->
       <header class="hero" id="top">
-        <div class="brandmark">
+        <div class="title-row">
+          <h1>LokaLibrary</h1>
           <img
             class="brandmark-img"
             src="images/lokalibrary-brandmark.png"
-            alt="LokaLibrary — From Community Archives to Participatory AI"
+            alt="LokaLibrary logo"
           />
         </div>
-        <h1>Where Communities Shape Intelligence</h1>
+        <p class="tagline">Where Communities Shape Intelligence</p>
         <p class="hero-lede">
           LokaLibrary positions Karnataka&rsquo;s librarians as cultural data
           stewards in the age of AI, bridging public knowledge, technology,
