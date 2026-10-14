@@ -237,6 +237,20 @@
         margin: 0 0 clamp(20px, 2.6vw, 28px);
       }
 
+      /* ---------- brandmark ---------- */
+      .brandmark {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0 0 20px;
+      }
+      .brandmark-img {
+        height: clamp(72px, 11vw, 120px);
+        width: auto;
+        max-width: 100%;
+        align-self: flex-start;
+      }
+
       /* ---------- hero ---------- */
       .hero {
         max-width: var(--maxw);
@@ -388,6 +402,13 @@
         line-height: 150%;
         color: var(--gy-ink-muted);
         text-wrap: pretty;
+      }
+      .cards img.plogo {
+        height: 56px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        align-self: flex-start;
       }
       .cards .bignum {
         font-family: var(--gy-font-serif);
@@ -563,9 +584,14 @@
     <main id="main">
       <!-- hero -->
       <header class="hero" id="top">
-        <span class="tag">Gooey.AI · Beyond Bias</span>
-        <h1>LokaLibrary</h1>
-        <p class="hero-dek">Where Communities Shape Intelligence</p>
+        <div class="brandmark">
+          <img
+            class="brandmark-img"
+            src="images/lokalibrary-brandmark.png"
+            alt="LokaLibrary — From Community Archives to Participatory AI"
+          />
+        </div>
+        <h1>Where Communities Shape Intelligence</h1>
         <p class="hero-lede">
           From cataloguing books to curating data — librarians lead India&rsquo;s
           AI literacy movement. LokaLibrary.ai positions Karnataka&rsquo;s
@@ -652,12 +678,20 @@
           <h2 class="sec-title">Partners</h2>
           <div class="cards">
             <div>
-              <i class="ic fa-regular fa-landmark" aria-hidden="true"></i>
+              <img
+                class="plogo"
+                src="images/karnataka-emblem.svg"
+                alt="Emblem of Karnataka"
+              />
               <h3>Rural Development and Panchayat Raj Department</h3>
               <p>Government of Karnataka</p>
             </div>
             <div>
-              <i class="ic fa-regular fa-globe" aria-hidden="true"></i>
+              <img
+                class="plogo"
+                src="images/goethe-institut.svg"
+                alt="Goethe-Institut"
+              />
               <h3>Goethe-Institut India</h3>
               <p>
                 International cultural exchange and educational expertise,
@@ -666,7 +700,11 @@
               </p>
             </div>
             <div>
-              <i class="ic fa-regular fa-robot" aria-hidden="true"></i>
+              <img
+                class="plogo"
+                src="assets/gooey-logo.png"
+                alt="Gooey.AI"
+              />
               <h3>Gooey.AI</h3>
               <p>
                 Low-code, multilingual generative AI storytelling tools
