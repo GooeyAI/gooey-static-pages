@@ -433,7 +433,7 @@ PAPERS = [
                         "Crawford, K. (2021). *Atlas of AI: Power, politics, and the planetary costs of artificial intelligence.* Yale University Press. [yalebooks.yale.edu](https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/)",
                         "Hall, S. (1997). *Representation: Cultural representations and signifying practices.* Sage Publications.",
                         "Harrington, C., Erete, S., & Piper, A. M. (2019). Deconstructing community-based collaborative design: Towards more equitable participatory design engagements. *Proceedings of the ACM on Human-Computer Interaction*, 3(CSCW), 1–25. [dl.acm.org](https://dl.acm.org/doi/10.1145/3359318)",
-                        "Prasad, A., Singh, I., & Simmons, T. (2026). Beyond Bias: Participatory and reflective approaches to cultural AI. In *Proceedings of the First Reflection in Creative Experience (RiCE) Workshop (RiCE W1), ACM Creativity & Cognition 2026*, London, UK.",
+                        "Prasad, A., Singh, I., & Simmons, T. (2026). Beyond Bias: Participatory and reflective approaches to cultural AI. In *Proceedings of the First Reflection in Creative Experience (RiCE) Workshop (RiCE W1), ACM Creativity & Cognition 2026*, London, UK. [arxiv.org](https://arxiv.org/pdf/2609.05102)",
                         "Sanders, E. B.-N., & Stappers, P. J. (2008). Co-creation and the new landscapes of design. *CoDesign*, 4(1), 5–18. [doi.org/10.1080/15710880701875068](https://doi.org/10.1080/15710880701875068)",
                     ]),
                 ],
