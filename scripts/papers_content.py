@@ -353,7 +353,7 @@ PAPERS = [
                     ("p", "A related paper by the same authors examines Beyond Bias through participatory workshops, reflective AI tools, and cultural practice (Prasad et al., 2026). The two papers draw on the same initiative, workshop data and figures, and share some descriptive background text and framework dimensions. The present paper contributes the evaluation framing and does not report the reflective-practice findings of that paper."),
                     ("p", "The paper makes three contributions:"),
                     ("ul", [
-                        "A participatory methodology for developing culturally situated generative AI systems through collaborative dataset creation and accessible tooling.",
+                        "A brief account of the Beyond Bias initiative, whose participatory methodology and workshop findings are reported in full in Prasad et al. (2026).",
                         "An interpretive framing of AI systems that positions generative models as technologies involved in meaning-making rather than neutral systems of pattern reproduction (Hall, 1997).",
                         "A framework for evaluating cultural AI systems based on cultural integrity, participation and agency, and interpretive capacity.",
                     ]),
