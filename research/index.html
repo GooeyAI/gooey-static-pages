@@ -910,7 +910,8 @@
 "pdf_url": "https://openreview.net/pdf?id=kcWWFiCuds",
 "tags": "Environment",
 "slug": "",
-"hidden": ""
+"hidden": "",
+"orgs": "gooey"
 },
 {
 "type": "Upcoming",
@@ -1302,6 +1303,19 @@
           : "";
 
         const list = document.getElementById("paperList");
+        const orgLogos = (p) => {
+          const orgs = String(p.orgs || "")
+            .toLowerCase()
+            .split(/[,;|\s]+/)
+            .filter(Boolean);
+          const all = !orgs.length;
+          let s = "";
+          if (all || orgs.includes("gooey"))
+            s += `<img src="assets/gooey-robot.png" alt="Gooey.AI" />`;
+          if (all || orgs.includes("rca"))
+            s += `<img src="images/orgs/rca.png" alt="Royal College of Art" />`;
+          return s ? `<span class="paper-orgs">${s}</span>` : "";
+        };
         if (!shown.length) {
           list.innerHTML = `<li class="empty">No papers tagged "${esc(
             activeTag,
@@ -1360,7 +1374,7 @@
                 ${p.blurb ? `<p class="paper-blurb">${esc(p.blurb)}</p>` : ""}
                 ${
                   p.authors
-                    ? `<div class="paper-authors"><span class="paper-orgs"><img src="assets/gooey-robot.png" alt="Gooey.AI" /><img src="images/orgs/rca.png" alt="Royal College of Art" /></span><span class="paper-authornames">${esc(
+                    ? `<div class="paper-authors">${orgLogos(p)}<span class="paper-authornames">${esc(
                         p.authors,
                       )}</span></div>`
                     : ""
