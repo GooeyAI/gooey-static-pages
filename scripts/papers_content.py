@@ -320,6 +320,7 @@ PAPERS = [
     # --------------------------------------------------------------- ICML 2026
     {
         "slug": "beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation",
+        "pdf_href": "papers/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation/",
         "listed_as": "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation",
         "title": "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation",
         "status": "Preprint",
