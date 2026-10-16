@@ -982,7 +982,7 @@
 "logo": "images/venues/data-care-festival.png",
 "blurb": "This research poster for Inclusive AI Lab covered the Beyond Bias initiative, exploring participatory design approaches for more inclusive and culturally grounded generative AI systems.",
 "authors": "Archana Prasad, Isha Singh, Tom Simmons",
-"pdf_url": "https://drive.google.com/file/d/1cmpax7xvufKBDJ8AAn4rdnSDIhxv8Vvt/view?usp=sharing",
+"pdf_url": "pdf/beyond-bias-participatory-design-for-inclusive-ai.pdf",
 "tags": "Culture",
 "slug": "",
 "hidden": ""
@@ -1218,6 +1218,13 @@
         if (/^(images|assets)\/[\w./-]+$/i.test(v)) return v;
         return "";
       };
+      const safePdf = (u) => {
+        const v = String(u ?? "").trim();
+        if (!v) return "";
+        if (/^https?:\/\//i.test(v)) return v;
+        if (/^pdf\/[\w./-]+\.pdf$/i.test(v)) return v;
+        return "";
+      };
       const isHidden = (v) =>
         /^(y|yes|true|1|x|hide|hidden)$/i.test(String(v ?? "").trim());
 
@@ -1292,11 +1299,11 @@
             const where = [p.venue, p.date].filter(Boolean).join(" · ");
             const logo = safeImg(p.logo);
             const noteUrl = safeUrl(p.note_url);
-            /* A paper is only linked when we host its PDF and built its page. */
+            /* A paper with a hosted page links to the page; otherwise fall back to its pdf_url so the title stays clickable. */
             const entry =
               PAPER_PAGES[(p.slug || "").trim() || slugify(p.title)] || null;
-            const pdf = entry ? entry.pdf : "";
-            const page = entry ? entry.page : "";
+            const pdf = entry ? entry.pdf : safePdf(p.pdf_url);
+            const page = entry ? entry.page : safePdf(p.pdf_url);
             const note = p.note
               ? noteUrl
                 ? `<a class="paper-note" href="${esc(
