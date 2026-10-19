@@ -1,0 +1,27 @@
+# title: Swahili Evaluation of Audio AI Models
+# country: TZ
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0.6, 1, 0.1
+# y: Latency, 0, 12, 2
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.95,5.79
+Gemini 3.1 Pro + Omni,0.92,9.33
+Gemini 3.1 Pro + Intron,0.91,10.73
+Gemini 3.1 Pro + GPT Transcribe,0.91,8.23
+GPT 5.6 Sol + Omni,0.90,7.00
+GPT 5.6 Sol + Intron,0.88,9.89
+GPT 5.6 Sol + GPT Transcribe,0.87,6.39
+Claude Sonnet 5 + Omni,0.91,6.72
+Claude Sonnet 5 + Intron,0.89,8.36
+Claude Sonnet 5 + GPT Transcribe,0.84,5.85
+Kimi K3 + Omni,0.68,7.12
+Kimi K3 + Intron,0.65,9.29
+Kimi K3 + GPT Transcribe,0.70,6.71
+DeepSeek V4 + Omni,0.93,7.55
+DeepSeek V4 + Intron,0.93,9.70
+DeepSeek V4 + GPT Transcribe,0.87,5.89
+Gemini 3.7 Flash + Omni,0.84,7.61
+Gemini 3.7 Flash + Intron,0.85,10.02
+Gemini 3.7 Flash + GPT Transcribe,0.88,7.08

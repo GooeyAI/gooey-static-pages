@@ -1,0 +1,21 @@
+# title: Hausa Evaluation of Audio AI Models
+# country: NG
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 35, 5
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.71,16.33
+Gemini 3.1 Pro + Omni,0.38,26.80
+Gemini 3.1 Pro + Intron,0.43,29.84
+GPT 5.6 Sol + Omni,0.59,14.36
+GPT 5.6 Sol + Intron,0.59,18.13
+Claude Sonnet 5 + Omni,0.50,13.63
+Claude Sonnet 5 + Intron,0.39,15.05
+Kimi K3 + Omni,0.63,20.82
+Kimi K3 + Intron,0.56,24.13
+DeepSeek V4 + Omni,0.47,29.62
+DeepSeek V4 + Intron,0.39,32.93
+Gemini 3.7 Flash + Omni,0.51,17.21
+Gemini 3.7 Flash + Intron,0.54,20.41
