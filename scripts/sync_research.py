@@ -74,7 +74,7 @@ DATA_DIR = ROOT / "research" / "data"
 TABS = {
     "Papers": ("papers", ["type", "title", "venue", "date", "note", "note_url",
                           "logo", "blurb", "authors", "pdf_url", "tags", "hidden"],
-               ["slug"]),
+               ["slug", "orgs"]),
     "Articles": ("articles", ["column", "title", "meta", "url", "hidden"], []),
     "Profiles": ("profiles", ["name", "role", "photo", "link_label",
                               "link_url", "hidden"], []),
