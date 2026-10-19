@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <title>Low-Resource Language Evaluations — Gooey.AI</title>
+    <meta
+      name="description"
+      content="How well do frontier AI models understand underrepresented languages? Gooey.AI evaluates speech + LLM chains on real health, agriculture and education audio questions."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Low-Resource Language Evaluations — Gooey.AI"
+    />
+    <meta
+      property="og:description"
+      content="Evaluating private and open-source AI models on digitally underrepresented languages, with public, forkable workflows."
+    />
+    <meta property="og:url" content="https://gooey.ai/multilingual-ai-evaluations/" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Low-Resource Language Evaluations — Gooey.AI"
+    />
+    <meta
+      name="twitter:description"
+      content="Evaluating private and open-source AI models on digitally underrepresented languages, with public, forkable workflows."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src:
+          url("assets/fonts/Domine-VariableFont_wght.ttf")
+            format("truetype-variations"),
+          url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-ink-soft: rgb(90, 98, 117);
+        --gy-ink-meta: rgb(99, 99, 99);
+        --gy-white: #fff;
+        --gy-bg: rgb(255, 254, 253);
+        --gy-surface-50: rgb(251, 250, 248);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-line-strong: rgb(185, 185, 185);
+        --gy-teal-700: rgb(0, 153, 138);
+        --gy-font-sans:
+          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        --gy-font-serif:
+          "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+        --pad-x: clamp(20px, 4vw, 60px);
+        --site-header-h: 60px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--gy-font-sans);
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--gy-ink);
+        background: var(--gy-bg);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--gy-ink);
+        text-underline-offset: 2px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -48px;
+        z-index: 100;
+        padding: 8px 16px;
+        background: var(--gy-ink);
+        color: var(--gy-white);
+        border-radius: 8px;
+        font-size: 14px;
+        text-decoration: none;
+      }
+      .skip-link:focus-visible {
+        top: 8px;
+      }
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 56px var(--pad-x);
+      }
+      section.block {
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      /* ---- first fold: styled after /sovereignty ---- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid var(--gy-line-soft);
+        overflow: hidden;
+        padding: 80px 0 40px;
+      }
+      .hero-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+      .hero-copy {
+        max-width: 900px;
+      }
+      .hero .tag {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gy-ink-muted);
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-family: var(--gy-font-serif);
+        font-weight: 700;
+        font-size: clamp(42px, 7vw, 84px);
+        line-height: 1.02;
+        letter-spacing: -0.018em;
+        margin: 0 0 22px;
+        max-width: 15ch;
+      }
+      .hero .dek {
+        font-family: var(--gy-font-serif);
+        font-style: italic;
+        font-size: clamp(20px, 2.5vw, 28px);
+        color: var(--gy-ink-muted);
+        line-height: 1.34;
+        margin: 0 0 30px;
+        max-width: 34ch;
+      }
+      .hero .byline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14.5px;
+        color: var(--gy-ink-muted);
+        flex-wrap: wrap;
+      }
+      .hero .byline b {
+        color: var(--gy-ink);
+        font-weight: 600;
+      }
+      .hero .byline .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--gy-line-strong);
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        max-width: 640px;
+        margin: 32px 0 22px;
+      }
+      .stats .stat {
+        background: var(--gy-surface-50);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 14px;
+        padding: 16px 18px;
+      }
+      .stats .stat b {
+        display: block;
+        font-family: var(--gy-font-serif);
+        font-size: 32px;
+        line-height: 1;
+      }
+      .stats .stat span {
+        font-size: 13px;
+        color: var(--gy-ink-muted);
+      }
+      .hero-workflow {
+        margin: 44px 0 0;
+      }
+      .hero-workflow img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(0, 153, 138, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 18px 48px rgba(10, 16, 33, 0.1);
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 36px;
+        padding: 0 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid var(--gy-ink);
+      }
+      .btn.primary {
+        background: var(--gy-ink);
+        color: #fff;
+      }
+      .btn.secondary {
+        background: #fff;
+        color: var(--gy-ink);
+      }
+      .btn:hover {
+        opacity: 0.88;
+        text-decoration: none;
+      }
+      h2.sec-title {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: clamp(26px, 3.4vw, 34px);
+        line-height: 1.12;
+        margin: 0 0 10px;
+      }
+      .sec-sub {
+        color: var(--gy-ink-muted);
+        font-size: 16.5px;
+        line-height: 1.6;
+        max-width: 72ch;
+        margin: 0 0 24px;
+      }
+      .sec-sub a {
+        font-weight: 600;
+      }
+      .partner-logos {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px 36px;
+        margin-top: 24px;
+      }
+      .partner-logo {
+        display: block;
+        width: auto;
+        max-width: min(100%, 280px);
+        object-fit: contain;
+      }
+      .partner-logo.gates-foundation {
+        height: 24px;
+      }
+      .partner-logo.clear-global {
+        height: 48px;
+      }
+      .eval-tabs {
+        margin-top: 28px;
+      }
+      .tab-list {
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: thin;
+      }
+      .tab-button {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 16px 24px 14px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        background: #fff;
+        color: rgb(35, 40, 55);
+        font: 600 16px/1.15 var(--gy-font-sans);
+        cursor: pointer;
+      }
+      .tab-button:hover {
+        color: rgb(42, 40, 186);
+      }
+      .tab-button[aria-selected="true"] {
+        color: rgb(42, 40, 186);
+        border-bottom-color: rgb(42, 40, 186);
+      }
+      .tab-button:focus-visible {
+        outline: 2px solid rgb(42, 40, 186);
+        outline-offset: -4px;
+      }
+      .tab-panel {
+        padding-top: 32px;
+      }
+      .tab-panel[hidden] {
+        display: none;
+      }
+      .graph-link {
+        display: block;
+      }
+      .graph-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .eval-chart-frame {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1413 / 752;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .chart-tools {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 18px;
+        margin-top: 12px;
+        color: var(--gy-ink-muted);
+        font-size: 13px;
+      }
+      .chart-tools a {
+        font-weight: 600;
+      }
+      .tab-panel p {
+        margin: 24px 0 0;
+        color: var(--gy-ink-muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      .tab-panel .eval-link {
+        margin-top: 18px;
+      }
+      .theory-phases {
+        position: relative;
+        display: grid;
+        gap: 48px;
+        margin-top: 32px;
+        padding-left: 64px;
+      }
+      .theory-timeline {
+        position: absolute;
+        top: 20px;
+        bottom: 0;
+        left: 19px;
+        width: 4px;
+        overflow: hidden;
+        background: rgb(113, 117, 128);
+      }
+      .theory-timeline-progress {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgb(0, 153, 138);
+        transform: scaleY(0);
+        transform-origin: top;
+        will-change: transform;
+      }
+      .theory-phase {
+        position: relative;
+        display: grid;
+        gap: 20px;
+      }
+      .theory-phase-heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+        color: rgb(42, 40, 186);
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .theory-phase-heading img {
+        position: absolute;
+        z-index: 1;
+        left: -64px;
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 8px;
+        background: #fff;
+        object-fit: contain;
+      }
+      .theory-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 20px;
+      }
+      .theory-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        margin: 0;
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 12px;
+        background: #fff;
+      }
+      .theory-card-image {
+        display: block;
+        border-bottom: 1px solid var(--gy-line-soft);
+        background: var(--gy-surface-50);
+        cursor: zoom-in;
+      }
+      .theory-card-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+      .theory-card figcaption {
+        display: grid;
+        gap: 10px;
+        padding: 20px;
+      }
+      .theory-card h4 {
+        margin: 0;
+        font-family: var(--gy-font-serif);
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.25;
+      }
+      .theory-card p {
+        margin: 0;
+        color: var(--gy-ink-muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .theory-card p + p {
+        margin-top: 4px;
+      }
+      .theory-card p strong {
+        color: var(--gy-ink);
+      }
+      .theory-links {
+        margin-top: 28px;
+      }
+      body.lightbox-open {
+        overflow: hidden;
+      }
+      .image-lightbox {
+        width: min(94vw, 1440px);
+        max-width: none;
+        max-height: 92vh;
+        padding: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 12px;
+        background: transparent;
+        color: #fff;
+      }
+      .image-lightbox::backdrop {
+        background: rgba(10, 16, 33, 0.68);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .image-lightbox-inner {
+        position: relative;
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+      }
+      .image-lightbox img {
+        display: block;
+        max-width: 100%;
+        max-height: 84vh;
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      }
+      .image-lightbox-caption {
+        margin: 0;
+        max-width: 80ch;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .image-lightbox-close {
+        position: absolute;
+        z-index: 1;
+        top: -18px;
+        right: -18px;
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--gy-ink);
+        font: 400 30px/1 var(--gy-font-sans);
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+      }
+      .image-lightbox-close:hover {
+        background: var(--gy-surface-50);
+      }
+      .image-lightbox-close:focus-visible {
+        outline: 3px solid rgb(0, 153, 138);
+        outline-offset: 3px;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      .cols3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+      .cols3 h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+      .cols3 p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--gy-ink-muted);
+      }
+      .steps {
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+      .steps li {
+        background: var(--gy-surface-50);
+        border: 1px solid var(--gy-line-soft);
+        border-radius: 14px;
+        padding: 18px 20px;
+      }
+      .steps li b {
+        display: block;
+        margin-bottom: 4px;
+      }
+      .steps li p {
+        margin: 0;
+        font-size: 14.5px;
+        color: var(--gy-ink-muted);
+        line-height: 1.6;
+      }
+      .site-footer {
+        border-top: 1px solid var(--gy-line-soft);
+        background: var(--gy-surface-50);
+      }
+      .site-footer .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 54px 32px 64px;
+      }
+      .ack {
+        max-width: 680px;
+      }
+      .ack h3,
+      .refs h3 {
+        font-family: var(--gy-font-serif);
+        font-weight: 400;
+        margin: 0 0 14px;
+      }
+      .ack h3 {
+        font-size: 22px;
+      }
+      .ack ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 14px;
+        color: var(--gy-ink-muted);
+        line-height: 1.9;
+      }
+      .ack ul b {
+        color: var(--gy-ink);
+        font-weight: 600;
+      }
+      .refs {
+        margin-top: 28px;
+      }
+      .refs h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .ref-list {
+        margin: 0;
+        padding: 0 0 0 1.2em;
+        font-size: 12.5px;
+        color: var(--gy-ink-meta);
+        line-height: 1.65;
+      }
+      .ref-list li {
+        margin: 0 0 10px;
+      }
+      .ref-list a {
+        color: var(--gy-ink-muted);
+        word-break: break-word;
+      }
+      .foot-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 32px;
+        padding-top: 22px;
+        border-top: 1px solid var(--gy-line-soft);
+      }
+      .foot-brand img {
+        height: 24px;
+        width: auto;
+      }
+      .foot-brand span {
+        font-size: 13px;
+        color: var(--gy-ink-soft);
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+        .tab-button {
+          padding-right: 18px;
+          padding-left: 18px;
+        }
+        .tab-panel {
+          padding-top: 24px;
+        }
+        .hero-workflow {
+          margin-top: 32px;
+        }
+        .hero-workflow img {
+          border-radius: 12px;
+        }
+        .theory-phases {
+          padding-left: 48px;
+        }
+        .theory-timeline {
+          left: 15px;
+        }
+        .theory-phase-heading img {
+          left: -48px;
+          width: 32px;
+          height: 32px;
+        }
+        .image-lightbox-close {
+          top: -14px;
+          right: -4px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Low-Resource Language Evaluations</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+    <main id="main">
+      <header class="hero" id="top">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>Low-Resource Language Evaluations</h1>
+            <p class="dek">
+              Do frontier AI models actually understand underrepresented
+              languages?
+            </p>
+            <div class="stats" aria-label="Evaluation snapshot">
+              <div class="stat"><b>10</b><span>Languages evaluated</span></div>
+              <div class="stat"><b>85</b><span>Model chains</span></div>
+              <div class="stat"><b>500</b><span>Audio samples</span></div>
+            </div>
+          </div>
+          <figure class="hero-workflow">
+            <img
+              src="images/language-evaluation-workflow.png"
+              alt="Workflow showing local-language audio questions moving through speech recognition, transcription, an LLM, answer generation, evaluation against a golden answer, and semantic similarity scoring"
+              width="1776"
+              height="592"
+            />
+          </figure>
+        </div>
+      </header>
+
+      <section class="intro reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Overview</h2>
+          <p class="sec-sub">
+            As an AI orchestration platform focused on
+            <a href="https://gooey.ai/gates-foundation">global impact</a>,
+            Gooey.AI - with the support of the
+            <a href="https://gooey.ai/gates-foundation">Gates Foundation</a> -
+            actively aggregates and evaluates the latest private and open source
+            AI models to assess their understanding of digitally
+            underrepresented languages.
+          </p>
+          <p class="sec-sub">
+            Our goal is to highlight real-world use cases of common health,
+            agriculture and education audio questions and determine how well
+            and how quickly different AI model combinations respond to these
+            questions (as determined by their semantic similarity to expert
+            provided “golden” answers).
+          </p>
+          <p class="sec-sub">
+            Every evaluation, prompt, model setting, and AI workflow is public
+            and immediately forkable, allowing organizations to test any AI
+            workflow with their own data and use cases. Organizations are encouraged to
+            create
+            <a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr"
+              >audio evaluations with their own data</a
+            >
+            too.
+          </p>
+          <div class="cta-row">
+            <a
+              class="btn primary"
+              href="https://docs.google.com/document/d/e/2PACX-1vSAghjRv8whtvZQnt_G9wl5CjyWQbhtanExzJD4JPkRT59_lKKL-NaeyCcNZskrhHMBhGE4rPIDhCtq/pub"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Read the paper</a
+            >
+            <a class="btn secondary" href="https://gooey.ai/contact" target="_blank" rel="noopener noreferrer"
+              >Talk with us</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal" aria-labelledby="partners-title">
+        <div class="wrap">
+          <h2 class="sec-title" id="partners-title">Partners</h2>
+          <div class="partner-logos">
+            <a
+              href="https://gooey.ai/gates-foundation"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit the Gates Foundation partnership page"
+            >
+              <img
+                class="partner-logo gates-foundation"
+                src="images/partners/gates-foundation.png"
+                alt="Gates Foundation"
+                width="464"
+                height="53"
+              />
+            </a>
+            <a
+              href="https://clearglobal.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit CLEAR Global"
+            >
+              <img
+                class="partner-logo clear-global"
+                src="images/partners/clear-global.png"
+                alt="CLEAR Global"
+                width="335"
+                height="115"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <div class="wrap">
+          <h2 class="sec-title">Health Related AI Evaluations</h2>
+          <p class="sec-sub">
+            In April 2026 we evaluated private models (Gemini 3.1, OpenAI 5.4,
+            Intron) and open-source / sovereign-deployable models (Omnilingual,
+            Gemma 4 26B, Kimi 2.5) on health audio questions in Pakistani and
+            Nigerian languages. Gemini 3.1 Pro paired with Intron or Meta’s
+            Omnilingual ASR was most accurate — a good fit for WhatsApp and
+            async messaging, likely too slow for live voice services.
+          </p>
+
+          <h3 class="sec-title">Pakistani and Nigerian Languages</h3>
+          <div class="eval-tabs" data-tabs>
+            <div class="tab-list" role="tablist" aria-label="Pakistani language results">
+              <button class="tab-button" id="pakistan-tab-urdu" role="tab" aria-selected="true" aria-controls="pakistan-panel-urdu">Urdu</button>
+              <button class="tab-button" id="pakistan-tab-pashto" role="tab" aria-selected="false" aria-controls="pakistan-panel-pashto" tabindex="-1">Pashto</button>
+              <button class="tab-button" id="pakistan-tab-sindhi" role="tab" aria-selected="false" aria-controls="pakistan-panel-sindhi" tabindex="-1">Sindhi</button>
+            </div>
+            <div class="tab-panel" id="pakistan-panel-urdu" role="tabpanel" aria-labelledby="pakistan-tab-urdu">
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/urdu/2026-04-28.html"
+                loading="lazy"
+                title="Interactive Urdu evaluation accuracy and latency chart from 28 April 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Urdu chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/urdu-2026-04-28@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>GPT-5.5 + Omni and Gemini 3.1 Flash-Lite + Omni shared the highest accuracy at 0.72. Flash-Lite + Omni offered the strongest speed–accuracy balance at ~9.6s, while the standalone Flash-Lite model was fastest overall at ~6.2s but less accurate.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-urdu-audio-to-text-benchmark-gemini-31-pro-gemini-31-flash-lite-gemma-4-26b-gpt-55-gpt-oss-120b-gpt-realtime-15-kimi-k26-omnilingual-ix6nst9mnmkv/" target="_blank" rel="noopener noreferrer">Urdu evaluation →</a>
+            </div>
+            <div class="tab-panel" id="pakistan-panel-pashto" role="tabpanel" aria-labelledby="pakistan-tab-pashto" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/pashto/2026-04-28.html"
+                loading="lazy"
+                title="Interactive Pashto evaluation accuracy and latency chart from 28 April 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Pashto chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/pashto-2026-04-28@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>GPT-5.5 + Omni achieved the highest accuracy at 0.71 with 14.09s median latency. Gemini 3.1 Flash-Lite + Omni offered a stronger real-time balance at 0.53 accuracy and 8.04s, while standalone Flash-Lite was fastest at 6.01s but substantially less accurate.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-pashto-audio-to-text-benchmark-gemini-31-pro-gemini-31-flash-lite-gemma-4-26b-gpt-55-gpt-oss-120b-gpt-realtime-15-kimi-k26-omnilingual-curmz28zmku3/" target="_blank" rel="noopener noreferrer">Pashto evaluation →</a>
+            </div>
+            <div class="tab-panel" id="pakistan-panel-sindhi" role="tabpanel" aria-labelledby="pakistan-tab-sindhi" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/sindhi/2026-05-14.html"
+                loading="lazy"
+                title="Interactive Sindhi evaluation accuracy and latency chart from 14 May 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Sindhi chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/sindhi-2026-05-14@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>GPT-5.5 + Omni achieved the highest accuracy at 0.73 with 11.95s median latency. Gemini 3.1 Pro and its Omni configuration followed at 0.69 accuracy, while Gemini 3.1 Flash-Lite + Omni offered the strongest real-time balance at 0.55 accuracy and 7.28s.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-sindhi-audio-to-text-benchmark-gemini-31-pro-gemini-31-flash-lite-gemma-4-26b-gpt-55-gpt-oss-120b-gpt-realtime-15-kimi-k26-omnilingual-noghet7fzozt/" target="_blank" rel="noopener noreferrer">Sindhi evaluation →</a>
+            </div>
+          </div>
+
+          <h3 class="sec-title" style="margin-top: 56px">Nigerian languages</h3>
+          <div class="eval-tabs" data-tabs>
+            <div class="tab-list" role="tablist" aria-label="Nigerian language results">
+              <button class="tab-button" id="nigeria-tab-hausa" role="tab" aria-selected="true" aria-controls="nigeria-panel-hausa">Hausa</button>
+              <button class="tab-button" id="nigeria-tab-fulfulde" role="tab" aria-selected="false" aria-controls="nigeria-panel-fulfulde" tabindex="-1">Nigerian Fulfulde</button>
+              <button class="tab-button" id="nigeria-tab-igbo" role="tab" aria-selected="false" aria-controls="nigeria-panel-igbo" tabindex="-1">Igbo</button>
+              <button class="tab-button" id="nigeria-tab-yoruba" role="tab" aria-selected="false" aria-controls="nigeria-panel-yoruba" tabindex="-1">Yoruba</button>
+              <button class="tab-button" id="nigeria-tab-pidgin" role="tab" aria-selected="false" aria-controls="nigeria-panel-pidgin" tabindex="-1">Pidgin</button>
+            </div>
+            <div class="tab-panel" id="nigeria-panel-hausa" role="tabpanel" aria-labelledby="nigeria-tab-hausa">
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/hausa/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Hausa evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Hausa chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/hausa-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Gemini 3.1 Pro achieved the highest accuracy at 0.71 while maintaining lower latency than most configurations at ~16.3s. Claude Sonnet 5 + Omni was fastest at ~13.6s, but its accuracy was considerably lower at 0.5.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-hausa-audio-to-text-benchmark-deepseek-v4-gpt-56-sol-claude-sonnet-5-gemini-37-flash-kimi-k3-gemini-31-pro-w-omnilingual-intron-2k5hpkl1mo2r/" target="_blank" rel="noopener noreferrer">Hausa evaluation →</a>
+            </div>
+            <div class="tab-panel" id="nigeria-panel-fulfulde" role="tabpanel" aria-labelledby="nigeria-tab-fulfulde" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/fulfulde/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Nigerian Fulfulde evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Nigerian Fulfulde chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/fulfulde-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Gemini 3.7 Flash + Omni achieved the highest accuracy while delivering nearly the lowest latency, making it the strongest overall configuration at 0.59 and ~15.5s. Claude Sonnet 5 + Omni was marginally faster, but its accuracy fell to 0.23.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-fulfulde-audio-to-text-benchmark-kimi-k3-gemini-37-flash-gpt-56-sol-deepseek-v4-gemini-31-pro-claude-sonnet-5-w-omnilingual-intron-0roaemlvm9np/" target="_blank" rel="noopener noreferrer">Nigerian Fulfulde evaluation →</a>
+            </div>
+            <div class="tab-panel" id="nigeria-panel-igbo" role="tabpanel" aria-labelledby="nigeria-tab-igbo" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/igbo/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Igbo evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Igbo chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/igbo-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Kimi K3 + Intron achieved the highest accuracy at 0.55 and ~23s. GPT 5.6 Sol + Omni followed closely at 0.51 while delivering the lowest latency at ~14.9s, making it the strongest speed–accuracy trade-off.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-igbo-audio-to-text-benchmark-kimi-k3-claude-sonnet-5-gpt-56-sol-gemini-31-pro-gemini-37-flash-deepseek-v4-w-omnilingual-intron-4f4h5uuk78nc/" target="_blank" rel="noopener noreferrer">Igbo evaluation →</a>
+            </div>
+            <div class="tab-panel" id="nigeria-panel-yoruba" role="tabpanel" aria-labelledby="nigeria-tab-yoruba" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/yoruba/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Yoruba evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Yoruba chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/yoruba-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Gemini 3.1 Pro achieved the highest accuracy by a clear margin while maintaining moderate latency at 0.61 and ~17.2s. Claude Sonnet 5 + Omni was fastest at ~13.9s, but its accuracy was substantially lower at 0.27.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-yoruba-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-gemini-37-flash-deepseek-v4-w-omnilingual-intron-064g2jq4gbsc/" target="_blank" rel="noopener noreferrer">Yoruba evaluation →</a>
+            </div>
+            <div class="tab-panel" id="nigeria-panel-pidgin" role="tabpanel" aria-labelledby="nigeria-tab-pidgin" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/health/pidgin/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Nigerian Pidgin evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Nigerian Pidgin chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/pidgin-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Kimi K3 + Intron achieved the highest accuracy at 0.75 and ~22.2s. Kimi K3 + Omni followed closely with lower latency at 0.71 and ~18.8s. Claude Sonnet 5 + Omni was fastest at ~16.2s with 0.62 accuracy.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/30qs-pidgin-audio-to-text-benchmark-deepseek-v4-claude-sonnet-5-gpt-56-sol-gemini-37-flash-kimi-k3-gemini-31-pro-w-omnilingual-intron-cpoxepuzzizv/" target="_blank" rel="noopener noreferrer">Pidgin evaluation →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal">
+        <div class="wrap">
+          <h2 class="sec-title">General Q&amp;A Evaluations</h2>
+          <p class="sec-sub">
+            August 2026 evaluations show strong but language-specific results
+            across East African speech AI. Top accuracy reached 95% for
+            Swahili, 92% for Kinyarwanda, and 86% for Kikuyu, with the fastest
+            configurations responding in roughly 5.8–6.7 seconds. Swahili
+            performed strongly with a general multimodal model, while
+            Kinyarwanda and Kikuyu benefited from different model and
+            speech-recognition combinations—showing why each low-resource
+            language needs its own evaluation rather than a one-size-fits-all
+            benchmark.
+          </p>
+          <a
+            class="btn secondary"
+            href="https://docs.google.com/document/d/e/2PACX-1vSAghjRv8whtvZQnt_G9wl5CjyWQbhtanExzJD4JPkRT59_lKKL-NaeyCcNZskrhHMBhGE4rPIDhCtq/pub"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Read the paper →</a
+          >
+          <h3 class="sec-title" style="margin-top: 56px">East African Languages</h3>
+          <div class="eval-tabs" data-tabs>
+            <div class="tab-list" role="tablist" aria-label="East African language results">
+              <button class="tab-button" id="east-africa-tab-kinyarwanda" role="tab" aria-selected="true" aria-controls="east-africa-panel-kinyarwanda">Kinyarwanda</button>
+              <button class="tab-button" id="east-africa-tab-swahili" role="tab" aria-selected="false" aria-controls="east-africa-panel-swahili" tabindex="-1">Swahili</button>
+              <button class="tab-button" id="east-africa-tab-kikuyu" role="tab" aria-selected="false" aria-controls="east-africa-panel-kikuyu" tabindex="-1">Kikuyu</button>
+            </div>
+            <div class="tab-panel" id="east-africa-panel-kinyarwanda" role="tabpanel" aria-labelledby="east-africa-tab-kinyarwanda">
+              <iframe
+                class="eval-chart-frame"
+                src="charts/general/kinyarwanda/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Kinyarwanda evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Kinyarwanda chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/kinyarwanda-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>DeepSeek V4 + Omni achieved the highest accuracy while maintaining relatively low latency at 0.92 and ~7.1s. Kimi K3 + Omni was fastest at ~6.7s, but its accuracy was lower at 0.78.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/" target="_blank" rel="noopener noreferrer">Kinyarwanda evaluation →</a>
+            </div>
+            <div class="tab-panel" id="east-africa-panel-swahili" role="tabpanel" aria-labelledby="east-africa-tab-swahili" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/general/swahili/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Swahili evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Swahili chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/swahili-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Gemini 3.1 Pro was the clear leader for Swahili, achieving both the highest semantic accuracy and lowest response latency at 0.95 and ~5.8s. It delivered the strongest speed–accuracy balance of every configuration tested.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/24qs-swahili-audio-to-text-benchmark-deepseek-v4-gemini-37-flash-gpt-56-sol-claude-sonnet-5-kimi-k3-gemini-31-pro-w-omnilingual-intron-gpt-transcribe-rm8ch4x5217y/" target="_blank" rel="noopener noreferrer">Swahili evaluation →</a>
+            </div>
+            <div class="tab-panel" id="east-africa-panel-kikuyu" role="tabpanel" aria-labelledby="east-africa-tab-kikuyu" hidden>
+              <iframe
+                class="eval-chart-frame"
+                src="charts/general/kikuyu/2026-08-30.html"
+                loading="lazy"
+                title="Interactive Kikuyu evaluation accuracy and latency chart from 30 August 2026"
+              ></iframe>
+              <div class="chart-tools" aria-label="Kikuyu chart resources">
+                <span>Hover over a model to inspect its accuracy and latency.</span>
+                <a href="images/graphs/kikuyu-2026-08-30@2x.png" target="_blank" rel="noopener">View PNG</a>
+              </div>
+              <p>Gemini 3.1 Pro + Kikuyu Whisper v2 was most accurate at 0.86 and ~9.5s. Gemini 3.7 Flash + Whisper v2 offered a strong balance at 0.82 and ~7.1s, while Claude + Whisper v2 was fastest at 0.63 and ~6.3s.</p>
+              <a class="btn primary eval-link" href="https://gooey.ai/bulk/25qs-kikuyu-audio-to-text-benchmark-claude-sonnet-5-gpt-56-sol-deepseek-v4-gemini-31-pro-kimi-k3-gemini-37-flash-w-omnilingual-kikuyu-whisper-v2-g10xcrobgrvl/" target="_blank" rel="noopener noreferrer">Kikuyu evaluation →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block reveal" aria-labelledby="theory-of-change-title">
+        <div class="wrap">
+          <h2 class="sec-title" id="theory-of-change-title">Theory of Change</h2>
+          <div class="theory-phases">
+            <div class="theory-timeline" aria-hidden="true"><span class="theory-timeline-progress"></span></div>
+            <section class="theory-phase" aria-labelledby="theory-context-title">
+              <h3 class="theory-phase-heading" id="theory-context-title">
+                <img src="images/theory-of-change/context-icon.png" alt="" width="64" height="64" />
+                AI systems don’t understand local-language speech
+              </h3>
+              <div class="theory-grid">
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/context.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/context.png" alt="Illustration showing the context for low-resource African languages and AI" width="1376" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>The context</h4>
+                    <p>Many of Africa’s most widely spoken languages—such as Swahili, Kikuyu and Kinyarwanda—have historically been “invisible” to AI due to limited multilingual datasets used to train LLMs. This results in unequal access to AI and underrepresentation of people in underserved areas.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/ground-reality.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/ground-reality.png" alt="Illustration of the ground reality for speech recognition in low-resource languages" width="1376" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>The ground reality</h4>
+                    <p>Unfortunately, capturing this diversity of language is hard for tech companies attempting to make speech recognition and translation models. This poor performance then implies that incredible tools like GPT4 and Gemini - which are primarily trained on English - don’t work particularly well for speakers of low-resource languages.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/ai-driven-support.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/ai-driven-support.png" alt="Illustration of the need for AI-driven support in the Global South" width="1376" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>The need for AI-driven support</h4>
+                    <p>AI interventions such as small shareholder agriculture advisory show significant promise in aiding livelihood opportunities in the Global South. Everyone regardless of their language or location should be able to access digital services through voice, not text.</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="theory-phase" aria-labelledby="theory-process-title">
+              <h3 class="theory-phase-heading" id="theory-process-title">
+                <img src="images/theory-of-change/process-icon.png" alt="" width="48" height="48" />
+                Interventions and Process
+              </h3>
+              <div class="theory-grid">
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/possibilities-2025.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/possibilities-2025.png" alt="Illustration of new language AI possibilities in 2025" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>The possibilities in 2025</h4>
+                    <p>Local NLP and AI teams such as Jacaranda Health and MBaza released better performing fine-tuned African speech recognition models. Additionally, Meta released Omnilingual ASR with support for 1600+ languages.</p>
+                    <p>New LLM generations (GPT-5+, Gemini 3) dramatically improved multilingual text comprehension of local-language text.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/model-architecture.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/model-architecture.png" alt="Diagram of configurable ASR, LLM and TTS model chains" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>Model chains and Architectures</h4>
+                    <p>We use various Models &amp; Architectures to create the evaluation process. This is very easily configurable with the help of Gooey.AI's Orchestration tech that allows us to quickly chain ASR -&gt; LLM -&gt; TTS or more.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/methodology.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/methodology.png" alt="Diagram summarizing the language evaluation methodology" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>Our methodology</h4>
+                    <p><strong>Golden QnA</strong><br />Native speakers record audio questions in three African languages; human experts provide gold-standard English answers for consistent evaluation across systems.</p>
+                    <p><strong>LLM-as-a-judge</strong><br />GPT-5.1 scores system responses against expert answers on 0-1 scale, measuring semantic correctness since African language evaluation remains unreliable.</p>
+                    <p><strong>Latency measurements</strong><br />Measures total time from audio question to audio answer, including ASR, translation, LLM inference, and TTS on A10 GPUs.</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section class="theory-phase" aria-labelledby="theory-findings-title">
+              <h3 class="theory-phase-heading" id="theory-findings-title">
+                <img src="images/theory-of-change/findings-icon.png" alt="" width="48" height="48" />
+                Key Findings
+              </h3>
+              <div class="theory-grid">
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/fine-tuned-asr.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/fine-tuned-asr.png" alt="Illustration of fine-tuned African speech recognition models" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>Breaking the audio barrier for African languages</h4>
+                    <p>Fine-tuned African ASR models—Jacaranda, MBaza, and Sunbird—trained on high-quality, diverse audio datasets, now reliably convert speech into local-language text with significantly improved accuracy. By addressing dialectal variation and acquiring local and region-specific finetuned training data, these models remove the biggest historical bottleneck for low-resource African languages, enabling scalable speech-to-text for research, civic tech, education, and voice interfaces across the continent and supporting inclusive digital access everywhere today.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/native-understanding.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/native-understanding.png" alt="Illustration of native text understanding without machine translation" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>Native text understanding without translation layers</h4>
+                    <p>New large language models such as GPT-5+ and Gemini 3 can natively understand Swahili, Kikuyu, and Kinyarwanda text, often without requiring machine translation. Even in Q3 2025 these models required Machine Translations to understand and translate information to the LLMs. This update in LLMs improves downstream tasks like information retrieval, summarization, and question answering. Native comprehension reduces latency, translation errors, and developer overhead, enabling more accurate, accessible applications for local services, education, and other frontline work.</p>
+                  </figcaption>
+                </figure>
+                <figure class="theory-card">
+                  <a class="theory-card-image" href="images/theory-of-change/voice-ai-latency.png" target="_blank" rel="noopener noreferrer">
+                    <img src="images/theory-of-change/voice-ai-latency.png" alt="Illustration of end-to-end voice AI latency for real-world services" width="1392" height="768" loading="lazy" />
+                  </a>
+                  <figcaption>
+                    <h4>End-to-end voice AI ready for real-world use</h4>
+                    <p>ASR→LLM→TTS pipelines now deliver acceptable latency and robustness for phone-based voice services on basic feature phones and low-bandwidth networks. SIP via Livekit and other telephony improvements for AI models reduce latency significantly. These end-to-end systems enable automated call handling, IVR, and conversational agents across several African languages, making scalable, affordable voice services for healthcare, banking, government, and small businesses with deployable latency and cost profiles today.</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
+          </div>
+          <div class="theory-links">
+            <a class="btn primary" href="https://gooey.ai/explore/?search=Language" target="_blank" rel="noopener noreferrer">Explore workflows</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="ack">
+          <h3>Acknowledgements &amp; thanks to</h3>
+          <ul>
+            <li>
+              <a href="https://gooey.ai/gates-foundation" target="_blank" rel="noopener noreferrer"
+                ><b>Gates Foundation</b></a
+              >
+            </li>
+            <li>
+              <a href="https://clearglobal.org/" target="_blank" rel="noopener noreferrer"
+                ><b>CLEAR Global</b></a
+              >
+            </li>
+          </ul>
+
+          <div class="refs">
+            <h3>References</h3>
+            <ol class="ref-list">
+              <li>
+                Gooey.AI. <i>State of the Art of AI Understanding for Low-Resource Languages</i>.
+                <a
+                  href="https://docs.google.com/document/d/e/2PACX-1vSAghjRv8whtvZQnt_G9wl5CjyWQbhtanExzJD4JPkRT59_lKKL-NaeyCcNZskrhHMBhGE4rPIDhCtq/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Read the paper</a
+                >
+              </li>
+            </ol>
+          </div>
+
+          <div class="foot-brand">
+            <a href="https://gooey.ai/" target="_blank" rel="noopener noreferrer" aria-label="Gooey.AI home">
+              <img src="assets/gooey-logo.png" alt="Gooey.AI" />
+            </a>
+            <span>© 2026 Gooey.AI — Low-Resource Language Evaluations</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <dialog class="image-lightbox" id="imageLightbox" aria-labelledby="imageLightboxCaption">
+      <div class="image-lightbox-inner">
+        <button class="image-lightbox-close" type="button" aria-label="Close image">&times;</button>
+        <img src="" alt="" />
+        <p class="image-lightbox-caption" id="imageLightboxCaption"></p>
+      </div>
+    </dialog>
+    <script>
+      (function () {
+        var header = document.getElementById("siteHeader");
+        if (!header) return;
+        var onScroll = function () {
+          header.classList.toggle("scrolled", window.scrollY > 220);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+
+      document.querySelectorAll("[data-tabs]").forEach(function (tabs) {
+        var buttons = Array.from(tabs.querySelectorAll('[role="tab"]'));
+        var panels = Array.from(tabs.querySelectorAll('[role="tabpanel"]'));
+
+        function activate(button, focus) {
+          buttons.forEach(function (item) {
+            var selected = item === button;
+            item.setAttribute("aria-selected", String(selected));
+            item.tabIndex = selected ? 0 : -1;
+          });
+          panels.forEach(function (panel) {
+            panel.hidden = panel.id !== button.getAttribute("aria-controls");
+          });
+          if (focus) button.focus();
+        }
+
+        buttons.forEach(function (button, index) {
+          button.addEventListener("click", function () {
+            activate(button, false);
+          });
+          button.addEventListener("keydown", function (event) {
+            var next = index;
+            if (event.key === "ArrowRight") next = (index + 1) % buttons.length;
+            else if (event.key === "ArrowLeft") next = (index - 1 + buttons.length) % buttons.length;
+            else if (event.key === "Home") next = 0;
+            else if (event.key === "End") next = buttons.length - 1;
+            else return;
+            event.preventDefault();
+            activate(buttons[next], true);
+          });
+        });
+      });
+
+      (function () {
+        var phases = document.querySelector(".theory-phases");
+        var progress = document.querySelector(".theory-timeline-progress");
+        if (!phases || !progress) return;
+
+        var updateProgress = function () {
+          var rect = phases.getBoundingClientRect();
+          var viewportMarker = window.innerHeight * 0.52;
+          var amount = (viewportMarker - rect.top) / rect.height;
+          amount = Math.max(0, Math.min(1, amount));
+          progress.style.transform = "scaleY(" + amount + ")";
+        };
+
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress);
+        updateProgress();
+      })();
+
+      (function () {
+        var lightbox = document.getElementById("imageLightbox");
+        if (!lightbox || typeof lightbox.showModal !== "function") return;
+        var image = lightbox.querySelector("img");
+        var caption = lightbox.querySelector(".image-lightbox-caption");
+        var closeButton = lightbox.querySelector(".image-lightbox-close");
+        var opener = null;
+
+        document.querySelectorAll(".theory-card-image").forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            event.preventDefault();
+            opener = link;
+            var thumbnail = link.querySelector("img");
+            image.src = link.href;
+            image.alt = thumbnail ? thumbnail.alt : "";
+            caption.textContent = link.closest(".theory-card").querySelector("h4").textContent;
+            document.body.classList.add("lightbox-open");
+            lightbox.showModal();
+          });
+        });
+
+        var closeLightbox = function () {
+          lightbox.close();
+        };
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", function (event) {
+          if (event.target === lightbox) closeLightbox();
+        });
+        lightbox.addEventListener("close", function () {
+          document.body.classList.remove("lightbox-open");
+          image.removeAttribute("src");
+          if (opener) opener.focus();
+          opener = null;
+        });
+      })();
+
+      (function () {
+        var elements = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window) || !elements.length) {
+          elements.forEach(function (element) {
+            element.classList.add("is-visible");
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+        );
+
+        elements.forEach(function (element) {
+          observer.observe(element);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+# title: Nigerian Pidgin Evaluation of Audio AI Models
+# country: NG
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 35, 5
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.65,16.29
+Gemini 3.1 Pro + Omni,0.63,27.21
+Gemini 3.1 Pro + Intron,0.66,32.48
+GPT 5.6 Sol + Omni,0.68,17.05
+GPT 5.6 Sol + Intron,0.67,18.39
+Claude Sonnet 5 + Omni,0.62,16.18
+Claude Sonnet 5 + Intron,0.63,20.80
+Kimi K3 + Omni,0.71,18.83
+Kimi K3 + Intron,0.75,22.22
+DeepSeek V4 + Omni,0.56,26.36
+DeepSeek V4 + Intron,0.63,28.26
+Gemini 3.7 Flash + Omni,0.67,26.18
+Gemini 3.7 Flash + Intron,0.67,24.93

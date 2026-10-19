@@ -1,0 +1,19 @@
+# title: Urdu Evaluation of Audio AI Models
+# country: PK
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-04-28
+# url: Gooey.AI/language
+# x: Accuracy, 0.4, 0.8, 0.1
+# y: Latency, 0, 35, 5
+Workflow,Accuracy (mean),Latency (median)
+GPT 5.5,0.63,24.27
+GPT 5.5 + Omni,0.72,25.30
+Gemini 3.1 Pro,0.71,22.27
+Gemini 3.1 Pro + Omni,0.55,32.38
+Gemini 3.1 Flash-Lite,0.43,6.19
+Gemini 3.1 Flash-Lite + Omni,0.72,9.55
+Kimi K2.6 + Omni,0.47,22.20
+GPT-OSS 120B + Omni,0.58,11.88
+GPT-Realtime 1.5,0.45,11.21
+GPT-Realtime 1.5 + Omni,0.69,15.92
+Gemma 4 26B + Omni,0.61,10.91
