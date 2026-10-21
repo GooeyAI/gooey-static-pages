@@ -89,7 +89,7 @@
 </head>
 <body>
   <gooey-page>
-    <gooey-header id="demo-header">
+    <gooey-header id="demo-header" progress>
       <span slot="title">Gooey elements catalogue</span>
       <a href="page-skeleton.html">Skeleton</a>
       <a href="https://github.com/GooeyAI/gooey-static-pages">GitHub</a>
@@ -109,7 +109,9 @@
         <h2>gooey-page</h2>
         <p>
           Wraps the whole page body, exactly once. Until the shared module has
-          loaded, its children are hidden behind a spinner.
+          loaded, its children are hidden behind a spinner. Put the page's
+          content between header and footer in one <code>&lt;main&gt;</code>:
+          the built-in "Skip to main content" link jumps there.
           Attribute <code>theme</code>: <code>light</code> (default) or
           <code>dark</code>.
         </p>
@@ -117,7 +119,10 @@
         <template id="demo-page">
           <gooey-page theme="light">
             <gooey-header>…</gooey-header>
-            …page content…
+            <main>
+              <gooey-hero>…</gooey-hero>
+              <gooey-section>…</gooey-section>
+            </main>
             <gooey-footer>…</gooey-footer>
           </gooey-page>
         </template>
@@ -130,7 +135,8 @@
           <code>title</code> (fades in after scrolling), default (nav links,
           hidden on phones), <code>login</code> (keep it a real
           <code>&lt;a&gt;</code> whose text is exactly <code>Login</code>;
-          gooey.ai swaps it for the user's name).
+          gooey.ai swaps it for the user's name). Attribute
+          <code>progress</code>: adds a reading-progress bar along the top.
         </p>
         <pre data-src="#demo-header"></pre>
       </section>
@@ -138,21 +144,24 @@
       <section class="entry">
         <h2>gooey-hero</h2>
         <p>
-          The first thing on every page, right after the header. Slots:
+          The first thing inside <code>&lt;main&gt;</code>. Slots:
           <code>eyebrow</code>, <code>title</code> (the page's one
-          <code>h1</code>), default (subtitle), <code>cta</code> (buttons),
-          <code>byline</code>, <code>image</code> (beside the text on wide
-          screens, below it on phones).
+          <code>h1</code>: text, or a brandmark <code>&lt;img&gt;</code>),
+          <code>subtitle</code>, default (intro paragraphs, tags, stats),
+          <code>cta</code> (buttons), <code>byline</code>, <code>image</code>
+          (beside the text on wide screens, below it on phones). Attribute
+          <code>variant</code>: <code>full</code> for a full-screen essay
+          opener with a large bold title.
         </p>
         <div class="demo" id="demo-hero">
           <gooey-hero>
-            <span slot="eyebrow">Gooey.AI · Position paper</span>
+            <span slot="eyebrow">Gooey.AI · Proposal</span>
             <span slot="title">A page title that can run to two lines</span>
-            A one-sentence subtitle that says what the page is about.
+            <span slot="subtitle">A one-sentence subtitle that says what the page is about.</span>
+            <p>An intro paragraph with the key facts, and <a href="https://gooey.ai/">a link</a> if it needs one.</p>
             <gooey-button slot="cta"><a href="https://gooey.ai/">Primary action</a></gooey-button>
             <gooey-button slot="cta" variant="secondary"><a href="https://gooey.ai/explore/">Secondary action</a></gooey-button>
             <span slot="byline">By <b>Sean Blagsvedt</b> &amp; <b>Archana Prasad</b> · Founders, Gooey.AI</span>
-            <img slot="image" src="../sovereignty/images/image46.png" alt="World map showing AI workflows spreading between countries">
           </gooey-hero>
         </div>
         <pre data-src="#demo-hero"></pre>
@@ -161,21 +170,26 @@
       <section class="entry">
         <h2>gooey-section</h2>
         <p>
-          A full-width band of content. Slots: <code>heading</code>
-          (an <code>h2</code>), <code>intro</code>, default (paragraphs, lists,
-          columns, images…). Attribute <code>variant</code>:
-          <code>plain</code> (default), <code>tinted</code>, <code>dark</code>.
+          A full-width band of content with a line above it; it fades in as it
+          scrolls into view. Slots: <code>heading</code> (an <code>h2</code>),
+          <code>intro</code>, default (paragraphs, lists, columns, images…).
+          Attributes: <code>variant</code> <code>plain</code> (default),
+          <code>tinted</code>, <code>dark</code>; <code>width="wide"</code>
+          lets paragraphs run wider.
         </p>
         <div class="demo" id="demo-section">
-          <gooey-section variant="tinted">
+          <gooey-section>
             <span slot="heading">Section heading</span>
-            <span slot="intro">An introductory sentence, a little larger and softer than body text.</span>
             <p>Body paragraphs go straight into the section. <a href="https://gooey.ai/">Links</a> and <b>bold text</b> work as usual.</p>
-            <h3>A sub-heading</h3>
             <ul>
               <li>Lists are fine too.</li>
               <li>Each item on its own line.</li>
             </ul>
+          </gooey-section>
+          <gooey-section variant="tinted">
+            <span slot="heading">A tinted section</span>
+            <span slot="intro">An optional introductory sentence, a little larger.</span>
+            <p>Use it to set one band apart.</p>
           </gooey-section>
           <gooey-section variant="dark">
             <span slot="heading">A dark section</span>
@@ -188,9 +202,13 @@
       <section class="entry">
         <h2>gooey-columns + gooey-card</h2>
         <p>
-          <code>gooey-columns</code> lays its children out side by side.
-          Attribute <code>cols</code>: <code>2</code>, <code>3</code> (default),
-          <code>4</code>; collapses on phones. <code>gooey-card</code> slots:
+          <code>gooey-columns</code> lays its children out side by side, and
+          wraps them onto more rows as the screen narrows. Attribute
+          <code>cols</code>: <code>2</code>, <code>3</code> (default),
+          <code>4</code>, or <code>7-5</code> (a wider column beside a narrower
+          one; wrap a column's several paragraphs in a plain
+          <code>&lt;div&gt;</code>). <code>size="narrow"</code> keeps small
+          items such as stats side by side on narrower screens. <code>gooey-card</code> slots:
           <code>image</code>, <code>title</code>, default (text).
         </p>
         <div class="demo demo-pad" id="demo-cards">
@@ -218,31 +236,32 @@
       <section class="entry">
         <h2>gooey-feature</h2>
         <p>
-          A short point with an icon. Slots: <code>icon</code> (a Font Awesome
-          <code>&lt;i&gt;</code> or a small <code>&lt;img&gt;</code>),
-          <code>title</code>, default (text).
+          A short point in a bordered box. Slots: one of <code>icon</code>
+          (a Font Awesome <code>&lt;i&gt;</code>), <code>logo</code> (an
+          <code>&lt;img&gt;</code>) or <code>value</code> (a big number); then
+          <code>title</code>, default (text), <code>cta</code> (a button).
+          Attribute <code>variant="dark"</code>: a call-to-action card.
         </p>
         <div class="demo demo-pad" id="demo-features">
           <gooey-columns cols="4">
             <gooey-feature>
-              <i slot="icon" class="fa-regular fa-ruler" aria-hidden="true"></i>
-              <span slot="title">Shape benchmarks</span>
-              Around each country's languages and needs.
+              <i slot="icon" class="fa-regular fa-books" aria-hidden="true"></i>
+              <span slot="title">AI Library of Commons</span>
+              <p>Open repository of community-created datasets and works.</p>
             </gooey-feature>
             <gooey-feature>
-              <i slot="icon" class="fa-regular fa-database" aria-hidden="true"></i>
-              <span slot="title">Publish datasets</span>
-              That make underrepresented cultures visible.
+              <img slot="logo" src="../lokalibrary/images/goethe-institut.svg" alt="Goethe-Institut">
+              <span slot="title">Goethe-Institut India</span>
             </gooey-feature>
             <gooey-feature>
-              <i slot="icon" class="fa-regular fa-microchip" aria-hidden="true"></i>
-              <span slot="title">Commoditize models</span>
-              Through standards and swappability.
+              <span slot="value">31</span>
+              <span slot="title">Fellows</span>
             </gooey-feature>
-            <gooey-feature>
-              <i slot="icon" class="fa-regular fa-diagram-project" aria-hidden="true"></i>
-              <span slot="title">Spread recipes</span>
-              That every nation can adapt.
+            <gooey-feature variant="dark">
+              <i slot="icon" class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <span slot="title">Email us</span>
+              <p>Tell us how you'd like to contribute.</p>
+              <gooey-button slot="cta"><a href="mailto:research@gooey.ai">research@gooey.ai</a></gooey-button>
             </gooey-feature>
           </gooey-columns>
         </div>
@@ -251,12 +270,16 @@
 
       <section class="entry">
         <h2>gooey-stat</h2>
-        <p>A headline number. Slots: <code>value</code>, <code>label</code>.</p>
+        <p>
+          A headline number. Slots: <code>label</code>, <code>value</code>,
+          <code>note</code>. Attribute <code>variant="highlight"</code> colours
+          the number.
+        </p>
         <div class="demo demo-pad" id="demo-stats">
-          <gooey-columns cols="3">
-            <gooey-stat><span slot="value">4.1M</span><span slot="label">farmers reached</span></gooey-stat>
-            <gooey-stat><span slot="value">+17%</span><span slot="label">farmer income</span></gooey-stat>
-            <gooey-stat><span slot="value">33</span><span slot="label">countries</span></gooey-stat>
+          <gooey-columns cols="4" size="narrow">
+            <gooey-stat variant="highlight"><span slot="label">Librarians</span><span slot="value">19,000+</span><span slot="note">across 8,000+ libraries</span></gooey-stat>
+            <gooey-stat><span slot="label">Pilot fellows</span><span slot="value">31</span><span slot="note">3-month pilot</span></gooey-stat>
+            <gooey-stat><span slot="label">Outputs</span><span slot="value">10 datasets</span></gooey-stat>
           </gooey-columns>
         </div>
         <pre data-src="#demo-stats"></pre>
@@ -367,20 +390,21 @@
       <section class="entry">
         <h2>gooey-footer</h2>
         <p>
-          Slots: default (optional extra content above the brand line),
-          <code>title</code> (appended after the copyright).
+          Slots: default (optional extra content above the brand line, e.g.
+          acknowledgements), <code>note</code> (a short line beside the logo).
         </p>
         <div class="demo" id="demo-footer">
           <gooey-footer>
-            <p>Optional extra content, e.g. <a href="https://gooey.ai/">a link back to Gooey.AI</a>.</p>
-            <span slot="title">Page title</span>
+            <span slot="note">Get in touch at <a href="mailto:research@gooey.ai">research@gooey.ai</a>.</span>
           </gooey-footer>
         </div>
         <pre data-src="#demo-footer"></pre>
       </section>
     </main>
 
-    <gooey-footer></gooey-footer>
+    <gooey-footer>
+      <span slot="note">Developer-owned · <a href="https://github.com/GooeyAI/gooey-static-pages">GitHub</a></span>
+    </gooey-footer>
   </gooey-page>
 
   <script>
