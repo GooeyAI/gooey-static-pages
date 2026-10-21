@@ -300,7 +300,8 @@ a:focus-visible {
   margin: 0 0 1em;
 }
 :where(gooey-section, gooey-hero, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
-  :where(p, ul, ol):last-child {
+  :where(p, ul, ol):last-child,
+:where(gooey-step) :where(p) {
   margin-bottom: 0;
 }
 /* Reading width for running text, not for text inside boxes and steps. */
@@ -963,4 +964,108 @@ gooey-footer [slot="note"] a:hover {
 :host(gooey-callout[variant="warning"]) .g-callout {
   border-left-color: rgb(204, 120, 20);
   background: rgba(204, 120, 20, 0.1);
+}
+
+/* ---------- gooey-tags ---------- */
+:host(gooey-tags) {
+  display: block;
+  margin: 22px 0 0;
+}
+.g-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.g-tags ::slotted(*) {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 8px 14px;
+  border-radius: 32px;
+  border: 1px solid var(--gooey-line);
+  color: var(--gooey-ink-muted);
+  background: var(--gooey-surface);
+}
+
+/* ---------- gooey-steps / gooey-step ---------- */
+:host(gooey-steps) {
+  display: block;
+  margin: 28px 0 0;
+}
+.g-steps {
+  border-top: 1px solid var(--gooey-line-soft);
+}
+:host(gooey-step) {
+  display: block;
+}
+.g-step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: clamp(12px, 3vw, 24px);
+  padding: 28px 0;
+  border-bottom: 1px solid var(--gooey-line-soft);
+}
+:host(gooey-step:last-child) .g-step {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.g-step-n {
+  font-family: var(--gooey-font-serif);
+  font-size: 22px;
+  line-height: normal;
+  color: var(--gooey-brand);
+}
+.g-step-title {
+  font-family: var(--gooey-font-serif);
+  font-weight: 400;
+  font-size: 19px;
+  line-height: normal;
+  color: var(--gooey-ink);
+  margin: 0 0 8px;
+}
+.g-step-body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--gooey-ink-muted);
+}
+@media (max-width: 640px) {
+  .g-step {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* ---------- gooey-gallery ---------- */
+/* min-width: 0 so a grid or flex parent can't be stretched by the row. */
+:host(gooey-gallery) {
+  display: block;
+  min-width: 0;
+}
+.g-gallery {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+.g-gallery:focus-visible {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+.g-gallery ::slotted(img) {
+  flex: 0 0 85%;
+  min-width: 0;
+  scroll-snap-align: start;
+  display: block;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--gooey-radius-lg);
+  border: 1px solid var(--gooey-line-soft);
+}
+@media (max-width: 900px) {
+  .g-gallery ::slotted(img) {
+    height: 260px;
+  }
 }

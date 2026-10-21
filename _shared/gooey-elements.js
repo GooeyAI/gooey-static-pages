@@ -325,6 +325,52 @@ class GooeyCallout extends GooeyElement {
   );
 }
 
+/* ---------- gooey-tags ---------- */
+class GooeyTags extends GooeyElement {
+  static template = template(`<div class="g-tags" part="tags"><slot></slot></div>`);
+}
+
+/* ---------- gooey-steps / gooey-step ---------- */
+// A numbered list of steps. Numbers come from each step's position, so
+// adding, removing or reordering steps never needs renumbering by hand.
+class GooeySteps extends GooeyElement {
+  static template = template(`<div class="g-steps" part="steps" role="list"><slot></slot></div>`);
+}
+
+class GooeyStep extends GooeyElement {
+  static template = template(`
+    <div class="g-step" part="step">
+      <span class="g-step-n" part="number" aria-hidden="true"></span>
+      <div>
+        <h3 class="g-step-title g-optional" part="title"><slot name="title"></slot></h3>
+        <div class="g-step-body" part="body"><slot></slot></div>
+      </div>
+    </div>`);
+
+  constructor() {
+    super();
+    this.watchSlot("title", this.shadowRoot.querySelector(".g-step-title"));
+  }
+
+  connectedCallback() {
+    if (!this.hasAttribute("role")) this.setAttribute("role", "listitem");
+    const steps = [...(this.parentElement?.children ?? [])].filter(
+      (el) => el.localName === "gooey-step",
+    );
+    const n = steps.indexOf(this) + 1;
+    this.shadowRoot.querySelector(".g-step-n").textContent = String(n).padStart(2, "0");
+  }
+}
+
+/* ---------- gooey-gallery ---------- */
+// A row of images that scrolls sideways (also with the arrow keys once
+// focused).
+class GooeyGallery extends GooeyElement {
+  static template = template(
+    `<div class="g-gallery" part="gallery" tabindex="0"><slot></slot></div>`,
+  );
+}
+
 /* ---------- gooey-page ---------- */
 class GooeyPage extends GooeyElement {
   static template = template(
@@ -360,6 +406,10 @@ customElements.define("gooey-person", GooeyPerson);
 customElements.define("gooey-faq", GooeyFaq);
 customElements.define("gooey-faq-item", GooeyFaqItem);
 customElements.define("gooey-callout", GooeyCallout);
+customElements.define("gooey-tags", GooeyTags);
+customElements.define("gooey-steps", GooeySteps);
+customElements.define("gooey-step", GooeyStep);
+customElements.define("gooey-gallery", GooeyGallery);
 // Defined last: the loading spinner in each page waits for gooey-page, so by
 // the time it disappears every other element is already upgraded.
 customElements.define("gooey-page", GooeyPage);
