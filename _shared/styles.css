@@ -1,0 +1,243 @@
+/*
+ * Shared styles for the gooey-* elements in gooey-elements.js.
+ *
+ * This one file is used in two places:
+ *   - inside every element's shadow root (rules on :host and .g-* classes),
+ *   - once in the page's <head>, for content authors put into slots
+ *     (rules under :where(gooey-*), so they have zero specificity and any
+ *     page CSS still wins).
+ * Shadow roots ignore @font-face and @import, so the font import below only
+ * takes effect in the page copy.
+ *
+ * Developer-owned. Content editors never edit this file.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ---------- design tokens (from sovereignty/) ---------- */
+:host(gooey-page) {
+  --gooey-brand: rgb(0, 153, 138);
+  --gooey-ink: rgb(10, 16, 33);
+  --gooey-ink-muted: rgb(75, 88, 122);
+  --gooey-ink-soft: rgb(90, 98, 117);
+  --gooey-ink-meta: rgb(99, 99, 99);
+  --gooey-bg: rgb(255, 254, 253);
+  --gooey-header-bg: rgba(255, 254, 253, 0.82);
+  --gooey-surface: rgb(251, 250, 248);
+  --gooey-surface-2: rgb(247, 245, 242);
+  --gooey-line: rgb(217, 217, 217);
+  --gooey-line-soft: rgb(230, 230, 230);
+  --gooey-line-strong: rgb(185, 185, 185);
+  --gooey-dark-bg: rgb(10, 16, 33);
+  --gooey-dark-ink: rgb(247, 245, 242);
+  --gooey-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  --gooey-font-serif: "Domine", "Source Serif Pro", Georgia, "Times New Roman",
+    serif;
+  --gooey-radius: 12px;
+  --gooey-radius-lg: 16px;
+  --gooey-space-1: 4px;
+  --gooey-space-2: 8px;
+  --gooey-space-3: 16px;
+  --gooey-space-4: 24px;
+  --gooey-space-5: 40px;
+  --gooey-space-6: 64px;
+  --gooey-gutter: 32px;
+  --gooey-max-w: 1080px;
+  --gooey-header-h: 60px;
+}
+:host(gooey-page[theme="dark"]) {
+  --gooey-ink: rgb(247, 245, 242);
+  --gooey-ink-muted: rgb(190, 196, 212);
+  --gooey-ink-soft: rgb(170, 176, 192);
+  --gooey-ink-meta: rgb(160, 160, 160);
+  --gooey-bg: rgb(10, 16, 33);
+  --gooey-header-bg: rgba(10, 16, 33, 0.82);
+  --gooey-surface: rgb(20, 27, 46);
+  --gooey-surface-2: rgb(28, 36, 58);
+  --gooey-line: rgb(55, 62, 82);
+  --gooey-line-soft: rgb(40, 47, 66);
+  --gooey-line-strong: rgb(90, 98, 117);
+  --gooey-dark-bg: rgb(0, 0, 0);
+}
+@media (max-width: 900px) {
+  :host(gooey-page) {
+    --gooey-gutter: 20px;
+  }
+}
+
+/* ---------- slotted content, page side ---------- */
+:where(body:has(> gooey-page)) {
+  margin: 0;
+}
+:where(gooey-page *, gooey-page *::before, gooey-page *::after) {
+  box-sizing: border-box;
+}
+:where(gooey-page img) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+:where(gooey-page a) {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+:where(gooey-page a:focus-visible, gooey-page summary:focus-visible) {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+
+/* ---------- shared internals ---------- */
+:host,
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: border-box;
+}
+.g-wrap {
+  max-width: var(--gooey-max-w);
+  margin: 0 auto;
+  padding: 0 var(--gooey-gutter);
+}
+.g-hidden {
+  display: none !important;
+}
+::slotted(a:focus-visible),
+a:focus-visible {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+
+/* ---------- gooey-page ---------- */
+:host(gooey-page) {
+  display: block;
+  min-height: 100vh;
+  font-family: var(--gooey-font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gooey-ink);
+  background: var(--gooey-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- gooey-header ---------- */
+:host(gooey-header) {
+  display: block;
+}
+.g-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  height: var(--gooey-header-h);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 26px;
+  background: var(--gooey-header-bg);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--gooey-line-soft);
+}
+.g-logo-link {
+  display: flex;
+  align-items: center;
+}
+.g-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+.g-header-title {
+  font-family: var(--gooey-font-serif);
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.g-header.scrolled .g-header-title {
+  opacity: 1;
+}
+.g-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.g-nav ::slotted(a) {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gooey-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.g-nav ::slotted(a:hover) {
+  text-decoration: underline;
+}
+.g-header ::slotted([slot="login"]) {
+  margin-left: auto;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--gooey-ink);
+  border: 1.5px solid var(--gooey-line);
+  font-family: var(--gooey-font);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+.g-header ::slotted([slot="login"]:hover) {
+  border-color: var(--gooey-line-strong);
+  background: var(--gooey-surface-2);
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .g-nav {
+    display: none;
+  }
+}
+
+/* ---------- gooey-footer ---------- */
+:host(gooey-footer) {
+  display: block;
+}
+.g-footer {
+  border-top: 1px solid var(--gooey-line-soft);
+  background: var(--gooey-surface);
+}
+.g-footer .g-wrap {
+  padding-top: 54px;
+  padding-bottom: 64px;
+}
+.g-footer-brand {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.g-footer.has-content .g-footer-brand {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid var(--gooey-line-soft);
+}
+.g-footer-brand .g-logo {
+  height: 24px;
+}
+.g-footer-brand span {
+  font-size: 13px;
+  color: var(--gooey-ink-soft);
+}
+.g-sep:not(.g-shown) {
+  display: none;
+}
