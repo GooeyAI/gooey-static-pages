@@ -289,6 +289,82 @@
       </section>
 
       <section class="entry">
+        <h2>gooey-quote</h2>
+        <p>A pull quote. Slots: default (the quote itself), <code>attribution</code>.</p>
+        <div class="demo demo-pad" id="demo-quote">
+          <gooey-quote>
+            "We built in a day what we had been working on for three months."
+            <span slot="attribution">— Paul Essene, Opportunity International</span>
+          </gooey-quote>
+        </div>
+        <pre data-src="#demo-quote"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-person</h2>
+        <p>
+          A person with a photo. Slots: <code>photo</code> (an
+          <code>&lt;img&gt;</code>), <code>name</code>, <code>role</code>,
+          <code>link</code> (an <code>&lt;a&gt;</code>).
+        </p>
+        <div class="demo demo-pad" id="demo-people">
+          <gooey-columns cols="2">
+            <gooey-person>
+              <img slot="photo" src="../sovereignty/assets/sean-blagsvedt.jpg" alt="Sean Blagsvedt">
+              <span slot="name">Sean Blagsvedt</span>
+              <span slot="role">Founder, Gooey.AI</span>
+              <a slot="link" href="https://www.linkedin.com/in/sean-blagsvedt">LinkedIn</a>
+            </gooey-person>
+            <gooey-person>
+              <img slot="photo" src="../sovereignty/assets/archana-prasad.jpg" alt="Archana Prasad">
+              <span slot="name">Archana Prasad</span>
+              <span slot="role">Founder, Gooey.AI</span>
+              <a slot="link" href="https://www.linkedin.com/in/arcnoid">LinkedIn</a>
+            </gooey-person>
+          </gooey-columns>
+        </div>
+        <pre data-src="#demo-people"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-faq + gooey-faq-item</h2>
+        <p>
+          Questions that open and close (also with the keyboard).
+          <code>gooey-faq-item</code> slots: <code>question</code>, default
+          (the answer).
+        </p>
+        <div class="demo demo-pad" id="demo-faq">
+          <gooey-faq>
+            <gooey-faq-item>
+              <span slot="question">What is an AI workflow?</span>
+              <p>A human-readable recipe: prompts, model choices, tools, knowledge documents and evaluations bundled around a real use case.</p>
+            </gooey-faq-item>
+            <gooey-faq-item>
+              <span slot="question">Can I fork one?</span>
+              <p>Yes. Browse workflows on <a href="https://gooey.ai/explore/">gooey.ai/explore</a>.</p>
+            </gooey-faq-item>
+          </gooey-faq>
+        </div>
+        <pre data-src="#demo-faq"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-callout</h2>
+        <p>A highlighted note. Slot: default. Attribute <code>variant</code>: <code>note</code> (default), <code>warning</code>.</p>
+        <div class="demo demo-pad" id="demo-callouts">
+          <gooey-columns cols="2">
+            <gooey-callout>
+              <p><b>Note:</b> cost figures are public estimates.</p>
+            </gooey-callout>
+            <gooey-callout variant="warning">
+              <p><b>Warning:</b> this dataset is still being reviewed.</p>
+            </gooey-callout>
+          </gooey-columns>
+        </div>
+        <pre data-src="#demo-callouts"></pre>
+      </section>
+
+      <section class="entry">
         <h2>gooey-footer</h2>
         <p>
           Slots: default (optional extra content above the brand line),
