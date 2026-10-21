@@ -78,8 +78,9 @@
   display: block;
 }
 /* Page styles beat ::slotted() rules inside shadow roots, so leave alone
-   the links an element styles itself (buttons, the Login link). */
-:where(gooey-page a:not(gooey-button > a, [slot="login"])) {
+   the links an element styles itself: buttons, and links put straight
+   into a named slot (Login, a person's link). */
+:where(gooey-page a:not(gooey-button > a, [slot])) {
   color: inherit;
   text-underline-offset: 2px;
 }
@@ -245,14 +246,20 @@ a:focus-visible {
 /* ---------- slotted prose, page side ---------- */
 /* Zero specificity: spacing for paragraphs and lists editors put inside
    content elements. Font sizes come from the element, by inheritance. */
-:where(gooey-section, gooey-card, gooey-feature) :where(p, ul, ol) {
+:where(gooey-section, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(p, ul, ol) {
   margin: 0 0 0.9em;
 }
-:where(gooey-section, gooey-card, gooey-feature) :where(p, ul, ol):last-child {
+:where(gooey-section, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(p, ul, ol):last-child {
   margin-bottom: 0;
 }
-:where(gooey-section, gooey-card, gooey-feature) :where(li + li) {
+:where(gooey-section, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(li + li) {
   margin-top: 0.35em;
+}
+:where(gooey-section > gooey-quote, gooey-section > gooey-callout) {
+  margin: 28px 0;
 }
 :where(gooey-section) :where(h3, h4) {
   font-family: var(--gooey-font-serif);
@@ -592,4 +599,143 @@ gooey-hero [slot="byline"] b {
   color: var(--gooey-ink-meta);
   margin-top: 8px;
   line-height: 1.4;
+}
+
+/* ---------- gooey-quote ---------- */
+:host(gooey-quote) {
+  display: block;
+  margin: 6px 0 0;
+}
+.g-quote {
+  margin: 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--gooey-brand);
+}
+.g-quote-text {
+  font-family: var(--gooey-font-serif);
+  font-size: 23px;
+  line-height: 1.32;
+}
+.g-quote-by {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gooey-ink-muted);
+  margin-top: 12px;
+}
+
+/* ---------- gooey-person ---------- */
+:host(gooey-person) {
+  display: block;
+}
+.g-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.g-person ::slotted([slot="photo"]) {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gooey-line-soft);
+}
+.g-person-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  line-height: 1.35;
+}
+.g-person-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.g-person-role {
+  font-size: 14px;
+  color: var(--gooey-ink-muted);
+}
+.g-person ::slotted(a[slot="link"]) {
+  font-size: 14px;
+  color: var(--gooey-brand);
+  text-underline-offset: 2px;
+}
+
+/* ---------- gooey-faq / gooey-faq-item ---------- */
+:host(gooey-faq),
+:host(gooey-faq-item) {
+  display: block;
+}
+.g-faq {
+  border-top: 1px solid var(--gooey-line-soft);
+}
+.g-faq-item {
+  border-bottom: 1px solid var(--gooey-line-soft);
+}
+.g-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--gooey-font-serif);
+  font-size: 20px;
+  line-height: 1.3;
+}
+.g-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.g-faq-item summary:focus-visible {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+.g-faq-icon {
+  flex: none;
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.g-faq-icon::before,
+.g-faq-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--gooey-brand);
+  transition: transform 0.2s ease;
+}
+.g-faq-icon::after {
+  transform: rotate(90deg);
+}
+.g-faq-item[open] .g-faq-icon::after {
+  transform: rotate(0deg);
+}
+.g-faq-answer {
+  padding: 0 0 22px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--gooey-ink-muted);
+  max-width: 70ch;
+}
+
+/* ---------- gooey-callout ---------- */
+:host(gooey-callout) {
+  display: block;
+}
+.g-callout {
+  padding: 16px 20px;
+  border-radius: var(--gooey-radius);
+  border-left: 3px solid var(--gooey-brand);
+  background: rgba(0, 153, 138, 0.08);
+  font-size: 16px;
+  line-height: 1.55;
+}
+:host(gooey-callout[variant="warning"]) .g-callout {
+  border-left-color: rgb(204, 120, 20);
+  background: rgba(204, 120, 20, 0.1);
 }

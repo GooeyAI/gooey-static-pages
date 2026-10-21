@@ -212,6 +212,65 @@ class GooeyImage extends GooeyElement {
   }
 }
 
+/* ---------- gooey-quote ---------- */
+class GooeyQuote extends GooeyElement {
+  static template = template(`
+    <blockquote class="g-quote" part="quote">
+      <div class="g-quote-text" part="text"><slot></slot></div>
+      <div class="g-quote-by g-optional" part="attribution"><slot name="attribution"></slot></div>
+    </blockquote>`);
+
+  constructor() {
+    super();
+    this.watchSlot("attribution", this.shadowRoot.querySelector(".g-quote-by"));
+  }
+}
+
+/* ---------- gooey-person ---------- */
+class GooeyPerson extends GooeyElement {
+  static template = template(`
+    <div class="g-person" part="person">
+      <slot name="photo"></slot>
+      <div class="g-person-text">
+        <span class="g-person-name" part="name"><slot name="name"></slot></span>
+        <span class="g-person-role g-optional" part="role"><slot name="role"></slot></span>
+        <span class="g-optional" part="link"><slot name="link"></slot></span>
+      </div>
+    </div>`);
+
+  constructor() {
+    super();
+    const root = this.shadowRoot;
+    this.watchSlot("role", root.querySelector(".g-person-role"));
+    this.watchSlot("link", root.querySelector('[part="link"]'));
+  }
+}
+
+/* ---------- gooey-faq / gooey-faq-item ---------- */
+class GooeyFaq extends GooeyElement {
+  static template = template(`<div class="g-faq" part="faq"><slot></slot></div>`);
+}
+
+// Native <details>/<summary>: keyboard-operable and announced as a
+// disclosure without any script.
+class GooeyFaqItem extends GooeyElement {
+  static template = template(`
+    <details class="g-faq-item" part="item">
+      <summary part="question">
+        <span><slot name="question"></slot></span>
+        <span class="g-faq-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="g-faq-answer" part="answer"><slot></slot></div>
+    </details>`);
+}
+
+/* ---------- gooey-callout ---------- */
+class GooeyCallout extends GooeyElement {
+  static template = template(
+    `<div class="g-callout" part="callout" role="note"><slot></slot></div>`,
+  );
+}
+
 /* ---------- gooey-page ---------- */
 class GooeyPage extends GooeyElement {
   static template = template(`<slot></slot>`);
@@ -227,6 +286,11 @@ customElements.define("gooey-feature", GooeyFeature);
 customElements.define("gooey-stat", GooeyStat);
 customElements.define("gooey-button", GooeyButton);
 customElements.define("gooey-image", GooeyImage);
+customElements.define("gooey-quote", GooeyQuote);
+customElements.define("gooey-person", GooeyPerson);
+customElements.define("gooey-faq", GooeyFaq);
+customElements.define("gooey-faq-item", GooeyFaqItem);
+customElements.define("gooey-callout", GooeyCallout);
 // Defined last: the loading spinner in each page waits for gooey-page, so by
 // the time it disappears every other element is already upgraded.
 customElements.define("gooey-page", GooeyPage);
