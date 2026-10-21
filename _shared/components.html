@@ -11,6 +11,7 @@
     The code under each example is generated from the example itself.
   -->
   <link rel="modulepreload" href="gooey-elements.js">
+  <script src="https://kit.fontawesome.com/8af9787bd5.js" crossorigin="anonymous"></script>
   <style>
     /* GOOEY-LOADING-START: do not edit. Identical on every page; CI checks it. */
     gooey-page:not(:defined) { display: block; min-height: 100vh; position: relative; }
@@ -132,6 +133,159 @@
           gooey.ai swaps it for the user's name).
         </p>
         <pre data-src="#demo-header"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-hero</h2>
+        <p>
+          The first thing on every page, right after the header. Slots:
+          <code>eyebrow</code>, <code>title</code> (the page's one
+          <code>h1</code>), default (subtitle), <code>cta</code> (buttons),
+          <code>byline</code>, <code>image</code> (beside the text on wide
+          screens, below it on phones).
+        </p>
+        <div class="demo" id="demo-hero">
+          <gooey-hero>
+            <span slot="eyebrow">Gooey.AI · Position paper</span>
+            <span slot="title">A page title that can run to two lines</span>
+            A one-sentence subtitle that says what the page is about.
+            <gooey-button slot="cta"><a href="https://gooey.ai/">Primary action</a></gooey-button>
+            <gooey-button slot="cta" variant="secondary"><a href="https://gooey.ai/explore/">Secondary action</a></gooey-button>
+            <span slot="byline">By <b>Sean Blagsvedt</b> &amp; <b>Archana Prasad</b> · Founders, Gooey.AI</span>
+            <img slot="image" src="../sovereignty/images/image46.png" alt="World map showing AI workflows spreading between countries">
+          </gooey-hero>
+        </div>
+        <pre data-src="#demo-hero"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-section</h2>
+        <p>
+          A full-width band of content. Slots: <code>heading</code>
+          (an <code>h2</code>), <code>intro</code>, default (paragraphs, lists,
+          columns, images…). Attribute <code>variant</code>:
+          <code>plain</code> (default), <code>tinted</code>, <code>dark</code>.
+        </p>
+        <div class="demo" id="demo-section">
+          <gooey-section variant="tinted">
+            <span slot="heading">Section heading</span>
+            <span slot="intro">An introductory sentence, a little larger and softer than body text.</span>
+            <p>Body paragraphs go straight into the section. <a href="https://gooey.ai/">Links</a> and <b>bold text</b> work as usual.</p>
+            <h3>A sub-heading</h3>
+            <ul>
+              <li>Lists are fine too.</li>
+              <li>Each item on its own line.</li>
+            </ul>
+          </gooey-section>
+          <gooey-section variant="dark">
+            <span slot="heading">A dark section</span>
+            <p>Use sparingly, for one standout band per page.</p>
+          </gooey-section>
+        </div>
+        <pre data-src="#demo-section"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-columns + gooey-card</h2>
+        <p>
+          <code>gooey-columns</code> lays its children out side by side.
+          Attribute <code>cols</code>: <code>2</code>, <code>3</code> (default),
+          <code>4</code>; collapses on phones. <code>gooey-card</code> slots:
+          <code>image</code>, <code>title</code>, default (text).
+        </p>
+        <div class="demo demo-pad" id="demo-cards">
+          <gooey-columns cols="3">
+            <gooey-card>
+              <img slot="image" src="../sovereignty/images/image13.png" alt="Illustration of local citizens, communities, and businesses">
+              <span slot="title">Beneficial</span>
+              <p>Sovereign AI must benefit each nation's people, society and economy.</p>
+            </gooey-card>
+            <gooey-card>
+              <img slot="image" src="../sovereignty/images/image6.png" alt="Illustration of local languages and culture">
+              <span slot="title">Reflective</span>
+              <p>It must speak each nation's languages and reflect its culture.</p>
+            </gooey-card>
+            <gooey-card>
+              <img slot="image" src="../sovereignty/images/image17.png" alt="Illustration of a shield over a country">
+              <span slot="title">Not extractive</span>
+              <p>Free from foreign surveillance and suspension.</p>
+            </gooey-card>
+          </gooey-columns>
+        </div>
+        <pre data-src="#demo-cards"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-feature</h2>
+        <p>
+          A short point with an icon. Slots: <code>icon</code> (a Font Awesome
+          <code>&lt;i&gt;</code> or a small <code>&lt;img&gt;</code>),
+          <code>title</code>, default (text).
+        </p>
+        <div class="demo demo-pad" id="demo-features">
+          <gooey-columns cols="4">
+            <gooey-feature>
+              <i slot="icon" class="fa-regular fa-ruler" aria-hidden="true"></i>
+              <span slot="title">Shape benchmarks</span>
+              Around each country's languages and needs.
+            </gooey-feature>
+            <gooey-feature>
+              <i slot="icon" class="fa-regular fa-database" aria-hidden="true"></i>
+              <span slot="title">Publish datasets</span>
+              That make underrepresented cultures visible.
+            </gooey-feature>
+            <gooey-feature>
+              <i slot="icon" class="fa-regular fa-microchip" aria-hidden="true"></i>
+              <span slot="title">Commoditize models</span>
+              Through standards and swappability.
+            </gooey-feature>
+            <gooey-feature>
+              <i slot="icon" class="fa-regular fa-diagram-project" aria-hidden="true"></i>
+              <span slot="title">Spread recipes</span>
+              That every nation can adapt.
+            </gooey-feature>
+          </gooey-columns>
+        </div>
+        <pre data-src="#demo-features"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-stat</h2>
+        <p>A headline number. Slots: <code>value</code>, <code>label</code>.</p>
+        <div class="demo demo-pad" id="demo-stats">
+          <gooey-columns cols="3">
+            <gooey-stat><span slot="value">4.1M</span><span slot="label">farmers reached</span></gooey-stat>
+            <gooey-stat><span slot="value">+17%</span><span slot="label">farmer income</span></gooey-stat>
+            <gooey-stat><span slot="value">33</span><span slot="label">countries</span></gooey-stat>
+          </gooey-columns>
+        </div>
+        <pre data-src="#demo-stats"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-button</h2>
+        <p>
+          Wraps one real <code>&lt;a&gt;</code>. Attribute
+          <code>variant</code>: <code>primary</code> (default),
+          <code>secondary</code>.
+        </p>
+        <div class="demo demo-pad" id="demo-buttons">
+          <gooey-button><a href="https://gooey.ai/">Primary</a></gooey-button>
+          <gooey-button variant="secondary"><a href="https://gooey.ai/explore/">Secondary</a></gooey-button>
+        </div>
+        <pre data-src="#demo-buttons"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-image</h2>
+        <p>An image with an optional caption. Slots: default (one <code>&lt;img&gt;</code> with <code>alt</code>), <code>caption</code>.</p>
+        <div class="demo demo-pad" id="demo-image">
+          <gooey-image>
+            <img src="../sovereignty/images/image47.png" alt="Dataset to trained image to custom video">
+            <span slot="caption"><b>Goal:</b> fine-tune image models on local datasets · <a href="https://gooey.ai/beyondbias">gooey.ai/beyondbias</a></span>
+          </gooey-image>
+        </div>
+        <pre data-src="#demo-image"></pre>
       </section>
 
       <section class="entry">

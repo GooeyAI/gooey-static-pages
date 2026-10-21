@@ -38,10 +38,11 @@ class GooeyElement extends HTMLElement {
     );
   }
 
-  // Toggle `className` on `target` whenever the named slot gains or loses
-  // content, for chrome (separators, borders) that only makes sense when
-  // the editor filled that slot.
-  watchSlot(name, target, className) {
+  // Toggle `className` on `target` whenever the named slot (null for the
+  // default slot) gains or loses content, for chrome that only makes sense
+  // when the editor filled that slot. `.g-optional` wrappers are hidden
+  // until they get `g-filled`.
+  watchSlot(name, target, className = "g-filled") {
     const slot = this.shadowRoot.querySelector(
       name ? `slot[name="${name}"]` : "slot:not([name])",
     );
@@ -89,7 +90,7 @@ class GooeyFooter extends GooeyElement {
         <slot></slot>
         <div class="g-footer-brand" part="brand">
           <img class="g-logo" src="${LOGO}" alt="Gooey.AI">
-          <span>© ${YEAR} Gooey.AI<span class="g-sep"> — </span><slot name="title"></slot></span>
+          <span>© ${YEAR} Gooey.AI<span class="g-sep g-optional"> — </span><slot name="title"></slot></span>
         </div>
       </div>
     </footer>`);
@@ -98,7 +99,116 @@ class GooeyFooter extends GooeyElement {
     super();
     const root = this.shadowRoot;
     this.watchSlot(null, root.querySelector(".g-footer"), "has-content");
-    this.watchSlot("title", root.querySelector(".g-sep"), "g-shown");
+    this.watchSlot("title", root.querySelector(".g-sep"));
+  }
+}
+
+/* ---------- gooey-hero ---------- */
+class GooeyHero extends GooeyElement {
+  static template = template(`
+    <header class="g-hero" part="hero">
+      <div class="g-hero-inner">
+        <div class="g-hero-text">
+          <slot name="eyebrow"></slot>
+          <h1 class="g-hero-title" part="title"><slot name="title"></slot></h1>
+          <p class="g-hero-sub g-optional" part="subtitle"><slot></slot></p>
+          <div class="g-hero-cta g-optional"><slot name="cta"></slot></div>
+          <slot name="byline"></slot>
+        </div>
+        <slot name="image"></slot>
+      </div>
+    </header>`);
+
+  constructor() {
+    super();
+    const root = this.shadowRoot;
+    this.watchSlot(null, root.querySelector(".g-hero-sub"));
+    this.watchSlot("cta", root.querySelector(".g-hero-cta"));
+    this.watchSlot("image", root.querySelector(".g-hero"), "has-image");
+  }
+}
+
+/* ---------- gooey-section ---------- */
+class GooeySection extends GooeyElement {
+  static template = template(`
+    <section class="g-section" part="section">
+      <div class="g-wrap">
+        <h2 class="g-section-heading g-optional" part="heading"><slot name="heading"></slot></h2>
+        <p class="g-section-intro g-optional" part="intro"><slot name="intro"></slot></p>
+        <slot></slot>
+      </div>
+    </section>`);
+
+  constructor() {
+    super();
+    const root = this.shadowRoot;
+    this.watchSlot("heading", root.querySelector(".g-section-heading"));
+    this.watchSlot("intro", root.querySelector(".g-section-intro"));
+  }
+}
+
+/* ---------- gooey-columns ---------- */
+class GooeyColumns extends GooeyElement {
+  static template = template(`<slot></slot>`);
+}
+
+/* ---------- gooey-card ---------- */
+class GooeyCard extends GooeyElement {
+  static template = template(`
+    <article class="g-card" part="card">
+      <slot name="image"></slot>
+      <h3 class="g-card-title g-optional" part="title"><slot name="title"></slot></h3>
+      <div class="g-card-body" part="body"><slot></slot></div>
+    </article>`);
+
+  constructor() {
+    super();
+    this.watchSlot("title", this.shadowRoot.querySelector(".g-card-title"));
+  }
+}
+
+/* ---------- gooey-feature ---------- */
+class GooeyFeature extends GooeyElement {
+  static template = template(`
+    <div class="g-feature" part="feature">
+      <slot name="icon"></slot>
+      <h3 class="g-feature-title g-optional" part="title"><slot name="title"></slot></h3>
+      <div class="g-feature-body" part="body"><slot></slot></div>
+    </div>`);
+
+  constructor() {
+    super();
+    this.watchSlot("title", this.shadowRoot.querySelector(".g-feature-title"));
+  }
+}
+
+/* ---------- gooey-stat ---------- */
+class GooeyStat extends GooeyElement {
+  static template = template(`
+    <div class="g-stat" part="stat">
+      <span class="g-stat-value" part="value"><slot name="value"></slot></span>
+      <span class="g-stat-label" part="label"><slot name="label"></slot></span>
+    </div>`);
+}
+
+/* ---------- gooey-button ---------- */
+class GooeyButton extends GooeyElement {
+  static template = template(
+    `<span class="g-button" part="button"><slot></slot></span>`,
+  );
+}
+
+/* ---------- gooey-image ---------- */
+class GooeyImage extends GooeyElement {
+  static template = template(`
+    <figure class="g-figure" part="figure">
+      <slot></slot>
+      <figcaption class="g-optional" part="caption"><slot name="caption"></slot></figcaption>
+    </figure>`);
+
+  constructor() {
+    super();
+    this.watchSlot("caption", this.shadowRoot.querySelector("figcaption"));
   }
 }
 
@@ -109,6 +219,14 @@ class GooeyPage extends GooeyElement {
 
 customElements.define("gooey-header", GooeyHeader);
 customElements.define("gooey-footer", GooeyFooter);
+customElements.define("gooey-hero", GooeyHero);
+customElements.define("gooey-section", GooeySection);
+customElements.define("gooey-columns", GooeyColumns);
+customElements.define("gooey-card", GooeyCard);
+customElements.define("gooey-feature", GooeyFeature);
+customElements.define("gooey-stat", GooeyStat);
+customElements.define("gooey-button", GooeyButton);
+customElements.define("gooey-image", GooeyImage);
 // Defined last: the loading spinner in each page waits for gooey-page, so by
 // the time it disappears every other element is already upgraded.
 customElements.define("gooey-page", GooeyPage);
