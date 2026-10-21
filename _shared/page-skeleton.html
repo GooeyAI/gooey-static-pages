@@ -33,17 +33,27 @@
 </head>
 <body>
   <gooey-page>
-    <gooey-header>
+    <gooey-header progress>
       <span slot="title">Page title</span>
       <a slot="login" href="https://gooey.ai/login/">Login</a>
     </gooey-header>
 
-    <gooey-hero>
-      <span slot="title">Page title</span>
-      Subtitle text.
-    </gooey-hero>
+    <main>
+      <gooey-hero>
+        <span slot="title">Page title</span>
+        <span slot="subtitle">One sentence on what this page is about.</span>
+        <p>An intro paragraph.</p>
+      </gooey-hero>
 
-    <gooey-footer></gooey-footer>
+      <gooey-section>
+        <span slot="heading">Section heading</span>
+        <p>Section text.</p>
+      </gooey-section>
+    </main>
+
+    <gooey-footer>
+      <span slot="note">Get in touch at <a href="mailto:research@gooey.ai">research@gooey.ai</a>.</span>
+    </gooey-footer>
   </gooey-page>
 </body>
 </html>
