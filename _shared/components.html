@@ -388,6 +388,53 @@
       </section>
 
       <section class="entry">
+        <h2>gooey-tags</h2>
+        <p>A row of small labels. Slot: default (one <code>&lt;span&gt;</code> per tag).</p>
+        <div class="demo demo-pad" id="demo-tags">
+          <gooey-tags>
+            <span>Participatory AI</span>
+            <span>AI Literacy</span>
+            <span>Kannada &amp; multilingual</span>
+          </gooey-tags>
+        </div>
+        <pre data-src="#demo-tags"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-steps + gooey-step</h2>
+        <p>
+          A numbered list; the numbers fill themselves in.
+          <code>gooey-step</code> slots: <code>title</code>, default (text).
+        </p>
+        <div class="demo demo-pad" id="demo-steps">
+          <gooey-steps>
+            <gooey-step>
+              <span slot="title">Participatory design process</span>
+              <p>A working roundtable shapes the fellowship around real needs.</p>
+            </gooey-step>
+            <gooey-step>
+              <span slot="title">Inclusive AI platform</span>
+              <p>Low-code, multilingual tools for publishing in local languages.</p>
+            </gooey-step>
+          </gooey-steps>
+        </div>
+        <pre data-src="#demo-steps"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-gallery</h2>
+        <p>Images in a row that scrolls sideways. Slot: default (<code>&lt;img&gt;</code> elements, each with <code>alt</code>).</p>
+        <div class="demo demo-pad" id="demo-gallery">
+          <gooey-gallery>
+            <img src="../lokalibrary/images/overview-1.jpg" alt="Illustrated Karnataka birds">
+            <img src="../lokalibrary/images/overview-2.jpg" alt="Community bird field-guide plate">
+            <img src="../lokalibrary/images/overview-library.jpg" alt="Librarians co-creating a field guide">
+          </gooey-gallery>
+        </div>
+        <pre data-src="#demo-gallery"></pre>
+      </section>
+
+      <section class="entry">
         <h2>gooey-footer</h2>
         <p>
           Slots: default (optional extra content above the brand line, e.g.
