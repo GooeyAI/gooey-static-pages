@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page title</title>
+  <!-- GOOEY-BASE-HREF -->
+  <link rel="modulepreload" href="https://gooey-static-pages.pages.dev/_shared/gooey-elements.js">
+  <style>
+    /* GOOEY-LOADING-START: do not edit. Identical on every page; CI checks it. */
+    gooey-page:not(:defined) { display: block; min-height: 100vh; position: relative; }
+    gooey-page:not(:defined) > * {
+      visibility: hidden;
+      animation: gooey-reveal 0s 6s forwards; /* failsafe: show raw content if JS never loads */
+    }
+    gooey-page:not(:defined)::before {
+      content: ""; position: absolute; top: 40vh; left: 50%;
+      width: 40px; height: 40px; margin: -20px 0 0 -20px;
+      border: 4px solid rgba(0, 0, 0, .12); border-top-color: rgba(0, 0, 0, .6);
+      border-radius: 50%;
+      animation: gooey-spin .8s linear infinite, gooey-hide 0s 6s forwards;
+    }
+    @keyframes gooey-spin   { to { transform: rotate(360deg); } }
+    @keyframes gooey-reveal { to { visibility: visible; } }
+    @keyframes gooey-hide   { to { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      gooey-page:not(:defined)::before { animation: gooey-hide 0s 6s forwards; }
+    }
+    /* GOOEY-LOADING-END */
+  </style>
+  <noscript><style>gooey-page > * { visibility: visible !important; }</style></noscript>
+  <script type="module" src="https://gooey-static-pages.pages.dev/_shared/gooey-elements.js"></script>
+</head>
+<body>
+  <gooey-page>
+    <gooey-header>
+      <span slot="title">Page title</span>
+      <a slot="login" href="https://gooey.ai/login/">Login</a>
+    </gooey-header>
+
+    <gooey-footer></gooey-footer>
+  </gooey-page>
+</body>
+</html>
