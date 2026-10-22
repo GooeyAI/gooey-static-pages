@@ -19,7 +19,7 @@ const SHEET_NAMES = [
   "gooey-section", "gooey-columns", "gooey-card", "gooey-feature",
   "gooey-stat", "gooey-button", "gooey-image", "gooey-quote",
   "gooey-person", "gooey-faq", "gooey-callout", "gooey-tags",
-  "gooey-steps", "gooey-gallery",
+  "gooey-steps", "gooey-gallery", "gooey-table",
 ];
 // Elements that share another element's sheet.
 const SHEET_OF = { "gooey-faq-item": "gooey-faq", "gooey-step": "gooey-steps" };
@@ -284,11 +284,61 @@ class GooeyImage extends GooeyElement {
     <figure class="g-figure" part="figure">
       <slot></slot>
       <figcaption class="g-optional" part="caption"><slot name="caption"></slot></figcaption>
-    </figure>`);
+    </figure>
+    <dialog class="g-zoom" part="zoom" aria-label="Enlarged image">
+      <button class="g-zoom-close" type="button" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <img alt="">
+    </dialog>`);
 
   constructor() {
     super();
-    this.watchSlot("caption", this.shadowRoot.querySelector("figcaption"));
+    const root = this.shadowRoot;
+    this.watchSlot("caption", root.querySelector("figcaption"));
+    // Native <dialog>: showModal() traps focus and closes on Escape.
+    const dialog = root.querySelector(".g-zoom");
+    dialog.addEventListener("click", () => dialog.close());
+    root.querySelector("slot:not([name])").addEventListener("slotchange", () => this.wireZoom());
+  }
+
+  connectedCallback() {
+    this.wireZoom();
+  }
+
+  // Attribute `zoom`: make the image open full screen on click or Enter.
+  wireZoom() {
+    const img = this.querySelector(":scope > img");
+    if (!this.hasAttribute("zoom") || !img || img.dataset.gooeyZoom) return;
+    img.dataset.gooeyZoom = "";
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-haspopup", "dialog");
+    const open = () => {
+      const dialog = this.shadowRoot.querySelector(".g-zoom");
+      const big = dialog.querySelector("img");
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      dialog.showModal();
+    };
+    this.shadowRoot.querySelector(".g-zoom").addEventListener("close", () => img.focus());
+    img.addEventListener("click", open);
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+  }
+}
+
+/* ---------- gooey-table ---------- */
+class GooeyTable extends GooeyElement {
+  static template = template(`
+    <h3 class="g-table-title g-optional" part="title"><slot name="title"></slot></h3>
+    <div class="g-table" part="table"><slot></slot></div>`);
+
+  constructor() {
+    super();
+    this.watchSlot("title", this.shadowRoot.querySelector(".g-table-title"));
   }
 }
 
@@ -427,6 +477,7 @@ customElements.define("gooey-feature", GooeyFeature);
 customElements.define("gooey-stat", GooeyStat);
 customElements.define("gooey-button", GooeyButton);
 customElements.define("gooey-image", GooeyImage);
+customElements.define("gooey-table", GooeyTable);
 customElements.define("gooey-quote", GooeyQuote);
 customElements.define("gooey-person", GooeyPerson);
 customElements.define("gooey-faq", GooeyFaq);

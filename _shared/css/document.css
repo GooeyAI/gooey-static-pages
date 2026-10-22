@@ -66,18 +66,47 @@
   :where(li + li) {
   margin-top: 10px;
 }
-:where(gooey-section) :where(h3, h4) {
+:where(gooey-section) :where(h2, h3, h4) {
   font-family: var(--gooey-font-serif);
   font-weight: 400;
-  line-height: 1.25;
   color: var(--gooey-ink);
-  margin: 1.3em 0 0.4em;
 }
 :where(gooey-section) :where(h3) {
-  font-size: 20px;
+  font-size: 19px;
+  line-height: normal;
+  margin: 32px 0 4px;
 }
 :where(gooey-section) :where(h4) {
   font-size: 17px;
+  line-height: 1.25;
+  margin: 1.3em 0 0.4em;
+}
+/* Text columns (plain <div>s inside gooey-columns) sit further apart
+   than boxes, and lead with their own heading. */
+:where(gooey-columns:has(> div)) {
+  --g-gap: clamp(24px, 4vw, 60px);
+  --g-min: 320px;
+}
+:where(gooey-columns > div) > :where(h3) {
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+:where(gooey-step) :where(ul, ol) {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+:where(gooey-step) :where(li + li) {
+  margin-top: 6px;
+}
+:where(gooey-columns > gooey-image) {
+  margin: 0;
+}
+:where(gooey-page code) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
 }
 :where(gooey-section > gooey-quote, gooey-section > gooey-callout) {
   margin: 28px 0;
@@ -96,4 +125,44 @@ gooey-footer [slot="note"] a {
 }
 gooey-footer [slot="note"] a:hover {
   text-decoration: underline;
+}
+
+/* ---------- gooey-table cells ---------- */
+/* Cells are nested inside the slotted <table>, out of ::slotted() reach,
+   so they're styled from the page side, with real specificity. */
+gooey-table thead tr {
+  background: var(--gooey-surface-2);
+}
+gooey-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gooey-brand);
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--gooey-line);
+  white-space: nowrap;
+}
+gooey-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gooey-line-soft);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--gooey-ink-muted);
+}
+gooey-table td:first-child {
+  font-weight: 600;
+  color: var(--gooey-ink);
+  width: 30%;
+  white-space: nowrap;
+}
+gooey-table tbody tr:nth-child(even) {
+  background: var(--gooey-surface);
+}
+gooey-table tbody tr:hover {
+  background: var(--gooey-surface-2);
+}
+gooey-table tr:last-child td {
+  border-bottom: none;
 }

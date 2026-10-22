@@ -34,8 +34,15 @@
   gap: clamp(24px, 3vw, 40px);
   align-items: start;
 }
+/* cols="3-1": e.g. a desktop screenshot beside a phone screenshot. */
+:host(gooey-columns[cols="3-1"]) {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 32px);
+  align-items: start;
+}
 @media (max-width: 900px) {
-  :host(gooey-columns[cols="7-5"]) {
+  :host(gooey-columns[cols="7-5"]),
+  :host(gooey-columns[cols="3-1"]) {
     grid-template-columns: minmax(0, 1fr);
   }
 }

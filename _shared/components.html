@@ -205,9 +205,10 @@
           <code>gooey-columns</code> lays its children out side by side, and
           wraps them onto more rows as the screen narrows. Attribute
           <code>cols</code>: <code>2</code>, <code>3</code> (default),
-          <code>4</code>, or <code>7-5</code> (a wider column beside a narrower
-          one; wrap a column's several paragraphs in a plain
-          <code>&lt;div&gt;</code>). <code>size="narrow"</code> keeps small
+          <code>4</code>, <code>7-5</code> or <code>3-1</code> (a wider column
+          beside a narrower one). For columns of text, wrap each column in a
+          plain <code>&lt;div&gt;</code> starting with an <code>&lt;h3&gt;</code>;
+          text columns sit further apart than boxes. <code>size="narrow"</code> keeps small
           items such as stats side by side on narrower screens. <code>gooey-card</code> slots:
           <code>image</code>, <code>title</code>, default (text).
         </p>
@@ -301,14 +302,46 @@
 
       <section class="entry">
         <h2>gooey-image</h2>
-        <p>An image with an optional caption. Slots: default (one <code>&lt;img&gt;</code> with <code>alt</code>), <code>caption</code>.</p>
+        <p>
+          An image with an optional caption. Slots: default (one
+          <code>&lt;img&gt;</code> with <code>alt</code>), <code>caption</code>.
+          Attributes: <code>zoom</code> (click or Enter to see it full screen),
+          <code>variant="plain"</code> (no frame, for screenshots that bring
+          their own).
+        </p>
         <div class="demo demo-pad" id="demo-image">
-          <gooey-image>
+          <gooey-image zoom>
             <img src="../sovereignty/images/image47.png" alt="Dataset to trained image to custom video">
             <span slot="caption"><b>Goal:</b> fine-tune image models on local datasets · <a href="https://gooey.ai/beyondbias">gooey.ai/beyondbias</a></span>
           </gooey-image>
         </div>
         <pre data-src="#demo-image"></pre>
+      </section>
+
+      <section class="entry">
+        <h2>gooey-table</h2>
+        <p>
+          Wraps one ordinary <code>&lt;table&gt;</code> (with
+          <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code>); it scrolls
+          sideways on small screens. Slot: <code>title</code> (optional
+          heading above it).
+        </p>
+        <div class="demo demo-pad" id="demo-table">
+          <gooey-table>
+            <span slot="title">Inputs from AI tools</span>
+            <table>
+              <thead>
+                <tr><th>Field</th><th>Example or purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Model</td><td><code>gpt-4o</code>. Provider-specific ids resolve to the same model.</td></tr>
+                <tr><td>Token counts</td><td>Input tokens (700), output tokens (300)</td></tr>
+                <tr><td>Provider</td><td><code>openai</code>. Optional.</td></tr>
+              </tbody>
+            </table>
+          </gooey-table>
+        </div>
+        <pre data-src="#demo-table"></pre>
       </section>
 
       <section class="entry">
