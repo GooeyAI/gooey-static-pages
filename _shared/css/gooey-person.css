@@ -1,0 +1,36 @@
+:host(gooey-person) {
+  display: block;
+}
+.g-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.g-person ::slotted([slot="photo"]) {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gooey-line-soft);
+}
+.g-person-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  line-height: 1.35;
+}
+.g-person-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.g-person-role {
+  font-size: 14px;
+  color: var(--gooey-ink-muted);
+}
+.g-person ::slotted(a[slot="link"]) {
+  font-size: 14px;
+  color: var(--gooey-brand);
+  text-underline-offset: 2px;
+}

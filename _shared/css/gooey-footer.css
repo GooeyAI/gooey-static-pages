@@ -1,0 +1,38 @@
+:host(gooey-footer) {
+  display: block;
+}
+.g-footer {
+  background: var(--gooey-surface);
+}
+.g-footer .g-wrap {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+.g-footer.has-content .g-wrap {
+  padding-top: 54px;
+}
+.g-footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  line-height: normal;
+}
+.g-footer.has-content .g-footer-brand {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid var(--gooey-line-soft);
+}
+.g-footer-brand .g-logo-link {
+  display: inline;
+}
+.g-footer-logo {
+  height: 20px;
+  width: auto;
+  opacity: 0.85;
+}
+.g-footer-note {
+  font-size: 13px;
+  color: var(--gooey-ink-meta);
+}
