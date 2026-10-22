@@ -20,12 +20,11 @@ HEADER_CSS/HEADER_HTML into its <head>/<body> like the existing pages do.
 from __future__ import annotations
 
 # folder/index.html -> the page's <span class="h-title"> text.
-# Pages that use <gooey-header> instead (lokalibrary/) aren't listed: their
+# Pages that use <gooey-header> instead (lokalibrary/, ecocost/) aren't listed: their
 # header comes from _shared/gooey-elements.js, so it can't drift.
 PAGES = {
     "sovereignty/index.html": "How Middle Powers Cooperate for AI Sovereignty",
     "research/index.html": "Gooey.AI Research",
-    "ecocost/index.html": "EcoCost",
     "multilingual-ai-evaluations/index.html": "Low-Resource Language Evaluations",
 }
 
