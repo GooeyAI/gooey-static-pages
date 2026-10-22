@@ -1,0 +1,99 @@
+/*
+ * Page-side styles, added once to the page's <head> by gooey-elements.js.
+ * They cover what elements can't reach from inside their shadow roots:
+ * content editors put into slots (paragraphs, lists, links, table cells).
+ * Most rules use :where() so they have zero specificity and any page CSS
+ * still wins.
+ *
+ * Developer-owned. Content editors never edit this file.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ---------- slotted content ---------- */
+:where(body:has(> gooey-page)) {
+  margin: 0;
+}
+:where(html:has(gooey-page)) {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(html:has(gooey-page)) {
+    scroll-behavior: auto;
+  }
+}
+:where(gooey-page *, gooey-page *::before, gooey-page *::after) {
+  box-sizing: border-box;
+}
+/* Images an element sizes itself (slotted ones, gallery images) are left
+   alone: page styles beat ::slotted() rules inside shadow roots. */
+:where(gooey-page img:not([slot], gooey-gallery > img)) {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Same reason: leave alone the links an element styles itself: buttons,
+   and links put straight into a named slot (Login, a person's link). */
+:where(gooey-page a:not(gooey-button > a, [slot])) {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+:where(gooey-page a:focus-visible, gooey-page summary:focus-visible) {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+
+/* ---------- slotted prose ---------- */
+/* Zero specificity: spacing for paragraphs and lists editors put inside
+   content elements. Font sizes come from the element, by inheritance. */
+:where(gooey-section, gooey-hero, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(p, ul, ol) {
+  margin: 0 0 1em;
+}
+:where(gooey-section, gooey-hero, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(p, ul, ol):last-child,
+:where(gooey-step) :where(p) {
+  margin-bottom: 0;
+}
+/* Reading width for running text, not for text inside boxes and steps. */
+:where(gooey-section, gooey-hero, gooey-columns > div) > :where(p, ul, ol) {
+  max-width: var(--gooey-measure, 70ch);
+  text-wrap: pretty;
+}
+:where(gooey-section, gooey-hero, gooey-columns > div) > :where(ul, ol) {
+  padding-left: 22px;
+}
+:where(gooey-section, gooey-hero, gooey-card, gooey-feature, gooey-faq-item, gooey-callout)
+  :where(li + li) {
+  margin-top: 10px;
+}
+:where(gooey-section) :where(h3, h4) {
+  font-family: var(--gooey-font-serif);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--gooey-ink);
+  margin: 1.3em 0 0.4em;
+}
+:where(gooey-section) :where(h3) {
+  font-size: 20px;
+}
+:where(gooey-section) :where(h4) {
+  font-size: 17px;
+}
+:where(gooey-section > gooey-quote, gooey-section > gooey-callout) {
+  margin: 28px 0;
+}
+/* Real specificity on purpose: these beat a page's bare `a`/`b` rules. */
+gooey-image [slot="caption"] a {
+  color: inherit;
+}
+gooey-hero [slot="byline"] b {
+  color: var(--gooey-ink);
+  font-weight: 600;
+}
+gooey-footer [slot="note"] a {
+  color: var(--gooey-ink-muted);
+  text-decoration: none;
+}
+gooey-footer [slot="note"] a:hover {
+  text-decoration: underline;
+}
