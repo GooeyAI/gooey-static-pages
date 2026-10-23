@@ -1,0 +1,75 @@
+:host(gooey-image) {
+  display: block;
+  margin: 24px 0;
+}
+.g-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.g-figure ::slotted(img) {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--gooey-radius-lg);
+  border: 1px solid var(--gooey-line-soft);
+  box-shadow: 0 0 20px 0 rgba(10, 16, 33, 0.06);
+}
+/* variant="plain": no frame, e.g. a screenshot that brings its own. */
+:host(gooey-image[variant="plain"]) .g-figure ::slotted(img) {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.g-figure figcaption {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--gooey-ink-meta);
+}
+/* Attribute `zoom`: click (or Enter) to see the image full screen. */
+:host(gooey-image[zoom]) .g-figure ::slotted(img) {
+  cursor: zoom-in;
+}
+.g-figure ::slotted(img:focus-visible) {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 3px;
+}
+.g-zoom {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  cursor: zoom-out;
+}
+.g-zoom::backdrop {
+  background: rgba(10, 16, 33, 0.82);
+}
+.g-zoom img {
+  display: block;
+  max-width: calc(100vw - 2 * clamp(16px, 4vw, 48px));
+  max-height: calc(100vh - 2 * clamp(16px, 4vw, 48px));
+  border-radius: var(--gooey-radius);
+  background: var(--gooey-bg);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.12);
+}
+.g-zoom-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font: 22px/1 var(--gooey-font);
+  cursor: pointer;
+}
+.g-zoom-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}

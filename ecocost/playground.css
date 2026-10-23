@@ -1,0 +1,213 @@
+/*
+ * EcoCost API playground: page-specific, developer-owned. Runs the real
+ * ecocost Python package in the browser (see playground.js). Colours come
+ * from the shared gooey-* tokens.
+ */
+.pg {
+  /* Undo the section's prose styling for the app UI. */
+  line-height: normal;
+  color: var(--gooey-ink);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(20px, 3vw, 32px);
+  margin-top: 28px;
+  align-items: start;
+}
+.pg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid var(--gooey-line-soft);
+  border-radius: 16px;
+  background: var(--gooey-surface);
+}
+.pg-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.pg-form label > span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gooey-ink-muted);
+}
+.pg-form select,
+.pg-form input {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  color: var(--gooey-ink);
+  padding: 10px 12px;
+  border: 1px solid var(--gooey-line);
+  border-radius: 10px;
+  background: var(--gooey-bg);
+}
+.pg-form select:focus,
+.pg-form input:focus {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: -1px;
+  border-color: transparent;
+}
+.pg-form :disabled {
+  color: var(--gooey-ink-soft);
+  cursor: progress;
+}
+.pg-tokens {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.pg-code {
+  border-radius: 12px;
+  background: var(--gooey-ink);
+  overflow: hidden;
+}
+.pg-code-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pg-code-head button {
+  font: inherit;
+  color: #7fe7db;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+.pg-code pre,
+.pg-json pre {
+  margin: 0;
+  padding: 14px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 150%;
+}
+.pg-code pre {
+  color: #e6edf3;
+}
+.pg-out {
+  min-width: 0;
+}
+.pg-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 24px;
+  border: 1px dashed var(--gooey-line);
+  border-radius: 16px;
+  font-size: 15px;
+  color: var(--gooey-ink-muted);
+}
+.pg-status[hidden] {
+  display: none;
+}
+.pg-status.error {
+  border-style: solid;
+  border-color: #f0c2b8;
+  background: #fdf4f2;
+  color: #8a2d1c;
+  white-space: pre-wrap;
+  align-items: flex-start;
+}
+.pg-status + #pgResult {
+  margin-top: 16px;
+}
+.pg-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.pg-stats gooey-stat::part(stat) {
+  background: none;
+}
+.pg-block {
+  margin-top: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--gooey-line-soft);
+  border-radius: 16px;
+}
+.pg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+}
+.pg-meta {
+  font-size: 14px;
+  color: var(--gooey-ink-muted);
+}
+.pg-method {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.pg-method a {
+  font-weight: 600;
+}
+.pg-mix {
+  display: flex;
+  height: 10px;
+  margin-top: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgb(241, 238, 234);
+}
+.pg-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  color: var(--gooey-ink-muted);
+}
+.pg-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.pg-json {
+  margin-top: 12px;
+  border: 1px solid var(--gooey-line-soft);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.pg-json summary {
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pg-json pre {
+  max-height: 360px;
+  border-top: 1px solid var(--gooey-line-soft);
+  background: var(--gooey-surface);
+}
+@media (max-width: 900px) {
+  .pg {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .pg-tokens,
+  .pg-stats {
+    grid-template-columns: 1fr;
+  }
+}

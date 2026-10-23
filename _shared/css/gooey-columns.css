@@ -1,0 +1,48 @@
+/* Up to `cols` columns, each at least --g-min wide, so they collapse on
+   their own as the screen narrows. size="narrow" lets small items (stats)
+   stay side by side longer. */
+:host(gooey-columns) {
+  --g-cols: 3;
+  --g-min: 260px;
+  --g-gap: var(--gooey-grid-gap);
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      max(
+        min(var(--g-min), 100%),
+        calc((100% - (var(--g-cols) - 1) * var(--g-gap)) / var(--g-cols))
+      ),
+      1fr
+    )
+  );
+  gap: var(--g-gap);
+  margin: clamp(20px, 2.6vw, 24px) 0 0;
+}
+:host(gooey-columns[cols="2"]) {
+  --g-cols: 2;
+}
+:host(gooey-columns[cols="4"]) {
+  --g-cols: 4;
+}
+:host(gooey-columns[size="narrow"]) {
+  --g-min: 200px;
+}
+/* cols="7-5": a wider text column beside a narrower media column. */
+:host(gooey-columns[cols="7-5"]) {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+}
+/* cols="3-1": e.g. a desktop screenshot beside a phone screenshot. */
+:host(gooey-columns[cols="3-1"]) {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 32px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  :host(gooey-columns[cols="7-5"]),
+  :host(gooey-columns[cols="3-1"]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

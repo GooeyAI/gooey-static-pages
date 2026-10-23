@@ -1,0 +1,33 @@
+/*
+ * Shared by every gooey-* element's shadow root, before its own sheet.
+ * Developer-owned.
+ */
+:host,
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: border-box;
+}
+.g-wrap {
+  max-width: var(--gooey-max-w);
+  margin: 0 auto;
+  padding: 0 var(--gooey-gutter);
+}
+.g-hidden,
+.g-optional:not(.g-filled) {
+  display: none !important;
+}
+::slotted(a:focus-visible),
+a:focus-visible {
+  outline: 2px solid var(--gooey-brand);
+  outline-offset: 2px;
+}
+.g-logo-link {
+  display: flex;
+  align-items: center;
+}
+.g-logo {
+  height: 24px;
+  width: auto;
+  display: block;
+}
