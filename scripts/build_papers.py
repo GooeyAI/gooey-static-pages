@@ -381,6 +381,7 @@ STYLE = """
 
       /* ---------- body ---------- */
       article section {
+        scroll-margin-top: calc(var(--site-header-h, 60px) + 24px);
         display: flex;
         flex-direction: column;
         gap: 18px;
@@ -603,6 +604,18 @@ PAGE = """<!doctype html>
       document
         .querySelectorAll("article section[id]")
         .forEach((s) => io.observe(s));
+
+      /* the <base> tag makes a bare "#id" resolve to research/#id, which
+         navigates away; scroll in place instead */
+      links.forEach((a) =>
+        a.addEventListener("click", (ev) => {{
+          const t = document.getElementById(a.getAttribute("href").slice(1));
+          if (!t) return;
+          ev.preventDefault();
+          t.scrollIntoView();
+          history.replaceState(null, "", location.pathname + "#" + t.id);
+        }}),
+      );
     </script>
   </body>
 </html>
