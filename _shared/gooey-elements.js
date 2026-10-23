@@ -1,8 +1,8 @@
 // Shared custom elements for gooey-static-pages.
 //
 // Pages load this one module by absolute URL (see page-skeleton.html) and
-// write content only; layout and styling live here and in css/. Every
-// element and slot is shown in components.html.
+// write content only; layout and styling live here and in styles.css.
+// Every element and slot is shown in components.html.
 //
 // Developer-owned. Content editors never edit this file.
 
@@ -10,58 +10,32 @@ const SHARED = new URL(".", import.meta.url);
 const LOGO = new URL("gooey-logo.png", SHARED).href;
 const WORDMARK = new URL("gooey-wordmark.png", SHARED).href;
 
-// One stylesheet per element in css/, plus base.css shared by every
-// element and document.css for the page itself. All are fetched in
-// parallel before any element is defined, so nothing renders unstyled.
-// Needs CORS when served cross-origin; see /_headers.
-const SHEET_NAMES = [
-  "base", "gooey-page", "gooey-header", "gooey-footer", "gooey-hero",
-  "gooey-section", "gooey-columns", "gooey-card", "gooey-feature",
-  "gooey-stat", "gooey-button", "gooey-image", "gooey-quote",
-  "gooey-person", "gooey-faq", "gooey-callout", "gooey-tags",
-  "gooey-steps", "gooey-gallery",
-];
-// Elements that share another element's sheet.
-const SHEET_OF = { "gooey-faq-item": "gooey-faq", "gooey-step": "gooey-steps" };
-
-async function loadCss(name) {
-  const res = await fetch(new URL(`css/${name}.css`, SHARED));
-  if (!res.ok) throw new Error(`gooey-elements: css/${name}.css ${res.status}`);
+// One fetch, used twice: as a <style> in every shadow root (no flash of
+// unstyled shadow content, unlike a <link>) and once in the page <head> for
+// slotted content. Needs CORS when served cross-origin; see /_headers.
+const CSS = await fetch(new URL("styles.css", SHARED)).then((res) => {
+  if (!res.ok) throw new Error(`gooey-elements: styles.css ${res.status}`);
   return res.text();
-}
+});
+const SHADOW_CSS = CSS.replace(/@import[^;]+;/g, "");
 
-const [DOCUMENT_CSS, ...SHADOW_CSS] = await Promise.all(
-  ["document", ...SHEET_NAMES].map(loadCss),
-);
-
-// Constructable stylesheets: parsed once, shared by every instance.
-const SHEETS = Object.fromEntries(
-  SHEET_NAMES.map((name, i) => {
-    const sheet = new CSSStyleSheet();
-    sheet.replaceSync(SHADOW_CSS[i]);
-    return [name, sheet];
-  }),
-);
-
-// A <style>, not a constructed sheet: document.css @imports the web fonts.
 const pageStyle = document.createElement("style");
 pageStyle.dataset.gooey = "";
-pageStyle.textContent = DOCUMENT_CSS;
+pageStyle.textContent = CSS;
 document.head.prepend(pageStyle);
 
 function template(html) {
   const t = document.createElement("template");
-  t.innerHTML = html;
+  t.innerHTML = `<style>${SHADOW_CSS}</style>${html}`;
   return t;
 }
 
 class GooeyElement extends HTMLElement {
   constructor() {
     super();
-    const root = this.attachShadow({ mode: "open" });
-    const own = SHEET_OF[this.localName] ?? this.localName;
-    root.adoptedStyleSheets = [SHEETS.base, SHEETS[own]];
-    root.append(this.constructor.template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" }).append(
+      this.constructor.template.content.cloneNode(true),
+    );
   }
 
   // Toggle `className` on `target` whenever the named slot (null for the
