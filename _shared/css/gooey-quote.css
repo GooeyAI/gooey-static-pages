@@ -1,0 +1,20 @@
+:host(gooey-quote) {
+  display: block;
+  margin: 6px 0 0;
+}
+.g-quote {
+  margin: 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--gooey-brand);
+}
+.g-quote-text {
+  font-family: var(--gooey-font-serif);
+  font-size: 23px;
+  line-height: 1.32;
+}
+.g-quote-by {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gooey-ink-muted);
+  margin-top: 12px;
+}
