@@ -871,12 +871,12 @@
         <div class="wrap">
           <h2 class="sec-title">Health Related AI Evaluations</h2>
           <p class="sec-sub">
-            In April 2026 we evaluated private models (Gemini 3.1, OpenAI 5.4,
-            Intron) and open-source / sovereign-deployable models (Omnilingual,
-            Gemma 4 26B, Kimi 2.5) on health audio questions in Pakistani and
-            Nigerian languages. Gemini 3.1 Pro paired with Intron or Meta’s
-            Omnilingual ASR was most accurate — a good fit for WhatsApp and
-            async messaging, likely too slow for live voice services.
+            These dated benchmark snapshots compare the specific speech and
+            language models available when each evaluation was run. Across
+            health audio questions in Pakistani and Nigerian languages, the
+            strongest model chain varied by language: higher-accuracy systems
+            often suited WhatsApp and asynchronous messaging, while faster
+            chains were better candidates for live voice services.
           </p>
 
           <h3 class="sec-title">Pakistani and Nigerian Languages</h3>
@@ -1113,7 +1113,7 @@
                   </a>
                   <figcaption>
                     <h4>The ground reality</h4>
-                    <p>Unfortunately, capturing this diversity of language is hard for tech companies attempting to make speech recognition and translation models. This poor performance then implies that incredible tools like GPT4 and Gemini - which are primarily trained on English - don’t work particularly well for speakers of low-resource languages.</p>
+                    <p>Capturing the diversity of local-language speech is difficult for teams building speech-recognition and translation models. Systems trained predominantly on high-resource languages can therefore perform poorly for speakers of digitally underrepresented languages.</p>
                   </figcaption>
                 </figure>
                 <figure class="theory-card">
@@ -1139,9 +1139,9 @@
                     <img src="images/theory-of-change/possibilities-2025.png" alt="Illustration of new language AI possibilities in 2025" width="1392" height="768" loading="lazy" />
                   </a>
                   <figcaption>
-                    <h4>The possibilities in 2025</h4>
+                    <h4>A rapidly improving model ecosystem</h4>
                     <p>Local NLP and AI teams such as Jacaranda Health and MBaza released better performing fine-tuned African speech recognition models. Additionally, Meta released Omnilingual ASR with support for 1600+ languages.</p>
-                    <p>New LLM generations (GPT-5+, Gemini 3) dramatically improved multilingual text comprehension of local-language text.</p>
+                    <p>New generations of multilingual language models have substantially improved comprehension of local-language text.</p>
                   </figcaption>
                 </figure>
                 <figure class="theory-card">
@@ -1160,7 +1160,7 @@
                   <figcaption>
                     <h4>Our methodology</h4>
                     <p><strong>Golden QnA</strong><br />Native speakers record audio questions in three African languages; human experts provide gold-standard English answers for consistent evaluation across systems.</p>
-                    <p><strong>LLM-as-a-judge</strong><br />GPT-5.1 scores system responses against expert answers on 0-1 scale, measuring semantic correctness since African language evaluation remains unreliable.</p>
+                    <p><strong>LLM-as-a-judge</strong><br />A separate language model scores each system response against an expert answer on a 0–1 scale. Publishing the judge, prompt, and settings makes this semantic-correctness measure reproducible as judge models evolve.</p>
                     <p><strong>Latency measurements</strong><br />Measures total time from audio question to audio answer, including ASR, translation, LLM inference, and TTS on A10 GPUs.</p>
                   </figcaption>
                 </figure>
@@ -1188,7 +1188,7 @@
                   </a>
                   <figcaption>
                     <h4>Native text understanding without translation layers</h4>
-                    <p>New large language models such as GPT-5+ and Gemini 3 can natively understand Swahili, Kikuyu, and Kinyarwanda text, often without requiring machine translation. Even in Q3 2025 these models required Machine Translations to understand and translate information to the LLMs. This update in LLMs improves downstream tasks like information retrieval, summarization, and question answering. Native comprehension reduces latency, translation errors, and developer overhead, enabling more accurate, accessible applications for local services, education, and other frontline work.</p>
+                    <p>Recent multilingual language models can understand Swahili, Kikuyu, and Kinyarwanda text directly in many use cases, reducing reliance on an intermediate machine-translation step. This improves downstream tasks such as information retrieval, summarization, and question answering. Native comprehension can reduce latency, translation errors, and developer overhead, enabling more accurate and accessible applications for local services, education, and frontline work.</p>
                   </figcaption>
                 </figure>
                 <figure class="theory-card">
