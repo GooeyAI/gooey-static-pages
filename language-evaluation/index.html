@@ -236,29 +236,6 @@
         border-radius: 50%;
         background: var(--gy-line-strong);
       }
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
-        max-width: 640px;
-        margin: 32px 0 22px;
-      }
-      .stats .stat {
-        background: var(--gy-surface-50);
-        border: 1px solid var(--gy-line-soft);
-        border-radius: 14px;
-        padding: 16px 18px;
-      }
-      .stats .stat b {
-        display: block;
-        font-family: var(--gy-font-serif);
-        font-size: 32px;
-        line-height: 1;
-      }
-      .stats .stat span {
-        font-size: 13px;
-        color: var(--gy-ink-muted);
-      }
       .hero-workflow {
         margin: 44px 0 0;
       }
@@ -517,6 +494,17 @@
       .theory-links {
         margin-top: 28px;
       }
+      .theory-links h3 {
+        margin: 0 0 8px;
+        font-family: var(--gy-font-serif);
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.2;
+      }
+      .theory-links p {
+        max-width: 640px;
+        margin: 0 0 18px;
+        color: var(--gy-ink-muted);
+      }
       body.lightbox-open {
         overflow: hidden;
       }
@@ -770,11 +758,6 @@
               Do frontier AI models actually understand underrepresented
               languages?
             </p>
-            <div class="stats" aria-label="Evaluation snapshot">
-              <div class="stat"><b>10</b><span>Languages evaluated</span></div>
-              <div class="stat"><b>85</b><span>Model chains</span></div>
-              <div class="stat"><b>500</b><span>Audio samples</span></div>
-            </div>
           </div>
           <figure class="hero-workflow">
             <img
@@ -1204,7 +1187,12 @@
             </section>
           </div>
           <div class="theory-links">
-            <a class="btn primary" href="https://gooey.ai/explore/?search=Language" target="_blank" rel="noopener noreferrer">Explore workflows</a>
+            <h3>Create an evaluation with your own data</h3>
+            <p>
+              Follow our AI Evaluation Guide to design, run, and compare
+              evaluations using your own dataset.
+            </p>
+            <a class="btn primary" href="https://docs.gooey.ai/tools/evaluations" target="_blank" rel="noopener noreferrer">Learn More about AI Evaluation</a>
           </div>
         </div>
       </section>
