@@ -1,0 +1,147 @@
+{
+  "slug": "swahili",
+  "lang": "Swahili",
+  "endonym": "Kiswahili",
+  "country": "Kenya",
+  "flag": "ke",
+  "code": "swa",
+  "snapshot": "2026-08-30",
+  "updated": "Aug 30, 2026",
+  "questions": 24,
+  "layout": "wide",
+  "meta": {
+    "description": "Compare 19 AI chains for spoken Swahili by answer quality and response time.",
+    "og_description": "Results for 19 AI chains tested on 24 spoken Swahili questions."
+  },
+  "hero": {
+    "lead_html": "<strong>Today the best of 19 AI chains scores 95 out of 100 on spoken Swahili questions, and the best sovereign-deployable one scores 93.</strong> Swahili is spoken across East and Central Africa, and for many people a WhatsApp voice note is the easiest way to ask for help.",
+    "bulk_url": "https://gooey.ai/bulk/24qs-swahili-audio-to-text-benchmark-deepseek-v4-gemini-37-flash-gpt-56-sol-claude-sonnet-5-kimi-k3-gemini-31-pro-w-omnilingual-intron-gpt-transcribe-rm8ch4x5217y/",
+    "map": {
+      "file": "map-kenya-led.svg",
+      "alt": "Dotted LED map of Kenya",
+      "pin": false
+    },
+    "voice": {
+      "time": "0:12",
+      "text": "Habari! Mtoto wangu<br />ana homa. Nifanye nini?",
+      "sub": "Hello! My child has a fever.<br />What should I do?"
+    }
+  },
+  "board": {
+    "hint": "Blue columns can run in your own country. The dashed line is the 10 s limit for phone calls.",
+    "note": "Cost is the observed whole-workflow Gooey.AI charge across 24 benchmark runs per chain; every Swahili chain was charged the same rounded $0.04 per run. EcoCost estimates cover text-model inference only and exclude speech recognition and direct-audio inference. Sovereign-deployable: every step can run in your country or on your own servers, using open-weight models or, for Intron, speech recognition on local hardware. Private API: at least one step is only available from its maker’s cloud.",
+    "speech_key": [
+      [
+        "Omnilingual",
+        "logo-meta"
+      ],
+      [
+        "Intron",
+        "logo-intron"
+      ],
+      [
+        "GPT Transcribe",
+        "logo-openai"
+      ],
+      [
+        "Built-in audio",
+        "icon-mic-legend"
+      ]
+    ]
+  },
+  "scatter": {
+    "aria": "Gemini 3.1 Pro with direct audio has the highest score and the fastest response.",
+    "x": [
+      58,
+      5,
+      99.83
+    ],
+    "xTicks": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "labelBestSovereign": true,
+    "metrics": {
+      "score": {
+        "min": 60,
+        "max": 100,
+        "ticks": [
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "front": "Labelled: the best chain and the best sovereign-deployable one",
+        "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI, Aug 30, 2026."
+      },
+      "cost": {
+        "min": 39.5,
+        "max": 40.5,
+        "ticks": [
+          39.5,
+          39.75,
+          40,
+          40.25,
+          40.5
+        ],
+        "front": "All 19 chains had the same observed rounded charge",
+        "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
+      },
+      "carbon": {
+        "min": 0,
+        "max": 60,
+        "ticks": [
+          0,
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "front": "Labelled best trade-offs among covered chains",
+        "note": "EcoCost estimate from 24 runs per covered chain; low confidence. Speech recognition and direct-audio inference are excluded. Source: public Gooey.AI run records, Aug 30, 2026."
+      }
+    }
+  },
+  "geometry": {
+    "pitch": 50,
+    "score": 1.9,
+    "time": 15.82,
+    "costBase": 120,
+    "costPerDollar": 0,
+    "carbon": 3,
+    "lines": {
+      "score": [
+        117,
+        22
+      ],
+      "time": [
+        149,
+        85
+      ],
+      "cost": [
+        92
+      ],
+      "carbon": [
+        167,
+        122,
+        77,
+        32
+      ]
+    }
+  },
+  "chains_foot_p": "Answer score: match with a reference answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.",
+  "samples_intro": "Three of the 24 questions, spoken in Swahili. Answers are from GPT-5.6 Sol with Omnilingual, each graded against a reference answer.",
+  "sample": {
+    "model": "GPT-5.6 Sol",
+    "logo": "logo-openai"
+  },
+  "labSpeech": "Intron"
+}
