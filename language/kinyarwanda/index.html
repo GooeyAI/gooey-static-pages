@@ -246,11 +246,6 @@
         color: var(--gy-ink-muted);
         font-size: 12px;
       }
-      #scatter {
-        width: 100%;
-        height: auto;
-        overflow: visible;
-      }
       .translation {
         color: var(--gy-ink-muted);
         font-size: 12px;
@@ -426,6 +421,17 @@
         letter-spacing: 0;
       }
 
+      .country-line,
+      .map-pin,
+      .c-host,
+      .c-cta,
+      .c-maker {
+        display: none;
+      }
+      .c-name {
+        display: flex;
+        flex-direction: column;
+      }
       .top {
         position: relative;
         display: flex;
@@ -747,7 +753,7 @@
       }
       .gl {
         left: 26px;
-        width: 444px;
+        width: calc(100% - 26px);
         height: 1px;
         background: var(--line-soft);
       }
@@ -757,13 +763,14 @@
       .zone {
         top: 0;
         left: 26px;
-        width: 444px;
+        width: calc(100% - 26px);
         height: 54px;
         background: var(--bg-panel);
       }
       .zone-label {
         top: 4px;
-        left: 402px;
+        right: 6px;
+        left: auto;
         color: var(--text-tertiary);
         font-size: 12px;
         line-height: 1.5;
@@ -1100,40 +1107,6 @@
         }
       }
 
-      @media (max-width: 900px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
-        .hero-art {
-          min-height: 320px;
-          overflow: hidden;
-        }
-        .voice-note {
-          right: 20px;
-          bottom: 20px;
-          left: 20px;
-          width: auto;
-        }
-        .metric-card {
-          min-height: 468px;
-        }
-      }
-      @media (max-width: 680px) {
-        h1 {
-          font-size: 38px;
-        }
-        .section {
-          padding-block: 48px;
-        }
-        .hero {
-          padding-top: calc(var(--site-header-h) + 44px);
-          padding-bottom: 56px;
-        }
-        .hero-copy p {
-          font-size: 14px;
-        }
-      }
-
       /* Sections below the pick matrix: positions and sizes from the Figma layer tree. */
       .sec-head {
         display: flex;
@@ -1362,33 +1335,33 @@
         color: var(--text-tertiary);
       }
       .sc-grid {
-        left: 58px;
-        width: 599px;
+        left: 8.406%;
+        width: 86.812%;
         height: 1px;
         background: var(--line-soft);
       }
       .sc-ytick {
-        left: 18px;
-        width: 32px;
+        left: 0;
+        width: 7.246%;
         color: var(--text-secondary);
         text-align: right;
         transform: translateY(-50%);
       }
       .sc-xtick {
-        top: 413px;
+        top: 81.1%;
         width: 40px;
         color: var(--text-secondary);
         text-align: center;
         transform: translateX(-50%);
       }
       .sc-axis-title {
-        top: 63px;
-        left: 66px;
+        top: 12.4%;
+        left: 9.565%;
         color: var(--text-secondary);
       }
       .sc-xtitle {
-        top: 428px;
-        right: 20px;
+        top: 84.1%;
+        right: 2.9%;
         color: var(--text-secondary);
       }
       .sc-links {
@@ -2481,6 +2454,10 @@
       }
 
       @media (max-width: 1100px) {
+        .top-art img {
+          left: 50%;
+          transform: translateX(-50%);
+        }
         .evaluation,
         .lab-body,
         .chains-head,
@@ -2530,6 +2507,308 @@
         }
       }
 
+      @media (max-width: 1100px) {
+        .top h1,
+        .board h2,
+        .pick h2,
+        .sec-head h2 {
+          white-space: normal;
+        }
+        .legend,
+        .speech {
+          flex-wrap: wrap;
+          gap: 8px 12px;
+        }
+        .top {
+          position: relative;
+        }
+        .top-art {
+          height: 300px;
+        }
+        .chart-card {
+          height: auto;
+        }
+        .plot,
+        .labels {
+          width: 100%;
+        }
+        .scatter-card {
+          display: flex;
+          height: auto;
+          flex-direction: column;
+          gap: 12px;
+          padding: 16px;
+        }
+        .scatter-title,
+        .yaxis,
+        .scatter-foot,
+        .scatter-source {
+          position: static;
+        }
+        .scatter-title {
+          margin: 0;
+        }
+        .yaxis {
+          justify-content: space-between;
+        }
+        .select {
+          width: min(230px, 62%);
+        }
+        .scatter {
+          position: relative;
+          inset: auto;
+          height: 360px;
+        }
+        .scatter-foot {
+          flex-direction: column;
+          gap: 4px;
+        }
+        .panel {
+          height: auto;
+        }
+        .panel .p-btn {
+          margin-top: 24px;
+        }
+        .panel .p-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .row-head {
+          padding-top: 4px;
+        }
+        .corner {
+          height: auto;
+          padding: 0;
+        }
+        .col-head {
+          height: auto;
+        }
+        .lab-card {
+          width: 100%;
+          height: auto;
+        }
+      }
+      @media (max-width: 640px) {
+        :root {
+          --pad-x: 16px;
+        }
+        main {
+          gap: 48px;
+          padding-bottom: 48px;
+        }
+        .crumbs {
+          padding-top: 24px;
+        }
+        .top-hero {
+          gap: 16px;
+          padding-top: 16px;
+        }
+        .country-line {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          margin: 0;
+          color: var(--text-tertiary);
+          font-size: 12px;
+          line-height: 1.2;
+        }
+        .flag-rw,
+        .flag-ke {
+          display: block;
+          width: 16px;
+          height: 11px;
+          border-radius: 2px;
+        }
+        .flag-rw {
+          background: linear-gradient(#00a1de 0 50%, #fad201 50% 75%, #20603d 75%);
+        }
+        .flag-ke {
+          background: linear-gradient(#111 0 30%, #fff 30% 36%, #bb1e1e 36% 64%, #fff 64% 70%, #007a3d 70%);
+        }
+        .top h1 {
+          font-size: 22px;
+        }
+        .lead {
+          font-size: 16px;
+        }
+        .top-actions {
+          flex-direction: column;
+          padding-top: 8px;
+        }
+        .hero-btn {
+          width: 100%;
+        }
+        .map-pin {
+          position: absolute;
+          top: 44%;
+          left: 60%;
+          display: block;
+          width: 14px;
+          height: 14px;
+          border: 2px solid var(--bg-page);
+          border-radius: 50%;
+          background: #e5484d;
+        }
+        .voice-note {
+          position: absolute;
+          top: auto;
+          right: 12px;
+          bottom: 12px;
+          left: 12px;
+          width: auto;
+          margin: 0;
+        }
+        .board h2,
+        .pick h2,
+        .sec-head h2,
+        .more h2,
+        .faq h2,
+        .chains h2 {
+          font-size: 22px;
+        }
+        .board-title-row {
+          height: auto;
+          gap: 12px;
+        }
+        .updated {
+          display: none;
+        }
+        .chart-card {
+          padding: 16px;
+        }
+        .best {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .dash {
+          display: none;
+        }
+        .zone {
+          border-bottom: 1px dashed var(--text-secondary);
+        }
+        .pick-card {
+          padding: 16px;
+        }
+        .stats {
+          gap: 24px;
+        }
+        .yaxis {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .select {
+          width: 100%;
+        }
+        .scatter {
+          height: 340px;
+        }
+        .sc-xtitle {
+          top: auto;
+          bottom: 0;
+        }
+        .sc-point.chip:not(.selected) {
+          width: 24px;
+          padding: 0;
+          justify-content: center;
+          transform: translate(-50%, -50%);
+        }
+        .sc-point.chip:not(.selected) > :not(img) {
+          display: none;
+        }
+        .sc-point.chip.selected .label span {
+          display: none;
+        }
+        .panel .p-where {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .chains-head {
+          flex-direction: row;
+        }
+        .chain-table {
+          overflow: visible;
+        }
+        .ct-head {
+          display: none;
+        }
+        .ct-row {
+          grid-template-areas:
+            "rank model model num"
+            ". speech time host"
+            ". bar bar bar"
+            ". . . cta";
+          grid-template-columns: 24px 1fr auto auto;
+          min-width: 0;
+          gap: 8px 12px;
+          padding: 14px 0;
+        }
+        .ct-row.selected {
+          padding-inline: 8px;
+        }
+        .ct-row > span:empty,
+        .c-plus {
+          display: none;
+        }
+        .c-rank {
+          grid-area: rank;
+          align-self: start;
+          padding: 0;
+          text-align: left;
+        }
+        .c-model {
+          grid-area: model;
+        }
+        .c-maker {
+          display: block;
+          color: var(--text-tertiary);
+          font-size: 12px;
+          font-weight: 400;
+        }
+        .c-speech {
+          grid-area: speech;
+        }
+        .c-score {
+          display: contents;
+        }
+        .c-score .bar {
+          grid-area: bar;
+          width: 100%;
+        }
+        .c-score .c-num {
+          grid-area: num;
+          font-size: 18px;
+        }
+        .c-time {
+          grid-area: time;
+          text-align: left;
+        }
+        .c-host {
+          display: flex;
+          grid-area: host;
+          align-items: center;
+          gap: 6px;
+          color: var(--text-secondary);
+          font-size: 12px;
+        }
+        .c-cta {
+          display: block;
+          grid-area: cta;
+          justify-self: end;
+          font-size: 12px;
+          font-weight: 600;
+          text-decoration: none;
+        }
+        .chains-foot {
+          gap: 12px;
+        }
+        .page-footer {
+          padding: 32px 16px;
+        }
+        .language-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
     </style>
   </head>
   <body>
@@ -2552,6 +2831,7 @@
               <strong>Kinyarwanda</strong>
             </nav>
             <div class="top-hero">
+              <p class="country-line"><i class="flag-rw" aria-hidden="true"></i>Ikinyarwanda<span>·</span>Rwanda<span>·</span>Updated Aug 30, 2026</p>
               <h1 id="hero-title">Best AI for Kinyarwanda</h1>
               <p class="lead"><strong>Two years ago the best AI model scored 41 out of 100 on spoken Kinyarwanda questions. Today the best of 11 AI chains scores 92.</strong> More than 10 million people speak Kinyarwanda, and for many of them a WhatsApp voice note is the easiest way to ask for help.</p>
               <div class="top-actions">
@@ -2562,6 +2842,7 @@
           </div>
           <div class="top-art" role="img" aria-label="Dotted LED map of Rwanda">
             <img src="assets/kinyarwanda/map-rwanda-led.svg" alt="" width="273" height="252" />
+            <i class="map-pin" aria-hidden="true"></i>
           </div>
           <div class="voice-note">
             <div class="player">
@@ -2890,9 +3171,10 @@
           chart.cols.forEach(([model, speech, h, value, sov], i) => {
             const left = 48 + i * 39;
             const center = left + 12;
-            plot.push(`<i class="col${sov ? " sov" : ""}" style="left:${left}px;top:${212 - h}px;height:${h}px" title="${model} + ${speech}"></i><span class="val" style="left:${center - 24}px;top:${212 - h - 18}px">${value}</span>`);
+            const at = x => (x / 470 * 100).toFixed(3) + "%";
+            plot.push(`<i class="col${sov ? " sov" : ""}" style="left:${at(left)};width:${at(24)};top:${212 - h}px;height:${h}px" title="${model} + ${speech}"></i><span class="val" style="left:calc(${at(center)} - 24px);top:${212 - h - 18}px">${value}</span>`);
             const [size, offset] = LABEL_BOX[model];
-            labels.push(`<img src="assets/kinyarwanda/${LOGO_FILES[model]}.svg" alt="" width="20" height="20" style="left:${left + 2}px;top:2px" /><img src="assets/kinyarwanda/${SPEECH_FILES[speech]}.svg" alt="" width="16" height="16" style="left:${left + 4}px;top:28px" /><div class="name" style="left:${(center + offset - size).toFixed(2)}px;width:${size}px;height:${size}px"><span>${model}</span></div>`);
+            labels.push(`<img src="assets/kinyarwanda/${LOGO_FILES[model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:2px" /><img src="assets/kinyarwanda/${SPEECH_FILES[speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:28px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><span>${model}</span></div>`);
           });
           const article = document.createElement("article");
           article.className = "chart-card";
@@ -2917,7 +3199,7 @@
 
       function renderTable(sort = "accuracy") {
         const rows = sort === "speed" ? [...ROWS].sort((a, b) => a[3] - b[3]) : ROWS;
-        document.getElementById("chainRows").innerHTML = rows.map(([name, speech, score, time, sov], i) => `<div class="ct-row${i === 0 ? " selected" : ""}" role="row"><span class="c-rank">${i + 1}</span><span class="c-model">${model(name, 24)}${name}</span><span class="c-plus">+</span><span class="c-speech">${speechIcon(speech)}${speech}</span><span></span><span class="c-score"><span class="bar"><i class="${sov ? "sovereign" : "private"}" style="width:${score * 5.14}px"></i></span>${score}</span><span></span><span class="c-time">${time.toFixed(1)} s</span></div>`).join("");
+        document.getElementById("chainRows").innerHTML = rows.map(([name, speech, score, time, sov], i) => `<div class="ct-row${i === 0 ? " selected" : ""}" role="row"><span class="c-rank">${i + 1}</span><span class="c-model">${model(name, 24)}<span class="c-name">${name}<small class="c-maker">${MAKERS[name]}</small></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(speech)}${speech}</span><span></span><span class="c-score"><span class="bar"><i class="${sov ? "sovereign" : "private"}" style="width:${score * 5.14}px"></i></span><b class="c-num">${score}</b></span><span></span><span class="c-time">${time.toFixed(1)} s</span><span class="c-host"><i class="sw${sov ? " sov" : ""}"></i>${sov ? "Sovereign" : "Private"}</span><a class="c-cta" href="https://gooey.ai/copilot/">Build with this</a></div>`).join("");
       }
 
       function renderLabRank() {
@@ -2948,6 +3230,9 @@
       const timeRankOf = c => timeRanked.indexOf(c) + 1;
       const RING = { "DeepSeek V4": "#4d6bfe", "Gemini 3.1 Pro": "#4285f4", "Gemini 3.7 Flash": "#4285f4", "GPT-5.6 Sol": "#10131c", "Claude Sonnet 5": "#d97757", "Kimi K3": "#1783ff" };
       const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => "$" + c.cost.toFixed(2), carbon: c => c.carbon.toFixed(1) + " g" };
+      const SC_W = 690, SC_H = 509;
+      const pctX = x => (x / SC_W * 100).toFixed(3) + "%";
+      const pctY = y => (y / SC_H * 100).toFixed(3) + "%";
       const scatterY = (m, v) => 79 + (m.max - v) / (m.max - m.min) * 325;
       const beats = (m, a, b) => a.time <= b.time && (m.high ? m.get(a) >= m.get(b) : m.get(a) <= m.get(b)) && (a.time < b.time || m.get(a) !== m.get(b));
       const frontierOf = m => chains.filter(c => !chains.some(o => beats(m, o, c)));
@@ -3006,16 +3291,17 @@
         const m = SCATTER.metrics[yMetric];
         const root = document.getElementById("scatter");
         const out = [];
-        out.push('<div class="sc-zone"></div><span class="sc-zone-label">Async only</span>');
-        m.ticks.forEach(v => { const y = scatterY(m, v).toFixed(1); out.push(`<i class="sc-grid" style="top:${y}px"></i><span class="sc-ytick" style="top:${y}px">${m.tick(v)}</span>`); });
-        SCATTER.xTicks.forEach(t => out.push(`<span class="sc-xtick" style="left:${SCATTER.x(t).toFixed(1)}px">${t} s</span>`));
+        const zx = SCATTER.x(10);
+        out.push(`<div class="sc-zone" style="left:${pctX(zx)};width:${pctX(657 - zx)};top:${pctY(71)};height:${pctY(333)}"></div><span class="sc-zone-label" style="left:${pctX(zx + 10)};top:${pctY(79)}">Async only</span>`);
+        m.ticks.forEach(v => { const y = pctY(scatterY(m, v)); out.push(`<i class="sc-grid" style="top:${y}"></i><span class="sc-ytick" style="top:${y}">${m.tick(v)}</span>`); });
+        SCATTER.xTicks.forEach(t => out.push(`<span class="sc-xtick" style="left:${pctX(SCATTER.x(t))}">${t} s</span>`));
         out.push(`<span class="sc-axis-title">${m.label}</span><span class="sc-xtitle">Median response time</span>`);
         const front = [...new Set([...frontierOf(m), ...SCATTER.extraLabelled(m)])].sort((a, b) => a.time - b.time);
         const pos = c => `${SCATTER.x(c.time).toFixed(1)},${scatterY(m, m.get(c)).toFixed(1)}`;
-        out.push(`<svg class="sc-links" aria-hidden="true"><polyline points="${front.map(pos).join(" ")}" fill="none" stroke="#717580" stroke-width="1" stroke-dasharray="3 3"/></svg>`);
+        out.push(`<svg class="sc-links" viewBox="0 0 ${SC_W} ${SC_H}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${front.map(pos).join(" ")}" fill="none" stroke="#717580" stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/></svg>`);
         const order = [...chains].sort((a, b) => (a === selectedChain) - (b === selectedChain) || front.includes(a) - front.includes(b));
         order.forEach(c => {
-          const style = `left:${SCATTER.x(c.time).toFixed(1)}px;top:${scatterY(m, m.get(c)).toFixed(1)}px;--ring:${RING[c.model]}`;
+          const style = `left:${pctX(SCATTER.x(c.time))};top:${pctY(scatterY(m, m.get(c)))};--ring:${RING[c.model]}`;
           const aria = `${fullName(c)}, score ${c.score}, response ${c.time.toFixed(1)} seconds`;
           const i = chains.indexOf(c);
           if (c === selectedChain) {
