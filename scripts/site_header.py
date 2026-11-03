@@ -25,6 +25,7 @@ PAGES = {
     "research/index.html": "Gooey.AI Research",
     "ecocost/index.html": "EcoCost",
     "lokalibrary/index.html": "LokaLibrary",
+    "language-evaluation/index.html": "Low-Resource Language Evaluations",
 }
 
 HEADER_CSS = """      .site-header {

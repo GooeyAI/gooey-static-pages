@@ -1,0 +1,21 @@
+# title: Kikuyu Evaluation of Audio AI Models
+# country: KE
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0.3, 0.9, 0.1
+# y: Latency, 0, 16, 2
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.72,15.11
+Gemini 3.1 Pro + Omni,0.72,11.78
+Gemini 3.1 Pro + Kikuyu Whisper v2,0.86,9.46
+GPT 5.6 Sol + Omni,0.67,8.43
+GPT 5.6 Sol + Kikuyu Whisper v2,0.82,7.68
+Claude Sonnet 5 + Omni,0.43,7.43
+Claude Sonnet 5 + Kikuyu Whisper v2,0.63,6.29
+Kimi K3 + Omni,0.38,8.90
+Kimi K3 + Kikuyu Whisper v2,0.53,7.87
+DeepSeek V4 + Omni,0.41,8.20
+DeepSeek V4 + Kikuyu Whisper v2,0.60,7.76
+Gemini 3.7 Flash + Omni,0.62,8.16
+Gemini 3.7 Flash + Kikuyu Whisper v2,0.82,7.06

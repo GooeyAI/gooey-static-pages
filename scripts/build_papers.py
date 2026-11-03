@@ -381,6 +381,7 @@ STYLE = """
 
       /* ---------- body ---------- */
       article section {
+        scroll-margin-top: calc(var(--site-header-h, 60px) + 24px);
         display: flex;
         flex-direction: column;
         gap: 18px;
@@ -546,7 +547,7 @@ PAGE = """<!doctype html>
         <div class="topbar-right">
           <span>{status}</span>
           <span class="sep">/</span>
-          <a class="pdf" href="pdf/{slug}.pdf" target="_blank" rel="noopener"
+          <a class="pdf" href="{pdf_href}" target="_blank" rel="noopener"
             ><i class="fa-regular fa-file-pdf" aria-hidden="true"></i
             ><span>PDF</span></a
           >
@@ -603,6 +604,18 @@ PAGE = """<!doctype html>
       document
         .querySelectorAll("article section[id]")
         .forEach((s) => io.observe(s));
+
+      /* the <base> tag makes a bare "#id" resolve to research/#id, which
+         navigates away; scroll in place instead */
+      links.forEach((a) =>
+        a.addEventListener("click", (ev) => {{
+          const t = document.getElementById(a.getAttribute("href").slice(1));
+          if (!t) return;
+          ev.preventDefault();
+          t.scrollIntoView();
+          history.replaceState(null, "", location.pathname + "#" + t.id);
+        }}),
+      );
     </script>
   </body>
 </html>
@@ -611,6 +624,7 @@ PAGE = """<!doctype html>
 
 def build_page(paper) -> str:
     slug = paper["slug"]
+    pdf_href = paper.get("pdf_href", f"pdf/{slug}.pdf")
 
     nav = "\n".join(
         f'        <a href="#{sid}">{esc(label)}</a>' for sid, label in nav_entries(paper)
@@ -654,6 +668,7 @@ def build_page(paper) -> str:
         style=STYLE,
         status=esc(paper.get("status", "Preprint")),
         slug=slug,
+        pdf_href=pdf_href,
         nav=nav,
         authors=authors,
         abstract=rich(paper["abstract"]),
@@ -692,7 +707,7 @@ def main() -> int:
         # title when that cell is blank. Titles can then be reworded freely.
         manifest[slug] = {
             "page": f"papers/{slug}/",
-            "pdf": f"pdf/{slug}.pdf",
+            "pdf": paper.get("pdf_href", f"pdf/{slug}.pdf"),
         }
         derived = slugify(paper["listed_as"])
         if derived != slug:

@@ -1,0 +1,21 @@
+# title: Igbo Evaluation of Audio AI Models
+# country: NG
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 35, 5
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.52,29.26
+Gemini 3.1 Pro + Omni,0.37,28.43
+Gemini 3.1 Pro + Intron,0.37,28.56
+GPT 5.6 Sol + Omni,0.51,14.91
+GPT 5.6 Sol + Intron,0.52,17.52
+Claude Sonnet 5 + Omni,0.35,15.53
+Claude Sonnet 5 + Intron,0.41,16.14
+Kimi K3 + Omni,0.53,23.42
+Kimi K3 + Intron,0.55,23.00
+DeepSeek V4 + Omni,0.45,29.05
+DeepSeek V4 + Intron,0.35,28.46
+Gemini 3.7 Flash + Omni,0.51,19.20
+Gemini 3.7 Flash + Intron,0.53,19.72

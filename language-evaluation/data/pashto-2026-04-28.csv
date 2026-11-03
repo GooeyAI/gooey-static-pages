@@ -1,0 +1,19 @@
+# title: Pashto Evaluation of Audio AI Models
+# country: PK
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-04-28
+# url: Gooey.AI/language
+# x: Accuracy, 0, 0.8, 0.1
+# y: Latency, 0, 20, 5
+Workflow,Accuracy (mean),Latency (median)
+GPT 5.5,0.37,14.29
+GPT 5.5 + Omni,0.71,14.09
+Gemini 3.1 Pro,0.54,18.80
+Gemini 3.1 Pro + Omni,0.63,16.13
+Gemini 3.1 Flash-Lite,0.13,6.01
+Gemini 3.1 Flash-Lite + Omni,0.53,8.04
+Kimi K2.6 + Omni,0.51,19.52
+GPT-OSS 120B + Omni,0.44,10.72
+GPT-Realtime 1.5,0.01,11.03
+GPT-Realtime 1.5 + Omni,0.46,13.03
+Gemma 4 26B + Omni,0.35,8.71

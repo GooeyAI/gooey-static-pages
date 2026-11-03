@@ -1,0 +1,21 @@
+# title: Nigerian Fulfulde Evaluation of Audio AI Models
+# country: NG
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 40, 5
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.49,18.61
+Gemini 3.1 Pro + Omni,0.57,24.93
+Gemini 3.1 Pro + Intron,0.39,25.96
+GPT 5.6 Sol + Omni,0.42,16.45
+GPT 5.6 Sol + Intron,0.22,21.34
+Claude Sonnet 5 + Omni,0.23,15.34
+Claude Sonnet 5 + Intron,0.09,17.50
+Kimi K3 + Omni,0.27,29.06
+Kimi K3 + Intron,0.13,36.23
+DeepSeek V4 + Omni,0.43,32.54
+DeepSeek V4 + Intron,0.14,32.97
+Gemini 3.7 Flash + Omni,0.59,15.46
+Gemini 3.7 Flash + Intron,0.44,21.69

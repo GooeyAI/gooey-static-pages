@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1776" height="592" viewBox="0 0 1776 592" role="img" aria-labelledby="title desc">
+  <title id="title">Low Resource Language Evaluations</title>
+  <desc id="desc">Workflow from audio questions through speech recognition, local-language transcription, an LLM, answer generation, evaluation, and semantic similarity scoring.</desc>
+  <defs>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#0A1021" opacity=".12"/></pattern>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#0A1021" stroke-width="1" opacity=".1"/></pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="#0A1021" flood-opacity="1"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10Z" fill="#0A1021"/></marker>
+    <style>
+      .sans{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#0A1021}
+      .serif{font-family:Domine,Georgia,"Times New Roman",serif;fill:#0A1021}
+      .label{font:600 18px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#0A1021;text-anchor:middle}
+      .small{font:600 16px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#0A1021;text-anchor:middle}
+      .icon{fill:none;stroke:#0A1021;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      .fine{fill:none;stroke:#0A1021;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .arrow{fill:none;stroke:#0A1021;stroke-width:4;stroke-linecap:round;marker-end:url(#arrow)}
+      .card{stroke:#0A1021;stroke-width:3}
+    </style>
+  </defs>
+
+  <rect width="1776" height="592" fill="#FFFEFD"/>
+  <path d="M1405 0H1776V155C1690 139 1630 172 1543 142C1470 117 1424 67 1405 0Z" fill="#C59BE8"/>
+  <path d="M0 481C101 446 182 461 255 503C306 532 359 565 448 592H0Z" fill="#7FE7DB"/>
+  <path d="M1362 592C1402 493 1482 442 1583 462C1663 477 1717 525 1776 497V592Z" fill="#FFB5A7"/>
+  <circle cx="1670" cy="87" r="66" fill="url(#grid)"/>
+  <path d="M1247 30h126v90h-126z" fill="url(#dots)" transform="rotate(-8 1310 75)"/>
+  <circle cx="1092" cy="93" r="54" fill="#D8F777"/>
+  <path d="M1048 88c31-28 63-23 90 4" fill="none" stroke="#0A1021" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1059" cy="72" r="7" fill="#0A1021"/><circle cx="1121" cy="69" r="7" fill="#0A1021"/>
+
+  <text x="54" y="68" class="serif" font-size="48" font-weight="700">Low Resource Language Evaluations</text>
+  <text x="56" y="111" class="sans" font-size="28" font-weight="600">Health, agriculture and education</text>
+  <text x="56" y="147" class="sans" font-size="28" font-weight="600">In Kenya, Nigeria, Pakistan</text>
+  <rect x="54" y="169" width="538" height="8" rx="4" fill="#789ED6"/>
+
+  <!-- stage cards -->
+  <rect x="38" y="214" width="177" height="269" rx="26" fill="#F7F5F2" class="card"/>
+  <rect x="238" y="214" width="177" height="269" rx="26" fill="#7FE7DB" class="card" filter="url(#shadow)"/>
+  <rect x="438" y="214" width="198" height="269" rx="26" fill="#F7F5F2" class="card"/>
+  <rect x="659" y="214" width="177" height="269" rx="26" fill="#C59BE8" class="card" filter="url(#shadow)"/>
+  <rect x="859" y="214" width="209" height="269" rx="26" fill="#F7F5F2" class="card"/>
+  <rect x="1091" y="214" width="183" height="269" rx="26" fill="#D8F777" class="card" filter="url(#shadow)"/>
+  <rect x="1297" y="214" width="439" height="269" rx="26" fill="#789ED6" class="card"/>
+
+  <!-- arrows -->
+  <path d="M217 349h17" class="arrow"/><path d="M417 349h17" class="arrow"/><path d="M638 349h17" class="arrow"/>
+  <path d="M838 349h17" class="arrow"/><path d="M1070 349h17" class="arrow"/><path d="M1276 349h17" class="arrow"/>
+
+  <!-- audio source icons -->
+  <path d="M72 264h20l8-8 8 16 10-23 11 30 9-15h18" class="fine"/>
+  <path d="M112 299v58M112 317c-20-18-35-11-39-7 5 19 22 24 39 23M112 334c18-18 34-10 38-5-5 18-21 23-38 21" class="fine"/>
+  <path d="M72 375c17-10 34-10 51 0v54c-17-10-34-10-51 0zM123 375c17-10 34-10 51 0v54c-17-10-34-10-51 0zM123 375v54" class="fine"/>
+  <path d="M185 253h10v190h-10" class="fine"/>
+  <text x="126" y="459" class="label"><tspan x="126">Audio</tspan><tspan x="126" dy="22">Question</tspan></text>
+
+  <!-- microphone -->
+  <rect x="302" y="261" width="48" height="91" rx="24" fill="#FFFEFD" class="icon"/>
+  <path d="M286 334v11c0 29 20 46 40 46s40-17 40-46v-11M326 391v25M300 417h52M309 282h34M309 298h34M309 314h34" class="icon"/>
+  <text x="326" y="438" class="small"><tspan x="326">Speech</tspan><tspan x="326" dy="20">Recognition</tspan><tspan x="326" dy="20">Model</tspan></text>
+
+  <!-- transcription -->
+  <path d="M479 294v-46h118v46" class="fine"/>
+  <rect x="461" y="235" width="154" height="67" rx="15" fill="#FFB5A7" stroke="#0A1021" stroke-width="3"/>
+  <path d="M516 302l18 17 15-17" fill="#FFB5A7" stroke="#0A1021" stroke-width="3" stroke-linejoin="round"/>
+  <text x="538" y="260" class="small"><tspan x="538">“Mtoto wangu</tspan><tspan x="538" dy="20">ana homa”</tspan></text>
+  <path d="M486 326h76l28 28v66H486zM562 326v28h28M504 366h63M504 385h63M504 404h43" class="fine" fill="#FFFEFD"/>
+  <text x="537" y="451" class="label"><tspan x="537">Local-language</tspan><tspan x="537" dy="22">transcription</tspan></text>
+
+  <!-- LLM -->
+  <text x="748" y="250" class="sans" font-size="24" font-weight="800" text-anchor="middle">LLM</text>
+  <g class="fine">
+    <path d="M700 296l44-22 47 24-45 26zM700 296l3 60 43 27 44-28 1-57M703 356l43-32 44 31M746 324v59"/>
+    <circle cx="700" cy="296" r="10" fill="#7FE7DB"/><circle cx="744" cy="274" r="10" fill="#D8F777"/><circle cx="791" cy="298" r="10" fill="#FFB5A7"/>
+    <circle cx="703" cy="356" r="10" fill="#FFB5A7"/><circle cx="746" cy="324" r="10" fill="#FFFEFD"/><circle cx="746" cy="383" r="10" fill="#D8F777"/><circle cx="790" cy="355" r="10" fill="#7FE7DB"/>
+  </g>
+  <text x="748" y="458" class="label">LLM</text>
+
+  <!-- answer -->
+  <rect x="879" y="229" width="168" height="84" rx="16" fill="#FFB5A7" stroke="#0A1021" stroke-width="3"/>
+  <path d="M946 313l17 17 14-17" fill="#FFB5A7" stroke="#0A1021" stroke-width="3"/>
+  <text x="963" y="251" class="sans" font-size="15" font-weight="600" text-anchor="middle"><tspan x="963">“Your child has a fever,</tspan><tspan x="963" dy="19">check their</tspan><tspan x="963" dy="19">temperature…”</tspan></text>
+  <path d="M895 351h64a14 14 0 0 1 14 14v28a14 14 0 0 1-14 14h-32l-18 16v-16h-14a14 14 0 0 1-14-14v-28a14 14 0 0 1 14-14z" fill="#FFFEFD" class="fine"/>
+  <path d="M946 337h69a14 14 0 0 1 14 14v24a14 14 0 0 1-14 14h-12v17l-18-17h-12" fill="#7FE7DB" class="fine"/>
+  <path d="M902 370h48M902 386h33M970 355h39M985 371h24" class="fine"/>
+  <text x="963" y="447" class="label"><tspan x="963">Generates Answer</tspan><tspan x="963" dy="22">(in English)</tspan></text>
+
+  <!-- evaluation -->
+  <rect x="1135" y="269" width="96" height="145" rx="10" fill="#FFFEFD" class="fine"/>
+  <path d="M1161 269v-14h15c1-13 17-13 18 0h14v14z" fill="#7FE7DB" class="fine"/>
+  <path d="M1155 303l7 7 13-17M1155 337l7 7 13-17M1155 371l7 7 13-17M1187 302h26M1187 336h26M1187 370h26" class="fine"/>
+  <text x="1182" y="443" class="small"><tspan x="1182">Evaluation against</tspan><tspan x="1182" dy="21">Golden QnA</tspan></text>
+
+  <!-- score -->
+  <path d="M1320 349h38v-64h31M1358 349v64h31" class="fine"/>
+  <path d="M1381 285l10-7v14zM1381 413l10-7v14z" fill="#0A1021"/>
+  <rect x="1394" y="253" width="136" height="61" rx="14" fill="#FFFEFD" class="fine"/>
+  <rect x="1394" y="383" width="136" height="61" rx="14" fill="#FFFEFD" class="fine"/>
+  <text x="1462" y="291" class="sans" font-size="25" font-weight="800" text-anchor="middle">model A</text>
+  <text x="1462" y="421" class="sans" font-size="25" font-weight="800" text-anchor="middle">model B</text>
+  <circle cx="1462" cy="349" r="24" fill="#D8F777" stroke="#0A1021" stroke-width="3"/>
+  <text x="1462" y="357" class="sans" font-size="20" font-weight="800" text-anchor="middle">vs</text>
+  <path d="M1556 277h128M1556 292h87M1556 408h128M1556 423h87" class="fine" opacity=".7"/>
+  <text x="1623" y="324" class="sans" font-size="16" font-weight="700" text-anchor="middle">Semantic</text>
+  <text x="1623" y="345" class="sans" font-size="16" font-weight="700" text-anchor="middle">Similarity</text>
+  <text x="1623" y="366" class="sans" font-size="16" font-weight="700" text-anchor="middle">Score</text>
+
+  <!-- footer accent -->
+  <rect x="54" y="535" width="1668" height="3" rx="1.5" fill="#0A1021" opacity=".18"/>
+  <circle cx="54" cy="536" r="8" fill="#0A1021"/><circle cx="1722" cy="536" r="8" fill="#0A1021"/>
+</svg>
