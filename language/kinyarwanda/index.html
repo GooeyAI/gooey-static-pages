@@ -1651,6 +1651,8 @@
         content: "";
       }
       .p-eco .likely {
+        display: block;
+        margin-top: 2px;
         color: var(--text-tertiary);
         font-weight: 400;
       }
@@ -2164,13 +2166,34 @@
         justify-content: center;
         border: 1px solid var(--line-default);
         border-radius: 50%;
+        padding: 0;
         background: transparent;
+        color: var(--text-primary);
         cursor: pointer;
+        flex: none;
         text-decoration: none;
       }
-      .voice audio {
-        width: 100%;
-        height: 40px;
+      .voice .play-btn:hover {
+        background: var(--bg-panel);
+      }
+      .voice .play-btn:focus-visible {
+        outline: 2px solid var(--brand-blue);
+        outline-offset: 2px;
+      }
+      .voice .play-btn svg {
+        display: block;
+        fill: currentColor;
+      }
+      .voice .play-btn .vp-pause,
+      .voice.is-playing .play-btn .vp-play {
+        display: none;
+      }
+      .voice.is-playing .play-btn .vp-pause {
+        display: block;
+      }
+      .voice-time {
+        font-variant-numeric: tabular-nums;
+        line-height: 14px;
       }
       .tri {
         display: block;
@@ -2188,15 +2211,20 @@
         border-left-width: 9px;
       }
       .voice .wave {
-        flex: none;
-        width: 154px;
+        flex: 0 1 154px;
+        justify-content: space-between;
+        min-width: 0;
         height: 40px;
-        gap: 2px;
+        gap: 0;
       }
       .voice .wave i {
         width: 4px;
         border-radius: 2px;
-        background: rgba(47, 45, 181, 0.45);
+        background: #9ea0d9;
+        transition: background-color 0.12s linear;
+      }
+      .voice .wave i.played {
+        background: var(--brand-blue);
       }
       .q-label,
       .a-label {
@@ -2887,7 +2915,7 @@
             </div>
           </div>
           <div class="charts" id="metricGrid"></div>
-          <p class="board-note">Sovereign-deployable: every step can run in your country or on your own servers, using open-weight models or, for Intron, speech recognition on local hardware. Private API: at least one step is only available from its maker’s cloud. Hosting types, cost and CO₂e are sample values until confirmed, and Intron’s offline option still needs confirming for Kinyarwanda.</p>
+          <p class="board-note">Sovereign-deployable: every step can run in your country or on your own servers, using open-weight models or, for Intron, speech recognition on local hardware. Private API: at least one step is only available from its maker’s cloud. Cost is the observed whole-workflow Gooey.AI charge across the 24 benchmark runs; all chains were charged the same rounded $0.04 per run. Hosting types are sample values until confirmed. CO₂e uses EcoCost estimates from the benchmark runs and covers text-model inference only, excluding speech recognition and direct-audio inference. Intron’s offline option still needs confirming for Kinyarwanda.</p>
         </div>
       </section>
 
@@ -2921,7 +2949,7 @@
               <div class="stats">
                 <div class="stat big"><b>85</b><span>answer score</span></div>
                 <div class="stat"><b>6.9 s</b><span>response</span></div>
-                <div class="stat"><b>$0.48</b><span>per 1,000 questions</span></div>
+                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
               </div>
               <p>Second fastest of all 11 chains. 5 points behind Gemini 3.1 Pro, the private pick for async messaging, but 2.0 s faster.<br />&#8203;</p>
               <hr />
@@ -2932,9 +2960,9 @@
               <div class="stats">
                 <div class="stat big"><b>90</b><span>answer score</span></div>
                 <div class="stat"><b>8.9 s</b><span>response</span></div>
-                <div class="stat"><b>$0.26</b><span>per 1,000 questions</span></div>
+                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
               </div>
-              <p>Listens to the audio directly: one model, one bill. Costs $0.22 less per 1,000 questions than the voice pick.</p>
+              <p>Listens to the audio directly: one model, one bill. Its observed Gooey.AI charge was the same as the voice pick across these benchmark runs.</p>
               <hr />
               <a class="cta" href="https://gooey.ai/copilot/">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
             </article>
@@ -2950,7 +2978,7 @@
               <div class="stats">
                 <div class="stat big"><b>92</b><span>answer score</span></div>
                 <div class="stat"><b>7.1 s</b><span>response</span></div>
-                <div class="stat"><b>$0.07</b><span>per 1,000 questions</span></div>
+                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
               </div>
               <p>Fast enough for calls (7.1 s against the 10 s limit) and the most accurate of all 11 chains. Kimi K3 + Omnilingual is 0.4 s faster but 14 points behind.</p>
               <hr />
@@ -2961,7 +2989,7 @@
               <div class="stats">
                 <div class="stat big"><b>92</b><span>answer score</span></div>
                 <div class="stat"><b>7.1 s</b><span>response</span></div>
-                <div class="stat"><b>$0.07</b><span>per 1,000 questions</span></div>
+                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
               </div>
               <p>The most accurate of all 11 chains. For messages, the 0.4 s that Kimi K3 + Omnilingual saves is not worth its 14 points less.</p>
               <hr />
@@ -3008,7 +3036,7 @@
           </div>
           <div class="chains-foot">
             <p>Answer score: match with an expert’s answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.</p>
-            <span class="foot-links"><a href="data/kin/summary-2026-08-30.csv" download>Download data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
+            <span class="foot-links"><a href="data/kin/summary-2026-08-30.csv" download>Download data</a><a href="data/kin/pricing-2026-08-30.json" download>Download pricing data</a><a href="data/kin/ecocost-2026-08-30.json" download>Download EcoCost data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
           </div>
         </div>
       </section>
@@ -3119,19 +3147,21 @@
     </footer>
 
     <script>
-      // Synced from data/kin/summary-2026-08-30.csv: mean accuracy and median latency.
+      // Accuracy and latency: data/kin/summary-2026-08-30.csv.
+      // Price: data/kin/pricing-2026-08-30.json; observed whole-workflow Gooey.AI charge.
+      // Carbon: data/kin/ecocost-2026-08-30.json; text-model inference only.
       const chains = [
-        { model: "Gemini 3.1 Pro", speech: "Built-in audio", score: 90, time: 8.88, cost: .26, carbon: 2.2, sovereign: false },
-        { model: "Gemini 3.1 Pro", speech: "Omnilingual", score: 86, time: 9.48, cost: .23, carbon: 2.1, sovereign: false },
-        { model: "Gemini 3.1 Pro", speech: "Intron", score: 86, time: 10.70, cost: .31, carbon: 2.7, sovereign: false },
-        { model: "GPT-5.6 Sol", speech: "Omnilingual", score: 85, time: 6.94, cost: .48, carbon: 3.9, sovereign: false },
-        { model: "GPT-5.6 Sol", speech: "Intron", score: 81, time: 8.65, cost: .55, carbon: 4.4, sovereign: false },
-        { model: "Claude Sonnet 5", speech: "Omnilingual", score: 82, time: 7.11, cost: .40, carbon: 3.0, sovereign: false },
-        { model: "Claude Sonnet 5", speech: "Intron", score: 87, time: 8.85, cost: .47, carbon: 3.4, sovereign: false },
-        { model: "Kimi K3", speech: "Omnilingual", score: 78, time: 6.71, cost: .11, carbon: 1.3, sovereign: true },
-        { model: "Kimi K3", speech: "Intron", score: 68, time: 8.47, cost: .20, carbon: 2.1, sovereign: true },
-        { model: "DeepSeek V4", speech: "Omnilingual", score: 92, time: 7.14, cost: .07, carbon: .9, sovereign: true },
-        { model: "DeepSeek V4", speech: "Intron", score: 85, time: 8.53, cost: .14, carbon: 1.5, sovereign: true }
+        { model: "Gemini 3.1 Pro", speech: "Built-in audio", score: 90, time: 8.88, cost: 40, carbon: null, carbonReason: "Direct-audio inference is outside the current EcoCost methodology scope.", sovereign: false },
+        { model: "Gemini 3.1 Pro", speech: "Omnilingual", score: 86, time: 9.48, cost: 40, carbon: 19.2, carbonMin: 6.8, carbonMax: 52.2, carbonConfidence: "Low", sovereign: false },
+        { model: "Gemini 3.1 Pro", speech: "Intron", score: 86, time: 10.70, cost: 40, carbon: 18.9, carbonMin: 6.7, carbonMax: 51.3, carbonConfidence: "Low", sovereign: false },
+        { model: "GPT-5.6 Sol", speech: "Omnilingual", score: 85, time: 6.94, cost: 40, carbon: 23.7, carbonMin: 6.9, carbonMax: 83.9, carbonConfidence: "Low", sovereign: false },
+        { model: "GPT-5.6 Sol", speech: "Intron", score: 81, time: 8.65, cost: 40, carbon: 22.8, carbonMin: 6.7, carbonMax: 80.5, carbonConfidence: "Low", sovereign: false },
+        { model: "Claude Sonnet 5", speech: "Omnilingual", score: 82, time: 7.11, cost: 40, carbon: 4.8, carbonMin: 1.6, carbonMax: 13.0, carbonConfidence: "Low", sovereign: false },
+        { model: "Claude Sonnet 5", speech: "Intron", score: 87, time: 8.85, cost: 40, carbon: 4.9, carbonMin: 1.6, carbonMax: 13.2, carbonConfidence: "Low", sovereign: false },
+        { model: "Kimi K3", speech: "Omnilingual", score: 78, time: 6.71, cost: 40, carbon: null, carbonReason: "The 24 Gooey run records contain no EcoCost result for Kimi K3.", sovereign: true },
+        { model: "Kimi K3", speech: "Intron", score: 68, time: 8.47, cost: 40, carbon: null, carbonReason: "The 24 Gooey run records contain no EcoCost result for Kimi K3.", sovereign: true },
+        { model: "DeepSeek V4", speech: "Omnilingual", score: 92, time: 7.14, cost: 40, carbon: 12.3, carbonMin: 2.0, carbonMax: 52.2, carbonConfidence: "Low", sovereign: true },
+        { model: "DeepSeek V4", speech: "Intron", score: 85, time: 8.53, cost: 40, carbon: 13.8, carbonMin: 2.3, carbonMax: 58.5, carbonConfidence: "Low", sovereign: true }
       ];
 
       function fullName(chain) {
@@ -3156,12 +3186,12 @@
         { icon: "time", title: "Response time", sub: "Median seconds, voice note to answer. Lower is better. Calls need under 10 s.", lines: [[149, ""], [85, ""]], limit: true,
           best: [["6.7 s", "best sovereign-deployable"], ["6.9 s", "best private API"]],
           cols: [["Kimi K3", "Omnilingual", 106, "6.7 s", 1], ["GPT-5.6 Sol", "Omnilingual", 109, "6.9 s", 0], ["DeepSeek V4", "Omnilingual", 112, "7.1 s", 1], ["Claude Sonnet 5", "Omnilingual", 112, "7.1 s", 0], ["DeepSeek V4", "Intron", 135, "8.5 s", 1], ["Kimi K3", "Intron", 135, "8.5 s", 1], ["GPT-5.6 Sol", "Intron", 138, "8.7 s", 0], ["Gemini 3.1 Pro", "direct audio", 141, "8.9 s", 0], ["Claude Sonnet 5", "Intron", 141, "8.9 s", 0], ["Gemini 3.1 Pro", "Omnilingual", 150, "9.5 s", 0], ["Gemini 3.1 Pro", "Intron", 169, "10.7 s", 0]] },
-        { icon: "cost", title: "Cost per 1,000 questions", sub: "US dollars, sample values. Lower is better.", lines: [[149, ""], [85, ""], [22, ""]],
-          best: [["$0.07", "best sovereign-deployable"], ["$0.23", "best private API"]],
-          cols: [["DeepSeek V4", "Omnilingual", 22, "$0.07", 1], ["Kimi K3", "Omnilingual", 35, "$0.11", 1], ["DeepSeek V4", "Intron", 44, "$0.14", 1], ["Kimi K3", "Intron", 63, "$0.20", 1], ["Gemini 3.1 Pro", "Omnilingual", 73, "$0.23", 0], ["Gemini 3.1 Pro", "direct audio", 82, "$0.26", 0], ["Gemini 3.1 Pro", "Intron", 98, "$0.31", 0], ["Claude Sonnet 5", "Omnilingual", 127, "$0.40", 0], ["Claude Sonnet 5", "Intron", 149, "$0.47", 0], ["GPT-5.6 Sol", "Omnilingual", 152, "$0.48", 0], ["GPT-5.6 Sol", "Intron", 174, "$0.55", 0]] },
-        { icon: "carbon", title: "CO₂e per 1,000 questions", sub: "Grams, LLM step only, sample values. Lower is better.", lines: [[117, ""], [22, ""]],
-          best: [["0.9 g", "best sovereign-deployable"], ["2.1 g", "best private API"]],
-          cols: [["DeepSeek V4", "Omnilingual", 34, "0.9 g", 1], ["Kimi K3", "Omnilingual", 49, "1.3 g", 1], ["DeepSeek V4", "Intron", 57, "1.5 g", 1], ["Gemini 3.1 Pro", "Omnilingual", 80, "2.1 g", 0], ["Kimi K3", "Intron", 80, "2.1 g", 1], ["Gemini 3.1 Pro", "direct audio", 84, "2.2 g", 0], ["Gemini 3.1 Pro", "Intron", 103, "2.7 g", 0], ["Claude Sonnet 5", "Omnilingual", 114, "3.0 g", 0], ["Claude Sonnet 5", "Intron", 129, "3.4 g", 0], ["GPT-5.6 Sol", "Omnilingual", 148, "3.9 g", 0], ["GPT-5.6 Sol", "Intron", 167, "4.4 g", 0]] }
+        { icon: "cost", title: "Cost per 1,000 questions", sub: "Observed whole-workflow Gooey.AI charge in US dollars; 24 runs per chain.", lines: [[85, ""]],
+          best: [["$40", "all sovereign chains"], ["$40", "all private API chains"]],
+          cols: [["DeepSeek V4", "Omnilingual", 106, "$40", 1], ["Kimi K3", "Omnilingual", 106, "$40", 1], ["DeepSeek V4", "Intron", 106, "$40", 1], ["Kimi K3", "Intron", 106, "$40", 1], ["Gemini 3.1 Pro", "Omnilingual", 106, "$40", 0], ["Gemini 3.1 Pro", "direct audio", 106, "$40", 0], ["Gemini 3.1 Pro", "Intron", 106, "$40", 0], ["Claude Sonnet 5", "Omnilingual", 106, "$40", 0], ["Claude Sonnet 5", "Intron", 106, "$40", 0], ["GPT-5.6 Sol", "Omnilingual", 106, "$40", 0], ["GPT-5.6 Sol", "Intron", 106, "$40", 0]] },
+        { icon: "carbon", title: "Text-model CO₂e per 1,000 questions", sub: "EcoCost estimate in grams; excludes speech and direct audio. Lower is better.", lines: [[170, ""], [127, ""], [85, ""], [42, ""]],
+          best: [["12.3 g", "lowest covered sovereign"], ["4.8 g", "lowest covered private API"]],
+          cols: [["Claude Sonnet 5", "Omnilingual", 34, "4.8 g", 0], ["Claude Sonnet 5", "Intron", 34, "4.9 g", 0], ["DeepSeek V4", "Omnilingual", 86, "12.3 g", 1], ["DeepSeek V4", "Intron", 96, "13.8 g", 1], ["Gemini 3.1 Pro", "Intron", 132, "18.9 g", 0], ["Gemini 3.1 Pro", "Omnilingual", 134, "19.2 g", 0], ["GPT-5.6 Sol", "Intron", 160, "22.8 g", 0], ["GPT-5.6 Sol", "Omnilingual", 166, "23.7 g", 0], ["Kimi K3", "Omnilingual", 0, "N/A", 1], ["Kimi K3", "Intron", 0, "N/A", 1], ["Gemini 3.1 Pro", "direct audio", 0, "N/A", 0]] }
       ];
       // Dashes of the 10 s limit line; Figma leaves gaps under the value labels.
       const LIMIT_DASHES = [...Array(41).keys()].map(i => i * 7).concat([364], [406, 413, 420, 427, 434, 441]);
@@ -3221,16 +3251,19 @@
         x: t => 125 + (t - 7) * 133.2,
         xTicks: [7, 8, 9, 10, 11],
         extraLabelled: () => [],
-        rows: [["score", "Answer score"], ["time", "Response"], ["cost", "Cost per 1,000 questions", true], ["carbon", "CO₂e per 1,000 questions", true]],
+        rows: [["score", "Answer score"], ["time", "Response"], ["cost", "Cost per 1,000 questions", true], ["carbon", "Text-model CO₂e per 1,000 questions", true]],
         metrics: {
           score: { label: "Answer score", title: "Answer score vs. response time", get: c => c.score, high: true, min: 65, max: 95, ticks: [65, 70, 75, 80, 85, 90, 95], tick: v => String(v), beat: "more accurate", front: "Labelled best trade-offs: none is faster and more accurate", hint: "Higher and faster is better", note: "Hover a point for a quick look, select it for details. Source: Gooey.AI and CLEAR Global, Aug 30, 2026." },
-          cost: { label: "Cost per 1,000 questions", title: "Cost vs. response time", get: c => c.cost, high: false, min: 0, max: 0.6, ticks: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6], tick: v => (v === 0 ? "$0" : "$" + v.toFixed(2)), beat: "cheaper", front: "Labelled best trade-offs: none is faster and cheaper", hint: "Lower and faster is better", note: "Cost is a sample value until measured. Hover a point for a quick look, select it for details. Source: Gooey.AI and CLEAR Global, Aug 30, 2026." },
-          carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs. response time", get: c => c.carbon, high: false, min: 0, max: 6, ticks: [0, 1, 2, 3, 4, 5, 6], tick: v => v + " g", beat: "greener", front: "Labelled best trade-offs: none is faster and greener", hint: "Lower and faster is better", note: "CO₂e is a sample value until measured. Hover a point for a quick look, select it for details. Source: Gooey.AI and CLEAR Global, Aug 30, 2026." }
+          cost: { label: "Cost per 1,000 questions", title: "Cost vs. response time", get: c => c.cost, high: false, min: 35, max: 45, ticks: [35, 37.5, 40, 42.5, 45], tick: v => "$" + (Number.isInteger(v) ? v.toFixed(0) : v.toFixed(1)), beat: "cheaper", front: "All chains had the same observed rounded charge", hint: "Lower and faster is better", note: "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026." },
+          carbon: { label: "Text-model CO₂e per 1,000 questions", title: "Text-model CO₂e vs. response time", get: c => c.carbon, high: false, min: 0, max: 25, ticks: [0, 5, 10, 15, 20, 25], tick: v => v + " g", beat: "lower-carbon", front: "Labelled best trade-offs among covered chains", hint: "Lower and faster is better", note: "EcoCost estimate from 24 runs per covered chain; low confidence. Speech recognition and direct-audio inference are excluded. Source: Gooey.AI run records, Aug 30, 2026." }
         }
       };
-      const PANEL_DETAILS = c => `<div class="p-cost"><span>Per 1,000 questions</span><b>About $${c.cost.toFixed(2)}</b></div>
+      const ecoPanel = c => Number.isFinite(c.carbon)
+        ? `<div class="p-eco"><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.500 13.500C2.500 7 6 3 13.500 2.500c0 7-4 11-11 11zM2.500 13.500c1.800-3.200 4-5.300 6.500-6.800"/></svg>Text-model EcoCost</div><span class="big">${c.carbon.toFixed(1)} g <small>CO₂e / 1,000</small></span><span class="likely">${c.carbonMin.toFixed(1)}–${c.carbonMax.toFixed(1)} g · ${c.carbonConfidence.toLowerCase()} confidence</span><span class="likely">Excludes speech recognition</span></div>`
+        : `<div class="p-eco"><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.500 13.500C2.500 7 6 3 13.500 2.500c0 7-4 11-11 11zM2.500 13.500c1.800-3.200 4-5.300 6.500-6.800"/></svg>Text-model EcoCost</div><span class="big"><small>Not covered</small></span><span class="likely">${c.carbonReason}</span></div>`;
+      const PANEL_DETAILS = c => `<div class="p-cost"><span>Observed cost per 1,000 questions</span><b>$${c.cost.toFixed(0)}</b></div>
           <div class="p-where"><div><div class="p-lab"><img src="assets/kinyarwanda/icon-cloud.svg" alt="" width="16" height="16" />Hosted in</div><div class="val"><span class="flag globe"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.300" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 3 4 3 6s-1 4-3 6c-2-2-3-4-3-6s1-4 3-6z"/></svg></span><span class="flag us"></span><span>Global, US</span></div><hr /><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.500 2.500 3.500v4c0 3.200 2.300 5.500 5.500 7 3.200-1.500 5.500-3.800 5.500-7v-4z"/><path d="m5.600 8 1.800 1.800 3-3.300"/></svg>Zero Data Retention in</div><div class="val"><span class="flag de"></span><span class="flag fr"></span><span>Germany, France</span></div></div>
-          <div class="p-eco"><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.500 13.500C2.500 7 6 3 13.500 2.500c0 7-4 11-11 11zM2.500 13.500c1.800-3.200 4-5.300 6.500-6.800"/></svg>Eco cost</div><span class="big">${c.carbon.toFixed(1)} g <small>CO₂e</small></span><span class="range"></span><span class="likely">Likely ${(c.carbon * 0.67).toFixed(1)} to ${(c.carbon * 1.44).toFixed(1)} g</span></div></div>`;
+          ${ecoPanel(c)}</div>`;
 
       // Scatter + hover tooltip + Y-axis menu. Per-page numbers live in SCATTER (see above).
       const scoreOf = c => (c.exact !== undefined ? c.exact : c.score);
@@ -3239,14 +3272,15 @@
       const scoreRankOf = c => scoreRanked.indexOf(c) + 1;
       const timeRankOf = c => timeRanked.indexOf(c) + 1;
       const RING = { "DeepSeek V4": "#4d6bfe", "Gemini 3.1 Pro": "#4285f4", "Gemini 3.7 Flash": "#4285f4", "GPT-5.6 Sol": "#10131c", "Claude Sonnet 5": "#d97757", "Kimi K3": "#1783ff" };
-      const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => "$" + c.cost.toFixed(2), carbon: c => c.carbon.toFixed(1) + " g" };
+      const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => "$" + c.cost.toFixed(0), carbon: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(1) + " g" : "Not covered" };
       const SC_W = 690, SC_H = 509;
       const pctX = x => (x / SC_W * 100).toFixed(3) + "%";
       const pctY = y => (y / SC_H * 100).toFixed(3) + "%";
       const scatterY = (m, v) => 79 + (m.max - v) / (m.max - m.min) * 325;
       const beats = (m, a, b) => a.time <= b.time && (m.high ? m.get(a) >= m.get(b) : m.get(a) <= m.get(b)) && (a.time < b.time || m.get(a) !== m.get(b));
-      const frontierOf = m => chains.filter(c => !chains.some(o => beats(m, o, c)));
-      const beatenBy = (m, c) => chains.filter(o => beats(m, o, c)).sort((a, b) => (m.high ? m.get(b) - m.get(a) : m.get(a) - m.get(b)) || a.time - b.time)[0];
+      const metricChains = m => chains.filter(c => Number.isFinite(m.get(c)));
+      const frontierOf = m => metricChains(m).filter(c => !metricChains(m).some(o => beats(m, o, c)));
+      const beatenBy = (m, c) => metricChains(m).filter(o => beats(m, o, c)).sort((a, b) => (m.high ? m.get(b) - m.get(a) : m.get(a) - m.get(b)) || a.time - b.time)[0];
       const CHECK = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.500 8.500 3 3 6-7"/></svg>';
       const INFO = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.200"/><path d="M8 7.200v3.600M8 5.200v.1"/></svg>';
       let yMetric = Object.keys(SCATTER.metrics)[0];
@@ -3272,9 +3306,9 @@
       }
 
       function tooltipHtml(c, m) {
-        const best = !chains.some(o => beats(m, o, c));
+        const best = !metricChains(m).some(o => beats(m, o, c));
         const by = beatenBy(m, c);
-        const rows = SCATTER.rows.map(([key, label, sample]) => `<div class="${key === "time" || key === yMetric ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${sample ? "sample" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
+        const rows = SCATTER.rows.map(([key, label]) => `<div class="${key === "time" || key === yMetric ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" ? (Number.isFinite(c.carbon) ? "EcoCost · low confidence" : "outside current coverage") : key === "cost" ? "24 observed runs" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
         return `<div class="sc-tip-head">${model(c.model, 16)}<b>${c.model}${c.speech === "Built-in audio" ? "" : " +"}</b>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 14) + "<b>" + c.speech + "</b>"}</div>
           <p class="sc-tip-sub">${MAKERS[c.model]} · ${c.speech === "Built-in audio" ? "Direct audio" : c.speech + " speech recognition"}</p>
           <div class="sc-tip-rows">${rows}</div>
@@ -3309,7 +3343,8 @@
         const front = [...new Set([...frontierOf(m), ...SCATTER.extraLabelled(m)])].sort((a, b) => a.time - b.time);
         const pos = c => `${SCATTER.x(c.time).toFixed(1)},${scatterY(m, m.get(c)).toFixed(1)}`;
         out.push(`<svg class="sc-links" viewBox="0 0 ${SC_W} ${SC_H}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${front.map(pos).join(" ")}" fill="none" stroke="#717580" stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/></svg>`);
-        const order = [...chains].sort((a, b) => (a === selectedChain) - (b === selectedChain) || front.includes(a) - front.includes(b));
+        const coveredChains = metricChains(m);
+        const order = [...coveredChains].sort((a, b) => (a === selectedChain) - (b === selectedChain) || front.includes(a) - front.includes(b));
         order.forEach(c => {
           const style = `left:${pctX(SCATTER.x(c.time))};top:${pctY(scatterY(m, m.get(c)))};--ring:${RING[c.model]}`;
           const aria = `${fullName(c)}, score ${c.score}, response ${c.time.toFixed(1)} seconds`;
@@ -3334,7 +3369,7 @@
         document.getElementById("tradeText").textContent = m.front;
         document.getElementById("scatterHint").textContent = m.hint;
         document.getElementById("scatterSource").textContent = m.note;
-        root.setAttribute("aria-label", `${m.label} against response time for ${chains.length} AI chains.`);
+        root.setAttribute("aria-label", `${m.label} against response time for ${coveredChains.length} covered AI chains.`);
       }
 
       // Y-axis menu (a custom listbox, so it can be styled like the Figma menu).
@@ -3382,6 +3417,54 @@
         return String(value).replace(/[&<>'"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
       }
 
+      const WAVE_HEIGHTS = [15, 23, 28, 40, 38, 36, 28, 33, 36, 5, 15, 32, 26, 20, 18, 2, 2, 17, 6, 30, 8, 23, 16, 14, 8, 2];
+
+      function formatClock(seconds) {
+        const total = Math.max(0, Math.round(seconds));
+        return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, "0")}`;
+      }
+
+      function voiceHtml(sample) {
+        const bars = WAVE_HEIGHTS.map(height => `<i style="height:${height}px"></i>`).join("");
+        return `<div class="voice" data-question="${sample.questionNumber}" data-duration="${sample.audioDurationSeconds}">
+            <button class="play-btn" type="button" aria-label="Play question ${sample.questionNumber} audio">
+              <svg class="vp-play" width="13" height="14" viewBox="0 0 13 14" aria-hidden="true"><path d="M1.5 1.5v11l10-5.5z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" /></svg>
+              <svg class="vp-pause" width="13" height="14" viewBox="0 0 13 14" aria-hidden="true"><rect x="1.5" y="1" width="3.5" height="12" rx="1.5" /><rect x="8" y="1" width="3.5" height="12" rx="1.5" /></svg>
+            </button>
+            <span class="wave" aria-hidden="true">${bars}</span>
+            <span class="voice-time">${formatClock(sample.audioDurationSeconds)}</span>
+            <audio preload="none" src="${escapeHtml(sample.audioUrl)}"></audio>
+          </div>`;
+      }
+
+      function initSamplePlayers(cards) {
+        const sync = audio => {
+          const voice = audio.closest(".voice");
+          const duration = Number(voice.dataset.duration);
+          const playing = !audio.paused && !audio.ended;
+          const bars = voice.querySelectorAll(".wave i");
+          const total = Number.isFinite(audio.duration) ? audio.duration : duration;
+          const played = Math.round((audio.currentTime / total) * bars.length);
+          voice.classList.toggle("is-playing", playing);
+          voice.querySelector(".play-btn").setAttribute("aria-label", `${playing ? "Pause" : "Play"} question ${voice.dataset.question} audio`);
+          bars.forEach((bar, index) => bar.classList.toggle("played", index < played));
+          voice.querySelector(".voice-time").textContent = formatClock(audio.currentTime > 0 ? audio.currentTime : duration);
+        };
+        cards.addEventListener("click", event => {
+          const button = event.target.closest(".play-btn");
+          if (!button) return;
+          const audio = button.closest(".voice").querySelector("audio");
+          if (!audio.paused) { audio.pause(); return; }
+          cards.querySelectorAll("audio").forEach(other => { if (other !== audio) other.pause(); });
+          audio.play().catch(error => console.error("Could not play sample audio:", error));
+        });
+        ["play", "pause", "timeupdate", "ended"].forEach(type => cards.addEventListener(type, event => {
+          if (!event.target.matches("audio")) return;
+          if (type === "ended") event.target.currentTime = 0;
+          sync(event.target);
+        }, true));
+      }
+
       async function loadSamples() {
         const cards = document.getElementById("sampleCards");
         try {
@@ -3390,7 +3473,7 @@
           const data = await response.json();
           cards.innerHTML = data.samples.map(sample => `<article class="sample">
           <div class="sample-head"><span class="tag">${escapeHtml(sample.category)}</span><span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
-          <div class="voice"><audio controls preload="metadata" src="${escapeHtml(sample.audioUrl)}" aria-label="Question ${sample.questionNumber} audio"></audio></div>
+          ${voiceHtml(sample)}
           <p class="q"><span class="q-label">Question, as transcribed</span><strong>${escapeHtml(sample.transcript)}</strong><em>“${escapeHtml(sample.questionEnglish)}”</em></p>
           <hr />
           <div class="a-head"><img src="assets/kinyarwanda/logo-openai.svg" alt="" width="16" height="16" /><span class="a-label">GPT-5.6 Sol’s answer</span></div>
@@ -3399,6 +3482,7 @@
           <p class="expert"><b>Expert answer:</b> ${escapeHtml(sample.expertAnswer)}</p>
           <div class="score"><span class="a-label">Matches the expert’s answer</span><div class="score-row"><span class="score-bar"><i style="width:${sample.score}%"></i></span><b>${sample.score}</b></div></div>
         </article>`).join("");
+          initSamplePlayers(cards);
         } catch (error) {
           cards.innerHTML = '<p role="alert">Sample answers could not be loaded. Please refresh the page to try again.</p>';
           console.error("Could not load Kinyarwanda sample answers:", error);
