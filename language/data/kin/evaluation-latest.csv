@@ -1,0 +1,733 @@
+input_audio,Prompt_Source,Prompt_Target,reference_answer,Response_Target,(0 Gemini 3.1 Pro - Kinyarwanda) Run URL,(0 Gemini 3.1 Pro - Kinyarwanda) Run Time,(0 Gemini 3.1 Pro - Kinyarwanda) Output Text,(1 Gemini 3.1 Pro + Omni - Kinyarwanda) Run URL,(1 Gemini 3.1 Pro + Omni - Kinyarwanda) Run Time,(1 Gemini 3.1 Pro + Omni - Kinyarwanda) Output Text,(2 Gemini 3.1 Pro + Intron - Kinyarwanda) Run URL,(2 Gemini 3.1 Pro + Intron - Kinyarwanda) Run Time,(2 Gemini 3.1 Pro + Intron - Kinyarwanda) Output Text,(3 GPT 5.6 Sol + Omni - Kinyarwanda) Run URL,(3 GPT 5.6 Sol + Omni - Kinyarwanda) Run Time,(3 GPT 5.6 Sol + Omni - Kinyarwanda) Output Text,(4 GPT 5.6 Sol + Intron - Kinyarwanda) Run URL,(4 GPT 5.6 Sol + Intron - Kinyarwanda) Run Time,(4 GPT 5.6 Sol + Intron - Kinyarwanda) Output Text,(5 Claude Sonnet 5  + Omni - Kinyarwanda) Run URL,(5 Claude Sonnet 5  + Omni - Kinyarwanda) Run Time,(5 Claude Sonnet 5  + Omni - Kinyarwanda) Output Text,(6 Claude Sonnet 5 + Intron - Kinyarwanda) Run URL,(6 Claude Sonnet 5 + Intron - Kinyarwanda) Run Time,(6 Claude Sonnet 5 + Intron - Kinyarwanda) Output Text,(7 Kimi K3 + Omni - Kinyarwanda) Run URL,(7 Kimi K3 + Omni - Kinyarwanda) Run Time,(7 Kimi K3 + Omni - Kinyarwanda) Output Text,(8 Kimi K3 + Intron - Kinyarwanda) Run URL,(8 Kimi K3 + Intron - Kinyarwanda) Run Time,(8 Kimi K3 + Intron - Kinyarwanda) Output Text,(9 DeepSeek V4 + Omni - Kinyarwanda) Run URL,(9 DeepSeek V4 + Omni - Kinyarwanda) Run Time,(9 DeepSeek V4 + Omni - Kinyarwanda) Output Text,(10 DeepSeek V4 + Intron - Kinyarwanda) Run URL,(10 DeepSeek V4 + Intron - Kinyarwanda) Run Time,(10 DeepSeek V4 + Intron - Kinyarwanda) Output Text,Compare Semantics Similarity - Output Text - 0 Gemini 3.1 Pro - Kinyarwanda,Compare Semantics Similarity - Output Text - 1 Gemini 3.1 Pro + Omni - Kinyarwanda,Compare Semantics Similarity - Output Text - 2 Gemini 3.1 Pro + Intron - Kinyarwanda,Compare Semantics Similarity - Output Text - 3 GPT 5.6 Sol + Omni - Kinyarwanda,Compare Semantics Similarity - Output Text - 4 GPT 5.6 Sol + Intron - Kinyarwanda,Compare Semantics Similarity - Output Text - 5 Claude Sonnet 5  + Omni - Kinyarwanda,Compare Semantics Similarity - Output Text - 6 Claude Sonnet 5 + Intron - Kinyarwanda,Compare Semantics Similarity - Output Text - 7 Kimi K3 + Omni - Kinyarwanda,Compare Semantics Similarity - Output Text - 8 Kimi K3 + Intron - Kinyarwanda,Compare Semantics Similarity - Output Text - 9 DeepSeek V4 + Omni - Kinyarwanda,Compare Semantics Similarity - Output Text - 10 DeepSeek V4 + Intron - Kinyarwanda,Compare Semantics Similarity - rationale
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/b2b50344-8f29-11f0-bc32-02420a0001fc/Generic_Q2_RW_B01.opus.wav,What is the capital city of Kenya?,Umurwa mukuru wa Kenya witwa ngo iki?,Nairobi,Nayirobi(Nairobi),https://gooey.ai/agent/?run_id=q050e16njazj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,84.79,The capital city of Kenya is Nairobi.,https://gooey.ai/agent/?run_id=c12lxt3qzcvl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.13,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=8ulgdinonahw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.28,"🎧: ""umurwa mukuru wa Kenya witwa ngo""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=ygbvsard49h2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.68,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=8cukzu7ls87v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.14,"🎧: ""umurwa mukuru wa Kenya witwa ngo""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=6uyetnpbsa7q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.74,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=8czj7im5fp9j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.88,"🎧: ""umurwa mukuru wa Kenya witwa ngo""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=cok14kjus2wk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.93,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=ly42l83jx9i8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.35,"🎧: ""umurwa mukuru wa Kenya witwa ngo""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=xf04t5ru0ci6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.37,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+Nairobi.",https://gooey.ai/agent/?run_id=2z9hzotfe4a5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.43,"🎧: ""umurwa mukuru wa Kenya witwa ngo""
+
+The capital city of Kenya is Nairobi.",1.0,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,1.0,0.8,"All candidates give the correct answer Nairobi. 9 DeepSeek V4 + Omni - Kinyarwanda matches the reference answer most directly with just ""Nairobi."", and 0 Gemini 3.1 Pro - Kinyarwanda is also fully correct with only minimal extra wording. 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda include the correct answer but add transcription/context text and a full-sentence explanation, so they are slightly less direct relative to the reference answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c1ea87a8-8f29-11f0-9ecb-02420a0001f9/Generic_Q3_RW_B01.opus.wav,Which ocean borders Kenya to the southeast?,Ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya Kenya?,Indian Ocean,Inyanja y’Abahinde,https://gooey.ai/agent/?run_id=kohm1ofgnq0k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.08,The Indian Ocean is located to the southeast of Kenya.,https://gooey.ai/agent/?run_id=cmizf47275rq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.46,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/agent/?run_id=tx2bgmf747cy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.12,"🎧: ""Ni iyihe nyanja iherereye i Burasirazuba bwo mu majyepfo ya Kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/agent/?run_id=gl7jiumft9nh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.65,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+<think>
+
+**Identifying the ocean near Kenya**
+
+I need to clarify which ocean is located southeast of Kenya. The answer is the Indian Ocean, so it’s just that simple! I’m feeling confident that I’ve got this right. It’s straightforward but still important to be clear and accurate when answering geographic questions like this. Let’s continue moving forward with simple questions like this—every detail matters in offering helpful responses!
+
+</think>
+
+The Indian Ocean.",https://gooey.ai/agent/?run_id=yauyl38hkv63&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.15,"🎧: ""Ni iyihe nyanja iherereye i Burasirazuba bwo mu majyepfo ya Kenya""
+
+<think>
+
+**Clarifying ocean location**
+
+I need to confirm whether the Indian Ocean lies southeast or east of Kenya. The user is specifically asking about this location in Kinyarwanda, which translates to identifying the ocean southeast of Kenya. The Indian Ocean is indeed the one that fits this description. For a concise answer, I’ll present it as a single statement: ""The Indian Ocean is southeast of Kenya."" This way, it’s clear and straightforward!
+
+</think>
+
+The Indian Ocean.",https://gooey.ai/agent/?run_id=80fdrs48y0hm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.77,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/agent/?run_id=rsqnucpymjkc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.15,"🎧: ""Ni iyihe nyanja iherereye i Burasirazuba bwo mu majyepfo ya Kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/agent/?run_id=3emd2j0xkcop&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.85,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+Lake Jipe, located on the Kenya-Tanzania border near Tsavo West National Park.",https://gooey.ai/agent/?run_id=0iu5l259ibat&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.27,"🎧: ""Ni iyihe nyanja iherereye i Burasirazuba bwo mu majyepfo ya Kenya""
+
+Lake Jipe, located on the Kenya–Tanzania border in southeastern Kenya (Taita Taveta County).",https://gooey.ai/agent/?run_id=3hfzjl2o76k7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.69,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+The Indian Ocean.",https://gooey.ai/agent/?run_id=fv6rvohmijgr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.07,"🎧: ""Ni iyihe nyanja iherereye i Burasirazuba bwo mu majyepfo ya Kenya""
+
+Lake Jipe is located in southeastern Kenya.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,0.0,"Ignoring transcript prefixes and hidden reasoning blocks, 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, and 9 DeepSeek V4 + Omni - Kinyarwanda all correctly identify the Indian Ocean, matching the reference answer. 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda are incorrect because they answer with Lake Jipe instead of the Indian Ocean."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav,What is the official language of Kenya?,Ni uruhe rurimi rwemewe n’amategeko muri Kenya?,English and Swahili,Icyonereza n’Igiswayile,https://gooey.ai/agent/?run_id=xyyh9b9wzp9p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.55,The official languages in Kenya are English and Swahili.,https://gooey.ai/agent/?run_id=tjqyfo018qv9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.56,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=sjdx7a96avje&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.45,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri Kenya""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=wvuvdf2hrx5n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.1,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=l1d2fyal82um&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.14,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri Kenya""
+
+The official languages of Kenya are Swahili and English.",https://gooey.ai/agent/?run_id=yo2jbcz1ydyy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.83,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+Swahili and English are Kenya's official languages.",https://gooey.ai/agent/?run_id=p29woh5e3xmj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.3,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri Kenya""
+
+English and Swahili are the official languages of Kenya.",https://gooey.ai/agent/?run_id=ihx4015pjfp4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.14,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+Kenya's official languages are English and Kiswahili.",https://gooey.ai/agent/?run_id=fr1n1sfffzyg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.87,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri Kenya""
+
+The official languages of Kenya are English and Kiswahili.",https://gooey.ai/agent/?run_id=7bdsan6mfw12&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.21,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+English and Swahili are the official languages of Kenya.",https://gooey.ai/agent/?run_id=3lewcwb049xo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.62,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri Kenya""
+
+English and Swahili are the official languages of Kenya.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates preserve the full meaning of the reference answer by correctly identifying Kenya's official languages as English and Swahili/Kiswahili. Minor differences in wording, order, capitalization, or inclusion of the transcribed prompt in 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda do not reduce semantic accuracy. 0 Gemini 3.1 Pro - Kinyarwanda is also fully correct."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/003a2388-8f2a-11f0-bc32-02420a0001fc/Generic_Q6_RW_B04.opus.wav,Which currency is used in Kenya?,Ni irihe faranga rikoreshwa muri Kenya?,Kenyan Shilling,Ishilingi rya Kenya,https://gooey.ai/agent/?run_id=lp6o7mwhyqni&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.27,The currency used in Kenya is the Kenyan Shilling.,https://gooey.ai/agent/?run_id=4p1ejul02005&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.78,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=1v54vmjeixtq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.17,"🎧: ""Ni irihefaranga rikoreshwa muri Kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=1i0nffiaz9z9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.55,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=60mtk8cv29lj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.05,"🎧: ""Ni irihefaranga rikoreshwa muri Kenya""
+
+The currency used in Kenya is the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=62ijfjnfgb7b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.12,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=rl6bzoqomve7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.05,"🎧: ""Ni irihefaranga rikoreshwa muri Kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=28y2r3si0uu4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.98,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling (KES).",https://gooey.ai/agent/?run_id=6ccd3tmwttzl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.4,"🎧: ""Ni irihefaranga rikoreshwa muri Kenya""
+
+The currency used in Kenya is the Kenyan Shilling (KES).",https://gooey.ai/agent/?run_id=wmdqvbn0jtr9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.84,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=s2hy3xdooe95&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.54,"🎧: ""Ni irihefaranga rikoreshwa muri Kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates give the correct answer, Kenyan Shilling, which matches the reference answer. Some responses from 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda include extra transcript text and some add the currency code KES, but these additions do not change correctness, so all preserve the full meaning of the reference."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/6ddfefa8-8f2a-11f0-b9e2-02420a0001fa/Generic_Q7_RW_B04.opus.wav,What large lake is found in western Kenya?,Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya?,Lake Victoria,Ikiyaga cya Vigitoriya(Victoria),https://gooey.ai/agent/?run_id=zm6ogn6zb408&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.12,Lake Victoria is the largest lake in western Kenya.,https://gooey.ai/agent/?run_id=x2nf1zp8zvwc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.01,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=tbphaatjv4jg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.16,"🎧: ""Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/agent/?run_id=4lgecaeporud&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.96,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+<think>
+
+**Answering about Lake Victoria**
+
+I'm looking to provide a concise answer about Lake Victoria, which is the largest lake in western Kenya. I think I should focus on delivering this in a single sentence to meet the user's request for brevity. Clarity is key, so I want to ensure that the information is straightforward and to the point! I'll craft my response accordingly, making sure it’s informative but still short. Let's do this!
+
+</think>
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=kmyc2t0789pb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.77,"🎧: ""Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya""
+
+<think>
+
+**Providing concise information**
+
+I need to answer the question about the largest lake in western Kenya. That's definitely Lake Victoria. Since the request is for a single, short sentence, I can say something straightforward like, “The largest lake in western Kenya is Lake Victoria.” Keeping it simple and clear is the way to go here!
+
+</think>
+
+Lake Victoria.",https://gooey.ai/agent/?run_id=zi5b1j08276c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.79,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=ptt943lgigg2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.96,"🎧: ""Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya""
+
+Lake Victoria is the large lake in western Kenya.",https://gooey.ai/agent/?run_id=k4pkdbrx7sh9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.29,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=aux4fwe7nhfv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.23,"🎧: ""Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya""
+
+The largest lake in western Kenya is Lake Victoria, which is also Africa's largest lake.",https://gooey.ai/agent/?run_id=cxuhwcw7yl9u&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.86,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=fcnup217a0gf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.75,"🎧: ""Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya""
+
+Lake Victoria is the largest lake in western Kenya.",1.0,1.0,1.0,1.0,1.0,1.0,0.8,1.0,0.6,1.0,1.0,"After ignoring transcription prefixes and hidden reasoning blocks, most candidates give the correct final answer ""Lake Victoria,"" matching the reference exactly or with equivalent wording, so 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda receive full credit. 6 Claude Sonnet 5 + Intron - Kinyarwanda is correct but slightly awkward/imprecise (""the large lake"" instead of clearly identifying it as the largest), so it is slightly downgraded. 8 Kimi K3 + Intron - Kinyarwanda is correct but adds extra information beyond the reference answer, so it is scored lower under the rubric."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/7e40b2a6-8f2a-11f0-9dde-02420a0001fc/Generic_Q8_RW_B04.opus.wav,Which famous wildlife migration occurs in the Maasai Mara?,Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Masayi Mara?,The Great Wildebeest Migration,Urugendo rwo kwimuka kw’inyamaswa ruba buri mwaka ziva muri Serengeti(Tanzania) zijya Masaka(Kenya),https://gooey.ai/agent/?run_id=0d0faxuu40xp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.75,It is the Great Wildebeest Migration.,https://gooey.ai/agent/?run_id=ezntc3r62dz6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.17,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The most famous animal migration in the Masai Mara is the Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=cgq1owtx9879&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.05,"🎧: ""Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Massayi Mal""
+
+It is the Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=0pmelqxytxsj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.8,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+<think>
+
+**Interpreting famous animal migration**
+
+I need to focus on the famous animal migration in the Maasai Mara. The Great Migration of wildebeest, accompanied by zebras and gazelles from the Serengeti, is the answer I should give. I want to ensure I provide clear, concise information in the shortest possible sentence. It seems like a straightforward response, but I'll double-check for any additional details that could enhance clarity. This is an interesting topic to explore!
+
+</think>
+
+The Great Wildebeest Migration is the most famous migration in the Maasai Mara.",https://gooey.ai/agent/?run_id=q2vngwx8n4r0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.25,"🎧: ""Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Massayi Mal""
+
+<think>
+
+**Translating animal migration inquiry**
+
+I see the user is asking about a famous animal migration in the Maasai Mara. The great migration of wildebeest is well-known. I’ll keep it simple and concise for clarity. I think summarizing it in one short sentence will help capture the essence of the inquiry. I'll aim to provide a clear and informative answer that directly addresses the question while being easy to understand.
+
+</think>
+
+The Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=h0yfv0zn7ff3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.29,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The most famous animal migration in the Maasai Mara is the Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=97tkvw8saqre&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.36,"🎧: ""Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Massayi Mal""
+
+The Great Migration in the Maasai Mara.",https://gooey.ai/agent/?run_id=7wir7kjqt3x1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.28,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The most famous animal migration in the Maasai Mara is the Great Wildebeest Migration, where over a million wildebeest, zebras, and gazelles migrate from Tanzania's Serengeti into Kenya's Maasai Mara each year (typically July–October).",https://gooey.ai/agent/?run_id=gltwft0dh8qi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.9,"🎧: ""Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Massayi Mal""
+
+The most common animal diseases in the Maasai Mara region include East Coast Fever, Foot and Mouth Disease, anthrax, trypanosomiasis (nagana), and brucellosis, which affect both livestock and wildlife in the area.",https://gooey.ai/agent/?run_id=jcxtn3if05o4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.67,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=1427btpeltty&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.87,"🎧: ""Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Massayi Mal""
+
+The Great Wildebeest Migration is the most famous animal migration in the Masai Mara.",1.0,1.0,1.0,1.0,1.0,1.0,0.8,0.6,0.0,1.0,1.0,"0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda match the reference answer directly or with only trivial rephrasing. 6 Claude Sonnet 5 + Intron - Kinyarwanda is mostly correct but less precise because it says ""The Great Migration"" instead of explicitly naming the wildebeest migration. 7 Kimi K3 + Omni - Kinyarwanda is correct but includes substantial extra explanatory detail beyond the reference answer. 8 Kimi K3 + Intron - Kinyarwanda is incorrect and answers a different question about animal diseases."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/92c76bf2-8f2a-11f0-8cba-02420a0001f9/Generic_Q9_RW_B02.opus.wav,Which mountain is the highest in Kenya?,Ni uwuhe musozi muremure cyane muri Kenya?,Mount Kenya,Umusozi wa Kenya(Mount Kenya),https://gooey.ai/agent/?run_id=1p77zh3vnukk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.75,The highest mountain in Kenya is Mount Kenya.,https://gooey.ai/agent/?run_id=q88w4yxooo6o&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.58,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/agent/?run_id=maiyjttrc2f3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.54,"🎧: ""nuhe musozi muremure cyane muri Kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/agent/?run_id=zs17izrkk9jx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.32,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=eks7i6hp5gbk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.39,"🎧: ""nuhe musozi muremure cyane muri Kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=tz90ejih1jg7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.81,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+The tallest mountain in Kenya is Mount Kenya.",https://gooey.ai/agent/?run_id=kk8yp1bs4t9f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.05,"🎧: ""nuhe musozi muremure cyane muri Kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=h6mis7q10pg3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.46,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+The tallest mountain in Kenya is Mount Kenya, standing at 5,199 meters (17,057 feet).",https://gooey.ai/agent/?run_id=fj9ha46u9p3h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.37,"🎧: ""nuhe musozi muremure cyane muri Kenya""
+
+The tallest mountain in Kenya is Mount Kenya, standing at 5,199 meters (17,057 feet) above sea level.",https://gooey.ai/agent/?run_id=qc6gyjj0ukq4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.55,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=40ibahz8w762&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.0,"🎧: ""nuhe musozi muremure cyane muri Kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,1.0,1.0,"All candidates correctly identify Mount Kenya as the highest mountain in Kenya, matching the reference answer. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda stay concise and preserve the full core meaning, so they receive 1.0. 7 Kimi K3 + Omni - Kinyarwanda and 8 Kimi K3 + Intron - Kinyarwanda are also correct but add unnecessary extra detail about elevation, so they receive 0.6 under the rubric for mostly accurate answers with too much extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/54c62702-8f2b-11f0-9496-02420a0001f8/Generic_Q10_RW_B02.opus.wav,Which is the main port city in Kenya?,Ni uwuhe mujyi munini ukora ku cyambu muri Kenya?,Mombasa,Mombasa,https://gooey.ai/agent/?run_id=2vcx3eymevxq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.99,Mombasa is the largest port city in Kenya.,https://gooey.ai/agent/?run_id=60xeru6978h1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.66,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/agent/?run_id=4pvfkm8m0m4f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.64,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/agent/?run_id=b3g9ips8vl98&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.57,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+<think>
+
+**Identifying a port city in Kenya**
+
+I need to focus on the question: which major city in Kenya serves as a port? I think the best answer is Mombasa, as it's known for its bustling port and significant role in trade. Keeping it simple, I would state, “Mombasa is the major port city in Kenya.” That's short and to the point!
+
+</think>
+
+Mombasa is Kenya’s main port city.",https://gooey.ai/agent/?run_id=a2kouxhpprau&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya""
+
+<think>
+
+**Parsing Kinyarwanda inquiry**
+
+I'm focusing on a request regarding the major city with a port in Kenya. It looks like they're asking specifically about the largest port city, which is Mombasa. I should provide a concise answer in a single sentence. So, I'll confirm Mombasa as the main port city in Kenya. Keeping it short and to the point seems like the best approach here!
+
+</think>
+
+Mombasa is Kenya’s main port city.",https://gooey.ai/agent/?run_id=q8j7thfuq0f3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.71,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is Kenya's largest port city.",https://gooey.ai/agent/?run_id=tm3nv65jyp10&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.95,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya""
+
+Mombasa is the major port city in Kenya.",https://gooey.ai/agent/?run_id=xbbzcuyqxqm5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.46,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/agent/?run_id=tz1tzoi05yqb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.17,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/agent/?run_id=ou43xn1uq6f2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.3,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is the major city in Kenya with a port.",https://gooey.ai/agent/?run_id=iubqf468u4c0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.09,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya""
+
+Mombasa is the major port city in Kenya.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates ultimately answer with Mombasa as Kenya's main/largest/major port city, which fully matches the reference answer ""Mombasa."" Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda was ignored as instructed, and the remaining user-facing answers are all correct despite minor extra wording or transcription prefixes."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/96debdca-8f2b-11f0-a3ef-02420a0001fa/Generic_Q12_RW_B02.opus.wav,Which traditional Kenyan dish is made of maize and beans?,Ni ibihe biryo gakondo byo muri Kenya bigizwe n’ibigori ndetse n'ibishyimbo?,Githeri,Githeri,https://gooey.ai/agent/?run_id=fp5ocfqp6w0s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.93,Githeri is the traditional Kenyan dish made of maize and beans.,https://gooey.ai/agent/?run_id=yq3t7skikgz8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.46,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan food made of maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=so51rt7vo4ri&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.09,"🎧: ""Ni ibihe biryo gakondo byo muri Kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan food made of maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=6037msn4vjiv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.52,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+<think>
+
+**Providing a concise answer**
+
+I need to answer with a single sentence since the user asked about a specific traditional Kenyan food made with maize and beans. That food is called Githeri. It's important to keep my response straightforward and succinct while ensuring the user gets the information they need. So, I’ll keep it clear and directly state: ""Githeri is the traditional Kenyan food that consists of maize and beans.""
+
+</think>
+
+Githeri is a traditional Kenyan dish made from maize and beans.",https://gooey.ai/agent/?run_id=heokk38jie00&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.38,"🎧: ""Ni ibihe biryo gakondo byo muri Kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri is a traditional Kenyan dish made from boiled maize and beans.",https://gooey.ai/agent/?run_id=0b3a9ko1y0e0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.82,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri.",https://gooey.ai/agent/?run_id=a6iqo0wtny4g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.97,"🎧: ""Ni ibihe biryo gakondo byo muri Kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri – a traditional Kenyan dish made of maize and beans.",https://gooey.ai/agent/?run_id=9gwmsqcxh9bm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.19,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The main traditional Kenyan food made with maize and beans is **Githeri** (boiled maize and beans, sometimes with potatoes), along with **Muthokoi**, a similar Kamba dish made with de-hulled maize and beans.",https://gooey.ai/agent/?run_id=7zr7aucsavd1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.99,"🎧: ""Ni ibihe biryo gakondo byo muri Kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri is the traditional Kenyan dish made of boiled maize and beans, sometimes mixed with potatoes and vegetables.",https://gooey.ai/agent/?run_id=be852mn2qcvb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.73,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri is a traditional Kenyan dish made from maize and beans.",https://gooey.ai/agent/?run_id=xvxvds35d2jx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""Ni ibihe biryo gakondo byo muri Kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+Githeri is a traditional Kenyan dish made of maize and beans.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.8,1.0,1.0,"Most candidates correctly identify the reference answer, Githeri, and therefore preserve all major points: 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda. I ignored the hidden reasoning block in 3 GPT 5.6 Sol + Omni - Kinyarwanda and judged only the final answer. 8 Kimi K3 + Intron - Kinyarwanda is correct but adds extra detail about potatoes and vegetables, so it is slightly less exact. 7 Kimi K3 + Omni - Kinyarwanda is mostly accurate but includes an additional alternative dish, Muthokoi, which goes beyond the reference answer and reduces precision."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/d52f117e-8f2b-11f0-a932-02420a0001fc/Generic_Q13_RW_B06.opus.wav,Which river is the longest in Kenya?,Ni uwuhe mugezi usumba iyindi yose muri Kenya?,Tana River,Umugezi wa Tana,https://gooey.ai/agent/?run_id=plj7doyquidx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.72,The longest river in Kenya is the Tana River.,https://gooey.ai/agent/?run_id=hjetjjjdyikz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.05,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=s3lbxfod3kk7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.94,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri Kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=cmcrnzlltllt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.98,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+<think>
+
+**Translating river question**
+
+I need to translate the question: ""Which river is biggest/longest in Kenya?"" into the local language. The translation is ""Nuwuhe mugezi usumba iyindi yose muri Kenya"", meaning which river exceeds all others. It seems the Tana River is the longest in Kenya. I'll aim to condense this into one short sentence for clarity. Alright, let's present the answer concisely!
+
+</think>
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=nlgmrm8l7oxj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri Kenya""
+
+<think>
+
+**Determining Kenya's longest river**
+
+We're looking into a question asking which river is the biggest or longest in Kenya. I think the longest river is the Tana River. To keep it simple, I'll create a concise sentence. The challenge is to summarize it clearly, so I'll say something like, ""The Tana River is the longest river in Kenya."" It captures the essential information in a straightforward way!
+
+</think>
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=20ejcu6k7u7q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.83,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=9xw9sti500vq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri Kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=brc2qh4ki5x4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.06,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya, stretching about 1,000 kilometers.",https://gooey.ai/agent/?run_id=kvaae8hutyb2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.62,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri Kenya""
+
+The Tana River is the longest and largest river in Kenya, stretching about 800 km from the Aberdare Mountains to the Indian Ocean.",https://gooey.ai/agent/?run_id=2sn6p5jnr3vj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.88,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=pi7luophsare&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.6,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri Kenya""
+
+The longest river in Kenya is the Tana River.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8,0.6,1.0,1.0,"After ignoring transcript prefixes and hidden reasoning blocks, 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda match the reference answer 'Tana River' exactly in meaning. 7 Kimi K3 + Omni - Kinyarwanda is correct but adds extra detail about length, so it is slightly less exact. 8 Kimi K3 + Intron - Kinyarwanda is correct but adds more extra information and an unsupported 'largest' claim, so it is penalized more."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav,Name any one of Kenya’s neighboring countries.,Vuga igihugu kimwe mu bihugu bihana imbibi na Kenya.,"Uganda, Tanzania, Somalia, Ethiopia, or South Sudan","Uganda, Tanzaniya, Somaliya, Ethiopiya, cyangwa Sudani y’Epfo",https://gooey.ai/agent/?run_id=uz17ql3gl6ar&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.84,Tanzania is one country that borders Kenya.,https://gooey.ai/agent/?run_id=v5yw5w5wxnyc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.25,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Tanzania shares a border with Kenya.",https://gooey.ai/agent/?run_id=s5vwbm7dvcrc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.02,"🎧: ""vuga igihugu kimwe mu bihugu bihana imbibi na Kenya""
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=jehmd7b994k0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.69,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+<think>
+
+**Translating response**
+
+I need to translate the request: ""say one country among countries bordering Kenya."" My best guess is Uganda! It seems like this can be answered in a single sentence, which makes it straightforward. I just want to make sure I'm giving a clear and accurate answer. Kenya shares borders with Uganda, Tanzania, South Sudan, Ethiopia, and Somalia, but mentioning Uganda fits the task nicely. Let’s go with that!
+
+</think>
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=usuuu71fa2ay&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""vuga igihugu kimwe mu bihugu bihana imbibi na Kenya""
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=mlyk4pazbkiw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.73,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Ethiopia",https://gooey.ai/agent/?run_id=4yaf0h0xkfh2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.63,"🎧: ""vuga igihugu kimwe mu bihugu bihana imbibi na Kenya""
+
+Uganda is one country that borders Kenya.",https://gooey.ai/agent/?run_id=fi1i7r17p5c6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.19,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Uganda is one of the countries that shares a border with Kenya.",https://gooey.ai/agent/?run_id=04t7ket9zc68&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.87,"🎧: ""vuga igihugu kimwe mu bihugu bihana imbibi na Kenya""
+
+Uganda is one country that shares a border with Kenya.",https://gooey.ai/agent/?run_id=21rrh7llf79h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.79,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+One country bordering Kenya is Uganda.",https://gooey.ai/agent/?run_id=tbgen5rkjoom&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.26,"🎧: ""vuga igihugu kimwe mu bihugu bihana imbibi na Kenya""
+
+Uganda.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates give a correct neighboring country of Kenya that matches the reference set. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda was ignored as instructed, and its final user-facing answer is still correct. Minor differences in wording, presence of transcription text, or sentence form do not reduce correctness here because each candidate preserves the full required meaning by naming a valid neighboring country."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/90c6c97c-8f2c-11f0-878d-02420a0001fa/Generic_Q15_RW_B06.opus.wav,What is the major airport in Nairobi called?,Ikibuga kinini cy'indege i Nairobi kitwa bgo iki?,Jomo Kenyatta International Airport,Ikibuga mpuzamahanga cya Jomo Kenyatta,https://gooey.ai/agent/?run_id=7y9tmcqokibe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.59,The biggest airport in Nairobi is Jomo Kenyatta International Airport.,https://gooey.ai/agent/?run_id=09zyhiye68dg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The biggest airport in Nairobi is Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=7tftb3bq8087&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.75,"🎧: ""ikibuga kinini cy'indege i Nairobi cyitwa ngwiki""
+
+The biggest airport in Nairobi is Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=p1bmh30d85ec&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.92,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The main airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=bp1tab7t12h0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.15,"🎧: ""ikibuga kinini cy'indege i Nairobi cyitwa ngwiki""
+
+Nairobi’s main airport is Jomo Kenyatta International Airport (JKIA).",https://gooey.ai/agent/?run_id=zzghdvpv97pp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.57,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The main airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=8mf3htd2ju3f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.21,"🎧: ""ikibuga kinini cy'indege i Nairobi cyitwa ngwiki""
+
+Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=ctsv6hvgfi9q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.64,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The main airport in Nairobi is Jomo Kenyatta International Airport (JKIA).",https://gooey.ai/agent/?run_id=3lc7h45vnvgt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.45,"🎧: ""ikibuga kinini cy'indege i Nairobi cyitwa ngwiki""
+
+Nairobi's main airport is called Jomo Kenyatta International Airport (JKIA).",https://gooey.ai/agent/?run_id=7w1m376zg86c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.43,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=7jrboyv2vln4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.33,"🎧: ""ikibuga kinini cy'indege i Nairobi cyitwa ngwiki""
+
+Jomo Kenyatta International Airport.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates correctly identify the major airport in Nairobi as Jomo Kenyatta International Airport. Minor variations such as added transcription text, phrasing like 'main' vs 'biggest,' or inclusion of 'JKIA' do not change the core answer, so 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda all preserve all major points of the reference answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c4e7b798-8f2c-11f0-a932-02420a0001fc/Generic_Q16_RW_B03.oga.wav,Which Kenyan town is famous for its tea production?,Ni uwuhe mujyi muri Kenya uzwiho umusaruro w’icyayi ?,Kericho,Kericho,https://gooey.ai/agent/?run_id=8nqc2lkt59us&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.15,Kericho is the town in Kenya most known for tea production.,https://gooey.ai/agent/?run_id=a611vl4ubfoc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.14,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=99r6cnn72ltp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.28,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=qtbbxk16zxnz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.91,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+<think>
+
+**Identifying tea production city**
+
+I need to find out which city in Kenya is recognized for its tea production. I think the answer is Kericho, as it's well-known for that. I’ll aim to keep it simple and direct — a single short sentence should suffice. Let's clarify that: Kericho is the city in Kenya famous for tea cultivation. This succinctly answers the question while conveying the essential information.
+
+</think>
+
+Kericho is the Kenyan town best known for tea production.",https://gooey.ai/agent/?run_id=sa6zznmbuw26&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.31,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+<think>
+
+</think>
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=i3zmftevdwec&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.25,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+The town in Kenya best known for tea production is Kericho.",https://gooey.ai/agent/?run_id=8gcpuepoqzox&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.85,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya known for tea production.",https://gooey.ai/agent/?run_id=ynfoifh8aqp3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.57,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most famous for tea production, often called the country's tea capital.",https://gooey.ai/agent/?run_id=t7mhd7i9x2rl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.72,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most famous for tea production.",https://gooey.ai/agent/?run_id=63knczf0kc30&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.9,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho.",https://gooey.ai/agent/?run_id=c99qew387v00&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.91,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan city known for tea production.",0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,1.0,0.8,"All candidates correctly identify Kericho, matching the reference answer. 9 DeepSeek V4 + Omni - Kinyarwanda is the closest match because it gives just the answer with no extra information. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda add explanatory wording such as calling it a town or city in Kenya known for tea production; these are still accurate but include extra information, so they score slightly lower. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda was ignored as instructed."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c4e7b798-8f2c-11f0-a932-02420a0001fc/Generic_Q16_RW_B03.oga.wav,In which year did Kenya gain independence from Britain?,Ni mu wuhe mwaka Kenya yabonye ubwigenge ku Bwongereza?,1963,1963,https://gooey.ai/agent/?run_id=zgoo6cwaj6bc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.09,Kericho is the town in Kenya best known for tea production.,https://gooey.ai/agent/?run_id=sf16mdjk4dwd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.36,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=u66c1druihu1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.91,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=j0fmkuoi0ccb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.52,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+<think>
+
+**Translating tea production query**
+
+I need to translate the question: “Which city in Kenya is known for tea production?” The answer is Kericho, which is known for its tea industry. I want to make sure to keep this concise, aiming for a one-sentence response that’s clear and to the point. It feels important to communicate this efficiently while providing the necessary information. I'll keep it simple!
+
+</think>
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=80r738sx3c2g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.02,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+<think>
+
+</think>
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=5l80gj4i9sj5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya best known for tea production.",https://gooey.ai/agent/?run_id=atlt6uen3wji&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.11,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya known for tea production.",https://gooey.ai/agent/?run_id=svqnaskko70n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.89,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=clcuc7t4kamq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.19,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya most famous for tea production, often called the country's tea capital.",https://gooey.ai/agent/?run_id=phxgyyre6eys&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.73,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya known for tea production.",https://gooey.ai/agent/?run_id=y6vdc60xni31&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.95,"🎧: ""Nuwuhe mujyi muri Kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan city known for tea production.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,"The reference answer is 1963, the year Kenya gained independence from Britain. All candidates instead answer a different question about which Kenyan town/city is known for tea production (Kericho). After ignoring hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda, their final user-facing answers are still about Kericho, not 1963. Therefore 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda are all incorrect and receive 0."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/e76dea26-8f2c-11f0-ab14-02420a0001fa/Generic_Q19_RW_B09.opus.wav,Name the Kenyan Nobel Peace Prize laureate who founded the Green Belt Movement.,Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobeli kubera yashinze ikigo cyitwa Green Belt Movement.,Wangari Maathai,Wangari Maathai,https://gooey.ai/agent/?run_id=8x71vbhlmoxq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.31,Wangari Maathai is the Kenyan who was awarded the Nobel Peace Prize for founding the Green Belt Movement.,https://gooey.ai/agent/?run_id=oys3ajwtntsi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.95,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai is the Kenyan who was awarded the Nobel Peace Prize for founding the Green Belt Movement.",https://gooey.ai/agent/?run_id=y0frs33uefpd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.89,"🎧: ""Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobell kubera yashinze ikigo cyitwa Green Belt movement""
+
+Wangari Maathai is the Kenyan who won the Nobel Peace Prize for founding the Green Belt Movement.",https://gooey.ai/agent/?run_id=rtp43vk6d662&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.26,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=zlt2cx90zzfh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.46,"🎧: ""Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobell kubera yashinze ikigo cyitwa Green Belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=ard7roy7dw5c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.9,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=jbtadzyph0f5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.36,"🎧: ""Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobell kubera yashinze ikigo cyitwa Green Belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=z24hz9rwd2g4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=0bt2ogn2tqfx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,36.42,"🎧: ""Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobell kubera yashinze ikigo cyitwa Green Belt movement""
+
+Wangari Maathai won the Nobel Peace Prize in 2004 for founding the Green Belt Movement.",https://gooey.ai/agent/?run_id=zp7bw68sgc39&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.02,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=l6y6qjjo5jwu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.56,"🎧: ""Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobell kubera yashinze ikigo cyitwa Green Belt movement""
+
+Wangari Maathai.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,1.0,1.0,"All candidates identify the correct laureate, Wangari Maathai. 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda match the reference answer exactly apart from harmless transcript text. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, and 2 Gemini 3.1 Pro + Intron - Kinyarwanda add a brief correct explanatory clause but still preserve all major points, so they receive full credit. 8 Kimi K3 + Intron - Kinyarwanda is also correct but includes extra information about the year and award context beyond the requested name, so it is scored slightly lower for excessive additional detail."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/34fe5f1e-8f2d-11f0-a1c9-02420a0001f9/Generic_Q20_RW_B09.opus.wav,What is the main legislative body in Kenya called?,Urwego rukuru rw'inteko ishinga amategeko muri Kenya rwitwa ngo iki?,Parliament (National Assembly and Senate),Inteko Nshingamategeko (Inama Nkuru y’Igihugu na Sena),https://gooey.ai/agent/?run_id=t48qsr6jtvnl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.02,The supreme legislative body in Kenya is called the Parliament of Kenya.,https://gooey.ai/agent/?run_id=ms7v4x2un2gl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.93,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+The upper house of the parliament in Kenya is called the Senate.",https://gooey.ai/agent/?run_id=hv51l9quilj0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.4,"🎧: ""urwego rukuru rw'intko ishinga amategeko muri Kenya rwitwa ngwiki""
+
+The upper house of the parliament in Kenya is called the Senate.",https://gooey.ai/agent/?run_id=wzwdddxm2rx5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.97,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+<think>
+
+**Translating parliamentary terms**
+
+I need to translate the question: “What is the upper house of Parliament in Kenya called?” The answer is simple—it's called the Senate. I think keeping it to one short sentence is the best approach here, so I'll just say ""Senate."" It keeps things clear and concise, which is important for effective communication. So, I feel ready to provide that succinct answer!
+
+</think>
+
+The Senate.",https://gooey.ai/agent/?run_id=b30ynfnxdr1t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.08,"🎧: ""urwego rukuru rw'intko ishinga amategeko muri Kenya rwitwa ngwiki""
+
+<think>
+
+**Translating Kenyan legislature terms**
+
+I see the user is asking for the translation of “urwego rukuru rw'inteko ishinga amategeko muri Kenya,"" which I think refers to the upper house of parliament. Kenya has a bicameral legislature, so the Senate is the upper house and the National Assembly is the lower house. I’ll aim to provide a concise answer, probably something like, ""The upper house of Kenya's legislature is called the Senate."" That should work!
+
+</think>
+
+The upper house of Kenya’s Parliament is called the Senate.",https://gooey.ai/agent/?run_id=he8sxjzxn5zx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.71,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+The Senate.",https://gooey.ai/agent/?run_id=hita7869s8bw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.29,"🎧: ""urwego rukuru rw'intko ishinga amategeko muri Kenya rwitwa ngwiki""
+
+The bicameral legislature of Kenya is called Parliament, consisting of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=5hyfvwm20hpj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.51,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+The supreme legislative body in Kenya is the **Parliament of Kenya**, which consists of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=3bxbrsja17ir&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.62,"🎧: ""urwego rukuru rw'intko ishinga amategeko muri Kenya rwitwa ngwiki""
+
+The highest court interpreting laws in Kenya is the Supreme Court of Kenya.",https://gooey.ai/agent/?run_id=1s1dood0lf7c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.08,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+The highest legislative body in Kenya is called the Parliament, which consists of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=ipgiv2zl0dz3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.47,"🎧: ""urwego rukuru rw'intko ishinga amategeko muri Kenya rwitwa ngwiki""
+
+The highest legislative body in Kenya is called Parliament.",0.8,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.8,"6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, and 9 DeepSeek V4 + Omni - Kinyarwanda fully match the reference by identifying Kenya's main legislative body as Parliament and including its two chambers, the National Assembly and Senate. 0 Gemini 3.1 Pro - Kinyarwanda and 10 DeepSeek V4 + Intron - Kinyarwanda correctly name Parliament but omit the chamber details, so they preserve most but not all major points. 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, and 5 Claude Sonnet 5  + Omni - Kinyarwanda answer with only the Senate or the upper house, which does not match the reference. 8 Kimi K3 + Intron - Kinyarwanda is incorrect because it refers to the Supreme Court rather than the legislative body."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/44d70292-8f2d-11f0-9496-02420a0001f8/Generic_Q21_RW_B09.opus.wav,Which year was the current Kenyan constitution promulgated?,Itegeko nshinga rya Kenya ririho ubu ryashyizweho mu wuhe mwaka?,2010,2010,https://gooey.ai/agent/?run_id=t3p4pnh01vek&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.1,The current Constitution of Kenya was established in 2010.,https://gooey.ai/agent/?run_id=676kk5lzmgg9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.74,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+The current Constitution of Kenya was adopted in 2010.",https://gooey.ai/agent/?run_id=rbepk1erqenu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.67,"🎧: ""itegeko nshinga rya Kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=rlvpg5gno5o2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.62,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+Kenya’s current Constitution was enacted in 2010.",https://gooey.ai/agent/?run_id=plmmv8smxj1b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.81,"🎧: ""itegeko nshinga rya Kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+Kenya’s current Constitution was enacted in 2010.",https://gooey.ai/agent/?run_id=1it00xd8hpdj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.64,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=ep2u0r4pxtr9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.8,"🎧: ""itegeko nshinga rya Kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=rv52bt7kknbn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.58,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+Kenya's current constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=plvadjciy5rl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.61,"🎧: ""itegeko nshinga rya Kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+Kenya's current constitution was established in 2010.",https://gooey.ai/agent/?run_id=u3egls3yh3lj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.26,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+The current constitution of Kenya was established in 2010.",https://gooey.ai/agent/?run_id=fegywbil8v6n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.09,"🎧: ""itegeko nshinga rya Kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+The current Constitution of Kenya was enacted in 2010.",0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,"All candidates correctly identify the year as 2010, matching the reference answer. However, each output includes extra explanatory wording beyond the minimal reference answer, so they are mostly accurate rather than exact. 0 Gemini 3.1 Pro - Kinyarwanda omits the transcript line but still gives the correct answer; 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda also include a transcript plus a correct English paraphrase of the answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav,Which major archaeological site in northern Kenya provides evidence of early human evolution?,Ni he hantu ndanga-mateka mu majyaruguru ya Kenya haboneka ibimenyetso by’inkomoko n’ihindagurika rya muntu?,Koobi Fora,Koobi Fora,https://gooey.ai/agent/?run_id=fhfnbcwdamd1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.74,"The Turkana Basin, specifically the Koobi Fora region, is the historical site in northern Kenya known for its extensive evidence of human origins and evolution.",https://gooey.ai/agent/?run_id=q3wt5s9r1fc9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.58,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The historical place in northern Kenya where evidence of human evolution is found is the Lake Turkana basin, specifically the Koobi Fora site.",https://gooey.ai/agent/?run_id=39t3klodihil&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.82,"🎧: ""Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+Evidence of human origins and evolution in northern Kenya is found at the Lake Turkana basin, specifically at the Koobi Fora site.",https://gooey.ai/agent/?run_id=p9exawh8izpg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.63,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+<think>
+
+**Identifying archaeological significance**
+
+I need to focus on the question: “Which archaeological or historical site in northern Kenya has evidence of human origins and evolution?” I believe Koobi Fora is the site in question. To respond, I should keep it concise—just a single sentence. So, the answer could simply be: ""Koobi Fora is an archaeological site in northern Kenya known for its significant evidence of human origins and evolution."" That should do the trick!
+
+</think>
+
+Koobi Fora, near Lake Turkana in northern Kenya.",https://gooey.ai/agent/?run_id=601en1tfmk9q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.16,"🎧: ""Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+<think>
+
+**Considering translation requirements**
+
+I need to translate the question about which archaeological site in northern Kenya has evidence of human origins or evolution. My best guess is that it points to Koobi Fora, located on the eastern shore of Lake Turkana. Now, I should aim for the shortest, clearest sentence in English to convey this information effectively. I want to make sure it’s concise and straightforward for better understanding!
+
+</think>
+
+Koobi Fora, near Lake Turkana in northern Kenya.",https://gooey.ai/agent/?run_id=muw8f7ffhk5s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.13,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+Sibiloi National Park (around Lake Turkana) in northern Kenya.",https://gooey.ai/agent/?run_id=dbs6mwr1pjhk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.98,"🎧: ""Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The Turkana Basin (Lake Turkana region) in northern Kenya, known for fossil evidence of human origin and evolution.",https://gooey.ai/agent/?run_id=pvhkhu12ejqw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.56,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+Lake Turkana (the Turkana Basin, including Koobi Fora) in northern Kenya is the famous site where fossils showing evidence of human origins and evolution have been discovered.",https://gooey.ai/agent/?run_id=kakenogxtzkn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.13,"🎧: ""Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The Lake Turkana Basin in northern Kenya, particularly Koobi Fora in Sibiloi National Park, contains famous fossil sites showing evidence of human origins and evolution.",https://gooey.ai/agent/?run_id=uw6ykbmuaifl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.92,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+Koobi Fora in northern Kenya has fossils showing human evolution.",https://gooey.ai/agent/?run_id=1jn1b23nx2rj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.5,"🎧: ""Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+Koobi Fora near Lake Turkana in northern Kenya holds fossils and stone tools showing human origins and evolution.",0.8,0.8,0.8,0.8,0.8,0.0,0.4,0.6,0.8,1.0,0.8,"The reference answer is Koobi Fora. 9 DeepSeek V4 + Omni - Kinyarwanda matches it most directly. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda all correctly identify Koobi Fora but add extra contextual detail, so they are strong but not as exact. 7 Kimi K3 + Omni - Kinyarwanda includes Koobi Fora but centers the broader Lake Turkana/Turkana Basin area, making it less precise. 6 Claude Sonnet 5 + Intron - Kinyarwanda gives only the broader Turkana Basin/Lake Turkana region without naming Koobi Fora, so it preserves only part of the meaning. 5 Claude Sonnet 5  + Omni - Kinyarwanda is incorrect because it answers Sibiloi National Park instead of the reference site Koobi Fora."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a320be88-8f2d-11f0-ab14-02420a0001fa/Generic_Q23_RW_B10.m4a.wav,What is the largest ethnic group in Kenya?,Ni ubuhe bwoko bugizwe n’abantu benshi muri Kenya?,Kikuyu,Kikuyu,https://gooey.ai/agent/?run_id=89qldnrd5i2j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.96,The Kikuyu is the largest ethnic group in Kenya.,https://gooey.ai/agent/?run_id=8ubhhk5kv356&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.5,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The Kikuyu is the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=albgktr32atx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.09,"🎧: ""Ni ubuhe bwoko bugizwe n'abantu benshi muri Kenya""
+
+The Kikuyu is the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=u8p74jnb4wjs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.71,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+<think>
+
+**Translating population inquiries**
+
+I need to translate the question: ""What tribe or ethnic group has the most people in Kenya?"" The answer is likely that the Kikuyu is the largest group, making up about 17% of the population. I want to keep this response concise, focusing on clarity and brevity while ensuring I deliver the necessary information. Just one short sentence should do!
+
+</think>
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=pmxuujkrojch&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.41,"🎧: ""Ni ubuhe bwoko bugizwe n'abantu benshi muri Kenya""
+
+<think>
+
+</think>
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=q7i95ve418ng&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.9,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The Kikuyu people are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=s7golfijhyn1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.25,"🎧: ""Ni ubuhe bwoko bugizwe n'abantu benshi muri Kenya""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=r8h8s1g6a30p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.19,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=e37k4z19fc17&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""Ni ubuhe bwoko bugizwe n'abantu benshi muri Kenya""
+
+The Kikuyu are the largest ethnic group in Kenya, making up roughly 17-20% of the population.",https://gooey.ai/agent/?run_id=dzeqd1kspfey&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.98,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The largest ethnic group in Kenya is the Kikuyu.",https://gooey.ai/agent/?run_id=23222x82a19w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.07,"🎧: ""Ni ubuhe bwoko bugizwe n'abantu benshi muri Kenya""
+
+The largest ethnic group in Kenya is the Kikuyu.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,1.0,1.0,"All candidates identify Kikuyu as the largest ethnic group in Kenya, matching the reference answer. Per instructions, hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda was ignored. 8 Kimi K3 + Intron - Kinyarwanda adds extra demographic detail beyond the reference, so it is mostly accurate but includes too much extra information. The others are concise paraphrases that preserve the full meaning."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c921d784-8f2d-11f0-a932-02420a0001fc/Generic_Q25_RW_B08.opus.wav,Which island town in Kenya is a UNESCO World Heritage Site known for its Swahili architecture?,Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa UNESCO uzwiho kuba ufite ubugeni bw’Igiswayire?,Lamu,Lamu,https://gooey.ai/agent/?run_id=sar0e9jwhal5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.19,Lamu Old Town is the Kenyan island city on the UNESCO World Heritage list known for its Swahili architecture.,https://gooey.ai/agent/?run_id=5ezug3d3lkoo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.85,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu is the Kenyan island town on the UNESCO World Heritage list known for its well-preserved Swahili architecture.",https://gooey.ai/agent/?run_id=tj4pnf8nbb3p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.26,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa Unusco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu is the Kenyan island town on the UNESCO World Heritage list known for its Swahili architecture.",https://gooey.ai/agent/?run_id=883t6cjuc0jn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.38,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+<think>
+
+**Identifying UNESCO site**
+
+I need to determine which town in Kenya is known for its Swahili architecture and is on the UNESCO World Heritage list. It seems likely to be Lamu Old Town, located on Lamu Island, as it's recognized for being the oldest Swahili settlement. I should present this information clearly and concisely in a single sentence. I'll make sure the answer is straightforward and informative!
+
+</think>
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=v526h3ae6z8t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.93,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa Unusco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+<think>
+
+**Identifying UNESCO site**
+
+I need to translate the question about which town in Kenya, known for its Swahili architecture, is recognized as a UNESCO World Heritage site. The answer is Lamu Old Town located on Lamu Island. I want to make sure my response is concise, just a single sentence. That should clearly address the user's query!
+
+</think>
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=3p14zuqfoxin&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.27,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=tgdnjvx2ssuv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.23,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa Unusco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=1smb854xfs2t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.71,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town is the Kenyan coastal city on the UNESCO World Heritage list renowned for its Swahili architecture.",https://gooey.ai/agent/?run_id=fb6fpv1mkeij&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.92,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa Unusco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town, on Lamu Island, is Kenya's UNESCO World Heritage Site renowned for its Swahili architecture.",https://gooey.ai/agent/?run_id=etw5j4m392jv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.9,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town on Lamu Island is the UNESCO World Heritage site known for its Swahili art.",https://gooey.ai/agent/?run_id=bl0v2jju20im&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,53.94,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa Unusco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town on Lamu Island is the UNESCO World Heritage site known for its Swahili architecture.",0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.6,0.8,"Most candidates correctly identify Lamu/Lamu Old Town, which is effectively the reference answer 0 Gemini 3.1 Pro - Kinyarwanda 1 Gemini 3.1 Pro + Omni - Kinyarwanda 2 Gemini 3.1 Pro + Intron - Kinyarwanda 3 GPT 5.6 Sol + Omni - Kinyarwanda 4 GPT 5.6 Sol + Intron - Kinyarwanda 5 Claude Sonnet 5  + Omni - Kinyarwanda 6 Claude Sonnet 5 + Intron - Kinyarwanda 7 Kimi K3 + Omni - Kinyarwanda 8 Kimi K3 + Intron - Kinyarwanda 10 DeepSeek V4 + Intron - Kinyarwanda. I ignored transcript prefixes and hidden reasoning blocks when present. These candidates add extra descriptive detail beyond the reference, so they score 0.8 rather than 1.0. 9 DeepSeek V4 + Omni - Kinyarwanda is also correct on the place but changes 'architecture' to 'art,' which is a noticeable semantic drift, so it scores lower."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/14f49e4e-8f2e-11f0-b9dd-02420a0001f9/Generic_Q29_RW_B07.ogg.wav,Which national park in Kenya is famous for its view of Mount Kilimanjaro?,Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimanjaro?,Amboseli National Park,Pariki Nkuru y’Igihugu ya Amboseli,https://gooey.ai/agent/?run_id=v3afpnxg3c4k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.41,Amboseli National Park is known for offering the best views of Mount Kilimanjaro.,https://gooey.ai/agent/?run_id=51wflge1e4c3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.07,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is famous for its great views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=79wrk7lu68bw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.4,"🎧: ""Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimjaro""
+
+Amboseli National Park is known for its excellent views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=swfijllzx5h0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.96,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is famous for its clear views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=8js0qpyr6u82&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.77,"🎧: ""Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimjaro""
+
+Amboseli National Park is famous for its excellent views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=iigu57jur2mo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.96,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is known for its excellent views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=t47l8b6im49i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.95,"🎧: ""Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimjaro""
+
+Amboseli National Park is well known for its scenic views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=ccdnr5g1zclp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.42,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is the Kenyan park famous for its stunning views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=8q0r452lx5o1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.0,"🎧: ""Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimjaro""
+
+Amboseli National Park is famous for offering the best views of Mount Kilimanjaro in Kenya.",https://gooey.ai/agent/?run_id=9p1nk8h194io&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.33,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park.",https://gooey.ai/agent/?run_id=k2aoknl5bhmd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.61,"🎧: ""Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimjaro""
+
+Amboseli National Park is known for its excellent views of Mount Kilimanjaro.",0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8,1.0,0.8,"All candidates identify Amboseli National Park, which matches the reference answer. 9 DeepSeek V4 + Omni - Kinyarwanda is the closest because it gives just the park name with no extra explanation. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda add descriptive information about views of Mount Kilimanjaro, so they are still correct but slightly less exact matches to the reference answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/26405454-8f2e-11f0-a0cd-02420a0001f8/Generic_Q30_RW_B07.ogg.wav,What is the name of Kenya’s national airline?,Indege y'igihugu cya Kenya yitwa ngo iki?,Kenya Airways,Kompanyi itwara abantu mu kirere ya Kenya,https://gooey.ai/agent/?run_id=0i64tsbwsddy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.28,The national airline of Kenya is Kenya Airways.,https://gooey.ai/agent/?run_id=koi1mya9g1ga&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.21,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/agent/?run_id=1cj4xueeuubo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.45,"🎧: ""indege y'igihugu cya Kenya yitwa ngwiki""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=ohfn5w9ivca1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.18,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+<think>
+
+**Identifying the national airline**
+
+I realize I need to find a straightforward answer to the question: ""What is Kenya's national airline called?"" And the answer is simple — it's Kenya Airways. I think a concise response in a single sentence works best here. So there it is, clear and to the point!
+
+</think>
+
+Kenya’s national airline is Kenya Airways.",https://gooey.ai/agent/?run_id=9kss15d5fcxy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.81,"🎧: ""indege y'igihugu cya Kenya yitwa ngwiki""
+
+<think>
+
+**Interpreting the question**
+
+It seems there’s a typo in the question about Kenya's national bird, which is the lilac-breasted roller. The user wants to know what it's called in Kinyarwanda and prefers a quick, single-sentence answer. I’ll make sure to keep it brief and to the point. So, I need to clarify and provide just the essential information without extra details, focusing on the Kinyarwanda term if I can find it!
+
+</think>
+
+Kenya’s national bird is the lilac-breasted roller.",https://gooey.ai/agent/?run_id=0ii42dn5xxhw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.47,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/agent/?run_id=vmamu69fl7ct&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.85,"🎧: ""indege y'igihugu cya Kenya yitwa ngwiki""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=a3lxcutgj48f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.03,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/agent/?run_id=ufwk03y51yq4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.61,"🎧: ""indege y'igihugu cya Kenya yitwa ngwiki""
+
+Kenya's national airline is called Kenya Airways.",https://gooey.ai/agent/?run_id=g2kh9e3g7lfo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.73,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=xtn32g2l1oeu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""indege y'igihugu cya Kenya yitwa ngwiki""
+
+Kenya Airways.",1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,"Most candidates correctly answer with Kenya Airways, matching the reference answer exactly or with harmless phrasing differences; this applies to 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, 8 Kimi K3 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda. I ignored hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda and judged only the final user-facing answer. 4 GPT 5.6 Sol + Intron - Kinyarwanda is incorrect because it answers about Kenya’s national bird rather than the national airline."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a6852612-db32-11f0-86f2-02420a0001e9/Health_Q25_RW_B07.wav.wav,What is the normal survival time of Red Blood Cells ?,Insoro z’amaraso zitukura zibasha kubaho mu gihe kingana iki?,"Normally, 120 days","Ubusanzwe, byatwara iminsi 120",https://gooey.ai/agent/?run_id=r85mc09di52m&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.61,Red blood cells live for about 120 days.,https://gooey.ai/agent/?run_id=8yeatwgrgsc8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.82,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells typically live for about 120 days.",https://gooey.ai/agent/?run_id=clminxegqwpl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.35,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for about 120 days.",https://gooey.ai/agent/?run_id=xk4rt9vf8vpr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.99,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+<think>
+
+**Considering red blood cell lifespan**
+
+I need to convey information about Kinyarwanda and the lifespan of red blood cells. So, I should mention that in humans, red blood cells typically live for about 120 days. This seems straightforward, but I wonder if there’s a need for more context or specifics, even if I’m aiming for a short answer. Keeping it simple, focusing on just a single sentence, is the goal here!
+
+</think>
+
+Red blood cells live for about 120 days.",https://gooey.ai/agent/?run_id=bs3u5g6fdsfj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.45,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+<think>
+
+**Translating lifespan of red blood cells**
+
+I need to translate the question: ""How long can red blood cells live?"" The answer is straightforward—about 120 days. To keep it simple and concise, I'll state it in a single sentence. It's important to provide clear and direct information, so translating this effectively is key. I'm thinking that focusing on clarity will help ensure the answer is understood easily!
+
+</think>
+
+Red blood cells live for about 120 days.",https://gooey.ai/agent/?run_id=0larc5dpll7e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.57,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells typically live for about 120 days.",https://gooey.ai/agent/?run_id=je5riyorsmt9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.67,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells typically live for about 120 days.",https://gooey.ai/agent/?run_id=pwzqzm7aoo6r&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.17,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for about 120 days (approximately four months) in the human body.",https://gooey.ai/agent/?run_id=khnvvz3ihd7w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.67,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for approximately 120 days (about 4 months).",https://gooey.ai/agent/?run_id=aqxg850x9xt1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.41,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells can live for about 120 days.",https://gooey.ai/agent/?run_id=es5trdbh54wb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.8,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for about 120 days.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8,0.8,1.0,1.0,"All candidates convey the core reference answer that red blood cells normally live about 120 days. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kinyarwanda and 4 GPT 5.6 Sol + Intron - Kinyarwanda was ignored as instructed, leaving correct final answers. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, 9 DeepSeek V4 + Omni - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda match the reference closely. 7 Kimi K3 + Omni - Kinyarwanda and 8 Kimi K3 + Intron - Kinyarwanda are also correct but add extra explanatory detail ('approximately four months'), so they score slightly lower under the rubric."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a6ebafb8-db32-11f0-86f2-02420a0001e9/Health_Q18_RW_B09.wav.wav,How does aspirin affect the coagulation process?,Ni gute imiti igabanya ububabare (aspirine) igira uruhare mu kuvura kw’amaraso?,"Aspirin irreversibly inhibits the cyclooxygenase enzyme, which inhibits platelet aggregation (effect lasts up to 10 days).","Aspirine ihagarika burundu akazi k’umusemburo ufasha mu gutera uburibwe, umuriro n’ibindi bimenyetso by’uburwayi uzwi nk’ikinyabutabire gifasha imikorere y’umubiri, bigatuma idindiza guterana kw’uduce tw’amaraso (ingaruka zishobora kumara iminsi 10).",https://gooey.ai/agent/?run_id=rqcd26c0fqqu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.99,Aspirin helps prevent blood clots by stopping platelets from clumping together.,https://gooey.ai/agent/?run_id=d7okevo25985&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.77,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin prevents blood clots by stopping platelets from sticking together.",https://gooey.ai/agent/?run_id=fvh7tvjqgnlt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,59.92,"🎧: ""ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin acts as a blood thinner by preventing platelets from sticking together to form harmful blood clots.",https://gooey.ai/agent/?run_id=64lolz7h240g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.13,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+<think>
+
+**Exploring aspirin's role**
+
+I’m focusing on the role of aspirin in treating blood conditions. It seems the user is curious about how aspirin affects blood clotting. In concise terms, aspirin inhibits platelet aggregation, which reduces clot formation and is commonly used to prevent heart attacks and strokes, although it could increase bleeding risk. So, my aim is to boil this down to a single, clear sentence in English for the user.
+
+</think>
+
+Aspirin reduces platelet clumping, helping prevent blood clots, but it can increase bleeding risk.",https://gooey.ai/agent/?run_id=4a2h6j2t2mes&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.33,"🎧: ""ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+<think>
+
+**Interpreting aspirin's role**
+
+I need to clarify how aspirin acts as a painkiller related to blood treatment. It plays a role by preventing platelets from sticking together and reducing clots, rather than actually thinning the blood. It's important to mention it’s prescribed with caution due to potential bleeding risks. So I’ll aim to sum this up in one concise sentence to keep it clear. Let’s see... that shouldn’t be too complicated!
+
+</think>
+
+Aspirin reduces blood clot formation by preventing platelets from sticking together, helping prevent heart attacks and strokes but increasing bleeding risk.",https://gooey.ai/agent/?run_id=btdiskz2vi4o&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.42,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin thins the blood by preventing platelets from clumping together, which reduces the risk of blood clots.",https://gooey.ai/agent/?run_id=c90oeasyky8z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.98,"🎧: ""ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin thins the blood by preventing platelets from clumping together, which reduces blood clot formation.",https://gooey.ai/agent/?run_id=uws5ajie6uzw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.94,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin works as a blood thinner by preventing platelets from clumping together, which helps prevent blood clots, heart attacks, and strokes in addition to relieving pain.",https://gooey.ai/agent/?run_id=jadijev1o2em&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.58,"🎧: ""ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin works by blocking COX enzymes, which reduces prostaglandins to relieve pain and prevents platelets from clumping together, thereby thinning the blood and reducing clot formation.",https://gooey.ai/agent/?run_id=tfhnie47i1l9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.88,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin reduces blood clotting by preventing platelets from sticking together, which helps treat conditions like heart attacks and strokes.",https://gooey.ai/agent/?run_id=lthcxsbxg0ct&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.77,"🎧: ""ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin thins the blood by preventing platelets from clumping, which reduces clot formation.",0.8,0.8,0.8,0.6,0.6,0.8,0.8,0.6,1.0,0.6,0.8,"8 Kimi K3 + Intron - Kinyarwanda is closest to the reference because it explicitly mentions blocking COX enzymes and preventing platelet clumping, covering both the mechanism and anticoagulation effect. 0 Gemini 3.1 Pro - Kinyarwanda, 1 Gemini 3.1 Pro + Omni - Kinyarwanda, 2 Gemini 3.1 Pro + Intron - Kinyarwanda, 5 Claude Sonnet 5  + Omni - Kinyarwanda, 6 Claude Sonnet 5 + Intron - Kinyarwanda, and 10 DeepSeek V4 + Intron - Kinyarwanda correctly capture inhibition of platelet aggregation/clumping but omit the cyclooxygenase mechanism and irreversibility/duration. 3 GPT 5.6 Sol + Omni - Kinyarwanda, 4 GPT 5.6 Sol + Intron - Kinyarwanda, 7 Kimi K3 + Omni - Kinyarwanda, and 9 DeepSeek V4 + Omni - Kinyarwanda are mostly accurate but include extra information such as bleeding risk, pain relief, or disease examples, making them less tightly aligned to the reference."

@@ -2164,6 +2164,13 @@
         justify-content: center;
         border: 1px solid var(--line-default);
         border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .voice audio {
+        width: 100%;
+        height: 40px;
       }
       .tri {
         display: block;
@@ -2248,9 +2255,11 @@
         align-items: center;
         gap: 8px;
         margin-top: 8px;
+        color: var(--text-primary);
         font-size: 12px;
         font-weight: 600;
         line-height: 14px;
+        text-decoration: none;
       }
       .a-tr {
         margin-top: 8px;
@@ -2999,7 +3008,7 @@
           </div>
           <div class="chains-foot">
             <p>Answer score: match with an expert’s answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.</p>
-            <span class="foot-links"><a href="data/kinyarwanda-2026-08-30.csv" download>Download data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
+            <span class="foot-links"><a href="data/kin/summary-2026-08-30.csv" download>Download data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
           </div>
         </div>
       </section>
@@ -3110,6 +3119,7 @@
     </footer>
 
     <script>
+      // Synced from data/kin/summary-2026-08-30.csv: mean accuracy and median latency.
       const chains = [
         { model: "Gemini 3.1 Pro", speech: "Built-in audio", score: 90, time: 8.88, cost: .26, carbon: 2.2, sovereign: false },
         { model: "Gemini 3.1 Pro", speech: "Omnilingual", score: 86, time: 9.48, cost: .23, carbon: 2.1, sovereign: false },
@@ -3368,26 +3378,31 @@
       document.addEventListener("click", event => { if (!event.target.closest(".select")) setYMenu(false); });
       renderYMenu();
 
-      const SAMPLES = [
-        { tag: "Health", n: 3, dur: "0:07", q: "Umwana wanjye afite umuriro mwinshi, nkore iki?", qt: "“My child has a high fever. What should I do?”", a: "Mujyane umwana ku kigo nderabuzima vuba. Mu gihe mutarahagera, mumuhe amazi menshi kandi mumwambure imyenda irenze.", ad: "0:09", at: "“Take the child to the health centre quickly. Until you get there, give plenty of water and remove extra clothing.”", expert: "Take the child to a health centre now. Give fluids and remove extra clothing.", score: 92 },
-        { tag: "Farming", n: 11, dur: "0:05", q: "Ni ryari nshobora gutera ibishyimbo?", qt: "“When can I plant beans?”", a: "Ibishyimbo biterwa mu gihembwe cya mbere, hagati ya Nzeri na Ukwakira, imvura itangiye kugwa.", ad: "0:08", at: "“Beans are planted in the first season, between September and October, once the rains begin.”", expert: "Plant beans at the start of the first rains, September to October.", score: 86 },
-        { tag: "Health", n: 18, dur: "0:06", q: "Nakwirinda nte malariya?", qt: "“How can I protect myself from malaria?”", a: "Rara mu nzitiramubu itewe umuti buri joro, ukureho ibiziba hafi y’urugo, kandi ujye kwa muganga nugira umuriro.", ad: "0:10", at: "“Sleep under a treated mosquito net every night, clear standing water near your home, and see a doctor if you get a fever.”", expert: "Sleep under a treated net, remove standing water, and seek care for a fever.", score: 74 }
-      ];
-      const WAVE = [16, 24, 28, 40, 38, 36, 28, 34, 36, 6, 16, 32, 26, 20, 18, 2, 1, 18, 6, 30, 8, 24, 16, 14, 8, 1];
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>'"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+      }
 
-      function renderSamples() {
-        document.getElementById("sampleCards").innerHTML = SAMPLES.map(s => `<article class="sample">
-          <div class="sample-head"><span class="tag">${s.tag}</span><span>Question ${s.n} of 24</span></div>
-          <div class="voice"><span class="play-btn"><i class="tri"></i></span><span class="wave" aria-hidden="true">${WAVE.map(h => `<i style="height:${h}px"></i>`).join("")}</span><span>${s.dur}</span></div>
-          <p class="q"><span class="q-label">Question, as transcribed</span><strong>${s.q}</strong><em>${s.qt}</em></p>
+      async function loadSamples() {
+        const cards = document.getElementById("sampleCards");
+        try {
+          const response = await fetch("data/kin/samples.json");
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          cards.innerHTML = data.samples.map(sample => `<article class="sample">
+          <div class="sample-head"><span class="tag">${escapeHtml(sample.category)}</span><span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
+          <div class="voice"><audio controls preload="metadata" src="${escapeHtml(sample.audioUrl)}" aria-label="Question ${sample.questionNumber} audio"></audio></div>
+          <p class="q"><span class="q-label">Question, as transcribed</span><strong>${escapeHtml(sample.transcript)}</strong><em>“${escapeHtml(sample.questionEnglish)}”</em></p>
           <hr />
           <div class="a-head"><img src="assets/kinyarwanda/logo-openai.svg" alt="" width="16" height="16" /><span class="a-label">GPT-5.6 Sol’s answer</span></div>
-          <p class="a-text">${s.a}</p>
-          <div class="hear"><i class="tri small"></i>Hear the answer · ${s.ad}</div>
-          <span class="a-tr">${s.at}</span>
-          <p class="expert"><b>Expert answer:</b> ${s.expert}</p>
-          <div class="score"><span class="a-label">Matches the expert’s answer</span><div class="score-row"><span class="score-bar"><i style="width:${s.score}%"></i></span><b>${s.score}</b></div></div>
+          <p class="a-text">${escapeHtml(sample.answer)}</p>
+          <a class="hear" href="${escapeHtml(sample.runUrl)}" target="_blank" rel="noopener noreferrer">View model run · ${sample.runtimeSeconds.toFixed(2)} s</a>
+          <p class="expert"><b>Expert answer:</b> ${escapeHtml(sample.expertAnswer)}</p>
+          <div class="score"><span class="a-label">Matches the expert’s answer</span><div class="score-row"><span class="score-bar"><i style="width:${sample.score}%"></i></span><b>${sample.score}</b></div></div>
         </article>`).join("");
+        } catch (error) {
+          cards.innerHTML = '<p role="alert">Sample answers could not be loaded. Please refresh the page to try again.</p>';
+          console.error("Could not load Kinyarwanda sample answers:", error);
+        }
       }
 
       renderMetrics();
@@ -3395,7 +3410,7 @@
       renderLabRank();
       renderScatter();
       renderPanel();
-      renderSamples();
+      loadSamples();
 
       document.querySelectorAll("[data-sort]").forEach(button => button.addEventListener("click", () => {
         document.querySelectorAll("[data-sort]").forEach(item => item.classList.toggle("active", item === button));
