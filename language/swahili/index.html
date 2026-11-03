@@ -2165,6 +2165,10 @@
         border: 1px solid var(--line-default);
         border-radius: 50%;
       }
+      .voice audio {
+        width: 100%;
+        height: 40px;
+      }
       .tri {
         display: block;
         width: 0;
@@ -2248,9 +2252,11 @@
         align-items: center;
         gap: 8px;
         margin-top: 8px;
+        color: var(--text-primary);
         font-size: 12px;
         font-weight: 600;
         line-height: 14px;
+        text-decoration: none;
       }
       .a-tr {
         margin-top: 8px;
@@ -3095,7 +3101,7 @@
           </div>
           <div class="chains-foot">
             <p>Answer score: match with a reference answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.</p>
-            <span class="foot-links"><a href="data/swahili-2026-08-30.csv" download>Download data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
+            <span class="foot-links"><a href="data/swa/summary-2026-08-30.csv" download>Download data</a><a href="https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr">Methodology</a></span>
           </div>
         </div>
       </section>
@@ -3206,7 +3212,7 @@
     </footer>
 
     <script>
-      // Synced from data/swahili-2026-08-30.csv: mean accuracy and median latency.
+      // Synced from data/swa/summary-2026-08-30.csv: mean accuracy and median latency.
       const CSV_DATA = [["Gemini 3.1 Pro", "Built-in audio", 0.95, 5.79, false], ["Gemini 3.1 Pro", "Omnilingual", 0.93, 9.33, false], ["Gemini 3.1 Pro", "Intron", 0.91, 10.73, false], ["Gemini 3.1 Pro", "GPT Transcribe", 0.91, 8.23, false], ["GPT 5.6 Sol", "Omnilingual", 0.90, 7.00, false], ["GPT 5.6 Sol", "Intron", 0.88, 9.89, false], ["GPT 5.6 Sol", "GPT Transcribe", 0.87, 6.39, false], ["Claude Sonnet 5", "Omnilingual", 0.91, 6.72, false], ["Claude Sonnet 5", "Intron", 0.89, 8.36, false], ["Claude Sonnet 5", "GPT Transcribe", 0.84, 5.85, false], ["Kimi K3", "Omnilingual", 0.68, 7.12, true], ["Kimi K3", "Intron", 0.65, 9.29, true], ["Kimi K3", "GPT Transcribe", 0.70, 6.71, false], ["DeepSeek V4", "Omnilingual", 0.93, 7.55, true], ["DeepSeek V4", "Intron", 0.93, 9.70, true], ["DeepSeek V4", "GPT Transcribe", 0.87, 5.89, false], ["Gemini 3.7 Flash", "Omnilingual", 0.84, 7.61, false], ["Gemini 3.7 Flash", "Intron", 0.85, 10.02, false], ["Gemini 3.7 Flash", "GPT Transcribe", 0.88, 7.08, false]];
       const chains = CSV_DATA.map(([model, speech, acc, time, sovereign]) => ({ model: model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, sovereign }));
       const ranked = [...chains].sort((a, b) => b.acc - a.acc || a.time - b.time);
@@ -3444,40 +3450,31 @@
       });
       document.addEventListener("click", event => { if (!event.target.closest(".select")) setYMenu(false); });
       renderYMenu();
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>'"]/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+      }
 
-
-      const SAMPLES = [{"n": 1, "tag": "Geography", "audio": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/cde75ab0-8d88-11f0-814d-02420a0001f7/Generic_Q2_SW_A01.opus.wav", "q": "Je, mji mkuu wa Kenya ni upi?", "qt": "What is the capital city of Kenya?", "heard": "je mji mkuu wa kenya ni upi", "a": "The capital city of Kenya is Nairobi.", "expert": "Nairobi", "score": 60}, {"n": 15, "tag": "Government", "audio": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/44ed9554-8d8c-11f0-ac41-02420a0001f5/Generic_Q20_SW_A04.oga.wav", "q": "Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?", "qt": "What is the main legislative body in Kenya called?", "heard": "asasi kuu ya kutunga sheria nchini kenya inaitwaje", "a": "The main law-making body in Kenya is called Parliament.", "expert": "Parliament (National Assembly and Senate)", "score": 80}, {"n": 13, "tag": "History", "audio": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/20464944-8d8c-11f0-814d-02420a0001f7/Generic_Q18_SW_A07.opus.wav", "q": "Rais wa kwanza wa Kenya alikuwa nani?", "qt": "Who was the first president of Kenya?", "heard": "rais wa kwanza wa kenya alikuwa nani", "a": "The first President of Kenya was Jomo Kenyatta.", "expert": "Jomo Kenyatta", "score": 100}];
-      const WAVE = [16, 24, 28, 40, 38, 36, 28, 34, 36, 6, 16, 32, 26, 20, 18, 2, 1, 18, 6, 30, 8, 24, 16, 14, 8, 1];
-      const clock = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
-      const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
-
-      function renderSamples() {
-        const host = document.getElementById("sampleCards");
-        host.innerHTML = SAMPLES.map((s, i) => `<article class="sample">
-          <div class="sample-head"><span class="tag">${s.tag}</span><span>Question ${s.n} of 24</span></div>
-          <div class="voice"><button type="button" class="play-btn" data-audio="${i}" aria-label="Play the spoken question"><i class="tri"></i></button><span class="wave" aria-hidden="true">${WAVE.map(h => `<i style="height:${h}px"></i>`).join("")}</span><span class="dur" id="dur${i}">0:00</span></div>
-          <p class="q"><span class="q-label">Question, as transcribed</span><strong>${cap(s.heard)}</strong><em>“${s.qt}”</em></p>
+      async function loadSamples() {
+        const cards = document.getElementById("sampleCards");
+        try {
+          const response = await fetch("data/swa/samples.json");
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
+          cards.innerHTML = data.samples.map(sample => `<article class="sample">
+          <div class="sample-head"><span class="tag">${escapeHtml(sample.category)}</span><span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
+          <div class="voice"><audio controls preload="metadata" src="${escapeHtml(sample.audioUrl)}" aria-label="Question ${sample.questionNumber} audio"></audio></div>
+          <p class="q"><span class="q-label">Question, as transcribed</span><strong>${escapeHtml(sample.transcript)}</strong><em>“${escapeHtml(sample.questionEnglish)}”</em></p>
           <hr />
           <div class="a-head"><img src="assets/kinyarwanda/logo-openai.svg" alt="" width="16" height="16" /><span class="a-label">GPT-5.6 Sol’s answer</span></div>
-          <p class="a-text">${s.a}</p>
-          <p class="expert"><b>Expert answer:</b> ${s.expert}</p>
-          <div class="score"><span class="a-label">Matches the expert’s answer</span><div class="score-row"><span class="score-bar"><i style="width:${s.score}%"></i></span><b>${s.score}</b></div></div>
+          <p class="a-text">${escapeHtml(sample.answer)}</p>
+          <a class="hear" href="${escapeHtml(sample.runUrl)}" target="_blank" rel="noopener noreferrer">View model run · ${sample.runtimeSeconds.toFixed(2)} s</a>
+          <p class="expert"><b>Expert answer:</b> ${escapeHtml(sample.expertAnswer)}</p>
+          <div class="score"><span class="a-label">Matches the expert’s answer</span><div class="score-row"><span class="score-bar"><i style="width:${sample.score}%"></i></span><b>${sample.score}</b></div></div>
         </article>`).join("");
-        const players = SAMPLES.map(s => {
-          const audio = new Audio();
-          audio.preload = "metadata";
-          audio.src = s.audio;
-          return audio;
-        });
-        players.forEach((audio, i) => {
-          audio.addEventListener("loadedmetadata", () => { document.getElementById("dur" + i).textContent = clock(audio.duration); });
-          audio.addEventListener("ended", () => host.querySelectorAll(".play-btn")[i].classList.remove("playing"));
-        });
-        host.querySelectorAll(".play-btn").forEach(button => button.addEventListener("click", () => {
-          const i = Number(button.dataset.audio);
-          players.forEach((audio, j) => { if (j !== i) { audio.pause(); host.querySelectorAll(".play-btn")[j].classList.remove("playing"); } });
-          if (players[i].paused) { players[i].play(); button.classList.add("playing"); } else { players[i].pause(); button.classList.remove("playing"); }
-        }));
+        } catch (error) {
+          cards.innerHTML = '<p role="alert">Sample answers could not be loaded. Please refresh the page to try again.</p>';
+          console.error("Could not load Swahili sample answers:", error);
+        }
       }
 
       renderMetrics();
@@ -3485,7 +3482,7 @@
       renderLabRank();
       renderScatter();
       renderPanel();
-      renderSamples();
+      loadSamples();
 
       document.querySelectorAll("[data-sort]").forEach(button => button.addEventListener("click", () => {
         document.querySelectorAll("[data-sort]").forEach(item => item.classList.toggle("active", item === button));
