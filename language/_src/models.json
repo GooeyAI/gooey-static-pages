@@ -1,0 +1,12 @@
+{
+  "DeepSeek V4": {"slug": "deepseek-v4", "maker": "DeepSeek", "kind": "Open-weight model", "open": true},
+  "GPT-5.6 Sol": {
+    "slug": "gpt-5-6-sol", "maker": "OpenAI", "kind": "Proprietary model", "open": false,
+    "hosted_in": ["Global", "US"], "zdr_in": ["Germany", "France"],
+    "in_region_note": "No African data centre offers GPT-5.6 Sol yet. We’ll list one when it does."
+  },
+  "Gemini 3.1 Pro": {"slug": "gemini-3-1-pro", "maker": "Google", "kind": "Proprietary model", "open": false},
+  "Gemini 3.7 Flash": {"slug": "gemini-3-7-flash", "maker": "Google", "kind": "Proprietary model", "open": false},
+  "Claude Sonnet 5": {"slug": "claude-sonnet-5", "maker": "Anthropic", "kind": "Proprietary model", "open": false},
+  "Kimi K3": {"slug": "kimi-k3", "maker": "Moonshot AI", "kind": "Open-weight model", "open": true}
+}
