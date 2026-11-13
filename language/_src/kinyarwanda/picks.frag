@@ -2,7 +2,7 @@
         <div class="container pick">
           <div class="pick-head">
             <h2 id="pick-title">Which chain should you pick?</h2>
-            <p>Two choices change the answer: where the models run, and whether people reach them by phone call or by message.</p>
+            <p>Compare Kinyarwanda AI models for voice calls and WhatsApp by accuracy, response time, cost, and sovereign deployment options.</p>
           </div>
           <div class="matrix">
             <div class="matrix-rows">

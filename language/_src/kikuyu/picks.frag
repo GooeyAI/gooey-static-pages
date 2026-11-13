@@ -2,7 +2,7 @@
         <div class="container pick">
           <div class="pick-head">
             <h2 id="pick-title">Which chain should you pick?</h2>
-            <p>Use answer quality for messages; for live calls, balance quality with the 10-second response-time target.</p>
+            <p>Compare Kikuyu AI models for voice calls and WhatsApp by accuracy, response time, cost, and sovereign deployment options.</p>
           </div>
           <div class="matrix">
             <div class="matrix-rows">
