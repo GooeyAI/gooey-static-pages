@@ -1,0 +1,142 @@
+{
+  "slug": "kikuyu",
+  "lang": "Kikuyu",
+  "endonym": "Gĩkũyũ",
+  "country": "Kenya",
+  "flag": "ke",
+  "code": "kik",
+  "snapshot": "2026-08-30",
+  "updated": "Aug 30, 2026",
+  "questions": 24,
+  "layout": "standard",
+  "meta": {
+    "description": "Compare 13 AI chains for spoken Kikuyu by answer quality and response time.",
+    "og_description": "Results for 13 AI chains tested on 24 spoken Kikuyu questions."
+  },
+  "hero": {
+    "bulk_url": "https://gooey.ai/bulk/25qs-kikuyu-audio-to-text-benchmark-claude-sonnet-5-gpt-56-sol-deepseek-v4-gemini-31-pro-kimi-k3-gemini-37-flash-w-omnilingual-kikuyu-whisper-v2-g10xcrobgrvl/",
+    "map": {
+      "file": "map-kenya-led.svg",
+      "alt": "Dotted LED map of Kenya",
+      "pin": false
+    },
+    "voice": {
+      "time": "0:09",
+      "text": "Nĩ kĩrĩma kĩrĩkũ<br />kĩraihu mũno Kenya?",
+      "sub": "Which mountain is the<br />highest in Kenya?"
+    }
+  },
+  "board": {
+    "hint": "The dashed line is the 10 s limit for phone calls. Sovereign-deployable chains are highlighted in blue.",
+    "note": "Sovereign-deployable means every model step can be run in your country or on your own servers. The four Kimi K3 and DeepSeek V4 chains use open-weight language models with self-hostable speech recognition. This describes a deployment option, not the location used for these benchmark runs.",
+    "speech_key": [
+      [
+        "Omnilingual",
+        "logo-meta"
+      ],
+      [
+        "Kikuyu Whisper v2",
+        "icon-mic-legend"
+      ],
+      [
+        "Built-in audio",
+        "icon-mic-legend"
+      ]
+    ]
+  },
+  "scatter": {
+    "aria": "Gemini 3.1 Pro with Kikuyu Whisper v2 has the highest score.",
+    "x": [
+      58,
+      6,
+      61.5
+    ],
+    "xTicks": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "labelBestSovereign": true,
+    "metrics": {
+      "score": {
+        "min": 30,
+        "max": 90,
+        "ticks": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "front": "Labelled: the best chain and the best sovereign-deployable one",
+        "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI, Aug 30, 2026."
+      },
+      "cost": {
+        "min": 39,
+        "max": 42,
+        "ticks": [
+          39,
+          40,
+          41,
+          42
+        ],
+        "front": "GPT-5.6 Sol averaged $40.42; all other chains averaged $40.00",
+        "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
+      },
+      "carbon": {
+        "min": 0,
+        "max": 90,
+        "ticks": [
+          0,
+          15,
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "front": "Labelled best trade-offs among covered chains",
+        "note": "EcoCost estimate from 24 runs per covered chain; low confidence. Speech recognition and direct-audio inference are excluded. Source: public Gooey.AI run records, Aug 30, 2026."
+      }
+    }
+  },
+  "geometry": {
+    "pitch": 33,
+    "score": 1.9,
+    "time": 13,
+    "costBase": 106,
+    "costPerDollar": 72,
+    "carbon": 2,
+    "lines": {
+      "score": [
+        117,
+        22
+      ],
+      "time": [
+        147,
+        82
+      ],
+      "cost": [
+        85
+      ],
+      "carbon": [
+        170,
+        127,
+        85,
+        42
+      ]
+    }
+  },
+  "samples_intro": "Three of the 24 questions, spoken in Kikuyu. Answers are from Gemini 3.1 Pro with Kikuyu Whisper v2, the highest-scoring chain, and are graded against a reference answer.",
+  "sample": {
+    "model": "Gemini 3.1 Pro",
+    "logo": "logo-gemini"
+  },
+  "labSpeech": "Kikuyu Whisper v2",
+  "labSpeechShort": "Whisper"
+}

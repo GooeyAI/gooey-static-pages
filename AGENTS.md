@@ -6,7 +6,7 @@ Each top-level folder (`sovereignty/`, `research/`, `ecocost/`, ...) is one
 page, hand-written as a single self-contained `index.html`. There's no
 build step, no bundler, no JS framework — pages are edited directly.
 
-Four things have already gone wrong once in this repo and are easy to get
+Five things have already gone wrong once in this repo and are easy to get
 wrong again, so they're enforced by scripts instead of just written down
 here:
 
@@ -106,6 +106,59 @@ python3 scripts/check_site_header.py
 
 This also runs in CI on every PR.
 
+## 5. `/language/<name>` pages are generated — don't edit their HTML
+
+The language evaluation pages (`language/kinyarwanda/`, `swahili/`, `kikuyu/`, ...)
+all share one layout so that twenty of them stay identical. Their
+`index.html` is **generated**; hand edits are overwritten and fail CI.
+
+- Layout/CSS: `language/assets/language-page.css`. Charts, table, scatter, samples:
+  `language/assets/language-page.js`. Change these once and every page follows.
+- One language: `language/_src/<slug>/` (`page.json` plus `picks.frag`, `featured.frag`,
+  `faq.json`). FAQ layout is shared in `language/_src/faq.tmpl`; `scripts/language_faq.py`
+  generates the standard questions and answers from benchmark data and verified dataset
+  context in `faq.json` (not manually maintained answers or hosting claims). The shared
+  evaluation-method answer includes a clinical-safety caveat on every language page.
+  Numbers come from `language/data/<code>/` (summary CSV, pricing and
+  EcoCost JSON), so counts and charts can't disagree with the data.
+- Shared page skeleton: `language/_src/body.tmpl`. Footer language list:
+  `language/_src/languages.json`.
+- A model or speech engine the shared script doesn't know yet (logo, maker, label size,
+  ring colour) is added once to `language-page.js`; the check tells you what is missing.
+
+Each language also has an `ai-agent` page (`language/<slug>/ai-agent/`), generated from
+`language/_src/agent.tmpl`, `language/_src/<slug>/agent.json` and the shared
+`language/assets/language-agent.{css,js}`. Its illustrations are `language/assets/ai-agent/hero.*` and
+`channel.*` (webp, jpg or png); a labelled placeholder shows until they exist.
+
+Each model has a page per language (`models/<model-slug>/<language-slug>/`, e.g.
+`models/gpt-5-6-sol/kinyarwanda/`), generated from `language/_src/model.tmpl` and
+`language/_src/models.json` (maker, open weights, hosting regions, optional previous version) plus the
+language's data, with `language/assets/language-model.{css,js}`. `models/` is its own top-level route, so it needs
+`models/assets/gooey-logo.png` for the shared header, and gooey.ai must proxy it like `language`.
+
+Links between the three page kinds are relative paths, so `check_links.py` can verify them.
+`language/assets/language-links.js` rewrites them to `gooey.ai` URLs when a page is served through the proxy.
+`check_language_pages.py` also fails if a generated page is not linked from another one, or lacks the links it
+should have (model page to its language page and agent page; language page to its agent page and every model page).
+
+After any of those change:
+
+```bash
+python3 scripts/build_language_pages.py     # rewrite the pages
+python3 scripts/check_language_pages.py     # fail if a page is stale or off-template
+```
+
+To add a language:
+
+1. `python3 scripts/build_language_data.py --csv <evaluator.csv> --code <xxx> --lang <Name> --country <ISO> --date <YYYY-MM-DD> --samples 3,9,14`
+   writes `language/data/<xxx>/` (summary, pricing, EcoCost, sample cards) from the evaluator CSV
+   and the public run pages it links to.
+2. Copy an existing `language/_src/<slug>/`, edit its wording and chart settings (`page.json`, the `.frag` files,
+   and `agent.json` for the ai-agent page), then build.
+3. Register both pages in `PAGES` in `scripts/site_header.py` and add the language's name to
+   `language/_src/languages.json` if it isn't there.
+
 ## Before opening a PR for a new or edited page
 
 1. Before making any change, run `git status` and `git pull --ff-only` as
@@ -113,5 +166,6 @@ This also runs in CI on every PR.
 2. `python3 scripts/check_route_clashes.py`
 3. `python3 scripts/check_links.py`
 4. `python3 scripts/check_site_header.py` (if the page has the shared header)
+   `python3 scripts/check_language_pages.py` (for `/language/<name>` pages)
 5. Actually load the page in a browser and check it — these scripts catch
    drift and dead links, not visual regressions.

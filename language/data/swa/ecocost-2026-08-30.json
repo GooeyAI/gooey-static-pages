@@ -1,0 +1,953 @@
+{
+  "schema_version": 1,
+  "benchmark_date": "2026-08-30",
+  "snapshot_date": "2026-11-03",
+  "source_csv": "evaluation-latest.csv",
+  "source": "EcoCost records embedded in the public Gooey.AI run pages listed in the source CSV.",
+  "methodology_url": "https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md",
+  "method_version": null,
+  "method_version_note": "The public Gooey.AI run records do not expose an EcoCost method version.",
+  "normalization": "For each covered workflow, sum the 24 per-run values and multiply by 1000/24. Point, minimum, and maximum estimates are aggregated independently.",
+  "scope": "Text-model inference only. Speech recognition and direct-audio inference are excluded.",
+  "workflows": [
+    {
+      "workflow": "Gemini 3.1 Pro (direct audio)",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "Direct-audio inference is outside the current EcoCost methodology scope; the text-token estimate embedded in these runs is intentionally excluded.",
+      "model_ids_observed": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "run_ids": [
+        "66g6ufjrnnj8",
+        "p379iv62dr79",
+        "tvc2b8qith7g",
+        "zrxigeg8xif6",
+        "nvn53rlnldkf",
+        "5wk57jmf9r7e",
+        "26ufaxcpor0y",
+        "49g26w6wrsjt",
+        "rwoj7f0cgnvp",
+        "20fyub8ymyok",
+        "gi5b0dourawm",
+        "bpvqks5wkaa3",
+        "guhj5zlj5xuw",
+        "j6f3hbenk0mj",
+        "22zehlefrj3a",
+        "o0f6ul84h6j3",
+        "s81zs9hyiity",
+        "v5ewa3s1u2p9",
+        "1yc2ti5qhkvm",
+        "g6hha4bp536i",
+        "au9m8x6uyiup",
+        "7sul9xtoqk11",
+        "d363aybr4aj7",
+        "3gsm3o4vci4f"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "co2e_g_per_1000": {
+        "value": 20.858333333333334,
+        "min": 7.079999999999999,
+        "max": 58.14166666666666
+      },
+      "energy_wh_per_1000": 52.74166666666667,
+      "water_ml_per_1000": 274.4583333333333,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "9r5h7rb22j9d",
+        "yqf53g4g6vkp",
+        "xau5y0uajvp7",
+        "6824kix6qlb2",
+        "t311ogz5b5c5",
+        "0b3jr1btcx9l",
+        "7dr8vvfbxtjh",
+        "uzlcaiy1xkqe",
+        "zd5mskio1bnz",
+        "f6oofarcvddm",
+        "cjdqhlauevwy",
+        "frhjf2lpzqe5",
+        "n38teua7p5dm",
+        "833n0i3a38l9",
+        "cvc1g6f2f7uj",
+        "ilth6k339poa",
+        "don2ehv3hzu2",
+        "itc3dz1ttlw5",
+        "0q8ganmb2khj",
+        "vi9ihv7fz8ln",
+        "s9yhgzzqetef",
+        "1myrtowvw8ua",
+        "0m1mrr1d9ssd",
+        "biwjvmvjeah0"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "co2e_g_per_1000": {
+        "value": 20.133333333333336,
+        "min": 6.888333333333333,
+        "max": 55.85833333333333
+      },
+      "energy_wh_per_1000": 50.92083333333333,
+      "water_ml_per_1000": 264.9166666666667,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "f4hwjdl7ted4",
+        "3n3j7t2kx0dn",
+        "sv9n6o0uwm19",
+        "3c776l48chdk",
+        "bj1o595gycy1",
+        "z2nf45aa6upb",
+        "uwuoec1yc6b8",
+        "hxenghebrapv",
+        "11ieal4e9zw7",
+        "l11l11c5ilpy",
+        "18dhqhswwdxd",
+        "nccgxrfkg7dg",
+        "u160jpvedt0i",
+        "c9ry29js2ogk",
+        "qfyijk3svq93",
+        "mbo5a5hp7h7l",
+        "qtf4gefku5d6",
+        "tfkf4uq4313l",
+        "yhaqdc9j5vtz",
+        "tvl6dxgddi7x",
+        "l6afvzb10314",
+        "11nnz4teps2q",
+        "0osldxuooaiu",
+        "8bh7ihpgfwrg"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + GPT Transcribe",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "co2e_g_per_1000": {
+        "value": 20.191666666666666,
+        "min": 6.9025,
+        "max": 56.01666666666667
+      },
+      "energy_wh_per_1000": 51.0625,
+      "water_ml_per_1000": 265.6666666666667,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "cq71k0t22h16",
+        "5c4gc2h80i16",
+        "o5kk5i2m416j",
+        "gj2vcqld3wqy",
+        "yse81v1k6ybb",
+        "qhly79tmv00i",
+        "52zji62kk7dh",
+        "3qiyrvlldtkm",
+        "rklkra6qxlng",
+        "d6lejq5bqofb",
+        "pqz2rggepsb0",
+        "f76bnstfua1i",
+        "s1usntkxx9zx",
+        "jn9o6222lgdx",
+        "guau2i6s4dwb",
+        "4wvo1ljlls4k",
+        "pqnbzt3ota8r",
+        "iux97nxit3c3",
+        "mzejj3r4i77k",
+        "i6axbt3cnxer",
+        "ekr4y55rs8ur",
+        "aafeel5xd9uv",
+        "jr4pqfz5iynn",
+        "td5p22syfz4s"
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "gpt-5.6-sol"
+      ],
+      "co2e_g_per_1000": {
+        "value": 23.337500000000002,
+        "min": 6.717083333333332,
+        "max": 82.95
+      },
+      "energy_wh_per_1000": 60.20000000000001,
+      "water_ml_per_1000": 223.75,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "h3i67n4qtlli",
+        "3pmnunck8322",
+        "8yg3jfnsmjcs",
+        "vm08mr5inwkq",
+        "ur3e6lpcmnxt",
+        "m67n481gapg5",
+        "fzg3ozzq1jqv",
+        "8ugmkx5uawad",
+        "2dl235me1ily",
+        "bev4c5fw4p0s",
+        "5ez60trpdt2q",
+        "iq05r9x1593c",
+        "27n9gmj0caob",
+        "ahi5o7z69mke",
+        "lbaqmk7xk7u3",
+        "c5ufnmr2dw2k",
+        "9t1hm7f72y6c",
+        "qsahx1gdr3ym",
+        "eyvjz00gq58b",
+        "fy74it1rjdki",
+        "nkgrxzqgodmn",
+        "ru5h2gb5eetm",
+        "4wg5dto0uf91",
+        "a04ws7kutgt3"
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "gpt-5.6-sol"
+      ],
+      "co2e_g_per_1000": {
+        "value": 22.587500000000002,
+        "min": 6.552916666666666,
+        "max": 80.01666666666667
+      },
+      "energy_wh_per_1000": 58.30833333333334,
+      "water_ml_per_1000": 216.625,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "nbj8axh11b1i",
+        "v1w0tzhvg22a",
+        "jhocgu53ljtq",
+        "5z1eounsgk8w",
+        "vaua472108a5",
+        "ap10ye8z3l1l",
+        "9vqsiyf54rxw",
+        "4vdbp48s9y5p",
+        "31dy6rrefmia",
+        "85vvehe5qxsj",
+        "eth6txq1rds2",
+        "slx2wl60hfvh",
+        "kzmbk26gz2bc",
+        "t29184b24308",
+        "2j9g8nttou5z",
+        "csqed1heqkbb",
+        "crq01nfx83ya",
+        "8fy85afyoe7j",
+        "sbskd5olauaj",
+        "e932hjyh9f99",
+        "9skl8jckrwb9",
+        "p1rnpsqkgd8p",
+        "a83khd4ulfg6",
+        "ltvifegpkysj"
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + GPT Transcribe",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "gpt-5.6-sol"
+      ],
+      "co2e_g_per_1000": {
+        "value": 25.75833333333333,
+        "min": 7.306666666666666,
+        "max": 92.2
+      },
+      "energy_wh_per_1000": 66.49166666666667,
+      "water_ml_per_1000": 246.70833333333334,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "na9796709a2f",
+        "csppfajb5nar",
+        "m0wqfnydrwsl",
+        "wspd69ar1g1x",
+        "vajrr7w1jio5",
+        "a16surdsdh3q",
+        "6n869hdmgfmy",
+        "9vazgeju77ec",
+        "wponh1n8ygl1",
+        "zjmtf4neosy7",
+        "gu7znx58c4zy",
+        "rk3q3whwsfuj",
+        "26s4s6blt35g",
+        "dn5y9o963u8g",
+        "ni0vh9vhji8w",
+        "nir1rk87qmop",
+        "0rz8jb7i53pq",
+        "051e8vde7o1k",
+        "m8esk35gipai",
+        "k38bk9vzkg9y",
+        "eutfjftkrzul",
+        "788y0blz7z7n",
+        "flglczhheq4h",
+        "5ww6qyyd4ijg"
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "claude-sonnet-5"
+      ],
+      "co2e_g_per_1000": {
+        "value": 6.97625,
+        "min": 2.0500000000000003,
+        "max": 19.970833333333335
+      },
+      "energy_wh_per_1000": 19.020833333333332,
+      "water_ml_per_1000": 92.7,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "y3a9qekwmhrx",
+        "p90ajgk8q24k",
+        "pzpihewiv4b9",
+        "ioz2xkknyg8h",
+        "lvlpud9flxgq",
+        "5kd9z5978h1n",
+        "glby5fw86tz6",
+        "4fq2tmrihbav",
+        "zwceg4mnxjwm",
+        "ndltc39jrnk1",
+        "c15pge8vz844",
+        "30ratrgxuale",
+        "m0bmo453ocnr",
+        "q8alqbjgql1b",
+        "zerrt59vvfzu",
+        "fcj6hhc90lx1",
+        "czqr798jvrc7",
+        "iva0ttwru1ky",
+        "jk8nhmf32ln1",
+        "gj4ogqblab1h",
+        "5rmp8cx4evtk",
+        "c0lsfjp1pesn",
+        "m33xv1by5tlv",
+        "4cfghr47rldn"
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "claude-sonnet-5"
+      ],
+      "co2e_g_per_1000": {
+        "value": 6.42125,
+        "min": 1.9208333333333334,
+        "max": 18.2
+      },
+      "energy_wh_per_1000": 17.5,
+      "water_ml_per_1000": 85.29583333333333,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "wd2bw4c3esqi",
+        "4cexyyatnrel",
+        "p6b5uovbgj4n",
+        "gbvxvf8mwmmu",
+        "w67gbwq3aiif",
+        "acvgjdgdrs7j",
+        "rbh1hf1kcbo5",
+        "vj9kwfcp7cnv",
+        "spzarb4xwqgh",
+        "zpwy7jwifevn",
+        "zhck8d34fv8i",
+        "uh7g833e6erp",
+        "zyy0ub0st5n9",
+        "dw9sglfpke1u",
+        "uwuyytrl8g8f",
+        "jkrycr9br4am",
+        "3kfph0zx4cql",
+        "mokdjv3ra9pe",
+        "b647xrgjtevs",
+        "f5mua2gzbxfb",
+        "lwade489ln5w",
+        "rqmxuk95ljoi",
+        "atksj4jtek6w",
+        "7al0av2lc0qs"
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + GPT Transcribe",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "claude-sonnet-5"
+      ],
+      "co2e_g_per_1000": {
+        "value": 6.90875,
+        "min": 2.0366666666666666,
+        "max": 19.738333333333333
+      },
+      "energy_wh_per_1000": 18.83791666666667,
+      "water_ml_per_1000": 91.77083333333333,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "y5tdoddibram",
+        "p7d0cramgbl4",
+        "zrj0twsc8wn9",
+        "abl1u082d6c3",
+        "xltcg1ptg0jz",
+        "uf0vary0gkyu",
+        "eqdu4w4vvahe",
+        "9oagoqupny1s",
+        "3g300f0vlmuu",
+        "tzcmgtghmppf",
+        "mkt4un8pj056",
+        "9f6zmlt5idcw",
+        "ylas913pcqtx",
+        "c23pcu12206y",
+        "m7zps1s2tn6x",
+        "5c4opqf7uz6v",
+        "3xi2180ny9dt",
+        "sz9tehs9b4yh",
+        "8os6pvw4co0b",
+        "2rjzlx3w3krq",
+        "co9fg0kvmwqq",
+        "p1sc15iqynts",
+        "loxmnacmubly",
+        "tf97t0zuivqq"
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Omnilingual",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "The public Gooey.AI run records contain no EcoCost result for this text model.",
+      "run_ids": [
+        "k00ytdwd7cjd",
+        "meefpwat865v",
+        "z1gsh200vuiu",
+        "vfn3xldmm789",
+        "e8dknw0zk83x",
+        "9eeuagde0wfc",
+        "ihfmwvt9z1ct",
+        "2s0hvaahpxrh",
+        "ulx0co9nwqml",
+        "6degr2fre6t3",
+        "j65dhk1iq2yf",
+        "mvb8t5l4s9vj",
+        "mv3f03t7vfxe",
+        "uctw6036l5du",
+        "rp22a786pjel",
+        "jchq134jhg2l",
+        "vpshizlqd15a",
+        "ftx56pap19up",
+        "p6x4aop3dv1e",
+        "gg8fzvxqqb80",
+        "kiuz7l89iir7",
+        "0s48wjeyvfly",
+        "16t7bbho0cqg",
+        "vpwy828jhcqt"
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Intron",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "The public Gooey.AI run records contain no EcoCost result for this text model.",
+      "run_ids": [
+        "t8yh3e2vdg5n",
+        "gwdrcnx2k76t",
+        "bsfhv3ht6bwj",
+        "cjodars81ohk",
+        "r973y0i1fjqq",
+        "q2jbm9p0bk8c",
+        "ipt9f11up0ji",
+        "og9pjc6fq2ps",
+        "s2sgzsmollbn",
+        "b6fhn1t1raeh",
+        "mh7mgz244njk",
+        "iplpk89ojlo4",
+        "68t1vnap8czb",
+        "rjjajrt4oc21",
+        "8m477i83glrl",
+        "dj3b8octa7kc",
+        "b2oy1j0har2g",
+        "b6qw9ir6np7s",
+        "u7g2qe8nt05w",
+        "2i9c5bw1gwlk",
+        "h6u5xb33cqxl",
+        "76bs5ao1qf7j",
+        "x4twvkon07wo",
+        "7plotv3iz2k6"
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + GPT Transcribe",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "The public Gooey.AI run records contain no EcoCost result for this text model.",
+      "run_ids": [
+        "z642atffw8by",
+        "l99ybrrait93",
+        "d7d4mgf7bsvr",
+        "wxwurzr2xqsk",
+        "k6ti0h8y4p5f",
+        "3fuoqtkca1fy",
+        "bi02evq70f8t",
+        "kho2s112h0i4",
+        "sfq9uvnp9jj8",
+        "tbtbuirb8q4m",
+        "ltwceqc1umx0",
+        "gmklzak17oxa",
+        "c8trf4m3xw85",
+        "ij188n7kwe5k",
+        "hvi5v8gn9dbo",
+        "1iqa3p5o7xqg",
+        "12oahidkodd4",
+        "mppvfcay3u8j",
+        "x0kw54yqfq9d",
+        "060jljc2e9ez",
+        "sxqw0qm5l4gr",
+        "y3rfoqr38iq1",
+        "773dpro951sb",
+        "nu2s53qb88l8"
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "accounts/fireworks/models/deepseek-v4-pro-0813"
+      ],
+      "co2e_g_per_1000": {
+        "value": 15.1825,
+        "min": 2.4595833333333332,
+        "max": 64.98333333333333
+      },
+      "energy_wh_per_1000": 39.8125,
+      "water_ml_per_1000": 202.16666666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "model_inferred_from_sibling",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "352ms83s6xqq",
+        "ggl19c4ot5gg",
+        "3yk9zrnzcmtw",
+        "p090wyme5yts",
+        "o16f17k8jls5",
+        "8kvg4a9d3zyj",
+        "zyrfiart8ej1",
+        "ukkhbcep7bzd",
+        "31pzlgb1yrn7",
+        "vg8knnvr2wnz",
+        "zwn547qei83z",
+        "51g7vcy9b3gw",
+        "vbqrj1rpn441",
+        "3suna3oimeks",
+        "j2jhmp0bfq89",
+        "5nieeehe0eer",
+        "frs11evlh6cx",
+        "dnlv71i5pq1y",
+        "78gz4armlnf9",
+        "2h7b6g4r7gcg",
+        "pl5hrkao7tfm",
+        "psgy24hvj3b8",
+        "zidc9ipzri7f",
+        "ipz7nsfnptzt"
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "accounts/fireworks/models/deepseek-v4-pro-0813"
+      ],
+      "co2e_g_per_1000": {
+        "value": 11.477083333333335,
+        "min": 1.9008333333333332,
+        "max": 48.679166666666674
+      },
+      "energy_wh_per_1000": 30.120833333333334,
+      "water_ml_per_1000": 153.05833333333334,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "model_inferred_from_sibling",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "56kwaf0pv108",
+        "darb48veouvt",
+        "921m2xivh8pi",
+        "kvqwfvwcn2zu",
+        "m49nu05kip2o",
+        "xvr6tfx7oo3z",
+        "tn4h2kzlpono",
+        "7wyf99u31rvm",
+        "mase0yvdohmy",
+        "zq3yfis5ubt3",
+        "jwidpps0v5fj",
+        "mud1b4bh1l6l",
+        "89a2zpwd2lyf",
+        "a6e8ea8b0pxv",
+        "asecjgd95n28",
+        "gl28jvf4yume",
+        "ljqbcehv52pn",
+        "3b6wmg2gi91k",
+        "b3p80dc4kohi",
+        "5lfoxn02q5oy",
+        "vqgaexgf4frf",
+        "w5uyolfm99s9",
+        "dwok5tkkqo81",
+        "nesgkn0uk7mn"
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + GPT Transcribe",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "accounts/fireworks/models/deepseek-v4-pro-0813"
+      ],
+      "co2e_g_per_1000": {
+        "value": 11.902083333333335,
+        "min": 1.9629166666666666,
+        "max": 50.48333333333333
+      },
+      "energy_wh_per_1000": 31.200000000000003,
+      "water_ml_per_1000": 158.52083333333334,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "model_inferred_from_sibling",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "3atskne5w3uf",
+        "ggh7s2rxpe2v",
+        "348rdpjg3ieg",
+        "qqsco7gplm69",
+        "xh9ww9bbfy0o",
+        "mrx83a5oprsg",
+        "li1b8wjngoem",
+        "2fwf5ijp6deo",
+        "a4upfxu3gsgy",
+        "bczmp40km588",
+        "4d52q0yl8of6",
+        "lzhbcivny13c",
+        "nehje89wiyen",
+        "yoabq0o94w9c",
+        "xmnrq053kf19",
+        "i5n67xbgc66d",
+        "u34s0ljfwmkn",
+        "jtb7fkndfy8x",
+        "egayb2a2xso5",
+        "hy9euvczmd1h",
+        "ice396od70n5",
+        "nxj3zm6ffntl",
+        "9r3br2d6gevh",
+        "1dofvedy8cum"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.7 Flash + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.7-flash"
+      ],
+      "co2e_g_per_1000": {
+        "value": 49.833333333333336,
+        "min": 9.914583333333333,
+        "max": 156.39166666666668
+      },
+      "energy_wh_per_1000": 129.89583333333334,
+      "water_ml_per_1000": 495.0,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "ff661mpqaux1",
+        "opcam4hckeyz",
+        "qllwggm4kzcu",
+        "mhuxy43b8pfy",
+        "cujlnmgwg6vk",
+        "c7kwj4r0c25e",
+        "ylzd4zro0tnb",
+        "rjhs8neqgvx4",
+        "bfeb1uxyo2t5",
+        "p77hx6fy5oy4",
+        "u6opbsosl63l",
+        "gs0o0owpwt2n",
+        "ewtl18pfuvi8",
+        "p3oao6slzt6a",
+        "7hosvrahdmtp",
+        "ckc84o7wilzz",
+        "s2stvtnnw13c",
+        "gzhwgpr3847b",
+        "chirsfoki75c",
+        "ekt24pxmv12m",
+        "dvfa80otvct3",
+        "ojrkq3fm1hg3",
+        "a31l5ame7lyt",
+        "duys1bivw5mt"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.7 Flash + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.7-flash"
+      ],
+      "co2e_g_per_1000": {
+        "value": 55.01666666666667,
+        "min": 10.868333333333334,
+        "max": 173.31249999999997
+      },
+      "energy_wh_per_1000": 143.52916666666667,
+      "water_ml_per_1000": 546.375,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "lq47n2754nra",
+        "bbjcsaxvenjp",
+        "ncc8xwjv4ynm",
+        "t0tmdq9rqav2",
+        "tvcz961sdlp0",
+        "g2tigknnsplz",
+        "etemye4ivo2j",
+        "0kuxuik5zvap",
+        "psu0dqwu8u3w",
+        "sejrtqa974uh",
+        "oukxnxy65g8x",
+        "9aex836a5xo0",
+        "4yheghzn49go",
+        "54v6qj5bn3g7",
+        "q4hhmoos0xi1",
+        "7z4xwjnh82ib",
+        "khsdryq1po72",
+        "uz1nmtnj7wos",
+        "8kk14h6xqlvj",
+        "6fk6tlx4uss9",
+        "eufxvy0l74l5",
+        "natz69kix89k",
+        "0arf1hnc6nxl",
+        "1irf75sktpb6"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.7 Flash + GPT Transcribe",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.7-flash"
+      ],
+      "co2e_g_per_1000": {
+        "value": 53.90833333333333,
+        "min": 10.655416666666667,
+        "max": 169.58333333333334
+      },
+      "energy_wh_per_1000": 140.5375,
+      "water_ml_per_1000": 535.1666666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "673yid5dacpr",
+        "cdgj2a6e3edl",
+        "hcvvhe9pmx0g",
+        "8mn3ob13n24w",
+        "kqnnrh36zy4x",
+        "j4ovv35emzkn",
+        "bp8qcvakm6ie",
+        "e2jwpi4uzsgh",
+        "9u3dptdzi73k",
+        "r6ttop6fr12z",
+        "ht2kqan0lbu0",
+        "y37r5mnde0bl",
+        "qzscmqejpeuf",
+        "x6nqg8qzzm0q",
+        "u6sqztdz5xf2",
+        "iq6o04w875gc",
+        "y8dqt0iz0hmf",
+        "wqybcatxcl8e",
+        "88ksm2ju7wmk",
+        "5qrxqpq3dcw6",
+        "go65yyguj17d",
+        "yxxeyy2ub6fe",
+        "batk7xvn66dr",
+        "a9vmebx4gm6p"
+      ]
+    }
+  ]
+}

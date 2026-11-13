@@ -1,0 +1,150 @@
+{
+  "slug": "kinyarwanda",
+  "lang": "Kinyarwanda",
+  "endonym": "Ikinyarwanda",
+  "country": "Rwanda",
+  "flag": "rw",
+  "code": "kin",
+  "snapshot": "2026-08-30",
+  "updated": "Aug 30, 2026",
+  "questions": 24,
+  "layout": "standard",
+  "meta": {
+    "description": "Compare 11 AI chains for spoken Kinyarwanda by answer quality, response time, cost, hosting and environmental impact.",
+    "og_description": "Independent results for 11 AI chains tested on 24 spoken Kinyarwanda questions."
+  },
+  "hero": {
+    "bulk_url": "https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/",
+    "map": {
+      "file": "map-rwanda-led.svg",
+      "alt": "Dotted LED map of Rwanda",
+      "pin": true
+    },
+    "voice": {
+      "time": "0:12",
+      "text": "Muraho! Umwana wanjye<br />afite umuriro. Nkore iki?",
+      "sub": "Hello! My child has a fever.<br />What should I do?"
+    }
+  },
+  "board": {
+    "hint": "Blue columns can run in your own country. The dashed line is the 10 s limit for phone calls.",
+    "note": "Sovereign-deployable: every step can run in your country or on your own servers, using open-weight models or, for Intron, speech recognition on local hardware. Private API: at least one step is only available from its maker’s cloud. Cost is the observed whole-workflow Gooey.AI charge across the 24 benchmark runs; all chains were charged the same rounded $0.04 per run. Hosting types are sample values until confirmed. CO₂e uses EcoCost estimates from the benchmark runs and covers text-model inference only, excluding speech recognition and direct-audio inference. Intron’s offline option still needs confirming for Kinyarwanda.",
+    "speech_key": [
+      [
+        "Omnilingual",
+        "logo-meta"
+      ],
+      [
+        "Intron",
+        "logo-intron"
+      ],
+      [
+        "Built-in audio",
+        "icon-mic-legend"
+      ]
+    ]
+  },
+  "scatter": {
+    "aria": "DeepSeek V4 with Omnilingual has the highest score.",
+    "x": [
+      125,
+      7,
+      133.2
+    ],
+    "xTicks": [
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "labelBestSovereign": false,
+    "metrics": {
+      "score": {
+        "min": 65,
+        "max": 95,
+        "ticks": [
+          65,
+          70,
+          75,
+          80,
+          85,
+          90,
+          95
+        ],
+        "front": "Labelled best trade-offs: none is both faster and higher on the Index",
+        "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI and CLEAR Global, Aug 30, 2026."
+      },
+      "cost": {
+        "min": 36,
+        "max": 44,
+        "ticks": [
+          36,
+          38,
+          40,
+          42,
+          44
+        ],
+        "front": "All chains had the same observed rounded charge",
+        "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
+      },
+      "carbon": {
+        "min": 0,
+        "max": 25,
+        "ticks": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "front": "Labelled best trade-offs among covered chains",
+        "note": "EcoCost estimate from 24 runs per covered chain; low confidence. Speech recognition and direct-audio inference are excluded. Source: Gooey.AI run records, Aug 30, 2026."
+      }
+    }
+  },
+  "geometry": {
+    "pitch": 39,
+    "score": 1.9,
+    "time": 15.82,
+    "costBase": 106,
+    "costPerDollar": 72,
+    "carbon": 7,
+    "lines": {
+      "score": [
+        117,
+        22
+      ],
+      "time": [
+        149,
+        85
+      ],
+      "cost": [
+        85
+      ],
+      "carbon": [
+        170,
+        127,
+        85,
+        42
+      ]
+    }
+  },
+  "samples_intro": "Three of the 24 questions, sent as WhatsApp voice notes. GPT-5.6 Sol with Omnilingual answers in English, graded against an expert’s answer.",
+  "sample": {
+    "model": "GPT-5.6 Sol",
+    "logo": "logo-openai"
+  },
+  "labSpeech": "Intron",
+  "archive": [
+    {
+      "snapshot": "2026-01-12",
+      "label": "Jan 12, 2026",
+      "x": [95, 3, 65.6],
+      "xTicks": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "score": { "min": 0, "max": 100, "ticks": [0, 20, 40, 60, 80, 100] },
+      "note": "Archived Jan 12, 2026 results. Cost and CO₂e were not recorded."
+    }
+  ]
+}

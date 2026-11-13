@@ -1,0 +1,23 @@
+{
+  "slug": "hausa",
+  "lang": "Hausa",
+  "country": "Nigeria",
+  "code": "hau",
+  "snapshot": "2026-08-30",
+  "models": [
+    "DeepSeek V4",
+    "GPT-5.6 Sol",
+    "Gemini 3.1 Pro",
+    "Claude Sonnet 5"
+  ],
+  "knowledge": [
+    [
+      "farmer-health-guide.pdf",
+      "PDF · 2.4 MB · Hausa"
+    ],
+    [
+      "crop-calendar.pdf",
+      "PDF · 1.1 MB · English"
+    ]
+  ]
+}

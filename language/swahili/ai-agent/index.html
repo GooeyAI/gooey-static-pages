@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <base href="../../" />
+    <title>Build a Swahili AI agent | Gooey.AI</title>
+    <meta
+      name="description"
+      content="Launch a Swahili AI agent on WhatsApp, a phone line or the web, using the chain that scored best in our tests (Gemini 3.1 Pro + built-in audio, 95 out of 100)."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Build a Swahili AI agent | Gooey.AI" />
+    <meta
+      property="og:description"
+      content="Launch a Swahili AI agent on WhatsApp, a phone line or the web, using the chain that scored best in our tests (Gemini 3.1 Pro + built-in audio, 95 out of 100)."
+    />
+    <meta property="og:url" content="https://gooey.ai/language/swahili/ai-agent" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }    </style>
+    <link rel="stylesheet" href="assets/language-page.css" />
+    <link rel="stylesheet" href="assets/language-agent.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Build a Swahili AI agent</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+
+    <main id="main" class="agent">
+      <section class="ag-hero" aria-labelledby="ag-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="swahili/">Swahili</a>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>AI agent</strong>
+          </nav>
+          <div class="ag-hero-copy">
+            <h1 id="ag-title">Build a Swahili AI agent</h1>
+            <p class="ag-lead">Launch a WhatsApp bot, phone line or web agent that listens and answers in Swahili, using the chain that scored best in our tests. Free to start.</p>
+            <div class="ag-cta">
+              <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Start building</a>
+            </div>
+          </div>
+          <div class="ag-panel"><div class="ag-art ag-art-placeholder" role="img" aria-label="Hands holding a phone that shows a confirmation tick, in front of a shop counter">Illustration to come</div></div>
+        </div>
+      </section>
+
+      <section class="ag-steps" aria-labelledby="steps-title">
+        <div class="container">
+          <h2 id="steps-title">Three steps to a Swahili agent</h2>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 1</span>
+              <h3>Choose the AI chain</h3>
+              <p>The model picker shows score, hosting region, eco cost and price for every model, so the trade-offs are side by side. For Swahili, start with one of these:</p>
+              <ul class="ag-chains">
+                <li><button class="ag-chain selected" type="button" data-model="Gemini 3.1 Pro" aria-pressed="true"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span class="ag-chain-text"><b>Gemini 3.1 Pro + built-in audio</b><small>Most accurate · score 95 · 5.8 s</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                <li><button class="ag-chain" type="button" data-model="DeepSeek V4" aria-pressed="false"><img src="assets/kinyarwanda/logo-deepseek-24.svg" alt="" width="24" height="24" /><span class="ag-chain-text"><b>DeepSeek V4 + Omnilingual</b><small>Best trade-off · score 93 · 7.5 s</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                <li><button class="ag-chain" type="button" data-model="Claude Sonnet 5" aria-pressed="false"><img src="assets/kinyarwanda/logo-claude.svg" alt="" width="24" height="24" /><span class="ag-chain-text"><b>Claude Sonnet 5 + Omnilingual</b><small>Also strong · score 91 · 6.7 s</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+              </ul>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card ag-picker">
+                <h4>Choose a model</h4>
+                <label class="ag-search">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+                  <input id="agSearch" type="search" placeholder="Search models" aria-label="Search models" autocomplete="off" />
+                </label>
+                <ul class="ag-models">
+                  <li><button class="ag-model" type="button" data-model="DeepSeek V4" aria-pressed="false"><img src="assets/kinyarwanda/logo-deepseek-24.svg" alt="" width="24" height="24" /><span><b>DeepSeek V4</b><small>Score 93 · 7.5 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                  <li><button class="ag-model" type="button" data-model="GPT-5.6 Sol" aria-pressed="false"><img src="assets/kinyarwanda/logo-openai-24.svg" alt="" width="24" height="24" /><span><b>GPT-5.6 Sol</b><small>Score 90 · 7.0 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                  <li><button class="ag-model selected" type="button" data-model="Gemini 3.1 Pro" aria-pressed="true"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span><b>Gemini 3.1 Pro</b><small>Score 95 · 5.8 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                  <li><button class="ag-model" type="button" data-model="Claude Sonnet 5" aria-pressed="false"><img src="assets/kinyarwanda/logo-claude.svg" alt="" width="24" height="24" /><span><b>Claude Sonnet 5</b><small>Score 91 · 6.7 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                  <li><button class="ag-model" type="button" data-model="Gemini 3.7 Flash" aria-pressed="false"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span><b>Gemini 3.7 Flash</b><small>Score 88 · 7.1 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                  <li><button class="ag-model" type="button" data-model="Kimi K3" aria-pressed="false"><img src="assets/kinyarwanda/logo-kimi.svg" alt="" width="24" height="24" /><span><b>Kimi K3</b><small>Score 70 · 6.7 s · Global</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="ag-step flip">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 2</span>
+              <h3>Add what it should know</h3>
+              <p>Add the PDFs, docs, FAQs or videos your agent should answer from. Swahili and English sources both work.</p>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card ag-knowledge">
+                <div class="ag-knowledge-head"><h4>Knowledge</h4><button class="ag-add" type="button">Add</button></div>
+                <ul class="ag-files">
+                  <li class="ag-file"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="8.5" rx="1.5"/><path d="M3.5 10.5V3.8c0-.7.6-1.3 1.3-1.3H10"/></svg><span><b>farmer-health-guide.pdf</b><small>PDF · 2.4 MB · Swahili</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></li>
+                  <li class="ag-file"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="8" height="8.5" rx="1.5"/><path d="M3.5 10.5V3.8c0-.7.6-1.3 1.3-1.3H10"/></svg><span><b>crop-calendar.pdf</b><small>PDF · 1.1 MB · English</small></span><svg class="ag-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></li>
+                </ul>
+                <div class="ag-drop">Drop files here, or paste a link</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 3</span>
+              <h3>Go live where your users are</h3>
+              <p>Test it, then publish to the channel your users already use.</p>
+              <div class="ag-channels" role="group" aria-label="Channel">
+                <button type="button" data-channel="whatsapp" aria-pressed="true">WhatsApp</button>
+                <button type="button" data-channel="phone" aria-pressed="false">Phone line</button>
+                <button type="button" data-channel="web" aria-pressed="false">Web</button>
+              </div>
+              <p class="ag-note" id="agChannelText">Connect your WhatsApp Business number. Users send voice notes or text and get answers back in Swahili.</p>
+            </div>
+            <div class="ag-visual ag-panel"><div class="ag-art ag-art-placeholder" role="img" aria-label="Hands holding a phone with a voice note and a text message">Illustration to come</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ag-cost" aria-labelledby="cost-title">
+        <div class="container ag-cost-row">
+          <div class="ag-cost-text">
+            <h2 id="cost-title">Know what every run costs</h2>
+            <p>Each run shows its price and its carbon, water and energy footprint, with the grid it ran on. Slide to see the cost at 1,000 or 100,000 conversations.</p>
+            <div class="ag-chain-box">
+              <div>
+                <small>Your chain, per 1,000 conversations (observed)</small>
+                <span class="who"><img src="assets/kinyarwanda/logo-gemini.svg" alt="" width="16" height="16" />Gemini 3.1 Pro + built-in audio</span>
+              </div>
+              <div class="price"><b>About $40.00</b><small>CO2e not covered</small></div>
+            </div>
+          </div>
+          <div class="ag-calc-panel ag-panel">
+            <div class="ag-card ag-calc">
+              <h4>Run cost and environmental impact</h4>
+              <div class="ag-calc-row"><span>Conversations</span><b id="agConv">1,000</b></div>
+              <input class="ag-range" id="agRange" type="range" min="0" max="100" step="0.1" value="26" aria-label="Conversations" />
+              <div class="ag-tiles">
+                <div class="ag-tile"><span>Cost</span><b id="agCost">$40.00</b></div>
+                <div class="ag-tile"><span>CO2e</span><b id="agCo2">Not covered</b></div>
+                <div class="ag-tile"><span>Water</span><b id="agWater">Not covered</b></div>
+                <div class="ag-tile"><span>Energy</span><b id="agEnergy">Not covered</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ag-faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+            <details open><summary>Which AI should my Swahili agent use?</summary><p>Start with Gemini 3.1 Pro + built-in audio: it scored highest on real Swahili questions (95 out of 100) and answers in a median 5.8 s. You can switch chains later without rebuilding.</p></details>
+            <details open><summary>Can it work on a phone line?</summary><p>Yes. 17 of the 19 chains we tested answer in under 10 s, fast enough for calls. Connect a number in step 3.</p></details>
+            <details><summary>What does it cost to run?</summary><p>Every chain we tested was charged $40.00 per 1,000 runs on Gooey.AI, about $0.04 a run. The calculator above scales that to your volume.</p></details>
+            <details><summary>Can I keep data in Kenya?</summary><p>Yes, with a sovereign-deployable chain: DeepSeek V4 + Omnilingual, DeepSeek V4 + Intron, Kimi K3 + Omnilingual and Kimi K3 + Intron can run in Kenya or on your own servers. Other chains use a private API, which sends audio to its maker’s cloud. Hosting types are still being confirmed.</p></details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>AI agents in other languages</h2>
+      <ul class="language-list" aria-label="Other Gooey.AI languages"><li><a href="kinyarwanda/ai-agent/">Kinyarwanda</a></li><li><a href="hausa/ai-agent/">Hausa</a></li><li>Yoruba</li><li>Igbo</li><li>Nigerian Pidgin</li><li><a href="kikuyu/ai-agent/">Kikuyu</a></li><li>Amharic</li><li>Hindi</li><li>Urdu</li><li><strong>All 37 languages</strong></li></ul>
+    </footer>
+
+    <script>
+      window.AGENT_PAGE = {"perThousand": {"cost": 40.0, "co2e": null, "waterL": null, "energyKwh": null}, "channels": {"whatsapp": "Connect your WhatsApp Business number. Users send voice notes or text and get answers back in Swahili.", "phone": "Connect a phone number. Callers speak Swahili and hear spoken answers. Calls need a reply in under 10 s, which 17 of the 19 chains we tested achieve.", "web": "Add the agent to your website as a chat widget. Visitors type or speak Swahili and read or hear the answer."}};
+    </script>
+    <script src="assets/language-agent.js"></script>
+    <script src="assets/language-links.js"></script>
+  </body>
+</html>

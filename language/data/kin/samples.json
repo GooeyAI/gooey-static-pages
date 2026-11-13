@@ -1,0 +1,48 @@
+{
+  "language": "Kinyarwanda",
+  "evaluationDate": "2026-08-30",
+  "source": "evaluation-latest.csv",
+  "workflow": "GPT-5.6 Sol + Omnilingual",
+  "totalQuestions": 24,
+  "samples": [
+    {
+      "questionNumber": 3,
+      "category": "General Q&A",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav",
+      "audioDurationSeconds": 4.66425,
+      "transcript": "ni uruhe rurimi rwemewe n'amategeko muri kenya",
+      "questionEnglish": "What is the official language of Kenya?",
+      "answer": "The official languages of Kenya are English and Swahili.",
+      "expertAnswer": "English and Swahili",
+      "score": 100,
+      "runtimeSeconds": 5.1,
+      "runUrl": "https://gooey.ai/agent/?run_id=wvuvdf2hrx5n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 11,
+      "category": "General Q&A",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav",
+      "audioDurationSeconds": 7.017813,
+      "transcript": "kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya",
+      "questionEnglish": "Name any one of Kenya’s neighboring countries.",
+      "answer": "Uganda borders Kenya.",
+      "expertAnswer": "Uganda, Tanzania, Somalia, Ethiopia, or South Sudan",
+      "score": 100,
+      "runtimeSeconds": 8.69,
+      "runUrl": "https://gooey.ai/agent/?run_id=jehmd7b994k0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 18,
+      "category": "General Q&A",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav",
+      "audioDurationSeconds": 8.554688,
+      "transcript": "ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu",
+      "questionEnglish": "Which major archaeological site in northern Kenya provides evidence of early human evolution?",
+      "answer": "Koobi Fora, near Lake Turkana in northern Kenya.",
+      "expertAnswer": "Koobi Fora",
+      "score": 80,
+      "runtimeSeconds": 8.63,
+      "runUrl": "https://gooey.ai/agent/?run_id=p9exawh8izpg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

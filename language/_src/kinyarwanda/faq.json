@@ -1,0 +1,6 @@
+{
+  "output_language": "English",
+  "dataset_description": "22 general-knowledge questions about Kenya and two medical questions",
+  "reference_description": "the reference answers supplied in the dataset",
+  "limitations": "this small dataset does not establish performance across all topics, accents or real-world conditions."
+}

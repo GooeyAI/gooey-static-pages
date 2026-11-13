@@ -1,0 +1,140 @@
+    <a class="skip-link" href="#main">Skip to main content</a>
+{{header}}
+
+    <main id="main">
+      <section class="top-section" aria-labelledby="hero-title">
+        <div class="container top">
+          <div class="top-visual">
+            <div class="top-art map-{{map_key}}" role="img" aria-label="{{map_alt}}">
+              {{map_img}}
+            </div>
+            <div class="voice-note" id="heroVoice">
+              <div class="player">
+                <button type="button" class="play" aria-label="Play the {{lang}} question"><img class="vp-play" src="assets/kinyarwanda/icon-play.svg" alt="" width="10" height="10" /><svg class="vp-pause" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.5" y="1" width="2.5" height="8" rx="1" /><rect x="6" y="1" width="2.5" height="8" rx="1" /></svg></button>
+                <span class="wave" aria-hidden="true"><i style="height:4px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i class="dim" style="height:14px"></i><i class="dim" style="height:9px"></i><i class="dim" style="height:6px"></i><i class="dim" style="height:12px"></i><i class="dim" style="height:18px"></i><i class="dim" style="height:14px"></i><i class="dim" style="height:8px"></i><i class="dim" style="height:5px"></i><i class="dim" style="height:10px"></i><i class="dim" style="height:15px"></i><i class="dim" style="height:9px"></i><i class="dim" style="height:6px"></i><i class="dim" style="height:4px"></i><i class="dim" style="height:8px"></i><i class="dim" style="height:12px"></i></span>
+                <time>{{vn_time}}</time>
+              </div>
+              <p class="vn-text">{{vn_text}}</p>
+              <p class="vn-sub">“{{vn_sub}}”</p>
+              <audio preload="metadata" src="{{vn_audio}}"></audio>
+            </div>
+          </div>
+          <div class="top-copy">
+            <div class="crumb-row">
+              <nav class="crumbs" aria-label="Breadcrumb">
+                <span>Language</span>
+                <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+                <strong>{{lang}}</strong>
+              </nav>
+              <span class="updated"><img src="assets/kinyarwanda/icon-calendar.svg" alt="" width="16" height="16" />Last updated <b>{{updated}}</b></span>
+            </div>
+            <div class="top-hero">
+              <p class="country-line"><i class="flag-{{flag}}" aria-hidden="true"></i>{{endonym}}<span>·</span>{{country}}<span>·</span>Updated {{updated}}</p>
+              <h1 id="hero-title">Best AI for {{lang}}</h1>
+              <p class="lead">{{lead_html}}</p>
+              {{rec_card}}
+            </div>
+          </div>
+        </div>
+      </section>
+
+            <section class="section" id="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="container board">
+          <div class="board-title-row">
+            <h2 id="leaderboard-title">{{lang}} leaderboard</h2>
+          </div>
+          <div class="charts" id="metricGrid"></div>
+          <div class="board-key">
+            <div class="legend">
+              <span data-g="sov" tabindex="0"><i class="sw sov"></i>Sovereign-deployable <em>{{n_sov}}</em></span>
+              <span data-g="priv" tabindex="0"><i class="sw"></i>Private API <em>{{n_priv}}</em></span>
+            </div>
+            <div class="speech" aria-label="Speech recognition key">
+              <span class="speech-label">Speech recognition</span>
+{{speech_key}}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {{picks_section}}
+
+      <section class="section" id="tradeoff" aria-labelledby="tradeoff-title">
+        <div class="container explore">
+          <div class="sec-head">
+            <h2 id="tradeoff-title">{{lang}} Index against response time</h2>
+            <p>Compare {{lang}} AI models by answer accuracy, response time, ecocost and cost.</p>
+          </div>
+          <div class="evaluation">
+            <div class="scatter-card">
+              <div class="yaxis"><span id="yaxisLabel">Chart</span><div class="select select-chart"><button type="button" class="select-btn" id="yselectBtn" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="yselectMenu" aria-labelledby="yaxisLabel yselectBtn"><span>{{lang}} Index vs response time</span></button><ul class="select-menu" id="yselectMenu" role="listbox" aria-labelledby="yaxisLabel" hidden></ul></div><div class="select select-eval"><button type="button" class="select-btn" id="evalBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="evalMenu"><img src="assets/kinyarwanda/icon-calendar-tertiary.svg" alt="" width="16" height="16" /><span>{{updated}}</span></button><ul class="select-menu" id="evalMenu" role="listbox" aria-label="Evaluation date" hidden><li role="option" aria-selected="true"><span>{{updated}}</span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></li></ul></div></div>
+              <div class="scatter" id="scatter" role="img" aria-label="{{lang}} Index against response time for {{n}} AI chains.{{scatter_aria}}"></div>
+              <p class="scatter-foot"><span class="trade-key"><i></i><span id="tradeText">{{score_front}}</span></span><span class="scatter-hint" id="scatterHint">Higher and faster is better</span></p>
+              <p class="scatter-source" id="scatterSource">{{score_note}}</p>
+            </div>
+            <aside class="panel" id="chainPanel" aria-live="polite"></aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="all-chains" aria-labelledby="chains-title">
+        <div class="container chains">
+          <div class="chains-head">
+            <h2 id="chains-title">All {{n}} AI chains</h2>
+            <div class="sort"><span>Sort by</span><div class="segment" role="group" aria-label="Sort chains"><button class="active" type="button" data-sort="accuracy">Index</button><button type="button" data-sort="speed">Speed</button></div></div>
+          </div>
+          <div class="chain-table" role="table" aria-label="All {{n}} AI chains">
+            <div class="ct-row ct-head" role="row"><span class="c-rank" role="columnheader">#</span><span class="c-chain"><span class="c-model" role="columnheader">Model</span><span class="c-plus"></span><span class="c-speech" role="columnheader">Speech recognition</span></span><span class="c-score" role="columnheader">Index</span><span class="c-time" role="columnheader">Response</span><span class="c-run" role="columnheader">Eval run</span></div>
+            <div id="chainRows" role="rowgroup"></div>
+          </div>
+          <div class="legend table-legend">
+            <span data-g="sov" tabindex="0"><i class="sw sov"></i>Sovereign-deployable <em>{{n_sov}}</em></span>
+            <span data-g="priv" tabindex="0"><i class="sw hatch"></i>Private API <em>{{n_priv}}</em></span>
+          </div>
+          {{model_nav}}
+        </div>
+      </section>
+
+      {{featured_section}}
+
+      <section class="section" id="samples" aria-labelledby="samples-title">
+        <div class="container samples">
+          <div class="sec-head samples-head">
+            <h2 id="samples-title">Sample answers</h2>
+          </div>
+          <div class="sample-cards" id="sampleCards"></div>
+        </div>
+      </section>
+
+      <section class="section" id="more" aria-labelledby="more-title">
+        <div class="container more">
+          <h2 id="more-title">More for {{lang}}</h2>
+          <div class="more-grid">
+            <a class="more-card" href="https://gooey.ai/speech/">
+              <img class="more-art" src="assets/more/speech-to-text.png" alt="" width="800" height="600" loading="lazy" />
+              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech to text</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>Transcribe {{lang}} audio</p></div>
+            </a>
+            <a class="more-card" href="{{slug}}/ai-agent/">
+              <img class="more-art" src="assets/more/ai-agent.png" alt="" width="800" height="600" loading="lazy" />
+              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-bolt.svg" alt="" width="16" height="17" />AI agent</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>A WhatsApp bot or phone line</p></div>
+            </a>
+            <a class="more-card" href="{{bulk_url}}">
+              <img class="more-art" src="assets/more/chatbot.png" alt="" width="800" height="600" loading="lazy" />
+              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-phone.svg" alt="" width="16" height="16" />Chatbot</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>Which AI understands it best</p></div>
+            </a>
+            <article class="more-card disabled">
+              <img class="more-art" src="assets/more/translation.png" alt="" width="800" height="600" loading="lazy" />
+              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-globe.svg" alt="" width="16" height="16" />Translation</span></div><p>Results coming soon</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {{faq_section}}
+    </main>
+
+    <footer class="page-footer">
+      <h2>Other languages</h2>
+      {{language_list}}
+      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}}</span><span>Email me when {{lang}} rankings change</span></div>
+    </footer>

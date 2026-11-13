@@ -1,0 +1,17 @@
+# title: Kinyarwanda Evaluation of Audio AI Models
+# country: RW
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-01-12
+# source: evaluation-2026-01-12.csv (24 questions; kinevaluator-24 jan2026)
+# accuracy: mean of the 'Compare - output_text.N' semantic score; latency: median of '(N chain - Kinyarwanda) Run Time'
+Workflow,Accuracy (mean),Latency (median)
+GPT Realtime,0.04166667,5.580
+GPT-5.1 + Mbaza,0.92500000,3.455
+Gemini 3 Pro + Mbaza,0.95000000,8.980
+GPT-5.1 + Sunbird,0.63333333,4.275
+GPT-5.1 + Mbaza + Translate,0.86666667,3.245
+GPT-5.1 + Omnilingual,0.84166667,4.610
+Gemini 3 Pro + Omnilingual,0.95000000,9.975
+Gemini 3 Pro,0.90000000,9.540
+Gemini 3 Flash + Omnilingual,0.91666667,6.060
+Gemini 3 Flash + Mbaza,0.90833333,5.040
