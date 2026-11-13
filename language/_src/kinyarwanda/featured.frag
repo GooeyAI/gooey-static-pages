@@ -19,10 +19,10 @@
                 </div>
                 <div class="lab-id">
                   <h3>Intron</h3>
-                  <span class="lab-country"><i class="flag-ng" aria-hidden="true"></i>Nigeria<span aria-hidden="true">·</span><a class="site-link" href="https://intron.io/">intron.io<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a></span>
+                  <span class="lab-country"><a class="site-link" href="https://intron.io/" target="_blank" rel="noopener noreferrer">intron.io<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a></span>
                 </div>
                 <p class="lab-blurb">Speech recognition and text to speech for African languages.</p>
-                <a class="lab-btn" href="https://gooey.ai/copilot/">Build an agent with Intron</a>
+                <a class="lab-btn" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with Intron</a>
               </div>
               <div class="lab-points">
                   <div class="lab-point"><span class="lab-icon"><img src="assets/kinyarwanda/icon-language.svg" alt="" width="14" height="14" /></span><div><strong>Language switching</strong><span>Kinyarwanda, English and French in one model</span></div></div>

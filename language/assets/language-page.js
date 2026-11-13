@@ -6,7 +6,7 @@ const CSV_DATA = P.csv, PRICING_DATA = P.pricing, ECOCOST_DATA = P.eco;
 const G = P.geometry;
 const WIDE = P.layout === "wide";
 const Q = P.questions;
-const chains = CSV_DATA.map(([model, speech, acc, time, sovereign], index) => {
+let chains = CSV_DATA.map(([model, speech, acc, time, sovereign], index) => {
   const eco = ECOCOST_DATA[index];
   return { model: model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, cost: PRICING_DATA[index], carbon: eco.value ?? null, carbonMin: eco.min, carbonMax: eco.max, carbonConfidence: eco.value === undefined ? null : "Low", carbonReason: eco.reason, sovereign };
 });
@@ -19,10 +19,10 @@ const group = c => (c.sovereign ? "sov" : "priv");
 const fullName = c => c.model + (c.speech === "Built-in audio" ? "" : " + " + c.speech);
 const bestOf = (list, key, desc) => [...list].sort((a, b) => (desc ? b[key] - a[key] : a[key] - b[key]))[0];
 const bestSovereign = bestOf(chains.filter(c => c.sovereign), "acc", true);
-const LOGO_FILES = { "DeepSeek V4": "logo-deepseek", "Gemini 3.1 Pro": "logo-gemini", "Gemini 3.7 Flash": "logo-gemini", "GPT-5.6 Sol": "logo-openai", "Claude Sonnet 5": "logo-claude", "Kimi K3": "logo-kimi" };
-const SPEECH_FILES = { Omnilingual: "logo-meta", Intron: "logo-intron", "GPT Transcribe": "logo-openai", "Kikuyu Whisper v2": "icon-mic-legend", "Built-in audio": "icon-mic" };
-const MAKERS = { "DeepSeek V4": "DeepSeek", "Gemini 3.1 Pro": "Google", "Gemini 3.7 Flash": "Google", "GPT-5.6 Sol": "OpenAI", "Claude Sonnet 5": "Anthropic", "Kimi K3": "Moonshot AI" };
-const SHORT = { "DeepSeek V4": "DeepSeek", "Gemini 3.1 Pro": "Gemini", "Gemini 3.7 Flash": "Gemini Flash", "GPT-5.6 Sol": "GPT", "Claude Sonnet 5": "Claude", "Kimi K3": "Kimi" };
+const LOGO_FILES = { "DeepSeek V4": "logo-deepseek", "Gemini 3.1 Pro": "logo-gemini", "Gemini 3.7 Flash": "logo-gemini", "GPT-5.6 Sol": "logo-openai", "Claude Sonnet 5": "logo-claude", "Kimi K3": "logo-kimi", "GPT-5.1": "logo-openai", "GPT Realtime": "logo-openai", "Gemini 3 Pro": "logo-gemini", "Gemini 3 Flash": "logo-gemini" };
+const SPEECH_FILES = { Omnilingual: "logo-meta", Intron: "logo-intron", "GPT Transcribe": "logo-openai", "Kikuyu Whisper v2": "icon-mic-legend", Mbaza: "icon-mic-legend", Sunbird: "icon-mic-legend", "Mbaza + Translate": "icon-mic-legend", "Built-in audio": "icon-mic" };
+const MAKERS = { "DeepSeek V4": "DeepSeek", "Gemini 3.1 Pro": "Google", "Gemini 3.7 Flash": "Google", "GPT-5.6 Sol": "OpenAI", "Claude Sonnet 5": "Anthropic", "Kimi K3": "Moonshot AI", "GPT-5.1": "OpenAI", "GPT Realtime": "OpenAI", "Gemini 3 Pro": "Google", "Gemini 3 Flash": "Google" };
+const SHORT = { "DeepSeek V4": "DeepSeek", "Gemini 3.1 Pro": "Gemini", "Gemini 3.7 Flash": "Gemini Flash", "GPT-5.6 Sol": "GPT", "Claude Sonnet 5": "Claude", "Kimi K3": "Kimi", "GPT-5.1": "GPT", "GPT Realtime": "GPT Realtime", "Gemini 3 Pro": "Gemini Pro", "Gemini 3 Flash": "Gemini Flash" };
 // Rotated-label box [size, offset past the column centre] for a 12px label at -45 degrees.
 const LABEL_BOX = { "DeepSeek V4": [65.054, 4.49], "Gemini 3.1 Pro": [67.175, 4.59], "Gemini 3.7 Flash": [75.2, 4.7], "Claude Sonnet 5": [77.075, 4.68], "GPT-5.6 Sol": [58.69, 4.95], "Kimi K3": [41.012, 5.31] };
 const model = (name, size) => `<img src="assets/kinyarwanda/${LOGO_FILES[name]}.svg" alt="" width="${size}" height="${size}" />`;
@@ -95,7 +95,7 @@ function renderMetrics() {
     // Hovering a column shows the same card as the scatter, judged on this chart's metric (speed charts use the Index).
     const key = { cost: "cost", carbon: "carbon" }[chart.icon] || "score";
     article.querySelectorAll(".col[data-i]").forEach(col => {
-      col.addEventListener("pointerenter", () => { clearTimeout(barTipTimer); if (!CAN_HOVER.matches) return; barTipTimer = setTimeout(() => showTip(col, key), 300); });
+      col.addEventListener("pointerenter", () => { clearTimeout(barTipTimer); if (!CAN_HOVER.matches) return; barTipTimer = setTimeout(() => withSnapshot(LATEST, () => showTip(col, key)), 300); });
       col.addEventListener("pointerleave", () => { clearTimeout(barTipTimer); hideTip(); });
     });
   });
@@ -109,15 +109,15 @@ function renderTable(sort = "accuracy") {
 function renderLabRank() {
   const list = document.getElementById("labRank");
   if (!list || !P.labSpeech) return;
-  list.innerHTML = ranked.filter(c => c.speech === P.labSpeech).map(c => `<li><i class="sw${c.sovereign ? " sov" : ""}"></i>${model(c.model, 16)}<span>${c.model} + ${P.labSpeech}</span><b>${c.score}</b><small>#${c.rank}</small><span class="lr-bar"><i${c.sovereign ? ' class="sov"' : ""} style="width:${c.score}%"></i></span></li>`).join("");
+  list.innerHTML = ranked.filter(c => c.speech === P.labSpeech).map(c => `<li><i class="sw${c.sovereign ? " sov" : ""}"></i>${model(c.model, 16)}<span>${c.model} + ${P.labSpeechShort || P.labSpeech}</span><b>${c.score}</b><small>#${c.rank}</small><span class="lr-bar"><i${c.sovereign ? ' class="sov"' : ""} style="width:${c.score}%"></i></span></li>`).join("");
 }
 
-const [SC_X0, SC_T0, SC_PER_S] = P.scatter.x;
+let [SC_X0, SC_T0, SC_PER_S] = P.scatter.x;
 const MD = P.scatter.metrics;
 const SCATTER = {
   x: t => SC_X0 + (t - SC_T0) * SC_PER_S,
   xTicks: P.scatter.xTicks,
-  extraLabelled: () => (P.scatter.labelBestSovereign ? [bestSovereign] : []),
+  extraLabelled: () => (activeSnap === LATEST && P.scatter.labelBestSovereign ? [bestSovereign] : []),
   rows: [["score", INDEX], ["time", "Response"], ["cost", "Cost"], ["carbon", "CO₂e"]],
   metrics: {
     score: { label: INDEX, title: INDEX + " vs response time", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
@@ -131,16 +131,37 @@ const ecoPct = v => Math.min(100, Math.max(0, v / ECO_SCALE * 100)).toFixed(1) +
 const ecoPanel = c => `<div class="p-eco"><div class="p-lab">${icon("icon-leaf")}Eco cost</div>` + (Number.isFinite(c.carbon)
   ? `<div class="p-eco-val"><b>${c.carbon.toFixed(1)} g</b><span>CO₂e</span></div><div class="p-range" role="img" aria-label="Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} grams"><i class="likely" style="left:${ecoPct(c.carbonMin)};width:calc(${ecoPct(c.carbonMax)} - ${ecoPct(c.carbonMin)})"></i><i class="dot" style="left:${ecoPct(c.carbon)}"></i></div><span class="p-cap">Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} g</span>`
   : `<div class="p-eco-val na"><b>N/A</b></div>`) + "</div>";
-const PANEL_DETAILS = c => `<div class="p-cost"><span>Per 1,000 questions</span><b>$${c.cost.toFixed(2)}</b></div>
-    <div class="p-where"><div class="p-host"><div><div class="p-lab">${icon(c.sovereign ? "icon-landmark" : "icon-cloud")}Hosting</div><div class="p-val">${c.sovereign ? "Sovereign-deployable" : "Private API"}</div></div><hr /><div><div class="p-lab">${icon("icon-microphone")}Speech recognition</div><div class="p-val">${speechIcon(c.speech)}${c.speech}</div></div></div>${ecoPanel(c)}</div>`;
+const PANEL_DETAILS = c => (Number.isFinite(c.cost) ? `<div class="p-cost"><span>Per 1,000 questions</span><b>$${c.cost.toFixed(2)}</b></div>` : "") + `
+    <div class="p-where"><div class="p-host"><div><div class="p-lab">${icon(c.sovereign ? "icon-landmark" : "icon-cloud")}Hosting</div><div class="p-val">${c.sovereign ? "Sovereign-deployable" : "Private API"}</div></div><hr /><div><div class="p-lab">${icon("icon-microphone")}Speech recognition</div><div class="p-val">${speechIcon(c.speech)}${c.speech}</div></div></div>${Number.isFinite(c.cost) ? ecoPanel(c) : ""}</div>`;
 
 // Scatter + hover tooltip + Y-axis menu. Per-page numbers live in SCATTER (see above).
 const scoreOf = c => (c.exact !== undefined ? c.exact : c.score);
-const scoreRanked = [...chains].sort((a, b) => scoreOf(b) - scoreOf(a) || a.time - b.time);
-const timeRanked = [...chains].sort((a, b) => Number(a.time.toFixed(1)) - Number(b.time.toFixed(1)) || scoreOf(b) - scoreOf(a));
+let scoreRanked = [...chains].sort((a, b) => scoreOf(b) - scoreOf(a) || a.time - b.time);
+let timeRanked = [...chains].sort((a, b) => Number(a.time.toFixed(1)) - Number(b.time.toFixed(1)) || scoreOf(b) - scoreOf(a));
+const LATEST = { id: "latest", chains, scoreRanked, timeRanked, x: P.scatter.x, xTicks: P.scatter.xTicks, scoreAxis: {} };
+let activeSnap = LATEST;
+const SCORE_BASE = { ...SCATTER.metrics.score };
+// Older evaluations (date menu): the Index and response time only; cost and CO2e were not recorded.
+const ARCHIVE = (P.archive || []).map(a => {
+  const cs = a.csv.map(([m, speech, acc, time, sovereign]) => ({ model: m, speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, cost: null, carbon: null, sovereign }));
+  return { id: a.id, label: a.label, archived: true, chains: cs, x: a.x, xTicks: a.xTicks,
+    scoreRanked: [...cs].sort((p, q) => scoreOf(q) - scoreOf(p) || p.time - q.time),
+    timeRanked: [...cs].sort((p, q) => Number(p.time.toFixed(1)) - Number(q.time.toFixed(1)) || scoreOf(q) - scoreOf(p)),
+    scoreAxis: { ...a.score, front: "Dashed line joins the best trade-offs", note: "Source: " + a.note } };
+});
+function useSnapshot(snap) {
+  activeSnap = snap;
+  chains = snap.chains; scoreRanked = snap.scoreRanked; timeRanked = snap.timeRanked;
+  [SC_X0, SC_T0, SC_PER_S] = snap.x;
+  SCATTER.xTicks = snap.xTicks;
+  SCATTER.metrics.score = { ...SCORE_BASE, ...snap.scoreAxis };
+}
+// The bar charts always show the latest evaluation, so their hover cards are drawn from it.
+function withSnapshot(snap, fn) { const prev = activeSnap; useSnapshot(snap); try { fn(); } finally { useSnapshot(prev); } }
+const metricKeys = () => (activeSnap.archived ? ["score"] : Object.keys(SCATTER.metrics));
 const scoreRankOf = c => scoreRanked.indexOf(c) + 1;
 const timeRankOf = c => timeRanked.indexOf(c) + 1;
-const RING = { "DeepSeek V4": "#4d6bfe", "Gemini 3.1 Pro": "#4285f4", "Gemini 3.7 Flash": "#4285f4", "GPT-5.6 Sol": "#10131c", "Claude Sonnet 5": "#d97757", "Kimi K3": "#1783ff" };
+const RING = { "DeepSeek V4": "#4d6bfe", "Gemini 3.1 Pro": "#4285f4", "Gemini 3.7 Flash": "#4285f4", "GPT-5.6 Sol": "#10131c", "Claude Sonnet 5": "#d97757", "Kimi K3": "#1783ff", "GPT-5.1": "#10131c", "GPT Realtime": "#10131c", "Gemini 3 Pro": "#4285f4", "Gemini 3 Flash": "#4285f4" };
 const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => "$" + c.cost.toFixed(2), carbon: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(1) + " g" : "Not covered" };
 const SC_W = 690, SC_H = 509;
 const pctX = x => (x / SC_W * 100).toFixed(3) + "%";
@@ -152,7 +173,7 @@ const frontierOf = m => metricChains(m).filter(c => !metricChains(m).some(o => b
 const beatenBy = (m, c) => metricChains(m).filter(o => beats(m, o, c)).sort((a, b) => (m.high ? m.get(b) - m.get(a) : m.get(a) - m.get(b)) || a.time - b.time)[0];
 const CHECK = '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.500 8.500 3 3 6-7"/></svg>';
 const INFO = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.300" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.200"/><path d="M8 7.200v3.600M8 5.200v.1"/></svg>';
-let yMetric = Object.keys(SCATTER.metrics)[0];
+let yMetric = "score";
 let selectedChain = scoreRanked[0];
 const scatterCard = document.querySelector(".scatter-card");
 const tip = document.createElement("div");
@@ -172,7 +193,7 @@ function renderPanel() {
     <div class="p-stats"><div class="p-stat"><span>${INDEX}</span><b>${c.score}</b><small>#${scoreRankOf(c)} of ${chains.length}</small></div><div class="p-stat"><span>Response</span><b>${c.time.toFixed(1)} s</b><small>#${timeRankOf(c)} of ${chains.length}</small></div></div>
     <p class="p-desc">${fast}${dominated ? "" : " No other chain is both faster and higher on the Index."}</p>
     ${PANEL_DETAILS(c)}
-    <a class="p-btn" href="${P.slug}/ai-agent/">Build an agent with this</a>`;
+    <a class="p-btn" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this</a>`;
 }
 
 // The panel's content varies with the selected chain (EcoCost text can wrap), but the scatter card and
@@ -197,7 +218,7 @@ function tooltipHtml(c, mKey = yMetric) {
   const m = SCATTER.metrics[mKey];
   const best = !metricChains(m).some(o => beats(m, o, c));
   const by = beatenBy(m, c);
-  const rows = SCATTER.rows.map(([key, label]) => `<div class="${key === "time" || key === mKey ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" || key === "cost" ? "/ 1,000 Q's" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
+  const rows = SCATTER.rows.filter(([key]) => !activeSnap.archived || key === "score" || key === "time").map(([key, label]) => `<div class="${key === "time" || key === mKey ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" || key === "cost" ? "/ 1,000 Q's" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
   return `<div class="sc-tip-head">${model(c.model, 16)}<b>${c.model}${c.speech === "Built-in audio" ? "" : " +"}</b>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 14) + "<b>" + c.speech + "</b>"}</div>
     <p class="sc-tip-sub">${MAKERS[c.model]} · ${c.speech === "Built-in audio" ? "Direct audio" : c.speech + " speech recognition"}</p>
     <div class="sc-tip-rows">${rows}</div>
@@ -286,7 +307,7 @@ function renderScatter() {
     const i = chains.indexOf(c);
     if (c === selectedChain) {
       out.push(`<button type="button" class="sc-point chip selected" style="${style}" data-i="${i}" data-g="${group(c)}" aria-label="${aria}">${model(c.model, 20)}<span class="label"><b>${SHORT[c.model]}</b><span>${c.speech === "Built-in audio" ? "direct audio" : "+ " + speechIcon(c.speech, 14) + c.speech}</span></span></button>`);
-    } else if (front.includes(c)) {
+    } else if (front.includes(c) && !activeSnap.archived) {
       out.push(`<button type="button" class="sc-point chip" style="${style}" data-i="${i}" data-g="${group(c)}" aria-label="${aria}">${model(c.model, 16)}<span>${SHORT[c.model]}</span>${c.speech === "Built-in audio" ? "" : '<span class="plus">+</span>' + speechIcon(c.speech) + "<span>" + c.speech + "</span>"}</button>`);
     } else {
       out.push(`<button type="button" class="sc-point" style="${style}" data-i="${i}" data-g="${group(c)}" aria-label="${aria}">${model(c.model, 16)}</button>`);
@@ -305,7 +326,7 @@ function renderScatter() {
   document.getElementById("scatterHint").textContent = m.hint;
   const [, sourceText = ""] = m.note.split(/\s*(?=Source:)/);
   const source = document.getElementById("scatterSource");
-  source.replaceChildren(Object.assign(document.createElement("span"), { className: "src", textContent: sourceText.replace(/,\s*[A-Z][a-z]{2} \d{1,2}, \d{4}(?=\.?$)/, "") }));
+  source.replaceChildren(Object.assign(document.createElement("span"), { className: "src", textContent: activeSnap.archived ? m.note.replace(/^Source:\s*/, "") : sourceText.replace(/,\s*[A-Z][a-z]{2} \d{1,2}, \d{4}(?=\.?$)/, "") }));
   root.setAttribute("aria-label", `${m.label} against response time for ${coveredChains.length} covered AI chains.`);
 }
 
@@ -314,7 +335,7 @@ const yBtn = document.getElementById("yselectBtn");
 const yMenu = document.getElementById("yselectMenu");
 let yActive = 0;
 function renderYMenu() {
-  const keys = Object.keys(SCATTER.metrics);
+  const keys = metricKeys();
   // The language name in "<Language> Index vs response time" is dropped on phones, where the two menus share a row.
   const title = k => SCATTER.metrics[k].title.replace(P.lang + " ", `<i class="wide-only">${P.lang} </i>`);
   yBtn.firstElementChild.innerHTML = title(yMetric);
@@ -325,7 +346,7 @@ function setYMenu(open) {
   yMenu.hidden = !open;
   yBtn.setAttribute("aria-expanded", String(open));
   yBtn.closest(".select").classList.toggle("open", open);
-  if (open) { yActive = Object.keys(SCATTER.metrics).indexOf(yMetric); renderYMenu(); }
+  if (open) { yActive = metricKeys().indexOf(yMetric); renderYMenu(); }
 }
 function chooseMetric(key) {
   yMetric = key;
@@ -335,9 +356,9 @@ function chooseMetric(key) {
 }
 yBtn.addEventListener("click", () => setYMenu(yMenu.hidden));
 yMenu.addEventListener("click", event => { const li = event.target.closest("li"); if (li) chooseMetric(li.dataset.k); });
-yMenu.addEventListener("pointermove", event => { const li = event.target.closest("li"); if (li) { yActive = Object.keys(SCATTER.metrics).indexOf(li.dataset.k); yMenu.querySelectorAll("li").forEach((el, i) => el.classList.toggle("active", i === yActive)); } });
+yMenu.addEventListener("pointermove", event => { const li = event.target.closest("li"); if (li) { yActive = metricKeys().indexOf(li.dataset.k); yMenu.querySelectorAll("li").forEach((el, i) => el.classList.toggle("active", i === yActive)); } });
 yBtn.addEventListener("keydown", event => {
-  const keys = Object.keys(SCATTER.metrics);
+  const keys = metricKeys();
   if (event.key === "Escape") { setYMenu(false); return; }
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
     event.preventDefault();
@@ -349,17 +370,46 @@ yBtn.addEventListener("keydown", event => {
     chooseMetric(keys[yActive]);
   }
 });
-// Eval-date menu: one entry per published evaluation (only the latest one so far).
+// Eval-date menu: the latest evaluation, then each archived one. Picking an older date redraws the scatter and
+// the side panel from that evaluation (Index and response time only); the bar charts and table stay on the latest.
 const evalBtn = document.getElementById("evalBtn");
 const evalMenu = document.getElementById("evalMenu");
+const LATEST_LABEL = evalBtn.querySelector("span").textContent;
+LATEST.label = LATEST_LABEL;
+const SNAPSHOTS = [LATEST, ...ARCHIVE];
+function renderEvalMenu() {
+  evalMenu.innerHTML = SNAPSHOTS.map(snap => `<li role="option" tabindex="0" data-id="${snap.id}" aria-selected="${snap === activeSnap}"><span>${snap.label}</span>${snap === activeSnap ? CHECK : ""}</li>`).join("");
+  evalBtn.querySelector("span").textContent = activeSnap.label;
+}
 function setEvalMenu(open) {
   evalMenu.hidden = !open;
   evalBtn.setAttribute("aria-expanded", String(open));
   evalBtn.closest(".select").classList.toggle("open", open);
 }
+function chooseEval(id) {
+  const snap = SNAPSHOTS.find(s => s.id === id);
+  setEvalMenu(false);
+  if (!snap || snap === activeSnap) return;
+  useSnapshot(snap);
+  yMetric = "score";
+  yActive = 0;
+  selectedChain = snap.scoreRanked[0];
+  hideTip();
+  renderYMenu();
+  renderEvalMenu();
+  renderScatter();
+  renderPanel();
+  fitPanelHeight();
+}
 evalBtn.addEventListener("click", () => { setYMenu(false); setEvalMenu(evalMenu.hidden); });
 evalBtn.addEventListener("keydown", event => { if (event.key === "Escape") setEvalMenu(false); });
-evalMenu.addEventListener("click", () => setEvalMenu(false));
+evalMenu.addEventListener("click", event => { const li = event.target.closest("li"); if (li) chooseEval(li.dataset.id); });
+evalMenu.addEventListener("keydown", event => {
+  const li = event.target.closest("li");
+  if (event.key === "Escape") { setEvalMenu(false); evalBtn.focus(); }
+  else if (li && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); chooseEval(li.dataset.id); evalBtn.focus(); }
+});
+if (ARCHIVE.length) renderEvalMenu();
 yBtn.addEventListener("click", () => setEvalMenu(false));
 document.addEventListener("click", event => {
   if (!event.target.closest(".select-chart")) setYMenu(false);

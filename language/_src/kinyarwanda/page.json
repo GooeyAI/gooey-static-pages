@@ -136,5 +136,15 @@
     "model": "GPT-5.6 Sol",
     "logo": "logo-openai"
   },
-  "labSpeech": "Intron"
+  "labSpeech": "Intron",
+  "archive": [
+    {
+      "snapshot": "2026-01-12",
+      "label": "Jan 12, 2026",
+      "x": [95, 3, 65.6],
+      "xTicks": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "score": { "min": 0, "max": 100, "ticks": [0, 20, 40, 60, 80, 100] },
+      "note": "Archived Jan 12, 2026 results. Cost and CO₂e were not recorded."
+    }
+  ]
 }

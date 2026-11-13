@@ -137,5 +137,6 @@
     "model": "Gemini 3.1 Pro",
     "logo": "logo-gemini"
   },
-  "labSpeech": null
+  "labSpeech": "Kikuyu Whisper v2",
+  "labSpeechShort": "Whisper"
 }

@@ -147,6 +147,21 @@ def chains_for(page: dict) -> tuple[list, list, list]:
     return csv_rows, pricing, ecocost
 
 
+def archive_for(page: dict) -> list:
+    """Older evaluations for the date menu: the Index and response time only (cost and CO2e were not recorded)."""
+    out = []
+    for a in page.get("archive", []):
+        with open(DATA / page["code"] / f"summary-{a['snapshot']}.csv", encoding="utf-8", newline="") as f:
+            lines = [l for l in f if not l.startswith("#") and l.strip()]
+        rows = []
+        for r in csv.DictReader(lines):
+            model, _, speech = r["Workflow"].strip().partition(" + ")
+            rows.append([model, speech or DIRECT_AUDIO, float(r["Accuracy (mean)"]), float(r["Latency (median)"]), False])
+        out.append({"id": a["snapshot"], "label": a["label"], "csv": rows, "x": a["x"], "xTicks": a["xTicks"],
+                    "score": a["score"], "note": a["note"]})
+    return out
+
+
 def language_list(current: str, href=None) -> str:
     """The footer's other-languages list. `href(slug)` gives the link for a language that has a page; a language
     without one (or no `href`) is plain text."""
@@ -206,7 +221,7 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
                   </div>
                 </div>
                 <div class="top-actions">
-                  <a class="hero-btn primary" href="{slug}/ai-agent/">Build a {lang} agent</a>
+                  <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
                   <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}"><img src="assets/kinyarwanda/icon-mic-btn.svg" alt="" width="16" height="16" />Try it in {lang}</a>
                 </div>
               </div>"""
@@ -247,7 +262,8 @@ def render(slug: str) -> str:
         "questions": page["questions"], "csv": csv_rows, "pricing": pricing, "eco": ecocost,
         "geometry": page["geometry"],
         "scatter": {k: page["scatter"][k] for k in ("x", "xTicks", "labelBestSovereign", "metrics")},
-        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "slug": slug, "evalUrl": page["hero"]["bulk_url"],
+        "archive": archive_for(page),
+        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "labSpeechShort": page.get("labSpeechShort"), "slug": slug, "evalUrl": page["hero"]["bulk_url"],
         "modelSlugs": {m: v["slug"] for m, v in json.loads((SRC / "models.json").read_text()).items()},
     }
 
