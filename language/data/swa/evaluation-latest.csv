@@ -1,0 +1,1428 @@
+input_audio,question,Prompt_Target,reference_answer,Response_Target,(0 Gemini 3.1 Pro - Swahili) Run URL,(0 Gemini 3.1 Pro - Swahili) Run Time,(0 Gemini 3.1 Pro - Swahili) Output Text,(1 Gemini 3.1 Pro + Omni - Swahili) Run URL,(1 Gemini 3.1 Pro + Omni - Swahili) Run Time,(1 Gemini 3.1 Pro + Omni - Swahili) Output Text,(2 Gemini 3.1 Pro + Intron - Swahili) Run URL,(2 Gemini 3.1 Pro + Intron - Swahili) Run Time,(2 Gemini 3.1 Pro + Intron - Swahili) Output Text,(3 Gemini 3.1 Pro + GPT Transcribe - Swahili) Run URL,(3 Gemini 3.1 Pro + GPT Transcribe - Swahili) Run Time,(3 Gemini 3.1 Pro + GPT Transcribe - Swahili) Output Text,(4 GPT 5.6 Sol + Omni - Swahili) Run URL,(4 GPT 5.6 Sol + Omni - Swahili) Run Time,(4 GPT 5.6 Sol + Omni - Swahili) Output Text,(5 GPT 5.6 Sol + Intron - Swahili) Run URL,(5 GPT 5.6 Sol + Intron - Swahili) Run Time,(5 GPT 5.6 Sol + Intron - Swahili) Output Text,(6 GPT 5.6 Sol + GPT Transcribe - Swahili) Run URL,(6 GPT 5.6 Sol + GPT Transcribe - Swahili) Run Time,(6 GPT 5.6 Sol + GPT Transcribe - Swahili) Output Text,(7 Claude Sonnet 5 + Omni - Swahili) Run URL,(7 Claude Sonnet 5 + Omni - Swahili) Run Time,(7 Claude Sonnet 5 + Omni - Swahili) Output Text,(8 Claude Sonnet 5 + Intron - Swahili) Run URL,(8 Claude Sonnet 5 + Intron - Swahili) Run Time,(8 Claude Sonnet 5 + Intron - Swahili) Output Text,(9 Claude Sonnet 5 + GPT Transcribe - Swahili) Run URL,(9 Claude Sonnet 5 + GPT Transcribe - Swahili) Run Time,(9 Claude Sonnet 5 + GPT Transcribe - Swahili) Output Text,(10 Kimi K3 + Omni - Swahili) Run URL,(10 Kimi K3 + Omni - Swahili) Run Time,(10 Kimi K3 + Omni - Swahili) Output Text,(11 Kimi K3 + Intron - Swahili) Run URL,(11 Kimi K3 + Intron - Swahili) Run Time,(11 Kimi K3 + Intron - Swahili) Output Text,(12 Kimi K3 + GPT Transcribe - Swahili) Run URL,(12 Kimi K3 + GPT Transcribe - Swahili) Run Time,(12 Kimi K3 + GPT Transcribe - Swahili) Output Text,(13 DeepSeek V4 + Omni - Swahili) Run URL,(13 DeepSeek V4 + Omni - Swahili) Run Time,(13 DeepSeek V4 + Omni - Swahili) Output Text,(14 DeepSeek V4 + Intron - Swahili) Run URL,(14 DeepSeek V4 + Intron - Swahili) Run Time,(14 DeepSeek V4 + Intron - Swahili) Output Text,(15 DeepSeek V4 + GPT Transcribe - Swahili) Run URL,(15 DeepSeek V4 + GPT Transcribe - Swahili) Run Time,(15 DeepSeek V4 + GPT Transcribe - Swahili) Output Text,(16 Gemini 3.7 Flash + Omni - Swahili) Run URL,(16 Gemini 3.7 Flash + Omni - Swahili) Run Time,(16 Gemini 3.7 Flash + Omni - Swahili) Output Text,(17 Gemini 3.7 Flash + Intron - Swahili) Run URL,(17 Gemini 3.7 Flash + Intron - Swahili) Run Time,(17 Gemini 3.7 Flash + Intron - Swahili) Output Text,(18 Gemini 3.7 Flash + GPT Transcribe - Swahili) Run URL,(18 Gemini 3.7 Flash + GPT Transcribe - Swahili) Run Time,(18 Gemini 3.7 Flash + GPT Transcribe - Swahili) Output Text,Compare Semantics Similarity - Output Text - 0 Gemini 3.1 Pro - Swahili,Compare Semantics Similarity - Output Text - 1 Gemini 3.1 Pro + Omni - Swahili,Compare Semantics Similarity - Output Text - 2 Gemini 3.1 Pro + Intron - Swahili,Compare Semantics Similarity - Output Text - 3 Gemini 3.1 Pro + GPT Transcribe - Swahili,Compare Semantics Similarity - Output Text - 4 GPT 5.6 Sol + Omni - Swahili,Compare Semantics Similarity - Output Text - 5 GPT 5.6 Sol + Intron - Swahili,Compare Semantics Similarity - Output Text - 6 GPT 5.6 Sol + GPT Transcribe - Swahili,Compare Semantics Similarity - Output Text - 7 Claude Sonnet 5 + Omni - Swahili,Compare Semantics Similarity - Output Text - 8 Claude Sonnet 5 + Intron - Swahili,Compare Semantics Similarity - Output Text - 9 Claude Sonnet 5 + GPT Transcribe - Swahili,Compare Semantics Similarity - Output Text - 10 Kimi K3 + Omni - Swahili,Compare Semantics Similarity - Output Text - 11 Kimi K3 + Intron - Swahili,Compare Semantics Similarity - Output Text - 12 Kimi K3 + GPT Transcribe - Swahili,Compare Semantics Similarity - Output Text - 13 DeepSeek V4 + Omni - Swahili,Compare Semantics Similarity - Output Text - 14 DeepSeek V4 + Intron - Swahili,Compare Semantics Similarity - Output Text - 15 DeepSeek V4 + GPT Transcribe - Swahili,Compare Semantics Similarity - Output Text - 16 Gemini 3.7 Flash + Omni - Swahili,Compare Semantics Similarity - Output Text - 17 Gemini 3.7 Flash + Intron - Swahili,Compare Semantics Similarity - Output Text - 18 Gemini 3.7 Flash + GPT Transcribe - Swahili,Compare Semantics Similarity - rationale
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/cde75ab0-8d88-11f0-814d-02420a0001f7/Generic_Q2_SW_A01.opus.wav,What is the capital city of Kenya?,"Je, mji mkuu wa Kenya ni upi?",Nairobi,Nairobi,https://gooey.ai/agent/?run_id=66g6ufjrnnj8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.68,The capital city of Kenya is Nairobi.,https://gooey.ai/agent/?run_id=9r5h7rb22j9d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.5,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=f4hwjdl7ted4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.81,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=cq71k0t22h16&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.91,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=h3i67n4qtlli&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.53,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=nbj8axh11b1i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.97,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=na9796709a2f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.05,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=y3a9qekwmhrx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.41,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=wd2bw4c3esqi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.92,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=y5tdoddibram&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.06,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=k00ytdwd7cjd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.58,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=t8yh3e2vdg5n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.75,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=z642atffw8by&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.16,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=352ms83s6xqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.56,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=56kwaf0pv108&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.75,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=3atskne5w3uf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.13,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=ff661mpqaux1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.81,"🎧: ""je mji mkuu wa kenya ni upi""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=lq47n2754nra&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.38,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=673yid5dacpr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.41,"🎧: ""Je, mji mkuu wa Kenya ni upi?""
+
+The capital city of Kenya is Nairobi.",1.0,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,"0 Gemini 3.1 Pro - Swahili exactly matches the reference answer in meaning with only minimal wording added. All other candidates include the correct answer Nairobi, but also add extra transcribed prompt content and a full-sentence explanation, so they are mostly accurate with unnecessary extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/e3a9ffba-8d88-11f0-814d-02420a0001f7/Generic_Q3_SW_A01.opus.wav,Which ocean borders Kenya to the southeast?,Ni bahari gani inapakana na Kenya upande wa kusini mashariki?,Indian Ocean,Bahari ya Hindi,https://gooey.ai/agent/?run_id=p379iv62dr79&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.69,The Indian Ocean borders Kenya to the southeast.,https://gooey.ai/agent/?run_id=yqf53g4g6vkp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.94,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=3n3j7t2kx0dn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,20.86,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=5c4gc2h80i16&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.56,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=3pmnunck8322&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.04,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=v1w0tzhvg22a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.49,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=csppfajb5nar&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.61,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=p90ajgk8q24k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.55,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=4cexyyatnrel&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.25,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+The Indian Ocean borders Kenya to the Southeast.",https://gooey.ai/agent/?run_id=p7d0cramgbl4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.31,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=meefpwat865v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.48,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=gwdrcnx2k76t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.68,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+Kenya is bordered by the Indian Ocean to the southeast. This ocean runs along Kenya's coastal region, including cities like Mombasa and Malindi.",https://gooey.ai/agent/?run_id=l99ybrrait93&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.29,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast. It lies along Kenya's coastal region. This includes cities like Mombasa, Malindi, and Lamu.",https://gooey.ai/agent/?run_id=ggl19c4ot5gg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.38,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=darb48veouvt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.27,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=ggh7s2rxpe2v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.4,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=opcam4hckeyz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.8,"🎧: ""ni bahari gani inapakana na kenya upande wa kusini mashariki""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=bbjcsaxvenjp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.62,"🎧: ""Ni bahari gani inapakana na Kenya upande wa Kusini Mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",https://gooey.ai/agent/?run_id=cdgj2a6e3edl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.08,"🎧: ""Ni bahari gani inapakana na Kenya upande wa kusini mashariki?""
+
+The Indian Ocean borders Kenya to the southeast.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,1.0,1.0,1.0,1.0,1.0,1.0,"0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili all correctly identify the Indian Ocean, matching the reference answer. 11 Kimi K3 + Intron - Swahili and 12 Kimi K3 + GPT Transcribe - Swahili are also correct but include extra explanatory details beyond the reference, so they were scored lower for unnecessary additional information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/11cc5a96-8d89-11f0-814d-02420a0001f7/Generic_SW_Q5_A05.mp3.wav,What is the official language of Kenya?,"Je, lugha rasmi ya Kenya ni ipi?",English and Swahili,Kiingereza na Kiswahili,https://gooey.ai/agent/?run_id=tvc2b8qith7g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.33,The official languages of Kenya are English and Swahili.,https://gooey.ai/agent/?run_id=xau5y0uajvp7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.79,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=sv9n6o0uwm19&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.29,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=o5kk5i2m416j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.57,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=8yg3jfnsmjcs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.14,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+The official languages of Kenya are Kiswahili and English.",https://gooey.ai/agent/?run_id=jhocgu53ljtq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+Kenya’s official languages are Kiswahili and English.",https://gooey.ai/agent/?run_id=m0wqfnydrwsl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.58,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+The official languages of Kenya are Kiswahili and English.",https://gooey.ai/agent/?run_id=pzpihewiv4b9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.01,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+Kenya has two official languages: English and Swahili.",https://gooey.ai/agent/?run_id=p6b5uovbgj4n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.82,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=zrj0twsc8wn9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.7,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=z1gsh200vuiu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.71,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+Kenya has two official languages.
+
+They are **Swahili** and **English**.
+
+Swahili is also the national language.",https://gooey.ai/agent/?run_id=bsfhv3ht6bwj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.83,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+Kenya has two official languages: Swahili and English. Swahili is also the national language. English is widely used in government, business, and education.",https://gooey.ai/agent/?run_id=d7d4mgf7bsvr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.73,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+Kenya has two official languages: English and Swahili.
+
+Swahili is also the national language.
+
+Both are used in government, schools, and business.",https://gooey.ai/agent/?run_id=3yk9zrnzcmtw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.18,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+Swahili and English are the official languages of Kenya.",https://gooey.ai/agent/?run_id=921m2xivh8pi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.38,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+Kenya has two official languages: English and Swahili.",https://gooey.ai/agent/?run_id=348rdpjg3ieg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+Kenya has two official languages: English and Swahili.",https://gooey.ai/agent/?run_id=qllwggm4kzcu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.15,"🎧: ""j lugha rasmi ya kenya ni ipi""
+
+The official languages of Kenya are English and Swahili. Swahili is also the national language.",https://gooey.ai/agent/?run_id=ncc8xwjv4ynm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.3,"🎧: ""Je, lugha rasmi ya Kenya?""
+
+The official languages of Kenya are English and Swahili. Swahili is also the national language.",https://gooey.ai/agent/?run_id=hcvvhe9pmx0g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.07,"🎧: ""Je, lugha rasmi ya Kenya ni ipi?""
+
+The official languages of Kenya are English and Swahili. Kiswahili is also the national language.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,1.0,0.6,0.6,0.6,"Most candidates preserve the full reference meaning by correctly stating that Kenya's official languages are English and Swahili/Kiswahili, so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, and 15 DeepSeek V4 + GPT Transcribe - Swahili receive 1.0. Candidates 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili are accurate but add extra information such as Swahili being the national language or usage contexts, so they receive 0.6 under the rubric for too much extra information. Transcription text was ignored except insofar as the final answer remained correct."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/34d8db36-8d89-11f0-814d-02420a0001f7/Generic_SW_Q6_A05.mp3.wav,Which currency is used in Kenya?,Ni sarafu gani inayotumika nchini Kenya?,Kenyan Shilling,Shilingi ya Kenya,https://gooey.ai/agent/?run_id=zrxigeg8xif6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.24,The currency used in Kenya is the Kenyan Shilling.,https://gooey.ai/agent/?run_id=6824kix6qlb2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.87,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=3c776l48chdk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.68,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=gj2vcqld3wqy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.75,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=vm08mr5inwkq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.87,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=5z1eounsgk8w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.38,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+<think>
+
+**Identifying currency**
+
+I’m trying to clarify which currency is used in the user’s context, which seems to point to Kenya. It looks like Kenya is indeed the likely option, so I'll go with the Kenyan shilling as the currency. I want to keep the response short and straightforward to ensure I'm providing clear information.
+
+</think>
+
+Kenya uses the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=wspd69ar1g1x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.47,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=ioz2xkknyg8h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.92,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the **Kenyan Shilling (KES)**.",https://gooey.ai/agent/?run_id=gbvxvf8mwmmu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.06,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+The currency used in Kenya is the **Kenyan Shilling (KES)**.",https://gooey.ai/agent/?run_id=abl1u082d6c3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.72,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the **Kenyan Shilling (KES)**.",https://gooey.ai/agent/?run_id=vfn3xldmm789&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.12,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the Kenyan Shilling. Its symbol is KSh. Its code is KES. One shilling is divided into 100 cents.",https://gooey.ai/agent/?run_id=cjodars81ohk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.85,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+The currency used in Kenya is the Kenyan Shilling (KES).
+
+One shilling is divided into 100 cents.
+
+Common coins include 1, 5, 10, 20, and 40 shillings.
+
+Common notes include 50, 100, 200, 500, and 1,000 shillings.",https://gooey.ai/agent/?run_id=wxwurzr2xqsk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.24,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the Kenyan Shilling. Its symbol is KSh. Its code is KES. One shilling is divided into 100 cents.",https://gooey.ai/agent/?run_id=p090wyme5yts&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.86,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=kvqwfvwcn2zu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.91,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=qqsco7gplm69&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.29,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=mhuxy43b8pfy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.13,"🎧: ""ni sarafu gani inayotumika nchini kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=t0tmdq9rqav2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.91,"🎧: ""Ni sarafu gani inayotumika nchini?""
+
+The currency used in Kenya is the Kenyan Shilling (KES).",https://gooey.ai/agent/?run_id=8mn3ob13n24w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.86,"🎧: ""Ni sarafu gani inayotumika nchini Kenya?""
+
+The currency used in Kenya is the Kenyan Shilling.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,1.0,1.0,1.0,1.0,"Most candidates, including 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili, correctly identify the currency as the Kenyan Shilling, matching the reference answer; transcript prefaces and the KES code were ignored as non-essential, and hidden reasoning in 5 GPT 5.6 Sol + Intron - Swahili was ignored per instructions. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili were scored lower because they add substantial extra information beyond the reference answer, though they remain accurate."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/452d3748-8d89-11f0-a0ff-02420a0001f8/Generic_Q8_SW_A09.opus.wav,Which famous wildlife migration occurs in the Maasai Mara?,Ni uhamiaji gani maarufu wa wanyamapori ambao hutokea Maasai Mara?,The Great Wildebeest Migration,Uhamaji Mkubwa wa Nyumbu,https://gooey.ai/agent/?run_id=nvn53rlnldkf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.55,It is the Great Wildebeest Migration.,https://gooey.ai/agent/?run_id=t311ogz5b5c5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.47,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+It is the Great Wildebeest Migration. Millions of wildebeests, zebras, and gazelles cross into the Maasai Mara every year.",https://gooey.ai/agent/?run_id=bj1o595gycy1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.06,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+It is the Great Wildebeest Migration. Millions of wildebeests, zebras, and gazelles travel to the Maasai Mara every year.",https://gooey.ai/agent/?run_id=yse81v1k6ybb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.59,"🎧: ""Ni uwamiaji gani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+It is the Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=ur3e6lpcmnxt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.82,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+<think>
+
+**Providing migration details**
+
+I need to offer a brief answer about the Great Migration. It involves wildebeest, zebras, and gazelles moving between the Serengeti and Maasai Mara, which typically happens from July to October, especially crossing the Mara River. I'll keep this concise, making sure to capture the essence of the migration without overwhelming details. It’s such a fascinating event in nature, and I want to present it clearly for the user!
+
+</think>
+
+The Great Wildebeest Migration occurs in the Maasai Mara. Millions of wildebeest, zebras, and gazelles move between Tanzania’s Serengeti and Kenya’s Maasai Mara, often crossing the Mara River.",https://gooey.ai/agent/?run_id=vaua472108a5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,23.66,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+<think>
+
+**Parsing a Swahili typo**
+
+I need to handle a typo in the Swahili sentence asking about famous wildlife migrations in the Maasai Mara. The correct translation is, ""Which famous wildlife migration occurs in Maasai Mara?"" This refers to the Great Migration, involving wildebeest, as well as zebras and gazelles that cross the Mara River. I should keep it brief and straightforward while ensuring accuracy in my response!
+
+</think>
+
+The Great Wildebeest Migration occurs in the Maasai Mara. Millions of wildebeest, zebras, and gazelles migrate between Tanzania and Kenya.",https://gooey.ai/agent/?run_id=vajrr7w1jio5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.66,"🎧: ""Ni uwamiaji gani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+<think>
+
+**Exploring wildlife migration**
+
+I need to interpret the question about the famous wildlife migration in Maasai Mara. It refers to the Great Migration, where wildebeest, zebras, and gazelles cross the Mara River between the Serengeti and Maasai Mara. It's quite the spectacle! This migration is a significant event in the animal kingdom, showcasing the journey and challenges these animals face while searching for food and water. It's really fascinating how nature coordinates these massive movements!
+
+</think>
+
+The Great Wildebeest Migration occurs in the Maasai Mara. Millions of wildebeest, zebras, and gazelles migrate between the Serengeti and Maasai Mara, often crossing the Mara River.",https://gooey.ai/agent/?run_id=lvlpud9flxgq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.93,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+The famous wildlife migration in Maasai Mara is the **Great Wildebeest Migration**.
+
+Key facts:
+- Over 1.5 million wildebeest migrate, along with zebras and gazelles.
+- They move between Maasai Mara (Kenya) and Serengeti (Tanzania).
+- This happens annually, searching for fresh grazing land and water.
+- It typically occurs between **July and October** when animals cross into Maasai Mara.
+- The Mara River crossing is the most dramatic part, with animals facing crocodiles and strong currents.
+- It's considered one of the greatest natural wildlife spectacles in the world.",https://gooey.ai/agent/?run_id=w67gbwq3aiif&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.92,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+The famous wildlife migration in Maasai Mara is the **Great Wildebeest Migration**.
+
+- It involves millions of wildebeest, zebras, and gazelles.
+- They move between Maasai Mara (Kenya) and Serengeti (Tanzania).
+- This happens yearly, searching for fresh grazing grass and water.
+- It usually occurs between July and October in Maasai Mara.
+- The migration includes dangerous river crossings, like the Mara River, where crocodiles attack.",https://gooey.ai/agent/?run_id=xltcg1ptg0jz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.6,"🎧: ""Ni uwamiaji gani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+The famous wildlife migration that occurs in Maasai Mara is the **Great Wildebeest Migration**.
+
+Key facts:
+- Millions of wildebeest, zebras, and gazelles migrate between Serengeti (Tanzania) and Maasai Mara (Kenya).
+- It happens annually, usually between **July and October**.
+- Animals cross the Mara River, facing danger from crocodiles.
+- It is considered one of the most spectacular wildlife events in the world.",https://gooey.ai/agent/?run_id=e8dknw0zk83x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.49,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+The famous migration is the **Great Wildebeest Migration**.
+
+- Over 1.5 million wildebeest take part.
+- They are joined by zebras and gazelles.
+- The animals move from the Serengeti in Tanzania to the Maasai Mara in Kenya.
+- It usually happens between July and October.
+- The Mara River crossing is the most dramatic part.
+- Crocodiles attack the animals as they cross the river.
+- It is one of the greatest wildlife spectacles in the world.",https://gooey.ai/agent/?run_id=r973y0i1fjqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.7,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+The Great Migration. It is one of the world's most famous wildlife events. Over 1.5 million wildebeest, zebras, and gazelles move from the Serengeti in Tanzania to the Maasai Mara in Kenya. This happens between July and October each year. They cross the Mara River, where many face crocodiles. The animals move in search of fresh grass and water. It is a major tourist attraction in Kenya.",https://gooey.ai/agent/?run_id=k6ti0h8y4p5f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.96,"🎧: ""Ni wamiajigani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+The famous migration in Maasai Mara is the Great Wildebeest Migration.
+
+- Over 1.5 million wildebeest take part.
+- They are joined by zebras and gazelles.
+- They move from the Serengeti in Tanzania to the Maasai Mara in Kenya.
+- This happens between July and October.
+- They cross the Mara River, where crocodiles wait.
+- It is one of the greatest wildlife events in the world.",https://gooey.ai/agent/?run_id=o16f17k8jls5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.61,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+The Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=m49nu05kip2o&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.13,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+The Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=xh9ww9bbfy0o&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.41,"🎧: ""Ni uwamiaji gani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+The Great Wildebeest Migration.",https://gooey.ai/agent/?run_id=cujlnmgwg6vk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.24,"🎧: ""ni uhamiaji gani maarufu wa wanyamapori ambao hutokea maasai mara""
+
+The famous wildlife migration in the Maasai Mara is the Great Wildebeest Migration. 
+
+Millions of wildebeests, zebras, and gazelles migrate annually between the Serengeti in Tanzania and the Maasai Mara in Kenya.",https://gooey.ai/agent/?run_id=tvcz961sdlp0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.31,"🎧: ""Ni uhamiaji gani maruufu wa wanyamapori ambao hutokea Masaima?""
+
+It is the Great Wildebeest Migration. Millions of wildebeests, zebras, and gazelles cross from the Serengeti into the Maasai Mara every year.",https://gooey.ai/agent/?run_id=kqnnrh36zy4x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.25,"🎧: ""Ni wamiajigani maarufu wa Wanyamapori ambao hutokea Maasai Mara?""
+
+The famous event is the Great Wildebeest Migration. 
+
+Millions of wildebeests, zebras, and gazelles migrate between the Serengeti and the Maasai Mara. 
+
+It is one of the most remarkable wildlife spectacles in the world.",1.0,0.6,0.6,1.0,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,1.0,1.0,1.0,0.6,0.6,0.6,"0 Gemini 3.1 Pro - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, and 15 DeepSeek V4 + GPT Transcribe - Swahili match the reference answer exactly or essentially exactly. 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili give the correct answer but add extra explanatory details, so they are mostly accurate with unnecessary extra information. Hidden reasoning in 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, and 6 GPT 5.6 Sol + GPT Transcribe - Swahili was ignored as instructed."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/5333a598-8d89-11f0-9c7d-02420a0001f5/Generic_Q9_SW_A09.opus.wav,Which mountain is the highest in Kenya?,Ni mlima gani ndio mrefu zaidi nchini Kenya?,Mount Kenya,Mlima Kenya,https://gooey.ai/agent/?run_id=5wk57jmf9r7e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.76,Mount Kenya is the tallest mountain in Kenya.,https://gooey.ai/agent/?run_id=0b3jr1btcx9l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.68,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=z2nf45aa6upb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.33,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=qhly79tmv00i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.25,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=m67n481gapg5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,43.08,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the highest mountain in Kenya. Its highest peak, Batian, is 5,199 metres above sea level.",https://gooey.ai/agent/?run_id=ap10ye8z3l1l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.48,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the highest mountain in Kenya. It is 5,199 metres high.",https://gooey.ai/agent/?run_id=a16surdsdh3q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.48,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the highest mountain in Kenya. Its highest peak, Batian, is 5,199 metres above sea level.",https://gooey.ai/agent/?run_id=5kd9z5978h1n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.2,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=acvgjdgdrs7j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.39,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=uf0vary0gkyu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.4,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=9eeuagde0wfc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.67,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the tallest mountain in Kenya.
+
+It stands at 5,199 meters (17,057 feet) high.
+
+Its highest peak is called Batian.
+
+It is the second-highest mountain in Africa, after Mount Kilimanjaro in Tanzania.",https://gooey.ai/agent/?run_id=q2jbm9p0bk8c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.56,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya. It stands at 5,199 meters (17,057 feet) high. Its highest peak is called Batian. It is the second highest mountain in Africa, after Mount Kilimanjaro in Tanzania.",https://gooey.ai/agent/?run_id=3fuoqtkca1fy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.74,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+The tallest mountain in Kenya is Mount Kenya.
+
+It stands at 5,199 meters (17,057 feet) above sea level. Its highest peak is called Batian. It is also the second-highest mountain in Africa, after Mount Kilimanjaro in Tanzania.",https://gooey.ai/agent/?run_id=8kvg4a9d3zyj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.48,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=xvr6tfx7oo3z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.05,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=mrx83a5oprsg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.29,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=c7kwj4r0c25e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.6,"🎧: ""ni mlima gani ndio mrefu zaidi nchini kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=g2tigknnsplz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.74,"🎧: ""Ni mlima gani ndio mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the tallest mountain in Kenya.",https://gooey.ai/agent/?run_id=j4ovv35emzkn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.33,"🎧: ""Ni mlima gani ndiyo mrefu zaidi nchini Kenya?""
+
+Mount Kenya is the highest mountain in Kenya.",0.8,0.8,0.8,0.8,0.6,0.6,0.6,0.8,0.8,0.8,0.6,0.6,0.6,0.8,0.8,0.8,0.8,0.8,0.8,"All candidates correctly identify Mount Kenya, matching the reference answer. I ignored the transcribed-audio prefaces and judged the final answer content only. Concise correct answers such as 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili preserve the main point with minor wording differences, so they score 0.8 rather than 1.0 because they are fuller sentence answers rather than the exact short reference. 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili are also correct but include extra explanatory details beyond the reference, so they score 0.6 under the rubric for mostly accurate answers with too much extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/355bfa96-8d8b-11f0-814d-02420a0001f7/Generic_Q10_SW_A06.opus.wav,Which is the main port city in Kenya?,Mji mkuu wa bandari nchini Kenya ni gani?,Mombasa,Mombasa,https://gooey.ai/agent/?run_id=26ufaxcpor0y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.32,The main port city in Kenya is Mombasa.,https://gooey.ai/agent/?run_id=7dr8vvfbxtjh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.38,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=uwuoec1yc6b8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.09,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=52zji62kk7dh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.64,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=fzg3ozzq1jqv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.14,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+<think>
+
+**Identifying Kenya's main port city**
+
+It seems like the user is asking about the major port city in Kenya. The phrase ""mji mkuu wa bandari"" translates to ""main port city,"" likely referring to Mombasa. I've confirmed that Mombasa is indeed the main port city of Kenya, even though it's not the capital. I'll keep my answer concise and focus on providing just that essential information: Mombasa is Kenya's main port city.
+
+</think>
+
+Mombasa is Kenya’s main port city.",https://gooey.ai/agent/?run_id=9vqsiyf54rxw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.57,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+<think>
+
+**Interpreting port city inquiry**
+
+I need to interpret the question: ""What is the main port city in Kenya?"" The answer is clearly Mombasa. However, I wonder if there's potential ambiguity regarding whether it means ""capital of the coast."" But then I remember that ""mkuu wa bandari"" translates to ""main port city."" So, I think the answer should be straightforward and short. Let's go with Mombasa as the main port city in Kenya.
+
+</think>
+
+Mombasa is Kenya’s main port city.",https://gooey.ai/agent/?run_id=6n869hdmgfmy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.34,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+<think>
+
+**Interpreting port city**
+
+I need to interpret the question about Kenya's main port city. The answer is Mombasa, which could also be described as ""mji mkuu wa bandari,"" but I wonder if that sounds a bit awkward. Should I say it’s the capital port city? I want to keep my answer in concise English so it’s clear and easy to understand. Let me figure out the best way to phrase this answer!
+
+</think>
+
+Mombasa is Kenya’s main port city.",https://gooey.ai/agent/?run_id=glby5fw86tz6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.47,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+Mombasa is the main port city of Kenya.",https://gooey.ai/agent/?run_id=rbh1hf1kcbo5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.13,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=eqdu4w4vvahe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.01,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=ihfmwvt9z1ct&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.68,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+The main port city in Kenya is Mombasa. It is located on the coast of the Indian Ocean. It handles most of Kenya's imports and exports.",https://gooey.ai/agent/?run_id=ipt9f11up0ji&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.98,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa. It is located on the coast of the Indian Ocean. It has the largest seaport in Kenya.",https://gooey.ai/agent/?run_id=bi02evq70f8t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.34,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa. It is located on the coast of the Indian Ocean. It hosts the Port of Mombasa, the largest port in East Africa.",https://gooey.ai/agent/?run_id=zyrfiart8ej1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.51,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+The capital city of Kenya is Nairobi.  
+The main port city is Mombasa.",https://gooey.ai/agent/?run_id=tn4h2kzlpono&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.13,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+Mombasa is the main port city in Kenya.",https://gooey.ai/agent/?run_id=li1b8wjngoem&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.51,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+Mombasa.",https://gooey.ai/agent/?run_id=ylzd4zro0tnb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.91,"🎧: ""mji mkuu wa bandari mcheni kenya ni gani""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=etemye4ivo2j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.58,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",https://gooey.ai/agent/?run_id=bp8qcvakm6ie&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.41,"🎧: ""Mji mkuu wa bandari nchini Kenya ni gani?""
+
+The main port city in Kenya is Mombasa.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,0.6,1.0,1.0,1.0,1.0,1.0,"Reference answer is Mombasa. Ignoring transcription lines and hidden reasoning blocks, 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili all give the correct answer with no meaningful error, so they score 1.0. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili add extra descriptive information beyond the reference, so they score 0.6. 13 DeepSeek V4 + Omni - Swahili includes the correct port city but also adds an unnecessary statement about Nairobi, so it scores 0.6."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/82264e1c-8d8b-11f0-a0ff-02420a0001f8/Generic_Q12_SW_A06.opus.wav,Which traditional Kenyan dish is made of maize and beans?,Ni chakula kipi cha asili cha Kenya kinatokana na mahindi na maharagwe?,Githeri,Githeri,https://gooey.ai/agent/?run_id=49g26w6wrsjt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.91,The traditional Kenyan food made from maize and beans is called Githeri.,https://gooey.ai/agent/?run_id=uzlcaiy1xkqe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.7,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+The traditional Kenyan food made from maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=hxenghebrapv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.16,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+The Kenyan food made from maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=3qiyrvlldtkm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.05,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+The traditional Kenyan food made from maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=8ugmkx5uawad&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.8,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+<think>
+
+**Clarifying food terms**
+
+I think I need to understand whether ""mahenzi"" or ""mahindhi"" is what the user meant. It seems like the question is about a dish made from maize and beans, known as githeri. I should stick to providing a brief answer in English, focusing on the key details, and not overcomplicating it. I’ll ensure that any confusion is clarified quickly and simply for the user. They need a straightforward response.
+
+</think>
+
+The traditional Kenyan dish made from maize and beans is called **Githeri**.",https://gooey.ai/agent/?run_id=4vdbp48s9y5p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.6,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+<think>
+
+**Interpreting Kenyan cuisine**
+
+I need to interpret the phrase ""chakula kipi cha asili cha Kenya,"" which seems to refer to traditional Kenyan food. From what I gather, it likely points to githeri, a dish made from a mixture of maize and beans. I’ll keep my answer brief and in English to clarify this for anyone curious about Kenyan cuisine! It’s so interesting how food reflects culture, don’t you think?
+
+</think>
+
+The Kenyan dish made from maize and beans is called **Githeri**.",https://gooey.ai/agent/?run_id=9vazgeju77ec&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.64,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+Githeri. It is a traditional Kenyan dish made from boiled maize and beans.",https://gooey.ai/agent/?run_id=4fq2tmrihbav&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.69,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+The traditional Kenyan food made from maize and beans is called **Githeri**.
+
+- It's a simple, nutritious dish made by boiling maize and beans together.
+- Sometimes vegetables, potatoes, or meat are added for extra flavor.
+- Githeri is popular across many Kenyan communities and is a staple, affordable meal.",https://gooey.ai/agent/?run_id=vj9kwfcp7cnv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.47,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+**Githeri** is the Kenyan staple food made from maize and beans.
+
+- It is made by boiling maize and beans together.
+- It is a common, nutritious meal eaten across Kenya.
+- Sometimes vegetables, potatoes, or meat are added to it.",https://gooey.ai/agent/?run_id=9oagoqupny1s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.2,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+The traditional Kenyan food made from maize and beans is called **Githeri**.",https://gooey.ai/agent/?run_id=2s0hvaahpxrh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.95,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+The traditional Kenyan dish made from maize and beans is called **Githeri**.
+
+It is a popular dish, especially among the Kikuyu community.
+The maize and beans are boiled together until soft.
+Sometimes potatoes, vegetables, or meat are added.
+It is nutritious and affordable.",https://gooey.ai/agent/?run_id=og9pjc6fq2ps&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.6,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+The dish is called **Githeri**.
+
+It is a traditional Kenyan meal made by boiling maize and beans together. It is popular among the Kikuyu community and across Kenya. It can be eaten plain or fried with onions, tomatoes, and other vegetables.",https://gooey.ai/agent/?run_id=kho2s112h0i4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.68,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+The food is called **Githeri**.
+
+It is a traditional Kenyan dish made from boiled maize and beans. It is popular among the Kikuyu community and eaten across the country. Sometimes potatoes, vegetables, or meat are added to it.",https://gooey.ai/agent/?run_id=ukkhbcep7bzd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+Githeri is a traditional Kenyan dish made from maize and beans.",https://gooey.ai/agent/?run_id=7wyf99u31rvm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.71,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+Githeri is a Kenyan staple food made from maize and beans.",https://gooey.ai/agent/?run_id=2fwf5ijp6deo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.72,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+Githeri is a traditional Kenyan food made from maize and beans.",https://gooey.ai/agent/?run_id=rjhs8neqgvx4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.56,"🎧: ""ni chakula kipi cha asili cha kenya kinachotokana na mahenzi na maharagwe""
+
+The traditional Kenyan dish made from maize and beans is Githeri. It is also sometimes called Muthokoi when hulled maize is used.",https://gooey.ai/agent/?run_id=0kuxuik5zvap&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.43,"🎧: ""Ni chakula kipi cha seli cha Kenya kinachotokana na mahindi na maharagwe.""
+
+The traditional Kenyan food made from maize and beans is called Githeri.",https://gooey.ai/agent/?run_id=e2jwpi4uzsgh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.75,"🎧: ""Ni chakula kipi cha asili cha Kenya, kinachotokana na mahindi na maharagwe?""
+
+The traditional Kenyan food made from maize and beans is Githeri.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8,1.0,1.0,"Most candidates correctly identify the dish as Githeri, fully matching the reference answer, so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili receive full scores. Hidden reasoning in 4 GPT 5.6 Sol + Omni - Swahili and 5 GPT 5.6 Sol + Intron - Swahili was ignored as instructed. 16 Gemini 3.7 Flash + Omni - Swahili is also correct but adds an extra potentially confusing detail about Muthokoi, so it is slightly downgraded for unnecessary information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/9012dac2-8d8b-11f0-814d-02420a0001f7/Generic_Q13_SW_A08.m4a.wav,Which river is the longest in Kenya?,Ni mto upi mrefu zaidi nchini Kenya?,Tana River,Mto Tana,https://gooey.ai/agent/?run_id=rwoj7f0cgnvp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.18,"If you are asking about the longest river, it is the Tana River. 
+
+If you meant the tallest person, Bradley Marongo is currently known as the tallest man in Kenya.",https://gooey.ai/agent/?run_id=zd5mskio1bnz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.62,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=11ieal4e9zw7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.81,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=rklkra6qxlng&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.52,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+Bradley Marongo is currently known as the tallest person in Kenya. He recently became famous and is often called the ""Kenyan Goliath."" Before him, Jackson Kiprono Kosgei was officially recognized as the tallest man in the country.",https://gooey.ai/agent/?run_id=2dl235me1ily&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.54,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=31dy6rrefmia&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.23,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The Tana River is the longest river in Kenya. It is about 1,000 km long.",https://gooey.ai/agent/?run_id=wponh1n8ygl1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.07,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+<think>
+
+</think>
+
+There is no officially verified record. Bradley Marongo is often reported as Kenya’s tallest man, at about 8 feet tall.",https://gooey.ai/agent/?run_id=zwceg4mnxjwm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.5,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The longest river in Kenya is the **Tana River**.",https://gooey.ai/agent/?run_id=spzarb4xwqgh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.77,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The longest river in Kenya is the **Tana River**.",https://gooey.ai/agent/?run_id=3g300f0vlmuu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.45,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+I don't know.",https://gooey.ai/agent/?run_id=ulx0co9nwqml&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.55,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The longest river in Kenya is the **Tana River**.
+
+It is about 800 kilometers long.
+It starts from Mount Kenya and the Aberdare Ranges.
+It flows into the Indian Ocean.",https://gooey.ai/agent/?run_id=s2sgzsmollbn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.97,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The longest river in Kenya is the Tana River.
+
+It is about 1,000 kilometers long.
+
+It starts from Mount Kenya and the Aberdare Ranges.
+
+It flows eastwards and drains into the Indian Ocean.
+
+It is also important for hydroelectric power and irrigation in Kenya.",https://gooey.ai/agent/?run_id=sfq9uvnp9jj8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.82,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+I don't know for certain. There is no officially verified record of Kenya's tallest person that I am aware of. Some individuals have been named in Kenyan media reports, but these claims were not formally confirmed.",https://gooey.ai/agent/?run_id=31pzlgb1yrn7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.49,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=mase0yvdohmy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.53,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=a4upfxu3gsgy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.3,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+I don't know.",https://gooey.ai/agent/?run_id=bfeb1uxyo2t5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.06,"🎧: ""ni mto upi mrefu zaidi nchini kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=psu0dqwu8u3w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.68,"🎧: ""Ni mto upi mrefu zaidi nchini Kenya.""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=9u3dptdzi73k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.46,"🎧: ""Nimtu upi mrefu zaidi nchini Kenya?""
+
+Bradley Marongo, also known as Bradley Mtall, is currently recognized as the tallest man in Kenya. Historically, Jackson Kipkirui Kosgei was also known as one of the tallest.",0.8,0.8,0.8,0.0,1.0,0.6,0.0,0.8,0.8,0.0,0.6,0.6,0.0,1.0,1.0,0.0,0.8,0.8,0.0,"Reference answer is 'Tana River' / 'Mto Tana'. 4 GPT 5.6 Sol + Omni - Swahili, 13 DeepSeek V4 + Omni - Swahili, and 14 DeepSeek V4 + Intron - Swahili match this most directly with concise correct answers. 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 0 Gemini 3.1 Pro - Swahili are also correct but include minor extra framing or transcription text, so they score slightly lower. 5 GPT 5.6 Sol + Intron - Swahili, 10 Kimi K3 + Omni - Swahili, and 11 Kimi K3 + Intron - Swahili are correct but add substantial extra details beyond the reference, so they score 0.6. 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili answer a different question about the tallest person in Kenya or say they do not know, so they are incorrect. Hidden reasoning in 6 GPT 5.6 Sol + GPT Transcribe - Swahili was ignored as instructed."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a197d7e8-8d8b-11f0-814d-02420a0001f7/Generic_Q14_SW_A08.m4a.wav,Name any one of Kenya’s neighboring countries.,Taja mojawapo ya nchi jirani za taifa la Kenya.,"Uganda, Tanzania, Somalia, Ethiopia, or South Sudan","Uganda, Tanzania, Somalia, Ethiopia, au Sudan Kusini",https://gooey.ai/agent/?run_id=20fyub8ymyok&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.53,One of the neighboring countries of Kenya is Tanzania.,https://gooey.ai/agent/?run_id=f6oofarcvddm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.33,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+One neighboring country of Kenya is Tanzania.",https://gooey.ai/agent/?run_id=l11l11c5ilpy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.67,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+Uganda is one of Kenya's neighboring countries.",https://gooey.ai/agent/?run_id=d6lejq5bqofb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.33,"🎧: ""Taja moja wapo ya nchi jirani za taifa la Kenya.""
+
+Tanzania is one of the neighboring countries of Kenya.",https://gooey.ai/agent/?run_id=bev4c5fw4p0s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.42,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+Tanzania.",https://gooey.ai/agent/?run_id=85vvehe5qxsj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.52,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+Tanzania.",https://gooey.ai/agent/?run_id=zjmtf4neosy7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.49,"🎧: ""Taja moja wapo ya nchi jirani za taifa la Kenya.""
+
+Tanzania.",https://gooey.ai/agent/?run_id=ndltc39jrnk1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.81,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+One neighboring country of Kenya is Uganda.
+
+Other neighbors include Tanzania, Ethiopia, Somalia, and South Sudan.",https://gooey.ai/agent/?run_id=zpwy7jwifevn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.39,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+One neighboring country of Kenya is Uganda.
+
+Other neighbors include Tanzania, Ethiopia, Somalia, and South Sudan.",https://gooey.ai/agent/?run_id=tzcmgtghmppf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.85,"🎧: ""Taja moja wapo ya nchi jirani za taifa la Kenya.""
+
+One neighboring country of Kenya is **Tanzania**.
+
+(Other neighbors include Uganda, Ethiopia, Somalia, and South Sudan.)",https://gooey.ai/agent/?run_id=6degr2fre6t3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.98,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+Tanzania is one of Kenya's neighboring countries.
+
+Other neighbors include:
+- Uganda
+- Somalia
+- Ethiopia
+- South Sudan",https://gooey.ai/agent/?run_id=b6fhn1t1raeh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.58,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+One neighboring country of Kenya is Tanzania.
+
+Others include Uganda, South Sudan, Ethiopia, and Somalia.",https://gooey.ai/agent/?run_id=tbtbuirb8q4m&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.99,"🎧: ""Taja mojawapo ya nchi jirani za taifa la Kenya.""
+
+Tanzania is one of Kenya's neighboring countries. It borders Kenya to the south.",https://gooey.ai/agent/?run_id=vg8knnvr2wnz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.26,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+Tanzania.",https://gooey.ai/agent/?run_id=zq3yfis5ubt3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.94,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+One neighboring country of Kenya is Tanzania.",https://gooey.ai/agent/?run_id=bczmp40km588&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.23,"🎧: ""Taja moja wapo ya nchi jirani za taifa la Kenya.""
+
+Tanzania",https://gooey.ai/agent/?run_id=p77hx6fy5oy4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.14,"🎧: ""taja mojawapo ya nchi jirani za taifa la kenya""
+
+One of Kenya's neighboring countries is Uganda.",https://gooey.ai/agent/?run_id=sejrtqa974uh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.62,"🎧: ""Taja mojawapo ya nchi jirani za Taifa la Kenya.""
+
+Tanzania is one of Kenya's neighboring countries.",https://gooey.ai/agent/?run_id=r6ttop6fr12z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.48,"🎧: ""Taja moja wapo ya nchi jirani za taifa la Kenya.""
+
+One neighboring country of Kenya is Uganda.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8,0.8,0.8,0.8,0.8,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"Most candidates correctly name a valid neighboring country of Kenya from the reference set (Uganda, Tanzania, Somalia, Ethiopia, or South Sudan), so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili receive 1.0. 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, and 11 Kimi K3 + Intron - Swahili are also correct but include extra explanatory/list information beyond the minimal requested answer, so they receive 0.8."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/d4f33ace-8d8b-11f0-ac41-02420a0001f5/Generic_Q16_SW_A07.opus.wav,Which Kenyan town is famous for its tea production?,Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?,Kericho,Kericho,https://gooey.ai/agent/?run_id=gi5b0dourawm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.25,Kericho is the city in Kenya most known for its tea production.,https://gooey.ai/agent/?run_id=cjdqhlauevwy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.86,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+Kericho is the town in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=18dhqhswwdxd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.48,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the town in Kenya known for its tea production.",https://gooey.ai/agent/?run_id=pqz2rggepsb0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.66,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the town in Kenya most known for tea production.",https://gooey.ai/agent/?run_id=5ez60trpdt2q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.72,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+<think>
+
+**Identifying tea town in Kenya**
+
+I need to find out which town in Kenya is known for tea production. It looks like the answer is Kericho! I’ll keep it short and simple since that seems to be what’s needed here — just a neat little fact to share. Let's make sure to present it clearly for anyone curious about tea regions in Kenya.
+
+</think>
+
+Kericho is the Kenyan town best known for tea production.",https://gooey.ai/agent/?run_id=eth6txq1rds2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.83,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the Kenyan town best known for tea production.",https://gooey.ai/agent/?run_id=gu7znx58c4zy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.1,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+<think>
+
+**Searching for tea production towns**
+
+I need to answer the question about which town or city in Kenya is known for tea production. The answer is Kericho! It's a significant location for tea farming in Kenya, known for its favorable climate and ideal conditions for growing tea. I want to make sure I keep the response concise and in English since that's what is requested. It's interesting to think about how vital this region is for tea production!
+
+</think>
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=c15pge8vz844&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.41,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+Kericho is the Kenyan town/region best known for tea production.",https://gooey.ai/agent/?run_id=zhck8d34fv8i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.33,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the Kenyan town/region best known for tea production.",https://gooey.ai/agent/?run_id=mkt4un8pj056&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.92,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the region in Kenya best known for tea production.
+
+Other notable tea-growing areas include Nandi, Kisii, and Nyeri.",https://gooey.ai/agent/?run_id=j65dhk1iq2yf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.62,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+Kericho is the Kenyan town best known for tea production.
+
+It is located in the highlands of the Rift Valley. The area has vast tea plantations. Its cool climate and high rainfall are ideal for growing tea.
+
+Other tea-growing areas include Limuru, Nyeri, and Meru. But Kericho is the most famous tea town in Kenya.",https://gooey.ai/agent/?run_id=mh7mgz244njk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.53,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the Kenyan town famous for tea production. It is located in the Rift Valley highlands. The area has vast tea plantations. It is home to major tea companies like Unilever and Williamson Tea.",https://gooey.ai/agent/?run_id=ltwceqc1umx0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.8,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the town in Kenya best known for tea production. It is located in the highlands west of the Rift Valley. The area has large tea plantations due to its cool climate and fertile soils. Other tea-growing areas include Nyeri, Murang'a, and Nandi Hills.",https://gooey.ai/agent/?run_id=zwn547qei83z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.8,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=jwidpps0v5fj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.55,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is known for tea production in Kenya.",https://gooey.ai/agent/?run_id=4d52q0yl8of6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.52,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho County is known for its tea production.",https://gooey.ai/agent/?run_id=u6opbsosl63l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.8,"🎧: ""ni mji gani wa kenya unajulikana kwa uzalishaji wake wa chai""
+
+Kericho is the town in Kenya most famous for its large-scale tea production.",https://gooey.ai/agent/?run_id=oukxnxy65g8x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.58,"🎧: ""Ni mji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the town in Kenya best known for its large-scale tea production.",https://gooey.ai/agent/?run_id=ht2kqan0lbu0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.49,"🎧: ""Nimji gani wa Kenya unajulikana kwa uzalishaji wake wa chai?""
+
+Kericho is the town in Kenya best known for its tea production.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,0.6,1.0,1.0,0.8,1.0,1.0,1.0,"Most candidates correctly identify Kericho, matching the reference answer exactly or with only harmless rephrasing, so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili receive 1.0. 15 DeepSeek V4 + GPT Transcribe - Swahili is slightly less exact because it answers with 'Kericho County' rather than just the town Kericho, but it preserves the core meaning, so it gets 0.8. 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili add substantial extra explanatory information beyond the reference answer, so they are marked 0.6 under the rubric for mostly accurate answers with too much extra information. Hidden reasoning blocks in 4 GPT 5.6 Sol + Omni - Swahili and 6 GPT 5.6 Sol + GPT Transcribe - Swahili were ignored as instructed."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/fdb80b88-8d8b-11f0-814d-02420a0001f7/Generic_Q17_SW_A07.opus.wav,In which year did Kenya gain independence from Britain?,Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?,1963,1963,https://gooey.ai/agent/?run_id=bpvqks5wkaa3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.93,Kenya gained its independence in 1963.,https://gooey.ai/agent/?run_id=frhjf2lpzqe5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.45,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=nccgxrfkg7dg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.07,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=f76bnstfua1i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.34,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence in 1963.",https://gooey.ai/agent/?run_id=iq05r9x1593c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.4,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=slx2wl60hfvh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.21,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from the United Kingdom in 1963.",https://gooey.ai/agent/?run_id=rk3q3whwsfuj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.31,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from the United Kingdom in 1963.",https://gooey.ai/agent/?run_id=30ratrgxuale&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.84,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya got independence from Britain in 1963.",https://gooey.ai/agent/?run_id=uh7g833e6erp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.53,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya got its independence from Britain in **1963**.",https://gooey.ai/agent/?run_id=9f6zmlt5idcw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.46,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya got independence from Britain in 1963.",https://gooey.ai/agent/?run_id=mvb8t5l4s9vj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.78,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya gained independence from Britain in 1963. The exact date was December 12, 1963.",https://gooey.ai/agent/?run_id=iplpk89ojlo4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.64,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963. The exact date was December 12, 1963.",https://gooey.ai/agent/?run_id=gmklzak17oxa&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.87,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain on December 12, 1963.",https://gooey.ai/agent/?run_id=51g7vcy9b3gw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.41,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya got independence from Britain in 1963.",https://gooey.ai/agent/?run_id=mud1b4bh1l6l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.41,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=lzhbcivny13c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.81,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=gs0o0owpwt2n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.45,"🎧: ""ni katika mwaka upi ambao kenya ilipata uhuru kutoka kwa uingereza""
+
+Kenya gained independence from Britain in 1963. Specifically, it was on December 12, 1963.",https://gooey.ai/agent/?run_id=9aex836a5xo0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.0,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=y37r5mnde0bl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.61,"🎧: ""Ni katika mwaka upi ambao Kenya ilipata uhuru kutoka kwa Uingereza?""
+
+Kenya gained independence from Britain in 1963.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.8,1.0,1.0,1.0,0.6,1.0,1.0,"Most candidates, including 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili, correctly provide the reference year 1963, so they receive 1.0. 12 Kimi K3 + GPT Transcribe - Swahili is also correct but answers with a full date rather than just the year, so it is slightly less aligned with the reference and receives 0.8. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 16 Gemini 3.7 Flash + Omni - Swahili include extra date details beyond the asked-for year, so they receive 0.6 for being mostly accurate with too much extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/20464944-8d8c-11f0-814d-02420a0001f7/Generic_Q18_SW_A07.opus.wav,Who was the first president of Kenya?,Rais wa kwanza wa Kenya alikuwa nani?,Jomo Kenyatta,Jomo Kenyatta,https://gooey.ai/agent/?run_id=guhj5zlj5xuw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.37,The first president of Kenya was Jomo Kenyatta.,https://gooey.ai/agent/?run_id=n38teua7p5dm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.33,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=u160jpvedt0i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.35,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=s1usntkxx9zx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.99,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=27n9gmj0caob&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.94,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first President of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=kzmbk26gz2bc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.06,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+Jomo Kenyatta was the first President of Kenya.",https://gooey.ai/agent/?run_id=26s4s6blt35g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.84,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first President of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=m0bmo453ocnr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.13,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first President of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=zyy0ub0st5n9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.03,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first President of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=ylas913pcqtx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.26,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first President of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=mv3f03t7vfxe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.04,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first president of Kenya was Jomo Kenyatta. He took office in 1964, after Kenya gained independence in 1963.",https://gooey.ai/agent/?run_id=68t1vnap8czb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.51,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first President of Kenya was Jomo Kenyatta.
+
+He became Prime Minister in 1963 when Kenya gained independence from Britain. He then became the first President in December 1964, when Kenya became a republic. He served until his death in 1978.",https://gooey.ai/agent/?run_id=c8trf4m3xw85&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.77,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first President of Kenya was Jomo Kenyatta. He took office on December 12, 1964. He served until his death in 1978. He is known as the founding father of Kenya.",https://gooey.ai/agent/?run_id=vbqrj1rpn441&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.86,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=89a2zpwd2lyf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.06,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=nehje89wiyen&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.11,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=ewtl18pfuvi8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.3,"🎧: ""rais wa kwanza wa kenya alikuwa nani""
+
+The first president of Kenya was Mzee Jomo Kenyatta.",https://gooey.ai/agent/?run_id=4yheghzn49go&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.62,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=qzscmqejpeuf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""Rais wa kwanza wa Kenya alikuwa nani?""
+
+The first president of Kenya was Jomo Kenyatta.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,1.0,1.0,1.0,1.0,"0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili all correctly identify Jomo Kenyatta as Kenya's first president, matching the reference answer despite minor formatting or added transcription text. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili are also correct but include substantial extra contextual information, so they receive lower scores under the rubric."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/34789ef8-8d8c-11f0-949a-02420a0001f9/Generic_Q19_SW_A04.oga.wav,Name the Kenyan Nobel Peace Prize laureate who founded the Green Belt Movement.,Mtaje mshindi wa Tuzo ya Amani ya Nobel kutoka Kenya ambaye alianzisha Vuguvugu la Green Belt.,Wangari Maathai,Wangari Maathai,https://gooey.ai/agent/?run_id=j6f3hbenk0mj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.14,The winner is Wangari Maathai.,https://gooey.ai/agent/?run_id=833n0i3a38l9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.17,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+The person you are asking about is Wangari Maathai. She founded the Green Belt Movement. She won the Nobel Peace Prize in 2004.",https://gooey.ai/agent/?run_id=c9ry29js2ogk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.67,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+The Nobel Peace Prize winner from Kenya is Wangari Maathai.",https://gooey.ai/agent/?run_id=jn9o6222lgdx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.12,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianza vuguvugu la Green Belt.""
+
+The Nobel Peace Prize winner from Kenya who started the Green Belt Movement is Wangari Maathai.",https://gooey.ai/agent/?run_id=ahi5o7z69mke&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.37,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+<think>
+
+</think>
+
+Wangari Maathai. She founded the Green Belt Movement and won the Nobel Peace Prize in 2004.",https://gooey.ai/agent/?run_id=t29184b24308&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.58,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+Wangari Maathai founded the Green Belt Movement and won the 2004 Nobel Peace Prize.",https://gooey.ai/agent/?run_id=dn5y9o963u8g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.31,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianza vuguvugu la Green Belt.""
+
+<think>
+
+</think>
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=q8alqbjgql1b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.27,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+Wangari Maathai — Kenyan Nobel Peace Prize winner who founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=dw9sglfpke1u&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.56,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+Wangari Maathai won the Nobel Peace Prize. She founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=c23pcu12206y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.7,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianza vuguvugu la Green Belt.""
+
+**Wangari Maathai** was the Kenyan Nobel Peace Prize winner who founded the Green Belt Movement.
+
+- She won the Nobel Peace Prize in 2004.
+- The Green Belt Movement focused on environmental conservation and tree planting.
+- She was also known for her advocacy on women's rights and democracy in Kenya.",https://gooey.ai/agent/?run_id=uctw6036l5du&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.04,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+The answer is **Wangari Maathai**.
+
+She was a Kenyan environmental activist. She founded the Green Belt Movement in 1977. The movement planted millions of trees across Kenya. She won the Nobel Peace Prize in 2004. She was the first African woman to win this prize. She died in 2011.",https://gooey.ai/agent/?run_id=rjjajrt4oc21&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.85,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+The winner is Wangari Maathai.
+
+She won the Nobel Peace Prize in 2004.
+
+She founded the Green Belt Movement in 1977.
+
+The movement focuses on tree planting, environmental conservation, and women's empowerment in Kenya.",https://gooey.ai/agent/?run_id=ij188n7kwe5k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.9,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianzisha vuguvugu la Green Belt.""
+
+That is Wangari Maathai.
+
+She won the Nobel Peace Prize in 2004. She was the first African woman to receive this award. She founded the Green Belt Movement in 1977. The movement has planted millions of trees across Kenya. It also empowers women and fights for environmental conservation and democracy.",https://gooey.ai/agent/?run_id=3suna3oimeks&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.65,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=a6e8ea8b0pxv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.34,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=yoabq0o94w9c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.24,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianza vuguvugu la Green Belt.""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=p3oao6slzt6a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.61,"🎧: ""mtaji mshindi wa tuzo ya amani ya nobel kutoka kenya ambaye alianzisha vuguvugu la green belt""
+
+Professor Wangari Maathai is the Kenyan Nobel Peace Prize winner who founded the Green Belt Movement. She was awarded the Nobel Peace Prize in 2004.",https://gooey.ai/agent/?run_id=54v6qj5bn3g7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.25,"🎧: ""Mtaja mshindi wa tuza ya amani ya Nobell kutoka Kenya ambaye alianzisha viguvu la Greenbelt.""
+
+The Nobel Peace Prize winner from Kenya who founded the Green Belt Movement is Professor Wangari Maathai. She won the award in 2004.",https://gooey.ai/agent/?run_id=x6nqg8qzzm0q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.46,"🎧: ""Mtadi mshindi wa tuzo ya amani ya Nobel kutoka Kenya ambaye alianza vuguvugu la Green Belt.""
+
+The Nobel Peace Prize winner from Kenya who founded the Green Belt Movement is Professor Wangari Maathai.",1.0,0.8,0.8,0.8,0.8,0.8,1.0,0.8,0.8,0.6,0.6,0.6,0.6,1.0,1.0,1.0,0.8,0.8,0.8,"All candidates identify Wangari Maathai, matching the reference answer. After ignoring hidden reasoning blocks, the highest scores go to concise answers that essentially just give the name: 0 Gemini 3.1 Pro - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, and 15 DeepSeek V4 + GPT Transcribe - Swahili. Candidates 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili are still correct but include modest extra explanatory material, so they receive 0.8. Candidates 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili are accurate but include substantially more extra background beyond the reference answer, so they receive 0.6."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/44ed9554-8d8c-11f0-ac41-02420a0001f5/Generic_Q20_SW_A04.oga.wav,What is the main legislative body in Kenya called?,Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?,Parliament (National Assembly and Senate),Bunge (Bunge la Kitaifa na Seneti),https://gooey.ai/agent/?run_id=22zehlefrj3a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.63,It is called the Parliament of Kenya.,https://gooey.ai/agent/?run_id=cvc1g6f2f7uj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.83,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making body in Kenya is the Parliament. It is made up of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=qfyijk3svq93&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.97,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+It is called the Parliament of Kenya.",https://gooey.ai/agent/?run_id=guau2i6s4dwb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.08,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main legislative body in Kenya is the Parliament. It consists of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=lbaqmk7xk7u3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.57,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making body in Kenya is called Parliament.",https://gooey.ai/agent/?run_id=2j9g8nttou5z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.51,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making body in Kenya is Parliament.",https://gooey.ai/agent/?run_id=ni0vh9vhji8w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.02,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The Parliament of Kenya.",https://gooey.ai/agent/?run_id=zerrt59vvfzu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.9,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making body in Kenya is called **Parliament**.
+
+It has two houses:
+- **National Assembly**
+- **Senate**",https://gooey.ai/agent/?run_id=uwuyytrl8g8f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.25,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making body in Kenya is called **Parliament**.
+
+It has two houses:
+- **National Assembly**
+- **Senate**",https://gooey.ai/agent/?run_id=m7zps1s2tn6x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.14,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main legislative body in Kenya is called **Parliament**.
+
+It consists of two houses:
+- **National Assembly**
+- **Senate**",https://gooey.ai/agent/?run_id=rp22a786pjel&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.7,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making institution in Kenya is called Parliament.
+
+It has two houses:
+- The National Assembly
+- The Senate
+
+Parliament debates and passes laws for the country.",https://gooey.ai/agent/?run_id=8m477i83glrl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.41,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making institution in Kenya is **Parliament**.
+
+It is called ""Bunge"" in Swahili.
+
+Parliament has two houses:
+- The National Assembly
+- The Senate",https://gooey.ai/agent/?run_id=hvi5v8gn9dbo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.3,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making institution in Kenya is called **Parliament**.
+
+In Swahili, it is known as **Bunge**.
+
+Parliament has two houses:
+- The National Assembly
+- The Senate",https://gooey.ai/agent/?run_id=j2jhmp0bfq89&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.31,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making institution in Kenya is called Parliament.",https://gooey.ai/agent/?run_id=asecjgd95n28&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.77,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+Parliament.",https://gooey.ai/agent/?run_id=xmnrq053kf19&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.05,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making institution in Kenya is called Parliament.",https://gooey.ai/agent/?run_id=7hosvrahdmtp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.21,"🎧: ""asasi kuu ya kutunga sheria nchini kenya inaitwaje""
+
+The main law-making body in Kenya is the Parliament. It consists of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=q4hhmoos0xi1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.06,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making body in Kenya is the Parliament of Kenya. It consists of the National Assembly and the Senate.",https://gooey.ai/agent/?run_id=u6sqztdz5xf2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.54,"🎧: ""Asasi kuu ya kutunga sheria nchini Kenya inaitwaje?""
+
+The main law-making body in Kenya is the Parliament. It is made up of the National Assembly and the Senate.",0.8,1.0,0.8,1.0,0.8,0.8,0.8,1.0,1.0,1.0,0.6,1.0,1.0,0.8,0.8,0.8,1.0,1.0,1.0,"Top scores went to 1 Gemini 3.1 Pro + Omni - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili because they correctly identify Parliament and include its two houses, the National Assembly and Senate, matching the reference answer. Mid scores like 0 Gemini 3.1 Pro - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, and 15 DeepSeek V4 + GPT Transcribe - Swahili identify Parliament correctly but omit the National Assembly and Senate. 10 Kimi K3 + Omni - Swahili is still correct on the main answer but adds extra explanatory detail beyond the reference, so it was scored lower for excess information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/54bb3946-8d8c-11f0-a0ff-02420a0001f8/Generic_Q21_SW_A04.oga.wav,Which year was the current Kenyan constitution promulgated?,Katiba ya sasa ya Kenya ilitangazwa mwaka gani?,2010,2010,https://gooey.ai/agent/?run_id=o0f6ul84h6j3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.77,The current Constitution of Kenya was promulgated in 2010.,https://gooey.ai/agent/?run_id=ilth6k339poa&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.6,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=mbo5a5hp7h7l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.88,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=4wvo1ljlls4k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.3,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=c5ufnmr2dw2k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+Kenya’s current Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=csqed1heqkbb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.95,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+Kenya’s current Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=nir1rk87qmop&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.76,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+Kenya’s current Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=fcj6hhc90lx1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.22,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Kenyan constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=jkrycr9br4am&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.2,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=5c4opqf7uz6v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.08,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=jchq134jhg2l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.02,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in 2010. Specifically on August 27, 2010, after a referendum held on August 4, 2010.",https://gooey.ai/agent/?run_id=dj3b8octa7kc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.04,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010. It was signed into law on August 27, 2010. This followed a national referendum held on August 4, 2010.",https://gooey.ai/agent/?run_id=1iqa3p5o7xqg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.01,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010. It was signed into law on August 27, 2010. This followed a national referendum held on August 4, 2010.",https://gooey.ai/agent/?run_id=5nieeehe0eer&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.98,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=gl28jvf4yume&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.4,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=i5n67xbgc66d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.92,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=ckc84o7wilzz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.24,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in the year 2010. It was officially signed into law on August 27, 2010.",https://gooey.ai/agent/?run_id=7z4xwjnh82ib&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.06,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010. It was officially adopted on August 27, 2010.",https://gooey.ai/agent/?run_id=iq6o04w875gc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.47,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current constitution of Kenya was promulgated in the year 2010.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,1.0,0.6,0.6,1.0,"All candidates correctly identify 2010 as the promulgation year, matching the reference answer. 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili give the correct answer with little or no unnecessary detail, so they receive 1.0. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, and 17 Gemini 3.7 Flash + Intron - Swahili are also correct but include extra date/context beyond the asked-for year, so they receive 0.6 under the rubric for mostly accurate with too much extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/671bcf1a-8d8c-11f0-ac41-02420a0001f5/Generic_Q22_SW_A10.opus.wav,Which major archaeological site in northern Kenya provides evidence of early human evolution?,Ni eneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?,Koobi Fora,Koobi Fora,https://gooey.ai/agent/?run_id=s81zs9hyiity&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.65,The main archaeological site in northern Kenya is Koobi Fora. It is located in the Lake Turkana basin.,https://gooey.ai/agent/?run_id=don2ehv3hzu2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.62,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+The main archaeological site is Koobi Fora. It is located in the Lake Turkana basin. This site has provided many fossils of early humans.",https://gooey.ai/agent/?run_id=qtf4gefku5d6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.68,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+The main archaeological site is the Turkana Basin. Specifically, the Koobi Fora region near Lake Turkana provides this evidence.",https://gooey.ai/agent/?run_id=pqnbzt3ota8r&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.9,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+The main archaeological site is Koobi Fora. It is located near Lake Turkana. It provides important fossil evidence of early humans.",https://gooey.ai/agent/?run_id=9t1hm7f72y6c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.41,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+<think>
+
+**Exploring Koobi Fora**
+
+I need to provide information about Koobi Fora, which is an archaeological site located in Northern Kenya. It has significant evidence related to early human evolution, particularly in the Turkana Basin. I want to keep it concise and focused, but it's essential to highlight its importance in understanding humanity's past. So, that’s my goal: give a short yet informative overview of this fascinating site.
+
+</think>
+
+Koobi Fora, near Lake Turkana, is the major archaeological site. It contains important fossils and tools showing early human evolution.",https://gooey.ai/agent/?run_id=crq01nfx83ya&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.2,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+<think>
+
+**Identifying archaeological sites**
+
+I need to answer about Koobi Fora, located in the Turkana region of northern Kenya by Lake Turkana. The user wants to know if it's a significant archaeological site that offers evidence of early human evolution. I think I should provide a brief response in English that captures its importance and contribution to understanding our evolutionary history. Let's keep it concise and informative while ensuring accuracy!
+
+</think>
+
+Koobi Fora, near Lake Turkana, is a major archaeological site with important evidence of early human evolution.",https://gooey.ai/agent/?run_id=0rz8jb7i53pq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.8,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+<think>
+
+**Identifying archaeological sites**
+
+I need to parse the Swahili question asking which major archaeological site in northern Kenya provides evidence of early human development. I'm thinking it likely refers to Koobi Fora, which is located near Lake Turkana. This site is well-known for its significant contributions to our understanding of early human development. I should respond in concise English to keep the answer straightforward and clear.
+
+</think>
+
+Koobi Fora, near Lake Turkana, is the major archaeological site. It contains important fossils and tools showing early human evolution.",https://gooey.ai/agent/?run_id=czqr798jvrc7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.88,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+**Koobi Fora**, located near Lake Turkana in northern Kenya, is a major archaeological site.
+
+- It has provided important fossil evidence of early human evolution.
+- Many hominid fossils, including early Homo species, have been discovered there.
+- The site is famous for research led by the Leakey family.",https://gooey.ai/agent/?run_id=3kfph0zx4cql&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.97,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+The major paleontological/archaeological area in northern Kenya providing evidence of early human evolution is the **Lake Turkana Basin** (including sites like Koobi Fora).",https://gooey.ai/agent/?run_id=3xi2180ny9dt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.78,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+**Koobi Fora**, located near Lake Turkana in northern Kenya, is the major archaeological site providing evidence of early human evolution.
+
+It has yielded important fossil discoveries, including remains from early human ancestors like Homo habilis and Homo erectus.",https://gooey.ai/agent/?run_id=vpshizlqd15a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.82,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+The major archaeological site is the Lake Turkana region, specifically Koobi Fora.
+
+It is located in northern Kenya, on the eastern shores of Lake Turkana. The site is part of Sibiloi National Park. It is a UNESCO World Heritage Site.
+
+Famous fossil discoveries there include:
+- Turkana Boy, a nearly complete Homo erectus skeleton found in 1984.
+- Fossils of Homo habilis and Australopithecus species.
+- Some of the oldest stone tools known, dating back over 3 million years.
+
+The Leakey family led much of the research there. These findings are key evidence for early human evolution.",https://gooey.ai/agent/?run_id=b2oy1j0har2g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.69,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+The main geological area is the Lake Turkana Basin.
+
+It is located in northern Kenya, in the Great Rift Valley.
+
+It is one of the world's most important sites for early human fossils.
+
+Key sites there include Koobi Fora, Lomekwi, and Nariokotome.
+
+Famous finds include the Turkana Boy, a nearly complete Homo erectus skeleton.
+
+Stone tools from Lomekwi, dated to 3.3 million years ago, are the oldest ever found.
+
+This is why the area is sometimes called the ""Cradle of Humankind.""",https://gooey.ai/agent/?run_id=12oahidkodd4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+The major archaeological site is **Koobi Fora**, located on the eastern shores of **Lake Turkana** in northern Kenya, within Sibiloi National Park.
+
+Key facts:
+- It is one of the world's richest sites for early human fossils.
+- Fossils of *Homo habilis*, *Homo erectus*, and other hominins have been found there.
+- The famous ""Turkana Boy"" skeleton was discovered nearby at Nariokotome in 1984.
+- The Lake Turkana region is often called the ""Cradle of Mankind.""",https://gooey.ai/agent/?run_id=frs11evlh6cx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.36,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+Koobi Fora is a major archaeological site in northern Kenya.
+
+It provides strong evidence of early human evolution.",https://gooey.ai/agent/?run_id=ljqbcehv52pn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.55,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+Lake Turkana, especially the Koobi Fora site.",https://gooey.ai/agent/?run_id=u34s0ljfwmkn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.76,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+Koobi Fora, near Lake Turkana, is the main archaeological site in northern Kenya with evidence of early human evolution.",https://gooey.ai/agent/?run_id=s2stvtnnw13c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.39,"🎧: ""ni eneo lipi kuu la kiakiolojia kaskazini mwa kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu""
+
+The main archaeological site is Koobi Fora, located around Lake Turkana. It has provided vital fossil evidence of early human evolution.",https://gooey.ai/agent/?run_id=khsdryq1po72&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.96,"🎧: ""Ni eneo lipi kuu la kiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu.""
+
+Koobi Fora, located on the eastern shores of Lake Turkana, is the main archaeological site. It has provided crucial fossil evidence of early human evolution. This region is often called the ""Cradle of Mankind.""",https://gooey.ai/agent/?run_id=y8dqt0iz0hmf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.06,"🎧: ""Nyeneo lipi kuu la kiakiolojia kaskazini mwa Kenya linalotoa ushahidi wa ukuaji wa awali wa binadamu?""
+
+The main archaeological site is Koobi Fora, located near Lake Turkana. It provides crucial fossil evidence of early human evolution.",1.0,1.0,0.8,1.0,1.0,1.0,1.0,1.0,0.8,1.0,0.8,0.6,1.0,1.0,0.8,1.0,1.0,1.0,1.0,"Most candidates correctly identify 0 Gemini 3.1 Pro - Swahili 1 Gemini 3.1 Pro + Omni - Swahili 3 Gemini 3.1 Pro + GPT Transcribe - Swahili 4 GPT 5.6 Sol + Omni - Swahili 5 GPT 5.6 Sol + Intron - Swahili 6 GPT 5.6 Sol + GPT Transcribe - Swahili 7 Claude Sonnet 5 + Omni - Swahili 9 Claude Sonnet 5 + GPT Transcribe - Swahili 12 Kimi K3 + GPT Transcribe - Swahili 13 DeepSeek V4 + Omni - Swahili 15 DeepSeek V4 + GPT Transcribe - Swahili 16 Gemini 3.7 Flash + Omni - Swahili 17 Gemini 3.7 Flash + Intron - Swahili and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili as Koobi Fora, matching the reference answer, so they receive 1.0 despite minor extra context. 2 Gemini 3.1 Pro + Intron - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, and 14 DeepSeek V4 + Intron - Swahili broaden the answer to the Turkana Basin/Lake Turkana while still including Koobi Fora, so they receive 0.8. 10 Kimi K3 + Omni - Swahili says the Lake Turkana region, specifically Koobi Fora, which is mostly accurate but less direct than the reference, so 0.8. 11 Kimi K3 + Intron - Swahili gives the broader Lake Turkana Basin rather than Koobi Fora as the main answer, so it is mostly accurate but too broad and receives 0.6. Hidden reasoning in 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, and 6 GPT 5.6 Sol + GPT Transcribe - Swahili was ignored as instructed."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/78c26eb8-8d8c-11f0-949a-02420a0001f9/Generic_Q23_SW_A10.opus.wav,What is the largest ethnic group in Kenya?,"Je, ni kabila lipi kubwa zaidi nchini Kenya?",Kikuyu,Kikuyu,https://gooey.ai/agent/?run_id=v5ewa3s1u2p9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.49,The largest tribe in Kenya is the Kikuyu.,https://gooey.ai/agent/?run_id=itc3dz1ttlw5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.57,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The largest tribe in Kenya is the Kikuyu.",https://gooey.ai/agent/?run_id=tfkf4uq4313l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.95,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The largest tribe in Kenya is the Kikuyu.",https://gooey.ai/agent/?run_id=iux97nxit3c3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.16,"🎧: ""Je, ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The largest tribe in Kenya is the Kikuyu.",https://gooey.ai/agent/?run_id=qsahx1gdr3ym&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.88,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The Kikuyu are the largest ethnic group in Kenya by population.",https://gooey.ai/agent/?run_id=8fy85afyoe7j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.69,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=051e8vde7o1k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.72,"🎧: ""Je, ni kabira lipi kubwa zaidi nchini Kenya?""
+
+<think>
+
+**Determining Kenya's largest tribe**
+
+I need to provide an answer to the user's question about the largest tribe in Kenya. It seems like the Kikuyu might be the right choice, as they make up about 17% of the population according to the 2019 census. I want to keep my response straightforward and avoid using potentially loaded terms like ""ethnic community."" So, I’ll make sure to present this information clearly and concisely!
+
+</think>
+
+The Kikuyu are the largest ethnic community in Kenya by population.",https://gooey.ai/agent/?run_id=iva0ttwru1ky&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.28,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The largest ethnic group in Kenya is the **Kikuyu**.",https://gooey.ai/agent/?run_id=mokdjv3ra9pe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.65,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The largest ethnic group in Kenya is the **Kikuyu**.",https://gooey.ai/agent/?run_id=sz9tehs9b4yh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.51,"🎧: ""Je, ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The largest ethnic group in Kenya is the **Kikuyu**.",https://gooey.ai/agent/?run_id=ftx56pap19up&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.01,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The Kikuyu is the largest ethnic group in Kenya. They make up about 17 to 20 percent of the population. Other large groups include the Luhya, Kalenjin, and Luo.",https://gooey.ai/agent/?run_id=b6qw9ir6np7s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.72,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The Kikuyu is the largest ethnic group in Kenya. They make up about 17-22% of the population. They mainly live in the Central region of Kenya.",https://gooey.ai/agent/?run_id=mppvfcay3u8j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.61,"🎧: ""Je, ni kabira lipi kubwa zaidi nchini Kenya?""
+
+The Kikuyu are the largest ethnic group in Kenya. They make up about 17 to 22 percent of the population. They mainly live in the Central Highlands region.",https://gooey.ai/agent/?run_id=dnlv71i5pq1y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.03,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=3b6wmg2gi91k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.55,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=jtb7fkndfy8x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.57,"🎧: ""Je, ni kabira lipi kubwa zaidi nchini Kenya?""
+
+Nairobi is the largest city in Kenya.",https://gooey.ai/agent/?run_id=gzhwgpr3847b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.2,"🎧: ""je ni kabila lipi kubwa zaidi nchini kenya""
+
+The Kikuyu is the largest tribe in Kenya.",https://gooey.ai/agent/?run_id=uz1nmtnj7wos&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.15,"🎧: ""Je ni kabila lipi kubwa zaidi nchini Kenya?""
+
+The Kikuyu is the largest tribe in Kenya.",https://gooey.ai/agent/?run_id=wqybcatxcl8e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.41,"🎧: ""Je, ni kabira lipi kubwa zaidi nchini Kenya?""
+
+The largest ethnic group in Kenya is the Kikuyu.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,0.0,1.0,1.0,1.0,"The reference answer is 'Kikuyu'. After ignoring quoted transcription text and hidden reasoning blocks, most candidates correctly identify Kikuyu as the largest ethnic group/tribe in Kenya, so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili receive full scores. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili are correct but add unnecessary demographic/detail information, so they are scored lower for extra information. 15 DeepSeek V4 + GPT Transcribe - Swahili is incorrect because it answers about Nairobi being the largest city rather than the largest ethnic group."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a01f0cc8-8d8c-11f0-ac41-02420a0001f5/Generic_Q25_SW_A03.ogg.wav,Which island town in Kenya is a UNESCO World Heritage Site known for its Swahili architecture?,Ni mji upi wa kisiwa nchini Kenya ambao ni Eneo la Urithi wa Dunia wa UNESCO unaojulikana kwa usanifu majengo wake wa Kiswahili?,Lamu,Lamu,https://gooey.ai/agent/?run_id=1yc2ti5qhkvm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.82,The island town is Lamu.,https://gooey.ai/agent/?run_id=0q8ganmb2khj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.58,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+The island town is Lamu. Lamu Old Town is famous for its well-preserved Swahili architecture.",https://gooey.ai/agent/?run_id=yhaqdc9j5vtz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.8,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+The island town is Lamu Old Town.",https://gooey.ai/agent/?run_id=mzejj3r4i77k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.12,"🎧: ""Ni mji mkuu wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+It is Lamu Old Town.",https://gooey.ai/agent/?run_id=eyvjz00gq58b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+Lamu Old Town. It is a UNESCO World Heritage Site known for its traditional Swahili architecture.",https://gooey.ai/agent/?run_id=sbskd5olauaj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.16,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+<think>
+
+**Identifying UNESCO Site**
+
+I need to find out which island town in Kenya is recognized as a UNESCO World Heritage Site for its Swahili architecture. That would be Lamu Old Town. I also realized I need to remember to be more careful with typos since I accidentally typed ""Uniscal"" instead of UNESCO. Keeping it concise and clear is essential, so I’ll ensure my responses stay accurate!
+
+</think>
+
+Lamu Old Town, on Lamu Island, Kenya. It is a UNESCO World Heritage Site known for its Swahili architecture.",https://gooey.ai/agent/?run_id=m8esk35gipai&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.7,"🎧: ""Ni mji mkuu wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+<think>
+
+**Identifying the location**
+
+I need to parse that it's about the capital or main town of an island in Kenya, recognized as a UNESCO World Heritage site famous for its Swahili architecture. It sounds like it’s referring to Lamu Town on Lamu Island. I’ll focus on asking for further identification while keeping my answer clear and concise in English. Let’s make sure the user feels understood in this inquiry!
+
+</think>
+
+It is Lamu Town, on Lamu Island. It is a UNESCO World Heritage Site known for its Swahili architecture.",https://gooey.ai/agent/?run_id=jk8nhmf32ln1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.69,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+Lamu Old Town is the Kenyan island town that is a UNESCO World Heritage Site, known for its Swahili architecture.",https://gooey.ai/agent/?run_id=b647xrgjtevs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.0,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+Lamu Old Town is the island city in Kenya known for its Swahili architecture and UNESCO World Heritage status.",https://gooey.ai/agent/?run_id=8os6pvw4co0b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.59,"🎧: ""Ni mjiopi wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+Lamu Old Town is the UNESCO World Heritage Site island in Kenya, known for its Swahili architecture.",https://gooey.ai/agent/?run_id=p6x4aop3dv1e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.24,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+The town is Lamu Old Town. It is located on Lamu Island in Kenya. It became a UNESCO World Heritage Site in 2001. It is famous for its traditional Swahili architecture. It is one of the oldest and best-preserved Swahili settlements in East Africa.",https://gooey.ai/agent/?run_id=u7g2qe8nt05w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.18,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+The town is **Lamu Old Town**.
+
+It is located on Lamu Island, off the northern coast of Kenya. It was designated a UNESCO World Heritage Site in 2001. It is one of the oldest and best-preserved Swahili settlements in East Africa. It is famous for its traditional Swahili architecture, narrow streets, and carved wooden doors.",https://gooey.ai/agent/?run_id=x0kw54yqfq9d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.67,"🎧: ""Ni mji mkuu wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+The town you are describing is **Lamu Old Town**.
+
+It is located on Lamu Island in Kenya. It became a UNESCO World Heritage Site in 2001. It is famous for its traditional Swahili architecture, narrow streets, and coral stone buildings. It is one of the oldest and best-preserved Swahili settlements in East Africa.",https://gooey.ai/agent/?run_id=78gz4armlnf9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.45,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+Lamu Old Town. It is on Lamu Island. It is a UNESCO World Heritage Site. It is known for its Swahili architecture.",https://gooey.ai/agent/?run_id=b3p80dc4kohi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.56,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=egayb2a2xso5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,44.99,"🎧: ""Ni mji mkuu wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+Lamu.",https://gooey.ai/agent/?run_id=chirsfoki75c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.83,"🎧: ""ni mji upi wa kisiwa nchini kenya ambao ni eneo la urithi wa dunia wa unesco unaojulikana kwa usanifu majengo wake wa kiswahili""
+
+The town is Lamu Old Town on Lamu Island.",https://gooey.ai/agent/?run_id=8kk14h6xqlvj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.03,"🎧: ""Ni mji upi wa kisiwa nchini Kenya ambao ni eneo la urithi wa dunia wa Uniscal unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+Lamu Old Town is the UNESCO World Heritage site known for its Swahili architecture. It is located on Lamu Island in Kenya.",https://gooey.ai/agent/?run_id=88ksm2ju7wmk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.45,"🎧: ""Ni mji mkuu wa kisiwa nchini Kenya, ambao ni eneo la urithi wa dunia wa UNESCO, unaojulikana kwa usanifu majengo wake wa Kiswahili.""
+
+That is Lamu Old Town. It is located on Lamu Island in Kenya.",1.0,1.0,1.0,0.8,1.0,1.0,0.8,1.0,1.0,1.0,0.8,0.8,0.8,0.8,1.0,1.0,0.8,0.8,0.8,"Most candidates correctly identify the answer as Lamu or Lamu Old Town, which is sufficiently close to the reference answer 'Lamu'. 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 14 DeepSeek V4 + Intron - Swahili, and 15 DeepSeek V4 + GPT Transcribe - Swahili preserve the full meaning well. 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili are still correct but include either slightly more extra detail than needed or minor transcription drift such as 'mji mkuu' instead of 'mji upi', so they score slightly lower. Hidden reasoning was ignored for 5 GPT 5.6 Sol + Intron - Swahili and 6 GPT 5.6 Sol + GPT Transcribe - Swahili per instructions."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/ab012b6c-8d8c-11f0-ac41-02420a0001f5/Agriculture_Q26_SW_A03.ogg.wav,Which bean variety is suitable for dryland agro-ecological zone in Kenya?,Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya?,"In Kenya's dry agroecological zones, the most suitable bean varieties are drought-tolerant and early-maturing. Some recommended varieties include: Rosecoco (GLP 2), Chelalang, Mwezi Moja, Nyota and KAT Bean Series (KAT B1, KAT B9, KAT X56). These varieties are ideal for dryland farming due to their ability to withstand water stress and still produce reasonable yields.","Katika maeneo ya kilimo Kenya, aina zinazofaa zaidi za maharagwe ni zile zinazostahimili ukame na zinazokomaa mapema. Baadhi ya aina zilizopendekezwa zinajumuisha: Rosecoco (GLP 2), Chelalang, Mwezi Moja, Nyota pamoja na KAT Bean Series (KAT B1, KAT B9, KAT X56). Aina hizi ni bora kwa kilimo cha nchi kavu kutokana na uwezo wao wa kustahimili uhaba wa maji na bado zinaleta mazao ya kuridhisha.",https://gooey.ai/agent/?run_id=g6hha4bp536i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.15,"Drought-tolerant and early-maturing beans are best for dry areas. Good varieties include Katumani beans, such as Kat B1 and Kat B9. Mwezi Moja is also a great choice because it matures very quickly. Mwitemania is another suitable variety for dryland farming in Kenya.",https://gooey.ai/agent/?run_id=vi9ihv7fz8ln&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.46,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+Drought-tolerant beans are the best for dry areas in Kenya. 
+
+Here are the most suitable varieties:
+* **Katumani varieties:** Seeds like KAT B1, KAT B9, and KAT X56 are highly recommended.
+* **Mwitemania (GLP 92):** This is a very popular and strong choice for low-rainfall areas.
+* **Tepary beans:** These are excellent for extremely dry zones.
+* **Yellow beans:** They also grow very well with little rainfall.
+
+Always buy certified seeds from a trusted agrovet for the best harvest.",https://gooey.ai/agent/?run_id=tvl6dxgddi7x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.11,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+The best beans for dryland farming in Kenya are drought-tolerant and fast-maturing varieties. 
+
+Here are the most suitable types:
+* **Katumani Beans (KAT B1, KAT B9, and KAT X56):** These are specifically bred for dry areas.
+* **Mwezi Moja (GLP 1004):** This variety matures very quickly before the rains stop.
+* **Mwitemania (GLP 92):** This is a highly drought-resistant bean variety. 
+
+Always plant early at the onset of the rains for the best harvest.",https://gooey.ai/agent/?run_id=i6axbt3cnxer&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.19,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+Drought-tolerant bean varieties are best for dryland farming in Kenya. 
+
+You should plant Katumani varieties like KAT B1, KAT B9, and KAT X56. 
+Mwitemania (GLP 92) is also a very good choice for dry areas. 
+Mwezi Moja (GLP 1004) is excellent because it matures very quickly. 
+
+These varieties require little rainfall to grow successfully. 
+Always remember to buy certified seeds from a registered local agrovet.",https://gooey.ai/agent/?run_id=fy74it1rjdki&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.66,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+<think>
+
+**Identifying suitable bean types for Kenya**
+
+I need to find suitable bean varieties for ASAL regions in Kenya. I want to keep it short, mentioning that drought-tolerant varieties depend on the county and altitude. Some examples could include Katumani varieties like KAT B1, KAT B9, KAT X56, KAT X69, and KAT X90, as well as medium varieties like Rosecoco GLP2. I should also mention KALRO varieties and possibly Nyota, Angaza, and Faida. It's essential to advise using certified seeds and extension services for accuracy!
+
+</think>
+
+Drought-tolerant, early-maturing bean varieties are best for Kenya’s drylands. Examples include:
+
+- KAT B1  
+- KAT B9  
+- KAT X56  
+- KAT X69  
+- KAT X90  
+- Nyota  
+
+Choose certified seed recommended for your county. Ask a KALRO office or county agricultural officer, because suitability depends on rainfall, altitude, and soil.",https://gooey.ai/agent/?run_id=e932hjyh9f99&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.86,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+<think>
+
+**Interpreting dryland farming**
+
+I need to interpret the question about the ""dryland farming zone nzuri,"" which might be asking for suitable bean varieties for Kenya’s dryland agroecological zones. I should focus on drought-tolerant options like Katumani varieties, including KAT B1, KAT B9, KAT X56, and KAT X69, as well as Rosecoco for semi-arid areas. The phrase ""nchi kavu nzuri"" seems to refer to a ""good dryland farming zone,"" so I must provide varieties and recommend checking local resources.
+
+</think>
+
+For Kenya’s dry and semi-arid areas, suitable drought-tolerant bean varieties include:
+
+- KAT B1  
+- KAT B9  
+- KAT X56  
+- KAT X69  
+- KAT X92  
+- KAT X95  
+
+Choose certified seed based on local rainfall, soil, and advice from your county agricultural officer.",https://gooey.ai/agent/?run_id=k38bk9vzkg9y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.73,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+<think>
+
+**Clarifying bean varieties for drylands**
+
+It looks like there's a typo with “Mienigani” probably meant to be “Mienendo gani?” The user seems to be asking which bean varieties are suitable for dryland farming in Kenya. I should provide a concise answer in English about drought-tolerant varieties and note the importance of factors like county, altitude, and seed certification. I’ll mention varieties like KAT B1, KAT B9, KAT X56, KAT X69, and possibly “Nyota” and cowpeas as well. I'll keep the sentences short!
+
+</think>
+
+Suitable drought-tolerant bean varieties for Kenya’s drylands include:
+
+- KAT B1  
+- KAT B9  
+- KAT X56  
+- KAT X69  
+- Nyota  
+- Mwezi Moja  
+
+Choose early-maturing varieties. Use certified seed from KALRO or licensed dealers. Confirm the best variety with your county agricultural officer because rainfall, soil, and altitude differ.",https://gooey.ai/agent/?run_id=gj4ogqblab1h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.06,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+Drought-tolerant bean varieties suitable for dry areas in Kenya include:
+
+- **KAT B1 and KAT B9** – improved varieties bred for drought resistance.
+- **Katumani beans** – adapted to low rainfall areas.
+- **Rosecoco beans** – tolerate dry conditions fairly well.
+- **Mwitemania (Yellow beans)** – common in dry parts of Eastern Kenya.
+- **Cowpeas and green grams (ndengu)** – not true beans, but often recommended alongside beans for dry areas due to high drought tolerance.
+
+**Tips:**
+- Choose certified seeds from KALRO or local agrovets.
+- Plant early with the first rains to use available moisture efficiently.
+- Practice water harvesting and mulching to conserve soil moisture.",https://gooey.ai/agent/?run_id=f5mua2gzbxfb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,36.21,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+For dry/semi-arid areas, choose drought-tolerant bean varieties. Good options include:
+
+- **KAT B1 and KAT B9** – bred for drought tolerance.
+- **Rosecoco (Nyayo)** – performs well in low rainfall areas.
+- **Mwitemania** – tolerant to dry conditions.
+- **Canadian Wonder** – widely grown, fairly drought-resistant.
+
+Tips:
+- Choose early-maturing varieties (60–90 days).
+- Plant with the first rains to use available moisture well.
+- Use certified seed for better yield and disease resistance.",https://gooey.ai/agent/?run_id=2rjzlx3w3krq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.31,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+Suitable bean varieties for dry/arid agricultural zones in Kenya include:
+
+- **KAT B1 and KAT B9** – drought-tolerant varieties developed by KALRO
+- **Katumani beans** – bred for low-rainfall areas
+- **Rosecoco (Nyayo)** – performs well in drier zones
+- **Mwitemania** – drought-resistant local variety
+- **Cheupe (Canadian Wonder)** – tolerant to moisture stress
+- **KATB 9** – short maturity period, good for erratic rainfall
+
+**Key traits to look for:**
+- Short maturity period (60–75 days)
+- Drought tolerance
+- Disease resistance (especially bean rust and anthracnose)
+
+**Tip:** Consult your local KALRO office or agricultural extension officer to confirm the best variety for your specific dry area, since soil and rainfall patterns vary.",https://gooey.ai/agent/?run_id=gg8fzvxqqb80&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.67,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+For dryland (semi-arid) areas in Kenya, choose drought-tolerant and early-maturing bean varieties. Good options include:
+
+- **Katumani beans (KAT B1, KAT B9)** – developed by KALRO Katumani; very drought tolerant.
+- **Mwezi Moja** – early maturing; escapes drought.
+- **Rose Coco (GLP-2)** – performs well in semi-arid zones.
+- **Nyota and Faida** – newer drought-tolerant varieties; also rich in iron.
+- **Chelalang and Ciankui** – tolerate hot, dry conditions.
+
+Tips:
+- Plant early-maturing varieties at the start of the rains.
+- In very dry areas, consider cowpeas (kunde) or green grams (ndengu) instead. They tolerate drought better than common beans.
+
+For the best certified seed, check with your local KALRO center or county agriculture office.",https://gooey.ai/agent/?run_id=2i9c5bw1gwlk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.93,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+For dry farming areas in Kenya, these bean varieties work well:
+
+**Katumani bean varieties (developed by KALRO for drylands):**
+- KAT B1
+- KAT B9
+- KAT X56
+- KAT X69
+
+**Other drought-tolerant varieties:**
+- Yellow beans
+- Pinto beans
+- Mwitemania
+
+**Key features of these varieties:**
+- They mature early (60–75 days).
+- They tolerate low rainfall.
+- They escape drought before it becomes severe.
+
+**Tips for dry areas:**
+- Plant early with the first rains.
+- Use certified seeds from agro-dealers.
+- Practice water conservation like mulching.
+
+For the best variety for your specific area, consult your local agricultural extension officer.",https://gooey.ai/agent/?run_id=060jljc2e9ez&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.35,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+For dry and semi-arid areas in Kenya, use drought-tolerant bean varieties.
+
+Good options include:
+
+- **Katumani beans (KAT B1, KAT B9, KAT X56)** – developed for semi-arid zones like Machakos, Kitui, and Makueni.
+- **Rose coco (GLP-2)** – tolerates dry conditions well.
+- **Mwezi moja** – matures early and suits short rains.
+- **Chelalang** – early maturing and drought tolerant.
+- **Nyota, Angaza, Faida, and Metameta** – newer KALRO varieties, drought tolerant and rich in iron and zinc.
+
+Tips:
+
+- Plant early maturing varieties before the rains end.
+- Use certified seed from agro-dealers or KALRO.
+- Mulch to keep soil moisture.
+
+You can get these seeds from KALRO centers, Kenya Seed Company, or licensed agrovets.",https://gooey.ai/agent/?run_id=2h7b6g4r7gcg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.67,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+Drought-tolerant bean varieties for dryland Kenya include KAT B1, KAT B9, KAT X56, and KAT X69. Early maturing beans like Nyayo and Mwezi Moja are also suitable.",https://gooey.ai/agent/?run_id=5lfoxn02q5oy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.06,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+Drought-tolerant bean varieties like Katumani bean, KAT B1, and Mwitemania are suitable.",https://gooey.ai/agent/?run_id=hy9euvczmd1h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.72,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+Suitable bean varieties for dryland farming in Kenya include KAT B1, KAT X56, KAT B9, KAT B10, GLP 2, GLP 1004, and Nyayo. These are drought-tolerant and early-maturing.",https://gooey.ai/agent/?run_id=ekt24pxmv12m&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.56,"🎧: ""ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nchini kenya""
+
+Bean varieties suitable for dry areas in Kenya include Katumani Bean 1 (KAT B1), KAT B9, KATX56, and Mwitemania (GLP 585). 
+
+Other drought-tolerant varieties developed by KALRO include Nyota, Angaza, and Faida. 
+
+These varieties mature early and require little rainfall.",https://gooey.ai/agent/?run_id=6fk6tlx4uss9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.54,"🎧: ""Ni aina gani ya maharagwe yanayofaa kwa ukanda wa kilimo wa nchi kavu nzuri?""
+
+The best bean varieties for dry and semi-arid areas in Kenya include:
+
+- **KAT B1** (Yellow bean)
+- **KAT B9** (Red bean)
+- **KATX56** and **KATX69**
+- **Mwitemania** (GLP X92)
+- **Angaza** and **Faida**
+
+These varieties mature quickly and tolerate drought well.",https://gooey.ai/agent/?run_id=5qrxqpq3dcw6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.17,"🎧: ""Mienigani ya maharagwe ya naofaa kwa ukanda wa kilimo wa nchi kavu nchini Kenya.""
+
+The best bean varieties for dry areas in Kenya include:
+
+- **KAT B1 (Yellow bean):** Early maturing and drought-tolerant.
+- **KAT B9:** Highly resistant to drought and pests.
+- **Nyota:** High in iron and zinc, and matures quickly.
+- **KATX56 and KATX69:** High-yielding and suitable for low-rainfall areas. 
+- **Chelalang:** Tolerant to heat and dry conditions. 
+
+These varieties are developed by KALRO specifically for semi-arid regions.",0.4,0.6,0.8,0.8,0.6,0.4,0.8,0.6,0.4,0.4,1.0,0.4,1.0,0.8,0.4,0.8,0.8,0.6,0.8,"10 Kimi K3 + Omni - Swahili and 12 Kimi K3 + GPT Transcribe - Swahili best match the reference by naming the key traits (drought tolerance and early maturity) and several of the cited varieties such as Rosecoco/GLP 2, Chelalang, Mwezi Moja, Nyota, and KAT lines. 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili preserve the core meaning but omit some reference varieties or add minor unsupported items. 1 Gemini 3.1 Pro + Omni - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, and 17 Gemini 3.7 Flash + Intron - Swahili are mostly relevant but include more extra or substituted varieties. 0 Gemini 3.1 Pro - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 11 Kimi K3 + Intron - Swahili, and 14 DeepSeek V4 + Intron - Swahili miss several major reference varieties and/or introduce notable unsupported substitutions, so they preserve only part of the reference meaning."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c9d00afe-8d8c-11f0-a0ff-02420a0001f8/Generic_Q29_SW_A03.ogg.wav,Which national park in Kenya is famous for its view of Mount Kilimanjaro?,Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Kilimanjaro?,Amboseli National Park,Hifadhi ya Taifa ya Amboseli,https://gooey.ai/agent/?run_id=au9m8x6uyiup&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.64,It is Amboseli National Park.,https://gooey.ai/agent/?run_id=s9yhgzzqetef&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.77,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+It is Amboseli National Park.",https://gooey.ai/agent/?run_id=l6afvzb10314&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.59,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+Amboseli National Park is known for giving the best views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=ekr4y55rs8ur&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.12,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+It is Amboseli National Park.",https://gooey.ai/agent/?run_id=nkgrxzqgodmn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.61,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+Amboseli National Park is famous for its clear views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=9skl8jckrwb9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.17,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+<think>
+
+**Identifying national parks**
+
+I need to figure out the national park in Kenya that offers views of Mount Kilimanjaro. My best guess is Amboseli National Park, which is famous for those stunning views. Since the user wants a concise reply in English, I’ll just keep it short and sweet: Amboseli National Park is known for its views of Mount Kilimanjaro. That should cover it!
+
+</think>
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=eutfjftkrzul&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.93,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+Amboseli National Park is known for its clear views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=5rmp8cx4evtk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.29,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+Amboseli National Park is the Kenyan national park known for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=lwade489ln5w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.65,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+**Amboseli National Park** is the national park in Kenya well known for offering views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=co9fg0kvmwqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.48,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+Amboseli National Park is the national park in Kenya known for offering great views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=kiuz7l89iir7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.67,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+Amboseli National Park. It is in southern Kenya, near the Tanzania border. It offers clear views of Mount Kilimanjaro. It is also famous for its large elephant herds.",https://gooey.ai/agent/?run_id=h6u5xb33cqxl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.02,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+Amboseli National Park.
+
+It is famous for its clear views of Mount Kilimanjaro. The park lies in southern Kenya, near the Tanzania border. It is also well known for its large elephant herds.",https://gooey.ai/agent/?run_id=sxqw0qm5l4gr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.06,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+Amboseli National Park. It is located in southern Kenya, near the Tanzania border. It is famous for its clear views of Mount Kilimanjaro. It is also known for its large elephant herds.",https://gooey.ai/agent/?run_id=pl5hrkao7tfm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.81,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+Amboseli National Park.",https://gooey.ai/agent/?run_id=vqgaexgf4frf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.68,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+Amboseli National Park.",https://gooey.ai/agent/?run_id=ice396od70n5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.34,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+Amboseli National Park.",https://gooey.ai/agent/?run_id=dvfa80otvct3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.27,"🎧: ""ni mbuga gani ya kitaifa nchini kenya inayojulikana kwa kuweza kuona mlima kilimanjaro""
+
+Amboseli National Park is the national park in Kenya best known for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=eufxvy0l74l5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.0,"🎧: ""Ni mbuga gani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona Mlima Ki?""
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=go65yyguj17d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.42,"🎧: ""Ni bugagani ya kitaifa nchini Kenya inayojulikana kwa kuweza kuona mlima Kilimajaro?""
+
+It is Amboseli National Park.",1.0,1.0,0.8,1.0,0.8,0.8,0.8,0.8,0.8,0.8,0.6,0.6,0.6,1.0,1.0,1.0,0.8,0.8,1.0,"All candidates identify Amboseli National Park, which matches the reference answer. 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili are exact or essentially exact answers, so they receive 1.0. 2 Gemini 3.1 Pro + Intron - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, and 17 Gemini 3.7 Flash + Intron - Swahili add a brief explanatory clause about views of Mount Kilimanjaro, so they are mostly accurate with extra information and receive 0.8. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili include substantially more extra descriptive information beyond the reference answer, so they receive 0.6. Hidden reasoning in 5 GPT 5.6 Sol + Intron - Swahili was ignored and only the final answer was judged."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/de39089c-8d8c-11f0-949a-02420a0001f9/Generic_Q30_SW_A02.oga.wav,What is the name of Kenya’s national airline?,"Je, jina la shirika la ndege la taifa la Kenya ni lipi?",Kenya Airways,Kenya Airways,https://gooey.ai/agent/?run_id=7sul9xtoqk11&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.7,The national airline of Kenya is Kenya Airways.,https://gooey.ai/agent/?run_id=1myrtowvw8ua&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.27,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=11nnz4teps2q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.93,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=aafeel5xd9uv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.22,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=ru5h2gb5eetm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.04,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=p1rnpsqkgd8p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.92,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=788y0blz7z7n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.83,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=c0lsfjp1pesn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.38,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+Kenya Airways is Kenya's national airline.",https://gooey.ai/agent/?run_id=rqmxuk95ljoi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.94,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+The national airline of Kenya is called **Kenya Airways**.",https://gooey.ai/agent/?run_id=p1sc15iqynts&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.0,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+The national airline of Kenya is **Kenya Airways**.",https://gooey.ai/agent/?run_id=0s48wjeyvfly&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.01,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+The national airline of Kenya is **Kenya Airways**. It is the country's flag carrier. Its headquarters are in Nairobi, at Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=76bs5ao1qf7j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.49,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways. It is based in Nairobi at Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=y3rfoqr38iq1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.87,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+Kenya's national airline is Kenya Airways. It is often called ""KQ."" Its hub is at Jomo Kenyatta International Airport in Nairobi.",https://gooey.ai/agent/?run_id=psgy24hvj3b8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.16,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=w5uyolfm99s9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.5,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=nxj3zm6ffntl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.08,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=ojrkq3fm1hg3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.77,"🎧: ""je jina la shirika la ndege la taifa la kenya ni lipi""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=natz69kix89k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.03,"🎧: ""Je, jina la Shirika la Ndege la Taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",https://gooey.ai/agent/?run_id=yxxeyy2ub6fe&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.94,"🎧: ""Je, jina la shirika la ndege la taifa la Kenya ni lipi?""
+
+The national airline of Kenya is Kenya Airways.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,0.6,1.0,1.0,1.0,1.0,1.0,1.0,"Most candidates match the reference answer exactly or paraphrase it accurately, so 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, 17 Gemini 3.7 Flash + Intron - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili receive 1.0. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, and 12 Kimi K3 + GPT Transcribe - Swahili are also correct but include unnecessary extra information beyond the reference answer, so they receive 0.6 under the rubric for mostly accurate answers with too much extra information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/05385042-8d8d-11f0-a0ff-02420a0001f8/Generic_Q32_A02.oga.wav,What is the official residence of the President of Kenya called?,"Je, makazi rasmi ya Rais wa Kenya yanaitwaje?",State House,Ikulu,https://gooey.ai/agent/?run_id=d363aybr4aj7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.16,The official residence of the President of Kenya is called State House.,https://gooey.ai/agent/?run_id=0m1mrr1d9ssd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.71,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=0osldxuooaiu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.76,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=jr4pqfz5iynn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.5,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=4wg5dto0uf91&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.93,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is called State House, Nairobi.",https://gooey.ai/agent/?run_id=a83khd4ulfg6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.08,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House, Nairobi.",https://gooey.ai/agent/?run_id=flglczhheq4h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.45,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House, Nairobi.",https://gooey.ai/agent/?run_id=m33xv1by5tlv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.29,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is called **State House**.",https://gooey.ai/agent/?run_id=atksj4jtek6w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.7,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called **State House**.",https://gooey.ai/agent/?run_id=loxmnacmubly&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.7,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called **State House**.",https://gooey.ai/agent/?run_id=16t7bbho0cqg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.0,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is called **State House, Nairobi** (also known as Ikulu).
+
+Kenya also has other State Houses in Mombasa, Nakuru, Kisumu, and Eldoret, but State House Nairobi is the main official residence.",https://gooey.ai/agent/?run_id=x4twvkon07wo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.69,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called **State House**. It is located in Nairobi.",https://gooey.ai/agent/?run_id=773dpro951sb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.93,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House. It is located in Nairobi.",https://gooey.ai/agent/?run_id=zidc9ipzri7f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.55,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=dwok5tkkqo81&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.0,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=9r3br2d6gevh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.87,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=a31l5ame7lyt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.39,"🎧: ""je makazi rasmi ya rais wa kenya yanaitwaje""
+
+The official residence of the President of Kenya is State House.",https://gooey.ai/agent/?run_id=0arf1hnc6nxl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.26,"🎧: ""Je, makazi rasmi ya rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is State House. It is located in Nairobi.",https://gooey.ai/agent/?run_id=batk7xvn66dr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.78,"🎧: ""Je, makazi rasmi ya Rais wa Kenya yanaitwaje?""
+
+The official residence of the President of Kenya is State House.",1.0,1.0,1.0,1.0,0.8,0.8,0.8,1.0,1.0,1.0,0.6,0.8,0.8,1.0,1.0,1.0,1.0,0.8,1.0,"0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili match the reference answer exactly in meaning: the residence is State House. 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 11 Kimi K3 + Intron - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, and 17 Gemini 3.7 Flash + Intron - Swahili are still correct but add extra location detail such as Nairobi, so they lose a small amount. 10 Kimi K3 + Omni - Swahili is correct but includes substantially more extra information about alternate naming and other State Houses, so it is penalized more for unnecessary detail. Transcribed question text and formatting were ignored, and only the final user-facing answer content was judged."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/54bb3946-8d8c-11f0-a0ff-02420a0001f8/Generic_Q21_SW_A04.oga.wav,Which year was the current Kenyan constitution promulgated?,Katiba ya sasa ya Kenya ilitangazwa mwaka gani?,2010,2010,https://gooey.ai/agent/?run_id=3gsm3o4vci4f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.3,The current Constitution of Kenya was promulgated in 2010.,https://gooey.ai/agent/?run_id=biwjvmvjeah0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.38,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in the year 2010.",https://gooey.ai/agent/?run_id=8bh7ihpgfwrg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.0,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in the year 2010.",https://gooey.ai/agent/?run_id=td5p22syfz4s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.82,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=a04ws7kutgt3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.76,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+Kenya’s current Constitution was promulgated in 2010, on 27 August.",https://gooey.ai/agent/?run_id=ltvifegpkysj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.27,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+Kenya’s current Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=5ww6qyyd4ijg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.01,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+Kenya’s current Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=4cfghr47rldn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.74,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in **2010** (August 27, 2010).",https://gooey.ai/agent/?run_id=7al0av2lc0qs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.95,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Kenyan Constitution was promulgated in 2010.",https://gooey.ai/agent/?run_id=tf97t0zuivqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.54,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=vpwy828jhcqt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.88,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in 2010. Specifically, it was signed into law on 27th August 2010. This followed a national referendum held on 4th August 2010, where Kenyans voted to adopt it.",https://gooey.ai/agent/?run_id=7plotv3iz2k6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.08,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+Kenya's current constitution was promulgated in 2010. It was officially signed into law on 27 August 2010. This followed a national referendum held on 4 August 2010.",https://gooey.ai/agent/?run_id=nu2s53qb88l8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.99,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010. Specifically, on August 27, 2010.",https://gooey.ai/agent/?run_id=ipz7nsfnptzt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.83,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=nesgkn0uk7mn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.87,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=1dofvedy8cum&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.29,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/agent/?run_id=duys1bivw5mt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.93,"🎧: ""katiba ya sasa kenya ilitangazwa mwaka gani""
+
+The current Constitution of Kenya was promulgated in 2010. It was officially enacted on August 27, 2010.",https://gooey.ai/agent/?run_id=1irf75sktpb6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.19,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current Constitution of Kenya was promulgated in 2010. It was officially adopted on August 27, 2010.",https://gooey.ai/agent/?run_id=a9vmebx4gm6p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.09,"🎧: ""Katiba ya sasa Kenya ilitangazwa mwaka gani?""
+
+The current constitution of Kenya was promulgated in 2010.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.6,0.6,1.0,1.0,1.0,1.0,0.6,0.6,1.0,"All candidates give the correct year 2010, matching the reference answer. 0 Gemini 3.1 Pro - Swahili, 1 Gemini 3.1 Pro + Omni - Swahili, 2 Gemini 3.1 Pro + Intron - Swahili, 3 Gemini 3.1 Pro + GPT Transcribe - Swahili, 4 GPT 5.6 Sol + Omni - Swahili, 5 GPT 5.6 Sol + Intron - Swahili, 6 GPT 5.6 Sol + GPT Transcribe - Swahili, 7 Claude Sonnet 5 + Omni - Swahili, 8 Claude Sonnet 5 + Intron - Swahili, 9 Claude Sonnet 5 + GPT Transcribe - Swahili, 12 Kimi K3 + GPT Transcribe - Swahili, 13 DeepSeek V4 + Omni - Swahili, 14 DeepSeek V4 + Intron - Swahili, 15 DeepSeek V4 + GPT Transcribe - Swahili, and 18 Gemini 3.7 Flash + GPT Transcribe - Swahili preserve the core answer fully, so they score 1.0. 10 Kimi K3 + Omni - Swahili, 11 Kimi K3 + Intron - Swahili, 16 Gemini 3.7 Flash + Omni - Swahili, and 17 Gemini 3.7 Flash + Intron - Swahili add notable extra contextual details beyond the requested year, so they score 0.6 under the rubric for mostly accurate answers with too much extra information."

@@ -1,0 +1,19 @@
+# title: Kinyarwanda Evaluation of Audio AI Models
+# country: RW
+# byline: Gooey.AI, CLEAR Global and the Gates Foundation
+# date: 2026-08-30
+# url: Gooey.AI/language
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 12, 2
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.90,8.88
+Gemini 3.1 Pro + Omni,0.86,9.48
+Gemini 3.1 Pro + Intron,0.86,10.70
+GPT 5.6 Sol + Omni,0.85,6.94
+GPT 5.6 Sol + Intron,0.81,8.65
+Claude Sonnet 5 + Omni,0.82,7.11
+Claude Sonnet 5 + Intron,0.87,8.85
+Kimi K3 + Omni,0.78,6.71
+Kimi K3 + Intron,0.68,8.47
+DeepSeek V4 + Omni,0.92,7.14
+DeepSeek V4 + Intron,0.85,8.53

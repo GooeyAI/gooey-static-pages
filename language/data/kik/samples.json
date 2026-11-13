@@ -1,0 +1,48 @@
+{
+  "language": "Kikuyu",
+  "evaluationDate": "2026-08-30",
+  "source": "evaluation-latest.csv",
+  "workflow": "Gemini 3.1 Pro + Kikuyu Whisper v2",
+  "totalQuestions": 24,
+  "samples": [
+    {
+      "questionNumber": 1,
+      "category": "Geography",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f8c09150-8f24-11f0-9a2d-02420a0001fc/Generic_Q2_KI_C01.opus.wav",
+      "audioDurationSeconds": 2.257813,
+      "transcript": "Mũciĩ mũnene wa Kenya nĩ ũrĩkũ?",
+      "questionEnglish": "What is the capital city of Kenya?",
+      "answer": "The capital city of Kenya is Nairobi.",
+      "expertAnswer": "Nairobi",
+      "score": 100,
+      "runtimeSeconds": 8.98,
+      "runUrl": "https://gooey.ai/agent/?run_id=7v33dzwghikw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 16,
+      "category": "History",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/7e78c744-8f26-11f0-9b44-02420a0001f9/Generic_Q19_C03.opus.wav",
+      "audioDurationSeconds": 8.577813,
+      "transcript": "Gweta Mũkenya ũrĩa wahotanire ngerenwa ya Nobel Peace Prize ũrĩa wambĩrĩirie Green Belt Movement.",
+      "questionEnglish": "Name the Kenyan Nobel Peace Prize laureate who founded the Green Belt Movement.",
+      "answer": "Wangari Maathai is the Kenyan who won the Nobel Peace Prize and started the Green Belt Movement.",
+      "expertAnswer": "Wangari Maathai",
+      "score": 80,
+      "runtimeSeconds": 9.53,
+      "runUrl": "https://gooey.ai/agent/?run_id=r5npjitii7dg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 19,
+      "category": "Infrastructure",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/da0b71ce-8f26-11f0-9b44-02420a0001f9/Generic_Q27_KI_C05.opus.wav",
+      "audioDurationSeconds": 9.417813,
+      "transcript": "Gweta ndemu ĩrĩa nene ĩheyanaga hinya wa thitima ya maaĩ kuuma Rũũĩ rwa Tana.",
+      "questionEnglish": "Name the major dam that supplies hydroelectric power from the Tana River.",
+      "answer": "The large dam on the Tana River that provides hydroelectric power is called the Masinga Dam.",
+      "expertAnswer": "Kiambere Dam",
+      "score": 0,
+      "runtimeSeconds": 12.77,
+      "runUrl": "https://gooey.ai/agent/?run_id=g3frv2aogu5d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

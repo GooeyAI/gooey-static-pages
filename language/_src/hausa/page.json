@@ -1,0 +1,147 @@
+{
+  "slug": "hausa",
+  "lang": "Hausa",
+  "endonym": "Hausa",
+  "country": "Nigeria",
+  "flag": "ng",
+  "code": "hau",
+  "snapshot": "2026-08-30",
+  "updated": "Aug 30, 2026",
+  "questions": 30,
+  "layout": "standard",
+  "meta": {
+    "description": "Compare 13 AI chains for spoken Hausa health questions by answer quality, response time, cost and environmental impact.",
+    "og_description": "Results for 13 AI chains tested on 30 spoken Hausa questions."
+  },
+  "hero": {
+    "bulk_url": "https://gooey.ai/bulk/",
+    "map": {
+      "file": "map-nigeria-led.svg",
+      "alt": "Dotted LED map of Nigeria",
+      "pin": false
+    },
+    "voice": {
+      "time": "0:06",
+      "text": "Ina dauke da jarirai biyu. Shin<br />ina bukatar kulawa ta musamman?",
+      "sub": "I'm having twins. Do<br />I need special care?"
+    }
+  },
+  "board": {
+    "hint": "Blue columns can run in your own country. The dashed line is the 10 s limit for phone calls.",
+    "note": "Cost is the observed whole-workflow Gooey.AI charge across 30 benchmark runs per chain, from $40 to $63 per 1,000 questions. EcoCost estimates cover text-model inference only and exclude speech recognition and direct-audio inference; Kimi K3 has no EcoCost result in its run records. Sovereign-deployable: every step can run in your country or on your own servers, using open-weight models or, for Intron, speech recognition on local hardware. Private API: at least one step is only available from its maker’s cloud.",
+    "speech_key": [
+      [
+        "Omnilingual",
+        "logo-meta"
+      ],
+      [
+        "Intron",
+        "logo-intron"
+      ],
+      [
+        "Built-in audio",
+        "icon-mic-legend"
+      ]
+    ]
+  },
+  "scatter": {
+    "aria": "Gemini 3.1 Pro with direct audio has the highest score; no chain answers within 10 seconds.",
+    "x": [
+      58,
+      12,
+      27
+    ],
+    "xTicks": [
+      12,
+      16,
+      20,
+      24,
+      28,
+      32
+    ],
+    "labelBestSovereign": true,
+    "metrics": {
+      "score": {
+        "min": 30,
+        "max": 80,
+        "ticks": [
+          30,
+          40,
+          50,
+          60,
+          70,
+          80
+        ],
+        "front": "Labelled: the best chain and the best sovereign-deployable one",
+        "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI, Aug 30, 2026."
+      },
+      "cost": {
+        "min": 35,
+        "max": 65,
+        "ticks": [
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65
+        ],
+        "front": "Labelled best trade-offs: no other chain is both cheaper and faster",
+        "note": "Arithmetic mean of 30 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
+      },
+      "carbon": {
+        "min": 200,
+        "max": 600,
+        "ticks": [
+          200,
+          300,
+          400,
+          500,
+          600
+        ],
+        "front": "Labelled best trade-offs among covered chains",
+        "note": "EcoCost estimate from 29 to 30 runs per covered chain; low confidence. Speech recognition and direct-audio inference are excluded, and Kimi K3 has no EcoCost result. Source: public Gooey.AI run records, Aug 30, 2026."
+      }
+    }
+  },
+  "geometry": {
+    "pitch": 33,
+    "score": 1.9,
+    "time": 5.0,
+    "costBase": 120,
+    "costPerDollar": 3,
+    "carbon": 0.33,
+    "costDecimals": 0,
+    "carbonDecimals": 0,
+    "lines": {
+      "score": [
+        117,
+        22
+      ],
+      "time": [
+        162,
+        112,
+        62
+      ],
+      "cost": [
+        152,
+        92,
+        32
+      ],
+      "carbon": [
+        179,
+        146,
+        113,
+        80,
+        47
+      ]
+    }
+  },
+  "samples_intro": "Three of the 30 questions, spoken in Hausa and chosen to show a range of scores. Answers are from Gemini 3.1 Pro listening to the audio directly, each graded against a reference answer.",
+  "sample": {
+    "model": "Gemini 3.1 Pro",
+    "logo": "logo-gemini"
+  },
+  "labSpeech": "Intron"
+}

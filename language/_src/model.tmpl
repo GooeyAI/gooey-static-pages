@@ -1,0 +1,121 @@
+    <a class="skip-link" href="#main">Skip to main content</a>
+{{header}}
+
+    <main id="main" class="model">
+      <section class="md-hero" aria-labelledby="md-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="../language/assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="{{hub}}">{{lang}}</a>
+            <img src="../language/assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>{{model}}</strong>
+          </nav>
+          <div class="md-hero-row">
+            <div class="md-hero-copy">
+              <p class="md-meta">{{meta_line}}</p>
+              <h1 id="md-title">{{model}} in {{lang}}: Accuracy, Speed &amp; Cost.</h1>
+              <p class="md-lead">{{lead}}</p>
+              <div class="md-actions">
+                <a class="hero-btn primary" href="{{agent}}">Build an agent with this</a>
+                <a class="hero-btn secondary" href="{{bulk_url}}"><img src="../language/assets/kinyarwanda/icon-mic-btn.svg" alt="" width="16" height="16" />Try it in {{lang}}</a>
+              </div>
+            </div>
+            <div class="md-hero-art">
+              {{art}}
+              <div class="voice-note md-voice">
+                <div class="player">
+                  <span class="play"><img src="../language/assets/kinyarwanda/icon-play.svg" alt="" width="10" height="10" /></span>
+                  {{wave}}
+                  <time>{{vn_time}}</time>
+                </div>
+                <p class="vn-text">{{vn_text}}</p>
+                <p class="vn-sub">{{vn_sub}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="md-stats">
+{{stats}}
+          </div>
+        </div>
+      </section>
+
+      <section class="md-section" aria-labelledby="compare-title">
+        <div class="container">
+          <h2 id="compare-title">How {{model}} compares in {{lang}}</h2>
+          <p class="md-p">{{compare_p1}}</p>
+          {{compare_p2}}
+          <div class="md-chips">{{chips}}</div>
+        </div>
+      </section>
+
+      <section class="md-section" aria-labelledby="table-title">
+        <div class="container">
+          <h2 id="table-title">{{table_title}}</h2>
+          {{table}}
+          <div class="md-table-foot">
+            <p>Best chain for each model. The answer score is the match with the expert answer, from 0 to 100, averaged over {{questions}} questions; speed and cost are shown separately. Arrows compare each column with {{model}}. Green marks the best value among these columns. Blue marks a chain every step of which can run in your own country; grey is a private API.</p>
+            <span class="md-table-links"><a href="{{bulk_url}}">Every answer</a><a href="{{data_csv}}" download>Download data</a></span>
+          </div>
+          <div class="md-table-actions">
+            <a class="md-btn" href="{{docs_eval}}">Test these models on your own questions</a>
+            <a class="md-btn" href="{{contact}}">Built a {{lang}} model? Get it evaluated</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="md-section" id="samples" aria-labelledby="samples-title">
+        <div class="container samples">
+          <div class="sec-head samples-head">
+            <h2 id="samples-title">Sample answers</h2>
+            <p>{{sample_intro}}</p>
+          </div>
+          <div class="sample-cards" id="sampleCards"></div>
+        </div>
+      </section>
+{{changed}}
+      <section class="md-section" aria-labelledby="run-title">
+        <div class="container">
+          <h2 id="run-title">Where you can run it</h2>
+          <p class="md-sub">Three ways to run a chain, from easiest to most private. Each one is a filter on the leaderboard.</p>
+          <div class="md-runs">{{run}}
+          </div>
+        </div>
+      </section>
+
+      <section class="md-section" aria-labelledby="planet-title">
+        <div class="container">
+          <h2 id="planet-title">What it costs the planet</h2>
+          <div class="md-planet">{{planet_left}}{{planet_right}}
+          </div>
+        </div>
+      </section>
+
+      <section class="md-section md-faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+{{faq_items}}
+          </div>
+        </div>
+      </section>
+
+      <section class="md-cta-wrap" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="md-cta">
+            <h2 id="cta-title">{{cta_title}}</h2>
+            <p>{{cta_text}}</p>
+            <div class="md-actions">
+              <a class="hero-btn primary" href="{{agent}}">Build an agent with this</a>
+              <a class="md-textlink" href="{{api}}">Use via API</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>{{other_title}}</h2>
+      {{other_languages}}
+      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}} · With support from the Gates Foundation</span><span>{{email}}</span></div>
+    </footer>
