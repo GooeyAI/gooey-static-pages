@@ -28,20 +28,17 @@ const LABEL_BOX = { "DeepSeek V4": [65.054, 4.49], "Gemini 3.1 Pro": [67.175, 4.
 const model = (name, size) => `<img src="assets/kinyarwanda/${LOGO_FILES[name]}.svg" alt="" width="${size}" height="${size}" />`;
 const speechIcon = (name, size = 16) => `<img src="assets/kinyarwanda/${SPEECH_FILES[name] === "icon-mic" ? "icon-mic-legend" : SPEECH_FILES[name]}.svg" alt="" width="${size}" height="${size}" />`;
 
-const ICONS = {
-  score: '<img src="assets/kinyarwanda/icon-bullseye.svg" alt="" width="16" height="16" />',
-  time: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#0a1021" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="9" r="5.25"/><path d="M8 6.2V9l1.8 1.2M6.5 1.5h3M8 1.5v2.3"/></svg>',
-  cost: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#0a1021" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="1.75" width="12.5" height="12.5" rx="2.5"/><path d="M8 4v8M10.2 5.9C9.8 5.3 9 5 8 5c-1.2 0-2.2.5-2.2 1.5S6.7 8 8 8s2.2.5 2.2 1.5S9.2 11 8 11c-1 0-1.8-.3-2.2-.9"/></svg>',
-  carbon: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#0a1021" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 13.5C2.5 7 6 3 13.5 2.5c0 7-4 11-11 11zM2.5 13.5c1.8-3.2 4-5.3 6.5-6.8"/></svg>'
-};
+const INDEX = P.lang + " Index";
+const icon = (name, size = 16) => `<img src="assets/kinyarwanda/${name}.svg" alt="" width="${size}" height="${size}" />`;
+const ICONS = { score: icon("icon-bullseye"), time: icon("icon-stopwatch"), cost: icon("icon-dollar"), carbon: icon("icon-leaf") };
 const CHARTS = [
-  { icon: "score", title: "Answer score", sub: `Out of 100, averaged over ${Q} questions. Higher is better.`, order: (a, b) => b.acc - a.acc || a.time - b.time, height: c => c.exact * G.score, value: c => String(c.score), lines: G.lines.score,
+  { icon: "score", title: INDEX, sub: `Out of 100, averaged over ${Q} questions. Higher is better.`, order: (a, b) => b.acc - a.acc || a.time - b.time, height: c => c.exact * G.score, value: c => String(c.score), lines: G.lines.score,
     best: [bestOf(chains.filter(c => c.sovereign), "acc", true), bestOf(chains.filter(c => !c.sovereign), "acc", true)], show: c => String(c.score) },
   { icon: "time", title: "Response time", sub: "Median seconds, voice note to answer. Lower is better. Calls need under 10 s.", order: (a, b) => a.time - b.time, height: c => c.time * G.time, value: c => c.time.toFixed(1) + " s", lines: G.lines.time, limit: true,
     best: [bestOf(chains.filter(c => c.sovereign), "time", false), bestOf(chains.filter(c => !c.sovereign), "time", false)], show: c => c.time.toFixed(1) + " s" },
-  { icon: "cost", title: "Cost per 1,000 questions", sub: `Observed whole-workflow Gooey.AI charge in US dollars; ${Q} runs per chain.`, order: (a, b) => a.cost - b.cost || b.acc - a.acc, height: c => G.costBase + (c.cost - 40) * G.costPerDollar, value: c => "$" + c.cost.toFixed(G.costDecimals ?? 2), lines: G.lines.cost,
+  { icon: "cost", title: "Cost per 1,000 questions", sub: `Observed Gooey.AI charge in USD; ${Q} runs per chain.`, order: (a, b) => a.cost - b.cost || b.acc - a.acc, height: c => G.costBase + (c.cost - 40) * G.costPerDollar, value: c => "$" + (chains.every(o => Number.isInteger(o.cost)) ? String(c.cost) : c.cost.toFixed(G.costDecimals ?? 2)), lines: G.lines.cost,
     best: [bestOf(chains.filter(c => c.sovereign), "cost", false), bestOf(chains.filter(c => !c.sovereign), "cost", false)], show: c => "$" + c.cost.toFixed(2) },
-  { icon: "carbon", title: "Text-model CO₂e per 1,000 questions", sub: "EcoCost estimate in grams; excludes speech and direct audio. Lower is better.", order: (a, b) => (a.carbon ?? Infinity) - (b.carbon ?? Infinity), height: c => Number.isFinite(c.carbon) ? c.carbon * G.carbon : 0, value: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(G.carbonDecimals ?? 1) + " g" : "N/A", lines: G.lines.carbon,
+  { icon: "carbon", title: "CO₂e per 1,000 questions", sub: "Grams, LLM step only (EcoCost estimate). Lower is better.", order: (a, b) => (a.carbon ?? Infinity) - (b.carbon ?? Infinity), height: c => Number.isFinite(c.carbon) ? c.carbon * G.carbon : 0, value: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(G.carbonDecimals ?? 1) + " g" : "N/A", lines: G.lines.carbon,
     best: [bestOf(chains.filter(c => c.sovereign && Number.isFinite(c.carbon)), "carbon", false), bestOf(chains.filter(c => !c.sovereign && Number.isFinite(c.carbon)), "carbon", false)], show: c => c.carbon.toFixed(1) + " g" }
 ];
 // Chart coordinates are drawn in a 470 px plot (fluid, as percentages) or, for wide layouts, in pixels.
@@ -51,6 +48,9 @@ const at = WIDE ? (x => x + "px") : (x => (x / 470 * 100).toFixed(3) + "%");
 // Figma leaves gaps in the dashed line under the value labels; wide layouts just skip colliding dashes.
 const LIMIT_DASHES = WIDE ? [...Array(138).keys()].map(i => i * 7) : [...Array(41).keys()].map(i => i * 7).concat([364], [406, 413, 420, 427, 434, 441]);
 
+let barTipTimer;
+// Hover cards are for mouse users on wide screens; on a phone a tap would leave one stuck over the chart.
+const CAN_HOVER = matchMedia("(hover: hover) and (min-width: 761px)");
 function renderMetrics() {
   const grid = document.getElementById("metricGrid");
   CHARTS.forEach(chart => {
@@ -82,27 +82,34 @@ function renderMetrics() {
       const h = Math.round(chart.height(c));
       const left = 48 + i * COL_PITCH;
       const center = left + 12;
-      plot.push(`<i class="col${c.sovereign ? " sov" : ""}" data-g="${group(c)}" style="left:${at(left)};width:${at(24)};top:${212 - h}px;height:${h}px" title="${fullName(c)}"></i><span class="val" data-g="${group(c)}" style="left:calc(${at(center)} - 24px);top:${212 - h - 18}px">${chart.value(c)}</span>`);
+      plot.push(`<i class="col${c.sovereign ? " sov" : ""}" data-g="${group(c)}" data-i="${chains.indexOf(c)}" style="left:${at(left)};width:${at(24)};top:${212 - h}px;height:${h}px" aria-label="${fullName(c)}"></i><span class="val" data-g="${group(c)}" style="left:calc(${at(center)} - 24px);top:${212 - h - 18}px">${chart.value(c).replace(/\s+([a-z]+)$/i, '<span class="u"> $1</span>')}</span>`);
       const [size, offset] = LABEL_BOX[c.model];
       labels.push(`<img src="assets/kinyarwanda/${LOGO_FILES[c.model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:2px" /><img src="assets/kinyarwanda/${SPEECH_FILES[c.speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:28px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><span>${c.model}</span></div>`);
     });
+    labels.push('<span class="axis-tag" style="top:5.5px">LLM</span><span class="axis-tag" style="top:29.5px">ASR</span>');
+    const best = (c, label, cls) => (c ? `<div><i${cls}></i><span>${label} · <em>${c.model}</em></span><b>${chart.show(c)}</b></div>` : "");
     const article = document.createElement("article");
     article.className = "chart-card";
-    article.innerHTML = `<div class="chart-head"><h3 class="chart-title">${ICONS[chart.icon]}${chart.title}</h3><p class="chart-sub">${chart.sub}</p></div><div class="chart-body"><div class="plot${tight ? " tight" : ""}" style="--ly:${LIMIT_Y}px">${plot.join("")}</div><div class="labels">${labels.join("")}</div></div><div class="chart-foot"><hr /><div class="best"><div><i class="sov"></i><b>${chart.show(chart.best[0])}</b>best sovereign-deployable</div><div><i></i><b>${chart.show(chart.best[1])}</b>best private API</div></div></div>`;
+    article.innerHTML = `<div class="chart-head"><h3 class="chart-title">${ICONS[chart.icon]}${chart.title}</h3><p class="chart-sub">${chart.sub}</p></div><div class="chart-body"><div class="plot${tight ? " tight" : ""}" style="--ly:${LIMIT_Y}px">${plot.join("")}</div><div class="labels">${labels.join("")}</div></div><div class="chart-foot"><hr /><div class="best">${best(chart.best[0], "Best sovereign", ' class="sov"')}${best(chart.best[1], "Private", "")}</div></div>`;
     grid.appendChild(article);
+    // Hovering a column shows the same card as the scatter, judged on this chart's metric (speed charts use the Index).
+    const key = { cost: "cost", carbon: "carbon" }[chart.icon] || "score";
+    article.querySelectorAll(".col[data-i]").forEach(col => {
+      col.addEventListener("pointerenter", () => { clearTimeout(barTipTimer); if (!CAN_HOVER.matches) return; barTipTimer = setTimeout(() => showTip(col, key), 300); });
+      col.addEventListener("pointerleave", () => { clearTimeout(barTipTimer); hideTip(); });
+    });
   });
 }
 
 function renderTable(sort = "accuracy") {
   const rows = sort === "speed" ? byTime : ranked;
-  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row${i === 0 ? " selected" : ""}" data-g="${group(c)}" role="row"><span class="c-rank">${i + 1}</span><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a><small class="c-maker">${MAKERS[c.model]}</small></span></span><span class="c-plus">${c.speech === "Built-in audio" ? "" : "+"}</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span><span></span><span class="c-score"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span></span><span class="c-time">${c.time.toFixed(1)} s</span><span class="c-host"><i class="sw${c.sovereign ? " sov" : ""}"></i>${c.sovereign ? "Sovereign" : "Private"}</span><a class="c-cta" href="${P.slug}/ai-agent/">Build with this</a></div>`).join("");
+  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row" data-g="${group(c)}" role="row"><span class="c-rank" role="cell">${i + 1}</span><span class="c-chain" role="cell"><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span></span><span class="c-score" role="cell"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span class="c-time" role="cell">${c.time.toFixed(1)} s</span><span class="c-run" role="cell"><a href="${P.evalUrl}" target="_blank" rel="noopener noreferrer" aria-label="View the evaluation run for ${fullName(c)}">View run ↗</a></span></div>`).join("");
 }
-
 
 function renderLabRank() {
   const list = document.getElementById("labRank");
   if (!list || !P.labSpeech) return;
-  list.innerHTML = ranked.filter(c => c.speech === P.labSpeech).map(c => `<li><i class="sw${c.sovereign ? " sov" : ""}"></i>${model(c.model, 16)}<span>${c.model} + ${P.labSpeech}</span><b>${c.score}</b><small>#${c.rank}</small></li>`).join("");
+  list.innerHTML = ranked.filter(c => c.speech === P.labSpeech).map(c => `<li><i class="sw${c.sovereign ? " sov" : ""}"></i>${model(c.model, 16)}<span>${c.model} + ${P.labSpeech}</span><b>${c.score}</b><small>#${c.rank}</small><span class="lr-bar"><i${c.sovereign ? ' class="sov"' : ""} style="width:${c.score}%"></i></span></li>`).join("");
 }
 
 const [SC_X0, SC_T0, SC_PER_S] = P.scatter.x;
@@ -111,17 +118,21 @@ const SCATTER = {
   x: t => SC_X0 + (t - SC_T0) * SC_PER_S,
   xTicks: P.scatter.xTicks,
   extraLabelled: () => (P.scatter.labelBestSovereign ? [bestSovereign] : []),
-  rows: [["score", "Answer score"], ["time", "Response"], ["cost", "Cost per 1,000 questions"], ["carbon", "Text-model CO₂e per 1,000 questions"]],
+  rows: [["score", INDEX], ["time", "Response"], ["cost", "Cost"], ["carbon", "CO₂e"]],
   metrics: {
-    score: { label: "Answer score", title: "Answer score vs. response time", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "more accurate", hint: "Higher and faster is better" },
-    cost: { label: "Cost per 1,000 questions", title: "Cost vs. response time", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + v.toFixed(2), beat: "cheaper", hint: "Lower and faster is better" },
-    carbon: { label: "Text-model CO₂e per 1,000 questions", title: "Text-model CO₂e vs. response time", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
+    score: { label: INDEX, title: INDEX + " vs response time", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
+    cost: { label: "Cost per 1,000 questions", title: "Cost vs response time", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + Math.round(v), beat: "cheaper", hint: "Lower and faster is better" },
+    carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs response time", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
   }
 };
-const ecoPanel = c => Number.isFinite(c.carbon)
-  ? `<div class="p-eco"><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 13.5C2.5 7 6 3 13.5 2.5c0 7-4 11-11 11zM2.5 13.5c1.8-3.2 4-5.3 6.5-6.8"/></svg>Text-model EcoCost</div><span class="big">${c.carbon.toFixed(1)} g <small>CO₂e / 1,000</small></span><span class="likely">${c.carbonMin.toFixed(1)}–${c.carbonMax.toFixed(1)} g · ${c.carbonConfidence.toLowerCase()} confidence</span><span class="likely">Excludes speech recognition</span></div>`
-  : `<div class="p-eco"><div class="p-lab"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 13.5C2.5 7 6 3 13.5 2.5c0 7-4 11-11 11zM2.5 13.5c1.8-3.2 4-5.3 6.5-6.8"/></svg>Text-model EcoCost</div><span class="big"><small>Not covered</small></span><span class="likely">${c.carbonReason}</span></div>`;
-const PANEL_DETAILS = c => `<dl class="p-facts"><div><dt>Hosting</dt><dd>${c.sovereign ? "Sovereign-deployable" : "Private API"}</dd></div><div><dt>Speech recognition</dt><dd>${c.speech}</dd></div><div><dt>Accuracy (mean)</dt><dd>${c.exact.toFixed(1)} out of 100</dd></div></dl><div class="p-cost"><span>Observed cost per 1,000 questions</span><b>$${c.cost.toFixed(2)}</b></div>${ecoPanel(c)}`;
+// Scale for the panel's Eco cost range: 0 to the widest "likely" estimate of any chain.
+const ECO_SCALE = Math.max(...chains.map(c => (Number.isFinite(c.carbonMax) ? c.carbonMax : 0)), 1);
+const ecoPct = v => Math.min(100, Math.max(0, v / ECO_SCALE * 100)).toFixed(1) + "%";
+const ecoPanel = c => `<div class="p-eco"><div class="p-lab">${icon("icon-leaf")}Eco cost</div>` + (Number.isFinite(c.carbon)
+  ? `<div class="p-eco-val"><b>${c.carbon.toFixed(1)} g</b><span>CO₂e</span></div><div class="p-range" role="img" aria-label="Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} grams"><i class="likely" style="left:${ecoPct(c.carbonMin)};width:calc(${ecoPct(c.carbonMax)} - ${ecoPct(c.carbonMin)})"></i><i class="dot" style="left:${ecoPct(c.carbon)}"></i></div><span class="p-cap">Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} g</span>`
+  : `<div class="p-eco-val na"><b>N/A</b></div>`) + "</div>";
+const PANEL_DETAILS = c => `<div class="p-cost"><span>Per 1,000 questions</span><b>$${c.cost.toFixed(2)}</b></div>
+    <div class="p-where"><div class="p-host"><div><div class="p-lab">${icon(c.sovereign ? "icon-landmark" : "icon-cloud")}Hosting</div><div class="p-val">${c.sovereign ? "Sovereign-deployable" : "Private API"}</div></div><hr /><div><div class="p-lab">${icon("icon-microphone")}Speech recognition</div><div class="p-val">${speechIcon(c.speech)}${c.speech}</div></div></div>${ecoPanel(c)}</div>`;
 
 // Scatter + hover tooltip + Y-axis menu. Per-page numbers live in SCATTER (see above).
 const scoreOf = c => (c.exact !== undefined ? c.exact : c.score);
@@ -148,17 +159,18 @@ const tip = document.createElement("div");
 tip.className = "sc-tip";
 tip.setAttribute("role", "tooltip");
 tip.hidden = true;
-scatterCard.appendChild(tip);
+document.body.appendChild(tip);
 
 function renderPanel() {
   const c = selectedChain;
   const dominated = chains.some(o => o !== c && scoreOf(o) >= scoreOf(c) && o.time <= c.time && (scoreOf(o) > scoreOf(c) || o.time < c.time));
   const fast = c.time < 10 ? "Fast enough for phone calls (under 10 s)." : "Too slow for phone calls (over 10 s), fine for WhatsApp messages.";
-  document.getElementById("chainPanel").innerHTML = `<span class="eyebrow">${scoreRankOf(c) === 1 ? "Most accurate" : "Selected chain"}</span>
-    <div class="p-name">${model(c.model, 20)}<span>${c.model}${c.speech === "Built-in audio" ? " (direct audio)" : " +"}</span>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 20) + "<span>" + c.speech + "</span>"}</div>
-    <p class="p-sub">${c.speech === "Built-in audio" ? "Listens to the audio directly" : "With " + c.speech + " speech recognition"}, by ${MAKERS[c.model]}</p>
-    <div class="p-stats"><div class="p-stat"><span>Answer score</span><b>${c.score}</b><small>#${scoreRankOf(c)} of ${chains.length}</small></div><div class="p-stat"><span>Response</span><b>${c.time.toFixed(1)} s</b><small>#${timeRankOf(c)} of ${chains.length}</small></div></div>
-    <p class="p-desc">${fast}${dominated ? "" : " No other chain is both faster and more accurate."}</p>
+  document.getElementById("chainPanel").innerHTML = `<div class="p-head">
+      <div class="p-name">${model(c.model, 20)}<span>${c.model}${c.speech === "Built-in audio" ? " (direct audio)" : " +"}</span>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 20) + "<span>" + c.speech + "</span>"}</div>
+      <p class="p-sub">${c.speech === "Built-in audio" ? "Listens to the audio directly" : "With " + c.speech + " speech recognition"}, by ${MAKERS[c.model]}</p>
+    </div>
+    <div class="p-stats"><div class="p-stat"><span>${INDEX}</span><b>${c.score}</b><small>#${scoreRankOf(c)} of ${chains.length}</small></div><div class="p-stat"><span>Response</span><b>${c.time.toFixed(1)} s</b><small>#${timeRankOf(c)} of ${chains.length}</small></div></div>
+    <p class="p-desc">${fast}${dominated ? "" : " No other chain is both faster and higher on the Index."}</p>
     ${PANEL_DETAILS(c)}
     <a class="p-btn" href="${P.slug}/ai-agent/">Build an agent with this</a>`;
 }
@@ -181,31 +193,78 @@ function fitPanelHeight() {
   evaluation.style.setProperty("--sc-h", Math.ceil(need) + "px");
 }
 
-function tooltipHtml(c, m) {
+function tooltipHtml(c, mKey = yMetric) {
+  const m = SCATTER.metrics[mKey];
   const best = !metricChains(m).some(o => beats(m, o, c));
   const by = beatenBy(m, c);
-  const rows = SCATTER.rows.map(([key, label]) => `<div class="${key === "time" || key === yMetric ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" ? (Number.isFinite(c.carbon) ? "EcoCost · low confidence" : "outside current coverage") : key === "cost" ? `${Q} observed runs` : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
+  const rows = SCATTER.rows.map(([key, label]) => `<div class="${key === "time" || key === mKey ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" || key === "cost" ? "/ 1,000 Q's" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
   return `<div class="sc-tip-head">${model(c.model, 16)}<b>${c.model}${c.speech === "Built-in audio" ? "" : " +"}</b>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 14) + "<b>" + c.speech + "</b>"}</div>
     <p class="sc-tip-sub">${MAKERS[c.model]} · ${c.speech === "Built-in audio" ? "Direct audio" : c.speech + " speech recognition"}</p>
     <div class="sc-tip-rows">${rows}</div>
-    <p class="sc-tip-note">${best ? CHECK + "<span>Best trade-off: nothing is both faster and " + m.beat + "</span>" : INFO + "<span>Beaten by " + fullName(by) + ": faster and " + m.beat + "</span>"}</p>`;
+    <p class="sc-tip-note">${best ? CHECK + "<span>Best trade-off: nothing is faster and better</span>" : INFO + "<span>Beaten by " + fullName(by) + "</span>"}</p>`;
 }
 
-function showTip(button) {
-  const c = chains[Number(button.dataset.i)];
-  tip.innerHTML = tooltipHtml(c, SCATTER.metrics[yMetric]);
+function showTip(anchor, mKey = yMetric) {
+  if (!CAN_HOVER.matches) return; // no hover card on phones or touch screens, whatever the trigger (hover or focus)
+  const c = chains[Number(anchor.dataset.i)];
+  if (!Number.isFinite(SCATTER.metrics[mKey].get(c))) mKey = "score";
+  tip.innerHTML = tooltipHtml(c, mKey);
   tip.hidden = false;
-  const card = scatterCard.getBoundingClientRect();
-  const r = button.getBoundingClientRect();
-  const w = tip.offsetWidth, h = tip.offsetHeight;
-  let left = r.right - card.left + 8;
-  if (left + w > card.width - 8) left = r.left - card.left - w - 8;
+  tip.classList.remove("in");
+  void tip.offsetWidth;
+  tip.classList.add("in");
+  // Beside the anchor, flipped to its left near the right edge, kept inside the viewport.
+  const r = anchor.getBoundingClientRect();
+  const w = tip.offsetWidth, h = tip.offsetHeight, vw = document.documentElement.clientWidth;
+  let left = r.right + 8;
+  if (left + w > vw - 8) left = r.left - w - 8;
   left = Math.max(8, left);
-  const top = Math.min(Math.max(8, r.top - card.top + r.height / 2 - 24), card.height - h - 8);
-  tip.style.left = left + "px";
-  tip.style.top = top + "px";
+  const top = Math.min(Math.max(8, r.top + Math.min(r.height, 48) / 2 - 24), window.innerHeight - h - 8);
+  tip.style.left = left + window.scrollX + "px";
+  tip.style.top = top + window.scrollY + "px";
 }
 const hideTip = () => { tip.hidden = true; };
+
+// Chains with the same value sit on one horizontal line and can cover each other (every Kinyarwanda chain cost
+// $40). Where they would overlap, stack them above and below the line, selected and labelled chains first, and
+// draw a short leader back to the true value so the stacking does not read as a different number.
+function dodgeTies(root, m) {
+  const buttons = [...root.querySelectorAll(".sc-point")].reverse();
+  const box = root.getBoundingClientRect();
+  const placed = [];
+  const PAD = 3;
+  const hits = (a, b) => a.left < b.right + PAD && b.left < a.right + PAD && a.top < b.bottom + PAD && b.top < a.bottom + PAD;
+  buttons.forEach(button => {
+    const c = chains[Number(button.dataset.i)];
+    const v = m.get(c);
+    const r = button.getBoundingClientRect();
+    const step = Math.max(r.height, 24) + 4;
+    const peers = placed.filter(p => p.v === v);
+    let off = 0;
+    for (let k = 1; k < 12 && peers.some(p => hits({ left: r.left, right: r.right, top: r.top + off, bottom: r.bottom + off }, p.r)); k++) {
+      off = (k % 2 ? -1 : 1) * Math.ceil(k / 2) * step;
+    }
+    if (off) {
+      button.style.top = `calc(${button.style.top} + ${off}px)`;
+      const x = r.left + Math.min(r.width / 2, 12) - box.left;
+      const lead = document.createElement("i");
+      lead.className = "sc-lead";
+      lead.style.cssText = `left:${x}px;top:calc(${pctY(scatterY(m, v))} + ${Math.min(0, off)}px);height:${Math.abs(off)}px`;
+      root.insertBefore(lead, root.querySelector(".sc-point"));
+    }
+    placed.push({ v, off, r: { left: r.left, right: r.right, top: r.top + off, bottom: r.bottom + off } });
+  });
+  // A soft band behind each stack groups its points with the value they share.
+  const grid = root.querySelector(".sc-grid");
+  new Set(placed.filter(p => p.off).map(p => p.v)).forEach(v => {
+    const offs = placed.filter(p => p.v === v).map(p => p.off);
+    const lo = Math.min(...offs) - 18, hi = Math.max(...offs) + 18;
+    const band = document.createElement("i");
+    band.className = "sc-band";
+    band.style.cssText = `left:${grid.offsetLeft}px;width:${grid.offsetWidth}px;top:calc(${pctY(scatterY(m, v))} + ${lo}px);height:${hi - lo}px`;
+    root.insertBefore(band, root.querySelector(".sc-lead, .sc-point"));
+  });
+}
 
 function renderScatter() {
   const m = SCATTER.metrics[yMetric];
@@ -223,7 +282,7 @@ function renderScatter() {
   const order = [...coveredChains].sort((a, b) => (a === selectedChain) - (b === selectedChain) || front.includes(a) - front.includes(b));
   order.forEach(c => {
     const style = `left:${pctX(SCATTER.x(c.time))};top:${pctY(scatterY(m, m.get(c)))};--ring:${RING[c.model]}`;
-    const aria = `${fullName(c)}, score ${c.score}, response ${c.time.toFixed(1)} seconds`;
+    const aria = `${fullName(c)}, Index ${c.score}, response ${c.time.toFixed(1)} seconds`;
     const i = chains.indexOf(c);
     if (c === selectedChain) {
       out.push(`<button type="button" class="sc-point chip selected" style="${style}" data-i="${i}" data-g="${group(c)}" aria-label="${aria}">${model(c.model, 20)}<span class="label"><b>${SHORT[c.model]}</b><span>${c.speech === "Built-in audio" ? "direct audio" : "+ " + speechIcon(c.speech, 14) + c.speech}</span></span></button>`);
@@ -236,15 +295,17 @@ function renderScatter() {
   root.innerHTML = out.join("");
   root.querySelectorAll(".sc-point").forEach(button => {
     button.addEventListener("click", () => { selectedChain = chains[Number(button.dataset.i)]; hideTip(); renderScatter(); renderPanel(); });
-    button.addEventListener("pointerenter", () => showTip(button));
+    button.addEventListener("pointerenter", () => { if (CAN_HOVER.matches) showTip(button); });
     button.addEventListener("focus", () => showTip(button));
     button.addEventListener("pointerleave", hideTip);
     button.addEventListener("blur", hideTip);
   });
-  document.getElementById("scatterTitle").textContent = m.title;
+  dodgeTies(root, m);
   document.getElementById("tradeText").textContent = m.front;
   document.getElementById("scatterHint").textContent = m.hint;
-  document.getElementById("scatterSource").textContent = m.note;
+  const [, sourceText = ""] = m.note.split(/\s*(?=Source:)/);
+  const source = document.getElementById("scatterSource");
+  source.replaceChildren(Object.assign(document.createElement("span"), { className: "src", textContent: sourceText.replace(/,\s*[A-Z][a-z]{2} \d{1,2}, \d{4}(?=\.?$)/, "") }));
   root.setAttribute("aria-label", `${m.label} against response time for ${coveredChains.length} covered AI chains.`);
 }
 
@@ -254,8 +315,10 @@ const yMenu = document.getElementById("yselectMenu");
 let yActive = 0;
 function renderYMenu() {
   const keys = Object.keys(SCATTER.metrics);
-  yBtn.firstElementChild.textContent = SCATTER.metrics[yMetric].label;
-  yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}" class="${i === yActive ? "active" : ""}"><span>${SCATTER.metrics[k].label}</span>${k === yMetric ? CHECK : ""}</li>`).join("");
+  // The language name in "<Language> Index vs response time" is dropped on phones, where the two menus share a row.
+  const title = k => SCATTER.metrics[k].title.replace(P.lang + " ", `<i class="wide-only">${P.lang} </i>`);
+  yBtn.firstElementChild.innerHTML = title(yMetric);
+  yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}" class="${i === yActive ? "active" : ""}"><span>${title(k)}</span>${k === yMetric ? CHECK : ""}</li>`).join("");
   yBtn.setAttribute("aria-activedescendant", "yopt-" + keys[yActive]);
 }
 function setYMenu(open) {
@@ -286,14 +349,84 @@ yBtn.addEventListener("keydown", event => {
     chooseMetric(keys[yActive]);
   }
 });
-document.addEventListener("click", event => { if (!event.target.closest(".select")) setYMenu(false); });
+// Eval-date menu: one entry per published evaluation (only the latest one so far).
+const evalBtn = document.getElementById("evalBtn");
+const evalMenu = document.getElementById("evalMenu");
+function setEvalMenu(open) {
+  evalMenu.hidden = !open;
+  evalBtn.setAttribute("aria-expanded", String(open));
+  evalBtn.closest(".select").classList.toggle("open", open);
+}
+evalBtn.addEventListener("click", () => { setYMenu(false); setEvalMenu(evalMenu.hidden); });
+evalBtn.addEventListener("keydown", event => { if (event.key === "Escape") setEvalMenu(false); });
+evalMenu.addEventListener("click", () => setEvalMenu(false));
+yBtn.addEventListener("click", () => setEvalMenu(false));
+document.addEventListener("click", event => {
+  if (!event.target.closest(".select-chart")) setYMenu(false);
+  if (!event.target.closest(".select-eval")) setEvalMenu(false);
+});
 renderYMenu();
+
+// Featured labs: one slide per lab. The controls and dots only appear when there is more than one.
+function initLabCarousel() {
+  const root = document.getElementById("labCarousel");
+  if (!root) return;
+  const slides = [...root.querySelectorAll(".lab-slide")];
+  const controls = document.getElementById("labControls");
+  const dots = root.querySelector(".carousel-dots");
+  if (slides.length < 2 || !controls || !dots) return;
+  const [prev, next] = controls.querySelectorAll("button");
+  const count = controls.querySelector(".carousel-count");
+  dots.innerHTML = slides.map((_, i) => `<button type="button" aria-label="Show lab ${i + 1} of ${slides.length}"></button>`).join("");
+  let current = 0;
+  const show = i => {
+    current = Math.min(slides.length - 1, Math.max(0, i));
+    slides.forEach((slide, k) => { slide.hidden = k !== current; });
+    [...dots.children].forEach((dot, k) => dot.classList.toggle("current", k === current));
+    count.textContent = `${current + 1} of ${slides.length}`;
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+  };
+  prev.addEventListener("click", () => show(current - 1));
+  next.addEventListener("click", () => show(current + 1));
+  dots.addEventListener("click", event => { const i = [...dots.children].indexOf(event.target); if (i >= 0) show(i); });
+  controls.hidden = false;
+  dots.hidden = false;
+  show(0);
+}
+// Phone rails: the sample cards and the "More" cards scroll sideways; dots under each rail track the position.
+function initRail(rail) {
+  if (!rail || rail.children.length < 2 || rail.nextElementSibling?.classList.contains("rail-dots")) return;
+  const items = [...rail.children];
+  const dots = document.createElement("div");
+  dots.className = "rail-dots";
+  dots.setAttribute("aria-hidden", "true");
+  dots.innerHTML = items.map(() => "<i></i>").join("");
+  rail.after(dots);
+  const sync = () => {
+    const start = rail.getBoundingClientRect().left + parseFloat(getComputedStyle(rail).paddingLeft);
+    let index = items.length - 1;
+    if (rail.scrollLeft + rail.clientWidth < rail.scrollWidth - 2) {
+      index = items.reduce((best, item, i) => (Math.abs(item.getBoundingClientRect().left - start) < Math.abs(items[best].getBoundingClientRect().left - start) ? i : best), 0);
+    }
+    [...dots.children].forEach((dot, i) => dot.classList.toggle("on", i === index));
+  };
+  rail.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
+  sync();
+}
+initRail(document.querySelector(".more-grid"));
 async function loadSamples() {
   const cards = document.getElementById("sampleCards");
   try {
     const response = await fetch(`${P.dataDir}/samples.json`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    renderSampleCards(cards, await response.json(), P.sample);
+    renderSampleCards(cards, await response.json(), P.sample, { tag: true, runLink: false });
+    // Questions are clamped to three lines; a clamped one shows its full text on hover/focus.
+    cards.querySelectorAll(".q strong").forEach(q => {
+      if (q.scrollHeight > q.clientHeight + 1) { q.classList.add("clamped"); q.tabIndex = 0; q.title = q.textContent; q.parentElement.dataset.full = q.textContent; }
+    });
+    initRail(cards);
   } catch (error) {
     cards.innerHTML = '<p role="alert">Sample answers could not be loaded. Please refresh the page to try again.</p>';
     console.error(`Could not load ${P.lang} sample answers:`, error);
@@ -303,6 +436,7 @@ async function loadSamples() {
 renderMetrics();
 renderTable();
 renderLabRank();
+initLabCarousel();
 renderScatter();
 renderPanel();
 fitPanelHeight();
@@ -327,3 +461,44 @@ document.querySelectorAll(".legend > [data-g]").forEach(item => {
   item.addEventListener("focus", () => spotlight(true));
   item.addEventListener("blur", () => spotlight(false));
 });
+
+// Hero voice note: plays a real recorded question. Bars fill as it plays and the clock counts up, like the
+// sample cards; only one recording plays at a time on the page.
+(function initHeroVoice() {
+  const note = document.getElementById("heroVoice");
+  if (!note) return;
+  const audio = note.querySelector("audio");
+  const btn = note.querySelector(".play");
+  const clock = note.querySelector("time");
+  // Same generated waveform as the sample cards (silent start, bursts of speech), scaled to fit the card.
+  const wave = note.querySelector(".wave");
+  if (typeof waveHeights === "function") {
+    const seed = [...audio.getAttribute("src")].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+    wave.innerHTML = waveHeights(seed).map(h => `<i class="dim" style="height:${Math.max(2, Math.round(h * 0.6))}px"></i>`).join("");
+  }
+  const bars = [...wave.querySelectorAll("i")];
+  const resting = bars.map(b => b.classList.contains("dim"));
+  const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+  const sync = () => {
+    const playing = !audio.paused && !audio.ended;
+    note.classList.toggle("is-playing", playing);
+    btn.setAttribute("aria-label", `${playing ? "Pause" : "Play"} the ${P.lang} question`);
+    if (audio.currentTime > 0 && !audio.ended) {
+      const played = Math.round((audio.currentTime / (audio.duration || 1)) * bars.length);
+      bars.forEach((b, i) => b.classList.toggle("dim", i >= played));
+      clock.textContent = fmt(audio.currentTime);
+    } else {
+      bars.forEach((b, i) => b.classList.toggle("dim", resting[i]));
+      if (Number.isFinite(audio.duration)) clock.textContent = fmt(Math.round(audio.duration));
+    }
+  };
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      document.querySelectorAll("audio").forEach(a => { if (a !== audio) a.pause(); });
+      audio.play().catch(() => {});
+    } else audio.pause();
+  });
+  ["play", "pause", "timeupdate", "loadedmetadata"].forEach(e => audio.addEventListener(e, sync));
+  audio.addEventListener("ended", () => { audio.currentTime = 0; sync(); });
+  document.addEventListener("play", e => { if (e.target !== audio) audio.pause(); }, true);
+})();

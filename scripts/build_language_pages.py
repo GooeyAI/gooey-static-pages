@@ -12,14 +12,14 @@ Layout and behaviour live in two shared files that every page links to:
 
 What is specific to one language lives in language/_src/<slug>/:
 
-    page.json      names, hero copy, chart geometry, axis ranges, notes
+    page.json      names, hero voice note, chart geometry, axis ranges, notes
     picks.frag     "Which chain should you pick?" section (editorial)
     featured.frag  featured lab / "what changed the result?" section (editorial)
     faq.frag       FAQ section (editorial)
 
 The numbers come straight from the data files in language/data/<code>/
-(summary CSV, pricing JSON, EcoCost JSON), so the chart, table and hero
-counts can't disagree with the data. The page header is pasted in
+(summary CSV, pricing JSON, EcoCost JSON), so the chart, table, hero sentence
+and hero "recommended chain" card can't disagree with the data. The page header is pasted in
 from scripts/site_header.py, and the footer's language list from
 language/_src/languages.json.
 
@@ -87,7 +87,7 @@ HEAD = """<!doctype html>
 {header_css}    </style>
     <link rel="stylesheet" href="assets/language-page.css" />
   </head>
-  <body class="layout-{layout}">
+  <body class="layout-{layout} hub">
 """
 
 TAIL = """
@@ -158,6 +158,82 @@ def language_list(current: str, href=None) -> str:
             f'<li><strong>{cfg["all"]}</strong></li></ul>')
 
 
+def ordinal_date(snapshot: str) -> str:
+    """"2026-08-30" -> "30th Aug, 2026" (the hero sentence's date)."""
+    y, m, d = (int(x) for x in snapshot.split("-"))
+    suffix = "th" if 11 <= d % 100 <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(d % 10, "th")
+    month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][m - 1]
+    return f"{d}{suffix} {month}, {y}"
+
+
+def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[str, str]:
+    """The hero sentence and the recommended-chain card, both about the chain with the highest Index."""
+    lang, slug = page["lang"], page["slug"]
+    i = min(range(len(csv_rows)), key=lambda k: (-csv_rows[k][2], csv_rows[k][3]))
+    model, speech, acc, time, sov = csv_rows[i]
+    model = model.replace("GPT 5.6 Sol", "GPT-5.6 Sol")
+    direct = speech == DIRECT_AUDIO
+    pairing = ", listening to the audio directly," if direct else f" language model paired with <strong>{speech}</strong> ASR"
+    lead = (f"Our latest {lang} Index eval conducted on <strong>{ordinal_date(page['snapshot'])}</strong> found that "
+            f"{'' if direct else 'the '}<strong>{model}</strong>{pairing} scored the <strong>highest Index</strong> "
+            "on answers to questions asked by native speakers.")
+
+    icon = lambda name, size: f'<img src="assets/kinyarwanda/{name}.svg" alt="" width="{size}" height="{size}" />'
+    logos = icon(logo24(model), 24)
+    if not direct:
+        stem = js_dict("SPEECH_FILES")[speech]
+        stem = f"{stem}-24" if (LANG / "assets" / "kinyarwanda" / f"{stem}-24.svg").exists() else stem
+        logos += icon(stem, 24)
+    name = f"{model} (direct audio)" if direct else f"{model} + {speech}"
+    eco = ecocost[i]
+    eco_metric = ""
+    if "value" in eco:
+        lowest = eco["value"] <= min(e["value"] for e in ecocost if "value" in e)
+        eco_metric = (f'<div class="rec-metric">{icon("icon-leaf", 16)}<b>{eco["value"]:.1f} g</b><span>CO₂e</span>'
+                      f'<small class="good">per 1,000 questions{", lowest" if lowest else ""}</small></div>')
+    card = f"""<div class="rec-card">
+                <div class="rec-chain">
+                  <span class="rec-logos">{logos}</span>
+                  <div class="rec-name"><strong>{name}</strong><span>{"Most accurate · Sovereign" if sov else "Most accurate · Private API"}</span></div>
+                </div>
+                <div class="rec-metrics">
+                  <div class="rec-metric">{icon("icon-bullseye", 16)}<b>{round(acc * 100 + 1e-9)}</b><span>/ 100</span><small>{lang} Index</small></div>
+                  {eco_metric}
+                  <i class="rec-divider" aria-hidden="true"></i>
+                  <div class="rec-more">
+                    <span>{icon("icon-stopwatch", 14)}<b>{time:.1f} s</b> median reply</span>
+                    <span>{icon("icon-dollar", 14)}<b>{money(pricing[i])} / 1,000</b> questions</span>
+                  </div>
+                </div>
+                <div class="top-actions">
+                  <a class="hero-btn primary" href="{slug}/ai-agent/">Build a {lang} agent</a>
+                  <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}"><img src="assets/kinyarwanda/icon-mic-btn.svg" alt="" width="16" height="16" />Try it in {lang}</a>
+                </div>
+              </div>"""
+    return lead, card
+
+
+AUDIO_RE = re.compile(r"\.(wav|mp3|m4a|opus|ogg)(\?|$)", re.I)
+
+
+def hero_voice(page: dict) -> dict:
+    """The hero voice note plays a real question from the evaluation: the first evaluation row when its
+    recording is a direct audio file, otherwise the first sample card (whose audio is stored with the data)."""
+    d = DATA / page["code"]
+    esc = lambda t: t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    with (d / "evaluation-latest.csv").open(encoding="utf-8-sig") as f:
+        row = next(csv.DictReader(f))
+    audio = row.get("input_audio", "")
+    target = row.get("Prompt_Target") or row.get("Question_Target") or ""
+    source = row.get("question") or row.get("Prompt_Source") or row.get("Question_Source") or ""
+    if AUDIO_RE.search(audio) and target and source:
+        return {"audio": esc(audio), "text": esc(target.strip()), "sub": esc(source.strip()), "time": ""}
+    first = json.loads((d / "samples.json").read_text())["samples"][0]
+    secs = round(first["audioDurationSeconds"])
+    return {"audio": esc(first["audioUrl"]), "text": esc(first["transcript"]), "sub": esc(first["questionEnglish"]),
+            "time": f"{secs // 60}:{secs % 60:02d}"}
+
+
 def render(slug: str) -> str:
     d = SRC / slug
     page = json.loads((d / "page.json").read_text())
@@ -171,7 +247,7 @@ def render(slug: str) -> str:
         "questions": page["questions"], "csv": csv_rows, "pricing": pricing, "eco": ecocost,
         "geometry": page["geometry"],
         "scatter": {k: page["scatter"][k] for k in ("x", "xTicks", "labelBestSovereign", "metrics")},
-        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "slug": slug,
+        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "slug": slug, "evalUrl": page["hero"]["bulk_url"],
         "modelSlugs": {m: v["slug"] for m, v in json.loads((SRC / "models.json").read_text()).items()},
     }
 
@@ -190,22 +266,22 @@ def render(slug: str) -> str:
             ranked_models.append(name)
     model_nav = ('<nav class="sr-only" aria-label="Results by model">' + " ".join(
         f'<a href="../models/{models_meta[m]["slug"]}/{slug}/">{m} in {page["lang"]}</a>' for m in ranked_models) + "</nav>")
-    chains_foot = f'<p>{page["chains_foot_p"]}</p>{model_nav}'
+    lead_html, rec_card = hero_top(page, csv_rows, pricing, ecocost)
 
     slots = {
         "header": HEADER_HTML.format(title=f"Best AI for {page['lang']}").rstrip("\n"),
         "lang": page["lang"], "flag": page["flag"], "endonym": page["endonym"], "country": page["country"],
-        "updated": page["updated"], "lead_html": hero["lead_html"], "bulk_url": hero["bulk_url"],
-        "map_alt": hero["map"]["alt"], "map_img": map_img,
-        "vn_time": hero["voice"]["time"], "vn_text": hero["voice"]["text"], "vn_sub": hero["voice"]["sub"],
+        "updated": page["updated"], "lead_html": lead_html, "rec_card": rec_card, "bulk_url": hero["bulk_url"],
+        "map_alt": hero["map"]["alt"], "map_img": map_img, "map_key": hero["map"]["file"].rsplit(".", 1)[0].removeprefix("map-"),
+        **{f"vn_{k}": v for k, v in hero_voice(page).items()},
         "n": str(n), "n_sov": str(n_sov), "n_priv": str(n - n_sov), "questions": str(page["questions"]),
-        "board_hint": page["board"]["hint"], "speech_key": speech_key, "board_note": page["board"]["note"],
+        "board_hint": page["board"]["hint"], "speech_key": speech_key,
         "picks_section": (d / "picks.frag").read_text().rstrip("\n"),
         "featured_section": (d / "featured.frag").read_text().rstrip("\n"),
         "faq_section": (d / "faq.frag").read_text().rstrip("\n"),
         "scatter_aria": " " + page["scatter"]["aria"],
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
-        "chains_foot": chains_foot, "samples_intro": page["samples_intro"],
+        "model_nav": model_nav, "samples_intro": page["samples_intro"],
         "language_list": language_list(page["lang"], lambda s: f"{s}/"), "slug": slug,
     }
     body = (SRC / "body.tmpl").read_text()

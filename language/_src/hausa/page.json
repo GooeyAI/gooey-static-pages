@@ -14,7 +14,6 @@
     "og_description": "Results for 13 AI chains tested on 30 spoken Hausa questions."
   },
   "hero": {
-    "lead_html": "<strong>Today the best of 13 AI chains scores 71 out of 100 on spoken Hausa health questions, and the best sovereign-deployable one scores 63.</strong> Hausa is spoken across northern Nigeria, Niger and much of West Africa, and for many people a WhatsApp voice note is the easiest way to ask for help. No chain yet answers within the 10 s limit for live calls.",
     "bulk_url": "https://gooey.ai/bulk/",
     "map": {
       "file": "map-nigeria-led.svg",
@@ -139,7 +138,6 @@
       ]
     }
   },
-  "chains_foot_p": "Answer score: match with a reference answer, 0 to 100, over 30 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.",
   "samples_intro": "Three of the 30 questions, spoken in Hausa and chosen to show a range of scores. Answers are from Gemini 3.1 Pro listening to the audio directly, each graded against a reference answer.",
   "sample": {
     "model": "Gemini 3.1 Pro",

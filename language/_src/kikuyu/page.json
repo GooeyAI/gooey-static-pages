@@ -14,7 +14,6 @@
     "og_description": "Results for 13 AI chains tested on 24 spoken Kikuyu questions."
   },
   "hero": {
-    "lead_html": "<strong>The best of 13 AI chains scores 86 out of 100 on spoken Kikuyu questions.</strong> The strongest results pair a language model with Kikuyu Whisper v2, showing how language-specific speech recognition can improve answers for Gĩkũyũ speakers in Kenya.",
     "bulk_url": "https://gooey.ai/bulk/25qs-kikuyu-audio-to-text-benchmark-claude-sonnet-5-gpt-56-sol-deepseek-v4-gemini-31-pro-kimi-k3-gemini-37-flash-w-omnilingual-kikuyu-whisper-v2-g10xcrobgrvl/",
     "map": {
       "file": "map-kenya-led.svg",
@@ -78,14 +77,13 @@
         "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI, Aug 30, 2026."
       },
       "cost": {
-        "min": 39.8,
-        "max": 40.6,
+        "min": 39,
+        "max": 42,
         "ticks": [
-          39.8,
+          39,
           40,
-          40.2,
-          40.4,
-          40.6
+          41,
+          42
         ],
         "front": "GPT-5.6 Sol averaged $40.42; all other chains averaged $40.00",
         "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
@@ -134,7 +132,6 @@
       ]
     }
   },
-  "chains_foot_p": "Answer score: semantic match with a reference answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign-deployable means the model chain can run on infrastructure you control; it does not identify where the benchmark itself ran.",
   "samples_intro": "Three of the 24 questions, spoken in Kikuyu. Answers are from Gemini 3.1 Pro with Kikuyu Whisper v2, the highest-scoring chain, and are graded against a reference answer.",
   "sample": {
     "model": "Gemini 3.1 Pro",

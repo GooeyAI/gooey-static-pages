@@ -14,7 +14,6 @@
     "og_description": "Independent results for 11 AI chains tested on 24 spoken Kinyarwanda questions."
   },
   "hero": {
-    "lead_html": "<strong>Two years ago the best AI model scored 41 out of 100 on spoken Kinyarwanda questions. Today the best of 11 AI chains scores 92.</strong> More than 10 million people speak Kinyarwanda, and for many of them a WhatsApp voice note is the easiest way to ask for help.",
     "bulk_url": "https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/",
     "map": {
       "file": "map-rwanda-led.svg",
@@ -73,18 +72,18 @@
           90,
           95
         ],
-        "front": "Labelled best trade-offs: none is faster and more accurate",
+        "front": "Labelled best trade-offs: none is both faster and higher on the Index",
         "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI and CLEAR Global, Aug 30, 2026."
       },
       "cost": {
-        "min": 35,
-        "max": 45,
+        "min": 36,
+        "max": 44,
         "ticks": [
-          35,
-          37.5,
+          36,
+          38,
           40,
-          42.5,
-          45
+          42,
+          44
         ],
         "front": "All chains had the same observed rounded charge",
         "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
@@ -132,8 +131,7 @@
       ]
     }
   },
-  "chains_foot_p": "Answer score: match with an expert’s answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.",
-  "samples_intro": "Three of the 24 questions, sent as WhatsApp voice notes. Answers are from GPT-5.6 Sol with Omnilingual, each graded against an expert’s.",
+  "samples_intro": "Three of the 24 questions, sent as WhatsApp voice notes. GPT-5.6 Sol with Omnilingual answers in English, graded against an expert’s answer.",
   "sample": {
     "model": "GPT-5.6 Sol",
     "logo": "logo-openai"

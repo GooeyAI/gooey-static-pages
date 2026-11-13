@@ -14,7 +14,6 @@
     "og_description": "Results for 19 AI chains tested on 24 spoken Swahili questions."
   },
   "hero": {
-    "lead_html": "<strong>Today the best of 19 AI chains scores 95 out of 100 on spoken Swahili questions, and the best sovereign-deployable one scores 93.</strong> Swahili is spoken across East and Central Africa, and for many people a WhatsApp voice note is the easiest way to ask for help.",
     "bulk_url": "https://gooey.ai/bulk/24qs-swahili-audio-to-text-benchmark-deepseek-v4-gemini-37-flash-gpt-56-sol-claude-sonnet-5-kimi-k3-gemini-31-pro-w-omnilingual-intron-gpt-transcribe-rm8ch4x5217y/",
     "map": {
       "file": "map-kenya-led.svg",
@@ -81,14 +80,14 @@
         "note": "Hover a point for a quick look, select it for details. Source: Gooey.AI, Aug 30, 2026."
       },
       "cost": {
-        "min": 39.5,
-        "max": 40.5,
+        "min": 38,
+        "max": 42,
         "ticks": [
-          39.5,
-          39.75,
+          38,
+          39,
           40,
-          40.25,
-          40.5
+          41,
+          42
         ],
         "front": "All 19 chains had the same observed rounded charge",
         "note": "Arithmetic mean of 24 observed whole-workflow Gooey.AI charges per chain, normalized to 1,000 questions. Historical benchmark pricing, not a future-price guarantee. Source: public Gooey.AI run records, Aug 30, 2026."
@@ -137,7 +136,6 @@
       ]
     }
   },
-  "chains_foot_p": "Answer score: match with a reference answer, 0 to 100, over 24 questions. Response: median seconds.<br />Sovereign chains can run in your country; private ones need a maker’s cloud API.",
   "samples_intro": "Three of the 24 questions, spoken in Swahili. Answers are from GPT-5.6 Sol with Omnilingual, each graded against a reference answer.",
   "sample": {
     "model": "GPT-5.6 Sol",
