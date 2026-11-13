@@ -3393,3 +3393,37 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 }
 .hub .p-eco-val.na b { color: var(--text-tertiary); }
 .wide-only { font-style: normal; }
+
+/* Monetary pricing is not published yet. Retain the existing slots and chart DOM;
+   environmental metrics remain live. Scope these styles to language hubs only. */
+.hub .pricing-pending,
+.hub .pricing-pending b,
+.hub .pricing-pending span,
+.hub .pricing-pending small {
+  color: var(--text-tertiary);
+}
+.hub .pricing-pending img { filter: grayscale(1); opacity: 0.55; }
+.hub .chart-card.pricing-pending { position: relative; background: #f4f4f4; }
+.hub .chart-card.pricing-pending .chart-body,
+.hub .chart-card.pricing-pending .chart-foot { filter: grayscale(1); opacity: 0.25; pointer-events: none; }
+.hub .coming-soon-label {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid var(--line-default);
+  border-radius: 8px;
+  background: #f4f4f4;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+.hub .select-menu li[aria-disabled="true"] { cursor: not-allowed; background: #f4f4f4; }
+.hub .select-menu li[aria-disabled="true"] small { font-size: 11px; }
+.hub .stat.pricing-pending b { font-size: 16px; line-height: 20px; white-space: normal; }
+@media (max-width: 760px) {
+  .hub .pick-card .stat.pricing-pending { grid-column: 1 / -1; }
+}

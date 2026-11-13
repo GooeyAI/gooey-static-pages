@@ -24,7 +24,7 @@ class LanguageFAQTests(unittest.TestCase):
 
     def items(self, **overrides):
         args = dict(page=self.page, rows=self.rows, pricing=self.pricing, eco=self.eco,
-                    editorial=self.editorial, models=self.models)
+                    editorial=self.editorial, models=self.models, pricing_coming_soon=False)
         return faq_items(**(args | overrides))
 
     def test_standard_questions_and_order(self):
@@ -61,6 +61,15 @@ class LanguageFAQTests(unittest.TestCase):
         self.assertIn("$40.00–$60.00 per 1,000", answer)
         self.assertIn("each chain’s average independently", answer)
         self.assertIn("historical", answer)
+
+    def test_pricing_coming_soon_preserves_question_without_amounts(self):
+        answers = dict(self.items(pricing_coming_soon=True))
+        answer = answers["How much does a Example AI workflow cost?"]
+        self.assertIn('class="pricing-pending"', answer)
+        self.assertIn("Coming soon", answer)
+        self.assertNotIn("$", answer)
+        self.assertNotIn("pricing-2026", answer)
+        self.assertIn("low confidence", answers["What is the environmental impact of Example AI models?"])
 
     def test_hosting_does_not_treat_chart_flag_as_proof(self):
         answer = dict(self.items())["Can I run Example AI on my own servers?"]
@@ -117,8 +126,11 @@ class LanguageFAQTests(unittest.TestCase):
                 self.assertIn(CLINICAL_SAFETY_CAVEAT, section)
                 self.assertEqual(section.count(CLINICAL_SAFETY_CAVEAT), 1)
                 page = json.loads((build.SRC / slug / "page.json").read_text())
-                for kind in ("pricing", "ecocost"):
-                    self.assertIn(f"data/{page['code']}/{kind}-{page['snapshot']}.json", section)
+                self.assertIn(f"data/{page['code']}/ecocost-{page['snapshot']}.json", section)
+                self.assertNotIn(f"data/{page['code']}/pricing-{page['snapshot']}.json", section)
+                self.assertIn("Coming soon", section)
+                self.assertNotIn("$", section)
+                self.assertIn('"pricingComingSoon": true', html)
                 if slug == "kinyarwanda":
                     self.assertIn("22 general-knowledge questions about Kenya and two medical questions", section)
                     self.assertNotIn("health and farming", section)

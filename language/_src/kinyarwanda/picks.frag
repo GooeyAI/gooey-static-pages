@@ -26,7 +26,7 @@
               <div class="stats">
                 <div class="stat big"><b>85</b><span>Kinyarwanda Index</span></div>
                 <div class="stat"><b>6.9 s</b><span>response</span></div>
-                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
+                <div class="stat pricing-pending"><b>Coming soon</b><span>Cost per 1,000 questions</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -36,7 +36,7 @@
               <div class="stats">
                 <div class="stat big"><b>90</b><span>Kinyarwanda Index</span></div>
                 <div class="stat"><b>8.9 s</b><span>response</span></div>
-                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
+                <div class="stat pricing-pending"><b>Coming soon</b><span>Cost per 1,000 questions</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -52,7 +52,7 @@
               <div class="stats">
                 <div class="stat big"><b>92</b><span>Kinyarwanda Index</span></div>
                 <div class="stat"><b>7.1 s</b><span>response</span></div>
-                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
+                <div class="stat pricing-pending"><b>Coming soon</b><span>Cost per 1,000 questions</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -62,7 +62,7 @@
               <div class="stats">
                 <div class="stat big"><b>92</b><span>Kinyarwanda Index</span></div>
                 <div class="stat"><b>7.1 s</b><span>response</span></div>
-                <div class="stat"><b>$40</b><span>per 1,000 questions</span></div>
+                <div class="stat pricing-pending"><b>Coming soon</b><span>Cost per 1,000 questions</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>

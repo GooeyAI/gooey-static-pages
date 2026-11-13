@@ -6,6 +6,8 @@ import math
 from html import escape
 
 
+PRICING_COMING_SOON = True
+
 CLINICAL_SAFETY_CAVEAT = (
     "These benchmark results are not a clinical safety assessment. "
     "Any clinical or patient-facing use requires qualified clinical review."
@@ -27,7 +29,8 @@ def dollars(value: float, *, per_run: bool = False) -> str:
     return f"${value:,.2f}"
 
 
-def faq_items(page: dict, rows: list, pricing: dict, eco: dict, editorial: dict, models: dict) -> list[tuple[str, str]]:
+def faq_items(page: dict, rows: list, pricing: dict, eco: dict, editorial: dict, models: dict,
+              *, pricing_coming_soon: bool = PRICING_COMING_SOON) -> list[tuple[str, str]]:
     """Ordered question/HTML-answer pairs; omit topics whose supporting facts are absent.
 
     Scores/timings come from the same summary rows as the charts. Editorial metadata contains
@@ -83,7 +86,11 @@ def faq_items(page: dict, rows: list, pricing: dict, eco: dict, editorial: dict,
                   "These timings exclude a complete phone connection and spoken reply; test telephony, network and text-to-speech latency before launch."))
 
     observed = pricing.get("workflows", [])
-    if observed and len(observed) == len(rows) and all(w.get("observed_run_cost_usd") and w.get("sample_size") for w in observed):
+    if pricing_coming_soon:
+        items.append((f"How much does a {lang} AI workflow cost?",
+                      '<span class="pricing-pending">Coming soon. '
+                      f'Pricing comparisons for {lang} AI workflows will be available here.</span>'))
+    elif observed and len(observed) == len(rows) and all(w.get("observed_run_cost_usd") and w.get("sample_size") for w in observed):
         means = [w["observed_run_cost_usd"]["mean"] for w in observed]
         minimum, maximum = min(means), max(means)
         per_run = (dollars(minimum, per_run=True) if minimum == maximum else

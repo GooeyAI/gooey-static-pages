@@ -42,7 +42,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from site_header import HEADER_CSS, HEADER_HTML  # noqa: E402
-from language_faq import faq_items, render_faq  # noqa: E402
+from language_faq import PRICING_COMING_SOON, faq_items, render_faq  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LANG = ROOT / "language"
@@ -218,7 +218,7 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
                   <i class="rec-divider" aria-hidden="true"></i>
                   <div class="rec-more">
                     <span>{icon("icon-stopwatch", 14)}<b>{time:.1f} s</b> median reply</span>
-                    <span>{icon("icon-dollar", 14)}<b>{money(pricing[i])} / 1,000</b> questions</span>
+                    <span{ ' class="pricing-pending"' if PRICING_COMING_SOON else '' }>{icon("icon-dollar", 14)}<b>{"Coming soon" if PRICING_COMING_SOON else money(pricing[i]) + " / 1,000"}</b> {"pricing" if PRICING_COMING_SOON else "questions"}</span>
                   </div>
                 </div>
                 <div class="top-actions">
@@ -261,6 +261,7 @@ def render(slug: str) -> str:
     config = {
         "lang": page["lang"], "dataDir": f"data/{page['code']}", "layout": page["layout"],
         "questions": page["questions"], "csv": csv_rows, "pricing": pricing, "eco": ecocost,
+        "pricingComingSoon": PRICING_COMING_SOON,
         "geometry": page["geometry"],
         "scatter": {k: page["scatter"][k] for k in ("x", "xTicks", "labelBestSovereign", "metrics")},
         "archive": archive_for(page),

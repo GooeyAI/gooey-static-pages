@@ -6,6 +6,7 @@ const CSV_DATA = P.csv, PRICING_DATA = P.pricing, ECOCOST_DATA = P.eco;
 const G = P.geometry;
 const WIDE = P.layout === "wide";
 const Q = P.questions;
+const PRICING_COMING_SOON = P.pricingComingSoon === true;
 let chains = CSV_DATA.map(([model, speech, acc, time, sovereign], index) => {
   const eco = ECOCOST_DATA[index];
   return { model: model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, cost: PRICING_DATA[index], carbon: eco.value ?? null, carbonMin: eco.min, carbonMax: eco.max, carbonConfidence: eco.value === undefined ? null : "Low", carbonReason: eco.reason, sovereign };
@@ -89,9 +90,21 @@ function renderMetrics() {
     labels.push('<span class="axis-tag" style="top:5.5px">LLM</span><span class="axis-tag" style="top:29.5px">ASR</span>');
     const best = (c, label, cls) => (c ? `<div><i${cls}></i><span>${label} · <em>${c.model}</em></span><b>${chart.show(c)}</b></div>` : "");
     const article = document.createElement("article");
-    article.className = "chart-card";
+    const pending = PRICING_COMING_SOON && chart.icon === "cost";
+    article.className = "chart-card" + (pending ? " pricing-pending" : "");
+    article.dataset.metric = chart.icon;
     article.innerHTML = `<div class="chart-head"><h3 class="chart-title">${ICONS[chart.icon]}${chart.title}</h3><p class="chart-sub">${chart.sub}</p></div><div class="chart-body"><div class="plot${tight ? " tight" : ""}" style="--ly:${LIMIT_Y}px">${plot.join("")}</div><div class="labels">${labels.join("")}</div></div><div class="chart-foot"><hr /><div class="best">${best(chart.best[0], "Best sovereign", ' class="sov"')}${best(chart.best[1], "Private", "")}</div></div>`;
+    if (pending) {
+      article.querySelector(".chart-sub").textContent = "Pricing comparisons are coming soon.";
+      article.querySelectorAll(".val, .best b").forEach(value => { value.textContent = "—"; });
+      article.querySelectorAll(".chart-body, .chart-foot").forEach(part => { part.inert = true; part.setAttribute("aria-hidden", "true"); });
+      const status = document.createElement("p");
+      status.className = "coming-soon-label";
+      status.textContent = "Coming soon";
+      article.appendChild(status);
+    }
     grid.appendChild(article);
+    if (pending) return; // Keep the chart markup, but do not attach price hover interactions.
     // Hovering a column shows the same card as the scatter, judged on this chart's metric (speed charts use the Index).
     const key = { cost: "cost", carbon: "carbon" }[chart.icon] || "score";
     article.querySelectorAll(".col[data-i]").forEach(col => {
@@ -131,7 +144,7 @@ const ecoPct = v => Math.min(100, Math.max(0, v / ECO_SCALE * 100)).toFixed(1) +
 const ecoPanel = c => `<div class="p-eco"><div class="p-lab">${icon("icon-leaf")}Eco cost</div>` + (Number.isFinite(c.carbon)
   ? `<div class="p-eco-val"><b>${c.carbon.toFixed(1)} g</b><span>CO₂e</span></div><div class="p-range" role="img" aria-label="Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} grams"><i class="likely" style="left:${ecoPct(c.carbonMin)};width:calc(${ecoPct(c.carbonMax)} - ${ecoPct(c.carbonMin)})"></i><i class="dot" style="left:${ecoPct(c.carbon)}"></i></div><span class="p-cap">Likely ${c.carbonMin.toFixed(1)} to ${c.carbonMax.toFixed(1)} g</span>`
   : `<div class="p-eco-val na"><b>N/A</b></div>`) + "</div>";
-const PANEL_DETAILS = c => (Number.isFinite(c.cost) ? `<div class="p-cost"><span>Per 1,000 questions</span><b>$${c.cost.toFixed(2)}</b></div>` : "") + `
+const PANEL_DETAILS = c => (Number.isFinite(c.cost) ? `<div class="p-cost${PRICING_COMING_SOON ? " pricing-pending" : ""}"><span>Cost per 1,000 questions</span><b>${PRICING_COMING_SOON ? "Coming soon" : "$" + c.cost.toFixed(2)}</b></div>` : "") + `
     <div class="p-where"><div class="p-host"><div><div class="p-lab">${icon(c.sovereign ? "icon-landmark" : "icon-cloud")}Hosting</div><div class="p-val">${c.sovereign ? "Sovereign-deployable" : "Private API"}</div></div><hr /><div><div class="p-lab">${icon("icon-microphone")}Speech recognition</div><div class="p-val">${speechIcon(c.speech)}${c.speech}</div></div></div>${Number.isFinite(c.cost) ? ecoPanel(c) : ""}</div>`;
 
 // Scatter + hover tooltip + Y-axis menu. Per-page numbers live in SCATTER (see above).
@@ -162,7 +175,7 @@ const metricKeys = () => (activeSnap.archived ? ["score"] : Object.keys(SCATTER.
 const scoreRankOf = c => scoreRanked.indexOf(c) + 1;
 const timeRankOf = c => timeRanked.indexOf(c) + 1;
 const RING = { "DeepSeek V4": "#4d6bfe", "Gemini 3.1 Pro": "#4285f4", "Gemini 3.7 Flash": "#4285f4", "GPT-5.6 Sol": "#10131c", "Claude Sonnet 5": "#d97757", "Kimi K3": "#1783ff", "GPT-5.1": "#10131c", "GPT Realtime": "#10131c", "Gemini 3 Pro": "#4285f4", "Gemini 3 Flash": "#4285f4" };
-const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => "$" + c.cost.toFixed(2), carbon: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(1) + " g" : "Not covered" };
+const FORMAT = { score: c => String(c.score), time: c => c.time.toFixed(1) + " s", cost: c => PRICING_COMING_SOON ? "Coming soon" : "$" + c.cost.toFixed(2), carbon: c => Number.isFinite(c.carbon) ? c.carbon.toFixed(1) + " g" : "Not covered" };
 const SC_W = 690, SC_H = 509;
 const pctX = x => (x / SC_W * 100).toFixed(3) + "%";
 const pctY = y => (y / SC_H * 100).toFixed(3) + "%";
@@ -218,7 +231,7 @@ function tooltipHtml(c, mKey = yMetric) {
   const m = SCATTER.metrics[mKey];
   const best = !metricChains(m).some(o => beats(m, o, c));
   const by = beatenBy(m, c);
-  const rows = SCATTER.rows.filter(([key]) => !activeSnap.archived || key === "score" || key === "time").map(([key, label]) => `<div class="${key === "time" || key === mKey ? "strong" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" || key === "cost" ? "/ 1,000 Q's" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
+  const rows = SCATTER.rows.filter(([key]) => !activeSnap.archived || key === "score" || key === "time").map(([key, label]) => `<div class="${key === "time" || key === mKey ? "strong" : ""}${PRICING_COMING_SOON && key === "cost" ? " pricing-pending" : ""}"><span>${label}</span><b>${FORMAT[key](c)}</b><em>${key === "carbon" || key === "cost" ? "/ 1,000 Q's" : "#" + (key === "time" ? timeRankOf(c) : scoreRankOf(c)) + " of " + chains.length}</em></div>`).join("");
   return `<div class="sc-tip-head">${model(c.model, 16)}<b>${c.model}${c.speech === "Built-in audio" ? "" : " +"}</b>${c.speech === "Built-in audio" ? "" : speechIcon(c.speech, 14) + "<b>" + c.speech + "</b>"}</div>
     <p class="sc-tip-sub">${MAKERS[c.model]} · ${c.speech === "Built-in audio" ? "Direct audio" : c.speech + " speech recognition"}</p>
     <div class="sc-tip-rows">${rows}</div>
@@ -334,12 +347,13 @@ function renderScatter() {
 const yBtn = document.getElementById("yselectBtn");
 const yMenu = document.getElementById("yselectMenu");
 let yActive = 0;
+const metricAvailable = key => !(PRICING_COMING_SOON && key === "cost");
 function renderYMenu() {
   const keys = metricKeys();
   // The language name in "<Language> Index vs response time" is dropped on phones, where the two menus share a row.
   const title = k => SCATTER.metrics[k].title.replace(P.lang + " ", `<i class="wide-only">${P.lang} </i>`);
   yBtn.firstElementChild.innerHTML = title(yMetric);
-  yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}" class="${i === yActive ? "active" : ""}"><span>${title(k)}</span>${k === yMetric ? CHECK : ""}</li>`).join("");
+  yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}"${metricAvailable(k) ? "" : ' aria-disabled="true"'} class="${i === yActive ? "active" : ""}${metricAvailable(k) ? "" : " pricing-pending"}"><span>${title(k)}</span>${metricAvailable(k) ? (k === yMetric ? CHECK : "") : "<small>Coming soon</small>"}</li>`).join("");
   yBtn.setAttribute("aria-activedescendant", "yopt-" + keys[yActive]);
 }
 function setYMenu(open) {
@@ -349,6 +363,7 @@ function setYMenu(open) {
   if (open) { yActive = metricKeys().indexOf(yMetric); renderYMenu(); }
 }
 function chooseMetric(key) {
+  if (!metricAvailable(key)) return;
   yMetric = key;
   setYMenu(false);
   renderYMenu();
@@ -356,14 +371,15 @@ function chooseMetric(key) {
 }
 yBtn.addEventListener("click", () => setYMenu(yMenu.hidden));
 yMenu.addEventListener("click", event => { const li = event.target.closest("li"); if (li) chooseMetric(li.dataset.k); });
-yMenu.addEventListener("pointermove", event => { const li = event.target.closest("li"); if (li) { yActive = metricKeys().indexOf(li.dataset.k); yMenu.querySelectorAll("li").forEach((el, i) => el.classList.toggle("active", i === yActive)); } });
+yMenu.addEventListener("pointermove", event => { const li = event.target.closest("li"); if (li && metricAvailable(li.dataset.k)) { yActive = metricKeys().indexOf(li.dataset.k); yMenu.querySelectorAll("li").forEach((el, i) => el.classList.toggle("active", i === yActive)); } });
 yBtn.addEventListener("keydown", event => {
   const keys = metricKeys();
   if (event.key === "Escape") { setYMenu(false); return; }
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
     event.preventDefault();
     if (yMenu.hidden) { setYMenu(true); return; }
-    yActive = (yActive + (event.key === "ArrowDown" ? 1 : keys.length - 1)) % keys.length;
+    do { yActive = (yActive + (event.key === "ArrowDown" ? 1 : keys.length - 1)) % keys.length; }
+    while (!metricAvailable(keys[yActive]));
     renderYMenu();
   } else if ((event.key === "Enter" || event.key === " ") && !yMenu.hidden) {
     event.preventDefault();
