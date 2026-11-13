@@ -115,7 +115,11 @@ all share one layout so that twenty of them stay identical. Their
 - Layout/CSS: `language/assets/language-page.css`. Charts, table, scatter, samples:
   `language/assets/language-page.js`. Change these once and every page follows.
 - One language: `language/_src/<slug>/` (`page.json` plus `picks.frag`, `featured.frag`,
-  `faq.frag`). Numbers come from `language/data/<code>/` (summary CSV, pricing and
+  `faq.json`). FAQ layout is shared in `language/_src/faq.tmpl`; `scripts/language_faq.py`
+  generates the standard questions and answers from benchmark data and verified dataset
+  context in `faq.json` (not manually maintained answers or hosting claims). The shared
+  evaluation-method answer includes a clinical-safety caveat on every language page.
+  Numbers come from `language/data/<code>/` (summary CSV, pricing and
   EcoCost JSON), so counts and charts can't disagree with the data.
 - Shared page skeleton: `language/_src/body.tmpl`. Footer language list:
   `language/_src/languages.json`.

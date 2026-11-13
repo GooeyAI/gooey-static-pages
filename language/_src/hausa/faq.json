@@ -1,0 +1,6 @@
+{
+  "output_language": "English",
+  "dataset_description": "questions about pregnancy, childbirth and newborn care",
+  "reference_description": "reference answers drawn from Essential obstetric and newborn care",
+  "limitations": "this small, health-focused dataset does not establish performance across all clinical scenarios, accents or real-world conditions."
+}

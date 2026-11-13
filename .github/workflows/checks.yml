@@ -21,3 +21,5 @@ jobs:
         run: python3 scripts/check_site_header.py
       - name: Check language pages match their template
         run: python3 scripts/check_language_pages.py
+      - name: Test shared language FAQ generation
+        run: python3 scripts/test_language_faq.py

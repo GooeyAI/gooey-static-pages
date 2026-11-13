@@ -15,7 +15,7 @@ What is specific to one language lives in language/_src/<slug>/:
     page.json      names, hero voice note, chart geometry, axis ranges, notes
     picks.frag     "Which chain should you pick?" section (editorial)
     featured.frag  featured lab / "what changed the result?" section (editorial)
-    faq.frag       FAQ section (editorial)
+    faq.json       verified dataset context for the shared, data-driven FAQ
 
 The numbers come straight from the data files in language/data/<code>/
 (summary CSV, pricing JSON, EcoCost JSON), so the chart, table, hero sentence
@@ -42,6 +42,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from site_header import HEADER_CSS, HEADER_HTML  # noqa: E402
+from language_faq import faq_items, render_faq  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LANG = ROOT / "language"
@@ -283,6 +284,14 @@ def render(slug: str) -> str:
     model_nav = ('<nav class="sr-only" aria-label="Results by model">' + " ".join(
         f'<a href="../models/{models_meta[m]["slug"]}/{slug}/">{m} in {page["lang"]}</a>' for m in ranked_models) + "</nav>")
     lead_html, rec_card = hero_top(page, csv_rows, pricing, ecocost)
+    faq_context = json.loads((d / "faq.json").read_text()) if (d / "faq.json").exists() else {}
+    data_dir = DATA / page["code"]
+    faq = render_faq((SRC / "faq.tmpl").read_text(), faq_items(
+        page, csv_rows,
+        json.loads((data_dir / f"pricing-{page['snapshot']}.json").read_text()),
+        json.loads((data_dir / f"ecocost-{page['snapshot']}.json").read_text()),
+        faq_context, models_meta,
+    ))
 
     slots = {
         "header": HEADER_HTML.format(title=f"Best AI for {page['lang']}").rstrip("\n"),
@@ -294,7 +303,7 @@ def render(slug: str) -> str:
         "board_hint": page["board"]["hint"], "speech_key": speech_key,
         "picks_section": (d / "picks.frag").read_text().rstrip("\n"),
         "featured_section": (d / "featured.frag").read_text().rstrip("\n"),
-        "faq_section": (d / "faq.frag").read_text().rstrip("\n"),
+        "faq_section": faq,
         "scatter_aria": " " + page["scatter"]["aria"],
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
         "model_nav": model_nav, "samples_intro": page["samples_intro"],
