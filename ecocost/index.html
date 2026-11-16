@@ -990,17 +990,17 @@
 
     <!-- hero -->
     <header class="hero" id="top">
-      <span class="tag">Gooey.AI · Proposal</span>
+      <span class="tag">A Gooey.AI Proposal · Updated 16 Nov 2026</span>
       <h1>EcoCost labeling for AI&nbsp;inference</h1>
       <p class="hero-dek">
-        How we make the environmental cost of AI visible..
+        How we make the environmental cost of AI visible.
       </p>
       <p class="hero-lede">
         We believe all AI consumers and organizations should be able to easily 
         understand the environmental impact of their AI use. Hence, EcoCost is a public repository
         and API to provide estimates of energy use, emissions, and water
-        consumption of frontier AI models and providers, allowing any AI tool to display environmental costs
-        alongside model price and performance. The Open-source Python library - <a href="https://github.com/GooeyAI/ecocost">ecocost</a> - is available now.
+        consumption of frontier AI models and the datacenters that run them, allowing any AI tool to display environmental costs
+        alongside model price and performance. The open-source Python library, <a href="https://github.com/GooeyAI/ecocost">ecocost</a>, is available now.
       </p>
     </header>
 
@@ -1015,7 +1015,10 @@
               builders lack a common resource for comparing environmental
               performance across models and server regions. Without this
               information, we cannot readily factor environmental impact
-              into our AI model and provider choices.
+              into our AI model and provider choices. Gathering this information
+              isn't easy either: models are released constantly, datacenters
+              often don't publish their ecological emissions, and data quality
+              estimates from across the ecosystem can vary widely.
             </p>
           </div>
           <div>
@@ -1024,21 +1027,21 @@
               If AI services displayed their environmental impact, users, organizations and governments
               could consider ecological costs when choosing models and providers,
               alongside accuracy, latency, <a href="https://gooey.ai/sovereignty">sovereign-deployability</a> and price. 
-              It's our hope that like other forms of product labeling of externalities (think "organic" or the nutrition information), displaying ecocosts will
-              shape market demand, push consumers to demand cleaner AI and create greater economic incentives for frontier labs and datacenters to optimize to lower the water, carbon and power consumption.
+              We hope that, like other forms of product labeling of externalities (think "organic" or nutrition information), displaying eco-costs will
+              shape market demand, push consumers to demand cleaner AI, and create greater economic incentives for frontier labs and datacenters to lower their water, carbon, and power consumption. Additionally, by combining our efforts into a shared collaborative knowledge source - a code repository that can be updated by AI agents and vetted by human maintainers - we hope to aggregate relevant, up-to-date, high-quality research around AI eco-costs that the entire industry can rely on.
             </p>
           </div>
           <div>
             <h2>How it works</h2>
             <p>
-              The hard part is actually aggregating worldwide research and estimates of emissions. 
-              This public repository is an ecosystem attempt to collate emissions data into standardized, easy to integrate estimates of per-token
-              estimates of energy, emissions and water use. We hope that data scientists, researchers,
+              The hard part is aggregating worldwide research and estimates of emissions.
+              This public repository is an ecosystem effort to collate emissions data into standardized, easy-to-integrate per-token
+              estimates of energy, emissions, and water use. We hope that data scientists, researchers,
               hyperscalers, and AI research agents contribute high-quality, vetted data.
               Repo maintainers and AI agents will continually curate the information to
-              improve confidence in the estimates. Data centers, telcos, energy grids and hyperscalers can also choose to upload their best estimates as well. 
-              Connected AI platforms that leverage this repo inform consumers and organizations on the eco-cost of their
-              AI usage, compare models and server regions, and track the
+              improve confidence in the estimates. Data centers, telcos, energy grids, and hyperscalers can also upload their best estimates.
+              Connected AI platforms that leverage this repo inform consumers and organizations of the eco-cost of their
+              AI usage, let them compare models and server regions, and track the
               impact of their AI usage over time.
             </p>
           </div>
@@ -1091,11 +1094,11 @@
     <!-- ecocost in the product -->
     <section class="reveal">
       <div class="wrap">
-        <h2 class="sec-title">EcoCost in the product</h2>
+        <h2 class="sec-title">EcoCost in an AI product</h2>
         <div class="prose muted">
           <p>
-            The Gooey.AI mockups show environmental information within an AI
-            workflow. A compact label beside the run price surfaces
+            Our hope is that AI tools - like Gooey.AI itself - show environmental information within their respective interfaces so that consumers and users can consider their impact, alongside other factors including a model's cost, intelligence, or speed. Below we show how we've integrated EcoCost information inside our own user interface in our <a href="https://gooey.ai/agent">agent builder</a>.
+            Here, a compact label beside the AI run's price surfaces
             emissions, and an expanded view explains resource use, compute
             time, and the location and energy mix behind the estimate.
           </p>
@@ -1122,8 +1125,7 @@
               alt="Gooey.AI Agent Builder on desktop. The run price in the header shows $0.04 and 0.97 mg CO₂e, and the open Run Cost &amp; Environment Impact dialog shows carbon, water, energy, and the Norway grid mix"
             />
             <figcaption>
-              Desktop: the eco-cost sits beside the run price and expands
-              into the full breakdown.
+              An expanded cost and environmental impact view.
             </figcaption>
           </figure>
           <figure class="figure">
@@ -1138,17 +1140,16 @@
 
         <div class="prose muted">
           <p>
-            The figures in the mockups come straight from ecocost. The run
-            used GPT OSS 20B on nScale, with 2,100 input and 219 output
+            The figures in the mockups come from the calculations of the ecocost repository. The run
+            used GPT OSS 20B on a Norwegian data center provider, with 2,100 input and 219 output
             tokens. It came to 0.97 mg CO₂e (likely range 0.28–3.4 mg),
             about 0.15 ml of water (almost all of it at the power plant),
             and 22 mWh of electricity, about 8 seconds of a 10 W LED bulb.
-            A slider scales the figures by the number of conversation turns.
           </p>
           <p>
             The request ran in Norway, where ecocost's grid data shows about
             90% hydro and 8% wind, at 28 g CO₂e per kWh (range 10–45). A link
-            explains how the estimate is made.
+            explains how the estimate is made, in this case with low confidence given that the data hasn't been calculated from data verified by the Norwegian hyperscaler.
           </p>
         </div>
       </div>
@@ -1157,7 +1158,7 @@
     <!-- playground: runs the real ecocost package in the browser via Pyodide -->
     <section class="reveal" id="playground">
       <div class="wrap">
-        <h2 class="sec-title">Try the API</h2>
+        <h2 class="sec-title">Estimate your AI's EcoCost</h2>
         <div class="prose muted">
           <p>
             This playground runs the real
@@ -1304,7 +1305,7 @@
             <div>
               <h3>Source data</h3>
               <p>
-                Inputs would include academic research, industry reports,
+                Inputs include academic research, industry reports,
                 websites and blogs, operational data and efficiency metrics
                 from data centers, and public disclosures from hyperscalers
                 and model providers. Example sources include Epoch AI,
@@ -1317,9 +1318,9 @@
             <div>
               <h3>Curation and contributions</h3>
               <p>
-                Human contributors would review data, update methodologies,
-                and validate results. Research agents would automate
-                collection and analysis across the web. Providers could
+                Human contributors can review data, update methodologies,
+                and validate results. Research agents run daily and automate
+                collection and analysis across the web. Providers can
                 directly submit environmental data, regional information,
                 and infrastructure details.
               </p>
@@ -1340,7 +1341,7 @@
                 <li>
                   Methodology documentation covering the calculation, the
                   sources behind every default, and calibration against
-                  published measurements.
+                  published measurements. Similar to epoch.ai, we estimate each model's token usage in seconds consumed on an H100 GPU equivalent. From this, we calculate the water, energy, and carbon required to produce a token at a datacenter, using the nation's energy grid as an approximation when first-hand data is not available.
                 </li>
                 <li>
                   Calculator logic that converts tokens into compute, energy,
@@ -1381,8 +1382,8 @@
             <div>
               <h3>Product interfaces</h3>
               <p>
-                Gooey.AI, environmental dashboards, chat interfaces, and
-                partner applications would display the estimates. Users
+                AI products such as Gooey.AI, environmental dashboards, chat interfaces, and
+                partner applications display the estimates. Users
                 could explore and compare impact, track usage, and expand a
                 label to see model-level details such as tokens, usage,
                 cost, eco-costs, and confidence.
@@ -1525,6 +1526,64 @@
       </div>
     </section>
 
+    <!-- where we need help and funding -->
+    <section class="reveal">
+      <div class="wrap">
+        <h2 class="sec-title">Where we need help</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-n">01</span>
+            <div>
+              <h3>Better AI research monitors</h3>
+              <p>We leverage AI research agents to scour the internet for new EcoCost reports to update our estimates. This is an early implementation with likely significant logic and security holes that may still be present. These processes need to be hardened, stress-tested, red-teamed, and expanded to include every data center offering private and open-source inference on earth.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">02</span>
+            <div>
+              <h3>Human and AI moderation systems</h3>
+              <p>We take inspiration from collective knowledge aggregation systems like Wikipedia, but acknowledge they only work well with dedicated human moderators. With a research effort this large and controversial, we need systems for human moderators to adjudicate conflicts in human- and AI-sourced research, and improved AI systems to replicate this moderation.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">03</span>
+            <div>
+              <h3>First-hand data outreach and integration</h3>
+              <p>Telcos, datacenters, hyperscalers, and neo-clouds have the first-hand data required to create high-confidence EcoCost estimates. We want these providers to publish and update their ecological impact, and to see this effort as a mechanism for creating market demand for cleaner AI.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">04</span>
+            <div>
+              <h3>Environment research community outreach</h3>
+              <p>In their effort to win the AI race, many AI providers are turning to dirty, readily available energy sources. Many may choose to keep their ecological impact data private. We must continuously absorb the environmental research community's estimates when reliable first-hand data is not available.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">05</span>
+            <div>
+              <h3>Evangelism to AI tool makers</h3>
+              <p>Users and organizations can make cleaner choices when they can see the impact of their AI usage. EcoCost labeling must be broadly available in the AI tools people use every day, from mainstream providers to enterprise and consumer AI products.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">06</span>
+            <div>
+              <h3>Outreach to institutional AI users</h3>
+              <p>Companies, universities, and public-sector organizations with board-level commitments to reduce their ecological footprint should be able to determine their model token usage and accurately estimate its EcoCost.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-n">07</span>
+            <div>
+              <h3>Policy collaborations</h3>
+              <p>Building a reliable code repository would be complemented by policy interventions requiring AI model makers, datacenters, and providers to audit and publish their ecological emissions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- get involved -->
     <section class="reveal">
       <div class="wrap">
@@ -1558,7 +1617,7 @@
               request to correct a figure or add a model or provider.
             </p>
             <a class="cta-btn" href="https://github.com/GooeyAI/ecocost"
-              >GooeyAI/ecocost</a
+              >github.com/GooeyAI/ecocost</a
             >
           </div>
         </div>
