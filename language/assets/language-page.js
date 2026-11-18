@@ -9,7 +9,7 @@ const Q = P.questions;
 const PRICING_COMING_SOON = P.pricingComingSoon === true;
 let chains = CSV_DATA.map(([model, speech, acc, time, sovereign], index) => {
   const eco = ECOCOST_DATA[index];
-  return { model: model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, cost: PRICING_DATA[index], carbon: eco.value ?? null, carbonMin: eco.min, carbonMax: eco.max, carbonConfidence: eco.value === undefined ? null : "Low", carbonReason: eco.reason, sovereign };
+  return { model: model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, exact: acc * 100, score: Math.round(acc * 100 + 1e-9), time, cost: PRICING_DATA[index], carbon: eco.value ?? null, carbonMin: eco.min, carbonMax: eco.max, carbonConfidence: eco.value === undefined ? null : "Low", carbonReason: eco.reason, sovereign, workflow: P.workflows[index] };
 });
 const ranked = [...chains].sort((a, b) => b.acc - a.acc || a.time - b.time);
 ranked.forEach((c, i) => { c.rank = i + 1; });
@@ -116,7 +116,7 @@ function renderMetrics() {
 
 function renderTable(sort = "accuracy") {
   const rows = sort === "speed" ? byTime : ranked;
-  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row" data-g="${group(c)}" role="row"><span class="c-rank" role="cell">${i + 1}</span><span class="c-chain" role="cell"><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span></span><span class="c-score" role="cell"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span class="c-time" role="cell">${c.time.toFixed(1)} s</span><span class="c-run" role="cell"><a href="${P.evalUrl}" target="_blank" rel="noopener noreferrer" aria-label="View the evaluation run for ${fullName(c)}">View run ↗</a></span></div>`).join("");
+  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row" data-g="${group(c)}" role="row"><span class="c-rank" role="cell">${i + 1}</span><span class="c-chain" role="cell"><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span></span><span class="c-score" role="cell"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span class="c-time" role="cell">${c.time.toFixed(1)} s</span><span class="c-run" role="cell"><a href="${c.workflow}" target="_blank" rel="noopener noreferrer" aria-label="Try the ${fullName(c)} ${P.lang} agent on Gooey.AI">Try agent ↗</a></span></div>`).join("");
 }
 
 function renderLabRank() {

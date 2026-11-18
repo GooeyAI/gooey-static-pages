@@ -131,16 +131,32 @@ Each language also has an `ai-agent` page (`language/<slug>/ai-agent/`), generat
 `language/assets/language-agent.{css,js}`. Its illustrations are `language/assets/ai-agent/hero.*` and
 `channel.*` (webp, jpg or png); a labelled placeholder shows until they exist.
 
+A language can also have a `speech-to-text` page (`language/<slug>/speech-to-text/`), generated from
+`language/_src/stt.tmpl`, `language/_src/<slug>/stt.json` (which recognizers to show, the chain each "Try" tab
+opens, the API preset, and wording) and the shared `language/assets/language-stt.{css,js}`. Card text, averages
+and FAQ numbers are computed from the language's data. Its step-1 illustration is
+`language/assets/speech-to-text/step1.*` (webp, jpg or png); a labelled placeholder shows until it exists. The
+language page's "Speech to text" card links to it once `stt.json` exists, and shows "Results coming soon" until then.
+
+Every link to a Gooey.AI run or workflow must be the specific one, never a generic page like `gooey.ai/bulk/`
+or `gooey.ai/speech/`; ask the team for it. `hero.bulk_url` in `page.json` is the language's own evaluation
+run, and the build fails if it is generic. The chains table links each chain to the saved workflow the
+evaluation ran, listed in `language/data/<code>/workflows-<snapshot>.json` by
+`python3 scripts/fetch_language_workflows.py [slug]` (re-run it when the evaluation run changes). A workflow
+edited after the evaluation (`retitled`) links to the evaluation's own run of it instead, so the link shows the
+model that was scored.
+
 Each model has a page per language (`models/<model-slug>/<language-slug>/`, e.g.
 `models/gpt-5-6-sol/kinyarwanda/`), generated from `language/_src/model.tmpl` and
 `language/_src/models.json` (maker, open weights, hosting regions, optional previous version) plus the
 language's data, with `language/assets/language-model.{css,js}`. `models/` is its own top-level route, so it needs
 `models/assets/gooey-logo.png` for the shared header, and gooey.ai must proxy it like `language`.
 
-Links between the three page kinds are relative paths, so `check_links.py` can verify them.
+Links between the page kinds are relative paths, so `check_links.py` can verify them.
 `language/assets/language-links.js` rewrites them to `gooey.ai` URLs when a page is served through the proxy.
 `check_language_pages.py` also fails if a generated page is not linked from another one, or lacks the links it
-should have (model page to its language page and agent page; language page to its agent page and every model page).
+should have (model page to its language page and agent page; language page to its agent page, speech-to-text
+page and every model page; speech-to-text page to its language page and agent page).
 
 After any of those change:
 
@@ -153,10 +169,11 @@ To add a language:
 
 1. `python3 scripts/build_language_data.py --csv <evaluator.csv> --code <xxx> --lang <Name> --country <ISO> --date <YYYY-MM-DD> --samples 3,9,14`
    writes `language/data/<xxx>/` (summary, pricing, EcoCost, sample cards) from the evaluator CSV
-   and the public run pages it links to.
+   and the public run pages it links to. Ask the team for the language's bulk evaluation run URL, set it as
+   `hero.bulk_url` in `page.json`, then run `python3 scripts/fetch_language_workflows.py <slug>`.
 2. Copy an existing `language/_src/<slug>/`, edit its wording and chart settings (`page.json`, the `.frag` files,
    and `agent.json` for the ai-agent page), then build.
-3. Register both pages in `PAGES` in `scripts/site_header.py` and add the language's name to
+3. Register its pages (language, ai-agent and, if it has `stt.json`, speech-to-text) in `PAGES` in `scripts/site_header.py` and add the language's name to
    `language/_src/languages.json` if it isn't there.
 
 ## Before opening a PR for a new or edited page

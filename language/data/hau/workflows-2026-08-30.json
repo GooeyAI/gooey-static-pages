@@ -1,0 +1,98 @@
+{
+  "source": "https://gooey.ai/bulk/30qs-hausa-audio-to-text-benchmark-deepseek-v4-gpt-56-sol-claude-sonnet-5-gemini-37-flash-kimi-k3-gemini-31-pro-w-omnilingual-intron-2k5hpkl1mo2r/",
+  "fetched": "2026-11-18",
+  "note": "Saved Gooey.AI workflows the bulk evaluation ran, in run order. A retitled workflow was edited after the evaluation; pages link its eval_run (the evaluation's run of question 1) instead.",
+  "workflows": [
+    {
+      "tested_as": "0 Gemini 3.1 Pro - Hausa",
+      "title_now": "0 Gemini 3.1 Pro - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/0-gemini-31-pro-hausa-0hhesx3zfurs/",
+      "eval_run": "https://gooey.ai/agent/?run_id=loi2txbj6bkb&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "1 Gemini 3.1 Pro + Omni - Hausa",
+      "title_now": "1 Gemini 3.1 Pro + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/1-gemini-31-pro-omni-hausa-qib2f16dk64h/",
+      "eval_run": "https://gooey.ai/agent/?run_id=xthba10261is&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "2 Gemini 3.1 Pro + Intron - Hausa",
+      "title_now": "2 Gemini 3.1 Pro + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/2-gemini-31-pro-intron-hausa-toa79gczyca7/",
+      "eval_run": "https://gooey.ai/agent/?run_id=28syj5q0qho3&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "3 GPT 5.6 Sol + Omni - Hausa",
+      "title_now": "3 GPT 5.6 Sol + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/3-gpt-56-sol-omni-hausa-372jckdvh5sv/",
+      "eval_run": "https://gooey.ai/agent/?run_id=o5g7m0jzt8g9&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "4 GPT 5.6 Sol + Intron - Hausa",
+      "title_now": "4 GPT 5.6 Sol + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/4-gpt-56-sol-intron-hausa-w5xneofpnjwd/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8s578pq3xtnq&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "5 Claude Sonnet 5 + Omni - Hausa",
+      "title_now": "5 Claude Sonnet 5 + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/5-claude-sonnet-5-omni-hausa-z9gxdiijr4db/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8gyvw393vspa&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "6 Claude Sonnet 5 + Intron - Hausa",
+      "title_now": "6 Claude Sonnet 5 + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/6-claude-sonnet-5-intron-hausa-2n0czixvyo3p/",
+      "eval_run": "https://gooey.ai/agent/?run_id=2nqggb7116c4&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "7 Kimi K3 + Omni - Hausa",
+      "title_now": "7 Kimi K3 + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/7-kimi-k3-omni-hausa-memcz12wrum0/",
+      "eval_run": "https://gooey.ai/agent/?run_id=l8w9ax8f168j&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "8 Kimi K3 + Intron - Hausa",
+      "title_now": "8 Kimi K3 + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/8-kimi-k3-intron-hausa-08wv0pab2sqj/",
+      "eval_run": "https://gooey.ai/agent/?run_id=1tgvmcxeo92v&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "9 DeepSeek V4 + Omni - Hausa",
+      "title_now": "9 DeepSeek V4 + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/9-deepseek-v4-omni-hausa-4jcsv8umhv59/",
+      "eval_run": "https://gooey.ai/agent/?run_id=bdg03ssea6g8&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "10 DeepSeek V4 + Intron - Hausa",
+      "title_now": "10 DeepSeek V4 + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/10-deepseek-v4-intron-hausa-5vpfb361e3yo/",
+      "eval_run": "https://gooey.ai/agent/?run_id=b436by1piew7&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "11 Gemini 3.7 Flash + Omni - Hausa",
+      "title_now": "11 Gemini 3.7 Flash + Omni - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/11-gemini-37-flash-omni-hausa-54a1on6m9tau/",
+      "eval_run": "https://gooey.ai/agent/?run_id=z55ohwk8kzzq&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "tested_as": "12 Gemini 3.7 Flash + Intron - Hausa",
+      "title_now": "12 Gemini 3.7 Flash + Intron - Hausa",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/12-gemini-37-flash-intron-hausa-4fp0rde4taup/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8w5zqrqa738n&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    }
+  ]
+}

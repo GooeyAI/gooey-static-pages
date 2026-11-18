@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <base href="../../" />
+    <title>Kinyarwanda speech to text | Gooey.AI</title>
+    <meta
+      name="description"
+      content="Turn spoken Kinyarwanda into text. Omnilingual, Gemini 3.1 Pro and Intron compared on 24 real spoken questions; DeepSeek V4 + Omnilingual scored 92 out of 100."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kinyarwanda speech to text | Gooey.AI" />
+    <meta
+      property="og:description"
+      content="Turn spoken Kinyarwanda into text. Omnilingual, Gemini 3.1 Pro and Intron compared on 24 real spoken questions; DeepSeek V4 + Omnilingual scored 92 out of 100."
+    />
+    <meta property="og:url" content="https://gooey.ai/language/kinyarwanda/speech-to-text" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }    </style>
+    <link rel="stylesheet" href="assets/language-page.css" />
+    <link rel="stylesheet" href="assets/language-agent.css" />
+    <link rel="stylesheet" href="assets/language-stt.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Kinyarwanda speech to text</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+
+    <main id="main" class="agent stt">
+      <section class="st-top" aria-labelledby="st-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="kinyarwanda/">Kinyarwanda</a>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>Speech to text</strong>
+          </nav>
+          <div class="st-hero">
+            <h1 id="st-title">Kinyarwanda speech to text</h1>
+            <p class="lead">Turn spoken Kinyarwanda into text. Our latest Kinyarwanda Index eval conducted on <strong>30th Aug, 2026</strong> found that <strong>Omnilingual</strong> ASR, paired with the <strong>DeepSeek V4</strong> language model, scored the <strong>highest Index</strong> on answers to questions asked by native speakers.</p>
+          </div>
+
+          <div class="st-try" aria-label="Try Kinyarwanda speech to text">
+            <div class="st-controls">
+              <div class="st-field">
+                <span class="st-label" id="st-model-label">Model</span>
+                <div class="st-tabs" role="tablist" aria-labelledby="st-model-label">
+                  <button class="st-tab" type="button" role="tab" aria-selected="true" aria-controls="stPanel" data-url="https://gooey.ai/agent/9-deepseek-v4-omni-kinyarwanda-u70xqp4wseqx/" data-caption="Opens the DeepSeek V4 + Omnilingual agent from our test on Gooey.AI. It transcribes the audio, then answers."><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" />Omnilingual (recommended)</button>
+                  <button class="st-tab" type="button" role="tab" aria-selected="false" aria-controls="stPanel" data-url="https://gooey.ai/agent/0-gemini-31-pro-kinyarwanda-vlim4iwy5zlw/" data-caption="Opens the Gemini 3.1 Pro agent from our test on Gooey.AI. It listens to the audio and answers."><img src="assets/kinyarwanda/logo-gemini.svg" alt="" width="16" height="16" />Gemini 3.1 Pro</button>
+                  <button class="st-tab" type="button" role="tab" aria-selected="false" aria-controls="stPanel" data-url="https://gooey.ai/agent/10-deepseek-v4-intron-kinyarwanda-pqqe18622ppf/" data-caption="Opens the DeepSeek V4 + Intron agent from our test on Gooey.AI. It transcribes the audio, then answers."><img src="assets/kinyarwanda/logo-intron.svg" alt="" width="16" height="16" />Intron</button>
+                  <button class="st-tab" type="button" role="tab" aria-selected="false" aria-controls="stPanel" data-url="https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/" data-caption="Opens our Aug 30, 2026 evaluation run, with every chain’s answers side by side.">Compare all 3</button>
+                </div>
+              </div>
+              <label class="st-field st-lang">
+                <span class="st-label">Spoken language</span>
+                <select class="st-select" id="stLang">
+                  <option value="kinyarwanda/speech-to-text/" selected>Kinyarwanda</option>
+                </select>
+              </label>
+            </div>
+            <div class="st-idle" role="tabpanel" id="stPanel">
+              <a class="st-mic" id="stMic" href="https://gooey.ai/agent/9-deepseek-v4-omni-kinyarwanda-u70xqp4wseqx/" target="_blank" rel="noopener noreferrer" aria-label="Record Kinyarwanda on Gooey.AI"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="4" width="10" height="16" rx="5"/><path d="M7 15a9 9 0 0 0 18 0M16 24v4"/></svg></a>
+              <p class="st-hint">Record or upload Kinyarwanda audio on Gooey.AI</p>
+              <div class="st-buttons">
+                <a class="hero-btn secondary st-go" href="https://gooey.ai/agent/9-deepseek-v4-omni-kinyarwanda-u70xqp4wseqx/" target="_blank" rel="noopener noreferrer">Upload audio</a>
+                <a class="hero-btn secondary st-go" href="https://gooey.ai/agent/9-deepseek-v4-omni-kinyarwanda-u70xqp4wseqx/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.8v10.4L13 8 4.5 2.8Z"/></svg>Try a sample</a>
+              </div>
+            </div>
+            <div class="st-foot">
+              <p id="stCaption">Opens the DeepSeek V4 + Omnilingual agent from our test on Gooey.AI. It transcribes the audio, then answers.</p>
+              <a class="hero-btn secondary" href="kinyarwanda/ai-agent/">Use it in a WhatsApp agent<img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></a>
+            </div>
+          </div>
+
+          <ul class="st-stats" aria-label="About the test">
+            <li><b>11</b> AI chains tested</li>
+            <li><b>24</b> questions asked by native speakers</li>
+            <li>Results from <b>Aug 30, 2026</b></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="st-models" aria-labelledby="models-title">
+        <div class="container">
+          <div class="st-models-head">
+            <h2 id="models-title">Which model works best for Kinyarwanda?</h2>
+            <a href="kinyarwanda/#leaderboard">See the full Kinyarwanda leaderboard</a>
+          </div>
+          <div class="st-cards">
+            <article class="st-card rec"><span class="st-tag"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.2 2.2 4.8-5.4"/></svg>Recommended · Sovereign</span><h3><img src="assets/kinyarwanda/logo-meta-24.svg" alt="" width="24" height="24" />Omnilingual</h3><p>By Meta. Faster than Intron with every language model we paired it with. Powers the top chain, DeepSeek V4 + Omnilingual: <strong>92 / 100</strong> Kinyarwanda Index.</p></article>
+            <article class="st-card"><span class="st-tag">Built-in audio · Private API</span><h3><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" />Gemini 3.1 Pro</h3><p>By Google. It listens to the question and answers in one step: <strong>90 / 100</strong> Kinyarwanda Index, 8.9 s median reply.</p></article>
+            <article class="st-card"><span class="st-tag">Regional model · Sovereign</span><h3><img src="assets/kinyarwanda/logo-intron.svg" alt="" width="24" height="24" />Intron</h3><p>Built for African languages. Best paired with Claude Sonnet 5: <strong>87 / 100</strong> Kinyarwanda Index.</p></article>
+          </div>
+          <p class="st-note">Kinyarwanda Index: out of 100, averaged over 24 questions. Higher is better. These are complete-workflow results, not standalone speech-recognition scores.</p>
+        </div>
+      </section>
+
+      <section class="ag-steps st-steps" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="st-steps-head">
+            <h2 id="steps-title">How Kinyarwanda speech to text works in Gooey</h2>
+            <p>Example content shown.</p>
+          </div>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 1</span>
+              <h3>Your users speak, in Kinyarwanda</h3>
+              <p>They send a voice note on WhatsApp or tap the mic on the web. No typing and no app to install.</p>
+            </div>
+            <div class="ag-visual ag-panel"><img class="ag-art" src="assets/speech-to-text/step1.webp" alt="A hand holding a phone that turns a spoken voice note into text, outside a health clinic" width="1024" height="768" /></div>
+          </div>
+
+          <div class="ag-step flip">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 2</span>
+              <h3>Choose the speech recognizer</h3>
+              <p>In the agent’s settings, turn on Speech recognition, choose Omnilingual as the provider and Kinyarwanda as the spoken language. Add a short prompt with local names or terms if you need one.</p>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card st-settings" aria-hidden="true">
+                <h4><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech recognition</h4>
+                <div class="st-set"><span>Provider</span><div class="st-fake-select"><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" />Omnilingual<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Spoken language</span><div class="st-fake-select">Kinyarwanda<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Prompt (optional)</span><div class="st-fake-input">Local names and terms to expect</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="st-step3">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 3</span>
+              <h3>Use the text in an agent</h3>
+              <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then publish to WhatsApp, a phone line or the web.</p>
+            </div>
+            <div class="ag-panel">
+              <div class="ag-card st-convo">
+                <audio controls preload="none" src="https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav" aria-label="Voice note: What is the official language of Kenya?"></audio>
+                <div class="st-bubble"><span>Question, as transcribed by Omnilingual</span><p lang="rw">ni uruhe rurimi rwemewe n&#x27;amategeko muri kenya</p><p class="st-en">“What is the official language of Kenya?”</p></div>
+                <div class="st-bubble st-answer"><span>GPT-5.6 Sol’s answer</span><p>The official languages of Kenya are English and Swahili.</p></div>
+              </div>
+            </div>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a Kinyarwanda agent</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-api" aria-labelledby="api-title">
+        <div class="container">
+          <div class="st-api-box">
+            <div class="st-api-copy">
+              <h2 id="api-title">Use it through the API</h2>
+              <p>One call, preset to Omnilingual ASR and Kinyarwanda.</p>
+              <div class="st-buttons">
+                <a class="hero-btn st-light" href="https://gooey.ai/account/api-keys/" target="_blank" rel="noopener noreferrer">Get an API key</a>
+                <button class="hero-btn st-ghost" type="button" id="stCopy" data-copy="Transcribe spoken Kinyarwanda with the Gooey.AI speech API.
+POST https://api.gooey.ai/v2/speech with the header Authorization: Bearer $GOOEY_API_KEY and a JSON body:
+- documents: a list of public audio file URLs
+- selected_model: &quot;meta_omnilingual_asr_llm_7b&quot; (Omnilingual, the speech recognizer in the best Kinyarwanda chain in our Aug 30, 2026 evaluation)
+- language: &quot;kin_Latn&quot;
+Get a key at https://gooey.ai/account/api-keys/ and see https://api.gooey.ai/docs for the response format.
+
+Example:
+curl https://api.gooey.ai/v2/speech \
+  -H &quot;Authorization: Bearer $GOOEY_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;documents&quot;: [&quot;https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav&quot;],
+    &quot;selected_model&quot;: &quot;meta_omnilingual_asr_llm_7b&quot;,
+    &quot;language&quot;: &quot;kin_Latn&quot;
+  }&#x27;
+"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5V3A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg><span>Copy for coding agent</span></button>
+              </div>
+            </div>
+            <pre class="st-code"><code>curl https://api.gooey.ai/v2/speech \
+  -H &quot;Authorization: Bearer $GOOEY_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;documents&quot;: [&quot;https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav&quot;],
+    &quot;selected_model&quot;: &quot;meta_omnilingual_asr_llm_7b&quot;,
+    &quot;language&quot;: &quot;kin_Latn&quot;
+  }&#x27;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+            <details open><summary>What is the best Kinyarwanda speech to text?</summary><p>Meta’s Omnilingual was the strongest speech recognition in our Aug 30, 2026 Kinyarwanda benchmark: chains using it averaged a Kinyarwanda Index of 84.6/100, against 81.4/100 for Intron. Gemini 3.1 Pro (direct audio), which needs no separate speech step, scored 90/100. See the <a href="kinyarwanda/#all-chains">benchmark results</a>. These are complete-workflow results, not standalone speech-recognition scores.</p></details>
+            <details open><summary>Does it work on WhatsApp voice notes and phone calls?</summary><p>The 24 benchmark questions were sent as WhatsApp voice notes. For phone-call pilots, 10 of the 11 chains stayed below our 10-second median response-time target; the fastest was Kimi K3 + Omnilingual (6.7 seconds). These timings exclude a complete phone connection and spoken reply; test telephony, network and text-to-speech latency before launch.</p></details>
+            <details open><summary>Can I run it on my own servers?</summary><p>Omnilingual is an open-weight speech recognition model from Meta, so it can run on your own servers; paired with an open-weight language model such as DeepSeek V4, the whole Kinyarwanda chain can run on local hardware. Intron’s offline option still needs confirming for Kinyarwanda, and Gemini 3.1 Pro is a private API. Choose hardware that meets the models’ requirements and check each component’s licence and language support before deployment.</p></details>
+            <details open><summary>What does the Kinyarwanda Index measure?</summary><p>The Kinyarwanda Index is the mean semantic-similarity score between a workflow’s answers and the reference answers, scaled from 0 to 100. The <a href="data/kin/evaluation-latest.csv">evaluation CSV</a> records scores for the 24 benchmark questions, with a higher Index indicating closer agreement in meaning. It is not the percentage of questions answered correctly, a standalone transcription score or a safety certification.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-cta" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="st-cta-box">
+            <h2 id="cta-title">Build a Kinyarwanda voice agent</h2>
+            <p>Start from DeepSeek V4 + Omnilingual, the chain with the highest Kinyarwanda Index.</p>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Start building</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>Speech to text in other languages</h2>
+      <ul class="language-list" aria-label="Other Gooey.AI languages"><li>Swahili</li><li>Hausa</li><li>Yoruba</li><li>Igbo</li><li>Nigerian Pidgin</li><li>Kikuyu</li><li>Amharic</li><li>Hindi</li><li>Urdu</li><li><strong>All 37 languages</strong></li></ul>
+    </footer>
+
+    <script src="assets/language-stt.js"></script>
+    <script src="assets/language-links.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "lang": "Kinyarwanda",
+  "_note": "Wording for /language/kinyarwanda/speech-to-text. Scores, times, averages and run links come from language/data/kin/ (see scripts/build_language_pages.py render_stt). Each tab opens the saved workflow of the chain named in 'chain', from the Aug 30 evaluation run.",
+  "lang_code": "rw",
+  "recognizers": [
+    {
+      "speech": "Omnilingual",
+      "maker": "Meta",
+      "logo": "logo-meta",
+      "about": "By Meta.",
+      "chain": "DeepSeek V4 + Omnilingual",
+      "api": { "model": "meta_omnilingual_asr_llm_7b", "language": "kin_Latn" }
+    },
+    {
+      "speech": "Built-in audio",
+      "label": "Gemini 3.1 Pro",
+      "logo": "logo-gemini",
+      "about": "By Google.",
+      "chain": "Gemini 3.1 Pro + Built-in audio"
+    },
+    {
+      "speech": "Intron",
+      "logo": "logo-intron",
+      "tag": "Regional model",
+      "about": "Built for African languages.",
+      "chain": "DeepSeek V4 + Intron",
+      "api": { "model": "intron", "language": "rw" }
+    }
+  ],
+  "self_host": "Omnilingual is an open-weight speech recognition model from Meta, so it can run on your own servers; paired with an open-weight language model such as DeepSeek V4, the whole Kinyarwanda chain can run on local hardware. Intron’s offline option still needs confirming for Kinyarwanda, and Gemini 3.1 Pro is a private API. Choose hardware that meets the models’ requirements and check each component’s licence and language support before deployment."
+}

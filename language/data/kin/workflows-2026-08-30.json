@@ -1,0 +1,84 @@
+{
+  "source": "https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/",
+  "fetched": "2026-11-18",
+  "note": "Saved Gooey.AI workflows the bulk evaluation ran, in run order. A retitled workflow was edited after the evaluation; pages link its eval_run (the evaluation's run of question 1) instead.",
+  "workflows": [
+    {
+      "tested_as": "0 Gemini 3.1 Pro - Kinyarwanda",
+      "title_now": "0 Gemini 3.1 Pro - Kinyarwanda",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/0-gemini-31-pro-kinyarwanda-vlim4iwy5zlw/",
+      "eval_run": "https://gooey.ai/agent/?run_id=q050e16njazj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "1 Gemini 3.1 Pro + Omni - Kinyarwanda",
+      "title_now": "1 Gemini 4 Carbon + Omni Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/1-gemini-4-carbon-omni-kinyarwanda-s6bqnt86h8h3/",
+      "eval_run": "https://gooey.ai/agent/?run_id=c12lxt3qzcvl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "2 Gemini 3.1 Pro + Intron - Kinyarwanda",
+      "title_now": "2 Gemini 4 Carbon + Intron Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/2-gemini-4-carbon-intron-kinyarwanda-mr3yy6ovs3of/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8ulgdinonahw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "3 GPT 5.6 Sol + Omni - Kinyarwanda",
+      "title_now": "3 GPT 6.1 Sol + Omni Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/3-gpt-61-sol-omni-kinyarwanda-ga7uck3gko9o/",
+      "eval_run": "https://gooey.ai/agent/?run_id=ygbvsard49h2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "4 GPT 5.6 Sol + Intron - Kinyarwanda",
+      "title_now": "4 GPT 6.1 Sol + Intron Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/4-gpt-61-sol-intron-kinyarwanda-d3mesu7yhrtr/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8cukzu7ls87v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "5 Claude Sonnet 5  + Omni - Kinyarwanda",
+      "title_now": "5 Claude Sonnet 5.5 + Omni Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/5-claude-sonnet-55-omni-kinyarwanda-bfjqoryb4r31/",
+      "eval_run": "https://gooey.ai/agent/?run_id=6uyetnpbsa7q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "6 Claude Sonnet 5 + Intron - Kinyarwanda",
+      "title_now": "6 Claude Sonnet 5.5 + Intron Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/6-claude-sonnet-55-intron-kinyarwanda-gagvreh09617/",
+      "eval_run": "https://gooey.ai/agent/?run_id=8czj7im5fp9j&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "7 Kimi K3 + Omni - Kinyarwanda",
+      "title_now": "7 Kimi K3.1 Pro + Omni Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/7-kimi-k31-pro-omni-kinyarwanda-ev32cmltmg1n/",
+      "eval_run": "https://gooey.ai/agent/?run_id=cok14kjus2wk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "8 Kimi K3 + Intron - Kinyarwanda",
+      "title_now": "8 Kimi K3.1 Pro + Intron Kinyarwanda",
+      "retitled": true,
+      "url": "https://gooey.ai/agent/8-kimi-k31-pro-intron-kinyarwanda-ibypgkwu8abt/",
+      "eval_run": "https://gooey.ai/agent/?run_id=ly42l83jx9i8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "9 DeepSeek V4 + Omni - Kinyarwanda",
+      "title_now": "9 DeepSeek V4 + Omni Kinyarwanda",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/9-deepseek-v4-omni-kinyarwanda-u70xqp4wseqx/",
+      "eval_run": "https://gooey.ai/agent/?run_id=xf04t5ru0ci6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "10 DeepSeek V4 + Intron - Kinyarwanda",
+      "title_now": "10 DeepSeek V4 + Intron Kinyarwanda",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/10-deepseek-v4-intron-kinyarwanda-pqqe18622ppf/",
+      "eval_run": "https://gooey.ai/agent/?run_id=2z9hzotfe4a5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

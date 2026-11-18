@@ -148,6 +148,42 @@ def chains_for(page: dict) -> tuple[list, list, list]:
     return csv_rows, pricing, ecocost
 
 
+# A language's evaluation link must be its own bulk run, never the generic gooey.ai/bulk/ page:
+# ask the team for the specific run when adding or updating a language.
+BULK_RE = re.compile(r"^https://gooey\.ai/bulk/[a-z0-9-]+/$")
+
+
+def eval_url(page: dict) -> str:
+    url = page["hero"]["bulk_url"]
+    if not BULK_RE.match(url):
+        raise SystemExit(f"{page['slug']}: hero.bulk_url must be this language's own evaluation run "
+                         f"(https://gooey.ai/bulk/<run>/), not {url!r}. Ask the team for the specific run.")
+    return url
+
+
+def workflow_urls(page: dict, csv_rows: list) -> list[str]:
+    """Each chain's saved Gooey.AI workflow (or, if it was retitled since, the evaluation's run of it), in
+    csv_rows order, from data/<code>/workflows-<snapshot>.json (scripts/fetch_language_workflows.py)."""
+    path = DATA / page["code"] / f"workflows-{page['snapshot']}.json"
+    if not path.exists():
+        raise SystemExit(f"{page['slug']}: {path.relative_to(ROOT)} is missing; "
+                         f"run python3 scripts/fetch_language_workflows.py {page['slug']}")
+    key = lambda model, speech: norm(model if speech in ("", DIRECT_AUDIO) else f"{model} + {SPEECH_ALIASES.get(speech, speech)}")
+    urls = {}
+    for w in json.loads(path.read_text())["workflows"]:
+        name = re.sub(r"^\d+\s+", "", w["tested_as"])
+        name = re.sub(r"\s+-\s+" + re.escape(page["lang"]) + r"$", "", name)
+        model, _, speech = name.partition(" + ")
+        # A workflow edited after the evaluation may now run another model: link the evaluation's own run.
+        urls[key(model.strip(), speech.strip())] = w["eval_run"] if w["retitled"] else w["url"]
+    out = []
+    for model, speech, *_ in csv_rows:
+        if key(model, speech) not in urls:
+            raise SystemExit(f"{page['slug']}: no saved workflow for '{model} + {speech}' in {path.relative_to(ROOT)}")
+        out.append(urls[key(model, speech)])
+    return out
+
+
 def archive_for(page: dict) -> list:
     """Older evaluations for the date menu: the Index and response time only (cost and CO2e were not recorded)."""
     out = []
@@ -168,8 +204,10 @@ def language_list(current: str, href=None) -> str:
     without one (or no `href`) is plain text."""
     cfg = json.loads((SRC / "languages.json").read_text())
     slug_of = {json.loads(p.read_text())["lang"]: p.parent.name for p in SRC.glob("*/page.json")}
-    items = "".join((f'<li><a href="{href(slug_of[n])}">{n}</a></li>' if href and n in slug_of else f"<li>{n}</li>")
-                    for n in cfg["languages"] if n != current)
+    def item(n: str) -> str:
+        link = href(slug_of[n]) if href and n in slug_of else None
+        return f'<li><a href="{link}">{n}</a></li>' if link else f"<li>{n}</li>"
+    items = "".join(item(n) for n in cfg["languages"] if n != current)
     return (f'<ul class="language-list" aria-label="Other Gooey.AI languages">{items}'
             f'<li><strong>{cfg["all"]}</strong></li></ul>')
 
@@ -223,7 +261,7 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
                 </div>
                 <div class="top-actions">
                   <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
-                  <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}"><img src="assets/kinyarwanda/icon-mic-btn.svg" alt="" width="16" height="16" />Try it in {lang}</a>
+                  <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}" target="_blank" rel="noopener noreferrer">View the {lang} AI evaluation<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
                 </div>
               </div>"""
     return lead, card
@@ -253,6 +291,7 @@ def hero_voice(page: dict) -> dict:
 def render(slug: str) -> str:
     d = SRC / slug
     page = json.loads((d / "page.json").read_text())
+    eval_url(page)
     csv_rows, pricing, ecocost = chains_for(page)
     n = len(csv_rows)
     n_sov = sum(1 for r in csv_rows if r[4])
@@ -265,7 +304,7 @@ def render(slug: str) -> str:
         "geometry": page["geometry"],
         "scatter": {k: page["scatter"][k] for k in ("x", "xTicks", "labelBestSovereign", "metrics")},
         "archive": archive_for(page),
-        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "labSpeechShort": page.get("labSpeechShort"), "slug": slug, "evalUrl": page["hero"]["bulk_url"],
+        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "labSpeechShort": page.get("labSpeechShort"), "slug": slug, "workflows": workflow_urls(page, csv_rows),
         "modelSlugs": {m: v["slug"] for m, v in json.loads((SRC / "models.json").read_text()).items()},
     }
 
@@ -309,6 +348,7 @@ def render(slug: str) -> str:
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
         "model_nav": model_nav, "samples_intro": page["samples_intro"],
         "language_list": language_list(page["lang"], lambda s: f"{s}/"), "slug": slug,
+        "speech_card": speech_card(slug, page["lang"]),
     }
     body = (SRC / "body.tmpl").read_text()
     for key, value in slots.items():
@@ -323,6 +363,18 @@ def render(slug: str) -> str:
     )
     cfg_json = json.dumps(config, ensure_ascii=False, separators=(", ", ": "))
     return head + body.rstrip("\n") + "\n" + TAIL.format(config=cfg_json)
+
+
+def speech_card(slug: str, lang: str) -> str:
+    """The "More for <language>" Speech to text card: a link once the language has a speech-to-text page."""
+    inner = ('<img class="more-art" src="assets/more/speech-to-text.png" alt="" width="800" height="600" loading="lazy" />\n'
+             '              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech to text</span>{arrow}</div><p>{sub}</p></div>')
+    if (SRC / slug / "stt.json").exists():
+        arrow = '<img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" />'
+        return (f'<a class="more-card" href="{slug}/speech-to-text/">\n              '
+                + inner.format(arrow=arrow, sub=f"Transcribe {lang} audio") + "\n            </a>")
+    return ('<article class="more-card disabled">\n              ' + inner.format(arrow="", sub="Results coming soon")
+            + "\n            </article>")
 
 
 def slugs() -> list[str]:
@@ -569,6 +621,228 @@ def agent_slugs() -> list[str]:
     return sorted(p.parent.name for p in SRC.glob("*/agent.json"))
 
 
+STT_HEAD = AGENT_HEAD.replace("Build a {lang} AI agent", "{lang} speech to text").replace(
+    "/ai-agent\"", "/speech-to-text\"").replace(
+    '<link rel="stylesheet" href="assets/language-agent.css" />',
+    '<link rel="stylesheet" href="assets/language-agent.css" />\n    <link rel="stylesheet" href="assets/language-stt.css" />')
+
+STT_TAIL = """
+    <script src="assets/language-stt.js"></script>
+    <script src="assets/language-links.js"></script>
+  </body>
+</html>
+"""
+
+MIC_SVG = ('<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" '
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="4" width="10" height="16" rx="5"/>'
+           '<path d="M7 15a9 9 0 0 0 18 0M16 24v4"/></svg>')
+COPY_SVG = ('<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" '
+            'stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/>'
+            '<path d="M10.5 3.5V3A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg>')
+CHECK_12 = ('<svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.2 2.2 4.8-5.4"/></svg>')
+# The step-1 illustration: language/assets/speech-to-text/step1.{webp,jpg,png}, 1024 x 768 (4:3, the Figma slot's shape).
+STT_ART = ("step1", "A hand holding a phone that turns a spoken voice note into text, outside a health clinic", (1024, 768))
+
+
+def stt_art() -> str:
+    stem, alt, size = STT_ART
+    for ext in ("webp", "jpg", "png"):
+        if (LANG / "assets" / "speech-to-text" / f"{stem}.{ext}").exists():
+            return f'<img class="ag-art" src="assets/speech-to-text/{stem}.{ext}" alt="{alt}" width="{size[0]}" height="{size[1]}" />'
+    return f'<div class="ag-art ag-art-placeholder" role="img" aria-label="{alt}">Illustration to come</div>'
+
+
+def stt_slugs() -> list[str]:
+    return sorted(p.parent.name for p in SRC.glob("*/stt.json"))
+
+
+def render_stt(slug: str) -> str:
+    """/language/<slug>/speech-to-text. Wording comes from _src/<slug>/stt.json; every score, time, average and
+    link is computed from the language's evaluation data, so this page can't disagree with the language page."""
+    import html as _html
+    esc = lambda t: _html.escape(str(t), quote=True)
+    st = json.loads((SRC / slug / "stt.json").read_text())
+    page = json.loads((SRC / slug / "page.json").read_text())
+    lang, bulk = page["lang"], eval_url(page)
+    csv_rows, _, _ = chains_for(page)
+    links = workflow_urls(page, csv_rows)
+    chains = [{"model": m.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), "speech": sp, "acc": acc, "score": round(acc * 100 + 1e-9),
+               "time": t, "url": links[i]} for i, (m, sp, acc, t, _sov) in enumerate(csv_rows)]
+    name = lambda c: c["model"] if c["speech"] == DIRECT_AUDIO else f'{c["model"]} + {c["speech"]}'
+    by_key = {norm(f'{c["model"]} + {c["speech"]}'): c for c in chains}
+    top = max(chains, key=lambda c: (c["acc"], -c["time"]))
+
+    recs = []
+    for r in st["recognizers"]:
+        cs = [c for c in chains if c["speech"] == r["speech"]]
+        if not cs:
+            raise SystemExit(f"{slug} speech-to-text: no chain uses {r['speech']!r}")
+        if norm(r["chain"]) not in by_key:
+            raise SystemExit(f"{slug} speech-to-text: chain {r['chain']!r} is not in the evaluation")
+        recs.append({**r, "label": r.get("label", r["speech"]), "chains": cs, "tab": by_key[norm(r["chain"])],
+                     "avg": sum(c["acc"] for c in cs) / len(cs) * 100,
+                     "best": max(cs, key=lambda c: (c["acc"], -c["time"])), "direct": r["speech"] == DIRECT_AUDIO})
+    rec = next((r for r in recs if r["speech"] == top["speech"]), None)
+    if rec is None:
+        raise SystemExit(f"{slug} speech-to-text: the top chain's speech step {top['speech']!r} is not in stt.json recognizers")
+    recs.sort(key=lambda r: r is not rec)
+    api = rec if rec.get("api") else next((r for r in recs if r.get("api")), None)
+    if api is None:
+        raise SystemExit(f"{slug} speech-to-text: no recognizer in stt.json has an 'api' preset")
+    separate = [r for r in recs if not r["direct"]]
+
+    index = lambda c: f'<strong>{c["score"]} / 100</strong> {lang} Index'
+
+    def card_text(r: dict) -> str:
+        if r["direct"]:
+            b = r["best"]
+            return (f'{r["about"]} It listens to the question and answers in one step: {index(b)}, '
+                    f'{b["time"]:.1f} s median reply.')
+        parts = [r["about"]]
+        for o in separate:
+            if o is r:
+                continue
+            shared = {c["model"] for c in r["chains"]} & {c["model"] for c in o["chains"]}
+            mine = {c["model"]: c["time"] for c in r["chains"]}
+            theirs = {c["model"]: c["time"] for c in o["chains"]}
+            if shared and all(mine[m] < theirs[m] for m in shared):
+                parts.append(f'Faster than {o["label"]} with every language model we paired it with.')
+        if r is rec:
+            parts.append(f'Powers the top chain, {name(top)}: {index(top)}.')
+        else:
+            b = r["best"]
+            parts.append(f'Best paired with {b["model"]}: {index(b)}.')
+        return " ".join(parts)
+
+    # Hosting, worded as on the language page: a recognizer is sovereign-deployable when its speech step is
+    # (direct audio: when the model is).
+    sov_models = set(page.get("sovereign_models", SOVEREIGN_MODELS))
+    sov_speech = set(page.get("sovereign_speech", SOVEREIGN_SPEECH))
+    hosting = lambda r: ("Sovereign" if (r["best"]["model"] in sov_models if r["direct"] else r["speech"] in sov_speech)
+                         else "Private API")
+
+    def logo(stem: str, size: int) -> str:
+        big = f"{stem}-24"
+        use = big if size == 24 and (LANG / "assets" / "kinyarwanda" / f"{big}.svg").exists() else stem
+        return f'<img src="assets/kinyarwanda/{use}.svg" alt="" width="{size}" height="{size}" />'
+
+    cards, tabs = [], []
+    for r in recs:
+        kind = "Recommended" if r is rec else DIRECT_AUDIO if r["direct"] else r.get("tag", "")
+        tag = (CHECK_12 if r is rec else "") + " · ".join(x for x in (kind, hosting(r)) if x)
+        cards.append(f'            <article class="st-card{" rec" if r is rec else ""}"><span class="st-tag">{tag}</span>'
+                     f'<h3>{logo(r["logo"], 24)}{r["label"]}</h3><p>{card_text(r)}</p></article>')
+        t = r["tab"]
+        caption = (f"Opens the {name(t)} agent from our test on Gooey.AI. It "
+                   + ("listens to the audio and answers." if r["direct"] else "transcribes the audio, then answers."))
+        sel = r is rec
+        tabs.append(f'                  <button class="st-tab" type="button" role="tab" aria-selected="{str(sel).lower()}" '
+                    f'aria-controls="stPanel" data-url="{esc(t["url"])}" data-caption="{esc(caption)}">'
+                    f'{logo(r["logo"], 16)}{r["label"]}{" (recommended)" if sel else ""}</button>')
+    compare_caption = f"Opens our {page['updated']} evaluation run, with every chain’s answers side by side."
+    tabs.append(f'                  <button class="st-tab" type="button" role="tab" aria-selected="false" aria-controls="stPanel" '
+                f'data-url="{esc(bulk)}" data-caption="{esc(compare_caption)}">Compare all {len(recs)}</button>')
+
+    options = "\n".join(
+        f'                  <option value="{s}/speech-to-text/"{" selected" if s == slug else ""}>'
+        f'{json.loads((SRC / s / "page.json").read_text())["lang"]}</option>' for s in stt_slugs())
+
+    samples = json.loads((DATA / page["code"] / "samples.json").read_text())
+    sample = samples["samples"][0]
+    sample_model, _, sample_speech = samples["workflow"].partition(" + ")
+    sample_speech = sample_speech or DIRECT_AUDIO
+
+    curl = (f'curl https://api.gooey.ai/v2/speech \\\n'
+            f'  -H "Authorization: Bearer $GOOEY_API_KEY" \\\n'
+            f'  -H "Content-Type: application/json" \\\n'
+            f"  -d '{{\n"
+            f'    "documents": ["{sample["audioUrl"]}"],\n'
+            f'    "selected_model": "{api["api"]["model"]}",\n'
+            f'    "language": "{api["api"]["language"]}"\n'
+            f"  }}'")
+    prompt = (f"Transcribe spoken {lang} with the Gooey.AI speech API.\n"
+              f"POST https://api.gooey.ai/v2/speech with the header Authorization: Bearer $GOOEY_API_KEY and a JSON body:\n"
+              f"- documents: a list of public audio file URLs\n"
+              f'- selected_model: "{api["api"]["model"]}" ({api["label"]}, the speech recognizer in the best {lang} chain '
+              f"in our {page['updated']} evaluation)\n"
+              f'- language: "{api["api"]["language"]}"\n'
+              f"Get a key at https://gooey.ai/account/api-keys/ and see https://api.gooey.ai/docs for the response format.\n\n"
+              f"Example:\n{curl}\n")
+
+    # FAQ
+    ranked = sorted(separate, key=lambda r: -r["avg"])
+    best = ranked[0]
+    who = f'{best["maker"]}’s {best["label"]}' if best.get("maker") else best["label"]
+    others = " and ".join(f'{o["avg"]:.1f}/100 for {o["label"]}' for o in ranked[1:])
+    results = f'<a href="{slug}/#all-chains">benchmark results</a>'
+    a1 = (f"{who} was the strongest speech recognition in our {page['updated']} {lang} benchmark: chains using it "
+          f"averaged a {lang} Index of {best['avg']:.1f}/100")
+    a1 += f", against {others}." if others else "."
+    for r in recs:
+        if r["direct"]:
+            a1 += f' {r["label"]} (direct audio), which needs no separate speech step, scored {r["best"]["score"]}/100.'
+    a1 += f" See the {results}. These are complete-workflow results, not standalone speech-recognition scores."
+    fast = [c for c in chains if c["time"] < 10]
+    fastest = min(chains, key=lambda c: c["time"])
+    a2 = (f"The {page['questions']} benchmark questions were sent as WhatsApp voice notes. For phone-call pilots, "
+          + (f"{len(fast)} of the {len(chains)} chains stayed below our 10-second median response-time target; the fastest was "
+             f"{name(fastest)} ({fastest['time']:.1f} seconds). " if fast else
+             f"none of the {len(chains)} chains stayed below our 10-second median response-time target. ")
+          + "These timings exclude a complete phone connection and spoken reply; test telephony, network and "
+            "text-to-speech latency before launch.")
+    data_dir = DATA / page["code"]
+    hub_faq = dict(faq_items(page, csv_rows, json.loads((data_dir / f"pricing-{page['snapshot']}.json").read_text()),
+                             json.loads((data_dir / f"ecocost-{page['snapshot']}.json").read_text()),
+                             json.loads((SRC / slug / "faq.json").read_text()) if (SRC / slug / "faq.json").exists() else {},
+                             json.loads((SRC / "models.json").read_text())))
+    index_q = f"What does the {lang} Index measure?"
+    faq = [(f"What is the best {lang} speech to text?", a1),
+           ("Does it work on WhatsApp voice notes and phone calls?", a2),
+           ("Can I run it on my own servers?", st["self_host"])]
+    if index_q in hub_faq:
+        faq.append((index_q, hub_faq[index_q]))
+    faq_section = render_faq((SRC / "faq.tmpl").read_text(), faq)
+
+    if rec["direct"]:
+        found = f"<strong>{rec['label']}</strong>, listening to the audio directly,"
+    else:
+        found = f"<strong>{rec['label']}</strong> ASR, paired with the <strong>{top['model']}</strong> language model,"
+    lead_html = (f"Turn spoken {lang} into text. Our latest {lang} Index eval conducted on "
+                 f"<strong>{ordinal_date(page['snapshot'])}</strong> found that {found} scored the "
+                 f"<strong>highest Index</strong> on answers to questions asked by native speakers.")
+
+    slots = {
+        "header": HEADER_HTML.format(title=f"{lang} speech to text").rstrip("\n"),
+        "slug": slug, "lang": lang, "lang_code": st.get("lang_code", ""),
+        "try_tabs": "\n".join(tabs), "lang_options": options,
+        "try_url": esc(rec["tab"]["url"]),
+        "try_caption": (f"Opens the {name(rec['tab'])} agent from our test on Gooey.AI. It "
+                        + ("listens to the audio and answers." if rec["direct"] else "transcribes the audio, then answers.")),
+        "mic_svg": MIC_SVG, "copy_svg": COPY_SVG,
+        "n": str(len(chains)), "questions": str(page["questions"]), "updated": page["updated"],
+        "model_cards": "\n".join(cards),
+        "art_step1": stt_art(), "rec_label": api["label"], "rec_logo": api["logo"],
+        "sample_audio": esc(sample["audioUrl"]), "sample_english": esc(sample["questionEnglish"]),
+        "sample_transcript": esc(sample["transcript"]), "sample_answer": esc(sample["answer"]),
+        "sample_speech": sample_speech, "sample_model": sample_model,
+        "api_curl": esc(curl), "api_prompt": esc(prompt),
+        "faq_section": faq_section, "lead_html": lead_html,
+        "cta_text": f"Start from {name(top)}, the chain with the highest {lang} Index.",
+        "language_list": language_list(lang, lambda s: f"{s}/speech-to-text/" if (SRC / s / "stt.json").exists() else None),
+    }
+    body = (SRC / "stt.tmpl").read_text()
+    for key, value in slots.items():
+        body = body.replace("{{%s}}" % key, value)
+    left = re.findall(r"\{\{\w+\}\}", body)
+    if left:
+        raise SystemExit(f"{slug} speech-to-text: unfilled template slots {sorted(set(left))}")
+    description = (f"Turn spoken {lang} into text. {', '.join(r['label'] for r in recs[:-1])} and {recs[-1]['label']} compared on "
+                   f"{page['questions']} real spoken questions; {name(top)} scored {top['score']} out of 100.")
+    head = STT_HEAD.format(lang=lang, slug=slug, header_css=HEADER_CSS, description=esc(description))
+    return head + body.rstrip("\n") + "\n" + STT_TAIL
+
+
 def all_pages(only: list[str] | None = None) -> dict[pathlib.Path, str]:
     """Every generated page: output path -> HTML. `only` filters by language slug."""
     pages = {}
@@ -578,6 +852,9 @@ def all_pages(only: list[str] | None = None) -> dict[pathlib.Path, str]:
     for slug in agent_slugs():
         if not only or slug in only:
             pages[LANG / slug / "ai-agent" / "index.html"] = render_agent(slug)
+    for slug in stt_slugs():
+        if not only or slug in only:
+            pages[LANG / slug / "speech-to-text" / "index.html"] = render_stt(slug)
     import build_model_pages  # imported here: it imports this module
     for path, page in build_model_pages.pages().items():
         if not only or path.parent.name in only:

@@ -31,6 +31,7 @@ PAGES = {
     "language/kikuyu/index.html": "Best AI for Kikuyu",
     "language/hausa/index.html": "Best AI for Hausa",
     "language/kinyarwanda/ai-agent/index.html": "Build a Kinyarwanda AI agent",
+    "language/kinyarwanda/speech-to-text/index.html": "Kinyarwanda speech to text",
     "language/swahili/ai-agent/index.html": "Build a Swahili AI agent",
     "language/kikuyu/ai-agent/index.html": "Build a Kikuyu AI agent",
     "language/hausa/ai-agent/index.html": "Build a Hausa AI agent",

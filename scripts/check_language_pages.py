@@ -12,8 +12,8 @@ stylesheet and one script. This fails when:
   * a chain uses a model or speech engine the shared script has no logo / name for;
   * a page or the shared script points at an image that doesn't exist.
 
-All three generated page kinds are covered: /language/<name>, /language/<name>/ai-agent and
-/models/<model>/<language>, and the links between them (every internal link resolves, no page is an orphan, and
+All generated page kinds are covered: /language/<name>, /language/<name>/ai-agent,
+/language/<name>/speech-to-text and /models/<model>/<language>, and the links between them (every internal link resolves, no page is an orphan, and
 each page links to the ones it should).
 """
 
@@ -103,6 +103,25 @@ def check_agent(slug: str) -> list[str]:
     return problems
 
 
+def check_stt(slug: str) -> list[str]:
+    problems = []
+    page_file = LANG / slug / "speech-to-text" / "index.html"
+    rel = f"language/{slug}/speech-to-text/index.html"
+    actual = page_file.read_text(encoding="utf-8") if page_file.exists() else ""
+    if actual != build.render_stt(slug):
+        return [f"{rel}: differs from the generator's output; run `python3 scripts/build_language_pages.py {slug}`"]
+    styles = re.findall(r"<style>(.*?)</style>", actual, re.S)
+    if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
+        problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-stt.css")
+    scripts = re.findall(r"<script(?: [^>]*)?>", actual)
+    if scripts != ['<script src="assets/language-stt.js">', '<script src="assets/language-links.js">']:
+        problems.append(f"{rel}: unexpected <script> tags {scripts}")
+    for ref in sorted(set(re.findall(r'(?:src|href)="((?:assets|data)/[^"?#]+)"', actual))):
+        if not (LANG / ref).exists():
+            problems.append(f"{rel}: {ref} does not exist under language/")
+    return problems
+
+
 def resolve(page: pathlib.Path, text: str, href: str) -> pathlib.Path:
     """Where an internal href goes, honouring the page's own <base href> (as the proxy and check_links.py do)."""
     m = re.search(r'<base href="([^"]*)"', text)
@@ -156,8 +175,11 @@ def check_links(pages: dict[pathlib.Path, str]) -> list[str]:
             want = [build.LANG / lslug / "index.html", build.LANG / lslug / "ai-agent" / "index.html"]
         elif len(parts) == 4 and parts[1] != "assets" and parts[3] == "index.html" and parts[2] == "ai-agent":
             want = [build.LANG / parts[1] / "index.html"]
+        elif len(parts) == 4 and parts[3] == "index.html" and parts[2] == "speech-to-text":
+            want = [build.LANG / parts[1] / "index.html", build.LANG / parts[1] / "ai-agent" / "index.html"]
         elif len(parts) == 3:  # language hub
-            want = [build.LANG / parts[1] / "ai-agent" / "index.html"] + [
+            stt = build.LANG / parts[1] / "speech-to-text" / "index.html"
+            want = [build.LANG / parts[1] / "ai-agent" / "index.html"] + ([stt] if stt in pages else []) + [
                 q for q in pages if q.relative_to(build.ROOT).parts[0] == "models" and q.relative_to(build.ROOT).parts[2] == parts[1]]
         for w in want:
             if w not in out[page]:
@@ -172,6 +194,8 @@ def main() -> int:
         problems.extend(check(slug))
     for slug in build.agent_slugs():
         problems.extend(check_agent(slug))
+    for slug in build.stt_slugs():
+        problems.extend(check_stt(slug))
     pages = build.all_pages()
     for path, html in pages.items():
         if path.parts[-4] == "models" or "models" in path.relative_to(build.ROOT).parts[:1]:
@@ -192,7 +216,8 @@ def main() -> int:
         print("\n".join(problems))
         return 1
     n_models = sum(1 for p in pages if p.relative_to(build.ROOT).parts[0] == "models")
-    print(f"ok: {len(slugs)} language, {len(build.agent_slugs())} ai-agent and {n_models} model page(s) are in sync with the templates, "
+    print(f"ok: {len(slugs)} language, {len(build.agent_slugs())} ai-agent, {len(build.stt_slugs())} speech-to-text and "
+          f"{n_models} model page(s) are in sync with the templates, "
           f"and their links resolve ({', '.join(slugs)})")
     return 0
 

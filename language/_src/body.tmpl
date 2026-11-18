@@ -80,11 +80,11 @@
       <section class="section" id="all-chains" aria-labelledby="chains-title">
         <div class="container chains">
           <div class="chains-head">
-            <h2 id="chains-title">All {{n}} AI chains</h2>
+            <div class="chains-title"><h2 id="chains-title">All {{n}} AI chains</h2><a class="hero-btn secondary" href="{{bulk_url}}" target="_blank" rel="noopener noreferrer">View the {{lang}} AI evaluation<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a></div>
             <div class="sort"><span>Sort by</span><div class="segment" role="group" aria-label="Sort chains"><button class="active" type="button" data-sort="accuracy">Index</button><button type="button" data-sort="speed">Speed</button></div></div>
           </div>
           <div class="chain-table" role="table" aria-label="All {{n}} AI chains">
-            <div class="ct-row ct-head" role="row"><span class="c-rank" role="columnheader">#</span><span class="c-chain"><span class="c-model" role="columnheader">Model</span><span class="c-plus"></span><span class="c-speech" role="columnheader">Speech recognition</span></span><span class="c-score" role="columnheader">Index</span><span class="c-time" role="columnheader">Response</span><span class="c-run" role="columnheader">Eval run</span></div>
+            <div class="ct-row ct-head" role="row"><span class="c-rank" role="columnheader">#</span><span class="c-chain"><span class="c-model" role="columnheader">Model</span><span class="c-plus"></span><span class="c-speech" role="columnheader">Speech recognition</span></span><span class="c-score" role="columnheader">Index</span><span class="c-time" role="columnheader">Response</span><span class="c-run" role="columnheader">Agent</span></div>
             <div id="chainRows" role="rowgroup"></div>
           </div>
           <div class="legend table-legend">
@@ -110,17 +110,10 @@
         <div class="container more">
           <h2 id="more-title">More for {{lang}}</h2>
           <div class="more-grid">
-            <a class="more-card" href="https://gooey.ai/speech/">
-              <img class="more-art" src="assets/more/speech-to-text.png" alt="" width="800" height="600" loading="lazy" />
-              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech to text</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>Transcribe {{lang}} audio</p></div>
-            </a>
+            {{speech_card}}
             <a class="more-card" href="{{slug}}/ai-agent/">
               <img class="more-art" src="assets/more/ai-agent.png" alt="" width="800" height="600" loading="lazy" />
               <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-bolt.svg" alt="" width="16" height="17" />AI agent</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>A WhatsApp bot or phone line</p></div>
-            </a>
-            <a class="more-card" href="{{bulk_url}}">
-              <img class="more-art" src="assets/more/chatbot.png" alt="" width="800" height="600" loading="lazy" />
-              <div class="more-body"><div class="more-h"><span class="more-title"><img src="assets/kinyarwanda/icon-phone.svg" alt="" width="16" height="16" />Chatbot</span><img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></div><p>Which AI understands it best</p></div>
             </a>
             <article class="more-card disabled">
               <img class="more-art" src="assets/more/translation.png" alt="" width="800" height="600" loading="lazy" />
