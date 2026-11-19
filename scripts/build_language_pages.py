@@ -43,6 +43,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from site_header import HEADER_CSS, HEADER_HTML  # noqa: E402
 from language_faq import PRICING_COMING_SOON, faq_items, render_faq  # noqa: E402
+import seo  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 LANG = ROOT / "language"
@@ -65,20 +66,7 @@ HEAD = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- GOOEY-BASE-HREF -->
     <base href="../" />
-    <title>Best AI for {lang} | Gooey.AI</title>
-    <meta
-      name="description"
-      content="{description}"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Best AI for {lang} | Gooey.AI" />
-    <meta
-      property="og:description"
-      content="{og_description}"
-    />
-    <meta property="og:url" content="https://gooey.ai/language/{slug}" />
-    <meta property="og:site_name" content="Gooey.AI" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+{seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
@@ -377,12 +365,60 @@ def render(slug: str) -> str:
     if left:
         raise SystemExit(f"{slug}: unfilled template slots {sorted(set(left))}")
 
-    head = HEAD.format(
-        lang=page["lang"], slug=slug, layout=page["layout"], header_css=HEADER_CSS,
-        description=page["meta"]["description"], og_description=page["meta"]["og_description"],
-    )
+    head = HEAD.format(layout=page["layout"], header_css=HEADER_CSS, seo=hub_seo(page, csv_rows, body))
     cfg_json = json.dumps(config, ensure_ascii=False, separators=(", ", ": "))
     return head + body.rstrip("\n") + "\n" + TAIL.format(config=cfg_json)
+
+
+def hub_seo(page: dict, csv_rows: list, body: str) -> str:
+    """Search and sharing tags for /language/<slug>: share card, WebPage, Dataset, breadcrumbs and FAQ."""
+    lang, q, n, path = page["lang"], page["questions"], len(csv_rows), f"language/{page['slug']}"
+    i = min(range(n), key=lambda k: (-csv_rows[k][2], csv_rows[k][3]))
+    model, speech, acc, time, _ = csv_rows[i]
+    top, score = chain_label({"model": model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), "speech": speech}), round(acc * 100 + 1e-9)
+    title = f"Best AI for {lang}"
+    image = seo.og_image(path, {
+        "eyebrow": f"AI evaluation · {page['country']}", "title": title, "lead": ["Highest score", top],
+        "stats": [[f"{lang} Index", str(score), "/ 100", f"highest of {n} chains"], ["Reply time", f"{time:.1f}", "s", "median"],
+                  ["Questions", str(q), "", "asked by native speakers"]],
+        "visual": {"kind": "map", "src": f"language/assets/kinyarwanda/{page['hero']['map']['file']}"},
+    }, f"{title}: {top} scored {score} out of 100, the highest of {n} AI chains tested on {q} spoken {lang} questions.")
+    dataset = {
+        "@type": "Dataset", "@id": seo.url(path) + "#dataset", "name": f"{lang} AI evaluation, {page['updated']}",
+        "description": (f"Questions, reference answers, scores and run links for {n} AI chains answering {q} spoken {lang} "
+                        f"questions, from the Gooey.AI {lang} evaluation."),
+        "url": seo.url(path), "creator": {"@id": seo.ORG["@id"]}, "publisher": {"@id": seo.ORG["@id"]},
+        "dateModified": page["snapshot"], "isAccessibleForFree": True,
+        "variableMeasured": [f"{lang} Index", "Median response time (seconds)"],
+        "distribution": [{"@type": "DataDownload", "encodingFormat": "text/csv",
+                          "contentUrl": f"{seo.ASSETS}language/data/{page['code']}/evaluation-latest.csv"}],
+    }
+    seo_title = seo.fit(f"{title}: {page['snapshot'][:4]} Voice AI Benchmark{seo.BRAND}",
+                        f"{title}: Voice AI Benchmark{seo.BRAND}", f"{title}{seo.BRAND}", hi=seo.TITLE_MAX, what="title")
+    sentence = (f"Compare {lang} AI models for voice calls and WhatsApp by accuracy, response time, cost, "
+                "and sovereign deployment options.")
+    description = seo.fit(f"{sentence} Tested on {q} spoken questions.", sentence,
+                          f"Compare {lang} AI models by accuracy, response time, cost and sovereign deployment. Tested on {q} spoken questions.",
+                          lo=seo.DESC_MIN, hi=seo.DESC_MAX, what=f"{lang} description")
+    graph = [seo.ORG, seo.webpage(path, seo_title, description, image, page["snapshot"], seo.language(lang, page.get("endonym"))),
+             dataset, seo.breadcrumbs(path, [("Home", seo.SITE), seo.EVALS, (lang, None)]), *seo.faq(path, body)]
+    return seo.head(path=path, title=seo_title, description=description, og_title=seo_title.removesuffix(seo.BRAND),
+                    image=image, graph=graph)
+
+
+def sub_seo(page: dict, path: str, titles: list[str], descriptions: list[str], card: dict, alt: str, body: str,
+            crumb: str) -> str:
+    """Search and sharing tags for a page under /language/<slug>/ (ai-agent, speech-to-text). titles and descriptions
+    are wordings from fullest to shortest; the first that fits Google's limits is used."""
+    lang = page["lang"]
+    title = seo.fit(*titles, hi=seo.TITLE_MAX, what=f"{path} title")
+    description = seo.fit(*descriptions, lo=seo.DESC_MIN, hi=seo.DESC_MAX, what=f"{path} description")
+    image = seo.og_image(path, card, alt)
+    graph = [seo.ORG, seo.webpage(path, title, description, image, page["snapshot"], seo.language(lang, page.get("endonym"))),
+             seo.breadcrumbs(path, [("Home", seo.SITE), seo.EVALS, (lang, seo.url(f"language/{page['slug']}")), (crumb, None)]),
+             *seo.faq(path, body)]
+    return seo.head(path=path, title=title, description=description, og_title=title.removesuffix(seo.BRAND),
+                    image=image, graph=graph)
 
 
 def speech_card(slug: str, lang: str) -> str:
@@ -411,20 +447,7 @@ AGENT_HEAD = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- GOOEY-BASE-HREF -->
     <base href="../../" />
-    <title>Build a {lang} AI agent | Gooey.AI</title>
-    <meta
-      name="description"
-      content="{description}"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Build a {lang} AI agent | Gooey.AI" />
-    <meta
-      property="og:description"
-      content="{description}"
-    />
-    <meta property="og:url" content="https://gooey.ai/language/{slug}/ai-agent" />
-    <meta property="og:site_name" content="Gooey.AI" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+{seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
@@ -630,9 +653,22 @@ def render_agent(slug: str) -> str:
     left = re.findall(r"\{\{\w+\}\}", body)
     if left:
         raise SystemExit(f"{slug} ai-agent: unfilled template slots {sorted(set(left))}")
-    description = (f"Launch a {lang} AI agent on WhatsApp, a phone line or the web, using the chain that scored best in our tests "
-                   f"({chain_label(top)}, {top['score']} out of 100).")
-    head = AGENT_HEAD.format(lang=lang, slug=slug, header_css=HEADER_CSS, description=description)
+    launch = f"Launch a {lang} AI agent on WhatsApp, phone calls or the web, built on the most accurate AI in our tests"
+    descriptions = [f"{launch}: {chain_label(top)} ({top['score']}/100).", f"{launch} ({top['score']}/100).",
+                    f"Launch a {lang} AI agent on WhatsApp, phone calls or the web with {chain_label(top)}, "
+                    f"the most accurate AI in our tests."]
+    page = json.loads((SRC / slug / "page.json").read_text())
+    title = f"Build a {lang} AI agent"
+    card = {"eyebrow": f"AI agent · {a['country']}", "title": title, "lead": ["Recommended chain", chain_label(top)],
+            "stats": [[f"{lang} Index", str(top["score"]), "/ 100", "most accurate tested"],
+                      ["Reply time", f"{top['time']:.1f}", "s", "median, phone-ready" if top["time"] < 10 else "median"],
+                      ["Channels", "3", "", "WhatsApp, phone, web"]],
+            "visual": {"kind": "photo", "src": "language/assets/more/ai-agent.png"}}
+    alt = (f"{title}: {chain_label(top)}, the most accurate chain tested, scored {top['score']} out of 100 "
+           f"with a {top['time']:.1f} s median reply.")
+    titles = [f"Build a {lang} AI Agent for WhatsApp & Phone{seo.BRAND}", f"Build a {lang} AI Agent{seo.BRAND}"]
+    seo_tags = sub_seo(page, f"language/{slug}/ai-agent", titles, descriptions, card, alt, body, "AI agent")
+    head = AGENT_HEAD.format(lang=lang, header_css=HEADER_CSS, seo=seo_tags)
     cfg = json.dumps(config, ensure_ascii=False, separators=(", ", ": "))
     return head + body.rstrip("\n") + "\n" + AGENT_TAIL.format(config=cfg)
 
@@ -641,8 +677,7 @@ def agent_slugs() -> list[str]:
     return sorted(p.parent.name for p in SRC.glob("*/agent.json"))
 
 
-STT_HEAD = AGENT_HEAD.replace("Build a {lang} AI agent", "{lang} speech to text").replace(
-    "/ai-agent\"", "/speech-to-text\"").replace(
+STT_HEAD = AGENT_HEAD.replace(
     '<link rel="stylesheet" href="assets/language-agent.css" />',
     '<link rel="stylesheet" href="assets/language-agent.css" />\n    <link rel="stylesheet" href="assets/language-stt.css" />')
 
@@ -672,6 +707,15 @@ def stt_art() -> str:
         if (LANG / "assets" / "speech-to-text" / f"{stem}.{ext}").exists():
             return f'<img class="ag-art" src="assets/speech-to-text/{stem}.{ext}" alt="{alt}" width="{size[0]}" height="{size[1]}" />'
     return f'<div class="ag-art ag-art-placeholder" role="img" aria-label="{alt}">Illustration to come</div>'
+
+
+def stt_art_file() -> str:
+    """The speech-to-text illustration for the share card: step 1's picture, or the "More for" card's until it exists."""
+    stem = STT_ART[0]
+    for ext in ("webp", "jpg", "png"):
+        if (LANG / "assets" / "speech-to-text" / f"{stem}.{ext}").exists():
+            return f"language/assets/speech-to-text/{stem}.{ext}"
+    return "language/assets/more/speech-to-text.png"
 
 
 def compare_words(expert: str, heard: str) -> dict:
@@ -888,9 +932,22 @@ def render_stt(slug: str) -> str:
     left = re.findall(r"\{\{\w+\}\}", body)
     if left:
         raise SystemExit(f"{slug} speech-to-text: unfilled template slots {sorted(set(left))}")
-    description = (f"Turn spoken {lang} into text. {', '.join(r['label'] for r in recs[:-1])} and {recs[-1]['label']} compared on "
-                   f"{page['questions']} real spoken questions; {name(top)} scored {top['score']} out of 100.")
-    head = STT_HEAD.format(lang=lang, slug=slug, header_css=HEADER_CSS, description=esc(description))
+    labels = f"{', '.join(r['label'] for r in recs[:-1])} and {recs[-1]['label']}"
+    q, best = page["questions"], f"Best result: {top['score']}/100 with {rec['label']}."
+    descriptions = [f"Turn spoken {lang} into text. {labels} compared on {q} real spoken questions; {name(top)} scored {top['score']}/100.",
+                    f"Turn spoken {lang} into text: {labels} compared on {q} real spoken questions. {best}",
+                    f"Turn spoken {lang} into text: {len(recs)} speech recognizers compared on {q} real spoken questions. {best}"]
+    titles = [f"{lang} Speech to Text: ASR Models Compared{seo.BRAND}", f"{lang} Speech to Text{seo.BRAND}"]
+    title = f"{lang} speech to text"
+    card = {"eyebrow": f"Speech to text · {page['country']}", "title": title, "lead": ["Best recognizer", rec["label"]],
+            "stats": [[f"{lang} Index", str(top["score"]), "/ 100", f"with {top['model']}"],
+                      ["Recognizers", str(len(recs)), "", "compared"],
+                      ["Questions", str(page["questions"]), "", "asked by native speakers"]],
+            "visual": {"kind": "photo", "src": stt_art_file()}}
+    alt = (f"{title}: {len(recs)} recognizers compared on {page['questions']} spoken questions; the top chain, {name(top)}, "
+           f"scored {top['score']} out of 100.")
+    seo_tags = sub_seo(page, f"language/{slug}/speech-to-text", titles, descriptions, card, alt, body, "Speech to text")
+    head = STT_HEAD.format(lang=lang, header_css=HEADER_CSS, seo=seo_tags)
     cfg = json.dumps(stt_config, ensure_ascii=False, separators=(", ", ": "))
     return head + body.rstrip("\n") + "\n" + STT_TAIL.format(config=cfg)
 

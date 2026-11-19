@@ -167,8 +167,20 @@ After any of those change:
 
 ```bash
 python3 scripts/build_language_pages.py     # rewrite the pages
+python3 scripts/build_og_images.py          # render any share image whose card changed
 python3 scripts/check_language_pages.py     # fail if a page is stale or off-template
+python3 scripts/check_og_images.py          # fail if a page's share image is missing
 ```
+
+Search and sharing tags on every generated page (language, ai-agent, speech-to-text, model and research paper
+pages) come from `scripts/seo.py`: description, canonical `gooey.ai/.../` URL, Open Graph and X tags, icons, and
+JSON-LD (WebPage or ScholarlyArticle, BreadcrumbList, a FAQPage built from the page's own FAQ, and a Dataset on a
+language page). Each page's 1200x630 share card is drawn from its own numbers and saved next to it as
+`og-<hash>.jpg`; the hash changes when the card does, so a page can't point at a stale image without CI failing.
+Titles are kept to 60 characters and descriptions to 120-155, the lengths Google shows in full; the build fails
+outside those limits. Each page kind lists its wordings fullest first with shorter fallbacks (`seo.fit`), and a
+research paper's `description` is written in `scripts/papers_content.py`.
+`build_og_images.py` needs Pillow and a Chromium-family browser (set `OG_BROWSER` to choose one).
 
 To add a language:
 
@@ -189,5 +201,6 @@ To add a language:
 3. `python3 scripts/check_links.py`
 4. `python3 scripts/check_site_header.py` (if the page has the shared header)
    `python3 scripts/check_language_pages.py` (for `/language/<name>` pages)
+   `python3 scripts/check_og_images.py` (every page with a share image)
 5. Actually load the page in a browser and check it — these scripts catch
    drift and dead links, not visual regressions.

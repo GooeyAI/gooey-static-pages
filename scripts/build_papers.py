@@ -26,6 +26,7 @@ Assets it expects (committed, not generated here):
 
 from __future__ import annotations
 
+import csv
 import html
 import json
 import pathlib
@@ -34,6 +35,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from papers_content import PAPERS  # noqa: E402
+import seo  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RESEARCH = ROOT / "research"
@@ -517,14 +519,7 @@ PAGE = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- GOOEY-BASE-HREF -->
     <base href="../../" />
-    <title>{title_esc} — Gooey.AI Research</title>
-    <meta name="description" content="{desc}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{title_esc} — Gooey.AI Research" />
-    <meta property="og:description" content="{desc}" />
-    <meta property="og:site_name" content="Gooey.AI" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+{seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
@@ -660,11 +655,9 @@ def build_page(paper) -> str:
 
     sections = "\n\n".join(render_section(s, slug) for s in paper["sections"])
 
-    desc = re.sub(r"\s+", " ", paper["abstract"])[:180].rsplit(" ", 1)[0] + "…"
-
     return PAGE.format(
         title_esc=esc(paper["title"]),
-        desc=esc(desc),
+        seo=paper_seo(paper, paper["description"]),
         style=STYLE,
         status=esc(paper.get("status", "Preprint")),
         slug=slug,
@@ -675,6 +668,79 @@ def build_page(paper) -> str:
         abstract_meta=abstract_meta,
         sections=sections,
     )
+
+
+PAPERS_CSV = RESEARCH / "data" / "Papers.csv"
+# The logos research/index.html shows beside a paper, keyed by the Sheet's `orgs` column (blank = all of them).
+ORG_MARKS = {"gooey": "research/assets/gooey-robot.png", "rca": "research/images/orgs/rca.png"}
+MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
+          "november", "december"]
+
+
+def listing(slug: str) -> dict:
+    """The paper's row in the research page's list (research/data/Papers.csv, synced from the Sheet), joined the way
+    research/index.html joins it: by the `slug` column, or by a slug derived from the row's title."""
+    with PAPERS_CSV.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if ((row.get("slug") or "").strip() or slugify(row["title"])) == slug:
+                return row
+    return {}
+
+
+def iso_month(date: str) -> str | None:
+    """'July 2026' -> '2026-07'."""
+    m = re.search(r"([A-Za-z]+)\s+(\d{4})", date)
+    if m and m.group(1).lower() in MONTHS:
+        return f"{m.group(2)}-{MONTHS.index(m.group(1).lower()) + 1:02d}"
+    return None
+
+
+def paper_seo(paper, desc: str) -> str:
+    """Search and sharing tags: share card, ScholarlyArticle and breadcrumbs."""
+    slug, title = paper["slug"], paper["title"]
+    path = f"research/papers/{slug}"
+    authors = paper["authors"]
+    byline = ", ".join(n for n, _, _ in authors)
+    row = listing(slug)
+    note, where, date = (row.get(k, "").strip() for k in ("note", "venue", "date"))
+    logo = row.get("logo", "").strip()
+    logo = f"research/{logo}" if logo and not logo.startswith("http") and (RESEARCH / logo).is_file() else None
+    orgs = [o for o in re.split(r"[,;|\s]+", row.get("orgs", "").lower()) if o]
+    marks = [f for key, f in ORG_MARKS.items() if not orgs or key in orgs]
+    # The panel carries the paper (venue logo, title, authors); the band names where it was presented.
+    card = {"eyebrow": "Research paper" + (f" · {date}" if date else ""), "title": note or title,
+            "paper": {"logo": logo, "title": title, "byline": byline, "marks": marks}}
+    if (RESEARCH / "papers" / slug / "fig-1.jpg").exists():
+        card["visual"] = {"kind": "photo", "src": f"research/papers/{slug}/fig-1.jpg"}
+    alt = f"{title}, a Gooey.AI research paper by {byline}" + (f", {note}" if note else "") + "."
+    image = seo.og_image(path, card, alt)
+    meta = dict(paper.get("meta", []))
+    article = {
+        "@type": "ScholarlyArticle", "@id": seo.url(path) + "#article", "headline": title[:110], "name": title,
+        "description": desc, "abstract": seo.text(rich(paper["abstract"])), "url": seo.url(path),
+        "mainEntityOfPage": seo.url(path), "inLanguage": "en", "publisher": {"@id": seo.ORG["@id"]},
+        "image": {"@type": "ImageObject", "url": image[0], "width": 1200, "height": 630},
+        "author": [{"@type": "Person", "name": n, **({"affiliation": {"@type": "Organization", "name": a}} if a else {})}
+                   for n, a, _ in authors],
+    }
+    if meta.get("Keywords"):
+        article["keywords"] = "; ".join(meta["Keywords"])
+    if note:
+        event = {"@type": "PublicationEvent", "name": note}
+        if where:
+            event["location"] = {"@type": "Place", "name": where}
+        if iso_month(date):
+            event["startDate"] = iso_month(date)
+        article["publication"] = event
+    pdf_href = paper.get("pdf_href", f"pdf/{slug}.pdf")
+    if pdf_href.endswith(".pdf"):
+        article["associatedMedia"] = {"@type": "MediaObject", "encodingFormat": "application/pdf",
+                                      "contentUrl": seo.ASSETS + "research/" + pdf_href}
+    graph = [seo.ORG, article, seo.breadcrumbs(path, [("Home", seo.SITE), ("Research", seo.url("research")), (title, None)])]
+    # A paper keeps its published title in full: the brand goes on only when it still fits Google's 60 characters.
+    page_title = next((t for t in (f"{title} — Gooey.AI Research", f"{title} — Gooey.AI") if len(t) <= seo.TITLE_MAX), title)
+    return seo.head(path=path, title=page_title, description=desc, og_title=title, og_type="article",
+                    image=image, graph=graph, exact_title=True)
 
 
 def main() -> int:

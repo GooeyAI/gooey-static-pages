@@ -37,6 +37,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import build_language_pages as b  # noqa: E402
+import seo  # noqa: E402
 
 ROOT, LANG, SRC = b.ROOT, b.LANG, b.SRC
 csv.field_size_limit(10**8)
@@ -53,20 +54,7 @@ HEAD = """<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- GOOEY-BASE-HREF -->
     <base href="../../" />
-    <title>{title} | Gooey.AI</title>
-    <meta
-      name="description"
-      content="{description}"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{title} | Gooey.AI" />
-    <meta
-      property="og:description"
-      content="{description}"
-    />
-    <meta property="og:url" content="https://gooey.ai/models/{mslug}/{lslug}" />
-    <meta property="og:site_name" content="Gooey.AI" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+{seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
@@ -531,10 +519,27 @@ def render_model(model: str, lslug: str) -> str:
     left = re.findall(r"\{\{\w+\}\}", body)
     if left:
         raise SystemExit(f"{mslug}/{lslug}: unfilled template slots {sorted(set(left))}")
-    title = f"{model} in {lang}: Accuracy, Speed & Cost"
-    description = (f"How {model} does on spoken {lang} questions: score {c['score']} out of 100 (#{rank} of {N} models), "
-                   f"{c['time']:.1f} s response, {b.money(c['cost'])} per 1,000 questions.")
-    head = HEAD.format(title=esc(title, quote=False), description=esc(description), mslug=mslug, lslug=lslug, header_css=b.HEADER_CSS)
+    base = f"{model} in {lang}: Accuracy, Speed & Cost"
+    title = seo.fit(base + seo.BRAND, base, f"{model} in {lang}{seo.BRAND}", hi=seo.TITLE_MAX, what=f"{model} in {lang} title")
+    how = f"How {model} does on spoken {lang} questions: score {c['score']} out of 100 (#{rank} of {N} models), {c['time']:.1f} s response"
+    description = seo.fit(f"{how}, {b.money(c['cost'])} per 1,000 questions.", f"{how}.",
+                          f"{model} on spoken {lang} questions: {c['score']}/100 (#{rank} of {N} models), {c['time']:.1f} s response.",
+                          lo=seo.DESC_MIN, hi=seo.DESC_MAX, what=f"{model} in {lang} description")
+    path = f"models/{mslug}/{lslug}"
+    card = {"eyebrow": f"{lang} evaluation · {meta['maker']}", "title": f"{model} in {lang}", "lead": ["Best chain", label],
+            "stats": [[f"{lang} Index", str(c["score"]), "/ 100", f"#{rank} of {N} models"],
+                      ["Reply time", f"{c['time']:.1f}", "s", f"median, #{t_rank} of {N}"],
+                      ["Self-hosting", "Yes" if own_sov else "No", "", "open weights" if meta.get("open") else "proprietary model"]],
+            "visual": {"kind": "logo", "src": f"language/assets/kinyarwanda/{b.js_dict('LOGO_FILES')[model]}.svg"}}
+    image = seo.og_image(path, card, f"{model} in {lang}: {lang} Index {c['score']} out of 100, #{rank} of {N} models, "
+                                     f"with a {c['time']:.1f} s median reply.")
+    lang_page = json.loads((SRC / lslug / "page.json").read_text())
+    graph = [seo.ORG, seo.webpage(path, title, description, image, L["snapshot"],
+                                  seo.language(lang, lang_page.get("endonym"))),
+             seo.breadcrumbs(path, [("Home", seo.SITE), seo.EVALS, (lang, seo.url(f"language/{lslug}")), (model, None)]),
+             *seo.faq(path, body)]
+    tags = seo.head(path=path, title=title, description=description, og_title=base, image=image, graph=graph)
+    head = HEAD.format(seo=tags, header_css=b.HEADER_CSS)
     config = {"lang": lang, "model": model, "samples": sample_data, "who": {"model": model, "logo": b.js_dict("LOGO_FILES")[model]},
               "volume": cfg}
     return head + body.rstrip("\n") + "\n" + TAIL.format(config=json.dumps(config, ensure_ascii=False, separators=(", ", ": ")))

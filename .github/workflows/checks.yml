@@ -23,3 +23,5 @@ jobs:
         run: python3 scripts/check_language_pages.py
       - name: Test shared language FAQ generation
         run: python3 scripts/test_language_faq.py
+      - name: Check share images (og:image) exist
+        run: python3 scripts/check_og_images.py
