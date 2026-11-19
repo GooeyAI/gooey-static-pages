@@ -21,12 +21,12 @@
   },
   "ecocost": {
     "name": "EcoCost",
-    "title": "EcoCost labeling for AI inference — Gooey.AI",
-    "description": "EcoCost is a public repository and API that estimates the energy, emissions and water use of AI models, so any AI tool can show them beside price.",
+    "title": "EcoCost: AI Energy, Carbon & Water Estimates by Gooey.AI",
+    "description": "Open-source API and Python library to estimate energy, CO₂ and water use per AI token. Compare LLMs and server regions. Try it: pip install ecocost.",
     "type": "Article",
     "section": "Proposal",
     "published": "2026-09-22",
-    "updated": "2026-09-30",
+    "updated": "2026-11-16",
     "card": {
       "eyebrow": "Proposal · Research",
       "title": "EcoCost labeling for AI inference",
