@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <title>Gooey.AI is a Digital Public Good</title>
+    <meta name="description" content="Gooey.AI is recognised by the Digital Public Goods Alliance as a digital public good in the Open Software category." />
+    <link rel="canonical" href="https://gooey.ai/digital-public-good" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gooey.AI is a Digital Public Good" />
+    <meta property="og:description" content="Open AI infrastructure that organisations and communities can use, adapt and extend." />
+    <meta property="og:url" content="https://gooey.ai/digital-public-good" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta property="og:image" content="https://gooey.ai/digital-public-good/images/dpg-badge.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gooey.AI is a Digital Public Good" />
+    <meta name="twitter:description" content="Open AI infrastructure that organisations and communities can use, adapt and extend." />
+    <meta name="twitter:image" content="https://gooey.ai/digital-public-good/images/dpg-badge.png" />
+    <style>
+      @font-face {
+        font-family: "Domine";
+        src: url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype-variations"), url("assets/fonts/Domine-VariableFont_wght.ttf") format("truetype");
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      :root {
+        --gy-ink: rgb(10, 16, 33);
+        --gy-ink-muted: rgb(75, 88, 122);
+        --gy-white: #fff;
+        --gy-bg: rgb(255, 254, 253);
+        --gy-surface-50: rgb(251, 250, 248);
+        --gy-surface-100: rgb(247, 245, 242);
+        --gy-surface-200: rgb(241, 238, 234);
+        --gy-line: rgb(217, 217, 217);
+        --gy-line-soft: rgb(230, 230, 230);
+        --gy-line-strong: rgb(185, 185, 185);
+        --gy-teal-700: rgb(0, 153, 138);
+        --gy-teal-800: rgb(0, 118, 107);
+        --gy-blue: rgb(120, 158, 214);
+        --gy-blue-tint: rgb(235, 242, 251);
+        --gy-coral: rgb(218, 102, 83);
+        --gy-font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        --gy-font-serif: "Domine", "Source Serif Pro", Georgia, "Times New Roman", serif;
+        --site-header-h: 60px;
+        --pad-x: clamp(20px, 4vw, 60px);
+        --maxw: 1220px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--gy-ink); background: var(--gy-bg); font-family: var(--gy-font-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-underline-offset: 3px; }
+      a:focus-visible, button:focus-visible { outline: 2px solid var(--gy-teal-700); outline-offset: 3px; }
+      .skip-link { position: fixed; top: -60px; left: 14px; z-index: 100; background: var(--gy-ink); color: white; padding: 10px 16px; border-radius: 8px; transition: top .15s ease; }
+      .skip-link:focus { top: 10px; }
+      .progress { position: fixed; inset: 0 0 auto; height: 3px; z-index: 60; }
+      .progress i { display: block; height: 100%; width: 0; background: var(--gy-teal-700); }
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }
+      .wrap { width: min(var(--maxw), calc(100% - 2 * var(--pad-x))); margin: 0 auto; }
+      .hero { min-height: 100vh; padding: calc(var(--site-header-h) + clamp(56px, 8vw, 110px)) 0 clamp(64px, 8vw, 100px); display: flex; align-items: center; border-bottom: 1px solid var(--gy-line-soft); overflow: hidden; position: relative; }
+      .hero::after { content: ""; position: absolute; right: -9vw; top: 15%; width: 42vw; aspect-ratio: 1; border: 1px solid rgba(0,153,138,.22); border-radius: 50%; box-shadow: inset 0 0 0 5vw rgba(235,242,251,.48), inset 0 0 0 10vw rgba(255,254,253,.8); pointer-events: none; }
+      .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(310px, .8fr); gap: clamp(48px, 8vw, 110px); align-items: center; }
+      .eyebrow { margin: 0 0 22px; color: var(--gy-teal-800); font-weight: 700; font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
+      h1,h2,h3 { font-family: var(--gy-font-serif); line-height: 1.08; letter-spacing: -.015em; }
+      h1 { max-width: 11ch; margin: 0 0 28px; font-size: clamp(48px, 7.4vw, 94px); }
+      .hero-dek { max-width: 700px; margin: 0 0 34px; color: var(--gy-ink-muted); font-family: var(--gy-font-serif); font-size: clamp(20px, 2.25vw, 29px); line-height: 1.42; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 12px 20px; border: 1px solid var(--gy-line-strong); border-radius: 12px; background: var(--gy-white); font-weight: 700; text-decoration: none; transition: transform .15s ease, border-color .15s ease, background .15s ease; }
+      .btn:hover { transform: translateY(-2px); border-color: var(--gy-teal-700); }
+      .btn.primary { color: white; background: var(--gy-ink); border-color: var(--gy-ink); }
+      .badge-card { position: relative; background: white; border: 1px solid var(--gy-line-soft); border-radius: 26px; padding: clamp(24px, 4vw, 46px); box-shadow: 0 22px 70px rgba(10,16,33,.09); }
+      .badge-card img { width: 100%; height: auto; }
+      .badge-note { margin: 20px 0 0; color: var(--gy-ink-muted); font-size: 14px; text-align: center; }
+      .section { padding: clamp(76px, 10vw, 132px) 0; border-bottom: 1px solid var(--gy-line-soft); }
+      .section.alt { background: var(--gy-surface-50); }
+      .section-grid { display: grid; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: clamp(42px, 8vw, 110px); align-items: start; }
+      .section-num { color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 72px; line-height: 1; }
+      .section h2 { margin: 12px 0 22px; font-size: clamp(34px, 4.5vw, 59px); }
+      .lede { margin: 0 0 24px; color: var(--gy-ink-muted); font-family: var(--gy-font-serif); font-size: clamp(20px, 2vw, 26px); line-height: 1.48; }
+      .prose p { max-width: 760px; margin: 0 0 22px; font-size: 18px; line-height: 1.75; }
+      .recognition { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 46px; border: 1px solid var(--gy-line); border-radius: 20px; overflow: hidden; background: white; }
+      .recognition > div { padding: 26px; border-right: 1px solid var(--gy-line); }
+      .recognition > div:last-child { border-right: 0; }
+      .recognition .label { display: block; color: var(--gy-teal-800); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; }
+      .recognition strong { font-family: var(--gy-font-serif); font-size: 18px; }
+      .principles { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 44px; }
+      .principle { min-height: 220px; padding: 26px; border: 1px solid var(--gy-line); border-radius: 18px; background: white; }
+      .principle b { display: block; color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 34px; margin-bottom: 28px; }
+      .principle h3 { margin: 0 0 12px; font-size: 21px; }
+      .principle p { margin: 0; color: var(--gy-ink-muted); }
+      .video { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); gap: clamp(36px,6vw,74px); align-items: center; }
+      .video-link { position: relative; display: block; border-radius: 22px; overflow: hidden; border: 1px solid var(--gy-line); background: var(--gy-ink); text-decoration: none; }
+      .video-link img { width: 100%; aspect-ratio: 16/9; object-fit: cover; opacity: .83; }
+      .play { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 76px; height: 76px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.94); color: var(--gy-ink); font-size: 28px; box-shadow: 0 10px 35px rgba(0,0,0,.25); }
+      .video-link:hover .play { transform: scale(1.06); }
+      .impact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 45px; }
+      .impact { display: flex; flex-direction: column; min-height: 330px; padding: 28px; border: 1px solid var(--gy-line); border-radius: 20px; background: white; }
+      .impact .sdgs { color: #a83f32; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+      .impact h3 { margin: 20px 0 14px; font-size: 25px; }
+      .impact p { margin: 0 0 24px; color: var(--gy-ink-muted); }
+      .impact a { margin-top: auto; color: var(--gy-teal-800); font-weight: 700; }
+      .commitment { text-align: center; padding: clamp(90px,12vw,160px) 0; }
+      .commitment h2 { max-width: 940px; margin: 0 auto 28px; font-size: clamp(38px,5.4vw,70px); }
+      .commitment p { max-width: 800px; margin: 0 auto 38px; color: var(--gy-ink-muted); font-family: var(--gy-font-serif); font-size: 23px; }
+      .site-footer { padding: 38px 0; background: var(--gy-surface-100); border-top: 1px solid var(--gy-line-soft); }
+      .foot { display: flex; align-items: center; gap: 22px; }
+      .foot img { width: 116px; }
+      .foot small { color: var(--gy-ink-muted); }
+      @media (max-width: 860px) {
+        .hero-grid,.section-grid,.video { grid-template-columns: 1fr; }
+        .hero { min-height: auto; }
+        .hero::after { width: 85vw; opacity: .45; }
+        .badge-card { max-width: 520px; }
+        .recognition,.principles,.impact-grid { grid-template-columns: 1fr; }
+        .recognition > div { border-right: 0; border-bottom: 1px solid var(--gy-line); }
+        .recognition > div:last-child { border-bottom: 0; }
+      }
+      @media (max-width: 520px) {
+        .site-header { padding: 0 18px; }
+        .site-header .login-btn { padding: 8px 15px; }
+        .actions { flex-direction: column; }
+        .btn { width: 100%; }
+        h1 { font-size: 47px; }
+        .section-num { font-size: 54px; }
+      }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="progress" aria-hidden="true"><i id="progbar"></i></div>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Gooey.AI is a Digital Public Good</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">Digital Public Goods Alliance · Open Software</p>
+            <h1>We’re a Digital Public Good!</h1>
+            <p class="hero-dek">Gooey.AI has been reviewed by the Digital Public Goods Alliance and is now recognised as a digital public good under the Open Software category.</p>
+            <div class="actions">
+              <a class="btn primary" href="https://www.digitalpublicgoods.net/r/gooeyai" target="_blank" rel="noopener">Explore our DPG Registry profile ↗</a>
+              <a class="btn" href="https://github.com/GooeyAI" target="_blank" rel="noopener">Explore our open-source code ↗</a>
+            </div>
+          </div>
+          <a class="badge-card" href="https://www.digitalpublicgoods.net/r/gooeyai" target="_blank" rel="noopener" aria-label="Recognised by the Digital Public Goods Alliance — view Gooey.AI in the DPG Registry">
+            <img src="images/dpg-badge.png" alt="Digital Public Goods badge" />
+            <p class="badge-note">Recognised by the Digital Public Goods Alliance</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="meaning">
+        <div class="wrap section-grid">
+          <div><span class="section-num">01</span><p class="eyebrow">The meaning</p></div>
+          <div class="prose">
+            <h2>What does it mean to be a digital public good?</h2>
+            <p class="lede">Digital public goods are open-source software, open data, open AI models, open standards and open content that contribute towards achieving the Sustainable Development Goals.</p>
+            <p>They adhere to applicable laws and best practices, do no harm, and are designed so others can use, adapt and extend them. The Digital Public Goods Alliance promotes the discovery, development and use of these solutions to help create a more equitable world.</p>
+            <p>For Gooey.AI, recognition as a digital public good is an important milestone in our journey to make AI more accessible, adaptable and inclusive. It recognises the value of building open technology for different communities and contexts.</p>
+            <div class="recognition" aria-label="Our DPG recognition">
+              <div><span class="label">Registry</span><strong>Digital Public Goods Alliance</strong></div>
+              <div><span class="label">Category</span><strong>Open Software</strong></div>
+              <div><span class="label">Standard</span><strong><a href="https://www.digitalpublicgoods.net/standard/" target="_blank" rel="noopener">Digital Public Goods Standard</a></strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="open-ai">
+        <div class="wrap section-grid">
+          <div><span class="section-num">02</span><p class="eyebrow">What we believe</p></div>
+          <div class="prose">
+            <h2>AI should be open, accessible and built for everyone.</h2>
+            <p class="lede">We are building the infrastructure that enables organisations, communities and innovators to create AI applications that speak their languages, understand their contexts and address their needs.</p>
+            <div class="principles">
+              <article class="principle"><b>01</b><h3>Open by design</h3><p>Human-readable workflows, open-source code and infrastructure that can be examined and adapted.</p></article>
+              <article class="principle"><b>02</b><h3>Locally relevant</h3><p>AI that works across languages and channels, and can respond to local knowledge and lived realities.</p></article>
+              <article class="principle"><b>03</b><h3>Shared for impact</h3><p>Reusable building blocks that help teams learn from one another instead of starting from zero.</p></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="video">
+        <div class="wrap video">
+          <a class="video-link" href="https://www.youtube.com/watch?v=X3n9rtfPY2w" target="_blank" rel="noopener" aria-label="Watch Gooey.AI founder Sean Blagsvedt talk about AI on YouTube">
+            <img src="images/founder-talk.jpg" alt="Gooey.AI founder Sean Blagsvedt speaking about AI" loading="lazy" />
+            <span class="play" aria-hidden="true">▶</span>
+          </a>
+          <div>
+            <p class="eyebrow">Founder talk</p>
+            <h2>Why we build open AI infrastructure</h2>
+            <p class="lede">Hear Gooey.AI founder Sean Blagsvedt discuss the state of AI, access and the opportunities created by reusable AI workflows.</p>
+            <a class="btn" href="https://www.youtube.com/watch?v=X3n9rtfPY2w" target="_blank" rel="noopener">Watch the talk ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="importance">
+        <div class="wrap section-grid">
+          <div><span class="section-num">03</span><p class="eyebrow">Why it matters</p></div>
+          <div class="prose">
+            <h2>Open technology can create greater impact when it is shared.</h2>
+            <p class="lede">For us, this recognition is an affirmation of why we build.</p>
+            <p>We believe AI should not be limited by language, geography or access to technical resources. Through our open-source AI orchestration platform, we want to make it easier for organisations to build, adapt and deploy AI solutions that respond to local needs.</p>
+            <p>This belief comes to life through our work:</p>
+            <div class="impact-grid">
+              <article class="impact"><span class="sdgs">SDG 2 · SDG 10 · SDG 13</span><h3>Farmer.Chat</h3><p>Trusted agricultural knowledge in farmers’ own languages, supporting food security, climate resilience and reduced inequalities.</p><a href="https://gooey.ai/farmer-chat">Explore Farmer.Chat →</a></article>
+              <article class="impact"><span class="sdgs">Culture · Participation</span><h3>Beyond Bias</h3><p>Developed with Goethe-Institut to explore how representative datasets and participatory design can make AI more inclusive.</p><a href="https://gooey.ai/research/papers/beyond-bias-participatory-and-reflective-approaches-to-cultural-ai/">Read the research →</a></article>
+              <article class="impact"><span class="sdgs">SDG 4 · SDG 9 · SDG 10</span><h3>Language evaluations</h3><p>Public evaluations of how AI models understand low-resource languages, addressing gaps in representation and access.</p><a href="https://gooey.ai/language-evaluation">Explore evaluations →</a></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="commitment">
+        <div class="wrap">
+          <p class="eyebrow">Our commitment</p>
+          <h2>Technology should be shaped by the communities it serves.</h2>
+          <p>Being recognised as a digital public good reinforces our commitment to building technology that can be shared, adapted and extended across communities and contexts.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn primary" href="https://www.digitalpublicgoods.net/r/gooeyai" target="_blank" rel="noopener">View our Registry profile ↗</a>
+            <a class="btn" href="https://github.com/GooeyAI" target="_blank" rel="noopener">Build with our open-source code ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap foot">
+        <img src="assets/gooey-wordmark.png" alt="Gooey.AI" />
+        <small>© 2026 Gooey.AI · Recognised as a Digital Public Good in the Open Software category.</small>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        var header = document.getElementById("siteHeader");
+        var bar = document.getElementById("progbar");
+        var onScroll = function () {
+          header.classList.toggle("scrolled", window.scrollY > 220);
+          var root = document.documentElement;
+          var max = root.scrollHeight - root.clientHeight;
+          bar.style.width = (max > 0 ? (root.scrollTop / max) * 100 : 0) + "%";
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>
