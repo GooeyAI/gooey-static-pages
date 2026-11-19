@@ -20,7 +20,7 @@
   font-weight: 400;
 }
 .stt h1 {
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1.1;
   letter-spacing: -0.5px;
 }
@@ -129,9 +129,18 @@
 .st-transcripts .q {
   margin: 4px 0 0;
 }
+/* Every line of text in a transcription card is 14px */
+.st-transcripts .sample-head,
+.st-transcripts .voice-time,
+.st-transcripts .q-label,
+.st-transcripts .q strong,
+.st-transcripts .heard-head,
+.st-transcripts .a-label,
+.st-transcripts .heard-text {
+  font-size: 14px;
+}
 .st-transcripts .q strong {
-  font-size: 16px;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 .heard {
   display: flex;
@@ -145,7 +154,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
 }
 .heard-count {
   margin-left: auto;
@@ -154,8 +162,7 @@
 }
 .heard-text {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .heard-text u {
   color: #b42318;
@@ -230,8 +237,10 @@
   color: var(--text-primary);
   font-weight: 600;
 }
+/* 20px below the cards, as in the Figma frame. Padding, because .agent p resets margins. */
 .st-note {
-  margin: 20px 0 0;
+  margin: 0;
+  padding-top: 20px;
   color: var(--text-tertiary);
   font-size: 12px;
   line-height: 18px;
@@ -243,14 +252,6 @@
 }
 .st-steps-head {
   margin-bottom: 48px;
-}
-.st-steps-head h2 {
-  margin-bottom: 8px;
-}
-.st-steps-head p {
-  color: var(--text-tertiary);
-  font-size: 12px;
-  line-height: 18px;
 }
 .stt .ag-step {
   gap: 72px;
