@@ -3,7 +3,7 @@
 const M = window.MODEL_PAGE;
 
 renderSampleCards(document.getElementById("sampleCards"), M.samples, M.who,
-  { assetBase: "../language/assets/", dataBase: "../language/" });
+  { assetBase: "../language/assets/", dataBase: "../language/", tag: true });
 
 // "At your volume": a log slider from 1,000 to 200,000 questions a month.
 const MIN = 1000, MAX = 200000;

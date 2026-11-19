@@ -14,8 +14,8 @@
 }
 .model h1,
 .model h2 {
-  font-family: var(--gy-font-sans);
-  font-weight: 500;
+  font-family: var(--gy-font-serif);
+  font-weight: 400;
   letter-spacing: 0;
 }
 .model .crumbs a {
@@ -40,7 +40,7 @@
   margin-top: 47px;
 }
 .md-hero-copy {
-  width: 560px;
+  width: 550px;
   flex: none;
 }
 .md-meta {
@@ -61,7 +61,7 @@
 .model h1 {
   margin-top: 28px;
   font-size: 40px;
-  line-height: 45px;
+  line-height: 48px;
 }
 .md-lead {
   margin-top: 14px;
@@ -76,7 +76,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .md-hero-art {
   position: relative;
@@ -98,8 +98,9 @@
 }
 .md-voice {
   top: auto;
+  right: -20px;
   bottom: -13px;
-  left: -22px;
+  left: auto;
   width: 284px;
 }
 .md-stats {
@@ -139,7 +140,7 @@
 
 /* Sections */
 .md-section {
-  margin-top: 60px;
+  margin-top: 72px;
 }
 .md-hero + .md-section {
   margin-top: 73px;
@@ -153,7 +154,7 @@
   color: var(--text-secondary);
   font-size: 16px;
   line-height: 24px;
-  max-width: 600px;
+  max-width: 760px;
 }
 .md-p {
   color: var(--text-primary);
@@ -344,7 +345,7 @@
 /* Sample answers reuse the language page's cards; only the heading spacing is set here */
 .md-section.samples-section,
 #samples {
-  margin-top: 60px;
+  margin-top: 72px;
 }
 
 /* "What changed since" (only rendered when the model has a previous version) */
@@ -459,129 +460,226 @@
 .md-runs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 16px;
   margin-top: 24px;
 }
 .md-run {
   display: flex;
-  min-height: 396px;
+  min-height: 399px;
   flex-direction: column;
-  padding: 16px;
+  padding: 24px;
   border: 1px solid var(--line-soft);
   border-radius: 16px;
   background: var(--bg-page);
 }
+/* Diagram: a region box (the country, or your network) around the app, an arrow to where the model runs.
+   Positions are the frame's, in a 283 x 116 panel. */
 .md-diagram {
   position: relative;
-  height: 112px;
+  height: 116px;
+  flex: none;
   border-radius: 12px;
   background: var(--bg-panel);
 }
+.md-region {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  left: 12px;
+  height: 96px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+}
+.md-dg-provider .md-region {
+  right: auto;
+  width: 112px;
+}
+.md-dg-self .md-region {
+  border: 1.5px solid var(--brand-blue);
+}
+.md-region > span {
+  position: absolute;
+  top: -9px;
+  left: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  background: var(--bg-panel);
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 16px;
+}
+.md-dg-self .md-region > span {
+  color: var(--text-primary);
+}
+.md-region svg {
+  width: 12px;
+  height: 12px;
+}
 .md-chip {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 2px 8px;
-  border-radius: 6px;
+  top: 21px;
+  right: 15px;
+  padding: 3px 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
   background: #fff;
-  color: var(--text-secondary);
-  font-size: 11px;
-  line-height: 14px;
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 15px;
+}
+.md-dg-provider .md-chip {
+  top: 13px;
+  right: 10px;
 }
 .md-chip.ok {
+  border-color: transparent;
   background: #e3f1ec;
   color: var(--md-green);
-}
-.md-flow {
-  position: absolute;
-  inset: 34px 16px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.md-flow i {
-  height: 0;
-  flex: 1;
-  margin: 0 8px 14px;
-  border-top: 1px solid var(--text-secondary);
-}
-.md-flow.dim i {
-  border-top-style: dashed;
-  opacity: 0.5;
+  font-weight: 500;
 }
 .md-node {
+  position: absolute;
+  top: 43px;
   display: flex;
-  width: 84px;
-  height: 56px;
-  flex-direction: column;
+  width: 38px;
+  height: 38px;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  border: 1px dashed var(--text-tertiary);
-  border-radius: 10px;
-  color: var(--text-secondary);
-}
-.md-node.on {
-  border: 1px solid var(--brand-blue);
-  background: #eceafb;
-  color: var(--brand-blue);
+  border: 1px solid var(--line-soft);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--text-primary);
 }
 .md-node svg {
   width: 16px;
   height: 16px;
 }
 .md-node small {
-  font-size: 10px;
-  line-height: 12px;
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.md-a {
+  left: 49px;
+}
+.md-b {
+  left: 194px;
+}
+.md-dg-provider .md-b {
+  left: 213px;
+}
+.md-dg-region .md-b {
+  border: 1px dashed var(--line-strong);
+  background: transparent;
+  color: var(--text-secondary);
+}
+.md-dg-self .md-b {
+  border-color: var(--brand-blue);
+  background: var(--brand-blue);
+  color: #fff;
+}
+.md-dg-self .md-b small {
+  color: var(--text-primary);
+}
+.md-arrow {
+  position: absolute;
+  top: 62px;
+  left: 93px;
+  width: 106px;
+  height: 0;
+  border-top: 1px solid currentColor;
+  color: var(--text-secondary);
+}
+.md-arrow::after {
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  border-top: 4.5px solid transparent;
+  border-bottom: 4.5px solid transparent;
+  border-left: 7px solid currentColor;
+  content: "";
+}
+.md-dg-region .md-arrow {
+  width: 79px;
+  border-top-style: dashed;
+}
+.md-dg-self .md-arrow {
+  width: 94px;
+  border-top-width: 1.5px;
+  color: var(--brand-blue);
 }
 .md-run h3 {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 18px;
-  font-size: 15px;
+  margin-top: 15px;
+  font-size: 16px;
   font-weight: 600;
-  line-height: 19px;
+  line-height: 20px;
 }
 .md-run h3 svg {
   width: 16px;
   height: 16px;
 }
 .md-run > p {
-  margin-top: 8px;
+  margin-top: 16px;
   color: var(--text-secondary);
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 14px;
+  line-height: 21px;
 }
 .md-run > p.note {
   margin-top: 12px;
   font-size: 12px;
 }
-.md-fact {
+.md-facts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 14px;
+  grid-template-columns: 120px 1fr;
+  margin-top: 16px;
+}
+.md-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   font-size: 12px;
   line-height: 16px;
 }
-.md-fact span {
+.md-fact > span {
   display: flex;
   align-items: center;
   gap: 6px;
   color: var(--text-secondary);
 }
-.md-fact svg {
-  width: 14px;
-  height: 14px;
+.md-fact > span svg {
+  width: 16px;
+  height: 16px;
 }
 .md-fact b {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 500;
+}
+.md-fact b span {
+  margin-left: 4px;
+}
+.md-flag {
+  width: 14px;
+  height: 14px;
+  flex: none;
 }
 .md-foot {
   margin-top: auto;
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
 }
 .md-best {
   margin-top: 14px;
@@ -612,8 +710,9 @@
   gap: 4px;
   margin-top: auto;
   color: var(--text-primary);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 20px;
   text-decoration: none;
 }
 .md-link svg {
@@ -898,6 +997,23 @@
   margin-top: 4px;
 }
 
+/* Sample answers: heading and intro spaced like the other sections; topic tag as a chip in the card head */
+.model .samples-head {
+  gap: 0;
+}
+.model .samples-head h2 {
+  margin: 0;
+}
+.model .sample-head {
+  color: var(--text-secondary);
+}
+.model .sample-head .tag {
+  padding: 4px 12px 4px 8px;
+  border: 1px solid var(--line-default);
+  border-radius: 8px;
+  line-height: 1.2;
+}
+
 /* FAQ: open question shows a down chevron, closed a right chevron, as in the frame */
 .model .faq-list details[open] summary::after {
   transform: rotate(225deg);
@@ -967,6 +1083,13 @@
   }
   .md-table {
     min-width: 640px;
+  }
+  .md-run {
+    min-height: 0;
+  }
+  .md-foot,
+  .md-link {
+    margin-top: 20px;
   }
   .md-eco-head {
     flex-direction: column;

@@ -103,7 +103,19 @@ ICONS = {
     "bolt": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg>',
     "bulb": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5h4M6.5 14.5h3M8 1.8a4.2 4.2 0 0 0-2.3 7.7c.4.3.6.7.6 1.2v.3h3.4v-.3c0-.5.2-.9.6-1.2A4.2 4.2 0 0 0 8 1.8z"/></svg>',
     "coin": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="1.75" width="12.5" height="12.5" rx="2.5"/><path d="M8 4v8M10.2 5.9C9.8 5.3 9 5 8 5c-1.2 0-2.2.5-2.2 1.5S6.7 8 8 8s2.2.5 2.2 1.5S9.2 11 8 11c-1 0-1.8-.3-2.2-.9"/></svg>',
+    "lock": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>',
     "chev": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg>',
+}
+
+# Round flags shown before a hosting region in "Where you can run it" (names as in models.json hosted_in / zdr_in).
+_ROUND = '<svg class="md-flag" viewBox="0 0 16 16" aria-hidden="true"><clipPath id="f{id}"><circle cx="8" cy="8" r="8"/></clipPath><g clip-path="url(#f{id})">{body}</g><circle cx="8" cy="8" r="7.75" fill="none" stroke="rgba(0,0,0,.12)" stroke-width=".5"/></svg>'
+FLAGS = {
+    "Global": ICONS["globe"].replace("<svg ", '<svg class="md-flag" ', 1),
+    "US": _ROUND.format(id="us", body='<rect width="16" height="16" fill="#fff"/>' + "".join(
+        f'<rect y="{y}" width="16" height="1.25" fill="#d22f27"/>' for y in (0, 2.5, 5, 7.5, 10, 12.5, 15))
+        + '<rect width="8" height="8.75" fill="#1e50a0"/>'),
+    "Germany": _ROUND.format(id="de", body='<rect width="16" height="5.4" fill="#1a1a1a"/><rect y="5.3" width="16" height="5.4" fill="#d22f27"/><rect y="10.6" width="16" height="5.4" fill="#f1b31c"/>'),
+    "France": _ROUND.format(id="fr", body='<rect width="5.4" height="16" fill="#1e50a0"/><rect x="5.3" width="5.4" height="16" fill="#fff"/><rect x="10.6" width="5.4" height="16" fill="#d22f27"/>'),
 }
 
 
@@ -231,7 +243,7 @@ def render_model(model: str, lslug: str) -> str:
         verdict = f"It is {and_join(good)}, but {and_join(bad)}."
     else:
         verdict = f"It is {and_join(good or bad)}."
-    lead = (f"As of {month_year(L['updated'])}, <strong>{esc(model)}</strong> ranks #{rank} of {N} models on spoken {lang} questions. "
+    lead = (f"<strong>As of {month_year(L['updated'])}, {esc(model)} ranks #{rank} of {N} models on spoken {lang} questions.</strong> "
             f"{esc(verdict)}")
 
     level = "above average" if c["score"] > mean_score + 1 else "below average" if c["score"] < mean_score - 1 else "about average"
@@ -368,32 +380,37 @@ def render_model(model: str, lslug: str) -> str:
       </section>"""
 
     # ---- where you can run it
+    def places(names: list[str]) -> str:
+        marks = "".join(FLAGS.get(n, "") for n in names)
+        return f'<b>{marks}<span>{esc(", ".join(names))}</span></b>'
     hosted_rows = ""
     if meta.get("hosted_in"):
-        hosted_rows += (f'<div class="md-fact"><span>{ICONS["globe"]}Hosted in</span><b>{esc(", ".join(meta["hosted_in"]))}</b></div>')
+        hosted_rows += f'<div class="md-fact"><span>{ICONS["cloud"]}Hosted in</span>{places(meta["hosted_in"])}</div>'
     if meta.get("zdr_in"):
-        hosted_rows += (f'<div class="md-fact"><span>{ICONS["shield"]}Zero Data Retention in</span><b>{esc(", ".join(meta["zdr_in"]))}</b></div>')
+        hosted_rows += f'<div class="md-fact"><span>{ICONS["shield"]}Zero Data Retention in</span>{places(meta["zdr_in"])}</div>'
+    if hosted_rows:
+        hosted_rows = f'<div class="md-facts">{hosted_rows}</div>'
     card1_title = "Hosted with zero data retention" if meta.get("zdr_in") else "Hosted by the provider"
     card1_body = (f"No data is kept, but requests leave {L['country']}." if meta.get("zdr_in") else
                   f"Requests go to {meta['maker']}’s cloud and leave {L['country']}. Check the provider’s data terms for your use.")
     host_label = b.chain_label(host) if host else ""
     run = f"""
           <article class="md-run">
-            <div class="md-diagram"><span class="md-chip ok">Available now</span><div class="md-flow"><span class="md-node">{ICONS['mic']}<small>Your app</small></span><i></i><span class="md-node">{ICONS['cloud']}<small>Provider cloud</small></span></div></div>
+            <div class="md-diagram md-dg-provider"><span class="md-region"><span>{esc(L['country'])}</span></span><span class="md-chip ok">Available now</span><span class="md-node md-a">{ICONS['mic']}<small>Your app</small></span><i class="md-arrow"></i><span class="md-node md-b">{ICONS['cloud']}<small>Provider cloud</small></span></div>
             <h3>{ICONS['cloud']}{card1_title}</h3>
             <p>{esc(card1_body)}</p>
             {hosted_rows}
             <small class="md-foot">About {b.money(c['cost'])} per 1,000 questions</small>
           </article>
           <article class="md-run">
-            <div class="md-diagram"><span class="md-chip">{'Not yet for ' + esc(L['country']) if meta.get('in_region_note') else 'Ask us'}</span><div class="md-flow dim"><span class="md-node">{ICONS['mic']}<small>Your app</small></span><i></i><span class="md-node">{ICONS['cloud']}<small>Cloud in {esc(L['country'])}</small></span></div></div>
+            <div class="md-diagram md-dg-region"><span class="md-region"><span>{esc(L['country'])}</span></span><span class="md-chip">{'Not yet for ' + esc(L['country']) if meta.get('in_region_note') else 'Ask us'}</span><span class="md-node md-a">{ICONS['mic']}<small>Your app</small></span><i class="md-arrow"></i><span class="md-node md-b">{ICONS['cloud']}<small>Cloud in {esc(L['country'])}</small></span></div>
             <h3>{ICONS['globe']}In-region or sovereign cloud</h3>
             <p>Data stays in a named country.</p>
             <p class="note">{esc(meta.get('in_region_note') or f'Ask us whether {model} can run in {L["country"]}.')}</p>
             <a class="md-link" href="{CONTACT}">Talk to us about on-prem{ICONS['chev']}</a>
           </article>
           <article class="md-run">
-            <div class="md-diagram self"><span class="md-chip{' ok' if own_sov else ''}">{'Open weights' if own_sov else 'Not for ' + esc(model)}</span><div class="md-flow"><span class="md-node">{ICONS['mic']}<small>Your app</small></span><i></i><span class="md-node on">{ICONS['server']}<small>Your servers</small></span></div></div>
+            <div class="md-diagram md-dg-self"><span class="md-region"><span>{ICONS['lock']}Your network</span></span><span class="md-chip{' ok' if own_sov else ''}">{'Open weights' if own_sov else 'Not for ' + esc(model)}</span><span class="md-node md-a">{ICONS['mic']}<small>Your app</small></span><i class="md-arrow"></i><span class="md-node md-b">{ICONS['server']}<small>Your servers</small></span></div>
             <h3>{ICONS['shield']}Self-hosted on your own servers</h3>
             <p>Nothing leaves your network. Open-weight chains only.</p>
             {('<div class="md-best"><small>Best chain you can host yourself</small><a href="' + mlink(host['model']) + '"><img src="' + ASSET + 'kinyarwanda/' + b.logo24(host['model']) + '.svg" alt="" width="16" height="16" />' + esc(host_label) + '</a><small>Score ' + str(host['score']) + ', open weights</small></div>') if (host and not own_sov) else ('<div class="md-best"><small>You can host this chain yourself</small><b>' + esc(label) + '</b><small>Score ' + str(c['score']) + ', open weights</small></div>' if own_sov else '')}
