@@ -6,7 +6,7 @@ Each top-level folder (`sovereignty/`, `research/`, `ecocost/`, ...) is one
 page, hand-written as a single self-contained `index.html`. There's no
 build step, no bundler, no JS framework — pages are edited directly.
 
-Five things have already gone wrong once in this repo and are easy to get
+Six things have already gone wrong once in this repo and are easy to get
 wrong again, so they're enforced by scripts instead of just written down
 here:
 
@@ -193,6 +193,28 @@ To add a language:
 3. Register its pages (language, ai-agent and, if it has `stt.json`, speech-to-text) in `PAGES` in `scripts/site_header.py` and add the language's name to
    `language/_src/languages.json` if it isn't there.
 
+## 6. Every page's title, description and share image come from one place
+
+Search and sharing tags (title, description, canonical URL, Open Graph and X tags, icons, JSON-LD and a 1200x630
+share card) are written by `scripts/seo.py` for every page, so they follow the same rules everywhere: titles of at
+most 60 characters, descriptions of 120-155, and a share card rendered from the page's own content.
+
+- **Generated pages** (`/language`, `/models`, `/research/papers`) get them from their builders (see section 5).
+- **Hand-written pages** keep their HTML, but the block of tags at the top of `<head>`, between
+  `<!-- SEO: generated ... -->` and `<!-- /SEO -->`, is written from `scripts/static_seo.json`. Edit the JSON, not
+  the block. **A new top-level page must get an entry there**; the check fails until it has one.
+
+After changing a page's entry, title, numbers or share picture:
+
+```bash
+python3 scripts/build_static_seo.py         # rewrite the hand-written pages' tags
+python3 scripts/build_og_images.py          # render any share card that changed
+python3 scripts/build_static_seo.py --check # fail if a page's tags are stale or missing
+python3 scripts/check_og_images.py          # fail if a page's share image is missing
+```
+
+Both checks run in CI.
+
 ## Before opening a PR for a new or edited page
 
 1. Before making any change, run `git status` and `git pull --ff-only` as
@@ -201,6 +223,6 @@ To add a language:
 3. `python3 scripts/check_links.py`
 4. `python3 scripts/check_site_header.py` (if the page has the shared header)
    `python3 scripts/check_language_pages.py` (for `/language/<name>` pages)
-   `python3 scripts/check_og_images.py` (every page with a share image)
+   `python3 scripts/build_static_seo.py --check` and `python3 scripts/check_og_images.py` (every page)
 5. Actually load the page in a browser and check it — these scripts catch
    drift and dead links, not visual regressions.

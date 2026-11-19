@@ -77,7 +77,8 @@ def fit(*candidates: str, lo: int = 0, hi: int, what: str = "text") -> str:
 
 
 def head(*, path: str, title: str, description: str, og_title: str, og_type: str = "website",
-         image: tuple[str, str] | None = None, graph: list[dict] = (), exact_title: bool = False) -> str:
+         image: tuple[str, str] | None = None, graph: list[dict] = (), exact_title: bool = False,
+         article: dict | None = None) -> str:
     """<title> and the tags that follow it, one per line, indented for <head>. image is (url, alt).
     og_title is the title without the brand: link previews show the site name on their own.
     exact_title lets a title run past TITLE_MAX when it must not be shortened (a paper's published title)."""
@@ -104,6 +105,10 @@ def head(*, path: str, title: str, description: str, og_title: str, og_type: str
                  '<meta property="og:image:width" content="1200" />',
                  '<meta property="og:image:height" content="630" />',
                  f'<meta property="og:image:alt" content="{esc(alt)}" />']
+    for key, prop in (("section", "article:section"), ("published", "article:published_time"),
+                      ("modified", "article:modified_time")):
+        if (article or {}).get(key):
+            tags.append(f'<meta property="{prop}" content="{esc(article[key])}" />')
     tags.append('<meta name="twitter:card" content="summary_large_image" />')
     if image:
         tags.append(f'<meta name="twitter:image:alt" content="{esc(image[1])}" />')
@@ -120,9 +125,9 @@ def head(*, path: str, title: str, description: str, og_title: str, og_type: str
 # JSON-LD
 
 def webpage(path: str, name: str, description: str, image: tuple[str, str] | None = None, modified: str | None = None,
-            about: dict | None = None) -> dict:
+            about: dict | None = None, kind: str = "WebPage") -> dict:
     u = url(path)
-    node = {"@type": "WebPage", "@id": u, "url": u, "name": name, "description": description, "inLanguage": "en",
+    node = {"@type": kind, "@id": u, "url": u, "name": name, "description": description, "inLanguage": "en",
             "isPartOf": {"@type": "WebSite", "name": "Gooey.AI", "url": SITE}, "publisher": {"@id": ORG["@id"]},
             "breadcrumb": {"@id": u + "#breadcrumb"}}
     if image:
@@ -176,7 +181,10 @@ def language(name: str, endonym: str | None = None) -> dict:
 #         "stats": [[label, value, unit, note], ...],   # up to 3
 #         "people": [[name, affiliation], ...],         # instead of stats, up to 3
 #         "paper": {"logo": file or None, "title": str, "byline": str, "marks": [files]},   # a research paper's panel
-#         "visual": {"kind": "map" | "photo" | "logo", "src": repo-relative file}}   # optional
+#         "wall": {"label": str, "logos": [files], "byline": str, "marks": [files]},      # a full-width row of logos
+#         "visual": {"kind": "map" | "photo" | "logo" | "banner", "src": repo-relative file,
+#                    "position": CSS object-position (banner only, optional)}}
+# A "banner" fills the whole picture area, as on the hand-written pages (their own 3:1 banner, never cropped badly).
 # Files are repo-relative paths; their bytes are part of the card's hash.
 
 CARD_CSS = """
@@ -207,6 +215,10 @@ html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#fff;-we
 .og__by span{font:500 18px/24px Inter,sans-serif;color:#4a5160;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .og__marks{display:flex;gap:10px;flex:none}
 .og__marks img{height:34px;width:auto}
+.og__panel.og__wall{width:1088px;justify-content:space-between}
+.og__logos{display:flex;flex-wrap:wrap;align-items:center;gap:22px 40px}
+.og__logos img{height:64px;max-width:200px;object-fit:contain}
+.og__banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .og__photo{position:absolute;right:0;top:0;width:470px;height:400px;object-fit:cover}
 .og__map{position:absolute;right:70px;top:30px;width:370px;height:340px;object-fit:contain}
 .og__logo{position:absolute;right:120px;top:70px;width:260px;height:260px;border-radius:50%;background:#fff;
@@ -239,7 +251,9 @@ def card_html(card: dict, root: str) -> str:
         src = root + v["src"]
         visual = {"photo": f'<img class="og__photo" src="{src}" alt="">',
                   "map": f'<img class="og__map" src="{src}" alt="">',
-                  "logo": f'<div class="og__logo"><img src="{src}" alt=""></div>'}[v["kind"]]
+                  "logo": f'<div class="og__logo"><img src="{src}" alt=""></div>',
+                  "banner": f'<img class="og__banner" src="{src}" alt="" style="object-position:{v.get("position", "center")}">',
+                  }[v["kind"]]
     inner = ""
     if card.get("lead"):
         label, line = card["lead"]
@@ -258,7 +272,14 @@ def card_html(card: dict, root: str) -> str:
         inner += ((f'<img class="og__venue" src="{root}{p["logo"]}" alt="">' if p.get("logo") else "")
                   + f'<div class="og__ptitle">{esc(p["title"])}</div>'
                   + f'<div class="og__by"><span>{esc(p["byline"])}</span><div class="og__marks">{marks}</div></div>')
-    panel = f'<div class="og__panel{" og__paper" if p else ""}">{inner}</div>' if inner else ""
+    w = card.get("wall")
+    if w:
+        inner += (f'<div class="og__lead"><span>{esc(w["label"])}</span></div>'
+                  + '<div class="og__logos">' + "".join(f'<img src="{root}{f}" alt="">' for f in w["logos"]) + "</div>"
+                  + f'<div class="og__by"><span>{esc(w["byline"])}</span><div class="og__marks">'
+                  + "".join(f'<img src="{root}{m}" alt="">' for m in w["marks"]) + "</div></div>")
+    kind = " og__paper" if p else " og__wall" if w else ""
+    panel = f'<div class="og__panel{kind}">{inner}</div>' if inner else ""
     t = card["title"]
     return CARD_HTML.format(root=root, css=CARD_CSS, visual=visual, panel=panel, eyebrow=esc(card["eyebrow"]),
                             size=46 if len(t) <= 44 else 40, title=esc(t))
@@ -272,6 +293,8 @@ def og_image(path: str, card: dict, alt: str) -> tuple[str, str]:
     files = [WORDMARK] + ([card["visual"]["src"]] if card.get("visual") else [])
     if card.get("paper"):
         files += ([card["paper"]["logo"]] if card["paper"].get("logo") else []) + card["paper"]["marks"]
+    if card.get("wall"):
+        files += card["wall"]["logos"] + card["wall"]["marks"]
     for f in files:
         h.update((ROOT / f).read_bytes())
     rel = f"{path.strip('/')}/og-{h.hexdigest()[:10]}.jpg"

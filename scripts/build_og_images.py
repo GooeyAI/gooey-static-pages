@@ -49,7 +49,9 @@ def cards() -> dict[pathlib.Path, dict]:
     """Build every generated page in memory (nothing is written), which registers each page's card."""
     import build_language_pages
     import build_papers
+    import build_static_seo
     build_language_pages.all_pages()
+    build_static_seo.pages()
     for paper in build_papers.PAPERS:
         if (build_papers.RESEARCH / "pdf" / f"{paper['slug']}.pdf").exists():
             build_papers.build_page(paper)
