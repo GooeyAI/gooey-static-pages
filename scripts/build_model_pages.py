@@ -279,7 +279,7 @@ def render_model(model: str, lslug: str) -> str:
 
     # ---- hero
     voice = L["voice"]
-    wave = re.search(r'<span class="wave".*?</span>', (SRC / "body.tmpl").read_text(), re.S).group(0)
+    wave = re.search(r'<span class="wave".*?</span>', (SRC / "voice-note.frag").read_text(), re.S).group(0)
     stats = [
         (f"{lang} answer score" if False else "Answer score", str(c["score"]), f"#{rank} of {N} · out of 100"),
         ("Response time", f"{c['time']:.1f} s", f"{rank_phrase(t_rank, [round(t, 1) for t in times], round(c['time'], 1))} · median per answer"),

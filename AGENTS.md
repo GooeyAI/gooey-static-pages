@@ -132,9 +132,14 @@ Each language also has an `ai-agent` page (`language/<slug>/ai-agent/`), generat
 `channel.*` (webp, jpg or png); a labelled placeholder shows until they exist.
 
 A language can also have a `speech-to-text` page (`language/<slug>/speech-to-text/`), generated from
-`language/_src/stt.tmpl`, `language/_src/<slug>/stt.json` (which recognizers to show, the chain each "Try" tab
-opens, the API preset, and wording) and the shared `language/assets/language-stt.{css,js}`. Card text, averages
-and FAQ numbers are computed from the language's data. Its step-1 illustration is
+`language/_src/stt.tmpl`, `language/_src/<slug>/stt.json` (which recognizers to show, the chain whose runs supply
+each one's transcripts, the API preset, and wording) and the shared `language/assets/language-stt.{css,js}`. Card
+text, averages and FAQ numbers are computed from the language's data. Its hero reuses the language page's voice
+note (`language/_src/voice-note.frag`, played by `initVoiceNote` in `language/assets/language-samples.js`), and its
+"Sample transcriptions" cards use the language page's sample questions (`samples.json`) and player
+(`renderTranscriptCards`, same file). What each recognizer heard is saved by
+`python3 scripts/fetch_language_transcripts.py [slug]` to `language/data/<code>/transcripts-<snapshot>.json`; the
+expert transcript is `Prompt_Target` in `evaluation-latest.csv`, and the build compares the two word by word. Its step-1 illustration is
 `language/assets/speech-to-text/step1.*` (webp, jpg or png); a labelled placeholder shows until it exists. The
 language page's "Speech to text" card links to it once `stt.json` exists, and shows "Results coming soon" until then.
 

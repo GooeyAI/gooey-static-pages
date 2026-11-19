@@ -270,6 +270,26 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
 AUDIO_RE = re.compile(r"\.(wav|mp3|m4a|opus|ogg)(\?|$)", re.I)
 
 
+def hero_question(page: dict) -> int:
+    """The question the hero voice note plays: evaluation row 1 when its recording is a direct audio file and it
+    has its text, otherwise the first sample card."""
+    with (DATA / page["code"] / "evaluation-latest.csv").open(encoding="utf-8-sig") as f:
+        row = next(csv.DictReader(f))
+    target = row.get("Prompt_Target") or row.get("Question_Target") or ""
+    source = row.get("question") or row.get("Prompt_Source") or row.get("Question_Source") or ""
+    if AUDIO_RE.search(row.get("input_audio", "")) and target and source:
+        return 1
+    return json.loads((DATA / page["code"] / "samples.json").read_text())["samples"][0]["questionNumber"]
+
+
+def voice_note(page: dict) -> str:
+    """The hero voice note (language/_src/voice-note.frag), shared by the language and speech-to-text pages."""
+    html = (SRC / "voice-note.frag").read_text().rstrip("\n")
+    for key, value in {"lang": page["lang"], **{f"vn_{k}": v for k, v in hero_voice(page).items()}}.items():
+        html = html.replace("{{%s}}" % key, value)
+    return html
+
+
 def hero_voice(page: dict) -> dict:
     """The hero voice note plays a real question from the evaluation: the first evaluation row when its
     recording is a direct audio file, otherwise the first sample card (whose audio is stored with the data)."""
@@ -338,7 +358,7 @@ def render(slug: str) -> str:
         "lang": page["lang"], "flag": page["flag"], "endonym": page["endonym"], "country": page["country"],
         "updated": page["updated"], "lead_html": lead_html, "rec_card": rec_card, "bulk_url": hero["bulk_url"],
         "map_alt": hero["map"]["alt"], "map_img": map_img, "map_key": hero["map"]["file"].rsplit(".", 1)[0].removeprefix("map-"),
-        **{f"vn_{k}": v for k, v in hero_voice(page).items()},
+        "voice_note": voice_note(page),
         "n": str(n), "n_sov": str(n_sov), "n_priv": str(n - n_sov), "questions": str(page["questions"]),
         "board_hint": page["board"]["hint"], "speech_key": speech_key,
         "picks_section": (d / "picks.frag").read_text().rstrip("\n"),
@@ -627,15 +647,16 @@ STT_HEAD = AGENT_HEAD.replace("Build a {lang} AI agent", "{lang} speech to text"
     '<link rel="stylesheet" href="assets/language-agent.css" />\n    <link rel="stylesheet" href="assets/language-stt.css" />')
 
 STT_TAIL = """
+    <script>
+      window.STT_PAGE = {config};
+    </script>
+    <script src="assets/language-samples.js"></script>
     <script src="assets/language-stt.js"></script>
     <script src="assets/language-links.js"></script>
   </body>
 </html>
 """
 
-MIC_SVG = ('<svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" '
-           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11" y="4" width="10" height="16" rx="5"/>'
-           '<path d="M7 15a9 9 0 0 0 18 0M16 24v4"/></svg>')
 COPY_SVG = ('<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" '
             'stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/>'
             '<path d="M10.5 3.5V3A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg>')
@@ -651,6 +672,23 @@ def stt_art() -> str:
         if (LANG / "assets" / "speech-to-text" / f"{stem}.{ext}").exists():
             return f'<img class="ag-art" src="assets/speech-to-text/{stem}.{ext}" alt="{alt}" width="{size[0]}" height="{size[1]}" />'
     return f'<div class="ag-art ag-art-placeholder" role="img" aria-label="{alt}">Illustration to come</div>'
+
+
+def compare_words(expert: str, heard: str) -> dict:
+    """Which of `heard`'s words match the expert's transcript, ignoring case, punctuation and hyphens.
+    matched counts the expert's words that the recognizer got; the rest of `heard` is underlined on the page."""
+    import difflib
+    key = lambda w: re.sub(r"[^\w']", "", w.lower().replace("’", "'").replace("‘", "'").replace("-", ""))
+    want = [key(w) for w in expert.split() if key(w)]
+    words = heard.split()
+    got = [key(w) for w in words]
+    ok = [False] * len(words)
+    matched = 0
+    for block in difflib.SequenceMatcher(None, want, got, autojunk=False).get_matching_blocks():
+        matched += block.size
+        for k in range(block.b, block.b + block.size):
+            ok[k] = True
+    return {"words": [[w, o] for w, o in zip(words, ok)], "matched": matched, "total": len(want)}
 
 
 def stt_slugs() -> list[str]:
@@ -680,7 +718,7 @@ def render_stt(slug: str) -> str:
             raise SystemExit(f"{slug} speech-to-text: no chain uses {r['speech']!r}")
         if norm(r["chain"]) not in by_key:
             raise SystemExit(f"{slug} speech-to-text: chain {r['chain']!r} is not in the evaluation")
-        recs.append({**r, "label": r.get("label", r["speech"]), "chains": cs, "tab": by_key[norm(r["chain"])],
+        recs.append({**r, "label": r.get("label", r["speech"]), "chains": cs, "source": by_key[norm(r["chain"])],
                      "avg": sum(c["acc"] for c in cs) / len(cs) * 100,
                      "best": max(cs, key=lambda c: (c["acc"], -c["time"])), "direct": r["speech"] == DIRECT_AUDIO})
     rec = next((r for r in recs if r["speech"] == top["speech"]), None)
@@ -727,29 +765,41 @@ def render_stt(slug: str) -> str:
         use = big if size == 24 and (LANG / "assets" / "kinyarwanda" / f"{big}.svg").exists() else stem
         return f'<img src="assets/kinyarwanda/{use}.svg" alt="" width="{size}" height="{size}" />'
 
-    cards, tabs = [], []
+    cards = []
     for r in recs:
         kind = "Recommended" if r is rec else DIRECT_AUDIO if r["direct"] else r.get("tag", "")
         tag = (CHECK_12 if r is rec else "") + " · ".join(x for x in (kind, hosting(r)) if x)
         cards.append(f'            <article class="st-card{" rec" if r is rec else ""}"><span class="st-tag">{tag}</span>'
                      f'<h3>{logo(r["logo"], 24)}{r["label"]}</h3><p>{card_text(r)}</p></article>')
-        t = r["tab"]
-        caption = (f"Opens the {name(t)} agent from our test on Gooey.AI. It "
-                   + ("listens to the audio and answers." if r["direct"] else "transcribes the audio, then answers."))
-        sel = r is rec
-        tabs.append(f'                  <button class="st-tab" type="button" role="tab" aria-selected="{str(sel).lower()}" '
-                    f'aria-controls="stPanel" data-url="{esc(t["url"])}" data-caption="{esc(caption)}">'
-                    f'{logo(r["logo"], 16)}{r["label"]}{" (recommended)" if sel else ""}</button>')
-    compare_caption = f"Opens our {page['updated']} evaluation run, with every chain’s answers side by side."
-    tabs.append(f'                  <button class="st-tab" type="button" role="tab" aria-selected="false" aria-controls="stPanel" '
-                f'data-url="{esc(bulk)}" data-caption="{esc(compare_caption)}">Compare all {len(recs)}</button>')
-
-    options = "\n".join(
-        f'                  <option value="{s}/speech-to-text/"{" selected" if s == slug else ""}>'
-        f'{json.loads((SRC / s / "page.json").read_text())["lang"]}</option>' for s in stt_slugs())
 
     samples = json.loads((DATA / page["code"] / "samples.json").read_text())
     sample = samples["samples"][0]
+    with (DATA / page["code"] / "evaluation-latest.csv").open(encoding="utf-8-sig", newline="") as f:
+        eval_rows = list(csv.DictReader(f))
+    expert_of = lambda q: (eval_rows[q - 1].get("Prompt_Target") or eval_rows[q - 1].get("Question_Target") or "").strip()
+    tpath = DATA / page["code"] / f"transcripts-{page['snapshot']}.json"
+    if not tpath.exists():
+        raise SystemExit(f"{slug} speech-to-text: {tpath.relative_to(ROOT)} is missing; "
+                         f"run python3 scripts/fetch_language_transcripts.py {slug}")
+    heard = {(t["question"], t["recognizer"]): t["text"] for t in json.loads(tpath.read_text())["transcripts"]}
+    def heard_by(q: int, r: dict) -> str:
+        if (q, r["speech"]) not in heard:
+            raise SystemExit(f"{slug} speech-to-text: no {r['speech']} transcript for question {q} in {tpath.name}; "
+                             f"run python3 scripts/fetch_language_transcripts.py {slug}")
+        return heard[(q, r["speech"])]
+    hero_q = hero_question(page)
+    shown = rec if not rec["direct"] else (separate[0] if separate else None)
+    if shown is None:
+        raise SystemExit(f"{slug} speech-to-text: needs at least one speech recognizer besides direct audio")
+    transcript_samples = [{
+        "questionNumber": x["questionNumber"], "category": x.get("category", ""), "audioUrl": x["audioUrl"],
+        "audioDurationSeconds": x["audioDurationSeconds"], "expert": expert_of(x["questionNumber"]),
+        "heard": [{"label": r["label"], "logo": r["logo"], **compare_words(expert_of(x["questionNumber"]), heard_by(x["questionNumber"], r))}
+                  for r in separate],
+    } for x in samples["samples"]]
+    stt_config = {"lang": lang, "langCode": st.get("lang_code", ""), "dataBase": f"data/{page['code']}/",
+                  "totalQuestions": samples["totalQuestions"], "samples": transcript_samples}
+
     sample_model, _, sample_speech = samples["workflow"].partition(" + ")
     sample_speech = sample_speech or DIRECT_AUDIO
 
@@ -815,12 +865,13 @@ def render_stt(slug: str) -> str:
     slots = {
         "header": HEADER_HTML.format(title=f"{lang} speech to text").rstrip("\n"),
         "slug": slug, "lang": lang, "lang_code": st.get("lang_code", ""),
-        "try_tabs": "\n".join(tabs), "lang_options": options,
-        "try_url": esc(rec["tab"]["url"]),
-        "try_caption": (f"Opens the {name(rec['tab'])} agent from our test on Gooey.AI. It "
-                        + ("listens to the audio and answers." if rec["direct"] else "transcribes the audio, then answers.")),
-        "mic_svg": MIC_SVG, "copy_svg": COPY_SVG,
-        "n": str(len(chains)), "questions": str(page["questions"]), "updated": page["updated"],
+        "voice_note": voice_note(page), "heard_label": shown["label"], "heard_logo": shown["logo"],
+        "heard_text": esc(heard_by(hero_q, shown)),
+        "samples_intro": (f"{['One', 'Two', 'Three', 'Four', 'Five'][len(samples['samples']) - 1] if len(samples['samples']) <= 5 else len(samples['samples'])} "
+                          f"of the {samples['totalQuestions']} questions, sent as WhatsApp voice notes. "
+                          "Underlined words differ from the expert’s transcript."),
+        "copy_svg": COPY_SVG,
+        "questions": str(page["questions"]),
         "model_cards": "\n".join(cards),
         "art_step1": stt_art(), "rec_label": api["label"], "rec_logo": api["logo"],
         "sample_audio": esc(sample["audioUrl"]), "sample_english": esc(sample["questionEnglish"]),
@@ -840,7 +891,8 @@ def render_stt(slug: str) -> str:
     description = (f"Turn spoken {lang} into text. {', '.join(r['label'] for r in recs[:-1])} and {recs[-1]['label']} compared on "
                    f"{page['questions']} real spoken questions; {name(top)} scored {top['score']} out of 100.")
     head = STT_HEAD.format(lang=lang, slug=slug, header_css=HEADER_CSS, description=esc(description))
-    return head + body.rstrip("\n") + "\n" + STT_TAIL
+    cfg = json.dumps(stt_config, ensure_ascii=False, separators=(", ", ": "))
+    return head + body.rstrip("\n") + "\n" + STT_TAIL.format(config=cfg)
 
 
 def all_pages(only: list[str] | None = None) -> dict[pathlib.Path, str]:

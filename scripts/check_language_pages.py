@@ -114,7 +114,8 @@ def check_stt(slug: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-stt.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    if scripts != ['<script src="assets/language-stt.js">', '<script src="assets/language-links.js">']:
+    if scripts != ["<script>", '<script src="assets/language-samples.js">', '<script src="assets/language-stt.js">',
+                   '<script src="assets/language-links.js">']:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")
     for ref in sorted(set(re.findall(r'(?:src|href)="((?:assets|data)/[^"?#]+)"', actual))):
         if not (LANG / ref).exists():

@@ -86,3 +86,62 @@ function renderSampleCards(cards, data, who, { assetBase = "assets/", dataBase =
   </article>`).join("");
   initSamplePlayers(cards);
 }
+
+// Hero voice note (language/_src/voice-note.frag): plays a real recorded question. Shared by the language and
+// speech-to-text pages. Bars fill as it plays and the clock counts up, like the
+// sample cards; only one recording plays at a time on the page.
+function initVoiceNote(note, lang) {
+  if (!note) return;
+  const audio = note.querySelector("audio");
+  const btn = note.querySelector(".play");
+  const clock = note.querySelector("time");
+  // Same generated waveform as the sample cards (silent start, bursts of speech), scaled to fit the card.
+  const wave = note.querySelector(".wave");
+  if (typeof waveHeights === "function") {
+    const seed = [...audio.getAttribute("src")].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+    wave.innerHTML = waveHeights(seed).map(h => `<i class="dim" style="height:${Math.max(2, Math.round(h * 0.6))}px"></i>`).join("");
+  }
+  const bars = [...wave.querySelectorAll("i")];
+  const resting = bars.map(b => b.classList.contains("dim"));
+  const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+  const sync = () => {
+    const playing = !audio.paused && !audio.ended;
+    note.classList.toggle("is-playing", playing);
+    btn.setAttribute("aria-label", `${playing ? "Pause" : "Play"} the ${lang} question`);
+    if (audio.currentTime > 0 && !audio.ended) {
+      const played = Math.round((audio.currentTime / (audio.duration || 1)) * bars.length);
+      bars.forEach((b, i) => b.classList.toggle("dim", i >= played));
+      clock.textContent = fmt(audio.currentTime);
+    } else {
+      bars.forEach((b, i) => b.classList.toggle("dim", resting[i]));
+      if (Number.isFinite(audio.duration)) clock.textContent = fmt(Math.round(audio.duration));
+    }
+  };
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      document.querySelectorAll("audio").forEach(a => { if (a !== audio) a.pause(); });
+      audio.play().catch(() => {});
+    } else audio.pause();
+  });
+  ["play", "pause", "timeupdate", "loadedmetadata"].forEach(e => audio.addEventListener(e, sync));
+  audio.addEventListener("ended", () => { audio.currentTime = 0; sync(); });
+  document.addEventListener("play", e => { if (e.target !== audio) audio.pause(); }, true);
+}
+
+// Speech-to-text cards: the question audio, the expert's transcript, and what each recognizer heard, with the words
+// that differ from the expert's underlined. scripts/build_language_pages.py does the word comparison.
+function renderTranscriptCards(cards, data, { assetBase = "assets/", dataBase = "" } = {}) {
+  const audio = url => (/^https?:/.test(url) ? url : dataBase + url);
+  const lang = data.langCode ? ` lang="${escapeHtml(data.langCode)}"` : "";
+  cards.innerHTML = data.samples.map(sample => `<article class="sample transcript">
+    <div class="sample-head">${sample.category ? `<span class="tag">${escapeHtml(sample.category)}</span>` : ""}<span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
+    ${voiceHtml({ ...sample, audioUrl: audio(sample.audioUrl) })}
+    <p class="q"><span class="q-label">Expert transcript</span><strong${lang}>${escapeHtml(sample.expert)}</strong></p>
+    <hr />
+    ${sample.heard.map(h => `<div class="heard">
+      <div class="heard-head"><img src="${assetBase}kinyarwanda/${h.logo}.svg" alt="" width="24" height="24" /><span class="a-label">${escapeHtml(h.label)} heard</span><span class="heard-count">${h.matched} of ${h.total} words</span></div>
+      <p class="heard-text"${lang}>${h.words.map(([word, same]) => (same ? escapeHtml(word) : `<u>${escapeHtml(word)}</u>`)).join(" ")}</p>
+    </div>`).join("")}
+  </article>`).join("");
+  initSamplePlayers(cards);
+}

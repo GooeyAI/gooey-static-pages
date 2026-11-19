@@ -1,6 +1,6 @@
 {
   "lang": "Kinyarwanda",
-  "_note": "Wording for /language/kinyarwanda/speech-to-text. Scores, times, averages and run links come from language/data/kin/ (see scripts/build_language_pages.py render_stt). Each tab opens the saved workflow of the chain named in 'chain', from the Aug 30 evaluation run.",
+  "_note": "Wording for /language/kinyarwanda/speech-to-text. Scores, times, averages and transcripts come from language/data/kin/ (see scripts/build_language_pages.py render_stt). Each recognizer's transcripts come from the evaluation runs of the chain named in 'chain' (scripts/fetch_language_transcripts.py).",
   "lang_code": "rw",
   "recognizers": [
     {

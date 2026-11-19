@@ -528,43 +528,4 @@ document.querySelectorAll(".legend > [data-g]").forEach(item => {
   item.addEventListener("blur", () => spotlight(false));
 });
 
-// Hero voice note: plays a real recorded question. Bars fill as it plays and the clock counts up, like the
-// sample cards; only one recording plays at a time on the page.
-(function initHeroVoice() {
-  const note = document.getElementById("heroVoice");
-  if (!note) return;
-  const audio = note.querySelector("audio");
-  const btn = note.querySelector(".play");
-  const clock = note.querySelector("time");
-  // Same generated waveform as the sample cards (silent start, bursts of speech), scaled to fit the card.
-  const wave = note.querySelector(".wave");
-  if (typeof waveHeights === "function") {
-    const seed = [...audio.getAttribute("src")].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
-    wave.innerHTML = waveHeights(seed).map(h => `<i class="dim" style="height:${Math.max(2, Math.round(h * 0.6))}px"></i>`).join("");
-  }
-  const bars = [...wave.querySelectorAll("i")];
-  const resting = bars.map(b => b.classList.contains("dim"));
-  const fmt = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
-  const sync = () => {
-    const playing = !audio.paused && !audio.ended;
-    note.classList.toggle("is-playing", playing);
-    btn.setAttribute("aria-label", `${playing ? "Pause" : "Play"} the ${P.lang} question`);
-    if (audio.currentTime > 0 && !audio.ended) {
-      const played = Math.round((audio.currentTime / (audio.duration || 1)) * bars.length);
-      bars.forEach((b, i) => b.classList.toggle("dim", i >= played));
-      clock.textContent = fmt(audio.currentTime);
-    } else {
-      bars.forEach((b, i) => b.classList.toggle("dim", resting[i]));
-      if (Number.isFinite(audio.duration)) clock.textContent = fmt(Math.round(audio.duration));
-    }
-  };
-  btn.addEventListener("click", () => {
-    if (audio.paused) {
-      document.querySelectorAll("audio").forEach(a => { if (a !== audio) a.pause(); });
-      audio.play().catch(() => {});
-    } else audio.pause();
-  });
-  ["play", "pause", "timeupdate", "loadedmetadata"].forEach(e => audio.addEventListener(e, sync));
-  audio.addEventListener("ended", () => { audio.currentTime = 0; sync(); });
-  document.addEventListener("play", e => { if (e.target !== audio) audio.pause(); }, true);
-})();
+initVoiceNote(document.getElementById("heroVoice"), P.lang);

@@ -12,44 +12,26 @@
             <strong>Speech to text</strong>
           </nav>
           <div class="st-hero">
-            <h1 id="st-title">{{lang}} speech to text</h1>
-            <p class="lead">{{lead_html}}</p>
-          </div>
-
-          <div class="st-try" aria-label="Try {{lang}} speech to text">
-            <div class="st-controls">
-              <div class="st-field">
-                <span class="st-label" id="st-model-label">Model</span>
-                <div class="st-tabs" role="tablist" aria-labelledby="st-model-label">
-{{try_tabs}}
-                </div>
-              </div>
-              <label class="st-field st-lang">
-                <span class="st-label">Spoken language</span>
-                <select class="st-select" id="stLang">
-{{lang_options}}
-                </select>
-              </label>
-            </div>
-            <div class="st-idle" role="tabpanel" id="stPanel">
-              <a class="st-mic" id="stMic" href="{{try_url}}" target="_blank" rel="noopener noreferrer" aria-label="Record {{lang}} on Gooey.AI">{{mic_svg}}</a>
-              <p class="st-hint">Record or upload {{lang}} audio on Gooey.AI</p>
-              <div class="st-buttons">
-                <a class="hero-btn secondary st-go" href="{{try_url}}" target="_blank" rel="noopener noreferrer">Upload audio</a>
-                <a class="hero-btn secondary st-go" href="{{try_url}}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.8v10.4L13 8 4.5 2.8Z"/></svg>Try a sample</a>
+            <div class="st-visual">
+              {{voice_note}}
+              <div class="st-heard">
+                <span><img src="assets/kinyarwanda/{{heard_logo}}.svg" alt="" width="16" height="16" />Transcript · {{heard_label}}</span>
+                <p lang="{{lang_code}}">{{heard_text}}</p>
               </div>
             </div>
-            <div class="st-foot">
-              <p id="stCaption">{{try_caption}}</p>
-              <a class="hero-btn secondary" href="{{slug}}/ai-agent/">Use it in a WhatsApp agent<img src="assets/kinyarwanda/icon-arrow-right.svg" alt="" width="16" height="16" /></a>
+            <div class="st-copy">
+              <h1 id="st-title">{{lang}} speech to text</h1>
+              <p class="lead">{{lead_html}}</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <ul class="st-stats" aria-label="About the test">
-            <li><b>{{n}}</b> AI chains tested</li>
-            <li><b>{{questions}}</b> questions asked by native speakers</li>
-            <li>Results from <b>{{updated}}</b></li>
-          </ul>
+      <section class="st-samples" aria-labelledby="samples-title">
+        <div class="container samples">
+          <h2 id="samples-title">Sample transcriptions</h2>
+          <p class="st-intro">{{samples_intro}}</p>
+          <div class="sample-cards st-transcripts" id="sttCards"></div>
         </div>
       </section>
 
@@ -102,7 +84,7 @@
             <div class="ag-step-text">
               <span class="ag-step-n">Step 3</span>
               <h3>Use the text in an agent</h3>
-              <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then publish to WhatsApp, a phone line or the web.</p>
+              <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then <a href="{{slug}}/ai-agent/">publish to WhatsApp, a phone line or the web</a>.</p>
             </div>
             <div class="ag-panel">
               <div class="ag-card st-convo">

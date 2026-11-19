@@ -3108,9 +3108,9 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 .carousel-dots button.current { background: var(--brand-blue); }
 
 /* Sample answers: topic tag in the card head */
-.hub .sample-head { color: var(--text-secondary); }
-.hub .sample-head .tag { padding: 4px 12px 4px 8px; border: 1px solid var(--line-default); border-radius: 8px; line-height: 1.2; }
-.hub .q-label, .hub .a-label { color: var(--text-secondary); font-weight: 500; }
+:is(.hub, .stt) .sample-head { color: var(--text-secondary); }
+:is(.hub, .stt) .sample-head .tag { padding: 4px 12px 4px 8px; border: 1px solid var(--line-default); border-radius: 8px; line-height: 1.2; }
+:is(.hub, .stt) .q-label, :is(.hub, .stt) .a-label { color: var(--text-secondary); font-weight: 500; }
 .hub .q em, .hub .expert { font-weight: 500; }
 .hub .sample .score { margin-top: auto; padding-top: 16px; }
 
@@ -3233,17 +3233,17 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 
 
 
-/* Hero voice note player */
-.hub .voice-note .play { padding: 0; border: 0; color: var(--bg-page); cursor: pointer; }
-.hub .voice-note .play:hover { opacity: 0.85; }
-.hub .voice-note .play:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 2px; }
-.hub .voice-note .play svg { display: block; fill: currentColor; }
-.hub .voice-note .play .vp-pause, .hub .voice-note.is-playing .play .vp-play { display: none; }
-.hub .voice-note.is-playing .play .vp-pause { display: block; }
-.hub .voice-note time { min-width: 28px; font-variant-numeric: tabular-nums; text-align: right; }
-.hub .voice-note .wave { justify-content: space-between; gap: 0; height: 24px; }
-.hub .voice-note .wave i { width: 2.5px; transition: background-color 0.12s linear; }
-.hub .voice-note .wave i.dim { background: #9ea0d9; opacity: 1; }
+/* Hero voice note player (the language page and the speech-to-text page) */
+:is(.hub, .stt) .voice-note .play { padding: 0; border: 0; color: var(--bg-page); cursor: pointer; }
+:is(.hub, .stt) .voice-note .play:hover { opacity: 0.85; }
+:is(.hub, .stt) .voice-note .play:focus-visible { outline: 2px solid var(--brand-blue); outline-offset: 2px; }
+:is(.hub, .stt) .voice-note .play svg { display: block; fill: currentColor; }
+:is(.hub, .stt) .voice-note .play .vp-pause, :is(.hub, .stt) .voice-note.is-playing .play .vp-play { display: none; }
+:is(.hub, .stt) .voice-note.is-playing .play .vp-pause { display: block; }
+:is(.hub, .stt) .voice-note time { min-width: 28px; font-variant-numeric: tabular-nums; text-align: right; }
+:is(.hub, .stt) .voice-note .wave { justify-content: space-between; gap: 0; height: 24px; }
+:is(.hub, .stt) .voice-note .wave i { width: 2.5px; transition: background-color 0.12s linear; }
+:is(.hub, .stt) .voice-note .wave i.dim { background: #9ea0d9; opacity: 1; }
 
 /* Continue the map's grey dot grid across the whole box. Each background tile holds one dot, on the same pitch
    and offset as the dots in the map image (placed at 64px, 40px), so the two grids line up. */

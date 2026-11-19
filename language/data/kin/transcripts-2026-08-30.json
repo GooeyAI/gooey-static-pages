@@ -1,0 +1,63 @@
+{
+  "source": "Public Gooey.AI runs linked from evaluation-latest.csv",
+  "fetched": "2026-11-18",
+  "note": "text is the run's raw_input_text: the speech recognizer's transcript of the question audio, before the language model. The expert transcript is Prompt_Target in evaluation-latest.csv.",
+  "transcripts": [
+    {
+      "question": 1,
+      "recognizer": "Omnilingual",
+      "chain": "DeepSeek V4 + Omnilingual",
+      "run": "https://gooey.ai/agent/?run_id=xf04t5ru0ci6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "umurwa mukuru wa kenya witwa ngo iki"
+    },
+    {
+      "question": 3,
+      "recognizer": "Omnilingual",
+      "chain": "DeepSeek V4 + Omnilingual",
+      "run": "https://gooey.ai/agent/?run_id=7bdsan6mfw12&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "ni uruhe rurimi rwemewe n'amategeko muri kenya"
+    },
+    {
+      "question": 11,
+      "recognizer": "Omnilingual",
+      "chain": "DeepSeek V4 + Omnilingual",
+      "run": "https://gooey.ai/agent/?run_id=21rrh7llf79h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya"
+    },
+    {
+      "question": 18,
+      "recognizer": "Omnilingual",
+      "chain": "DeepSeek V4 + Omnilingual",
+      "run": "https://gooey.ai/agent/?run_id=uw6ykbmuaifl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu"
+    },
+    {
+      "question": 1,
+      "recognizer": "Intron",
+      "chain": "DeepSeek V4 + Intron",
+      "run": "https://gooey.ai/agent/?run_id=2z9hzotfe4a5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "umurwa mukuru wa Kenya witwa ngo"
+    },
+    {
+      "question": 3,
+      "recognizer": "Intron",
+      "chain": "DeepSeek V4 + Intron",
+      "run": "https://gooey.ai/agent/?run_id=3lewcwb049xo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "ni uruhe rurimi rwemewe n'amategeko muri Kenya"
+    },
+    {
+      "question": 11,
+      "recognizer": "Intron",
+      "chain": "DeepSeek V4 + Intron",
+      "run": "https://gooey.ai/agent/?run_id=tbgen5rkjoom&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "vuga igihugu kimwe mu bihugu bihana imbibi na Kenya"
+    },
+    {
+      "question": 18,
+      "recognizer": "Intron",
+      "chain": "DeepSeek V4 + Intron",
+      "run": "https://gooey.ai/agent/?run_id=1jn1b23nx2rj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "Ni hehe hantu ndangamateka mu majyaruguru ya Kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu"
+    }
+  ]
+}
