@@ -160,6 +160,8 @@ A model page's "What changed since <previous model>" section (`language/_src/mod
 `models.json` lists the model it replaced (`replaces`) and an archived snapshot of the language (`page.json`
 `archive`) ran that model on the same questions; otherwise it is left out. See the docstring of
 `scripts/build_model_pages.py`.
+`language/_src/model-copy.md` lists every piece of text on a model page with its template and rules; update it when
+you change the wording.
 
 Links between the page kinds are relative paths, so `check_links.py` can verify them.
 `language/assets/language-links.js` rewrites them to `gooey.ai` URLs when a page is served through the proxy.
