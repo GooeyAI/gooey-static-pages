@@ -14,15 +14,22 @@ Inputs, all shared with the language and ai-agent pages:
 
 Everything on a page is computed from the data: ranks among the models, the comparison table, the three sample
 answers (this model's best chain, from the evaluator CSV), cost and CO2e, the FAQ. A section needs data we do not
-have yet is simply left out; the Figma frame's translation / transcription scores and "what changed since the
-previous version" appear when language/_src/models.json gives a `previous` block for the model (see below).
+have yet is simply left out (the Figma frame's translation / transcription scores, for one).
 
-models.json "previous" (optional, per model):
+"What changed since <previous model>" (language/_src/model-changed.tmpl) is shown only when both are true:
 
-    "previous": {"name": "GPT-5.5", "replaced": "Feb 12, 2026",
-                 "history": [["GPT-5", "Aug 2025", 74], ["GPT-5.5", "Feb 2026", 81]],
-                 "languages": {"kinyarwanda": {"score": 81, "time": 8.4, "cost": 52.0,
-                                               "notes": ["Stays in Kinyarwanda more often."]}}}
+  1. models.json says which model this one replaced, newest first (older entries add bars to the chart):
+
+        "replaces": [{"name": "GPT-5.1", "on": "Feb 12, 2026",
+                      "notes": {"kinyarwanda": [["good", "Stays in Kinyarwanda more often."]]}}]
+
+     "on" (optional) is when it was replaced; "notes" (optional) are the "In the answers" lines, per language,
+     each ["good" | "info", text].
+  2. An archived snapshot of the language (page.json "archive", data/<code>/summary-<date>.csv) has a chain of the
+     replaced model, and its evaluation-<date>.csv asked the same questions as the current run. The chain with the
+     same speech recognition as this model's best chain is used (like for like), else that model's best chain.
+
+Otherwise the section, its sentence in the comparison paragraph and its FAQ answer are left out.
 """
 
 from __future__ import annotations
@@ -41,6 +48,17 @@ import build_language_pages as b  # noqa: E402
 ROOT, LANG, SRC = b.ROOT, b.LANG, b.SRC
 csv.field_size_limit(10**8)
 MODELS = json.loads((SRC / "models.json").read_text(encoding="utf-8"))
+TEMPLATE_CHANGED = (SRC / "model-changed.tmpl").read_text(encoding="utf-8")
+
+
+def fill(template: str, slots: dict) -> str:
+    out = template
+    for key, value in slots.items():
+        out = out.replace("{{%s}}" % key, str(value))
+    left = re.findall(r"\{\{\w+\}\}", out)
+    if left:
+        raise SystemExit(f"unfilled template slots {sorted(set(left))}")
+    return out
 DOCS_EVAL = "https://docs.gooey.ai/speech-and-language/how-to-use-asr/how-to-create-language-evaluation-for-asr"
 CONTACT = "https://gooey.ai/contact/"
 API = "https://gooey.ai/api/"
@@ -103,6 +121,8 @@ ICONS = {
     "bolt": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5 3.5 9H8l-1 5.5L12.5 7H8z"/></svg>',
     "bulb": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5h4M6.5 14.5h3M8 1.8a4.2 4.2 0 0 0-2.3 7.7c.4.3.6.7.6 1.2v.3h3.4v-.3c0-.5.2-.9.6-1.2A4.2 4.2 0 0 0 8 1.8z"/></svg>',
     "coin": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.75" y="1.75" width="12.5" height="12.5" rx="2.5"/><path d="M8 4v8M10.2 5.9C9.8 5.3 9 5 8 5c-1.2 0-2.2.5-2.2 1.5S6.7 8 8 8s2.2.5 2.2 1.5S9.2 11 8 11c-1 0-1.8-.3-2.2-.9"/></svg>',
+    "check": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>',
+    "info": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.25"/><path d="M8 7.2v3.8M8 5h.01"/></svg>',
     "lock": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>',
     "chev": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg>',
 }
@@ -139,9 +159,64 @@ def languages() -> dict[str, dict]:
             if c["model"] not in best or (c["acc"], -c["time"]) > (best[c["model"]]["acc"], -best[c["model"]]["time"]):
                 best[c["model"]] = c
         ranked = sorted(best.values(), key=lambda c: (-c["acc"], c["time"]))
-        out[slug] = {"slug": slug, "lang": a["lang"], "country": a["country"], "code": a["code"], "snapshot": a["snapshot"],
+        out[slug] = {"archive": archived_runs(a["code"], page), "slug": slug, "lang": a["lang"], "country": a["country"], "code": a["code"], "snapshot": a["snapshot"],
                      "updated": page["updated"], "questions": page["questions"], "bulk_url": page["hero"]["bulk_url"],
                      "voice": page["hero"]["voice"], "flag": page["flag"], "facts": facts, "best": best, "ranked": ranked}
+    return out
+
+
+def questions(path: pathlib.Path) -> set[str] | None:
+    if not path.exists():
+        return None
+    rows = list(csv.DictReader(open(path, encoding="utf-8-sig", newline="")))
+    col = next((k for k in ("Prompt_Target", "Question_Target", "Prompt_Source", "Prompt") if rows and k in rows[0]), None)
+    return {r[col].strip() for r in rows} if col else None
+
+
+def archived_runs(code: str, page: dict) -> list[dict]:
+    """Older snapshots of a language (page.json "archive"), newest first, that asked the same questions as the current
+    run: each with its chains' scores and response times. A snapshot whose questions differ, or can't be checked, is
+    skipped, so its numbers are never set beside today's."""
+    now = questions(b.DATA / code / "evaluation-latest.csv")
+    out = []
+    for a in sorted(page.get("archive", []), key=lambda a: a["snapshot"], reverse=True):
+        snap = a["snapshot"]
+        if not now or questions(b.DATA / code / f"evaluation-{snap}.csv") != now:
+            continue
+        lines = [l for l in open(b.DATA / code / f"summary-{snap}.csv", encoding="utf-8") if not l.startswith("#") and l.strip()]
+        chains = []
+        for r in csv.DictReader(lines):
+            model, _, speech = r["Workflow"].strip().partition(" + ")
+            speech = b.SPEECH_ALIASES.get(speech, speech) or b.DIRECT_AUDIO
+            acc = float(r["Accuracy (mean)"])
+            chains.append({"model": model, "speech": speech, "acc": acc, "score": round(acc * 100 + 1e-9),
+                           "time": float(r["Latency (median)"])})
+        out.append({"snapshot": snap, "label": a["label"], "month": month_short(snap), "chains": chains})
+    return out
+
+
+def month_short(snapshot: str) -> str:
+    y, m, _ = (int(x) for x in snapshot.split("-"))
+    return f"{['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1]} {y}"
+
+
+def previous_runs(model: str, c: dict, L: dict) -> list[dict]:
+    """The models this one replaced (models.json "replaces", newest first) that ran in an archived snapshot of the
+    language, each as the chain to compare with: same speech recognition as `c` if that ran, else its best chain.
+    Empty unless the direct predecessor (the first entry) has data, so "What changed since" never skips a version."""
+    out = []
+    for i, r in enumerate(MODELS[model].get("replaces") or []):
+        for snap in L["archive"]:
+            runs = [x for x in snap["chains"] if b.norm(x["model"]) == b.norm(r["name"])]
+            if not runs:
+                continue
+            same = [x for x in runs if b.norm(x["speech"]) == b.norm(c["speech"])]
+            pick = max(same or runs, key=lambda x: (x["acc"], -x["time"]))
+            out.append({**pick, "name": r["name"], "on": r.get("on"), "notes": (r.get("notes") or {}).get(L["slug"], []),
+                        "snapshot": snap, "like": bool(same)})
+            break
+        if i == 0 and not out:
+            return []
     return out
 
 
@@ -232,8 +307,8 @@ def render_model(model: str, lslug: str) -> str:
     mlink = lambda name: f"{MODELS[name]['slug']}/{lslug}/"
     hub = f"../language/{lslug}/"
     agent = f"../language/{lslug}/ai-agent/"
-    prev = (meta.get("previous") or {})
-    prev_l = (prev.get("languages") or {}).get(lslug)
+    runs = previous_runs(model, c, L)      # the models this one replaced, in an archived snapshot; [] = no section
+    prev = runs[0] if runs else None
 
     # ---- lead + comparison copy
     good, bad = [], []
@@ -277,13 +352,11 @@ def render_model(model: str, lslug: str) -> str:
                   f"{contrast} <strong>{speed_word}</strong>: it answers in <strong>{c['time']:.1f} seconds</strong>, #{t_rank} of {N}{phone}. "
                   + (f"{cost_sentence} " if cost_sentence else "") + host_sentence)
     compare_p2 = ""
-    if prev_l:
-        ds, dt, dc = c["score"] - prev_l["score"], prev_l["time"] - c["time"], prev_l["cost"] - c["cost"]
+    if prev:
+        ds, dt = c["score"] - prev["score"], prev["time"] - c["time"]
         compare_p2 = (f'<p class="md-p2">Compared with <strong>{esc(prev["name"])}</strong>, which it replaced, {esc(model)} is '
-                      f"<strong>{abs(ds)} points {'higher' if ds >= 0 else 'lower'}</strong>. It answers <strong>{abs(dt):.1f} seconds "
-                      f"{'faster' if dt >= 0 else 'slower'}</strong>"
-                      + ("." if PRICING_COMING_SOON else f" and costs <strong>{b.money(abs(dc))} {'less' if dc >= 0 else 'more'}</strong> per 1,000 questions.")
-                      + "</p>")
+                      + (f"<strong>{abs(ds)} point{'s' * (abs(ds) != 1)} {'higher' if ds > 0 else 'lower'}</strong>" if ds else "<strong>level</strong>")
+                      + f" on the same {L['questions']} questions and answers <strong>{abs(dt):.1f} seconds {'faster' if dt >= 0 else 'slower'}</strong>.</p>")
     chips = []
     if t_rank <= max(1, math.ceil(N / 3)):
         chips.append(f"Among the fastest, #{t_rank} of {N}")
@@ -354,47 +427,47 @@ def render_model(model: str, lslug: str) -> str:
     ncol = len(cols)
     table = (f'<div class="md-table-scroll"><div class="md-table" style="--cols:{ncol}" role="table" aria-label="{esc(model)} compared with the top models">\n'
              + "\n".join("            " + r for r in rows_html) + "\n          </div></div>")
-    if prev_l:
-        pass  # the previous version's column is shown in the "what changed" block below
 
     # ---- sample answers
     sample_data = samples_for(L, c)
 
-    # ---- previous version block
+    # ---- what changed since the previous version (language/_src/model-changed.tmpl); only when `prev` has data
     changed = ""
-    if prev_l:
-        ds, dt, dc = c["score"] - prev_l["score"], prev_l["time"] - c["time"], prev_l["cost"] - c["cost"]
+    if prev:
+        ds, dt = c["score"] - prev["score"], prev["time"] - c["time"]
         chip = lambda text, tone="": f'<span class="md-chip-d {tone}">{text}</span>'
+        unit = lambda v: f'{v:.1f}<small>s</small>'
         rows = [
-            ("Answer score", "matches the expert answer", str(prev_l["score"]), str(c["score"]),
-             chip(f"{abs(ds)} points {'higher' if ds > 0 else 'lower'}" if ds else "unchanged", "good" if ds > 0 else "")),
-            ("Response time", "median per answer", f"{prev_l['time']:.1f} s", f"{c['time']:.1f} s",
+            ("Answer score", "matches the expert answer", str(prev["score"]), str(c["score"]),
+             chip(f"{abs(ds)} point{'s' * (abs(ds) != 1)} {'higher' if ds > 0 else 'lower'}" if ds else "unchanged", "good" if ds > 0 else "")),
+            ("Response time", "median per answer", unit(prev["time"]), f"{c['time']:.1f} s",
              chip(f"{abs(dt):.1f} seconds {'faster' if dt > 0 else 'slower'}" if abs(dt) >= 0.05 else "unchanged", "good" if dt > 0 else "")),
-            ("Cost", "per 1,000 questions", "", PENDING, "") if PRICING_COMING_SOON else
-            ("Cost", "per 1,000 questions", b.money(prev_l["cost"]), b.money(c["cost"]),
-             chip(f"{b.money(abs(dc))} {'cheaper' if dc > 0 else 'dearer'}" if abs(dc) >= 0.005 else "unchanged", "good" if dc > 0 else "")),
         ]
-        row_html = "\n".join(f'<div class="md-change-row{" pricing-pending" if z == PENDING else ""}"><span><b>{k}</b><small>{s}</small></span><em>{a}</em><i>→</i><strong>{z}</strong>{d}</div>'
-                             for k, s, a, z, d in rows)
-        notes = "".join(f"<li>{esc(n)}</li>" for n in prev_l.get("notes", []))
-        history = [*prev.get("history", []), [model, re.sub(r"^([A-Za-z]{3}) \d+, (\d{4})$", r"\1 \2", L["updated"]), c["score"]]]
-        top = max(v for _, _, v in history)
-        bars = "".join(f'<div class="md-bar{" me" if i == len(history) - 1 else ""}"><span style="height:{v / top * 100:.0f}%"><b>{v}</b></span>'
-                       f"<small>{esc(n)}<br />{esc(d)}</small></div>" for i, (n, d, v) in enumerate(history))
-        changed = f"""
-      <section class="md-section" aria-labelledby="changed-title">
-        <div class="container">
-          <h2 id="changed-title">What changed since {esc(prev['name'])}</h2>
-          <p class="md-sub">{esc(model)} replaced {esc(prev['name'])} on {esc(prev['replaced'])}. We re-ran the same {L['questions']} questions on {L['updated']}.</p>
-          <div class="md-change">
-            <div class="md-change-card">
-{row_html}
-              {('<div class="md-in"><small>In the answers</small><ul>' + notes + '</ul></div>') if notes else ''}
-            </div>
-            <div class="md-change-card md-versions"><b>{lang} answer score by version</b><div class="md-bars">{bars}</div></div>
-          </div>
-        </div>
-      </section>"""
+        if PRICING_COMING_SOON:
+            rows.append(("Cost", "per 1,000 questions", "", PENDING, ""))
+        row_html = "\n".join(
+            f'              <div class="md-change-row{" pricing-pending" if z == PENDING else ""}"><span><b>{k}</b><small>{sub}</small></span>'
+            f'<em>{a}</em><i>{"" if z == PENDING else "→"}</i><strong>{z}</strong>{d}</div>' for k, sub, a, z, d in rows)
+        notes = "".join(f'<li class="{tone}">{ICONS["check" if tone == "good" else "info"]}{esc(text)}</li>' for tone, text in prev["notes"])
+        bars_data = [(x["name"], x["snapshot"]["month"], x["score"]) for x in reversed(runs)] + [(model, month_short(L["snapshot"]), c["score"])]
+        top = max(v for _, _, v in bars_data)
+        bars = "".join(f'<div class="md-bar{" me" if i == len(bars_data) - 1 else ""}"><b>{v}</b><span style="height:{v / top * 194:.0f}px"></span>'
+                       f"<small>{esc(n)}<br />{esc(d)}</small></div>" for i, (n, d, v) in enumerate(bars_data))
+        first = runs[-1]
+        d0 = c["score"] - first["score"]
+        caption = (f"{abs(d0)} point{'s' * (abs(d0) != 1)} {'higher' if d0 > 0 else 'lower'} than {first['name']} in {first['snapshot']['month']}"
+                   if d0 else f"Level with {first['name']} in {first['snapshot']['month']}")
+        speech = "built-in audio" if c["speech"] == b.DIRECT_AUDIO else f"{c['speech']} speech recognition"
+        how = (f"Both with {speech}." if prev["like"] else
+               f"{esc(b.chain_label(prev))} then, {esc(b.chain_label(c))} now: {esc(prev['name'])} did not run with {speech}.")
+        replaced = f" on {esc(prev['on'])}" if prev.get("on") else ""
+        changed = fill(TEMPLATE_CHANGED, {
+            "prev": esc(prev["name"]), "lang": lang,
+            "sub": (f"{esc(model)} replaced {esc(prev['name'])}{replaced}. Both answered the same {L['questions']} questions: "
+                    f"{esc(prev['name'])} on {esc(prev['snapshot']['label'])}, {esc(model)} on {L['updated']}. {how}"),
+            "rows": row_html,
+            "notes": f'<div class="md-in"><small>In the answers</small><ul>{notes}</ul></div>' if notes else "",
+            "bars": bars, "caption": caption})
 
     # ---- where you can run it
     def places(names: list[str]) -> str:
@@ -512,11 +585,13 @@ def render_model(model: str, lslug: str) -> str:
         faq.append((f"Does {model} understand {lang}?",
                     f"Partly. {model} scored {c['score']} out of 100 on spoken {lang} questions with {speech}, #{rank} of {N} models; "
                     f"{leader['model']} scored {leader['score']}."))
-    if prev_l:
-        ds = c["score"] - prev_l["score"]
+    if prev:
+        ds = c["score"] - prev["score"]
         faq.append((f"Is {model} better than {prev['name']} for {lang}?",
-                    f"On our questions it scores {abs(ds)} points {'higher' if ds >= 0 else 'lower'} ({prev_l['score']} to {c['score']}) "
-                    f"and answers in {c['time']:.1f} s instead of {prev_l['time']:.1f} s."))
+                    (f"On the same {L['questions']} questions it scores {abs(ds)} point{'s' * (abs(ds) != 1)} {'higher' if ds > 0 else 'lower'} "
+                     if ds else f"On the same {L['questions']} questions it scores the same ") +
+                    f"({prev['score']} to {c['score']}, {prev['snapshot']['label']} to {L['updated']}) "
+                    f"and answers in {c['time']:.1f} s instead of {prev['time']:.1f} s."))
     faq.append((f"Can I run {model} on my own servers?",
                 (f"Yes. {model} has open weights, so you can host it yourself, together with an open speech model such as Omnilingual." if own_sov else
                  f"No. {model} is only available from {meta['maker']}’s cloud. " + (f"The best chain you can host yourself is {host_label} (score {host['score']})." if host else "None of the chains we tested can be self-hosted."))))
@@ -550,7 +625,7 @@ def render_model(model: str, lslug: str) -> str:
         "meta_line": f'<img src="{ASSET}kinyarwanda/{b.logo24(model)}.svg" alt="" width="16" height="16" />{esc(meta["maker"])}<span>·</span>{meta["kind"]}<span>·</span>Evaluated {L["updated"]}',
         "lead": lead, "stats": stat_html, "wave": wave, "vn_time": voice["time"], "vn_text": voice["text"], "vn_sub": voice["sub"],
         "compare_p1": compare_p1, "compare_p2": compare_p2, "chips": "".join(f"<span>{esc(x)}</span>" for x in chips),
-        "table_title": f"Against the top {len(others)}" + (f" and {prev['name']}" if prev_l else ""),
+        "table_title": f"Against the top {len(others)}",
         "table": table, "updated": L["updated"], "questions": str(L["questions"]), "docs_eval": DOCS_EVAL,
         "data_csv": f"../language/data/{L['code']}/evaluation-latest.csv", "contact": CONTACT, "api": API,
         "sample_intro": (f"Three of the {L['questions']} questions. Answers are from {esc(model)} with {esc(speech)}"

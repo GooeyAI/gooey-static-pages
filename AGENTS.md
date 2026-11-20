@@ -156,6 +156,10 @@ Each model has a page per language (`models/<model-slug>/<language-slug>/`, e.g.
 `language/_src/models.json` (maker, open weights, hosting regions, optional previous version) plus the
 language's data, with `language/assets/language-model.{css,js}`. `models/` is its own top-level route, so it needs
 `models/assets/gooey-logo.png` for the shared header, and gooey.ai must proxy it like `language`.
+A model page's "What changed since <previous model>" section (`language/_src/model-changed.tmpl`) appears only when
+`models.json` lists the model it replaced (`replaces`) and an archived snapshot of the language (`page.json`
+`archive`) ran that model on the same questions; otherwise it is left out. See the docstring of
+`scripts/build_model_pages.py`.
 
 Links between the page kinds are relative paths, so `check_links.py` can verify them.
 `language/assets/language-links.js` rewrites them to `gooey.ai` URLs when a page is served through the proxy.
