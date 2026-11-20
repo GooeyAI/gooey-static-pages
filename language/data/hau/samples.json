@@ -1,0 +1,48 @@
+{
+  "language": "Hausa",
+  "evaluationDate": "2026-08-30",
+  "source": "evaluation-latest.csv",
+  "workflow": "Gemini 3.1 Pro",
+  "totalQuestions": 30,
+  "samples": [
+    {
+      "questionNumber": 5,
+      "category": "Waters breaking",
+      "audioUrl": "data/hau/audio/hausa-q5.mp3",
+      "audioDurationSeconds": 7.896,
+      "transcript": "Ina da juna biyu na wata shida kuma ruwan cikina ya fashe. Me ya kamata inyi?",
+      "questionEnglish": "I'm 6 months pregnant and my water broke. What should I do?",
+      "answer": "This is a medical emergency. Go to the nearest hospital immediately. Do not wait at home. You and your baby need urgent medical care right now.",
+      "expertAnswer": "Go to the hospital right away. Water breaking at 6 months is premature and puts you at risk of infection and early delivery. You'll need monitoring and possibly antibiotics.",
+      "score": 80,
+      "runtimeSeconds": 17.28,
+      "runUrl": "https://gooey.ai/agent/?run_id=rbklr2e5wgkw&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "questionNumber": 12,
+      "category": "Cracked nipples",
+      "audioUrl": "data/hau/audio/hausa-q12.mp3",
+      "audioDurationSeconds": 6.528,
+      "transcript": "Bakin nono na ya tsattsage kuma yana zubar jini. Shayarwa tana da matukar zafi.",
+      "questionEnglish": "My nipples are cracked and bleeding. Breastfeeding is so painful.",
+      "answer": "This is often caused by the baby not latching correctly to the breast. \n\nMake sure your baby's mouth covers a large part of the dark area around your nipple. After feeding, rub a few drops of breast milk on your nipples and let them air dry. You can also apply a safe nipple cream like purified lanolin. \n\nPlease see a nurse or doctor if the pain continues or if you suspect an infection.",
+      "expertAnswer": "Clean your nipples with soap and water before and after each feeding, then dry carefully. Make sure your baby is latching correctly - the nipple and most of the dark area should be in baby's mouth. The pain should improve in a few days.",
+      "score": 40,
+      "runtimeSeconds": 15.6,
+      "runUrl": "https://gooey.ai/agent/?run_id=676gcuoviru0&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    },
+    {
+      "questionNumber": 14,
+      "category": "Twin pregnancy",
+      "audioUrl": "data/hau/audio/hausa-q14.mp3",
+      "audioDurationSeconds": 6.072,
+      "transcript": "Ina dauke da jarirai biyu. Shin ina bukatar kulawa ta musamman?",
+      "questionEnglish": "I'm having twins. Do I need special care?",
+      "answer": "Yes, carrying twins requires special medical care. You should visit a hospital or clinic to start antenatal care immediately. A doctor or nurse will need to monitor your health and the babies closely. You will also need extra rest and a highly nutritious diet. Always follow the advice of your healthcare provider to ensure a safe delivery.",
+      "expertAnswer": "Yes, twin pregnancies need closer monitoring with more frequent checkups. You're at higher risk for anemia, high blood pressure, and early delivery. Plan to deliver at a hospital with surgical facilities in case you need a cesarean.",
+      "score": 60,
+      "runtimeSeconds": 21.16,
+      "runUrl": "https://gooey.ai/agent/?run_id=qivc4x4nu21j&uid=cUAiCwAzwuXMB6Sr0RD9aScCEG22"
+    }
+  ]
+}

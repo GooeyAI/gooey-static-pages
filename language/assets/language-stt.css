@@ -1,0 +1,498 @@
+/* /language/<name>/speech-to-text pages. Loaded after language-page.css (tokens, header, breadcrumb, buttons,
+   FAQ, footer) and language-agent.css (step rows, panels, cards); this file only adds what is specific to the
+   speech-to-text page. Sizes come from the Figma frame "3 · /language/kinyarwanda/speech-to-text"
+   (1440 wide, content column 1032, sections 72 px apart). */
+
+.stt {
+  --st-surface: #fbfaf8;
+  --st-dark: #0a1021;
+}
+.stt > section + section {
+  margin-top: 72px;
+}
+
+/* Type: the same scale and voice as the language page (the .hub rules in language-page.css): serif headings,
+   a quiet breadcrumb, and a lead whose key facts are set in <strong>. language-agent.css sets sans headings
+   for .agent; these come later in the cascade and win. */
+.stt h1,
+.stt h2 {
+  font-family: var(--gy-font-serif);
+  font-weight: 400;
+}
+.stt h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+.stt h2 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+.stt .crumbs {
+  gap: 6px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+.stt .crumbs strong {
+  color: var(--text-secondary);
+}
+.stt .crumbs img {
+  opacity: 0.7;
+}
+.stt .lead {
+  max-width: 640px;
+  line-height: 24px;
+}
+.stt .lead strong {
+  font-weight: 500;
+}
+/* The FAQ uses the language page's shared section (language/_src/faq.tmpl); spacing here is by section gap */
+.stt > .section {
+  padding-block: 0;
+  border-top: 0;
+}
+
+/* Hero: the language page's voice note and what the recommended recognizer heard, on a panel beside the title */
+.st-hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-top: 24px;
+}
+.st-visual {
+  position: relative;
+  width: 492px;
+  height: 262px;
+  flex: none;
+  border-radius: 24px;
+  background: var(--bg-panel);
+}
+.stt .voice-note {
+  top: 25px;
+  left: 25px;
+  width: 282px;
+  gap: 8px;
+}
+.stt .voice-note .vn-text {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.stt .voice-note .vn-sub {
+  display: none;
+}
+.st-heard {
+  position: absolute;
+  right: 24px;
+  bottom: 25px;
+  display: flex;
+  width: 271px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px 16px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  background: var(--bg-page);
+}
+.st-heard span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.st-heard p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.st-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Sample transcriptions: the language page's sample cards (language-samples.js), with each recognizer's take */
+/* .agent p resets margins, so this needs the extra class to win */
+.stt .st-intro {
+  margin: 16px 0 24px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 24px;
+}
+.st-transcripts .sample {
+  gap: 12px;
+}
+.st-transcripts .q {
+  margin: 4px 0 0;
+}
+/* Every line of text in a transcription card is 14px */
+.st-transcripts .sample-head,
+.st-transcripts .voice-time,
+.st-transcripts .q-label,
+.st-transcripts .q strong,
+.st-transcripts .heard-head,
+.st-transcripts .a-label,
+.st-transcripts .heard-text {
+  font-size: 14px;
+}
+.st-transcripts .q strong {
+  line-height: 1.45;
+}
+.heard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.heard + .heard {
+  margin-top: 12px;
+}
+.heard-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.heard-count {
+  margin-left: auto;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.heard-text {
+  margin: 0;
+  line-height: 1.5;
+}
+.heard-text u {
+  color: #b42318;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Which model works best */
+.st-models-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.st-models-head h2 {
+  max-width: 640px;
+}
+.st-models-head a {
+  flex: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.st-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+.st-card {
+  display: flex;
+  min-height: 188px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--bg-page);
+}
+.st-card.rec {
+  border-color: #8b8f99;
+}
+.st-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+.st-card.rec .st-tag {
+  color: var(--brand-blue);
+}
+.st-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+.st-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 21px;
+}
+.st-card p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+/* 20px below the cards, as in the Figma frame. Padding, because .agent p resets margins. */
+.st-note {
+  margin: 0;
+  padding-top: 20px;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* How it works: the step rows come from language-agent.css */
+.st-steps.ag-steps {
+  margin-top: 72px;
+}
+.st-steps-head {
+  margin-bottom: 48px;
+}
+.stt .ag-step {
+  gap: 72px;
+}
+.stt .ag-step + .ag-step {
+  margin-top: 48px;
+}
+.stt .ag-step-text {
+  width: 460px;
+}
+.stt .ag-visual {
+  width: 500px;
+}
+.stt .ag-step .ag-art {
+  height: 339px;
+}
+.st-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+.st-settings h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+}
+.st-set {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.st-set > span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+.st-fake-select,
+.st-fake-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-default);
+  border-radius: 8px;
+  background: var(--bg-page);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.st-caret {
+  margin-left: auto;
+}
+.st-fake-input {
+  color: var(--text-tertiary);
+}
+.st-step3 {
+  margin-top: 48px;
+}
+.st-step3 .ag-step-text {
+  width: auto;
+  max-width: 680px;
+}
+.st-step3 .ag-panel {
+  margin: 20px 0;
+}
+.st-convo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+.st-convo audio {
+  width: 420px;
+  max-width: 100%;
+  height: 44px;
+}
+.st-bubble {
+  max-width: 640px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--bg-panel);
+}
+.st-answer {
+  background: #ece9e5;
+}
+.st-bubble span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+.st-bubble p {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.st-bubble .st-en {
+  margin-top: 2px;
+  color: var(--text-secondary);
+}
+
+/* API */
+.st-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.st-api-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--st-dark);
+  color: #fff;
+}
+.st-api-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 1px;
+}
+.st-api-copy p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 21px;
+}
+.st-api-copy .st-buttons {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+.hero-btn.st-light {
+  background: #fff;
+  color: var(--text-primary);
+}
+.hero-btn.st-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.st-code {
+  width: 560px;
+  flex: none;
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1efec;
+  font: 13px/21px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* FAQ and closing call to action */
+.stt .faq {
+  max-width: 760px;
+}
+.st-cta-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 48px 24px;
+  border-radius: 16px;
+  background: var(--bg-panel);
+}
+.st-cta-box p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 24px;
+}
+.stt + .page-footer {
+  margin-top: 72px;
+}
+
+@media (max-width: 1100px) {
+  .st-hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .st-visual {
+    width: 100%;
+    max-width: 492px;
+  }
+  .st-api-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .st-code {
+    width: 100%;
+  }
+  .st-cards {
+    grid-template-columns: 1fr;
+  }
+  .st-card {
+    min-height: 0;
+  }
+  .stt .ag-step-text,
+  .stt .ag-visual {
+    width: 100%;
+  }
+  .stt .ag-step .ag-art {
+    height: clamp(180px, 50vw, 339px);
+  }
+}
+@media (max-width: 640px) {
+  .stt h1 {
+    font-size: 36px;
+  }
+  .stt h2 {
+    font-size: 26px;
+  }
+  .st-models-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  /* Phones: the two cards stack in the panel instead of overlapping */
+  .st-visual {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .stt .voice-note,
+  .st-heard {
+    position: static;
+    inset: auto;
+    width: auto;
+    margin: 0;
+  }
+  .st-heard {
+    margin-left: 32px;
+  }
+}

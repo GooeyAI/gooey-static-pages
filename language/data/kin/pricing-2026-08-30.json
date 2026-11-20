@@ -1,0 +1,2004 @@
+{
+  "schema_version": 1,
+  "benchmark_date": "2026-08-30",
+  "snapshot_date": "2026-11-03",
+  "source_csv": "evaluation-latest.csv",
+  "source": "Whole-workflow run_cost_usd records embedded in the public Gooey.AI run pages listed in the source CSV.",
+  "currency": "USD",
+  "normalization": "For each workflow, take the arithmetic mean of the 24 observed whole-workflow run costs and multiply by 1,000 questions.",
+  "scope": "Observed Gooey.AI run charge for the complete workflow, including speech recognition or direct-audio and text-model steps represented in each run.",
+  "caveat": "These are historical observed Gooey.AI run charges for the benchmark snapshot, not current provider list prices or a future-price guarantee.",
+  "workflows": [
+    {
+      "workflow": "Gemini 3.1 Pro (direct audio)",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "q050e16njazj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "kohm1ofgnq0k",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "xyyh9b9wzp9p",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "lp6o7mwhyqni",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "zm6ogn6zb408",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "0d0faxuu40xp",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "1p77zh3vnukk",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "2vcx3eymevxq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "fp5ocfqp6w0s",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "plj7doyquidx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "uz17ql3gl6ar",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "7y9tmcqokibe",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "8nqc2lkt59us",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "zgoo6cwaj6bc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "8x71vbhlmoxq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "t48qsr6jtvnl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "t3p4pnh01vek",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "fhfnbcwdamd1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "89qldnrd5i2j",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "sar0e9jwhal5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "v3afpnxg3c4k",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "0i64tsbwsddy",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "r85mc09di52m",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "rqcd26c0fqqu",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Omnilingual",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "c12lxt3qzcvl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "cmizf47275rq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "tjqyfo018qv9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "4p1ejul02005",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "x2nf1zp8zvwc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "ezntc3r62dz6",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "q88w4yxooo6o",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "60xeru6978h1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "yq3t7skikgz8",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "hjetjjjdyikz",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "v5yw5w5wxnyc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "09zyhiye68dg",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "a611vl4ubfoc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "sf16mdjk4dwd",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "oys3ajwtntsi",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "ms7v4x2un2gl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "676kk5lzmgg9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "q3wt5s9r1fc9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "8ubhhk5kv356",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "5ezug3d3lkoo",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "51wflge1e4c3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "koi1mya9g1ga",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "8yeatwgrgsc8",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "d7okevo25985",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Intron",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "8ulgdinonahw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "tx2bgmf747cy",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "sjdx7a96avje",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "1v54vmjeixtq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "tbphaatjv4jg",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "cgq1owtx9879",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "maiyjttrc2f3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "4pvfkm8m0m4f",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "so51rt7vo4ri",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "s3lbxfod3kk7",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "s5vwbm7dvcrc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "7tftb3bq8087",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "99r6cnn72ltp",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "u66c1druihu1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "y0frs33uefpd",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "hv51l9quilj0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "rbepk1erqenu",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "39t3klodihil",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "albgktr32atx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "tj4pnf8nbb3p",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "79wrk7lu68bw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "1cj4xueeuubo",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "clminxegqwpl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "fvh7tvjqgnlt",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Gemini 3.1 Pro Preview) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Omnilingual",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "ygbvsard49h2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "gl7jiumft9nh",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "wvuvdf2hrx5n",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "1i0nffiaz9z9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "4lgecaeporud",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "0pmelqxytxsj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "zs17izrkk9jx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "b3g9ips8vl98",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "6037msn4vjiv",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "cmcrnzlltllt",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "jehmd7b994k0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "p1bmh30d85ec",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "qtbbxk16zxnz",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "j0fmkuoi0ccb",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "rtp43vk6d662",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "wzwdddxm2rx5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "rlvpg5gno5o2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "p9exawh8izpg",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "u8p74jnb4wjs",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "883t6cjuc0jn",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "swfijllzx5h0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "ohfn5w9ivca1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "xk4rt9vf8vpr",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "64lolz7h240g",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Intron",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "8cukzu7ls87v",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "yauyl38hkv63",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "l1d2fyal82um",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "60mtk8cv29lj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "kmyc2t0789pb",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "q2vngwx8n4r0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "eks7i6hp5gbk",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "a2kouxhpprau",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "heokk38jie00",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "nlgmrm8l7oxj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "usuuu71fa2ay",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "bp1tab7t12h0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "sa6zznmbuw26",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "80r738sx3c2g",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "zlt2cx90zzfh",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "b30ynfnxdr1t",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "plmmv8smxj1b",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "601en1tfmk9q",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "pmxuujkrojch",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "v526h3ae6z8t",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "8js0qpyr6u82",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "9kss15d5fcxy",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "bs3u5g6fdsfj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "4a2h6j2t2mes",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (GPT 5.6 Sol) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Omnilingual",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "6uyetnpbsa7q",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "80fdrs48y0hm",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "yo2jbcz1ydyy",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "62ijfjnfgb7b",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "zi5b1j08276c",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "h0yfv0zn7ff3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "tz90ejih1jg7",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "q8j7thfuq0f3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "0b3a9ko1y0e0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "20ejcu6k7u7q",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "mlyk4pazbkiw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "zzghdvpv97pp",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "i3zmftevdwec",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "5l80gj4i9sj5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "ard7roy7dw5c",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "he8sxjzxn5zx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "1it00xd8hpdj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "muw8f7ffhk5s",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "q7i95ve418ng",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "3p14zuqfoxin",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "iigu57jur2mo",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "0ii42dn5xxhw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "0larc5dpll7e",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "btdiskz2vi4o",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Intron",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "8czj7im5fp9j",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "rsqnucpymjkc",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "p29woh5e3xmj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "rl6bzoqomve7",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "ptt943lgigg2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "97tkvw8saqre",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "kk8yp1bs4t9f",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "tm3nv65jyp10",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "a6iqo0wtny4g",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "9xw9sti500vq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "4yaf0h0xkfh2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "8mf3htd2ju3f",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "8gcpuepoqzox",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "atlt6uen3wji",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "jbtadzyph0f5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "hita7869s8bw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "ep2u0r4pxtr9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "dbs6mwr1pjhk",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "s7golfijhyn1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "tgdnjvx2ssuv",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "t47l8b6im49i",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "vmamu69fl7ct",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "je5riyorsmt9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "c90oeasyky8z",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Claude Sonnet 5) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Omnilingual",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "cok14kjus2wk",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 2,
+          "run_id": "3emd2j0xkcop",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 3,
+          "run_id": "ihx4015pjfp4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 4,
+          "run_id": "28y2r3si0uu4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 5,
+          "run_id": "k4pkdbrx7sh9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 6,
+          "run_id": "7wir7kjqt3x1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 7,
+          "run_id": "h6mis7q10pg3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 8,
+          "run_id": "xbbzcuyqxqm5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 9,
+          "run_id": "9gwmsqcxh9bm",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 10,
+          "run_id": "brc2qh4ki5x4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 11,
+          "run_id": "fi1i7r17p5c6",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 12,
+          "run_id": "ctsv6hvgfi9q",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 13,
+          "run_id": "ynfoifh8aqp3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 14,
+          "run_id": "svqnaskko70n",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 15,
+          "run_id": "z24hz9rwd2g4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 16,
+          "run_id": "5hyfvwm20hpj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 17,
+          "run_id": "rv52bt7kknbn",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 18,
+          "run_id": "pvhkhu12ejqw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 19,
+          "run_id": "r8h8s1g6a30p",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 20,
+          "run_id": "1smb854xfs2t",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 21,
+          "run_id": "ccdnr5g1zclp",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 22,
+          "run_id": "a3lxcutgj48f",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 23,
+          "run_id": "pwzqzm7aoo6r",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 24,
+          "run_id": "uws5ajie6uzw",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        }
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Intron",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "ly42l83jx9i8",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 2,
+          "run_id": "0iu5l259ibat",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 3,
+          "run_id": "fr1n1sfffzyg",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 4,
+          "run_id": "6ccd3tmwttzl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 5,
+          "run_id": "aux4fwe7nhfv",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 6,
+          "run_id": "gltwft0dh8qi",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 7,
+          "run_id": "fj9ha46u9p3h",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 8,
+          "run_id": "tz1tzoi05yqb",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 9,
+          "run_id": "7zr7aucsavd1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 10,
+          "run_id": "kvaae8hutyb2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 11,
+          "run_id": "04t7ket9zc68",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 12,
+          "run_id": "3lc7h45vnvgt",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 13,
+          "run_id": "t7mhd7i9x2rl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 14,
+          "run_id": "clcuc7t4kamq",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 15,
+          "run_id": "0bt2ogn2tqfx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 16,
+          "run_id": "3bxbrsja17ir",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 17,
+          "run_id": "plvadjciy5rl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 18,
+          "run_id": "kakenogxtzkn",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 19,
+          "run_id": "e37k4z19fc17",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 20,
+          "run_id": "fb6fpv1mkeij",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 21,
+          "run_id": "8q0r452lx5o1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 22,
+          "run_id": "ufwk03y51yq4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 23,
+          "run_id": "khnvvz3ihd7w",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        },
+        {
+          "question_number": 24,
+          "run_id": "jadijev1o2em",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (Kimi K3) + 3/run",
+          "cost_source": "cost_label"
+        }
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Omnilingual",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "xf04t5ru0ci6",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "3hfzjl2o76k7",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "7bdsan6mfw12",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "wmdqvbn0jtr9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "cxuhwcw7yl9u",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "jcxtn3if05o4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "qc6gyjj0ukq4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "ou43xn1uq6f2",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "be852mn2qcvb",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "2sn6p5jnr3vj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "21rrh7llf79h",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "7w1m376zg86c",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "63knczf0kc30",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "phxgyyre6eys",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "zp7bw68sgc39",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "1s1dood0lf7c",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "u3egls3yh3lj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "uw6ykbmuaifl",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "dzeqd1kspfey",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "etw5j4m392jv",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "9p1nk8h194io",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "g2kh9e3g7lfo",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "aqxg850x9xt1",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "tfhnie47i1l9",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Intron",
+      "sample_size": 24,
+      "currency": "USD",
+      "cost_usd_per_1000": 40.0,
+      "observed_run_cost_usd": {
+        "mean": 0.04,
+        "min": 0.04,
+        "max": 0.04
+      },
+      "runs": [
+        {
+          "question_number": 1,
+          "run_id": "2z9hzotfe4a5",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 2,
+          "run_id": "fv6rvohmijgr",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 3,
+          "run_id": "3lewcwb049xo",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 4,
+          "run_id": "s2hy3xdooe95",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 5,
+          "run_id": "fcnup217a0gf",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 6,
+          "run_id": "1427btpeltty",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 7,
+          "run_id": "40ibahz8w762",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 8,
+          "run_id": "iubqf468u4c0",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 9,
+          "run_id": "xvxvds35d2jx",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 10,
+          "run_id": "pi7luophsare",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 11,
+          "run_id": "tbgen5rkjoom",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 12,
+          "run_id": "7jrboyv2vln4",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 13,
+          "run_id": "c99qew387v00",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 14,
+          "run_id": "y6vdc60xni31",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 15,
+          "run_id": "l6y6qjjo5jwu",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 16,
+          "run_id": "ipgiv2zl0dz3",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 17,
+          "run_id": "fegywbil8v6n",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 18,
+          "run_id": "1jn1b23nx2rj",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 19,
+          "run_id": "23222x82a19w",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 20,
+          "run_id": "bl0v2jju20im",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 21,
+          "run_id": "k2aoknl5bhmd",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 22,
+          "run_id": "xtn32g2l1oeu",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 23,
+          "run_id": "es5trdbh54wb",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        },
+        {
+          "question_number": 24,
+          "run_id": "lthcxsbxg0ct",
+          "run_cost_usd": 0.04,
+          "cost_breakdown": "Breakdown: 1 (DeepSeek V4) + 3/run",
+          "cost_source": "eco_cost.run_cost_usd"
+        }
+      ]
+    }
+  ]
+}

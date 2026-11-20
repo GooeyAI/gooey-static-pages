@@ -1,0 +1,76 @@
+{
+  "sovereignty": {
+    "name": "AI sovereignty",
+    "title": "How Middle Powers Cooperate for AI Sovereignty — Gooey.AI",
+    "description": "What AI sovereignty means and how to achieve it: a position paper on how middle powers can cooperate on benchmarks, datasets and open standards.",
+    "type": "Article",
+    "section": "Position paper",
+    "published": "2026-06-22",
+    "updated": "2026-07-08",
+    "authors": [
+      ["Sean Blagsvedt", "https://www.linkedin.com/in/sean-blagsvedt"],
+      ["Archana Prasad", "https://www.linkedin.com/in/arcnoid"]
+    ],
+    "parent": ["Research", "research"],
+    "card": {
+      "eyebrow": "Position paper · Research",
+      "title": "How Middle Powers Cooperate for AI Sovereignty",
+      "banner": "sovereignty/images/share-banner.webp"
+    },
+    "image_alt": "How Middle Powers Cooperate for AI Sovereignty: an illustrated world map linking people in Brazil, Nigeria, Kenya, Germany, India and Indonesia."
+  },
+  "ecocost": {
+    "name": "EcoCost",
+    "title": "EcoCost: AI Energy, Carbon & Water Estimates by Gooey.AI",
+    "description": "Open-source API and Python library to estimate energy, CO₂ and water use per AI token. Compare LLMs and server regions. Try it: pip install ecocost.",
+    "type": "Article",
+    "section": "Proposal",
+    "published": "2026-09-22",
+    "updated": "2026-11-16",
+    "card": {
+      "eyebrow": "Proposal · Research",
+      "title": "EcoCost labeling for AI inference",
+      "banner": "ecocost/images/ecocost-architecture.webp",
+      "position": "50% 0%"
+    },
+    "image_alt": "EcoCost labeling architecture: from source data and curation to an open-source estimation engine, an API, and cost and carbon labels in product interfaces."
+  },
+  "research": {
+    "name": "Research",
+    "title": "Research: AI Built With and For Communities — Gooey.AI",
+    "description": "Research at the intersection of AI infrastructure, human-centered design, and global impact. Built with communities, for communities.",
+    "type": "CollectionPage",
+    "list": "papers",
+    "card": {
+      "eyebrow": "Gooey.AI Research",
+      "title": "AI built with communities, for communities",
+      "wall": "venues"
+    },
+    "image_alt": "Gooey.AI Research: logos of the conferences and venues where our papers and talks appear, with Gooey.AI and the Royal College of Art."
+  },
+  "lokalibrary": {
+    "name": "LokaLibrary",
+    "title": "LokaLibrary: Where Communities Shape Intelligence — Gooey.AI",
+    "description": "LokaLibrary positions Karnataka’s librarians as cultural data stewards in the age of AI, bridging public knowledge, technology and community identity.",
+    "type": "WebPage",
+    "card": {
+      "eyebrow": "AI literacy · Karnataka",
+      "title": "LokaLibrary: Where Communities Shape Intelligence",
+      "banner": "lokalibrary/images/overview-library.jpg",
+      "position": "center 42%"
+    },
+    "image_alt": "LokaLibrary: an illustration of librarians and readers studying bird books and datasets around a library table."
+  },
+  "language-evaluation": {
+    "name": "Language evaluations",
+    "title": "Multilingual AI Evaluations for Low-Resource Languages",
+    "description": "How well do AI models understand low-resource languages? We test speech and LLM chains on real health, agriculture and education audio questions.",
+    "type": "WebPage",
+    "card": {
+      "eyebrow": "Speech and LLM benchmarks",
+      "title": "Multilingual AI Evaluations for Low-Resource Languages",
+      "banner": "language-evaluation/images/language-evaluation-workflow.png"
+    },
+    "image_alt": "How the evaluation works: an audio question goes through speech recognition and an LLM, and the answer is scored against a golden answer."
+  }
+}

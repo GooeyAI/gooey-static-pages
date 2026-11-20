@@ -1,0 +1,140 @@
+{
+  "source": "https://gooey.ai/bulk/24qs-swahili-audio-to-text-benchmark-deepseek-v4-gemini-37-flash-gpt-56-sol-claude-sonnet-5-kimi-k3-gemini-31-pro-w-omnilingual-intron-gpt-transcribe-rm8ch4x5217y/",
+  "fetched": "2026-11-18",
+  "note": "Saved Gooey.AI workflows the bulk evaluation ran, in run order. A retitled workflow was edited after the evaluation; pages link its eval_run (the evaluation's run of question 1) instead.",
+  "workflows": [
+    {
+      "tested_as": "0 Gemini 3.1 Pro - Swahili",
+      "title_now": "0 Gemini 3.1 Pro - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/0-gemini-31-pro-swahili-dfil06v5xwai/",
+      "eval_run": "https://gooey.ai/agent/?run_id=66g6ufjrnnj8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "1 Gemini 3.1 Pro + Omni - Swahili",
+      "title_now": "1 Gemini 3.1 Pro + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/1-gemini-31-pro-omni-swahili-zygan6n4bjm7/",
+      "eval_run": "https://gooey.ai/agent/?run_id=9r5h7rb22j9d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "2 Gemini 3.1 Pro + Intron - Swahili",
+      "title_now": "2 Gemini 3.1 Pro + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/2-gemini-31-pro-intron-swahili-4ohn1j6hk2by/",
+      "eval_run": "https://gooey.ai/agent/?run_id=f4hwjdl7ted4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "3 Gemini 3.1 Pro + GPT Transcribe - Swahili",
+      "title_now": "3 Gemini 3.1 Pro + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/3-gemini-31-pro-gpt-transcribe-swahili-p35gcmtzf8s5/",
+      "eval_run": "https://gooey.ai/agent/?run_id=cq71k0t22h16&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "4 GPT 5.6 Sol + Omni - Swahili",
+      "title_now": "4 GPT 5.6 Sol + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/4-gpt-56-sol-omni-swahili-jbpm0kq857cx/",
+      "eval_run": "https://gooey.ai/agent/?run_id=h3i67n4qtlli&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "5 GPT 5.6 Sol + Intron - Swahili",
+      "title_now": "5 GPT 5.6 Sol + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/5-gpt-56-sol-intron-swahili-n766i3bopiv7/",
+      "eval_run": "https://gooey.ai/agent/?run_id=nbj8axh11b1i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "6 GPT 5.6 Sol + GPT Transcribe - Swahili",
+      "title_now": "6 GPT 5.6 Sol + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/6-gpt-56-sol-gpt-transcribe-swahili-hwm21fcc0orq/",
+      "eval_run": "https://gooey.ai/agent/?run_id=na9796709a2f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "7 Claude Sonnet 5 + Omni - Swahili",
+      "title_now": "7 Claude Sonnet 5 + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/7-claude-sonnet-5-omni-swahili-rybedo629x0a/",
+      "eval_run": "https://gooey.ai/agent/?run_id=y3a9qekwmhrx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "8 Claude Sonnet 5 + Intron - Swahili",
+      "title_now": "8 Claude Sonnet 5 + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/8-claude-sonnet-5-intron-swahili-ullxqn9fhf8q/",
+      "eval_run": "https://gooey.ai/agent/?run_id=wd2bw4c3esqi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "9 Claude Sonnet 5 + GPT Transcribe - Swahili",
+      "title_now": "9 Claude Sonnet 5 + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/9-claude-sonnet-5-gpt-transcribe-swahili-6rm2m88ohlqf/",
+      "eval_run": "https://gooey.ai/agent/?run_id=y5tdoddibram&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "10 Kimi K3 + Omni - Swahili",
+      "title_now": "10 Kimi K3 + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/10-kimi-k3-omni-swahili-wr4tqtj3ctki/",
+      "eval_run": "https://gooey.ai/agent/?run_id=k00ytdwd7cjd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "11 Kimi K3 + Intron - Swahili",
+      "title_now": "11 Kimi K3 + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/11-kimi-k3-intron-swahili-h97oc0lqruni/",
+      "eval_run": "https://gooey.ai/agent/?run_id=t8yh3e2vdg5n&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "12 Kimi K3 + GPT Transcribe - Swahili",
+      "title_now": "12 Kimi K3 + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/12-kimi-k3-gpt-transcribe-swahili-57gbz9dcin0h/",
+      "eval_run": "https://gooey.ai/agent/?run_id=z642atffw8by&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "13 DeepSeek V4 + Omni - Swahili",
+      "title_now": "13 DeepSeek V4 + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/13-deepseek-v4-omni-swahili-sznev984cfgd/",
+      "eval_run": "https://gooey.ai/agent/?run_id=352ms83s6xqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "14 DeepSeek V4 + Intron - Swahili",
+      "title_now": "14 DeepSeek V4 + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/14-deepseek-v4-intron-swahili-hq7bzn2f5zyw/",
+      "eval_run": "https://gooey.ai/agent/?run_id=56kwaf0pv108&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "15 DeepSeek V4 + GPT Transcribe - Swahili",
+      "title_now": "15 DeepSeek V4 + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/15-deepseek-v4-gpt-transcribe-swahili-oan8batkft9v/",
+      "eval_run": "https://gooey.ai/agent/?run_id=3atskne5w3uf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "16 Gemini 3.7 Flash + Omni - Swahili",
+      "title_now": "16 Gemini 3.7 Flash + Omni - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/16-gemini-37-flash-omni-swahili-03fj7tm10scv/",
+      "eval_run": "https://gooey.ai/agent/?run_id=ff661mpqaux1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "17 Gemini 3.7 Flash + Intron - Swahili",
+      "title_now": "17 Gemini 3.7 Flash + Intron - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/17-gemini-37-flash-intron-swahili-u2b99ts425bm/",
+      "eval_run": "https://gooey.ai/agent/?run_id=lq47n2754nra&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "18 Gemini 3.7 Flash + GPT Transcribe - Swahili",
+      "title_now": "18 Gemini 3.7 Flash + GPT Transcribe - Swahili",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/18-gemini-37-flash-gpt-transcribe-swahili-r6k85n472yhb/",
+      "eval_run": "https://gooey.ai/agent/?run_id=673yid5dacpr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

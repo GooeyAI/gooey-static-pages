@@ -1,0 +1,21 @@
+# title: Hausa Evaluation of Audio AI Models
+# country: NG
+# byline: Gooey.AI
+# date: 2026-08-30
+# url: Gooey.AI/language/hausa
+# x: Accuracy, 0, 1, 0.1
+# y: Latency, 0, 34, 2
+Workflow,Accuracy (mean),Latency (median)
+Gemini 3.1 Pro,0.70666667,16.330
+Gemini 3.1 Pro + Omnilingual,0.38000000,26.795
+Gemini 3.1 Pro + Intron,0.42666667,29.840
+GPT-5.6 Sol + Omnilingual,0.59333333,14.355
+GPT-5.6 Sol + Intron,0.58666667,18.135
+Claude Sonnet 5 + Omnilingual,0.50000000,13.635
+Claude Sonnet 5 + Intron,0.38666667,15.055
+Kimi K3 + Omnilingual,0.62666667,20.820
+Kimi K3 + Intron,0.56000000,24.130
+DeepSeek V4 + Omnilingual,0.46666667,29.615
+DeepSeek V4 + Intron,0.39333333,32.930
+Gemini 3.7 Flash + Omnilingual,0.50666667,17.210
+Gemini 3.7 Flash + Intron,0.54000000,20.405

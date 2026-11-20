@@ -2,6 +2,9 @@
 
 Edit here, then run scripts/build_papers.py to regenerate the pages.
 
+`description` is the page's search and link-preview summary: 120-155 characters, so Google shows all of it
+(the build fails outside that range).
+
 `listed_as` must match the paper's `title` in the Google Sheet exactly — that is
 how a row in the papers list finds its page.
 
@@ -25,6 +28,8 @@ PAPERS = [
         "slug": "ai-across-cultures-shaping-ai",
         "listed_as": "AI Across Cultures: Shaping AI",
         "title": "Shaping AI: Ethics, Power, and Responsibility",
+        "description": "How AI reproduces racial bias, drawn from a New Delhi roundtable with community journalists, "
+                       "and how inclusive, community-led approaches can counter it.",
         "status": "Preprint",
         "authors": AUTHORS_RCA,
         "abstract": (
@@ -166,6 +171,8 @@ PAPERS = [
         "slug": "shaping-ai-ethics-power-and-responsibility",
         "listed_as": "Shaping AI: Ethics, Power and Responsibility",
         "title": "Shaping AI: Ethics, Power and Responsibility",
+        "description": "How AI systems reproduce racial bias, and the culturally grounded, participatory approaches "
+                       "that can make AI more inclusive and representative.",
         "status": "Art of Research 2026: Voices",
         "authors": AUTHORS_RCA,
         "abstract": (
@@ -323,6 +330,8 @@ PAPERS = [
         "pdf_href": "papers/beyond-bias-evaluating-cultural-ai-through-participation-and-interpretation/",
         "listed_as": "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation",
         "title": "Beyond Bias: Evaluating Cultural AI Through Participation and Interpretation",
+        "description": "Cultural AI needs more than harm avoidance. We propose three ways to evaluate it: cultural "
+                       "integrity, participation and agency, and interpretive capacity.",
         "status": "Preprint",
         "authors": AUTHORS_RCA,
         "abstract": (
@@ -447,6 +456,8 @@ PAPERS = [
         "slug": "beyond-bias-participatory-and-reflective-approaches-to-cultural-ai",
         "listed_as": "Beyond Bias: Participatory & Reflective Approaches to Cultural AI",
         "title": "Beyond Bias: Participatory and Reflective Approaches to Cultural AI",
+        "description": "Beyond Bias, with Goethe-Institut India, uses creative AI for ethical reflection and shared "
+                       "datasets, across 9 workshops with over 200 participants.",
         "status": "Preprint",
         "authors": [
             ("Archana Prasad", "Royal College of Art, London, UK", "archana.prasad@network.rca.ac.uk"),

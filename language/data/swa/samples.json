@@ -1,0 +1,48 @@
+{
+  "language": "Swahili",
+  "evaluationDate": "2026-08-30",
+  "source": "evaluation-latest.csv",
+  "workflow": "GPT-5.6 Sol + Omnilingual",
+  "totalQuestions": 24,
+  "samples": [
+    {
+      "questionNumber": 1,
+      "category": "Geography",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/cde75ab0-8d88-11f0-814d-02420a0001f7/Generic_Q2_SW_A01.opus.wav",
+      "audioDurationSeconds": 6.197813,
+      "transcript": "je mji mkuu wa kenya ni upi",
+      "questionEnglish": "What is the capital city of Kenya?",
+      "answer": "The capital city of Kenya is Nairobi.",
+      "expertAnswer": "Nairobi",
+      "score": 60,
+      "runtimeSeconds": 5.53,
+      "runUrl": "https://gooey.ai/agent/?run_id=h3i67n4qtlli&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 15,
+      "category": "Government",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/44ed9554-8d8c-11f0-ac41-02420a0001f5/Generic_Q20_SW_A04.oga.wav",
+      "audioDurationSeconds": 4.377813,
+      "transcript": "asasi kuu ya kutunga sheria nchini kenya inaitwaje",
+      "questionEnglish": "What is the main legislative body in Kenya called?",
+      "answer": "The main law-making body in Kenya is called Parliament.",
+      "expertAnswer": "Parliament (National Assembly and Senate)",
+      "score": 80,
+      "runtimeSeconds": 5.57,
+      "runUrl": "https://gooey.ai/agent/?run_id=lbaqmk7xk7u3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "questionNumber": 13,
+      "category": "History",
+      "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/20464944-8d8c-11f0-814d-02420a0001f7/Generic_Q18_SW_A07.opus.wav",
+      "audioDurationSeconds": 5.497813,
+      "transcript": "rais wa kwanza wa kenya alikuwa nani",
+      "questionEnglish": "Who was the first president of Kenya?",
+      "answer": "The first President of Kenya was Jomo Kenyatta.",
+      "expertAnswer": "Jomo Kenyatta",
+      "score": 100,
+      "runtimeSeconds": 8.94,
+      "runUrl": "https://gooey.ai/agent/?run_id=27n9gmj0caob&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "source": "https://gooey.ai/bulk/25qs-kikuyu-audio-to-text-benchmark-claude-sonnet-5-gpt-56-sol-deepseek-v4-gemini-31-pro-kimi-k3-gemini-37-flash-w-omnilingual-kikuyu-whisper-v2-g10xcrobgrvl/",
+  "fetched": "2026-11-18",
+  "note": "Saved Gooey.AI workflows the bulk evaluation ran, in run order. A retitled workflow was edited after the evaluation; pages link its eval_run (the evaluation's run of question 1) instead.",
+  "workflows": [
+    {
+      "tested_as": "0 Gemini 3.1 Pro - Kikuyu",
+      "title_now": "0 Gemini 3.1 Pro - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/0-gemini-31-pro-kikuyu-hhu5nsure9hi/",
+      "eval_run": "https://gooey.ai/agent/?run_id=a9hs3s7t2gvk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "1 Gemini 3.1 Pro + Omni - Kikuyu",
+      "title_now": "1 Gemini 3.1 Pro + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/1-gemini-31-pro-omni-kikuyu-e9ciqiark5sf/",
+      "eval_run": "https://gooey.ai/agent/?run_id=63zrdb7moytu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu",
+      "title_now": "2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/2-gemini-31-pro-kikuyu-whisper-v2-kikuyu-dyfyu53k3viv/",
+      "eval_run": "https://gooey.ai/agent/?run_id=7v33dzwghikw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "3 GPT 5.6 Sol + Omni - Kikuyu",
+      "title_now": "3 GPT 5.6 Sol + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/3-gpt-56-sol-omni-kikuyu-fi682gqx6z0o/",
+      "eval_run": "https://gooey.ai/agent/?run_id=x8n9mh915s5z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu",
+      "title_now": "4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/4-gpt-56-sol-kikuyu-whisper-v2-kikuyu-6r190o21qt59/",
+      "eval_run": "https://gooey.ai/agent/?run_id=892bpbvpm0km&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "5 Claude Sonnet 5 + Omni - Kikuyu",
+      "title_now": "5 Claude Sonnet 5 + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/5-claude-sonnet-5-omni-kikuyu-1yaa3f68caeh/",
+      "eval_run": "https://gooey.ai/agent/?run_id=vdtnw9zmwvmb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu",
+      "title_now": "6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/6-claude-sonnet-5-kikuyu-whisper-v2-kikuyu-jspuigdda84c/",
+      "eval_run": "https://gooey.ai/agent/?run_id=zl7vngsvy6ro&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "7 Kimi K3 + Omni - Kikuyu",
+      "title_now": "7 Kimi K3 + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/7-kimi-k3-omni-kikuyu-i9do987gb3p9/",
+      "eval_run": "https://gooey.ai/agent/?run_id=g4bpttf0ui4l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu",
+      "title_now": "8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/8-kimi-k3-kikuyu-whisper-v2-kikuyu-tbcyr9qh2o6m/",
+      "eval_run": "https://gooey.ai/agent/?run_id=6rjpebwhln1h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "9 DeepSeek V4 + Omni - Kikuyu",
+      "title_now": "9 DeepSeek V4 + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/9-deepseek-v4-omni-kikuyu-vb6426mqik4m/",
+      "eval_run": "https://gooey.ai/agent/?run_id=9z7ue3sk2cjh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu",
+      "title_now": "10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/10-deepseek-v4-kikuyu-whisper-v2-kikuyu-p5vioovmma85/",
+      "eval_run": "https://gooey.ai/agent/?run_id=ttehy0dylt8z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "11 Gemini 3.7 Flash + Omni - Kikuyu",
+      "title_now": "11 Gemini 3.7 Flash + Omni - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/11-gemini-37-flash-omni-kikuyu-qclak9028uty/",
+      "eval_run": "https://gooey.ai/agent/?run_id=tdm9xvddm6dr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    },
+    {
+      "tested_as": "12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu",
+      "title_now": "12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu",
+      "retitled": false,
+      "url": "https://gooey.ai/agent/12-gemini-37-flash-kikuyu-whisper-v2-kikuyu-dxak95ahtghp/",
+      "eval_run": "https://gooey.ai/agent/?run_id=p9x97bqnf9rv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2"
+    }
+  ]
+}

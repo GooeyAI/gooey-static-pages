@@ -1,0 +1,132 @@
+    <a class="skip-link" href="#main">Skip to main content</a>
+{{header}}
+
+    <main id="main" class="agent stt">
+      <section class="st-top" aria-labelledby="st-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="{{slug}}/">{{lang}}</a>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>Speech to text</strong>
+          </nav>
+          <div class="st-hero">
+            <div class="st-visual">
+              {{voice_note}}
+              <div class="st-heard">
+                <span><img src="assets/kinyarwanda/{{heard_logo}}.svg" alt="" width="16" height="16" />Transcript · {{heard_label}}</span>
+                <p lang="{{lang_code}}">{{heard_text}}</p>
+              </div>
+            </div>
+            <div class="st-copy">
+              <h1 id="st-title">{{lang}} speech to text</h1>
+              <p class="lead">{{lead_html}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-samples" aria-labelledby="samples-title">
+        <div class="container samples">
+          <h2 id="samples-title">Sample transcriptions</h2>
+          <p class="st-intro">{{samples_intro}}</p>
+          <div class="sample-cards st-transcripts" id="sttCards"></div>
+        </div>
+      </section>
+
+      <section class="st-models" aria-labelledby="models-title">
+        <div class="container">
+          <div class="st-models-head">
+            <h2 id="models-title">Which model works best for {{lang}}?</h2>
+            <a href="{{slug}}/#leaderboard">See the full {{lang}} leaderboard</a>
+          </div>
+          <div class="st-cards">
+{{model_cards}}
+          </div>
+          <p class="st-note">{{lang}} Index: out of 100, averaged over {{questions}} questions. Higher is better. These are complete-workflow results, not standalone speech-recognition scores.</p>
+        </div>
+      </section>
+
+      <section class="ag-steps st-steps" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="st-steps-head">
+            <h2 id="steps-title">How {{lang}} speech to text works in Gooey</h2>
+          </div>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 1</span>
+              <h3>Your users speak, in {{lang}}</h3>
+              <p>They send a voice note on WhatsApp or tap the mic on the web. No typing and no app to install.</p>
+            </div>
+            <div class="ag-visual ag-panel">{{art_step1}}</div>
+          </div>
+
+          <div class="ag-step flip">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 2</span>
+              <h3>Choose the speech recognizer</h3>
+              <p>In the agent’s settings, turn on Speech recognition, choose {{rec_label}} as the provider and {{lang}} as the spoken language. Add a short prompt with local names or terms if you need one.</p>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card st-settings" aria-hidden="true">
+                <h4><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech recognition</h4>
+                <div class="st-set"><span>Provider</span><div class="st-fake-select"><img src="assets/kinyarwanda/{{rec_logo}}.svg" alt="" width="16" height="16" />{{rec_label}}<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Spoken language</span><div class="st-fake-select">{{lang}}<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Prompt (optional)</span><div class="st-fake-input">Local names and terms to expect</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="st-step3">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 3</span>
+              <h3>Use the text in an agent</h3>
+              <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then <a href="{{slug}}/ai-agent/">publish to WhatsApp, a phone line or the web</a>.</p>
+            </div>
+            <div class="ag-panel">
+              <div class="ag-card st-convo">
+                <audio controls preload="none" src="{{sample_audio}}" aria-label="Voice note: {{sample_english}}"></audio>
+                <div class="st-bubble"><span>Question, as transcribed by {{sample_speech}}</span><p lang="{{lang_code}}">{{sample_transcript}}</p><p class="st-en">“{{sample_english}}”</p></div>
+                <div class="st-bubble st-answer"><span>{{sample_model}}’s answer</span><p>{{sample_answer}}</p></div>
+              </div>
+            </div>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a {{lang}} agent</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-api" aria-labelledby="api-title">
+        <div class="container">
+          <div class="st-api-box">
+            <div class="st-api-copy">
+              <h2 id="api-title">Use it through the API</h2>
+              <p>One call, preset to {{rec_label}} ASR and {{lang}}.</p>
+              <div class="st-buttons">
+                <a class="hero-btn st-light" href="https://gooey.ai/account/api-keys/" target="_blank" rel="noopener noreferrer">Get an API key</a>
+                <button class="hero-btn st-ghost" type="button" id="stCopy" data-copy="{{api_prompt}}">{{copy_svg}}<span>Copy for coding agent</span></button>
+              </div>
+            </div>
+            <pre class="st-code"><code>{{api_curl}}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      {{faq_section}}
+
+      <section class="st-cta" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="st-cta-box">
+            <h2 id="cta-title">Build a {{lang}} voice agent</h2>
+            <p>{{cta_text}}</p>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Start building</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>Speech to text in other languages</h2>
+      {{language_list}}
+    </footer>

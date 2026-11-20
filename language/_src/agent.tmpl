@@ -1,0 +1,128 @@
+    <a class="skip-link" href="#main">Skip to main content</a>
+{{header}}
+
+    <main id="main" class="agent">
+      <section class="ag-hero" aria-labelledby="ag-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="{{slug}}/">{{lang}}</a>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>AI agent</strong>
+          </nav>
+          <div class="ag-hero-copy">
+            <h1 id="ag-title">Build a {{lang}} AI agent</h1>
+            <p class="ag-lead">Launch a WhatsApp bot, phone line or web agent that listens and answers in {{lang}}, using the chain that scored best in our tests. Free to start.</p>
+            <div class="ag-cta">
+              <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Start building</a>
+            </div>
+          </div>
+          <div class="ag-panel">{{art_hero}}</div>
+        </div>
+      </section>
+
+      <section class="ag-steps" aria-labelledby="steps-title">
+        <div class="container">
+          <h2 id="steps-title">Three steps to a {{lang}} agent</h2>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 1</span>
+              <h3>Choose the AI chain</h3>
+              <p>The model picker shows score, hosting region, eco cost and price for every model, so the trade-offs are side by side. For {{lang}}, start with one of these:</p>
+              <ul class="ag-chains">
+{{chain_rows}}
+              </ul>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card ag-picker">
+                <h4>Choose a model</h4>
+                <label class="ag-search">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+                  <input id="agSearch" type="search" placeholder="Search models" aria-label="Search models" autocomplete="off" />
+                </label>
+                <ul class="ag-models">
+{{model_rows}}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="ag-step flip">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 2</span>
+              <h3>Add what it should know</h3>
+              <p>Add the PDFs, docs, FAQs or videos your agent should answer from. {{lang}} and English sources both work.</p>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card ag-knowledge">
+                <div class="ag-knowledge-head"><h4>Knowledge</h4><button class="ag-add" type="button">Add</button></div>
+                <ul class="ag-files">
+{{file_rows}}
+                </ul>
+                <div class="ag-drop">Drop files here, or paste a link</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 3</span>
+              <h3>Go live where your users are</h3>
+              <p>Test it, then publish to the channel your users already use.</p>
+              <div class="ag-channels" role="group" aria-label="Channel">
+                <button type="button" data-channel="whatsapp" aria-pressed="true">WhatsApp</button>
+                <button type="button" data-channel="phone" aria-pressed="false">Phone line</button>
+                <button type="button" data-channel="web" aria-pressed="false">Web</button>
+              </div>
+              <p class="ag-note" id="agChannelText">{{channel_whatsapp}}</p>
+            </div>
+            <div class="ag-visual ag-panel">{{art_channel}}</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ag-cost" aria-labelledby="cost-title">
+        <div class="container ag-cost-row">
+          <div class="ag-cost-text">
+            <h2 id="cost-title">Know what every run costs</h2>
+            <p>Each run shows its price and its carbon, water and energy footprint, with the grid it ran on. Slide to see the cost at 1,000 or 100,000 conversations.</p>
+            <div class="ag-chain-box">
+              <div>
+                <small>Your chain, per 1,000 conversations (observed)</small>
+                <span class="who"><img src="assets/kinyarwanda/{{top_logo}}.svg" alt="" width="16" height="16" />{{top_label}}</span>
+              </div>
+              <div class="price"><b>About {{top_cost}}</b><small>{{top_co2e_line}}</small></div>
+            </div>
+          </div>
+          <div class="ag-calc-panel ag-panel">
+            <div class="ag-card ag-calc">
+              <h4>Run cost and environmental impact</h4>
+              <div class="ag-calc-row"><span>Conversations</span><b id="agConv">1,000</b></div>
+              <input class="ag-range" id="agRange" type="range" min="0" max="100" step="0.1" value="26" aria-label="Conversations" />
+              <div class="ag-tiles">
+                <div class="ag-tile"><span>Cost</span><b id="agCost">{{top_cost}}</b></div>
+                <div class="ag-tile"><span>CO2e</span><b id="agCo2">{{top_co2e}}</b></div>
+                <div class="ag-tile"><span>Water</span><b id="agWater">{{top_water}}</b></div>
+                <div class="ag-tile"><span>Energy</span><b id="agEnergy">{{top_energy}}</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ag-faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+{{faq_items}}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>AI agents in other languages</h2>
+      {{language_list}}
+    </footer>

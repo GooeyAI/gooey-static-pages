@@ -1,0 +1,23 @@
+{
+  "slug": "swahili",
+  "lang": "Swahili",
+  "country": "Kenya",
+  "code": "swa",
+  "snapshot": "2026-08-30",
+  "models": [
+    "DeepSeek V4",
+    "GPT-5.6 Sol",
+    "Gemini 3.1 Pro",
+    "Claude Sonnet 5"
+  ],
+  "knowledge": [
+    [
+      "farmer-health-guide.pdf",
+      "PDF · 2.4 MB · Swahili"
+    ],
+    [
+      "crop-calendar.pdf",
+      "PDF · 1.1 MB · English"
+    ]
+  ]
+}

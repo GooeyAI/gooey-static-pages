@@ -1,0 +1,430 @@
+input_audio,Prompt_Source,Prompt_Target,reference_answer,Response_Target,(0 GPT-Realtime (A2T) - Kinyarwanda) Run URL,(0 GPT-Realtime (A2T) - Kinyarwanda) Run Time,(0 GPT-Realtime (A2T) - Kinyarwanda) Output Text,(1Mbza+GPT-5.1 (A2T) - Kinyarwanda) Run URL,(1Mbza+GPT-5.1 (A2T) - Kinyarwanda) Run Time,(1Mbza+GPT-5.1 (A2T) - Kinyarwanda) Output Text,(2 Mbaza+Gem3pro (A2T) - Kinyarwanda) Run URL,(2 Mbaza+Gem3pro (A2T) - Kinyarwanda) Run Time,(2 Mbaza+Gem3pro (A2T) - Kinyarwanda) Output Text,(3Sunbird+GPT-5.1 (A2T) - Kinyarwanda) Run URL,(3Sunbird+GPT-5.1 (A2T) - Kinyarwanda) Run Time,(3Sunbird+GPT-5.1 (A2T) - Kinyarwanda) Output Text,(4MBaza+GPT5.1+GMT (A2T) - Kinyarwanda) Run URL,(4MBaza+GPT5.1+GMT (A2T) - Kinyarwanda) Run Time,(4MBaza+GPT5.1+GMT (A2T) - Kinyarwanda) Output Text,(5 Omni+GPT5.1 (A2T) - Kinyarwanda) Run URL,(5 Omni+GPT5.1 (A2T) - Kinyarwanda) Run Time,(5 Omni+GPT5.1 (A2T) - Kinyarwanda) Output Text,(6 Omni+Gem3pro (A2T) - Kinyarwanda) Run URL,(6 Omni+Gem3pro (A2T) - Kinyarwanda) Run Time,(6 Omni+Gem3pro (A2T) - Kinyarwanda) Output Text,(7 GemPro3 (A2T) - Kinyarwanda) Run URL,(7 GemPro3 (A2T) - Kinyarwanda) Run Time,(7 GemPro3 (A2T) - Kinyarwanda) Output Text,(8 Omni+Gem3flash (A2T) - Kinyarwanda) Run URL,(8 Omni+Gem3flash (A2T) - Kinyarwanda) Run Time,(8 Omni+Gem3flash (A2T) - Kinyarwanda) Output Text,(9 Mbaza+Gem3flash (A2T) - Kinyarwanda) Run URL,(9 Mbaza+Gem3flash (A2T) - Kinyarwanda) Run Time,(9 Mbaza+Gem3flash (A2T) - Kinyarwanda) Output Text,Compare - rationale,Compare - output_text.0,Compare - output_text.1,Compare - output_text.2,Compare - output_text.3,Compare - output_text.4,Compare - output_text.5,Compare - output_text.6,Compare - output_text.7,Compare - output_text.8,Compare - output_text.9
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/b2b50344-8f29-11f0-bc32-02420a0001fc/Generic_Q2_RW_B01.opus.wav,What is the capital city of Kenya?,Umurwa mukuru wa Kenya witwa ngo iki?,Nairobi,Nayirobi(Nairobi),https://gooey.ai/copilot/?run_id=ya7j2wqdn0je&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.63,I don't know.,https://gooey.ai/copilot/?run_id=npjf4liey822&uid=fm165fOmucZlpa5YHupPBdcvDR02,17.02,"🎧: ""umurwa mukuru wa kenya witwa ngaki""
+
+The capital city of Kenya is called Nairobi.",https://gooey.ai/copilot/?run_id=asmenonk927p&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.71,"🎧: ""umurwa mukuru wa kenya witwa ngaki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/copilot/?run_id=1txesckkjfyc&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.77,"🎧: ""Omu rwamakuru wa Kenya, waitwangu iki?""
+
+The main national newspaper of Kenya is called the Daily Nation.",https://gooey.ai/copilot/?run_id=hwbe06p1cvyj&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.87,"🎧: ""umurwa mukuru wa kenya witwa ngaki""
+
+The capital city of Kenya is called Nairobi.",https://gooey.ai/copilot/?run_id=cw08ys91f8oj&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.21,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is called Nairobi.",https://gooey.ai/copilot/?run_id=emiggj35fbxl&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.53,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/copilot/?run_id=978057efb1t2&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.36,The capital city of Kenya is Nairobi.,https://gooey.ai/copilot/?run_id=mj8j8pjr1ezu&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.92,"🎧: ""umurwa mukuru wa kenya witwa ngo iki""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/copilot/?run_id=1jel65u86zq6&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.83,"🎧: ""umurwa mukuru wa kenya witwa ngaki""
+
+The capital city of Kenya is Nairobi.",The reference answer is 'Nairobi'. Any response that clearly states Nairobi as Kenya's capital fully preserves the key information and scores 1.0. Repeating the user's question before giving the correct answer is acceptable. Responses that say 'I don't know' or provide an unrelated/incorrect fact score 0.,0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c1ea87a8-8f29-11f0-9ecb-02420a0001f9/Generic_Q3_RW_B01.opus.wav,Which ocean borders Kenya to the southeast?,Ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya Kenya?,Indian Ocean,Inyanja y’Abahinde,https://gooey.ai/copilot/?run_id=8njkazcv8t69&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.92,"Kenya’s main crops include tea, coffee, maize, sugarcane, and horticultural products.",https://gooey.ai/copilot/?run_id=9u660rgk251q&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.38,"🎧: ""niyihe nyanja iherereye yiburasirazuba mu majyepfo ya kenya""
+
+The ocean located to the southeast of Kenya is the Indian Ocean.",https://gooey.ai/copilot/?run_id=wyvktak8s0rw&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.79,"🎧: ""niyihe nyanja iherereye yiburasirazuba mu majyepfo ya kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/copilot/?run_id=0hkxek6jcu22&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.76,"🎧: ""Niyihe nyanja iherereye iburasirazibwa bw'omu majyepfo ya Kenya?""
+
+In the southeast of Kenya is the Indian Ocean.",https://gooey.ai/copilot/?run_id=u9fkqnaapf0k&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.25,"🎧: ""niyihe nyanja iherereye yiburasirazuba mu majyepfo ya kenya""
+
+The ocean to the southeast of Kenya is the Indian Ocean.",https://gooey.ai/copilot/?run_id=9uakqlcsj4eo&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.63,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+The ocean located to the southeast of Kenya is the Indian Ocean.",https://gooey.ai/copilot/?run_id=b7tfo5r6puu6&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.11,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+It is the Indian Ocean.",https://gooey.ai/copilot/?run_id=8hymzmjnppgv&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.66,The Indian Ocean is located to the southeast of Kenya.,https://gooey.ai/copilot/?run_id=t5zarcggylgg&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.05,"🎧: ""ni iyihe nyanja iherereye iburasirazuba bwo mu majyepfo ya kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",https://gooey.ai/copilot/?run_id=omrvvdg2enxt&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.38,"🎧: ""niyihe nyanja iherereye yiburasirazuba mu majyepfo ya kenya""
+
+The Indian Ocean is located to the southeast of Kenya.","The reference answer is 'Indian Ocean.' Any response that clearly identifies the Indian Ocean as the ocean in question preserves all major meaning. Items 1–9 explicitly state 'Indian Ocean' (often with brief, relevant context about Kenya’s southeast coast), so they are fully correct. Item 0 discusses Kenyan crops and does not mention the Indian Ocean, so it is incorrect.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav,What is the official language of Kenya?,Ni uruhe rurimi rwemewe n’amategeko muri Kenya?,English and Swahili,Icyonereza n’Igiswayile,https://gooey.ai/copilot/?run_id=wti7tui1c1gv&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.9,You can mix molasses with the feed as long as the ratio is balanced and it doesn’t exceed about 5 to 10 percent of the total ration.,https://gooey.ai/copilot/?run_id=49nzmx7swbgn&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.36,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+Kenya’s official languages are English and Kiswahili.",https://gooey.ai/copilot/?run_id=r2z37dtxt6qq&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.05,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Kiswahili.",https://gooey.ai/copilot/?run_id=oi2d41xzmvx9&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.02,"🎧: ""Ni uruhe rurimi rwemewe n'amategeko muri Kenya?""
+
+Kenya’s official languages are English and Swahili.",https://gooey.ai/copilot/?run_id=0ymiyu52kgop&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.11,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official language recognized by law in Kenya is Kiswahili, and English is also an official language.",https://gooey.ai/copilot/?run_id=0jhlxwzq3xkl&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.2,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official language recognized by law in Kenya is English, alongside Kiswahili as the national language.",https://gooey.ai/copilot/?run_id=jk98k6n51xr5&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.77,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/copilot/?run_id=bt6whg50nfz5&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.65,English and Kiswahili are the official languages in Kenya.,https://gooey.ai/copilot/?run_id=4gm3ciqq59bj&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.7,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Swahili.",https://gooey.ai/copilot/?run_id=72kjihsnib55&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.84,"🎧: ""ni uruhe rurimi rwemewe n'amategeko muri kenya""
+
+The official languages of Kenya are English and Swahili.","The reference answer is “English and Swahili.” Responses that state English and Swahili/Kiswahili are the official languages are fully correct; repeating the question or minor phrasing differences (Swahili vs. Kiswahili) are acceptable and do not change correctness. One response is unrelated (molasses) and scores 0. One response incorrectly frames Kiswahili only as a national language alongside English as the sole official language, which distorts the core fact that both are official, so it scores lower.",0.0,1.0,1.0,1.0,1.0,0.4,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/003a2388-8f2a-11f0-bc32-02420a0001fc/Generic_Q6_RW_B04.opus.wav,Which currency is used in Kenya?,Ni irihe faranga rikoreshwa muri Kenya?,Kenyan Shilling,Ishilingi rya Kenya,https://gooey.ai/copilot/?run_id=fqda5re8cj9i&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.82,You can use a mixture of compost and organic manure to enrich the soil and improve fertility.,https://gooey.ai/copilot/?run_id=zcsj510k144h&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.2,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan shilling.",https://gooey.ai/copilot/?run_id=vn7l8lgq50rz&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.69,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/copilot/?run_id=tavkiwiyamvl&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.66,"🎧: ""Ni irihe faranga rikoreshwa muri Kenya?""
+
+The currency used in Kenya is the Kenyan shilling.",https://gooey.ai/copilot/?run_id=kzpx5hzd9rt1&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.03,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The official currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/copilot/?run_id=z8lquirjx4qk&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.94,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan shilling.",https://gooey.ai/copilot/?run_id=80gj5xi8g8l0&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.46,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/copilot/?run_id=96nis560k0do&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.0,The currency used in Kenya is the Kenyan Shilling.,https://gooey.ai/copilot/?run_id=no7s3jakip7v&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.5,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/copilot/?run_id=kg3dzqzgpbi4&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.3,"🎧: ""ni irihe faranga rikoreshwa muri kenya""
+
+The currency used in Kenya is the Kenyan Shilling.","The reference answer is 'Kenyan Shilling.' Output 0 is unrelated and incorrect. Outputs 1–9 all correctly state that Kenya uses the Kenyan Shilling, sometimes with minor capitalization differences or a prefixed transcription of the user's question, which does not affect correctness. These preserve all major points, so they receive full scores.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/6ddfefa8-8f2a-11f0-b9e2-02420a0001fa/Generic_Q7_RW_B04.opus.wav,What large lake is found in western Kenya?,Ni ikihe kiyaga kinini mu burengerazuba bwa Kenya?,Lake Victoria,Ikiyaga cya Vigitoriya(Victoria),https://gooey.ai/copilot/?run_id=7tv0cnif4mq9&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.93,"The most common pests affecting maize in Kenya include fall armyworm, maize weevil, and stem borers.",https://gooey.ai/copilot/?run_id=tl6lql5mqfj0&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.96,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=7tgkmmuvej1n&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.88,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=u43fh1121j4k&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.88,"🎧: ""Ni ikihe kiyaga kinini omu burengerazuba bwa Kenya?""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=rybnrcznh6e8&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.05,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=a44avcl0t8ef&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.08,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=0rtetjbur5cj&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.33,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=ui2bhs8ic4bd&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.5,The large lake located in the western part of Kenya is Lake Victoria.,https://gooey.ai/copilot/?run_id=sbl3ibs513b1&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.12,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/copilot/?run_id=ll0gxncl1daw&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.31,"🎧: ""ni ikihe kiyaga kinini mu burengerazuba bwa kenya""
+
+The largest lake in Western Kenya is Lake Victoria.","The reference answer is 'Lake Victoria'. Outputs 1–9 correctly identify Lake Victoria as the largest lake in western Kenya (some include the user's question or audio notation, which does not affect correctness), so they fully preserve the required meaning. Output 0 is unrelated (about maize pests) and does not preserve the meaning, so it scores 0.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/7e40b2a6-8f2a-11f0-9dde-02420a0001fc/Generic_Q8_RW_B04.opus.wav,Which famous wildlife migration occurs in the Maasai Mara?,Ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka Masayi Mara?,The Great Wildebeest Migration,Urugendo rwo kwimuka kw’inyamaswa ruba buri mwaka ziva muri Serengeti(Tanzania) zijya Masaka(Kenya),https://gooey.ai/copilot/?run_id=sg59uyx37ff7&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.01,"You can boil the water for at least one minute, then let it cool before drinking.",https://gooey.ai/copilot/?run_id=wgsbll2wtqfv&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.41,"🎧: ""nukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayialr""
+
+The best-known animal migration in the Maasai Mara area is the annual wildebeest migration.",https://gooey.ai/copilot/?run_id=oqk87ryc6c4j&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.52,"🎧: ""nukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayialr""
+
+It is the Great Wildebeest Migration.",https://gooey.ai/copilot/?run_id=q5fevcto5ghd&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.79,"🎧: ""Ni okuhe kwimuka kw'enyamaswa kuzibwa kyine omu gace k'amasayi mara.""
+
+It is called pulmonary circulation.",https://gooey.ai/copilot/?run_id=aq2u9ojmhemx&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.47,"🎧: ""nukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayialr""
+
+The most well-known animal migration in the Maasai Mara area is the Great Wildebeest Migration.",https://gooey.ai/copilot/?run_id=spu1y1mm9zq7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.7,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The most famous animal migration in the Maasai Mara area is the annual wildebeest migration.",https://gooey.ai/copilot/?run_id=8vxf8x06871s&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.82,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The Great Wildebeest Migration is the most famous animal migration in the Masai Mara.",https://gooey.ai/copilot/?run_id=e71zc8uj81s8&uid=fm165fOmucZlpa5YHupPBdcvDR02,15.23,The Great Wildebeest Migration is the most well-known animal migration in the Masai Mara.,https://gooey.ai/copilot/?run_id=edk7pdbfi0ga&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.46,"🎧: ""ni ukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayi mala""
+
+The Great Wildebeest Migration is the most famous animal migration in the Maasai Mara.",https://gooey.ai/copilot/?run_id=xuuvyz8msc1a&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.73,"🎧: ""nukuhe kwimuka kw'inyamaswa kuzwi cyane mu gace ka masayialr""
+
+The most famous animal migration in the Maasai Mara is the Great Wildebeest Migration.","The reference answer is 'The Great Wildebeest Migration.' Responses that state this explicitly were scored 1.0. Items 1 and 5 correctly identify the phenomenon as the (annual) wildebeest migration but omit the 'Great' proper name; they preserve the major meaning but are slightly less exact, so 0.8. Item 0 is unrelated (water boiling) and item 3 is incorrect ('pulmonary circulation'), both scored 0.",0.0,0.8,1.0,0.0,1.0,0.8,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/92c76bf2-8f2a-11f0-8cba-02420a0001f9/Generic_Q9_RW_B02.opus.wav,Which mountain is the highest in Kenya?,Ni uwuhe musozi muremure cyane muri Kenya?,Mount Kenya,Umusozi wa Kenya(Mount Kenya),https://gooey.ai/copilot/?run_id=bezj2j61ljeh&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.12,"I’m not sure, but it could be a type of local traditional music instrument.",https://gooey.ai/copilot/?run_id=wl0el4kqluc5&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.59,"🎧: ""niwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/copilot/?run_id=cl2eb73cijl6&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.98,"🎧: ""niwuhe musozi muremure cyane muri kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/copilot/?run_id=6fqafi5ghyb1&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.27,"🎧: ""Niwuhi mushozi muremure kyane muri Kenya.""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/copilot/?run_id=zt4uw7ji0veh&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.42,"🎧: ""niwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/copilot/?run_id=uei1hctw7479&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.81,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/copilot/?run_id=cx4idqv6dl3p&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.52,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.",https://gooey.ai/copilot/?run_id=lh2pdc8wp13v&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.67,The highest mountain in Kenya is Mount Kenya.,https://gooey.ai/copilot/?run_id=5yg8ymfw3k3t&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.84,"🎧: ""ni uwuhe musozi muremure cyane muri kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/copilot/?run_id=ua8815cjrny7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.41,"🎧: ""niwuhe musozi muremure cyane muri kenya""
+
+The highest mountain in Kenya is Mount Kenya.","The reference answer is 'Mount Kenya'. Outputs 1–9 explicitly state that the highest mountain in Kenya is Mount Kenya, fully matching the reference. Output 0 is unrelated and incorrect.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/54c62702-8f2b-11f0-9496-02420a0001f8/Generic_Q10_RW_B02.opus.wav,Which is the main port city in Kenya?,Ni uwuhe mujyi munini ukora ku cyambu muri Kenya?,Mombasa,Mombasa,https://gooey.ai/copilot/?run_id=d1ok44f5vmq7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.65,I don't know.,https://gooey.ai/copilot/?run_id=rs40dw2al3ns&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.12,"🎧: ""nuwuhe mujyi munini ukora ku cyambu muri kenya""
+
+The main large Kenyan city with a seaport is Mombasa.",https://gooey.ai/copilot/?run_id=dia9jrjfp4xq&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.07,"🎧: ""nuwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/copilot/?run_id=0ozjbsj54on3&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.76,"🎧: ""Nuwuhe mujyi munini ukora ku cyambu muri Kenya?""
+
+The main large coastal city in Kenya with a port is Mombasa.",https://gooey.ai/copilot/?run_id=k3j1mp9gpsis&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.05,"🎧: ""nuwuhe mujyi munini ukora ku cyambu muri kenya""
+
+The main large Kenyan city with a seaport is Mombasa.",https://gooey.ai/copilot/?run_id=i3botuxzjeey&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.26,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+The main large Kenyan city with a seaport is Mombasa.",https://gooey.ai/copilot/?run_id=auhzsm1p8ja8&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.36,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+Mombasa is the largest port city in Kenya.",https://gooey.ai/copilot/?run_id=alt4l4u4zxtr&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.47,Mombasa is the major port city in Kenya.,https://gooey.ai/copilot/?run_id=x9xc4fef00xg&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.64,"🎧: ""ni uwuhe mujyi munini ukora ku cyambu muri kenya""
+
+The largest port city in Kenya is Mombasa.",https://gooey.ai/copilot/?run_id=plr8hc0p3shz&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.01,"🎧: ""nuwuhe mujyi munini ukora ku cyambu muri kenya""
+
+The largest port city in Kenya is Mombasa.","The reference answer is 'Mombasa'. Any response that clearly identifies Mombasa as the relevant Kenyan port city preserves all major points. Items that repeat the user's question or add brief context still preserve the answer; I scored those slightly lower only when they included extra prefatory text (e.g., the audio quote), though the content remains correct. The response 'I don't know.' is incorrect.",0.0,0.8,1.0,0.8,0.8,0.8,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/96debdca-8f2b-11f0-a3ef-02420a0001fa/Generic_Q12_RW_B02.opus.wav,Which traditional Kenyan dish is made of maize and beans?,Ni ibihe biryo gakondo byo muri Kenya bigizwe n’ibigori ndetse n'ibishyimbo?,Githeri,Githeri,https://gooey.ai/copilot/?run_id=55iyehpt5c4z&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.87,"The best time to plant maize in Kenya is at the onset of the long rains, usually around March to April.",https://gooey.ai/copilot/?run_id=ep9a0obgdplh&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.69,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan dish made of maize and beans is called **Githeri**.",https://gooey.ai/copilot/?run_id=qv7f2aillekq&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.43,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan dish made of maize and beans is called Githeri.",https://gooey.ai/copilot/?run_id=mlv5e8zkd10z&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.59,"🎧: ""Nibihe biryo gakondo byo muri Kenya bigizwe n’ibigori ndetse n’ibishyimbo.""
+
+Traditional Kenyan dishes made from maize and beans include githeri (boiled maize and beans mix) and mukimo (mashed potatoes mixed with maize and sometimes beans and greens).",https://gooey.ai/copilot/?run_id=81qttwazijl0&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.1,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+One traditional Kenyan dish made from maize and beans is “githeri.”",https://gooey.ai/copilot/?run_id=e58wqx9qfsxo&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.85,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan dish made of maize and beans is called ""Githeri.""",https://gooey.ai/copilot/?run_id=mb1ffrlt1drl&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.75,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan dish made of maize and beans is called Githeri.",https://gooey.ai/copilot/?run_id=yagzb5fsub83&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.01,The traditional Kenyan dish made of maize and beans is called Githeri.,https://gooey.ai/copilot/?run_id=5ik948hohxgm&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.12,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan dish made of maize and beans is called Githeri.",https://gooey.ai/copilot/?run_id=0jgnibanus40&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.62,"🎧: ""ni ibihe biryo gakondo byo muri kenya bigizwe n'ibigori ndetse n'ibishyimbo""
+
+The traditional Kenyan food made of maize and beans is Githeri.","The reference answer is 'Githeri'. Responses that clearly state 'Githeri' as the maize-and-beans Kenyan dish receive full scores, regardless of minor formatting or repeating the question. One response lists an unrelated farming tip (0.0). One response adds extra dishes and explanations; while it includes the correct answer, it introduces substantial extra information (0.6). All others correctly provide 'Githeri' (1.0).",0.0,1.0,1.0,0.6,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/d52f117e-8f2b-11f0-a932-02420a0001fc/Generic_Q13_RW_B06.opus.wav,Which river is the longest in Kenya?,Ni uwuhe mugezi usumba iyindi yose muri Kenya?,Tana River,Umugezi wa Tana,https://gooey.ai/copilot/?run_id=akafp0y1hbpa&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.55,"I'm sorry, I don't know the exact number of stores in Kenya.",https://gooey.ai/copilot/?run_id=615mhq9ntcdf&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.95,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/copilot/?run_id=gkph4ilypx2f&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.48,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/copilot/?run_id=5acb7mqifhcu&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.6,"🎧: ""Ni wuhe mugezi osumba eyindi yose omuri Kenya?""
+
+I don't know.",https://gooey.ai/copilot/?run_id=7l5k7anh01nr&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.51,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri kenya""
+
+The largest river in Kenya is the Tana River.",https://gooey.ai/copilot/?run_id=aznqu0v8fzt0&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.3,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+I don't know.",https://gooey.ai/copilot/?run_id=4smyqtrpqwgn&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.91,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/copilot/?run_id=xmxrp6k8esrc&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.87,The Tana River is the longest river in Kenya.,https://gooey.ai/copilot/?run_id=bggkk891u89c&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.05,"🎧: ""nuwuhe mugezi usumba iyindi yose muri kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/copilot/?run_id=r5f08qtir7vj&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.5,"🎧: ""ni uwuhe mugezi usumba iyindi yose muri kenya""
+
+The longest river in Kenya is the Tana River.","The reference answer is the entity 'Tana River'. Responses that explicitly identify Tana River as the longest river in Kenya preserve all key meaning and score 1.0. Responses that say 'largest' instead of 'longest' still provide the correct entity but slightly mismatch the attribute, so they score slightly lower. Any 'I don't know' or irrelevant responses score 0.0. Repeating the user's question alongside the correct answer is acceptable and does not reduce the score.",0.0,1.0,1.0,0.0,0.8,0.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav,Name any one of Kenya’s neighboring countries.,Vuga igihugu kimwe mu bihugu bihana imbibi na Kenya.,"Uganda, Tanzania, Somalia, Ethiopia, or South Sudan","Uganda, Tanzaniya, Somaliya, Ethiopiya, cyangwa Sudani y’Epfo",https://gooey.ai/copilot/?run_id=oxmvjzpm6bck&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.72,I don’t know.,https://gooey.ai/copilot/?run_id=z6xrob2b505m&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.59,"🎧: ""bvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+One country that shares a border with Kenya is Uganda.",https://gooey.ai/copilot/?run_id=iaqtmi0b1pqt&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.49,"🎧: ""bvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Tanzania borders Kenya.",https://gooey.ai/copilot/?run_id=1ffbj364hdtm&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.19,"🎧: ""Tuvuga igihugu kimwe, omu bihugu bihana imbibi na Kenya.""
+
+Uganda is one of the countries that shares a border with Kenya.",https://gooey.ai/copilot/?run_id=wbgs5c59fje7&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.16,"🎧: ""bvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+One country that shares a border with Kenya is Uganda.",https://gooey.ai/copilot/?run_id=78lmqymj0um6&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.59,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+One country that shares a border with Kenya is Uganda.",https://gooey.ai/copilot/?run_id=z7s7hetc7iba&uid=fm165fOmucZlpa5YHupPBdcvDR02,17.37,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Kenya shares borders with Tanzania, Uganda, South Sudan, Ethiopia, and Somalia.",https://gooey.ai/copilot/?run_id=l9eb92x2n6mx&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.33,Tanzania borders Kenya.,https://gooey.ai/copilot/?run_id=vn970opc2wqk&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.77,"🎧: ""kuvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+Uganda borders Kenya.",https://gooey.ai/copilot/?run_id=hm6m3bfwmm8j&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.74,"🎧: ""bvuga igihugu kimwe mu bihugu bihana imbibi na kenya""
+
+One country bordering Kenya is Uganda.","The reference answer lists Kenya’s neighboring countries: Uganda, Tanzania, Somalia, Ethiopia, and South Sudan. Any response naming one or more of these is correct. Repeating the user's question is acceptable per the exception. Only output_text.0 fails to provide a correct country.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/90c6c97c-8f2c-11f0-878d-02420a0001fa/Generic_Q15_RW_B06.opus.wav,What is the major airport in Nairobi called?,Ikibuga kinini cy'indege i Nairobi kitwa bgo iki?,Jomo Kenyatta International Airport,Ikibuga mpuzamahanga cya Jomo Kenyatta,https://gooey.ai/copilot/?run_id=0q9cqei5yqrs&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.24,I don't know.,https://gooey.ai/copilot/?run_id=p14h99q8xodh&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.57,"🎧: ""ikibuga kinini cy'indege i nairobi cyitwa ngwiiki""
+
+Ikibuga kinini cy’indege i Nairobi cyitwa Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=o2z1vev66gkx&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.61,"🎧: ""ikibuga kinini cy'indege i nairobi cyitwa ngwiiki""
+
+The main airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=dknr5lrif4se&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.99,"🎧: ""Ekibuga kinini ekindi egi eneero bikaitwa ngu iki?""
+
+I don't know.",https://gooey.ai/copilot/?run_id=99ctyiumrhvu&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.17,"🎧: ""ikibuga kinini cy'indege i nairobi cyitwa ngwiiki""
+
+The main international airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=bbxy2pzvm3cn&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.5,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The main international airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=ov1ys5bfqix7&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.51,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The largest airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=0ab1i2l8505o&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.13,The largest airport in Nairobi is called Jomo Kenyatta International Airport.,https://gooey.ai/copilot/?run_id=nyir33ls9urt&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.79,"🎧: ""ikibuga kinini cy'indege i nairobi kitwa nguki""
+
+The largest airport in Nairobi is Jomo Kenyatta International Airport.",https://gooey.ai/copilot/?run_id=vks8vyx9bnb1&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.89,"🎧: ""ikibuga kinini cy'indege i nairobi cyitwa ngwiiki""
+
+The largest airport in Nairobi is called Jomo Kenyatta International Airport.","The reference answer is the airport name: 'Jomo Kenyatta International Airport'. Any response that correctly states this name preserves all major points and earns full credit. Responses saying 'I don't know' are incorrect and receive 0. Minor contextual phrasing (e.g., 'the largest/main airport in Nairobi is...') does not detract from correctness.",0.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c4e7b798-8f2c-11f0-a932-02420a0001fc/Generic_Q16_RW_B03.oga.wav,Which Kenyan town is famous for its tea production?,Ni uwuhe mujyi muri Kenya uzwiho umusaruro w’icyayi ?,Kericho,Kericho,https://gooey.ai/copilot/?run_id=krwla89mfmqf&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.55,I don't know.,https://gooey.ai/copilot/?run_id=tc6roiseqdz8&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.42,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town most famous for high tea production.",https://gooey.ai/copilot/?run_id=y0ba442crk9l&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.89,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya famous for tea production.",https://gooey.ai/copilot/?run_id=xyv7s6s7vigb&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.28,"🎧: ""Nuwuhe mujyi muri Kenya ozwiha omusaruro w'ekyayi?""
+
+The Kenyan city best known for tea production is Kericho.",https://gooey.ai/copilot/?run_id=xfeuuifofi9d&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.19,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town most famous for high tea production.",https://gooey.ai/copilot/?run_id=6wdmqzs1pafi&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.49,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town best known for high tea production.",https://gooey.ai/copilot/?run_id=5l4lu0o7ms03&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.66,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town most famous for tea production in Kenya.",https://gooey.ai/copilot/?run_id=unlhp8og4uvj&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.01,Kericho is the town in Kenya most famous for tea production.,https://gooey.ai/copilot/?run_id=38gb6gdowuqk&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.83,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most famous for tea production.",https://gooey.ai/copilot/?run_id=j308y4eqbaru&uid=fm165fOmucZlpa5YHupPBdcvDR02,14.32,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya most famous for its tea production.","The reference answer is 'Kericho'. Outputs 1–9 explicitly provide 'Kericho' as the place in Kenya known for tea production (some with minor extra phrasing or the question repeated, which is acceptable). Output 0 does not provide the answer.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c4e7b798-8f2c-11f0-a932-02420a0001fc/Generic_Q16_RW_B03.oga.wav,In which year did Kenya gain independence from Britain?,Ni mu wuhe mwaka Kenya yabonye ubwigenge ku Bwongereza?,1963,1963,https://gooey.ai/copilot/?run_id=pkqho0l6lezt&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.78,I don't know.,https://gooey.ai/copilot/?run_id=nzugtj4r9gec&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.91,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town best known for tea production.",https://gooey.ai/copilot/?run_id=lpukk40279tt&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.85,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya best known for tea production.",https://gooey.ai/copilot/?run_id=ksok36p1h6e8&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.87,"🎧: ""Nuwuhe mujyi muri Kenya ozwiha omusaruro w'ekyayi?""
+
+Kericho is the Kenyan town best known for its tea production.",https://gooey.ai/copilot/?run_id=8icdchpt0pys&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.24,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town most famous for high tea production.",https://gooey.ai/copilot/?run_id=kk6tafy21h6w&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.35,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the Kenyan town best known for its tea production.",https://gooey.ai/copilot/?run_id=pqqtclxt7pbu&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.0,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town known for tea production in Kenya.",https://gooey.ai/copilot/?run_id=y1ohfxq7m0d6&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.2,Kericho is the town in Kenya known for tea production.,https://gooey.ai/copilot/?run_id=zyv8mrzwwiul&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.03,"🎧: ""ni uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the city in Kenya most famous for its large-scale tea production.",https://gooey.ai/copilot/?run_id=udq9wzr4iyjf&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.36,"🎧: ""nu uwuhe mujyi muri kenya uzwiho umusaruro w'icyayi""
+
+Kericho is the town in Kenya most famous for its tea production.","The reference answer is the year 1963. All provided outputs either state ignorance or discuss Kericho and tea production in Kenya, which are unrelated to the expected numeric year. None contains '1963' or any partially correct temporal information, so all are incorrect.",0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/e76dea26-8f2c-11f0-ab14-02420a0001fa/Generic_Q19_RW_B09.opus.wav,Name the Kenyan Nobel Peace Prize laureate who founded the Green Belt Movement.,Vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe Nobeli kubera yashinze ikigo cyitwa Green Belt Movement.,Wangari Maathai,Wangari Maathai,https://gooey.ai/copilot/?run_id=kmhz31i1gchs&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.13,The Green Belt Movement was founded by Wangari Maathai in Kenya.,https://gooey.ai/copilot/?run_id=plexoax9baxn&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.0,"🎧: ""vuga izina ryu'munyakenya wahawe igihembo cy'mahoro cyitiriwe nobel kubera yashinze ikigo cyitwa greene bert movement""
+
+The Kenyan who won the Nobel Peace Prize for founding the Green Belt Movement is Wangari Maathai.",https://gooey.ai/copilot/?run_id=thquaf6ynzjs&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.9,"🎧: ""vuga izina ryu'munyakenya wahawe igihembo cy'mahoro cyitiriwe nobel kubera yashinze ikigo cyitwa greene bert movement""
+
+The name of the Kenyan is Wangari Maathai.",https://gooey.ai/copilot/?run_id=ytzruww3mc0d&uid=fm165fOmucZlpa5YHupPBdcvDR02,16.58,"🎧: ""Vuga Izina ya Umuja Kenya wahawe igihembo kya mahoro kiyitiliwe Nobel, kubeba yashinzwe ikigo kitwa “Green Belt Movement”.""
+
+The Kenyan woman who won the Nobel Peace Prize and founded the Green Belt Movement is Wangari Maathai.",https://gooey.ai/copilot/?run_id=owvp43ruopgc&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.94,"🎧: ""vuga izina ryu'munyakenya wahawe igihembo cy'mahoro cyitiriwe nobel kubera yashinze ikigo cyitwa greene bert movement""
+
+The Kenyan who received the Nobel Peace Prize for founding the Green Belt Movement is Wangari Maathai.",https://gooey.ai/copilot/?run_id=dx44ji1zfe72&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.11,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+The Kenyan who received the Nobel Peace Prize for founding the Green Belt Movement is Wangari Maathai.",https://gooey.ai/copilot/?run_id=c3glw8bog7wf&uid=fm165fOmucZlpa5YHupPBdcvDR02,18.98,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+Wangari Maathai is the Kenyan Nobel Peace Prize winner who founded the Green Belt Movement.",https://gooey.ai/copilot/?run_id=lnkt6crrr9lm&uid=fm165fOmucZlpa5YHupPBdcvDR02,12.95,The name of the Kenyan is Wangari Maathai.,https://gooey.ai/copilot/?run_id=u5k3fg8lpc01&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.12,"🎧: ""vuga izina ry'umunyakenya wahawe igihembo cy'amahoro cyitiriwe nobel kubera yashinze ikigo cyitwa green belt movement""
+
+The Nobel Peace Prize winner who founded the Green Belt Movement is Wangari Maathai.",https://gooey.ai/copilot/?run_id=u6b2nxlhjqdd&uid=fm165fOmucZlpa5YHupPBdcvDR02,35.92,"🎧: ""vuga izina ryu'munyakenya wahawe igihembo cy'mahoro cyitiriwe nobel kubera yashinze ikigo cyitwa greene bert movement""
+
+Wangari Maathai is the Kenyan who received the Nobel Peace Prize for founding the Green Belt Movement.","The reference answer is the name 'Wangari Maathai'. Every output_text item explicitly provides 'Wangari Maathai' as the answer. Some include restated context or a quoted prompt in another language, but none introduce errors or contradictions. As the correct name is clearly given in each, all major points are preserved for every response.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/34fe5f1e-8f2d-11f0-a1c9-02420a0001f9/Generic_Q20_RW_B09.opus.wav,What is the main legislative body in Kenya called?,Urwego rukuru rw'inteko ishinga amategeko muri Kenya rwitwa ngo iki?,Parliament (National Assembly and Senate),Inteko Nshingamategeko (Inama Nkuru y’Igihugu na Sena),https://gooey.ai/copilot/?run_id=5dq9v2x0xu8j&uid=fm165fOmucZlpa5YHupPBdcvDR02,12.97,It’s called the Kenya Agricultural Research Institute (KARI).,https://gooey.ai/copilot/?run_id=6vaq5o18n9du&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.18,"🎧: ""mrwego rukuru rw'inteko ishinga amategeko muri kenya witwa ngoki""
+
+The highest legislative body in Kenya is called the Parliament of Kenya.",https://gooey.ai/copilot/?run_id=ioaltyhkzqvk&uid=fm165fOmucZlpa5YHupPBdcvDR02,24.74,"🎧: ""mrwego rukuru rw'inteko ishinga amategeko muri kenya witwa ngoki""
+
+The main legislative body in Kenya is called the Parliament.",https://gooey.ai/copilot/?run_id=rap7l083b36u&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.38,"🎧: ""Orwego rukuru rw'inteekashinga amategeko omuri Kenya rwitwa ngu ki?""
+
+The highest legislative body in Kenya is called the Parliament of Kenya.",https://gooey.ai/copilot/?run_id=po9j9mlb99ij&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.99,"🎧: ""mrwego rukuru rw'inteko ishinga amategeko muri kenya witwa ngoki""
+
+The upper house of Kenya’s Parliament is called the Senate.",https://gooey.ai/copilot/?run_id=q4f5gcpqoa39&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.39,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+Urwego rukuru rw’inteko ishinga amategeko muri Kenya rufite imitwe ibiri: Senate n’National Assembly.",https://gooey.ai/copilot/?run_id=oilygjiuctb9&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.65,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+It is called the Parliament of Kenya.",https://gooey.ai/copilot/?run_id=mawm0vitusj4&uid=fm165fOmucZlpa5YHupPBdcvDR02,19.15,The upper house of the parliament in Kenya is called the Senate.,https://gooey.ai/copilot/?run_id=xpjaoojv1g0s&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.4,"🎧: ""urwego rukuru rw'inteko ishinga amategeko muri kenya rwitwa ngw'iki""
+
+The upper house of the Kenyan parliament is called the Senate.",https://gooey.ai/copilot/?run_id=ak58iugpyydy&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.57,"🎧: ""mrwego rukuru rw'inteko ishinga amategeko muri kenya witwa ngoki""
+
+The upper house of the parliament in Kenya is called the Senate.","The reference answer is 'Parliament (National Assembly and Senate)'. Responses that correctly name 'Parliament' (or 'Parliament of Kenya') directly answer the question and earn top scores. Responses that only mention the upper house (Senate) address a different question and thus score low. The item that lists the two chambers without naming 'Parliament' preserves some key information about structure but fails to provide the actual name, so it scores mid-range. The KARI response is incorrect.",0.0,1.0,1.0,1.0,0.2,0.6,1.0,0.2,0.2,0.2
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/44d70292-8f2d-11f0-9496-02420a0001f8/Generic_Q21_RW_B09.opus.wav,Which year was the current Kenyan constitution promulgated?,Itegeko nshinga rya Kenya ririho ubu ryashyizweho mu wuhe mwaka?,2010,2010,https://gooey.ai/copilot/?run_id=hefrq4nm9b9a&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.8,"It sounds like the user is asking about a specific type of tree and how to grow it, but I don't know the answer.",https://gooey.ai/copilot/?run_id=pl53fxswl55l&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.26,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+Kenya’s current constitution was adopted in 2010.",https://gooey.ai/copilot/?run_id=4m6gwxxd3szw&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.49,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/copilot/?run_id=ecsj2c500boh&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.26,"🎧: ""Etegeko nshinga rya Kenya ririho obu ryahikizweho mubuhe mwaka.""
+
+The current Constitution of Kenya was adopted in 2010.",https://gooey.ai/copilot/?run_id=a4gi5mxigvsb&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.99,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+Kenya’s current constitution was adopted in 2010.",https://gooey.ai/copilot/?run_id=uikpzoh08tl6&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.97,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+Kenya’s current constitution was adopted in 2010.",https://gooey.ai/copilot/?run_id=wxqdqi18otxr&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.58,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+The current Constitution of Kenya was promulgated in 2010.",https://gooey.ai/copilot/?run_id=8z7mfuu6vg6x&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.99,The current Constitution of Kenya was promulgated in 2010.,https://gooey.ai/copilot/?run_id=wirrpegca234&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.62,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho mu wuhe mwaka""
+
+The current Constitution of Kenya was established in 2010.",https://gooey.ai/copilot/?run_id=ke5jg75252gm&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.41,"🎧: ""itegeko nshinga rya kenya ririho ubu ryashyizweho muwuhe mwaka""
+
+The current Constitution of Kenya was established in 2010.",The reference answer is the year 2010. Any response that correctly states that the current Constitution of Kenya was adopted/promulgated/established in 2010 preserves the full meaning and earns 1.0. Responses that are unrelated or do not provide the correct year earn 0.0. All outputs except output_text.0 correctly convey 2010; output_text.0 is unrelated and incorrect.,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav,Which major archaeological site in northern Kenya provides evidence of early human evolution?,Ni he hantu ndanga-mateka mu majyaruguru ya Kenya haboneka ibimenyetso by’inkomoko n’ihindagurika rya muntu?,Koobi Fora,Koobi Fora,https://gooey.ai/copilot/?run_id=6jkdowudgsoz&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.81,"The main cash crops in Kenya include tea, coffee, flowers, and horticultural produce.",https://gooey.ai/copilot/?run_id=5asmj5ijn32b&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.49,"🎧: ""ni heahantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+A key historical site in northern Kenya with evidence of human origins and evolution is the Koobi Fora region on the eastern shore of Lake Turkana.",https://gooey.ai/copilot/?run_id=b7vsvomkznnj&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.99,"🎧: ""ni heahantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The historical site is Koobi Fora, located within Sibiloi National Park near Lake Turkana.",https://gooey.ai/copilot/?run_id=krhqhor9u7vd&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.93,"🎧: ""Ni yo ehantu ndangamateeka mu majyaruguru ya Kenya haboneka ebimenyetso by'enkomoko n'ehendagurika rya muntu.""
+
+I don’t know.",https://gooey.ai/copilot/?run_id=u5p3ggm0rinf&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.5,"🎧: ""ni heahantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+In northern Kenya, important prehistoric sites with evidence of human origins and evolution include Lake Turkana region (Koobi Fora, Lothagam, Kanapoi) and the Turkana Basin generally.",https://gooey.ai/copilot/?run_id=qzjvjf0waws1&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.46,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+In northern Kenya, key archaeological heritage sites showing human origins and evolution evidence include Koobi Fora and Sibiloi National Park near Lake Turkana, as well as the broader Turkana Basin.",https://gooey.ai/copilot/?run_id=d7cl0gzwbtto&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.35,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The historical site in northern Kenya known for evidence of human origins and evolution is Koobi Fora, located near Lake Turkana.",https://gooey.ai/copilot/?run_id=iqtcwj5xp5uj&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.6,"The historical site is Koobi Fora, located on the eastern shore of Lake Turkana.",https://gooey.ai/copilot/?run_id=p32k6n3o6exh&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.9,"🎧: ""ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The historical site is Koobi Fora, located in the Lake Turkana basin.",https://gooey.ai/copilot/?run_id=9qmd6lyi036y&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.14,"🎧: ""ni heahantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu""
+
+The historical site in Northern Kenya where evidence of human origins and evolution is found is Lake Turkana, specifically the Koobi Fora region.","The reference answer is 'Koobi Fora'. Responses that explicitly identify Koobi Fora as the site (with or without correct location details like Lake Turkana/Sibiloi) receive 1.0. Answers listing multiple sites or giving the broader region without singling out Koobi Fora get 0.6 for including the correct site but adding unnecessary alternatives. A response that primarily names Lake Turkana but narrows to 'specifically the Koobi Fora region' is mostly accurate but slightly imprecise, so 0.8. Unrelated or 'I don’t know' answers score 0.",0.0,1.0,1.0,0.0,0.6,0.6,1.0,1.0,1.0,0.8
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a320be88-8f2d-11f0-ab14-02420a0001fa/Generic_Q23_RW_B10.m4a.wav,What is the largest ethnic group in Kenya?,Ni ubuhe bwoko bugizwe n’abantu benshi muri Kenya?,Kikuyu,Kikuyu,https://gooey.ai/copilot/?run_id=rfdazyfixt5q&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.62,The population of Kenya is about 55 million.,https://gooey.ai/copilot/?run_id=3iba4x7zkl9m&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.7,"🎧: ""ni ubuhe bwoko bugizwe nabantu benshi muri kenya""
+
+The largest ethnic group in Kenya is the Kikuyu.",https://gooey.ai/copilot/?run_id=rmnd2nxmglh3&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.49,"🎧: ""ni ubuhe bwoko bugizwe nabantu benshi muri kenya""
+
+The Kikuyu is the largest ethnic group in Kenya.",https://gooey.ai/copilot/?run_id=twpne2pu837e&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.07,"🎧: ""Ni obuhe bwoko bugizwe n'abantu benshi muri Kenya?""
+
+The largest ethnic group in Kenya is the Kikuyu.",https://gooey.ai/copilot/?run_id=qes9yvoyelwu&uid=fm165fOmucZlpa5YHupPBdcvDR02,2.97,"🎧: ""ni ubuhe bwoko bugizwe nabantu benshi muri kenya""
+
+The largest ethnic group in Kenya is the Kikuyu.",https://gooey.ai/copilot/?run_id=ibl0o3l2pwoq&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.98,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The largest ethnic group in Kenya is the Kikuyu.",https://gooey.ai/copilot/?run_id=a27km3o33xtj&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.12,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The Kikuyu is the largest ethnic group in Kenya.",https://gooey.ai/copilot/?run_id=oks71feb3flr&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.65,The Kikuyu are the largest ethnic group in Kenya.,https://gooey.ai/copilot/?run_id=o3doj0atbnif&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.46,"🎧: ""ni ubuhe bwoko bugizwe n'abantu benshi muri kenya""
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/copilot/?run_id=420zdi8iaux1&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.07,"🎧: ""ni ubuhe bwoko bugizwe nabantu benshi muri kenya""
+
+The Kikuyu are the largest ethnic group in Kenya.","The reference answer is 'Kikuyu'. Output_text.0 is unrelated/incorrect. All other outputs explicitly state that the Kikuyu are the largest ethnic group in Kenya; repeating the user's question is acceptable per the exception, so they receive full credit.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c921d784-8f2d-11f0-a932-02420a0001fc/Generic_Q25_RW_B08.opus.wav,Which island town in Kenya is a UNESCO World Heritage Site known for its Swahili architecture?,Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw'umutungo kamere w'isi wa UNESCO uzwiho kuba ufite ubugeni bw’Igiswayire?,Lamu,Lamu,https://gooey.ai/copilot/?run_id=tr9nrqkzuu01&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.64,I don't know.,https://gooey.ai/copilot/?run_id=dttatdyueylp&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.25,"🎧: ""ni uwuhe mujyi wo ku kirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa innisco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+The town is Lamu, on Lamu Island in Kenya, listed as a UNESCO World Heritage Site for its Swahili architecture.",https://gooey.ai/copilot/?run_id=8u9xd6htugh9&uid=fm165fOmucZlpa5YHupPBdcvDR02,13.77,"🎧: ""ni uwuhe mujyi wo ku kirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa innisco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town is the UNESCO World Heritage site located on an island in Kenya known for its Swahili architecture.",https://gooey.ai/copilot/?run_id=bsmfxme4m34v&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.11,"🎧: ""Ni uwuhe mujyi wo ku kirwa cyo muri Kenya uri ku rutonde rw’umutungo kamere w’isi wa Inesco uzwiho kuba ufite ubugeni bw’igiswayire?""
+
+Umujyi witwa Lamu, uri ku kirwa cya Lamu muri Kenya, ni wo uzwi kuba ku rutonde rwa UNESCO kubera ubugeni n’umuco w’igiswayire.",https://gooey.ai/copilot/?run_id=ziqy43mz5vup&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.49,"🎧: ""ni uwuhe mujyi wo ku kirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa innisco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+The city is Lamu, on Lamu Island in Kenya, known for its Swahili architecture and listed as a UNESCO World Heritage Site.",https://gooey.ai/copilot/?run_id=d27hqpyt5ik8&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.84,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+The city is Lamu, on Lamu Island in Kenya.",https://gooey.ai/copilot/?run_id=pydi0ae04v60&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.2,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+It is Lamu Old Town.",https://gooey.ai/copilot/?run_id=meizdhxdfx4e&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.97,It is Lamu Old Town.,https://gooey.ai/copilot/?run_id=2xzqv4nk2p7r&uid=fm165fOmucZlpa5YHupPBdcvDR02,8.44,"🎧: ""ni uwuhe mujyi wo ku cyirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa unesco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+Lamu Old Town is the UNESCO World Heritage site on a Kenyan island known for its Swahili architecture.",https://gooey.ai/copilot/?run_id=h4sro37vbm6t&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.48,"🎧: ""ni uwuhe mujyi wo ku kirwa cyo muri kenya uri ku rutonde rw'umutungo kamere w'isi wa innisco uzwiho kuba ufite ubugeni bw'igiswayire""
+
+The city is Lamu Old Town.","The reference answer is 'Lamu'. Any response naming 'Lamu' or the more precise 'Lamu Old Town' correctly answers the question. Extra contextual details (UNESCO, island, Swahili architecture) do not detract from correctness. The only incorrect response is 'I don't know.' which does not provide the answer.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/14f49e4e-8f2e-11f0-b9dd-02420a0001f9/Generic_Q29_RW_B07.ogg.wav,Which national park in Kenya is famous for its view of Mount Kilimanjaro?,Ni iyihe pariki y'igihugu yo muri Kenya izwiho kuba yitegeye neza umusozi wa Kilimanjaro?,Amboseli National Park,Pariki Nkuru y’Igihugu ya Amboseli,https://gooey.ai/copilot/?run_id=j5yuc0nffp0t&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.53,The best time to plant Irish potatoes is usually just before the rainy season starts.,https://gooey.ai/copilot/?run_id=4svo6dp85xrk&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.49,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho ko bayitegeye neza umusozi wa kilimanjaro""
+
+The Kenyan national park known for its clear view of Mount Kilimanjaro is Amboseli National Park.",https://gooey.ai/copilot/?run_id=8y88zcg977et&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.77,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho ko bayitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is known for having the best views of Mount Kilimanjaro.",https://gooey.ai/copilot/?run_id=6p3h11ek9cgc&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.49,"🎧: ""Niyihe pariki y'egihugu yo muri Kenya ezwiho kuba yitegeye neeza omusozi wa Kilimanjaro.""
+
+The Kenyan national park known for its great views of Mount Kilimanjaro is Amboseli National Park.",https://gooey.ai/copilot/?run_id=krjlpcfpqo4c&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.53,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho ko bayitegeye neza umusozi wa kilimanjaro""
+
+The Kenyan national park best known for its clear views of Mount Kilimanjaro is Amboseli National Park.",https://gooey.ai/copilot/?run_id=uczbybold6d1&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.31,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+The Kenyan national park known for its clear views of Mount Kilimanjaro is Amboseli National Park.",https://gooey.ai/copilot/?run_id=mbnv772q3z5w&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.83,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is known for offering the best views of Mount Kilimanjaro.",https://gooey.ai/copilot/?run_id=5asyjeddycse&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.58,Amboseli National Park is known for offering the best views of Mount Kilimanjaro.,https://gooey.ai/copilot/?run_id=hbi9ofkl8lv2&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.79,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho kuba yitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is the park in Kenya famous for its views of Mount Kilimanjaro.",https://gooey.ai/copilot/?run_id=4d60nf855p7v&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.59,"🎧: ""ni iyihe pariki y'igihugu yo muri kenya izwiho ko bayitegeye neza umusozi wa kilimanjaro""
+
+Amboseli National Park is the park known for its iconic views of Mount Kilimanjaro.","The reference answer is simply ""Amboseli National Park."" Output 0 is unrelated (about planting potatoes), so it scores 0.0. All other outputs explicitly identify Amboseli National Park as the Kenyan park known for views of Mount Kilimanjaro; repeating the question or adding descriptive context is acceptable per the instructions, so they score 1.0.",0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/26405454-8f2e-11f0-a0cd-02420a0001f8/Generic_Q30_RW_B07.ogg.wav,What is the name of Kenya’s national airline?,Indege y'igihugu cya Kenya yitwa ngo iki?,Kenya Airways,Kompanyi itwara abantu mu kirere ya Kenya,https://gooey.ai/copilot/?run_id=22m8lffa9kc8&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.0,I don't know.,https://gooey.ai/copilot/?run_id=to5poajezl45&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.29,"🎧: ""indege y'igihugu cya kenya yitwa nguki""
+
+The national airline of Kenya is called Kenya Airways, not “Nguki.”",https://gooey.ai/copilot/?run_id=ps8q90oi2cvo&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.08,"🎧: ""indege y'igihugu cya kenya yitwa nguki""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/copilot/?run_id=1wq0q0li0iz7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.15,"🎧: ""Endegye y'okihogoukira kyenyayitwa ngu ki?""
+
+The disease you mean is called tuberculosis (TB).",https://gooey.ai/copilot/?run_id=6dobe2d3bg4f&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.19,"🎧: ""indege y'igihugu cya kenya yitwa nguki""
+
+The national airline of Kenya is called Kenya Airways, not ""nguki.""",https://gooey.ai/copilot/?run_id=bqzgc1e95ibu&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.28,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+Indege y'igihugu cya Kenya yitwa Kenya Airways.",https://gooey.ai/copilot/?run_id=7q2mmfu1d9od&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.95,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/copilot/?run_id=tplm4rehqjnu&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.81,"thought
+The user is asking a question in Kinyarwanda: ""Indege y'igihugu cya Kenya yitwa ngw'iki?""
+
+1.  **Analyze the audio input:** Although I can't ""hear"" the audio, the transcript provided is ""Indege y'igihugu cya Kenya yitwa ngw'iki?"".
+2.  **Translate the question:** ""Indege"" (airplane/airline), ""y'igihugu"" (of the country/national), ""cya Kenya"" (of Kenya), ""yitwa ngw'iki?"" (is called what?).
+    *   Full translation: ""What is the national airline of Kenya called?""
+3.  **Identify the target audience/context:** The user is asking about the Kenyan national airline.
+4.  **Formulate the answer:** The national airline of Kenya is Kenya Airways.
+5.  **Check constraints:**
+    *   Answer accurately: Yes, Kenya Airways.
+    *   Shortest answer possible, in a single sentence: ""The national airline of Kenya is called Kenya Airways."" or just ""It is called Kenya Airways.""
+    *   Language: Reply only in English.
+6.  **Draft the response:** ""The national airline of Kenya is called Kenya Airways.""
+
+Let's refine for brevity as requested (""shortest answer possible"").
+""It is called Kenya Airways."" or ""Kenya's national airline is called Kenya Airways.""
+
+The prompt asks for ""the shortest answer possible, in a single sentence"".
+""It is called Kenya Airways."" is good.
+""The national airline of Kenya is Kenya Airways."" is also good and slightly more specific.
+
+Let's go with: ""The national airline of Kenya is called Kenya Airways.""The national airline of Kenya is called Kenya Airways.",https://gooey.ai/copilot/?run_id=q6ntkowul4qc&uid=fm165fOmucZlpa5YHupPBdcvDR02,6.07,"🎧: ""indege y igihugu cya kenya yitwa ngo iki""
+
+Kenya's national airline is called Kenya Airways.",https://gooey.ai/copilot/?run_id=lt59vv5pjh48&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.94,"🎧: ""indege y'igihugu cya kenya yitwa nguki""
+
+Kenya's national airline is Kenya Airways.","The reference answer is 'Kenya Airways'. Responses that clearly state this earn high scores. Incorrect or irrelevant answers score 0. Answers with the correct content but unnecessary or misleading extra commentary (e.g., saying 'not Nguki') are slightly downgraded. One response includes extensive chain-of-thought, so it is further downgraded for a lot of extra information.",0.0,0.8,1.0,0.0,0.8,1.0,1.0,0.6,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a6852612-db32-11f0-86f2-02420a0001e9/Health_Q25_RW_B07.wav.wav,What is the normal survival time of Red Blood Cells ?,Insoro z’amaraso zitukura zibasha kubaho mu gihe kingana iki?,"Normally, 120 days","Ubusanzwe, byatwara iminsi 120",https://gooey.ai/copilot/?run_id=im8z2eskd9sf&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.9,I'm not sure about the exact reason why they’re difficult to find.,https://gooey.ai/copilot/?run_id=bafuwrrbgvf7&uid=fm165fOmucZlpa5YHupPBdcvDR02,3.5,"🎧: ""insoro z'amaraso zitukura zibasha kuba mu gihe kingana iki""
+
+Red blood cells live for about 120 days in the body before being replaced.",https://gooey.ai/copilot/?run_id=2rrqj2yo9vmg&uid=fm165fOmucZlpa5YHupPBdcvDR02,14.92,"🎧: ""insoro z'amaraso zitukura zibasha kuba mu gihe kingana iki""
+
+Red blood cells live for approximately 120 days.",https://gooey.ai/copilot/?run_id=ozzas5q6rlz7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.71,"🎧: ""Ensoro z'amaraso zitukura zibasha kuba omu gye kingana iki?""
+
+I don’t know.",https://gooey.ai/copilot/?run_id=wzs6y0cpux2f&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.47,"🎧: ""insoro z'amaraso zitukura zibasha kuba mu gihe kingana iki""
+
+Insoro z’amaraso zitukura (red blood cells) zibaho iminsi iri hagati ya 90 na 120 mu mubiri w’umuntu.",https://gooey.ai/copilot/?run_id=s7iy9jkyo3u6&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.83,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells typically live for about 120 days in the body.",https://gooey.ai/copilot/?run_id=rhxk4dyy6dl5&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.75,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for approximately 120 days.",https://gooey.ai/copilot/?run_id=ju90uvtxkoz0&uid=fm165fOmucZlpa5YHupPBdcvDR02,9.06,Red blood cells live for approximately 120 days.,https://gooey.ai/copilot/?run_id=rpwnsdfj3c5e&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.02,"🎧: ""insoro z'amaraso zitukura zibasha kubaho mu gihe kingana iki""
+
+Red blood cells live for approximately 120 days.",https://gooey.ai/copilot/?run_id=9f36u7v31pf7&uid=fm165fOmucZlpa5YHupPBdcvDR02,4.24,"🎧: ""insoro z'amaraso zitukura zibasha kuba mu gihe kingana iki""
+
+Red blood cells live for approximately 120 days.","The reference answer is 'Normally, 120 days.' Responses that state ~120 days (about/approximately/typically) preserve all key meaning and score 1.0. Responses that give a broader range (e.g., 90–120 days) are mostly accurate but not exact, so 0.8. Answers expressing uncertainty or unrelated content score 0.",0.0,1.0,1.0,0.0,0.8,1.0,1.0,1.0,1.0,1.0
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/a6ebafb8-db32-11f0-86f2-02420a0001e9/Health_Q18_RW_B09.wav.wav,How does aspirin affect the coagulation process?,Ni gute imiti igabanya ububabare (aspirine) igira uruhare mu kuvura kw’amaraso?,"Aspirin irreversibly inhibits the cyclooxygenase enzyme, which inhibits platelet aggregation (effect lasts up to 10 days).","Aspirine ihagarika burundu akazi k’umusemburo ufasha mu gutera uburibwe, umuriro n’ibindi bimenyetso by’uburwayi uzwi nk’ikinyabutabire gifasha imikorere y’umubiri, bigatuma idindiza guterana kw’uduce tw’amaraso (ingaruka zishobora kumara iminsi 10).",https://gooey.ai/copilot/?run_id=7lob66yf24b4&uid=fm165fOmucZlpa5YHupPBdcvDR02,12.86,Aspirin mainly helps reduce pain and inflammation.,https://gooey.ai/copilot/?run_id=xjcaqy8jqaxe&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.47,"🎧: ""nigute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin (at low doses) prevents blood clots by blocking platelets from sticking together, which helps reduce the risk of heart attack and stroke.",https://gooey.ai/copilot/?run_id=5oy85fzkyv57&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.95,"🎧: ""nigute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin works by preventing blood cells called platelets from clumping together, which slows down blood clotting.",https://gooey.ai/copilot/?run_id=lmpzl5kl5ecd&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.4,"🎧: ""Nigute emiti g'abanyabubabare aspirine, igire oruhare omu kuvura kw'amaraso?""
+
+Aspirin reduces blood clotting by blocking an enzyme (COX) that makes thromboxane, a substance that normally helps platelets stick together.",https://gooey.ai/copilot/?run_id=474sdrjqt9z5&uid=fm165fOmucZlpa5YHupPBdcvDR02,34.53,"🎧: ""nigute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin reduces pain and also helps prevent blood clots by blocking platelets from sticking together, which can lower the risk of heart attack and stroke.",https://gooey.ai/copilot/?run_id=7o9qm9kudfn4&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.19,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin reduces blood clotting by irreversibly blocking the COX‑1 enzyme in platelets, which lowers thromboxane A₂ production and makes platelets less likely to stick together.",https://gooey.ai/copilot/?run_id=d2iq8zfw0zyv&uid=fm165fOmucZlpa5YHupPBdcvDR02,10.9,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin slows down blood clotting by preventing platelets from sticking together.",https://gooey.ai/copilot/?run_id=zk8ildjewfx7&uid=fm165fOmucZlpa5YHupPBdcvDR02,11.47,Aspirin helps prevent blood clots by stopping blood cells called platelets from clumping together.,https://gooey.ai/copilot/?run_id=nbc4c7242r4x&uid=fm165fOmucZlpa5YHupPBdcvDR02,7.64,"🎧: ""nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso""
+
+Aspirin prevents blood clotting by stopping platelets from sticking together.",https://gooey.ai/copilot/?run_id=1vhqazra2xph&uid=fm165fOmucZlpa5YHupPBdcvDR02,5.85,"🎧: ""nigute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso""
+
+Aspirin works by preventing blood platelets from sticking together, which helps to inhibit the formation of blood clots.","The reference states that aspirin irreversibly inhibits cyclooxygenase (COX), reducing platelet aggregation with an effect lasting up to ~10 days. Responses that mention prevention of platelet aggregation/clotting capture the main point; those adding COX/thromboxane and irreversibility are closer. Mentions only of pain/inflammation do not align with the reference mechanism.",0.0,0.8,0.8,0.8,0.8,1.0,0.8,0.8,0.8,0.8

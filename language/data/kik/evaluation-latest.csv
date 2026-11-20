@@ -1,0 +1,915 @@
+input_audio,question,Prompt_Target,reference_answer,Response_Target,(0 Gemini 3.1 Pro - Kikuyu) Run URL,(0 Gemini 3.1 Pro - Kikuyu) Run Time,(0 Gemini 3.1 Pro - Kikuyu) Output Text,(1 Gemini 3.1 Pro + Omni - Kikuyu) Run URL,(1 Gemini 3.1 Pro + Omni - Kikuyu) Run Time,(1 Gemini 3.1 Pro + Omni - Kikuyu) Output Text,(2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu) Run URL,(2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu) Run Time,(2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu) Output Text,(3 GPT 5.6 Sol + Omni - Kikuyu) Run URL,(3 GPT 5.6 Sol + Omni - Kikuyu) Run Time,(3 GPT 5.6 Sol + Omni - Kikuyu) Output Text,(4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu) Run URL,(4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu) Run Time,(4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu) Output Text,(5 Claude Sonnet 5 + Omni - Kikuyu) Run URL,(5 Claude Sonnet 5 + Omni - Kikuyu) Run Time,(5 Claude Sonnet 5 + Omni - Kikuyu) Output Text,(6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu) Run URL,(6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu) Run Time,(6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu) Output Text,(7 Kimi K3 + Omni - Kikuyu) Run URL,(7 Kimi K3 + Omni - Kikuyu) Run Time,(7 Kimi K3 + Omni - Kikuyu) Output Text,(8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu) Run URL,(8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu) Run Time,(8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu) Output Text,(9 DeepSeek V4 + Omni - Kikuyu) Run URL,(9 DeepSeek V4 + Omni - Kikuyu) Run Time,(9 DeepSeek V4 + Omni - Kikuyu) Output Text,(10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu) Run URL,(10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu) Run Time,(10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu) Output Text,(11 Gemini 3.7 Flash + Omni - Kikuyu) Run URL,(11 Gemini 3.7 Flash + Omni - Kikuyu) Run Time,(11 Gemini 3.7 Flash + Omni - Kikuyu) Output Text,(12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu) Run URL,(12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu) Run Time,(12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu) Output Text,Compare Semantics Similarity - Output Text - 0 Gemini 3.1 Pro - Kikuyu,Compare Semantics Similarity - Output Text - 1 Gemini 3.1 Pro + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu,Compare Semantics Similarity - Output Text - 3 GPT 5.6 Sol + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu,Compare Semantics Similarity - Output Text - 5 Claude Sonnet 5 + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu,Compare Semantics Similarity - Output Text - 7 Kimi K3 + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu,Compare Semantics Similarity - Output Text - 9 DeepSeek V4 + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu,Compare Semantics Similarity - Output Text - 11 Gemini 3.7 Flash + Omni - Kikuyu,Compare Semantics Similarity - Output Text - 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu,Compare Semantics Similarity - rationale
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f8c09150-8f24-11f0-9a2d-02420a0001fc/Generic_Q2_KI_C01.opus.wav,What is the capital city of Kenya?,Mũciĩ mũnene wa Kenya nĩ ũrĩkũ?,Nairobi,Nairobi,https://gooey.ai/agent/?run_id=a9hs3s7t2gvk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,24.33,The capital city of Kenya is Nairobi.,https://gooey.ai/agent/?run_id=63zrdb7moytu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,34.72,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+I don't know.",https://gooey.ai/agent/?run_id=7v33dzwghikw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.98,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=x8n9mh915s5z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.5,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+<think>
+
+**Translating Kikuyu River Names**
+
+I need to translate Kikuyu for the largest river in Kenya. I think ""ũhĩ mũnene"" could be the right term for the biggest river, but then I wonder if ""wa Kenya nĩ ũrĩkũ"" is the correct way to phrase ""which one?"" The answer should point to the Tana River. I want to make sure I keep it as a single, shortest sentence!
+
+</think>
+
+The largest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=892bpbvpm0km&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.28,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+<think>
+
+**Translating query about Kenya**
+
+I see that the task is to translate the question, ""What is the capital city of Kenya?"" into a shorter answer in English. I’ll focus on providing a concise, clear response. This should be straightforward: the answer can be simply ""Nairobi."" So, I’ll make sure to deliver that succinctly while confirming that it's understood as the capital of Kenya. That's a clear and effective way to meet the user's needs!
+
+</think>
+
+Kenya’s capital city is Nairobi.",https://gooey.ai/agent/?run_id=vdtnw9zmwvmb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.04,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The capital city of Kenya is Nairobi.",https://gooey.ai/agent/?run_id=zl7vngsvy6ro&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.95,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+Nairobi is the capital city of Kenya.",https://gooey.ai/agent/?run_id=g4bpttf0ui4l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,53.11,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+I don't know what ""ũhĩ"" means—could you please clarify your question?",https://gooey.ai/agent/?run_id=6rjpebwhln1h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.7,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The largest city in Kenya is Nairobi.",https://gooey.ai/agent/?run_id=9z7ue3sk2cjh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.29,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=ttehy0dylt8z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.38,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+Nairobi.",https://gooey.ai/agent/?run_id=tdm9xvddm6dr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.21,"🎧: ""ũhĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The biggest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=p9x97bqnf9rv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.44,"🎧: ""mũciĩ mũnene wa kenya nĩ ũrĩkũ""
+
+The capital city of Kenya is Nairobi.",1.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.4,0.0,1.0,0.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly answer with Nairobi/the capital city of Kenya, matching the reference answer. 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu gives Nairobi but describes it as the largest city rather than the capital, so it preserves only part of the meaning. 1 Gemini 3.1 Pro + Omni - Kikuyu and 7 Kimi K3 + Omni - Kikuyu do not answer the question. 3 GPT 5.6 Sol + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 11 Gemini 3.7 Flash + Omni - Kikuyu answer a different question about a river, so they are incorrect. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu was ignored and only the final user-facing answer was judged."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/0df1353e-8f25-11f0-9a2d-02420a0001fc/Generic_Q3_KI_C01.opus.wav,Which ocean borders Kenya to the southeast?,Nĩ iria rĩrĩkũ rĩkoragwo mwena wa mũhoro wa irathĩro wa Kenya?,Indian Ocean,Iria rĩa Indian,https://gooey.ai/agent/?run_id=ciepskqoukrd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,64.57,"The most commonly grown crops in South Eastern Kenya include drought-resistant varieties such as green grams, pigeon peas, cowpeas, sorghum, millet, and maize.",https://gooey.ai/agent/?run_id=x310uxugq2uz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.28,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+The Athi-Galana river is the main river located in the south-eastern part of Kenya.",https://gooey.ai/agent/?run_id=i6ts1ii05u49&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.23,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+The Indian Ocean is the body of water located in the south-eastern part of Kenya.",https://gooey.ai/agent/?run_id=iyn0aryk4h13&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.24,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+<think>
+
+</think>
+
+Nadia Cherono is President William Ruto’s youngest child.",https://gooey.ai/agent/?run_id=75guv8gxvdee&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.04,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+<think>
+
+**Exploring Kikuyu phrases**
+
+I'm analyzing some Kikuyu words like ""mwana"" for child and ""mũhuro,"" which might refer to the youngest or even relate to president. There’s a phrase potentially referring to a historical figure, so I consider if it means ""son of the last governor of Kenya."" It could also lead to questions about the easternmost point or towns in Kenya. Hm, I wonder if the audio transcription is off too. That's a bit tricky!
+
+</think>
+
+I don't know.",https://gooey.ai/agent/?run_id=62obolxmr7rx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.66,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=81rsxx800w4a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,45.73,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+The Indian Ocean is at the coast of Kenya.",https://gooey.ai/agent/?run_id=t6vtkmh8gqrv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.25,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=sc6h1f04pta5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.44,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=bn18hoda76cz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.48,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+I don't know",https://gooey.ai/agent/?run_id=r3jk3w3b7ihb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.96,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+I don't know",https://gooey.ai/agent/?run_id=9em8ml4qyt57&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.71,"🎧: ""nĩ riũĩ rĩrĩkũrĩkũragwo ũmwana wa mũhũro wa iradĩro wa kenya""
+
+It is the Athi River (Galana-Sabaki).",https://gooey.ai/agent/?run_id=mzl6oo3pssuj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.51,"🎧: ""nĩ iria rĩrĩ kũrĩkũragwo mwana wa mũhuro waira thĩro wa kenya""
+
+The Indian Ocean is located to the southeast of Kenya.",0.0,0.0,1.0,0.0,0.0,0.0,0.8,0.0,0.0,0.0,0.0,0.0,1.0,"2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu match the reference answer ""Indian Ocean"" directly and completely. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu is also correct in substance but adds less direct phrasing, saying it is at the coast of Kenya rather than naming the southeast border explicitly. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, and 11 Gemini 3.7 Flash + Omni - Kikuyu give incorrect entities. 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu do not answer the question. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu was ignored; only the final user-facing answer was judged."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/325133fc-8f25-11f0-adbf-02420a0001fa/Generic_Q5_KI_C04.opus.wav,What is the official language of Kenya?,Nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte Kenya?,English and Swahili,Gĩthũngũ na Gĩthũeri,https://gooey.ai/agent/?run_id=05423ddrom3x&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,148.9,The official languages accepted in Kenya are English and Swahili.,https://gooey.ai/agent/?run_id=tdt9ejsymnb0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.79,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+The official languages accepted in Kenya are English and Swahili.",https://gooey.ai/agent/?run_id=oy83wkoqh3jh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.36,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+English and Swahili are the official languages recognized in Kenya.",https://gooey.ai/agent/?run_id=9gqqsbz2nbk7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.19,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+<think>
+
+**Translating official languages**
+
+I need to translate the question, ""Which language is recognized in Kenya?"" It seems like the user is asking about the official languages. I believe the official languages in Kenya are Kiswahili and English. It might be good to phrase it in a concise way. So, the shortest answer could be a single sentence stating that. Alright, I'll make sure to keep it clear and straightforward for the user!
+
+</think>
+
+Kenya’s official languages are Kiswahili and English.",https://gooey.ai/agent/?run_id=69d4yrhaqy3t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.83,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+<think>
+
+**Translating language details**
+
+I see the user wants to know about official languages in Kenya and is looking for a concise response. Kenya recognizes English and Kiswahili as its official languages. I think I should aim to summarize it into one short sentence: ""The official languages of Kenya are English and Kiswahili."" This feels straightforward and lets the user get the information quickly without extra details. Alright, let's go with that!
+
+</think>
+
+Kenya’s official languages are English and Kiswahili.",https://gooey.ai/agent/?run_id=f0w9qubv7gts&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.97,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+Kenya recognizes English and Swahili as its official languages.",https://gooey.ai/agent/?run_id=reqfp5ee6o1o&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.14,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+Kenya recognizes Swahili and English as official languages, with Swahili also serving as the national language, alongside numerous other recognized indigenous languages.",https://gooey.ai/agent/?run_id=rs39zaqk4bpj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.26,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+Kenya's official languages are English and Swahili (Kiswahili).",https://gooey.ai/agent/?run_id=48gesco99naz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.87,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+Kenya's official languages are English and Kiswahili, with Kenyan Sign Language and indigenous languages also recognized by the constitution.",https://gooey.ai/agent/?run_id=262mz512brr5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.92,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+English and Swahili are the official languages of Kenya.",https://gooey.ai/agent/?run_id=g907c35jvpco&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.86,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+English and Swahili.",https://gooey.ai/agent/?run_id=jvxpeqqd3vkm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.72,"🎧: ""nĩruthiomi ruriku rwitĩkĩrĩkĩte kenya""
+
+The recognized official languages in Kenya are English and Kiswahili.",https://gooey.ai/agent/?run_id=hmrdb7cx8jas&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""nĩ rũthiomi rũrĩkũ rwĩtĩkĩrĩkĩte kenya""
+
+The official languages of Kenya are English and Kiswahili.",1.0,1.0,1.0,1.0,1.0,1.0,0.6,1.0,0.6,1.0,1.0,1.0,1.0,"Most candidates match the reference answer exactly or with trivial wording differences, correctly identifying English and Swahili/Kiswahili as Kenya’s official languages: 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu. I ignored hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu and scored only the final answer. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu and 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu are also correct on the main point but include extra constitutional/language-status details beyond the reference, so they receive slightly lower scores for unnecessary additional information."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/40faddea-8f25-11f0-8d65-02420a0001f9/Generic_Q6_KI_C04.opus.wav,Which currency is used in Kenya?,Nĩ mbeca irĩkũ citũmĩkaga Kenya?,Kenyan Shilling,Ciringi ya Kenya,https://gooey.ai/agent/?run_id=pf9qkbqq3yfd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,148.05,The currency used in Kenya is the Kenyan Shilling.,https://gooey.ai/agent/?run_id=qj0qjcpz9aqq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.68,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=2uqm93du73k6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.77,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+The currency used in Kenya is the Kenyan shilling.",https://gooey.ai/agent/?run_id=6uaxoxqbbri0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.41,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+<think>
+
+**Clarifying currency in Kenya**
+
+I need to understand Kikuyu, particularly the phrase ""ni beca ireko cithomekaga Kenya,” which may translate to a question about the currency used in Kenya. The Kikuyu phrase for asking “What money is used in Kenya” is ""mbeca iriku cithomekaga Kenya."" The answer to this would simply be the Kenyan shilling. Keeping it concise is essential! Just one sentence should do the trick for clarity.
+
+</think>
+
+Kenya uses the Kenyan shilling.",https://gooey.ai/agent/?run_id=lqbcsg9eogng&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.57,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+<think>
+
+**Interpreting currency questions**
+
+I need to interpret the user's question about the Kikuyu language. It seems like they're asking, ""Which money is used in Kenya?"" I should focus on providing a clear, concise response. The answer involves giving a short sentence in English about the currency used in Kenya, which is likely the Kenyan Shilling. I'll make sure to keep it straightforward since that's what the user is looking for!
+
+</think>
+
+Kenya uses the Kenyan shilling (KES).",https://gooey.ai/agent/?run_id=sc22w4dropgf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.2,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+Bean prices in Kenya rise mainly due to poor harvests from drought, high demand, and increased transport or import costs.",https://gooey.ai/agent/?run_id=hl48v9uiceb0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.66,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+In Kenya, the currency used is the Kenyan Shilling (KES).",https://gooey.ai/agent/?run_id=0xu20kcgjdeb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.64,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+Kenya uses banknotes of 50, 100, 200, 500, and 1000 shillings, and coins of 1, 5, 10, 20, and 40 shillings.",https://gooey.ai/agent/?run_id=efjgpatveck2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.92,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+The currency used in Kenya is the Kenyan Shilling (KES).",https://gooey.ai/agent/?run_id=4gheq2729hw9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.57,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+Public schools in Kenya are free, but students pay for uniforms and supplies.",https://gooey.ai/agent/?run_id=mkkopee4kcld&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.06,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=jesfo124ipsw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.32,"🎧: ""nĩbeca ireko cĩthomekaga kenya""
+
+The official currency used in Kenya is the Kenyan Shilling.",https://gooey.ai/agent/?run_id=w50fsxtwc9vb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.3,"🎧: ""nĩ mbeca irĩkũ citũmĩkaga kenya""
+
+The currency used in Kenya is the Kenyan Shilling.",1.0,1.0,1.0,1.0,0.8,0.0,0.8,0.2,0.8,0.0,1.0,1.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu match the reference answer exactly or with only trivial wording differences. 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, and 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu are correct but add the currency code KES, so they are slightly more verbose than the reference. 5 Claude Sonnet 5 + Omni - Kikuyu and 9 DeepSeek V4 + Omni - Kikuyu are incorrect and answer different questions. 7 Kimi K3 + Omni - Kikuyu mentions denominations rather than directly naming the currency, so it preserves only a small part of the intended meaning."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/4f53af48-8f25-11f0-8d65-02420a0001f9/Generic_Q7_KI_C04.opus.wav,What large lake is found in western Kenya?,Nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa Kenya?,Lake Victoria,Iria rĩa Victoria,https://gooey.ai/agent/?run_id=4od3hbgwzjjo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,18.67,Lake Victoria is the largest lake located in the western part of Kenya.,https://gooey.ai/agent/?run_id=0sfimgt4e3vp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.44,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+Lake Victoria is the largest lake found in western Kenya.",https://gooey.ai/agent/?run_id=yumkpp5wlm7u&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.12,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+Lake Victoria is the largest lake found in western Kenya.",https://gooey.ai/agent/?run_id=k3aaputray0b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.41,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+<think>
+
+**Translating Kikuyu**
+
+I need to translate the Kikuyu question about the largest lake on the western side of Kenya. It seems like Lake Victoria is the answer. I want to keep the response short, just one sentence to maintain clarity. Translating effectively and concisely will be essential to make sure the meaning is clear in the Kikuyu language. Let's see how best to phrase this while keeping it simple!
+
+</think>
+
+Lake Victoria.",https://gooey.ai/agent/?run_id=wnlspeh5jxz1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.39,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+<think>
+
+**Translating lake information**
+
+I need to translate the question about the largest lake on the western side of Kenya. It seems like it might be referring to “Iria” Lake, but I realize that it’s actually Lake Victoria. So, I’ll concisely phrase the answer in a single sentence, ensuring that I clearly state it is Lake Victoria. This way, I can provide a straightforward and accurate response.
+
+</think>
+
+Lake Victoria is the largest lake in western Kenya.",https://gooey.ai/agent/?run_id=wmxkmmvlumgw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.4,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+The Indian Ocean is the large body of water along Kenya's coast.",https://gooey.ai/agent/?run_id=2ugaoju0pahp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.79,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+The Indian Ocean is located to the east of Kenya, not the west — Kenya does not border a large lake or sea on its western side, but Lake Victoria is the major lake located in western Kenya.",https://gooey.ai/agent/?run_id=j806t4f3t3e2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.65,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+Lake Turkana is the largest lake in Kenya.",https://gooey.ai/agent/?run_id=yq17gawl6z86&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.86,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+The largest lake in western Kenya is Lake Victoria.",https://gooey.ai/agent/?run_id=xkqvhhml1od4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.94,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+Lake Turkana is the largest lake in Kenya's Rift Valley.",https://gooey.ai/agent/?run_id=nsoaqel3bfh5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.89,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+Lake Victoria is the largest lake on the western side of Kenya.",https://gooey.ai/agent/?run_id=rshl8m0fjykj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.38,"🎧: ""ni iria ririku inene rikoragwa mwina wa ithuiro wa kenya""
+
+The largest lake located in western Kenya is Lake Victoria.",https://gooey.ai/agent/?run_id=fvl80qn5helx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.27,"🎧: ""nĩ iria rĩrĩkũ inene rĩkoragwo mwena wa ithũĩro wa kenya""
+
+Lake Victoria is the large lake located in western Kenya.",0.8,0.8,0.8,1.0,0.8,0.0,0.6,0.0,0.8,0.0,0.8,0.8,0.8,"3 GPT 5.6 Sol + Omni - Kikuyu matches the reference answer exactly after ignoring the hidden reasoning block. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Lake Victoria but add extra descriptive wording, so they are slightly below exact-match level. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu eventually gives Lake Victoria but includes substantial extra and partially misleading context before the answer. 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, and 9 DeepSeek V4 + Omni - Kikuyu give incorrect answers, naming the Indian Ocean or Lake Turkana instead of Lake Victoria."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/5dbe20c2-8f25-11f0-b213-02420a0001f8/Generic_Q9_KI_C06.opus.wav,Which mountain is the highest in Kenya?,Nĩ kĩrĩma kĩrĩkũ kĩraihu mũno Kenya?,Mount Kenya,Mount Kenya,https://gooey.ai/agent/?run_id=brkw6k2dq7wu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.15,Mount Kenya is the highest mountain in Kenya.,https://gooey.ai/agent/?run_id=hvzpzo26v9a3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.07,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=k43wqve0hah4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.59,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+The tallest mountain in Kenya is Mount Kenya.",https://gooey.ai/agent/?run_id=c28jutfmy5cx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.03,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+<think>
+
+**Translating Kikuyu questions**
+
+I need to translate and understand the Kikuyu phrase. It seems like it might be asking about which county or place is very hot in Kenya, possibly pointing towards Turkana. The sentence structure might indicate that it’s inquiring about something that's currently expensive, or maybe even a salty lake. I also suspect ""kĩrĩma"" refers to mountains, which leads me to think it may be asking, ""Which mountain is tallest in Kenya?"" The likely answer would be Mount Kenya.
+
+</think>
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=p2w2tf7lnx0s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.76,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+<think>
+
+**Interpreting mountain queries**
+
+I'm thinking about how to interpret the question about the tallest mountain in Kenya. The user mentioned ""Kĩramũ,"" which likely refers to Mount Kenya. So, I should answer with a concise statement: ""The tallest mountain in Kenya is Mount Kenya."" Keeping it short and straightforward feels right for clarity! Let's make sure it's precise in conveying the information.
+
+</think>
+
+Mount Kenya is the highest mountain in Kenya.",https://gooey.ai/agent/?run_id=2ib0jceghlid&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.25,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=l7qbp3yec7dk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.23,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=6q6q4gy98xxm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.01,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+Leafy vegetables like sukuma wiki (kale), spinach, and amaranth (terere) are among the fastest-maturing crops in Kenya, ready for harvest in about 4–6 weeks.",https://gooey.ai/agent/?run_id=ugnw5vspy1g5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.08,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+The giraffe is the tallest animal in Kenya.",https://gooey.ai/agent/?run_id=609oqmyzmy8w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.2,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+The cheetah is the fastest animal in Kenya.",https://gooey.ai/agent/?run_id=1hh6y3i8pnfy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.78,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=84q0ubqbo01m&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.61,"🎧: ""nĩ kĩramũ kĩrĩ kũ kĩrahĩhĩu mũno kenya""
+
+Mandera is the hottest place in Kenya.",https://gooey.ai/agent/?run_id=sv9gdi7eo1ci&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.65,"🎧: ""nĩ kĩramũ kĩrĩkũ kĩraihiũ mũno kenya""
+
+Mount Kenya is the tallest mountain in Kenya.",1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Mount Kenya as the highest/tallest mountain in Kenya, matching the reference answer. For 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, hidden reasoning was ignored and only the final user-facing answer was judged. 5 Claude Sonnet 5 + Omni - Kikuyu says it does not know, while 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu answer with the Tana River, 7 Kimi K3 + Omni - Kikuyu discusses crops, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu names the giraffe, 9 DeepSeek V4 + Omni - Kikuyu names the cheetah, and 11 Gemini 3.7 Flash + Omni - Kikuyu names Mandera, so these are incorrect."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/6ff5f63e-8f25-11f0-8ba3-02420a0001fc/Generic_Q10_KI_C06.opus.wav,Which is the main port city in Kenya?,Nĩ mũciĩ ũrĩkũ ũrĩ gĩcukĩro kĩnene kĩa meeri Kenya?,Mombasa,Mombatha,https://gooey.ai/agent/?run_id=e751vhuo7rum&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,43.29,I don't know.,https://gooey.ai/agent/?run_id=zq53gd53n0e7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.08,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+Mombasa has the largest seaport in Kenya.",https://gooey.ai/agent/?run_id=8n5ac5qmxkbl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.8,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+Mombasa is the city with the largest seaport in Kenya.",https://gooey.ai/agent/?run_id=ji84fobz7b4w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.86,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+<think>
+
+**Interpreting Kikuyu Location Queries**
+
+I need to interpret the Kikuyu questions regarding which town has the biggest railway station and largest port in Kenya. The translation suggests looking for ""gĩcĩkĩro kĩnene kĩa meeri,"" which refers to the largest port—Mombasa is the correct answer for the town with the largest ship dock. I’ll aim for a concise single-sentence response that captures these points effectively.
+
+</think>
+
+Mombasa has Kenya’s largest seaport.",https://gooey.ai/agent/?run_id=ut8gnmi4bdxv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.35,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+<think>
+
+**Translating to Kikuyu**
+
+I need to translate a question into Kikuyu: ""Which town has the main headquarters of the Kenya Navy?"" I think the answer is that the Kenya Navy HQ is in Mombasa, specifically in Mtongwe. I should aim for a concise one-sentence response to keep it brief and clear. So it’ll be important to phrase it properly for clarity while ensuring it’s as direct as possible!
+
+</think>
+
+The Kenya Navy headquarters is in Mombasa.",https://gooey.ai/agent/?run_id=6jw0pzrlj64e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.82,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+I don't know",https://gooey.ai/agent/?run_id=f3zf005xp4xc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.27,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=d2hc6rwpq189&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.83,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+Nairobi is the largest milk collection and processing hub in Kenya, hosting major New KCC and Brookside dairy plants.",https://gooey.ai/agent/?run_id=6n3sptr085jo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,44.98,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+Nairobi is the town that hosts Kenya's biggest national events and gatherings.",https://gooey.ai/agent/?run_id=tuzko4n1cy0k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.39,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+October",https://gooey.ai/agent/?run_id=gz5gfganjd93&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.44,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+Marsabit County.",https://gooey.ai/agent/?run_id=wuzeu83i93tq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.63,"🎧: ""nĩ mũci irĩku urĩ gũcĩkĩro kĩnene kĩa meeri kenya""
+
+Mombasa is the city with the largest seaport in Kenya.",https://gooey.ai/agent/?run_id=v53e8m1wnlqx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.37,"🎧: ""nĩ mũciĩ irĩkũ ũrĩ gũcĩkĩro kĩnene kĩa meri kenya""
+
+Mombasa has the largest seaport in Kenya.",0.0,0.8,0.8,0.8,0.4,0.0,0.0,0.0,0.0,0.0,0.0,0.8,0.8,"Reference answer is Mombasa. After ignoring hidden reasoning blocks, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Mombasa as Kenya’s main/largest port city but add explanatory wording, so they score 0.8 rather than 1.0. 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu mentions Mombasa but answers a different question about the Kenya Navy headquarters, so it preserves only limited overlap and scores 0.4. 0 Gemini 3.1 Pro - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, and 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu say they do not know, while 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu give incorrect answers, so they score 0."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/7f394308-8f25-11f0-9b44-02420a0001f9/Generic_Q11_KI_C06.opus.wav,Which Kenyan athlete is famous for long-distance running and holds the marathon world record?,"Nĩ mũteng’eri ũrĩku wa Kenya ũrĩ igweta
+rĩa mahenya ma ng'ongo na ũigĩte rekodi
+ya thĩ ya marathon?",Eliud Kipchoge,Eliud Kipchoge,https://gooey.ai/agent/?run_id=wd9nxvvj5wdu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.43,Kelvin Kiptum is the Kenyan long-distance runner who holds the world record for the marathon.,https://gooey.ai/agent/?run_id=1e0fz61oegwn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.16,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+Kelvin Kiptum is the famous Kenyan long-distance runner who currently holds the world marathon record.",https://gooey.ai/agent/?run_id=311xqcahgtqd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.64,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+The late Kelvin Kiptum holds the current official marathon world record, though Eliud Kipchoge is also widely celebrated for his historic marathon achievements.",https://gooey.ai/agent/?run_id=p3jzkjykfibh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.07,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+<think>
+
+</think>
+
+Kelvin Kiptum holds the men’s marathon world record.",https://gooey.ai/agent/?run_id=n7gp90qbl6vv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.72,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+<think>
+
+</think>
+
+Eliud Kipchoge.",https://gooey.ai/agent/?run_id=idijpoz8k988&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.38,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+Eliud Kipchoge is the Kenyan runner famous for marathon world records, including breaking the two-hour marathon barrier.",https://gooey.ai/agent/?run_id=7s2ucnrkqbtn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.16,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+The world record holder in the marathon and a prominent Kenyan runner is Eliud Kipchoge.",https://gooey.ai/agent/?run_id=jktksxwtz9dj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.75,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+Kelvin Kiptum, who ran 2:00:35 at the 2023 Chicago Marathon, holds the marathon world record.",https://gooey.ai/agent/?run_id=lwvfhj93vqbz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.98,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+Kelvin Kiptum is the Kenyan runner who holds the marathon world record with a time of 2:00:35, set at the 2023 Chicago Marathon.",https://gooey.ai/agent/?run_id=b7ny3s68suei&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.55,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+I don't know",https://gooey.ai/agent/?run_id=optx1y9wkvk0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.77,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+Eliud Kipchoge.",https://gooey.ai/agent/?run_id=40ts79hmte03&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.07,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igweta ria mahenya ma ng'ong'o na ũigite rekodi ya thi ya marathon""
+
+Kelvin Kiptum holds the marathon world record, and Eliud Kipchoge is also globally renowned for his record-breaking marathon achievements.",https://gooey.ai/agent/?run_id=wadyr1j941ih&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.3,"🎧: ""nĩ mũteng'eri ũrĩkũ wa kenya ũrĩ igwetaria mahenya ma ng'ongo na ũigite rekũndi ya thii ya marathon""
+
+Kelvin Kiptum holds the world record in the marathon.",0.0,0.0,0.2,0.0,1.0,0.8,0.8,0.0,0.0,0.0,1.0,0.4,0.0,"The reference answer is Eliud Kipchoge. 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu exactly match after ignoring hidden reasoning blocks, so they receive 1.0. 5 Claude Sonnet 5 + Omni - Kikuyu and 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu correctly identify Eliud Kipchoge but add extra or slightly inaccurate detail about the world record, so they receive 0.8. 11 Gemini 3.7 Flash + Omni - Kikuyu mentions Eliud Kipchoge but primarily answers with Kelvin Kiptum, making it only partially aligned, so 0.4. 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu mentions Eliud Kipchoge only as an alternative while naming Kelvin Kiptum as the main answer, so 0.2. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu answer Kelvin Kiptum instead of the reference, so 0. 9 DeepSeek V4 + Omni - Kikuyu says it does not know, so 0."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/8bd47a9c-8f25-11f0-b273-02420a0001f8/Generic_Q12_KI_C06.opus.wav,Which traditional Kenyan dish is made of maize and beans?,Nĩ irio irĩkũ cia Kenya cia ũndũire irugagwo na mbembe na mboco?,Githeri,Gĩtherĩ,https://gooey.ai/agent/?run_id=zx824sneexnd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.93,Githeri is the traditional Kenyan food cooked with maize and beans.,https://gooey.ai/agent/?run_id=3nvml0sw3xou&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.55,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+Githeri is the traditional Kenyan food made with maize and beans.",https://gooey.ai/agent/?run_id=14meslncl6p8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.84,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+Githeri is the traditional Kenyan food cooked with maize and beans.",https://gooey.ai/agent/?run_id=k1bb7pngqiru&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.7,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+<think>
+
+</think>
+
+Githeri is a Kenyan traditional dish made from maize and beans.",https://gooey.ai/agent/?run_id=y4tl0g5fredm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.98,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+<think>
+
+**Translating food query**
+
+The Kikuyu user is asking about a traditional Kenyan dish made with maize and beans. The answer is simple: it's called Githeri. I should keep it brief and to the point, as that's what the situation demands. Making sure to translate accurately helps provide the user with useful information quickly! So, I’ll confirm that Githeri is the dish they’re asking about.
+
+</think>
+
+Githeri is a Kenyan dish made from maize and beans.",https://gooey.ai/agent/?run_id=o3mn86b5r3zd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.34,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+I don't know.",https://gooey.ai/agent/?run_id=92wefnurvc3w&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,38.02,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+Githeri (a traditional Kenyan dish made from boiled maize and beans).",https://gooey.ai/agent/?run_id=xnsao1kq4chx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.61,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+Githeri is the traditional Kenyan dish made by boiling maize (mbembe) and beans (mboco) together.",https://gooey.ai/agent/?run_id=eqlhhg66wnbu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.43,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+Githeri is the traditional Kenyan dish cooked with maize and beans.",https://gooey.ai/agent/?run_id=1iwd462r7i4d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.64,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+I don't know",https://gooey.ai/agent/?run_id=dqot6qmdsjs1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.03,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+Githeri is the traditional Kenyan dish cooked with maize and beans.",https://gooey.ai/agent/?run_id=w96bimlycrme&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.26,"🎧: ""nĩirio ĩrĩko cia kenya cia ũndũire ĩrũngaguo na bebe na boco""
+
+The traditional Kenyan food made with maize and beans is githeri.",https://gooey.ai/agent/?run_id=6fb90t5ow10d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.0,"🎧: ""nĩ irio ĩrĩkũ cia kenya cia ũndũire ĩrũgagwo na mbembe na mboco""
+
+The traditional Kenyan dish made from maize and beans is githeri.",0.8,0.8,0.8,0.8,0.8,0.0,0.8,0.8,0.8,0.0,0.8,0.8,0.8,"The reference answer is ""Githeri""/""Gĩtherĩ"". After ignoring transcription lines and hidden reasoning blocks, 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu all correctly identify Githeri, though most add explanatory text, so they receive 0.8 rather than 1.0. 5 Claude Sonnet 5 + Omni - Kikuyu and 9 DeepSeek V4 + Omni - Kikuyu answer ""I don't know,"" which does not match the reference, so they receive 0."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/132a83b0-8f26-11f0-b588-02420a0001f8/Generic_Q13_KI_C06.opus.wav,Which river is the longest in Kenya?,Nĩ rũũĩ rũrĩkũ rũraihu mũno Kenya?,Tana River,Rũũĩ rũa Tana,https://gooey.ai/agent/?run_id=g5bv96eo868y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,41.12,The Tana River is the longest river in Kenya.,https://gooey.ai/agent/?run_id=in6ut43il3x6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.3,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=dr41gmj713da&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.25,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=ir12yirwpjig&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.48,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+<think>
+
+**Translating Kikuyu query**
+
+I need to translate the Kikuyu query: ""nĩrori rũriku rũraihio mũno Kenya"". It probably means ""which river is the longest in Kenya?"" I think ""rũũĩ"" refers to ""river."" So, a clearer version could be ""nĩ rũũĩ rũrĩkũ rũraihu mũno Kenya."" The answer is Tana River. I need to keep this as concise as possible, aiming for a single short sentence.
+
+</think>
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=snou3qa9eh4f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.49,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+<think>
+
+**Interpreting Kikuyu Context**
+
+I need to interpret Kikuyu. The phrase ""ni lori ruriku ruraihu muno Kenya"" likely translates to ""which is the longest river in Kenya?"" It seems like ""rũũĩ"" might refer to ""river,"" instead of ""rori."" The clearer phrase, ""nĩ rũũĩ rũrĩkũ rũraihu mũno Kenya,"" confirms it's asking, ""Which river is longest in Kenya?"" I’ll just keep the answer simple: it's the Tana River.
+
+</think>
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=eydh4n74mldl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.98,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+The longest river in Kenya is the Tana River.",https://gooey.ai/agent/?run_id=9c6ms9yd2wpp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.35,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+The longest road in Kenya is the A2 Trunk Road (Mombasa–Nairobi–Addis Ababa route through Isiolo, Marsabit, Moyale).",https://gooey.ai/agent/?run_id=erue9e98ggrb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.37,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+The Tana River is the longest river in Kenya.",https://gooey.ai/agent/?run_id=qajwipskoohj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.33,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=1380cc79cc4u&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.25,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+Tana River.",https://gooey.ai/agent/?run_id=u7bpbnb3kicv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.22,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+The longest road in Kenya is the A1.",https://gooey.ai/agent/?run_id=epujb9sh9nz5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.62,"🎧: ""nĩrori rũriku rũraihio mũno kenya""
+
+Maize is the most widely grown crop in Kenya.",https://gooey.ai/agent/?run_id=rxf7k3r8cylg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.93,"🎧: ""nĩ rori rũriku rũraihu mũno kenya""
+
+The longest river in Kenya is the Tana River.",1.0,1.0,1.0,1.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Tana River, matching the reference answer; for 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, hidden reasoning was ignored and only the final answer was judged. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu answer about roads instead of the river, 11 Gemini 3.7 Flash + Omni - Kikuyu answers about a crop, and 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu says it does not know, so these are incorrect."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/261b5b52-8f26-11f0-8a82-02420a0001fa/Generic_Q14_KI_C07.ogg.wav,Name any one of Kenya’s neighboring countries.,Gweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na Kenya.,"Uganda, Tanzania, Somalia, Ethiopia, or South Sudan","Uganda, Tanzania, Somalia, Ethiopia, kana Sudan ya Mũhuro",https://gooey.ai/agent/?run_id=fyxh92xik7rj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,144.81,I don't know.,https://gooey.ai/agent/?run_id=hqa3m90ymnfm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.49,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=bu60nq1pcfkt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.38,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+Uganda is one of the countries that border Kenya.",https://gooey.ai/agent/?run_id=u6wpg70ki1w4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+<think>
+
+**Interpreting text**
+
+I need to interpret Kikuyu text: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya."" It likely translates to ""name any one country bordering Kenya."" The answer should be concise, so I’ve settled on Uganda as the shortest response. I want to make sure I get this right, as it’s important to deliver clear and accurate information to the user. I'm curious how this interpretation will help!
+
+</think>
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=74x5i5gx56uv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.25,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+<think>
+
+**Providing a quick response**
+
+I need to translate the question: “Name one country bordering Kenya.” The answer is straightforward: Uganda. It's a single-sentence response, and I want to keep it as concise as possible. So, I’ll just mention that Uganda borders Kenya. This should satisfy the request efficiently! I need to ensure the answer is clear and to the point, keeping it simple for easy understanding.
+
+</think>
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=zdfj7xfwcqog&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.63,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+Tanzania.",https://gooey.ai/agent/?run_id=fdqvbfm9x2ce&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.57,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+Kenya's neighboring countries include Ethiopia, Somalia, Tanzania, Uganda, and South Sudan.",https://gooey.ai/agent/?run_id=iafbn8x334vu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.59,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+The Tana River is the longest river in Kenya, stretching about 1,000 km.",https://gooey.ai/agent/?run_id=uvei6hx3h63g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.9,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+Uganda is one of the countries that border Kenya.",https://gooey.ai/agent/?run_id=td36ftkx6n1y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.62,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+Fertilizers are substances that provide nutrients to plants; one available in Kenya is DAP (diammonium phosphate).",https://gooey.ai/agent/?run_id=fzov1b1wszl9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.77,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+Uganda borders Kenya.",https://gooey.ai/agent/?run_id=kgz0pvloti2e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.09,"🎧: ""wata fururi orowothe umwe wa mafururi maria mahakaine na kenya""
+
+Uganda is one of the countries that borders Kenya.",https://gooey.ai/agent/?run_id=6pcvjpq2bbp9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.62,"🎧: ""mweta bũrũri oro wothe ũmwe wa mabũrũri marĩa mahakaine na kenya""
+
+Uganda borders Kenya.",0.0,1.0,1.0,1.0,1.0,1.0,0.6,0.0,1.0,0.0,1.0,1.0,1.0,"1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu give a correct neighboring country of Kenya, matching the reference. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu is also correct but includes a list of multiple neighboring countries rather than naming just one, so it has extra information. 0 Gemini 3.1 Pro - Kikuyu says it does not know, while 7 Kimi K3 + Omni - Kikuyu and 9 DeepSeek V4 + Omni - Kikuyu are unrelated and incorrect."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/41bc6400-8f26-11f0-b588-02420a0001f8/Generic_Q15_KI_C07.ogg.wav,What is the major airport in Nairobi called?,Kĩharo kĩrĩa kĩnene kĩa ndege Nairobi gĩtagwo atĩa?,Jomo Kenyatta International Airport,Jomo Kenyatta International Airport,https://gooey.ai/agent/?run_id=voinmjch9th5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.4,The biggest airport in Nairobi is Jomo Kenyatta International Airport.,https://gooey.ai/agent/?run_id=zote525lfkfl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.25,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+The biggest airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=gyhz3epa9pjz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.86,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+The biggest airport in Nairobi is called Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=v3kru0fj3v0z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.54,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+<think>
+
+**Interpreting Kikuyu**
+
+I’m trying to interpret a garbled Kikuyu phrase: “kĩharo kĩrĩa kĩna ... degena iro fijirta guatea.” It seems like it might be asking about a disease, but the audio transcription is unclear. If I’m not sure about the interpretation, it’s probably best to acknowledge that uncertainty. Being clear about what I don't know will help here. Let's see if I can clarify or find the context more accurately!
+
+</think>
+
+I don't know.",https://gooey.ai/agent/?run_id=ayfkgzgpalqw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.72,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+<think>
+
+</think>
+
+It is called Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=ql9c2vxwef4r&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.66,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+I don't know.",https://gooey.ai/agent/?run_id=kyvezgg6urez&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.09,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+Jomo Kenyatta International Airport.",https://gooey.ai/agent/?run_id=72ma9enxq0w5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.16,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+I don't know.",https://gooey.ai/agent/?run_id=3sh1sekbhce9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.96,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+Kenya's largest airport is Jomo Kenyatta International Airport (JKIA) in Nairobi, and its largest seaport for ships is the Port of Mombasa.",https://gooey.ai/agent/?run_id=v3veozoq185m&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.8,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+I don't know",https://gooey.ai/agent/?run_id=gz873sg61sgc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.71,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+It is called an airport.",https://gooey.ai/agent/?run_id=6qkah1nt104t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.9,"🎧: ""kĩharo kĩrĩa kĩna nekĩa degena iro fijirta guatea""
+
+I don't know.",https://gooey.ai/agent/?run_id=3va0onb1xc41&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.62,"🎧: ""kĩharo kĩrĩa kĩnene kĩa ndege na irũbi gĩtagwo atĩa""
+
+The largest airport in Europe is Istanbul Airport.",1.0,1.0,1.0,0.0,1.0,0.0,1.0,0.0,0.6,0.0,0.0,0.0,0.0,"0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, and 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu match the reference answer ""Jomo Kenyatta International Airport"" exactly or with only minor wording changes. 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu includes the correct airport but adds unnecessary extra information about the Port of Mombasa, so it is mostly accurate but too verbose. 3 GPT 5.6 Sol + Omni - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 11 Gemini 3.7 Flash + Omni - Kikuyu answer ""I don't know,"" which does not match the reference. 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu gives a generic label (""airport"") rather than the airport's name. 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu gives a wrong airport entirely."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/4dc238ce-8f26-11f0-abb2-02420a0001fc/Generic_Q16_KI_C07.ogg.wav,Which Kenyan town is famous for its tea production?,Nĩ taũni ĩrĩkũ ya Kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa macani?,Kericho,Kĩricũ,https://gooey.ai/agent/?run_id=p7trw3geugeh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,61.53,"The towns in Kenya most famous for tea farming are Kericho, Nandi Hills, and Limuru.",https://gooey.ai/agent/?run_id=1ki0ykz8cp0s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.32,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+Kericho is the town in Kenya famous for tea farming.",https://gooey.ai/agent/?run_id=4j8pcbxp3aka&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.2,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+Kericho is the town in Kenya most famous for tea farming.",https://gooey.ai/agent/?run_id=gelgry1mnev3&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.45,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+<think>
+
+**Exploring sisal farming towns**
+
+I need to translate the question: ""Which town in Kenya is known for sisal farming?"" I think it's likely Thika associated with sisal. However, Voi is another contender, as it's known for sisal plantations too. Mombasa might come up, but it doesn't seem as relevant. I can recall that towns like Thika are famous for pineapples, Kericho for tea, and Nakuru for pyrethrum. It's best to keep the answer concise.
+
+</think>
+
+Voi is known for sisal farming in Kenya.",https://gooey.ai/agent/?run_id=gc8cko0zs8b8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.79,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+<think>
+
+**Identifying tea town in Kenya**
+
+I need to figure out which town in Kenya is known for tea farming. My best guess is Kericho, as it’s famous for its tea production. I should keep my response concise since the user asked for a short sentence. I'll make sure to confirm that this information is clear and accurate in my response. Alright, let's go with Kericho!
+
+</think>
+
+Kericho is famous for tea farming in Kenya.",https://gooey.ai/agent/?run_id=qba6speb3s6f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.82,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+Nairobi is not known for coffee farming—rather, Kiambu County (particularly around Thika) is renowned for coffee farming in Kenya.",https://gooey.ai/agent/?run_id=szhs0p2syyza&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.95,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+Kericho is renowned for tea farming.",https://gooey.ai/agent/?run_id=9qqjknk1nouy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.66,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+Kieni town in Nyeri County is the most famous for onion farming in Kenya.",https://gooey.ai/agent/?run_id=26bt13i6sqlp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.19,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+Thika is the Kenyan town most famously associated with macadamia (macani) farming.",https://gooey.ai/agent/?run_id=2n4z4j5frktw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.78,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+Thika is the town in Kenya famous for passion fruit farming.",https://gooey.ai/agent/?run_id=k1heyfa7tjjm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+Kericho.",https://gooey.ai/agent/?run_id=653mh6k0zeyl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.17,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩũndũ wa ũrĩmi wa masani""
+
+Kericho is the town in Kenya famous for tea farming.",https://gooey.ai/agent/?run_id=4qgx9qepa91c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.03,"🎧: ""nĩ taũni ĩrĩkũ ya kenya ĩrĩ igweta nĩ ũndũ wa ũrĩmi wa macani""
+
+Kericho is the most famous town in Kenya for tea farming.",0.6,0.8,0.8,0.0,0.8,0.0,0.8,0.0,0.0,0.0,1.0,0.8,0.8,"Reference answer is Kericho. 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu matches exactly, so it gets 1.0. 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Kericho but include extra explanatory wording, so they get 0.8. 0 Gemini 3.1 Pro - Kikuyu includes Kericho but adds other towns, making it less precise, so it gets 0.6. 3 GPT 5.6 Sol + Omni - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, and 9 DeepSeek V4 + Omni - Kikuyu give incorrect towns or crops, so they get 0."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/5f83a75a-8f26-11f0-abb2-02420a0001fc/Generic_Q17_KI_C03.opus.wav,In which year did Kenya gain independence from Britain?,Nĩ mwaka ũrĩkũ Kenya yagĩire na wĩyathi kuuma Ngeretha?,1963,1963,https://gooey.ai/agent/?run_id=7sefxbqeblqn&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.34,Kenya gained independence in 1963.,https://gooey.ai/agent/?run_id=i0saolgvjsv1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.23,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+Kenya gained independence in 1963.",https://gooey.ai/agent/?run_id=loikhjr3l1wb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.46,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=curk9aidp14y&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.48,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+<think>
+
+**Translating independence date**
+
+I need to translate the question: ""What year did Kenya gain independence from Britain?"" The answer is straightforward: Kenya gained independence on December 12, 1963. Since the user seems to want a single, concise sentence, I’ll keep it simple and direct, providing just the necessary details without extra fluff. It’s all about making sure the response is clear and informative. So, I’ll get that ready!
+
+</think>
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=788m5k0oxdmz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.41,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+<think>
+
+**Translating independence inquiry**
+
+I need to translate the question: ""Which year did Kenya gain independence from Britain?"" into a concise answer. The answer is brief: Kenya gained independence in 1963. I'll make sure to keep it simple and straightforward, just one sentence, as instructed. It's always good to provide clear and to-the-point answers!
+
+</think>
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=8jfh706xd9wc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.9,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=rntx25rkqghp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.22,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=dh1065ethib6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.35,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=h22ah8e6rsa0&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,4.86,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=ngi5shl0w6x2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.74,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=45lvl0wd9qju&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.57,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+Kenya gained independence from Britain in 1963.",https://gooey.ai/agent/?run_id=o9ug8dc972f7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.1,"🎧: ""ni mwaka ũrĩkũ kenya yaagĩĩre na wĩathi kũũma ngeretha""
+
+Kenya gained independence in 1963.",https://gooey.ai/agent/?run_id=kintstw91477&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.95,"🎧: ""nĩ mwaka ũrĩkũ kenya yagĩire na wĩyathi kuma ngeretha""
+
+Kenya gained independence from Britain in 1963.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates correctly give the independence year as 1963, matching the reference answer. Per instructions, hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu was ignored, and the visible extra context/transcription in several candidates does not change the correctness of the final answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/701c53e6-8f26-11f0-9b44-02420a0001f9/Generic_Q18_KI_C03.opus.wav,Who was the first president of Kenya?,Nũũ warĩ mũtongoria wa mbere wa bũrũri wa Kenya?,Jomo Kenyatta,Jomo Kenyatta,https://gooey.ai/agent/?run_id=a0wip53lwjtm&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.59,Jomo Kenyatta was the first president of Kenya.,https://gooey.ai/agent/?run_id=5kpcabzkb66v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.4,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+The first president of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=1f5ulf0u1lld&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.97,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+Jomo Kenyatta was the first president of Kenya.",https://gooey.ai/agent/?run_id=8cscmtmdii3q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.29,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+<think>
+
+</think>
+
+Kenya’s first president was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=dsmsa9ga61j4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+<think>
+
+**Translating leadership in Kenya**
+
+I need to find the translation for ""Who was the first leader/president of Kenya?"" The phrase in Kikuyu seems to be ""mũtongoria wa mbere wa bũrũri wa Kenya,"" suggesting a reference to the first president, which is likely Jomo Kenyatta. It looks like I should keep it simple and use a single short sentence for clarity.
+
+</think>
+
+Jomo Kenyatta was the first President of Kenya.",https://gooey.ai/agent/?run_id=8lkxl0zwsjtx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.25,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=qyc58kku7x6u&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.44,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+Jomo Kenyatta was the first President of Kenya.",https://gooey.ai/agent/?run_id=acn13zyxm1ou&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.58,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+Jomo Kenyatta was the first president of Kenya.",https://gooey.ai/agent/?run_id=403742ds1w07&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.36,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+The first President of Kenya was Jomo Kenyatta, who led the country from independence in 1963 until his death in 1978.",https://gooey.ai/agent/?run_id=ffvkzc7sedgs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.62,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+Jomo Kenyatta was the first president of Kenya.",https://gooey.ai/agent/?run_id=lhjupys94a09&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.53,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+Jomo Kenyatta was the first President of Kenya.",https://gooey.ai/agent/?run_id=u980wh14gqzq&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.97,"🎧: ""nũ warĩ mũtogori awa bere wa fũrũri wa kenya""
+
+The first leader of Kenya was Jomo Kenyatta.",https://gooey.ai/agent/?run_id=4jgbwntwlv6z&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.84,"🎧: ""nũ ũwarĩ mũtongoria wa mbere wa bũrũri wa kenya""
+
+The first leader of Kenya was Jomo Kenyatta.",1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,0.6,1.0,1.0,0.8,0.8,"Most candidates correctly identify Jomo Kenyatta as the first president of Kenya, matching the reference answer. Hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu was ignored, leaving correct final answers. 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu is correct but adds substantial extra biographical detail, so it is penalized for verbosity. 11 Gemini 3.7 Flash + Omni - Kikuyu and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu preserve the core meaning but say ""leader"" instead of ""president,"" making them slightly less exact. 5 Claude Sonnet 5 + Omni - Kikuyu is incorrect because it does not provide the answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/7e78c744-8f26-11f0-9b44-02420a0001f9/Generic_Q19_C03.opus.wav,Name the Kenyan Nobel Peace Prize laureate who founded the Green Belt Movement.,Gweta Mũkenya ũrĩa wahotanire ngerenwa ya Nobel Peace Prize ũrĩa wambĩrĩirie Green Belt Movement.,Wangari Maathai,Wangarĩ Maathai,https://gooey.ai/agent/?run_id=m6er7qiuzjfr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.85,Wangari Maathai is the Kenyan who founded the Green Belt Movement and won the Nobel Peace Prize.,https://gooey.ai/agent/?run_id=p51x3ys8j3v2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.88,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+Wangari Maathai is the Kenyan who won the Nobel Peace Prize and founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=r5npjitii7dg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.53,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+Wangari Maathai is the Kenyan who won the Nobel Peace Prize and started the Green Belt Movement.",https://gooey.ai/agent/?run_id=2dzdfcg7m0rp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.69,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+<think>
+
+</think>
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=bg9jk36a230s&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,166.44,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+Wangari Maathai won the Nobel Peace Prize and founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=xdegol7mx4nf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.42,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+Wangari Maathai founded the Green Belt Movement and won the Nobel Peace Prize.",https://gooey.ai/agent/?run_id=iqbz0k0rk9gu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.51,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+Wangari Maathai founded the Green Belt Movement and won the Nobel Peace Prize.",https://gooey.ai/agent/?run_id=bbuaekle3ike&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.96,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+Wangari Maathai, who won the Nobel Peace Prize in 2004, founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=x6zva72kds3b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.28,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+Wangari Maathai, who won the Nobel Peace Prize in 2004, founded the Green Belt Movement.",https://gooey.ai/agent/?run_id=i4q99fchy1p8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.63,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=0v1g9ik7jtjx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.52,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+Wangari Maathai.",https://gooey.ai/agent/?run_id=i2ops5n9j2o2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.29,"🎧: ""gweta mũ kenya ũrĩa bahotanĩre gerenwa ya nobel peace prize ũrĩa babĩre iria green belt movement""
+
+The Kenyan who won the Nobel Peace Prize and founded the Green Belt Movement is Professor Wangari Maathai.",https://gooey.ai/agent/?run_id=6sngbrl6pctu&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.56,"🎧: ""gweta mũkenya ũrĩa wahotanire ngerenwa ya nobel peace prize ũrĩa wambĩrĩirie green belt movement""
+
+The Kenyan who won the Nobel Peace Prize and founded the Green Belt Movement is Wangari Maathai.",0.8,0.8,0.8,1.0,0.8,0.8,0.8,0.6,0.6,1.0,1.0,0.8,0.8,"The reference answer is simply 'Wangari Maathai' / 'Wangarĩ Maathai'. 3 GPT 5.6 Sol + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu match most closely because, after ignoring transcript text and stripping the hidden reasoning block in 3 GPT 5.6 Sol + Omni - Kikuyu, the final answer is just the name. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu give the correct person but add explanatory context, so they are mostly accurate rather than exact matches. 7 Kimi K3 + Omni - Kikuyu and 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu are also correct but include even more extra information, including the year 2004, so they were scored slightly lower under the rubric."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/90294a54-8f26-11f0-9b44-02420a0001f9/Generic_Q23_KI_C05.opus.wav,What is the largest ethnic group in Kenya?,Nĩ kabira ĩrĩkũ nene Kenya?,Kikuyu,Gĩkũyũ,https://gooey.ai/agent/?run_id=tf4u17a346p1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.15,The largest tribe in Kenya is the Kikuyu.,https://gooey.ai/agent/?run_id=7tcfychtovqc&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.64,"🎧: ""nĩkahira ereko nene kenya""
+
+Marsabit is the largest county in Kenya.",https://gooey.ai/agent/?run_id=f4aw5qek3mm7&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.55,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+The largest tribe in Kenya is the Kikuyu.",https://gooey.ai/agent/?run_id=5xdpyp0uzt0p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.86,"🎧: ""nĩkahira ereko nene kenya""
+
+<think>
+
+</think>
+
+Lake Victoria is the largest lake in Kenya.",https://gooey.ai/agent/?run_id=jkmuvyxcxug9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.22,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+<think>
+
+**Interpreting Kikuyu**
+
+I need to interpret the Kikuyu phrase ""nĩ ngabira ĩrĩkũ nene Kenya."" It seems to ask, ""Which is the largest tribe in Kenya?"" I think ""ngabira"" refers to tribe or clan. To answer it concisely, I'll mention that the Kikuyu are the largest ethnic group in Kenya. So, my one-sentence response could reflect that. This should be straightforward and clear!
+
+</think>
+
+The Kikuyu are the largest ethnic group in Kenya.",https://gooey.ai/agent/?run_id=1lpnr7vjr3sk&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.56,"🎧: ""nĩkahira ereko nene kenya""
+
+The largest lake in Kenya is Lake Turkana.",https://gooey.ai/agent/?run_id=pcpodt01ssnz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.01,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+Marsabit is the largest county in Kenya by area.",https://gooey.ai/agent/?run_id=kzm50rjoy61q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.94,"🎧: ""nĩkahira ereko nene kenya""
+
+I don't know, as I cannot predict weather, so please check the Kenya Meteorological Department or local forecast for updates on heavy rains in Kenya.",https://gooey.ai/agent/?run_id=2kroueivgyxy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.61,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+Kenya's largest garbage dumpsite is the Dandora dumpsite in Nairobi.",https://gooey.ai/agent/?run_id=pgtc7f3m7a9c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.09,"🎧: ""nĩkahira ereko nene kenya""
+
+How can I assist you with your large farm in Kenya?",https://gooey.ai/agent/?run_id=unn7e7qhmqch&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.98,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+Marsabit is the largest county in Kenya.",https://gooey.ai/agent/?run_id=0k898okccc38&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.04,"🎧: ""nĩkahira ereko nene kenya""
+
+Marsabit is the largest county in Kenya.",https://gooey.ai/agent/?run_id=nasyiadl7lxj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.9,"🎧: ""nĩ ngabira ĩrĩkũ nene kenya""
+
+The Kikuyu is the largest tribe in Kenya.",1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu correctly identify Kikuyu/Gĩkũyũ as the largest ethnic group/tribe in Kenya, matching the reference answer. Hidden reasoning in 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu was ignored and only the final answer was judged. 1 Gemini 3.1 Pro + Omni - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, and 11 Gemini 3.7 Flash + Omni - Kikuyu answer with Marsabit/county; 3 GPT 5.6 Sol + Omni - Kikuyu and 5 Claude Sonnet 5 + Omni - Kikuyu answer about lakes; 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu answers about a dumpsite; 9 DeepSeek V4 + Omni - Kikuyu is irrelevant; and 7 Kimi K3 + Omni - Kikuyu is unrelated, so these do not match the reference."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/c3335cdc-8f26-11f0-bc32-02420a0001fc/Generic_Q25_KI_C05.opus.wav,Which island town in Kenya is a UNESCO World Heritage Site known for its Swahili architecture?,Nĩ gĩcĩgĩrĩra kĩrĩkũ gĩa Kenya nĩ gĩikaro kĩa UNESCO World Heritage kĩũĩkaine nĩũndũ wa mĩako yakĩo ya gĩĩthweri?,Lamu,Lamu,https://gooey.ai/agent/?run_id=5jsxa4h6kypd&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,15.79,Lamu Island is the Kenyan UNESCO World Heritage site known for its Swahili architecture.,https://gooey.ai/agent/?run_id=8kkdx5hmos7l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.92,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+Lamu Island is the Kenyan UNESCO World Heritage site known for its Swahili architecture.",https://gooey.ai/agent/?run_id=k83inip7ndfp&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.6,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+Lamu Island is the UNESCO World Heritage site in Kenya known for its Swahili architecture.",https://gooey.ai/agent/?run_id=evz4w08xyeli&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.74,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+<think>
+
+**Identifying UNESCO Site**
+
+I need to parse what the user is asking about Kikuyu. They’re looking for a Kenyan city or site recognized by UNESCO for its Swahili architecture. It seems likely to be Lamu Old Town, which fits that description. I should summarize that in one short, clear sentence. Keeping it concise and focused will be important for clarity! Alright, let’s finalize that succinct sentence about Lamu Old Town.
+
+</think>
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=x0igbzdgpnrs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.95,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+<think>
+
+**Exploring Kikuyu UNESCO Sites**
+
+I need to focus on understanding Kikuyu. The user is asking about which Kenyan site is a UNESCO World Heritage site known for its architecture. I’m thinking about “gĩthũeri,” which might relate to coral. But I also consider Lamu Old Town, famous for its Swahili architecture. It seems like I ought to summarize this in one concise sentence. So, let’s pinpoint that in a clear way!
+
+</think>
+
+Lamu Old Town is the Kenyan UNESCO World Heritage Site known for its distinctive Swahili architecture.",https://gooey.ai/agent/?run_id=rk55d2jtle7f&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.09,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+Lamu Old Town is the UNESCO World Heritage Site known for its Swahili architecture.",https://gooey.ai/agent/?run_id=ey0e0kxtszxw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.62,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+Lamu Old Town is the UNESCO World Heritage Site in Kenya known for its traditional architecture.",https://gooey.ai/agent/?run_id=ue2cddv3v4pi&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.93,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+Fort Jesus in Mombasa is the Kenyan structure designated a UNESCO World Heritage site for its unique 16th-century Portuguese military architecture.",https://gooey.ai/agent/?run_id=dqm63zh502g6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.63,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+Lamu Old Town is the Kenyan UNESCO World Heritage Site famous for its traditional Swahili architecture.",https://gooey.ai/agent/?run_id=u4orqute425e&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.63,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+Yes, the Sacred Mijikenda Kaya Forests are a UNESCO World Heritage Site known for their traditional fortified villages.",https://gooey.ai/agent/?run_id=jyfwc4ffp3oj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.01,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+Lamu Old Town.",https://gooey.ai/agent/?run_id=hl0gae0i7z0t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.25,"🎧: ""nigicigirira kiriku gia kenya ni giikaro kia unesco world heritage kiwikaine ni undu wa miako yakio ya githoeri""
+
+Lamu Island is the UNESCO World Heritage site in Kenya known for its Swahili architecture.",https://gooey.ai/agent/?run_id=xdrtym4330pa&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.23,"🎧: ""nĩ gĩcigĩrĩra kĩrĩkũ gĩa kenya nĩ gĩikaro kĩa unesco world heritage kĩuĩkaine nĩ ũndũ wa mĩako ya kĩo ya gĩthũeri""
+
+Lamu Island (Lamu Old Town) is the UNESCO World Heritage site known for its Swahili architecture.",0.8,0.8,0.8,0.8,0.8,0.8,0.6,0.0,0.8,0.0,0.8,0.8,0.8,"The reference answer is Lamu. After ignoring transcription prefixes and hidden reasoning blocks, 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu all correctly identify Lamu or Lamu Old Town/Island, so they preserve the main meaning but add extra wording beyond the minimal reference. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu is also about Lamu Old Town but weakens fidelity by replacing Swahili architecture with generic traditional architecture. 7 Kimi K3 + Omni - Kikuyu is incorrect because it answers Fort Jesus in Mombasa, and 9 DeepSeek V4 + Omni - Kikuyu is incorrect because it answers the Sacred Mijikenda Kaya Forests."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/da0b71ce-8f26-11f0-9b44-02420a0001f9/Generic_Q27_KI_C05.opus.wav,Name the major dam that supplies hydroelectric power from the Tana River.,Gweta ndemu ĩrĩa nene ĩheyanaga hinya wa thitima ya maaĩ kuuma Rũũĩ rwa Tana.,Kiambere Dam,Ndemu ya Kĩambere,https://gooey.ai/agent/?run_id=9s1huad2cvof&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.4,The large dam on the Tana River that provides hydroelectric power is the Masinga Dam.,https://gooey.ai/agent/?run_id=o1szg1ebm7wh&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,19.22,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+The large dam that provides hydroelectric power from the Tana River is called the Masinga Dam.",https://gooey.ai/agent/?run_id=g3frv2aogu5d&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.77,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+The large dam on the Tana River that provides hydroelectric power is called the Masinga Dam.",https://gooey.ai/agent/?run_id=0rxwcc1f9acf&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.6,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+<think>
+
+</think>
+
+The large dam on the Tana River is Masinga Dam.",https://gooey.ai/agent/?run_id=y93fvx57mlgs&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.39,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+<think>
+
+</think>
+
+It is Masinga Dam.",https://gooey.ai/agent/?run_id=u6q6hgf3xu8b&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.6,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+Masinga Dam is the largest dam that generates power along the Tana River.",https://gooey.ai/agent/?run_id=eybv66p8eot9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.66,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+The largest hydroelectric dam on the Tana River is the Kiambere Dam.",https://gooey.ai/agent/?run_id=7tsgejpbi18p&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.75,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+Masinga Dam — it is the largest dam on the Tana River, generating hydroelectric power as part of the Seven Forks Scheme.",https://gooey.ai/agent/?run_id=8m81pwuctw06&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.53,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+The large machine that generates electricity from flowing river water is called a hydroelectric turbine (found in a hydroelectric power plant).",https://gooey.ai/agent/?run_id=6eqqmrroxfb2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.04,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+Masinga Dam.",https://gooey.ai/agent/?run_id=evnm7o1hci20&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.3,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+A turbine.",https://gooey.ai/agent/?run_id=3426lmxn84l9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""gwĩta demu ĩrĩa nene ĩheanaga hinya wathiĩ itima ya maĩ kuuma rũĩ rwa tana""
+
+The largest hydroelectric dam on the Tana River is Masinga Dam.",https://gooey.ai/agent/?run_id=drazxjgtf0an&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.94,"🎧: ""gwĩta ndemu ĩrĩa nene ĩheanaga hinya wa thitima ya maĩ kuuma rũĩ rwatana""
+
+The largest hydroelectric dam on the Tana River is Masinga Dam.",0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,"Reference answer is Kiambere Dam / Ndemu ya Kĩambere. After ignoring transcription lines and hidden reasoning tags, only 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu gives Kiambere Dam, matching the reference exactly. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu answer Masinga Dam, which is incorrect. 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu name a machine/turbine rather than the dam, so they are incorrect."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/0db7cb30-8f27-11f0-bc32-02420a0001fc/Generic_Q28_KI_C02.ogg.wav,What is the median age of Kenya’s population as of 2025? (approximate value),Nĩ mĩaka ĩrĩkũ ya gatagatĩ-inĩ ya mũingĩ wa Kenya gũkinyĩria mwaka wa 2025? (ũigana wa kĩndũ ta),About 20 years,Kĩndũ ta mĩaka 20,https://gooey.ai/agent/?run_id=scqukm9qmoos&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.69,The median age of the Kenyan population in the year 2025 is projected to be approximately 21 years.,https://gooey.ai/agent/?run_id=k53m7en6kigg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,12.63,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+The median age of the Kenyan population by the year 2025 is approximately 21 years.",https://gooey.ai/agent/?run_id=6iny7yjocskg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.54,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+The approximate median age of the Kenyan population in 2025 is 21 years.",https://gooey.ai/agent/?run_id=qk469xdhuc50&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.54,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+<think>
+
+</think>
+
+Kenya’s median age in 2025 is approximately 20 years.",https://gooey.ai/agent/?run_id=ggequm1yn9co&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.64,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+<think>
+
+**Translating population data**
+
+I see that the Kikuyu request is for the median age of Kenya's population around the year 2025, which I understand is expected to be approximately 20 years. I want to provide a concise response in a single sentence. So I’ll go with something like: ""The median age of Kenya's population in 2025 is about 20 years."" That should effectively convey the information!
+
+</think>
+
+Kenya’s median age in 2025 is about 20 years.",https://gooey.ai/agent/?run_id=zywm6qyiyl1g&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.17,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+I don't know.",https://gooey.ai/agent/?run_id=wr0l9kxqiur1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.31,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+I don't know.",https://gooey.ai/agent/?run_id=jlhz832sjdsa&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.83,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+Nairobi was founded in 1899, making it about 126 years old by the year 2025.",https://gooey.ai/agent/?run_id=fa8wt02fjfdt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.14,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+The median age of Kenya's population in 2025 is approximately 20 years.",https://gooey.ai/agent/?run_id=qyc8ukat5oc9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.69,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+About 20 years.",https://gooey.ai/agent/?run_id=9d2790xzvwen&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.58,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+The median age of Kenya's population in 2025 is about 20 years.",https://gooey.ai/agent/?run_id=u29ofrhwrqkt&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.77,"🎧: ""ni miaka iriku ya gatagati- ini ya mwingi wa kenya gukinyiria mwaka wa ngiri igiri na mirongo iiri na itano wigana wa kindu ta""
+
+The median age of Kenya's population in 2025 is approximately 20 years.",https://gooey.ai/agent/?run_id=urlpfqru84ov&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.41,"🎧: ""nĩ mĩaka ĩrĩkũ ya gatagatĩinĩ ya mũingĩ wa kenya gũkinyĩria mwaka wa ngiri igĩrĩ na mĩrongo ĩĩrĩ na ĩtano ũigana wa kĩndũ ta""
+
+The median age of Kenya's population as of 2025 is approximately 20 years.",0.8,0.8,0.8,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,"3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu match the reference answer closely by giving about 20 years. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, and 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu are very close but say 21 years instead of about 20, so they preserve most meaning with a slight factual deviation. 5 Claude Sonnet 5 + Omni - Kikuyu and 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu say they do not know, and 7 Kimi K3 + Omni - Kikuyu answers an unrelated question about Nairobi, so they are incorrect."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/18ecf19c-8f27-11f0-a5e2-02420a0001f8/Generic_Q29_KI_C02.ogg.wav,Which national park in Kenya is famous for its view of Mount Kilimanjaro?,Nĩ gĩikaro kĩrĩkũ kĩa nyamũ cia gĩthaka Kenya kĩũĩkaine nĩ-ũndũ wa kuona Kĩrĩma gĩa Kilimanjaro?,Amboseli National Park,Amboseli National Park,https://gooey.ai/agent/?run_id=h8uj2jhhb4d9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.9,Amboseli National Park is the wildlife reserve in Kenya famous for its views of Mount Kilimanjaro.,https://gooey.ai/agent/?run_id=pmq8qxubv4hv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.29,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=t7s5gsm3vf2i&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,11.43,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+Amboseli National Park is the place in Kenya famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=7cjndvkbivc1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.47,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+<think>
+
+**Interpreting wildlife queries**
+
+I'm trying to interpret the phrase about Kikuyu and figure out its meaning. It seems to ask which wildlife park or reserve in Kenya is known for views of Mount Kilimanjaro. I think the answer is Amboseli National Park since it's famous for that iconic scenery. I'll keep it concise and focus on delivering that single-sentence response to the user.
+
+</think>
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=d3iz102rgkvx&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+<think>
+
+</think>
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=d0xqlm3ekjds&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.0,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+Amboseli National Park is famous for offering views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=fv8jtwjk4cjo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.99,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+I don't know.",https://gooey.ai/agent/?run_id=g1mv3dhbxanz&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.3,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+Amboseli National Park is the Kenyan wildlife reserve famous for its stunning views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=xhgyb6wv3xt9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,21.12,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+Amboseli National Park is the place in Kenya famous for its stunning views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=2wyv06flxw94&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.5,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+Amboseli National Park.",https://gooey.ai/agent/?run_id=usd4l4wjen3c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.9,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+Nanyuki.",https://gooey.ai/agent/?run_id=9bm29t205ttv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.64,"🎧: ""ni giikaro kiriku kia nyamu cia githaka kenya kiwikaine ni undu wa kuona kirima gia kirimanjaro""
+
+Amboseli National Park is famous for its views of Mount Kilimanjaro.",https://gooey.ai/agent/?run_id=7344kji2bp8l&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.4,"🎧: ""nĩ gĩikaro kĩrĩkũ kenya mũciĩ agĩthaka kenya kĩuĩkaine nĩ ũndũ wa kuona kĩrĩma gĩa kĩrĩma njarũ""
+
+Amboseli National Park is known for having the best views of Mount Kilimanjaro.",1.0,1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,0.0,1.0,1.0,"0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu all correctly identify Amboseli National Park, matching the reference answer; extra explanatory wording or transcription text does not change correctness, and hidden reasoning in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu is ignored. 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu is incorrect because it says ""I don't know."" 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu is incorrect because it answers ""Nanyuki,"" which does not match the reference answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2a5344b8-8f27-11f0-bc32-02420a0001fc/Generic_Q30_KI_C08.m4a.wav,What is the name of Kenya’s national airline?,Kambuni ya ũkũũi wa ndege ya bũrũri wa Kenya ĩtagwo atĩa?,Kenya Airways,Kenya Airways,https://gooey.ai/agent/?run_id=izak0pjvtynb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.43,Kenya's national airline is called Kenya Airways.,https://gooey.ai/agent/?run_id=i36xzmhjpziy&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.7,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+The national airline of Kenya is called Kenya Airways.",https://gooey.ai/agent/?run_id=kp3g3a4yu2yr&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.3,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+The national airline company of Kenya is called Kenya Airways.",https://gooey.ai/agent/?run_id=t7bjgxo3018t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.17,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+<think>
+
+</think>
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=h532y8fg5h4k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.04,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+<think>
+
+</think>
+
+Kenya’s national airline is Kenya Airways.",https://gooey.ai/agent/?run_id=2b8ep630vwiv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.48,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+Kenya Airways",https://gooey.ai/agent/?run_id=4pkq7232w0wg&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.76,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+Kenya Airways",https://gooey.ai/agent/?run_id=l3g9lgbl3t3c&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.14,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+Kenya's national airline is called Kenya Airways.",https://gooey.ai/agent/?run_id=oaxpml9mf117&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.68,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+Kenya's national airline is called Kenya Airways.",https://gooey.ai/agent/?run_id=5vty9lvqs6qa&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.93,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=471zgkjoxe98&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,5.98,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+Kenya Airways.",https://gooey.ai/agent/?run_id=cmt3ucpuy0ho&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.13,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwa atya""
+
+It is called Kenya Airways.",https://gooey.ai/agent/?run_id=o1mf04tlf7wv&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.24,"🎧: ""kambuni ya ũkui wa ndege ya bũrũri wa kenya ĩtagwatia""
+
+It is called Kenya Airways.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,"All candidates correctly identify the airline as Kenya Airways, matching the reference answer. Per instructions, hidden reasoning blocks in 3 GPT 5.6 Sol + Omni - Kikuyu and 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu were ignored. Extra wording such as ""Kenya's national airline is called..."" or ""It is called..."" does not change correctness, so 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu all preserve the full meaning of the reference answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/772564ce-8f27-11f0-ad2f-02420a0001f8/Generic_Q31_KI_C08.m4a.wav,Which 2007–2008 event led to widespread violence and political reform in Kenya?,Nĩ-ũndũ ũrĩkũ wekĩkire 2007-2008 watũmire kũgĩe na ũgarũrũku mũnene wa wĩki-naĩ na ũteti bũrũri-inĩ wa Kenya?,Post-election crisis/violence,Ũgũati/mbaara cia thuutha wa ithurano,https://gooey.ai/agent/?run_id=a9xfl8uvey9q&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.83,A disputed presidential election sparked the severe 2007-2008 post-election violence in Kenya.,https://gooey.ai/agent/?run_id=y8yr5nix1tr2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.36,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+The event was the 2007-2008 post-election violence that occurred following a disputed presidential election.",https://gooey.ai/agent/?run_id=u0k4zsyaonxj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.48,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+The disputed 2007 presidential election and the subsequent post-election violence caused major political and governance changes in Kenya.",https://gooey.ai/agent/?run_id=q6qnuz14b6ig&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,16.97,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+<think>
+
+</think>
+
+The disputed 2007 presidential election triggered widespread post-election violence and major political change in Kenya.",https://gooey.ai/agent/?run_id=p5vhva63x773&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.58,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+<think>
+
+**Summarizing key events**
+
+I need to translate and capture the user's question, which is about what happened between 2007 and 2008 that caused significant changes in Kenya’s economy and politics. It’s clear this refers to post-election violence. My goal is to condense this information into the shortest possible sentence in English that conveys the essence of the situation. I'll aim to be clear but concise!
+
+</think>
+
+The disputed 2007 presidential election triggered widespread violence, causing major political and economic disruption in Kenya.",https://gooey.ai/agent/?run_id=0y046nh55mp9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.86,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+A severe drought caused by failed rains (linked to La Niña conditions) hit Kenya between 2008 and 2009, leading to major climate disruption and water/food shortages.",https://gooey.ai/agent/?run_id=ce90ib8grw7k&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,17.04,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+The disputed 2007 presidential election results led to widespread post-election violence and political crisis in Kenya.",https://gooey.ai/agent/?run_id=x0jmw43shdim&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,14.33,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+The disputed December 2007 presidential election results triggered widespread post-election violence across Kenya in early 2008, which was resolved through a power-sharing agreement forming a coalition government between Mwai Kibaki and Raila Odinga.",https://gooey.ai/agent/?run_id=5kaboz5c4rv1&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,13.17,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+The 2002 election ended KANU's 40-year rule when President Moi stepped down, and the disputed 2007 election between Kibaki and Odinga triggered the 2007–2008 post-election violence in Kenya.",https://gooey.ai/agent/?run_id=qot59srwlbtb&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.53,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+The 2007-2008 post-election violence in Kenya caused major economic disruption and political reforms.",https://gooey.ai/agent/?run_id=aptekyd8rj4a&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.9,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+I don't know.",https://gooey.ai/agent/?run_id=2f79qb3fa8c8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.16,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakaĩnĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩki naĩ na ũteti vũrũrinĩ wa kenya""
+
+The 2007–2008 post-election violence caused major political and social reforms in Kenya.",https://gooey.ai/agent/?run_id=exkp2caznwsl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.22,"🎧: ""nĩ ũndũ ũrĩkũ wekĩkire mwakainĩ wa ngiri igĩrĩ na mũgwanja nginya ngiri igĩrĩ na inyanya watũmire kũgĩe na ũgarũrũku mũnene wa wĩkinaĩ na ũtati bũrũriinĩ wa kenya""
+
+The 2007–2008 post-election violence, triggered by a disputed presidential election, caused major political and socio-economic changes in Kenya.",0.8,0.8,0.8,0.8,0.6,0.0,1.0,0.6,0.6,0.8,0.0,0.8,1.0,"6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu match the reference best by explicitly identifying the 2007–2008 post-election violence/crisis tied to the disputed election. 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, and 11 Gemini 3.7 Flash + Omni - Kikuyu are largely correct but either emphasize the disputed election as the trigger or mention effects/reforms instead of naming the event as directly as the reference. 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 7 Kimi K3 + Omni - Kikuyu, and 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu contain substantial extra detail, so they are less close to the concise reference. 5 Claude Sonnet 5 + Omni - Kikuyu is incorrect, and 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu gives no answer."
+https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/83829642-8f27-11f0-bc32-02420a0001fc/Generic_Q32_KI_C08.m4a.wav,What is the official residence of the President of Kenya called?,Gĩikaro gĩtĩkĩrĩku kĩa Mũtongoria wa bũrũri wa Kenya gĩĩtagwo atĩa?,State House,Thingira wa Iregi,https://gooey.ai/agent/?run_id=xoe6nfqx0xt2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,147.19,The official residence of the President of Kenya is called State House.,https://gooey.ai/agent/?run_id=zgu295lyl1b4&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,10.97,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=nwc2to7od9a8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,45.96,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=fttrx16muep8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.79,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+<think>
+
+</think>
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=sljizkmot8ym&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.87,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+<think>
+
+**Translating residence name**
+
+I'm translating the question about the official residence of Kenya's leader, which might be referred to as the State House. The user's question in Kikuyu language asks: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa?"" This translates to ""What is the official seat/residence of Kenya's president called?"" It looks like the answer is indeed State House. I'll frame this response in a single sentence for clarity.
+
+</think>
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=xba11h8azf41&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.73,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+The official residence of the President of Kenya is called **State House**.",https://gooey.ai/agent/?run_id=dyk4kheyfd8t&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.45,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=fssim9eeaba2&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.02,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+The official residence of the President of Kenya is called State House, Nairobi.",https://gooey.ai/agent/?run_id=crn55algj260&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.71,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=frf8k2zg1uh8&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,6.84,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=a7q1ma1l5pdl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,9.61,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+The official residence of the President of Kenya is called State House.",https://gooey.ai/agent/?run_id=2dmcv2bvl6lw&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,8.3,"🎧: ""gĩĩkaro gĩtĩkĩrĩkũ kĩa mũtongoria wa vũrũri wa kenya gĩtagwa atĩa""
+
+The official residence of the President of Kenya is State House.",https://gooey.ai/agent/?run_id=o65ynsxgaf9v&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2,7.09,"🎧: ""gĩikaro gĩtĩkĩrĩku kĩa mũtongoria wa bũrũri wa kenya gĩtagwo atĩa""
+
+The official residence of the President of Kenya is State House.",1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.8,1.0,1.0,1.0,1.0,1.0,"After ignoring transcript prefixes and hidden reasoning blocks, 0 Gemini 3.1 Pro - Kikuyu, 1 Gemini 3.1 Pro + Omni - Kikuyu, 2 Gemini 3.1 Pro + Kikuyu Whisper V2 - Kikuyu, 3 GPT 5.6 Sol + Omni - Kikuyu, 4 GPT 5.6 Sol + Kikuyu Whisper v2 - Kikuyu, 5 Claude Sonnet 5 + Omni - Kikuyu, 6 Claude Sonnet 5 + Kikuyu Whisper v2 - Kikuyu, 8 Kimi K3 + Kikuyu Whisper v2 - Kikuyu, 9 DeepSeek V4 + Omni - Kikuyu, 10 DeepSeek V4 + Kikuyu Whisper v2 - Kikuyu, 11 Gemini 3.7 Flash + Omni - Kikuyu, and 12 Gemini 3.7 Flash + Kikuyu Whisper v2 - Kikuyu all match the reference answer 'State House' exactly or with only trivial formatting differences. 7 Kimi K3 + Omni - Kikuyu is also correct but adds extra information ('Nairobi'), so it is slightly less exact."

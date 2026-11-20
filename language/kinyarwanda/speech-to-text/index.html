@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- GOOEY-BASE-HREF -->
+    <base href="../../" />
+    <title>Kinyarwanda Speech to Text: ASR Models Compared | Gooey.AI</title>
+    <meta name="description" content="Turn spoken Kinyarwanda into text. Omnilingual, Gemini 3.1 Pro and Intron compared on 24 real spoken questions; DeepSeek V4 + Omnilingual scored 92/100." />
+    <link rel="canonical" href="https://gooey.ai/language/kinyarwanda/speech-to-text/" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gooey.AI" />
+    <meta property="og:url" content="https://gooey.ai/language/kinyarwanda/speech-to-text/" />
+    <meta property="og:title" content="Kinyarwanda Speech to Text: ASR Models Compared" />
+    <meta property="og:description" content="Turn spoken Kinyarwanda into text. Omnilingual, Gemini 3.1 Pro and Intron compared on 24 real spoken questions; DeepSeek V4 + Omnilingual scored 92/100." />
+    <meta property="og:image" content="https://gooey-static-pages.pages.dev/language/kinyarwanda/speech-to-text/og-a09b506015.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Kinyarwanda speech to text: 3 recognizers compared on 24 spoken questions; the top chain, DeepSeek V4 + Omnilingual, scored 92 out of 100." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content="Kinyarwanda speech to text: 3 recognizers compared on 24 spoken questions; the top chain, DeepSeek V4 + Omnilingual, scored 92 out of 100." />
+    <link rel="icon" href="https://cdn.prod.website-files.com/6864c89c210135e40bbd6674/68ad67680a9b0bee5776fa97_gooey-ico-2.png" />
+    <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/6864c89c210135e40bbd6674/68ad688f8931b3329a5b2083_webclip.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://gooey.ai/#organization", "name": "Gooey.AI", "url": "https://gooey.ai/", "logo": {"@type": "ImageObject", "url": "https://cdn.prod.website-files.com/6864c89c210135e40bbd6674/68ad688f8931b3329a5b2083_webclip.png"}}, {"@type": "WebPage", "@id": "https://gooey.ai/language/kinyarwanda/speech-to-text/", "url": "https://gooey.ai/language/kinyarwanda/speech-to-text/", "name": "Kinyarwanda Speech to Text: ASR Models Compared | Gooey.AI", "description": "Turn spoken Kinyarwanda into text. Omnilingual, Gemini 3.1 Pro and Intron compared on 24 real spoken questions; DeepSeek V4 + Omnilingual scored 92/100.", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "name": "Gooey.AI", "url": "https://gooey.ai/"}, "publisher": {"@id": "https://gooey.ai/#organization"}, "breadcrumb": {"@id": "https://gooey.ai/language/kinyarwanda/speech-to-text/#breadcrumb"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://gooey-static-pages.pages.dev/language/kinyarwanda/speech-to-text/og-a09b506015.jpg", "width": 1200, "height": 630}, "dateModified": "2026-08-30", "about": {"@type": "Language", "name": "Kinyarwanda", "alternateName": "Ikinyarwanda"}}, {"@type": "BreadcrumbList", "@id": "https://gooey.ai/language/kinyarwanda/speech-to-text/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gooey.ai/"}, {"@type": "ListItem", "position": 2, "name": "Language evaluations", "item": "https://gooey.ai/language-evaluation/"}, {"@type": "ListItem", "position": 3, "name": "Kinyarwanda", "item": "https://gooey.ai/language/kinyarwanda/"}, {"@type": "ListItem", "position": 4, "name": "Speech to text", "item": "https://gooey.ai/language/kinyarwanda/speech-to-text/"}]}, {"@type": "FAQPage", "@id": "https://gooey.ai/language/kinyarwanda/speech-to-text/#faq", "mainEntity": [{"@type": "Question", "name": "What is the best Kinyarwanda speech to text?", "acceptedAnswer": {"@type": "Answer", "text": "Meta’s Omnilingual was the strongest speech recognition in our Aug 30, 2026 Kinyarwanda benchmark: chains using it averaged a Kinyarwanda Index of 84.6/100, against 81.4/100 for Intron. Gemini 3.1 Pro (direct audio), which needs no separate speech step, scored 90/100. See the benchmark results . These are complete-workflow results, not standalone speech-recognition scores."}}, {"@type": "Question", "name": "Does it work on WhatsApp voice notes and phone calls?", "acceptedAnswer": {"@type": "Answer", "text": "The 24 benchmark questions were sent as WhatsApp voice notes. For phone-call pilots, 10 of the 11 chains stayed below our 10-second median response-time target; the fastest was Kimi K3 + Omnilingual (6.7 seconds). These timings exclude a complete phone connection and spoken reply; test telephony, network and text-to-speech latency before launch."}}, {"@type": "Question", "name": "Can I run it on my own servers?", "acceptedAnswer": {"@type": "Answer", "text": "Omnilingual is an open-weight speech recognition model from Meta, so it can run on your own servers; paired with an open-weight language model such as DeepSeek V4, the whole Kinyarwanda chain can run on local hardware. Intron’s offline option still needs confirming for Kinyarwanda, and Gemini 3.1 Pro is a private API. Choose hardware that meets the models’ requirements and check each component’s licence and language support before deployment."}}, {"@type": "Question", "name": "What does the Kinyarwanda Index measure?", "acceptedAnswer": {"@type": "Answer", "text": "The Kinyarwanda Index is the mean semantic-similarity score between a workflow’s answers and the reference answers, scaled from 0 to 100. The evaluation CSV records scores for the 24 benchmark questions, with a higher Index indicating closer agreement in meaning. It is not the percentage of questions answered correctly, a standalone transcription score or a safety certification."}}]}]}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        height: var(--site-header-h);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 26px;
+        background: rgba(255, 254, 253, 0.82);
+        backdrop-filter: saturate(140%) blur(8px);
+        border-bottom: 1px solid var(--gy-line-soft);
+      }
+      .site-header .logo-link {
+        display: flex;
+        align-items: center;
+      }
+      .site-header .logo {
+        height: 24px;
+        width: auto;
+        display: block;
+      }
+      .site-header .h-title {
+        font-family: var(--gy-font-serif);
+        font-size: 14px;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .site-header.scrolled .h-title {
+        opacity: 1;
+      }
+      .site-header .login-btn {
+        margin-left: auto;
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 22px;
+        border-radius: 12px;
+        background: transparent;
+        color: var(--gy-ink);
+        border: 1.5px solid var(--gy-line);
+        font-family: var(--gy-font-sans);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          border-color 0.15s ease,
+          background 0.15s ease;
+      }
+      .site-header .login-btn:hover {
+        border-color: var(--gy-line-strong);
+        background: var(--gy-surface-100);
+        text-decoration: none;
+      }    </style>
+    <link rel="stylesheet" href="assets/language-page.css" />
+    <link rel="stylesheet" href="assets/language-agent.css" />
+    <link rel="stylesheet" href="assets/language-stt.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" id="siteHeader">
+      <a class="logo-link" href="https://gooey.ai/" aria-label="Gooey.AI home">
+        <img class="logo" src="assets/gooey-logo.png" alt="Gooey.AI" />
+      </a>
+      <span class="h-title">Kinyarwanda speech to text</span>
+      <a class="login-btn" href="https://gooey.ai/login/">Login</a>
+    </header>
+
+    <main id="main" class="agent stt">
+      <section class="st-top" aria-labelledby="st-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span>Language</span>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <a href="kinyarwanda/">Kinyarwanda</a>
+            <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>Speech to text</strong>
+          </nav>
+          <div class="st-hero">
+            <div class="st-visual">
+              <div class="voice-note" id="heroVoice">
+              <div class="player">
+                <button type="button" class="play" aria-label="Play the Kinyarwanda question"><img class="vp-play" src="assets/kinyarwanda/icon-play.svg" alt="" width="10" height="10" /><svg class="vp-pause" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.5" y="1" width="2.5" height="8" rx="1" /><rect x="6" y="1" width="2.5" height="8" rx="1" /></svg></button>
+                <span class="wave" aria-hidden="true"><i style="height:4px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:10px"></i><i style="height:18px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i class="dim" style="height:14px"></i><i class="dim" style="height:9px"></i><i class="dim" style="height:6px"></i><i class="dim" style="height:12px"></i><i class="dim" style="height:18px"></i><i class="dim" style="height:14px"></i><i class="dim" style="height:8px"></i><i class="dim" style="height:5px"></i><i class="dim" style="height:10px"></i><i class="dim" style="height:15px"></i><i class="dim" style="height:9px"></i><i class="dim" style="height:6px"></i><i class="dim" style="height:4px"></i><i class="dim" style="height:8px"></i><i class="dim" style="height:12px"></i></span>
+                <time></time>
+              </div>
+              <p class="vn-text">Umurwa mukuru wa Kenya witwa ngo iki?</p>
+              <p class="vn-sub">“What is the capital city of Kenya?”</p>
+              <audio preload="metadata" src="https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/b2b50344-8f29-11f0-bc32-02420a0001fc/Generic_Q2_RW_B01.opus.wav"></audio>
+            </div>
+              <div class="st-heard">
+                <span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" />Transcript · Omnilingual</span>
+                <p lang="rw">umurwa mukuru wa kenya witwa ngo iki</p>
+              </div>
+            </div>
+            <div class="st-copy">
+              <h1 id="st-title">Kinyarwanda speech to text</h1>
+              <p class="lead">Turn spoken Kinyarwanda into text. Our latest Kinyarwanda Index eval conducted on <strong>30th Aug, 2026</strong> found that <strong>Omnilingual</strong> ASR, paired with the <strong>DeepSeek V4</strong> language model, scored the <strong>highest Index</strong> on answers to questions asked by native speakers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-samples" aria-labelledby="samples-title">
+        <div class="container samples">
+          <h2 id="samples-title">Sample transcriptions</h2>
+          <p class="st-intro">Three of the 24 questions, sent as WhatsApp voice notes. Underlined words differ from the expert’s transcript.</p>
+          <div class="sample-cards st-transcripts" id="sttCards"></div>
+        </div>
+      </section>
+
+      <section class="st-models" aria-labelledby="models-title">
+        <div class="container">
+          <div class="st-models-head">
+            <h2 id="models-title">Which model works best for Kinyarwanda?</h2>
+            <a href="kinyarwanda/#leaderboard">See the full Kinyarwanda leaderboard</a>
+          </div>
+          <div class="st-cards">
+            <article class="st-card rec"><span class="st-tag"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2.5 6.5 2.2 2.2 4.8-5.4"/></svg>Recommended · Sovereign</span><h3><img src="assets/kinyarwanda/logo-meta-24.svg" alt="" width="24" height="24" />Omnilingual</h3><p>By Meta. Faster than Intron with every language model we paired it with. Powers the top chain, DeepSeek V4 + Omnilingual: <strong>92 / 100</strong> Kinyarwanda Index.</p></article>
+            <article class="st-card"><span class="st-tag">Built-in audio · Private API</span><h3><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" />Gemini 3.1 Pro</h3><p>By Google. It listens to the question and answers in one step: <strong>90 / 100</strong> Kinyarwanda Index, 8.9 s median reply.</p></article>
+            <article class="st-card"><span class="st-tag">Regional model · Sovereign</span><h3><img src="assets/kinyarwanda/logo-intron.svg" alt="" width="24" height="24" />Intron</h3><p>Built for African languages. Best paired with Claude Sonnet 5: <strong>87 / 100</strong> Kinyarwanda Index.</p></article>
+          </div>
+          <p class="st-note">Kinyarwanda Index: out of 100, averaged over 24 questions. Higher is better. These are complete-workflow results, not standalone speech-recognition scores.</p>
+        </div>
+      </section>
+
+      <section class="ag-steps st-steps" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="st-steps-head">
+            <h2 id="steps-title">How Kinyarwanda speech to text works in Gooey</h2>
+          </div>
+
+          <div class="ag-step">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 1</span>
+              <h3>Your users speak, in Kinyarwanda</h3>
+              <p>They send a voice note on WhatsApp or tap the mic on the web. No typing and no app to install.</p>
+            </div>
+            <div class="ag-visual ag-panel"><img class="ag-art" src="assets/speech-to-text/step1.webp" alt="A hand holding a phone that turns a spoken voice note into text, outside a health clinic" width="1024" height="768" /></div>
+          </div>
+
+          <div class="ag-step flip">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 2</span>
+              <h3>Choose the speech recognizer</h3>
+              <p>In the agent’s settings, turn on Speech recognition, choose Omnilingual as the provider and Kinyarwanda as the spoken language. Add a short prompt with local names or terms if you need one.</p>
+            </div>
+            <div class="ag-visual ag-panel">
+              <div class="ag-card st-settings" aria-hidden="true">
+                <h4><img src="assets/kinyarwanda/icon-microphone.svg" alt="" width="16" height="16" />Speech recognition</h4>
+                <div class="st-set"><span>Provider</span><div class="st-fake-select"><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" />Omnilingual<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Spoken language</span><div class="st-fake-select">Kinyarwanda<img class="st-caret" src="assets/kinyarwanda/icon-chevron-down.svg" alt="" width="16" height="16" /></div></div>
+                <div class="st-set"><span>Prompt (optional)</span><div class="st-fake-input">Local names and terms to expect</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="st-step3">
+            <div class="ag-step-text">
+              <span class="ag-step-n">Step 3</span>
+              <h3>Use the text in an agent</h3>
+              <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then <a href="kinyarwanda/ai-agent/">publish to WhatsApp, a phone line or the web</a>.</p>
+            </div>
+            <div class="ag-panel">
+              <div class="ag-card st-convo">
+                <audio controls preload="none" src="https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav" aria-label="Voice note: What is the official language of Kenya?"></audio>
+                <div class="st-bubble"><span>Question, as transcribed by Omnilingual</span><p lang="rw">ni uruhe rurimi rwemewe n&#x27;amategeko muri kenya</p><p class="st-en">“What is the official language of Kenya?”</p></div>
+                <div class="st-bubble st-answer"><span>GPT-5.6 Sol’s answer</span><p>The official languages of Kenya are English and Swahili.</p></div>
+              </div>
+            </div>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a Kinyarwanda agent</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-api" aria-labelledby="api-title">
+        <div class="container">
+          <div class="st-api-box">
+            <div class="st-api-copy">
+              <h2 id="api-title">Use it through the API</h2>
+              <p>One call, preset to Omnilingual ASR and Kinyarwanda.</p>
+              <div class="st-buttons">
+                <a class="hero-btn st-light" href="https://gooey.ai/account/api-keys/" target="_blank" rel="noopener noreferrer">Get an API key</a>
+                <button class="hero-btn st-ghost" type="button" id="stCopy" data-copy="Transcribe spoken Kinyarwanda with the Gooey.AI speech API.
+POST https://api.gooey.ai/v2/speech with the header Authorization: Bearer $GOOEY_API_KEY and a JSON body:
+- documents: a list of public audio file URLs
+- selected_model: &quot;meta_omnilingual_asr_llm_7b&quot; (Omnilingual, the speech recognizer in the best Kinyarwanda chain in our Aug 30, 2026 evaluation)
+- language: &quot;kin_Latn&quot;
+Get a key at https://gooey.ai/account/api-keys/ and see https://api.gooey.ai/docs for the response format.
+
+Example:
+curl https://api.gooey.ai/v2/speech \
+  -H &quot;Authorization: Bearer $GOOEY_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;documents&quot;: [&quot;https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav&quot;],
+    &quot;selected_model&quot;: &quot;meta_omnilingual_asr_llm_7b&quot;,
+    &quot;language&quot;: &quot;kin_Latn&quot;
+  }&#x27;
+"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5V3A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg><span>Copy for coding agent</span></button>
+              </div>
+            </div>
+            <pre class="st-code"><code>curl https://api.gooey.ai/v2/speech \
+  -H &quot;Authorization: Bearer $GOOEY_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;documents&quot;: [&quot;https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav&quot;],
+    &quot;selected_model&quot;: &quot;meta_omnilingual_asr_llm_7b&quot;,
+    &quot;language&quot;: &quot;kin_Latn&quot;
+  }&#x27;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+            <details open><summary>What is the best Kinyarwanda speech to text?</summary><p>Meta’s Omnilingual was the strongest speech recognition in our Aug 30, 2026 Kinyarwanda benchmark: chains using it averaged a Kinyarwanda Index of 84.6/100, against 81.4/100 for Intron. Gemini 3.1 Pro (direct audio), which needs no separate speech step, scored 90/100. See the <a href="kinyarwanda/#all-chains">benchmark results</a>. These are complete-workflow results, not standalone speech-recognition scores.</p></details>
+            <details open><summary>Does it work on WhatsApp voice notes and phone calls?</summary><p>The 24 benchmark questions were sent as WhatsApp voice notes. For phone-call pilots, 10 of the 11 chains stayed below our 10-second median response-time target; the fastest was Kimi K3 + Omnilingual (6.7 seconds). These timings exclude a complete phone connection and spoken reply; test telephony, network and text-to-speech latency before launch.</p></details>
+            <details open><summary>Can I run it on my own servers?</summary><p>Omnilingual is an open-weight speech recognition model from Meta, so it can run on your own servers; paired with an open-weight language model such as DeepSeek V4, the whole Kinyarwanda chain can run on local hardware. Intron’s offline option still needs confirming for Kinyarwanda, and Gemini 3.1 Pro is a private API. Choose hardware that meets the models’ requirements and check each component’s licence and language support before deployment.</p></details>
+            <details open><summary>What does the Kinyarwanda Index measure?</summary><p>The Kinyarwanda Index is the mean semantic-similarity score between a workflow’s answers and the reference answers, scaled from 0 to 100. The <a href="data/kin/evaluation-latest.csv">evaluation CSV</a> records scores for the 24 benchmark questions, with a higher Index indicating closer agreement in meaning. It is not the percentage of questions answered correctly, a standalone transcription score or a safety certification.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="st-cta" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="st-cta-box">
+            <h2 id="cta-title">Build a Kinyarwanda voice agent</h2>
+            <p>Start from DeepSeek V4 + Omnilingual, the chain with the highest Kinyarwanda Index.</p>
+            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Start building</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>Speech to text in other languages</h2>
+      <ul class="language-list" aria-label="Other Gooey.AI languages"><li>Swahili</li><li>Hausa</li><li>Yoruba</li><li>Igbo</li><li>Nigerian Pidgin</li><li>Kikuyu</li><li>Amharic</li><li>Hindi</li><li>Urdu</li><li><strong>All 37 languages</strong></li></ul>
+    </footer>
+
+    <script>
+      window.STT_PAGE = {"lang": "Kinyarwanda", "langCode": "rw", "dataBase": "data/kin/", "totalQuestions": 24, "samples": [{"questionNumber": 3, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav", "audioDurationSeconds": 4.66425, "expert": "Ni uruhe rurimi rwemewe n’amategeko muri Kenya?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["kenya", true]], "matched": 7, "total": 7}, {"label": "Intron", "logo": "logo-intron", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["Kenya", true]], "matched": 7, "total": 7}]}, {"questionNumber": 11, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav", "audioDurationSeconds": 7.017813, "expert": "Vuga igihugu kimwe mu bihugu bihana imbibi na Kenya.", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["kuvuga", false], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["kenya", true]], "matched": 8, "total": 9}, {"label": "Intron", "logo": "logo-intron", "words": [["vuga", true], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["Kenya", true]], "matched": 9, "total": 9}]}, {"questionNumber": 18, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav", "audioDurationSeconds": 8.554688, "expert": "Ni he hantu ndanga-mateka mu majyaruguru ya Kenya haboneka ibimenyetso by’inkomoko n’ihindagurika rya muntu?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["ni", true], ["he", true], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 14, "total": 14}, {"label": "Intron", "logo": "logo-intron", "words": [["Ni", true], ["hehe", false], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["Kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 13, "total": 14}]}]};
+    </script>
+    <script src="assets/language-samples.js"></script>
+    <script src="assets/language-stt.js"></script>
+    <script src="assets/language-links.js"></script>
+  </body>
+</html>

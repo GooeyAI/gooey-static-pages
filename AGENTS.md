@@ -6,7 +6,7 @@ Each top-level folder (`sovereignty/`, `research/`, `ecocost/`, ...) is one
 page, hand-written as a single self-contained `index.html`. There's no
 build step, no bundler, no JS framework — pages are edited directly.
 
-Four things have already gone wrong once in this repo and are easy to get
+Six things have already gone wrong once in this repo and are easy to get
 wrong again, so they're enforced by scripts instead of just written down
 here:
 
@@ -106,6 +106,125 @@ python3 scripts/check_site_header.py
 
 This also runs in CI on every PR.
 
+## 5. `/language/<name>` pages are generated — don't edit their HTML
+
+The language evaluation pages (`language/kinyarwanda/`, `swahili/`, `kikuyu/`, ...)
+all share one layout so that twenty of them stay identical. Their
+`index.html` is **generated**; hand edits are overwritten and fail CI.
+
+- Layout/CSS: `language/assets/language-page.css`. Charts, table, scatter, samples:
+  `language/assets/language-page.js`. Change these once and every page follows.
+- One language: `language/_src/<slug>/` (`page.json` plus `picks.frag`, `featured.frag`,
+  `faq.json`). FAQ layout is shared in `language/_src/faq.tmpl`; `scripts/language_faq.py`
+  generates the standard questions and answers from benchmark data and verified dataset
+  context in `faq.json` (not manually maintained answers or hosting claims). The shared
+  evaluation-method answer includes a clinical-safety caveat on every language page.
+  Numbers come from `language/data/<code>/` (summary CSV, pricing and
+  EcoCost JSON), so counts and charts can't disagree with the data.
+- Shared page skeleton: `language/_src/body.tmpl`. Footer language list:
+  `language/_src/languages.json`.
+- A model or speech engine the shared script doesn't know yet (logo, maker, label size,
+  ring colour) is added once to `language-page.js`; the check tells you what is missing.
+
+Each language also has an `ai-agent` page (`language/<slug>/ai-agent/`), generated from
+`language/_src/agent.tmpl`, `language/_src/<slug>/agent.json` and the shared
+`language/assets/language-agent.{css,js}`. Its illustrations are `language/assets/ai-agent/hero.*` and
+`channel.*` (webp, jpg or png); a labelled placeholder shows until they exist.
+
+A language can also have a `speech-to-text` page (`language/<slug>/speech-to-text/`), generated from
+`language/_src/stt.tmpl`, `language/_src/<slug>/stt.json` (which recognizers to show, the chain whose runs supply
+each one's transcripts, the API preset, and wording) and the shared `language/assets/language-stt.{css,js}`. Card
+text, averages and FAQ numbers are computed from the language's data. Its hero reuses the language page's voice
+note (`language/_src/voice-note.frag`, played by `initVoiceNote` in `language/assets/language-samples.js`), and its
+"Sample transcriptions" cards use the language page's sample questions (`samples.json`) and player
+(`renderTranscriptCards`, same file). What each recognizer heard is saved by
+`python3 scripts/fetch_language_transcripts.py [slug]` to `language/data/<code>/transcripts-<snapshot>.json`; the
+expert transcript is `Prompt_Target` in `evaluation-latest.csv`, and the build compares the two word by word. Its step-1 illustration is
+`language/assets/speech-to-text/step1.*` (webp, jpg or png); a labelled placeholder shows until it exists. The
+language page's "Speech to text" card links to it once `stt.json` exists, and shows "Results coming soon" until then.
+
+Every link to a Gooey.AI run or workflow must be the specific one, never a generic page like `gooey.ai/bulk/`
+or `gooey.ai/speech/`; ask the team for it. `hero.bulk_url` in `page.json` is the language's own evaluation
+run, and the build fails if it is generic. The chains table links each chain to the saved workflow the
+evaluation ran, listed in `language/data/<code>/workflows-<snapshot>.json` by
+`python3 scripts/fetch_language_workflows.py [slug]` (re-run it when the evaluation run changes). A workflow
+edited after the evaluation (`retitled`) links to the evaluation's own run of it instead, so the link shows the
+model that was scored.
+
+Each model has a page per language (`models/<model-slug>/<language-slug>/`, e.g.
+`models/gpt-5-6-sol/kinyarwanda/`), generated from `language/_src/model.tmpl` and
+`language/_src/models.json` (maker, open weights, hosting regions, optional previous version) plus the
+language's data, with `language/assets/language-model.{css,js}`. `models/` is its own top-level route, so it needs
+`models/assets/gooey-logo.png` for the shared header, and gooey.ai must proxy it like `language`.
+A model page's "What changed since <previous model>" section (`language/_src/model-changed.tmpl`) appears only when
+`models.json` lists the model it replaced (`replaces`) and an archived snapshot of the language (`page.json`
+`archive`) ran that model on the same questions; otherwise it is left out. See the docstring of
+`scripts/build_model_pages.py`.
+
+Links between the page kinds are relative paths, so `check_links.py` can verify them.
+`language/assets/language-links.js` rewrites them to `gooey.ai` URLs when a page is served through the proxy.
+`check_language_pages.py` also fails if a generated page is not linked from another one, or lacks the links it
+should have (model page to its language page and agent page; language page to its agent page, speech-to-text
+page and every model page; speech-to-text page to its language page and agent page).
+
+After any of those change:
+
+```bash
+python3 scripts/build_language_pages.py     # rewrite the pages
+python3 scripts/build_og_images.py          # render any share image whose card changed
+python3 scripts/check_language_pages.py     # fail if a page is stale or off-template
+python3 scripts/check_og_images.py          # fail if a page's share image is missing
+```
+
+Search and sharing tags on every generated page (language, ai-agent, speech-to-text, model and research paper
+pages) come from `scripts/seo.py`: description, canonical `gooey.ai/.../` URL, Open Graph and X tags, icons, and
+JSON-LD (WebPage or ScholarlyArticle, BreadcrumbList, a FAQPage built from the page's own FAQ, and a Dataset on a
+language page). Each page's 1200x630 share card is drawn from its own numbers and saved next to it as
+`og-<hash>.jpg`; the hash changes when the card does, so a page can't point at a stale image without CI failing.
+Titles are kept to 60 characters and descriptions to 120-155, the lengths Google shows in full; the build fails
+outside those limits. Each page kind lists its wordings fullest first with shorter fallbacks (`seo.fit`), and a
+research paper's `description` is written in `scripts/papers_content.py`.
+`build_og_images.py` needs Pillow and a Chromium-family browser (set `OG_BROWSER` to choose one).
+
+To add a language:
+
+1. `python3 scripts/build_language_data.py --csv <evaluator.csv> --code <xxx> --lang <Name> --country <ISO> --date <YYYY-MM-DD> --samples 3,9,14`
+   writes `language/data/<xxx>/` (summary, pricing, EcoCost, sample cards) from the evaluator CSV
+   and the public run pages it links to. Ask the team for the language's bulk evaluation run URL, set it as
+   `hero.bulk_url` in `page.json`, then run `python3 scripts/fetch_language_workflows.py <slug>`.
+2. Copy an existing `language/_src/<slug>/`, edit its wording and chart settings (`page.json`, the `.frag` files,
+   and `agent.json` for the ai-agent page), then build.
+3. Register its pages (language, ai-agent and, if it has `stt.json`, speech-to-text) in `PAGES` in `scripts/site_header.py` and add the language's name to
+   `language/_src/languages.json` if it isn't there.
+
+## 6. Every page's title, description and share image come from one place
+
+Search and sharing tags (title, description, canonical URL, Open Graph and X tags, icons, JSON-LD and a 1200x630
+share card) are written by `scripts/seo.py` for every page, so they follow the same rules everywhere: titles of at
+most 60 characters, descriptions of 120-155, and a share card rendered from the page's own content.
+
+- **Generated pages** (`/language`, `/models`, `/research/papers`) get them from their builders (see section 5).
+- **Hand-written pages** keep their HTML, but the block of tags at the top of `<head>`, between
+  `<!-- SEO: generated ... -->` and `<!-- /SEO -->`, is written from `scripts/static_seo.json`. Edit the JSON, not
+  the block. **A new top-level page must get an entry there**; the check fails until it has one.
+
+After changing a page's entry, title, numbers or share picture:
+
+```bash
+python3 scripts/build_static_seo.py         # rewrite the hand-written pages' tags
+python3 scripts/build_og_images.py          # render any share card that changed
+python3 scripts/build_static_seo.py --check # fail if a page's tags are stale or missing
+python3 scripts/check_og_images.py          # fail if a page's share image is missing
+```
+
+Both checks run in CI.
+
+`pages-sitemap.xml` lists every page at its canonical gooey.ai URL, with the page's own `dateModified` as
+`<lastmod>` (no date is guessed). It is generated by `python3 scripts/build_sitemap.py`, which finds pages by
+walking the repo, so **re-run it after adding, removing or rebuilding a page**; CI fails (`--check`) if it is stale,
+or if a page's canonical URL is missing or doesn't match its folder. gooey.ai's own sitemap belongs to the Gooey
+app (gooey-server), which should list this file.
+
 ## Before opening a PR for a new or edited page
 
 1. Before making any change, run `git status` and `git pull --ff-only` as
@@ -113,5 +232,8 @@ This also runs in CI on every PR.
 2. `python3 scripts/check_route_clashes.py`
 3. `python3 scripts/check_links.py`
 4. `python3 scripts/check_site_header.py` (if the page has the shared header)
+   `python3 scripts/check_language_pages.py` (for `/language/<name>` pages)
+   `python3 scripts/build_static_seo.py --check`, `python3 scripts/check_og_images.py` and
+   `python3 scripts/build_sitemap.py --check` (every page)
 5. Actually load the page in a browser and check it — these scripts catch
    drift and dead links, not visual regressions.

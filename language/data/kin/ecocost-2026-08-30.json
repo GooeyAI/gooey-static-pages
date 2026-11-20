@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "benchmark_date": "2026-08-30",
+  "snapshot_date": "2026-11-03",
+  "source_csv": "evaluation-latest.csv",
+  "source": "EcoCost records embedded in the public Gooey.AI run pages listed in the source CSV.",
+  "methodology_url": "https://github.com/GooeyAI/ecocost/blob/main/METHODOLOGY.md",
+  "method_version": null,
+  "method_version_note": "The public Gooey.AI run records do not expose an EcoCost method version.",
+  "normalization": "For each covered workflow, sum the 24 per-run values and multiply by 1000/24. Point, minimum, and maximum estimates are aggregated independently.",
+  "scope": "Text-model inference only. Speech recognition and direct-audio inference are excluded.",
+  "workflows": [
+    {
+      "workflow": "Gemini 3.1 Pro (direct audio)",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "Direct-audio inference is outside the current EcoCost methodology scope; the text-token estimate embedded in these runs is intentionally excluded.",
+      "model_ids_observed": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "run_ids": [
+        "q050e16njazj",
+        "kohm1ofgnq0k",
+        "xyyh9b9wzp9p",
+        "lp6o7mwhyqni",
+        "zm6ogn6zb408",
+        "0d0faxuu40xp",
+        "1p77zh3vnukk",
+        "2vcx3eymevxq",
+        "fp5ocfqp6w0s",
+        "plj7doyquidx",
+        "uz17ql3gl6ar",
+        "7y9tmcqokibe",
+        "8nqc2lkt59us",
+        "zgoo6cwaj6bc",
+        "8x71vbhlmoxq",
+        "t48qsr6jtvnl",
+        "t3p4pnh01vek",
+        "fhfnbcwdamd1",
+        "89qldnrd5i2j",
+        "sar0e9jwhal5",
+        "v3afpnxg3c4k",
+        "0i64tsbwsddy",
+        "r85mc09di52m",
+        "rqcd26c0fqqu"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "co2e_g_per_1000": {
+        "value": 19.204166666666666,
+        "min": 6.785416666666666,
+        "max": 52.21666666666667
+      },
+      "energy_wh_per_1000": 48.5625,
+      "water_ml_per_1000": 252.58333333333334,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "c12lxt3qzcvl",
+        "cmizf47275rq",
+        "tjqyfo018qv9",
+        "4p1ejul02005",
+        "x2nf1zp8zvwc",
+        "ezntc3r62dz6",
+        "q88w4yxooo6o",
+        "60xeru6978h1",
+        "yq3t7skikgz8",
+        "hjetjjjdyikz",
+        "v5yw5w5wxnyc",
+        "09zyhiye68dg",
+        "a611vl4ubfoc",
+        "sf16mdjk4dwd",
+        "oys3ajwtntsi",
+        "ms7v4x2un2gl",
+        "676kk5lzmgg9",
+        "q3wt5s9r1fc9",
+        "8ubhhk5kv356",
+        "5ezug3d3lkoo",
+        "51wflge1e4c3",
+        "koi1mya9g1ga",
+        "8yeatwgrgsc8",
+        "d7okevo25985"
+      ]
+    },
+    {
+      "workflow": "Gemini 3.1 Pro + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "google/gemini-3.1-pro-preview"
+      ],
+      "co2e_g_per_1000": {
+        "value": 18.900000000000002,
+        "min": 6.691666666666666,
+        "max": 51.333333333333336
+      },
+      "energy_wh_per_1000": 47.80416666666667,
+      "water_ml_per_1000": 248.66666666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "8ulgdinonahw",
+        "tx2bgmf747cy",
+        "sjdx7a96avje",
+        "1v54vmjeixtq",
+        "tbphaatjv4jg",
+        "cgq1owtx9879",
+        "maiyjttrc2f3",
+        "4pvfkm8m0m4f",
+        "so51rt7vo4ri",
+        "s3lbxfod3kk7",
+        "s5vwbm7dvcrc",
+        "7tftb3bq8087",
+        "99r6cnn72ltp",
+        "u66c1druihu1",
+        "y0frs33uefpd",
+        "hv51l9quilj0",
+        "rbepk1erqenu",
+        "39t3klodihil",
+        "albgktr32atx",
+        "tj4pnf8nbb3p",
+        "79wrk7lu68bw",
+        "1cj4xueeuubo",
+        "clminxegqwpl",
+        "fvh7tvjqgnlt"
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "gpt-5.6-sol"
+      ],
+      "co2e_g_per_1000": {
+        "value": 23.720833333333335,
+        "min": 6.900833333333332,
+        "max": 83.92083333333333
+      },
+      "energy_wh_per_1000": 61.199999999999996,
+      "water_ml_per_1000": 227.3333333333333,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "ygbvsard49h2",
+        "gl7jiumft9nh",
+        "wvuvdf2hrx5n",
+        "1i0nffiaz9z9",
+        "4lgecaeporud",
+        "0pmelqxytxsj",
+        "zs17izrkk9jx",
+        "b3g9ips8vl98",
+        "6037msn4vjiv",
+        "cmcrnzlltllt",
+        "jehmd7b994k0",
+        "p1bmh30d85ec",
+        "qtbbxk16zxnz",
+        "j0fmkuoi0ccb",
+        "rtp43vk6d662",
+        "wzwdddxm2rx5",
+        "rlvpg5gno5o2",
+        "p9exawh8izpg",
+        "u8p74jnb4wjs",
+        "883t6cjuc0jn",
+        "swfijllzx5h0",
+        "ohfn5w9ivca1",
+        "xk4rt9vf8vpr",
+        "64lolz7h240g"
+      ]
+    },
+    {
+      "workflow": "GPT-5.6 Sol + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "gpt-5.6-sol"
+      ],
+      "co2e_g_per_1000": {
+        "value": 22.8125,
+        "min": 6.677083333333333,
+        "max": 80.5125
+      },
+      "energy_wh_per_1000": 58.833333333333336,
+      "water_ml_per_1000": 218.66666666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "8cukzu7ls87v",
+        "yauyl38hkv63",
+        "l1d2fyal82um",
+        "60mtk8cv29lj",
+        "kmyc2t0789pb",
+        "q2vngwx8n4r0",
+        "eks7i6hp5gbk",
+        "a2kouxhpprau",
+        "heokk38jie00",
+        "nlgmrm8l7oxj",
+        "usuuu71fa2ay",
+        "bp1tab7t12h0",
+        "sa6zznmbuw26",
+        "80r738sx3c2g",
+        "zlt2cx90zzfh",
+        "b30ynfnxdr1t",
+        "plmmv8smxj1b",
+        "601en1tfmk9q",
+        "pmxuujkrojch",
+        "v526h3ae6z8t",
+        "8js0qpyr6u82",
+        "9kss15d5fcxy",
+        "bs3u5g6fdsfj",
+        "4a2h6j2t2mes"
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "claude-sonnet-5"
+      ],
+      "co2e_g_per_1000": {
+        "value": 4.817083333333334,
+        "min": 1.5620833333333335,
+        "max": 12.966666666666667
+      },
+      "energy_wh_per_1000": 13.127083333333333,
+      "water_ml_per_1000": 63.979166666666664,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "6uyetnpbsa7q",
+        "80fdrs48y0hm",
+        "yo2jbcz1ydyy",
+        "62ijfjnfgb7b",
+        "zi5b1j08276c",
+        "h0yfv0zn7ff3",
+        "tz90ejih1jg7",
+        "q8j7thfuq0f3",
+        "0b3a9ko1y0e0",
+        "20ejcu6k7u7q",
+        "mlyk4pazbkiw",
+        "zzghdvpv97pp",
+        "i3zmftevdwec",
+        "5l80gj4i9sj5",
+        "ard7roy7dw5c",
+        "he8sxjzxn5zx",
+        "1it00xd8hpdj",
+        "muw8f7ffhk5s",
+        "q7i95ve418ng",
+        "3p14zuqfoxin",
+        "iigu57jur2mo",
+        "0ii42dn5xxhw",
+        "0larc5dpll7e",
+        "btdiskz2vi4o"
+      ]
+    },
+    {
+      "workflow": "Claude Sonnet 5 + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "claude-sonnet-5"
+      ],
+      "co2e_g_per_1000": {
+        "value": 4.900833333333334,
+        "min": 1.5820833333333333,
+        "max": 13.237916666666665
+      },
+      "energy_wh_per_1000": 13.362499999999999,
+      "water_ml_per_1000": 65.10416666666667,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_undisclosed",
+        "chips_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "provider_inferred_from_model",
+        "serving_overhead_assumed"
+      ],
+      "run_ids": [
+        "8czj7im5fp9j",
+        "rsqnucpymjkc",
+        "p29woh5e3xmj",
+        "rl6bzoqomve7",
+        "ptt943lgigg2",
+        "97tkvw8saqre",
+        "kk8yp1bs4t9f",
+        "tm3nv65jyp10",
+        "a6iqo0wtny4g",
+        "9xw9sti500vq",
+        "4yaf0h0xkfh2",
+        "8mf3htd2ju3f",
+        "8gcpuepoqzox",
+        "atlt6uen3wji",
+        "jbtadzyph0f5",
+        "hita7869s8bw",
+        "ep2u0r4pxtr9",
+        "dbs6mwr1pjhk",
+        "s7golfijhyn1",
+        "tgdnjvx2ssuv",
+        "t47l8b6im49i",
+        "vmamu69fl7ct",
+        "je5riyorsmt9",
+        "c90oeasyky8z"
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Omnilingual",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "The 24 Gooey run records contain no EcoCost result for Kimi K3, so no value is published.",
+      "run_ids": [
+        "cok14kjus2wk",
+        "3emd2j0xkcop",
+        "ihx4015pjfp4",
+        "28y2r3si0uu4",
+        "k4pkdbrx7sh9",
+        "7wir7kjqt3x1",
+        "h6mis7q10pg3",
+        "xbbzcuyqxqm5",
+        "9gwmsqcxh9bm",
+        "brc2qh4ki5x4",
+        "fi1i7r17p5c6",
+        "ctsv6hvgfi9q",
+        "ynfoifh8aqp3",
+        "svqnaskko70n",
+        "z24hz9rwd2g4",
+        "5hyfvwm20hpj",
+        "rv52bt7kknbn",
+        "pvhkhu12ejqw",
+        "r8h8s1g6a30p",
+        "1smb854xfs2t",
+        "ccdnr5g1zclp",
+        "a3lxcutgj48f",
+        "pwzqzm7aoo6r",
+        "uws5ajie6uzw"
+      ]
+    },
+    {
+      "workflow": "Kimi K3 + Intron",
+      "sample_size": 0,
+      "source_run_count": 24,
+      "coverage": "not_covered",
+      "reason": "The 24 Gooey run records contain no EcoCost result for Kimi K3, so no value is published.",
+      "run_ids": [
+        "ly42l83jx9i8",
+        "0iu5l259ibat",
+        "fr1n1sfffzyg",
+        "6ccd3tmwttzl",
+        "aux4fwe7nhfv",
+        "gltwft0dh8qi",
+        "fj9ha46u9p3h",
+        "tz1tzoi05yqb",
+        "7zr7aucsavd1",
+        "kvaae8hutyb2",
+        "04t7ket9zc68",
+        "3lc7h45vnvgt",
+        "t7mhd7i9x2rl",
+        "clcuc7t4kamq",
+        "0bt2ogn2tqfx",
+        "3bxbrsja17ir",
+        "plvadjciy5rl",
+        "kakenogxtzkn",
+        "e37k4z19fc17",
+        "fb6fpv1mkeij",
+        "8q0r452lx5o1",
+        "ufwk03y51yq4",
+        "khnvvz3ihd7w",
+        "jadijev1o2em"
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Omnilingual",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "accounts/fireworks/models/deepseek-v4-pro-0813"
+      ],
+      "co2e_g_per_1000": {
+        "value": 12.325000000000001,
+        "min": 2.0408333333333335,
+        "max": 52.229166666666664
+      },
+      "energy_wh_per_1000": 32.34166666666667,
+      "water_ml_per_1000": 164.29166666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "model_inferred_from_sibling",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "xf04t5ru0ci6",
+        "3hfzjl2o76k7",
+        "7bdsan6mfw12",
+        "wmdqvbn0jtr9",
+        "cxuhwcw7yl9u",
+        "jcxtn3if05o4",
+        "qc6gyjj0ukq4",
+        "ou43xn1uq6f2",
+        "be852mn2qcvb",
+        "2sn6p5jnr3vj",
+        "21rrh7llf79h",
+        "7w1m376zg86c",
+        "63knczf0kc30",
+        "phxgyyre6eys",
+        "zp7bw68sgc39",
+        "1s1dood0lf7c",
+        "u3egls3yh3lj",
+        "uw6ykbmuaifl",
+        "dzeqd1kspfey",
+        "etw5j4m392jv",
+        "9p1nk8h194io",
+        "g2kh9e3g7lfo",
+        "aqxg850x9xt1",
+        "tfhnie47i1l9"
+      ]
+    },
+    {
+      "workflow": "DeepSeek V4 + Intron",
+      "sample_size": 24,
+      "source_run_count": 24,
+      "coverage": "text_model_only",
+      "model_ids": [
+        "accounts/fireworks/models/deepseek-v4-pro-0813"
+      ],
+      "co2e_g_per_1000": {
+        "value": 13.755416666666667,
+        "min": 2.254583333333333,
+        "max": 58.49166666666667
+      },
+      "energy_wh_per_1000": 36.0375,
+      "water_ml_per_1000": 183.16666666666666,
+      "confidence": [
+        "low"
+      ],
+      "reasons": [
+        "active_params_assumed",
+        "decode_utilization_assumed",
+        "embodied_carbon_assumed",
+        "model_inferred_from_sibling",
+        "pue_assumed",
+        "region_assumed",
+        "serving_overhead_assumed",
+        "wue_assumed"
+      ],
+      "run_ids": [
+        "2z9hzotfe4a5",
+        "fv6rvohmijgr",
+        "3lewcwb049xo",
+        "s2hy3xdooe95",
+        "fcnup217a0gf",
+        "1427btpeltty",
+        "40ibahz8w762",
+        "iubqf468u4c0",
+        "xvxvds35d2jx",
+        "pi7luophsare",
+        "tbgen5rkjoom",
+        "7jrboyv2vln4",
+        "c99qew387v00",
+        "y6vdc60xni31",
+        "l6y6qjjo5jwu",
+        "ipgiv2zl0dz3",
+        "fegywbil8v6n",
+        "1jn1b23nx2rj",
+        "23222x82a19w",
+        "bl0v2jju20im",
+        "k2aoknl5bhmd",
+        "xtn32g2l1oeu",
+        "es5trdbh54wb",
+        "lthcxsbxg0ct"
+      ]
+    }
+  ]
+}
