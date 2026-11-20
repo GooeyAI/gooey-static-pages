@@ -5,13 +5,12 @@ Each paper becomes a standalone page at research/papers/<slug>/index.html —
 served at /research/papers/<slug>/ — laid out to match the "Shaping AI Paper"
 artboard in the Gooey.AI design canvas.
 
-Every asset path in a paper page is written relative to research/. The gooey.ai
-proxy pins <base> to the top-level folder (verified: /sovereignty serves
-<base href="…/sovereignty/">), so that is what relative paths resolve against in
-production. Served directly — the raw CDN, or a local preview — no base is
-injected, so each page carries its own <base href="../../"> fallback *after* the
-GOOEY-BASE-HREF comment. Only the first <base> in a document counts, so the
-proxy's wins when present and the fallback applies when it is not.
+Every asset path in a paper page is written relative to research/, through the
+page's own <base href="../../">. It comes *before* the GOOEY-BASE-HREF comment:
+the gooey.ai proxy replaces that comment with a <base> for the page's own folder
+(research/papers/<slug>/), and only the first <base> in a document counts. On
+gooey.ai the paths then resolve to gooey.ai/research/..., which redirects to the
+Pages host.
 
     python3 scripts/build_papers.py
 
@@ -512,13 +511,17 @@ STYLE = """
       }
 """
 
+# The page's own <base> comes before the GOOEY-BASE-HREF placeholder. Only the first <base> in a document counts, and
+# gooey.ai's proxy replaces the placeholder with <base href="<Pages host>/<this page's folder>/">, which would send the
+# relative paths below one or two folders too deep. With ours first, gooey.ai requests <path> on gooey.ai, which
+# redirects to the Pages host (CORS allows the fetch of samples.json).
 PAGE = """<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- GOOEY-BASE-HREF -->
     <base href="../../" />
+    <!-- GOOEY-BASE-HREF -->
 {seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
