@@ -107,6 +107,11 @@ ICONS = {
     "chev": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3.5 4.5 4.5L6 12.5"/></svg>',
 }
 
+# Monetary pricing is not published yet: every evaluated chain was billed the same flat Gooey.AI run charge, so cost
+# slots show "Coming soon" (greyed out) instead of a figure, as on the language pages. EcoCost figures stay live.
+PRICING_COMING_SOON = True
+PENDING = "Coming soon"
+
 # Round flags shown before a hosting region in "Where you can run it" (names as in models.json hosted_in / zdr_in).
 _ROUND = '<svg class="md-flag" viewBox="0 0 16 16" aria-hidden="true"><clipPath id="f{id}"><circle cx="8" cy="8" r="8"/></clipPath><g clip-path="url(#f{id})">{body}</g><circle cx="8" cy="8" r="7.75" fill="none" stroke="rgba(0,0,0,.12)" stroke-width=".5"/></svg>'
 FLAGS = {
@@ -233,7 +238,7 @@ def render_model(model: str, lslug: str) -> str:
     # ---- lead + comparison copy
     good, bad = [], []
     (good if c["time"] < 10 else bad).append("fast enough for phone calls" if c["time"] < 10 else "too slow for live phone calls")
-    if not same_cost:
+    if not same_cost and not PRICING_COMING_SOON:
         if c_rank == 1:
             good.append("the cheapest of the " + str(N))
         elif c["cost"] >= max(costs) - 1e-9:
@@ -252,7 +257,9 @@ def render_model(model: str, lslug: str) -> str:
     contrast = "but" if (level == "below average") == (t_rank <= math.ceil(N / 3)) and level != "about average" else "and"
     phone = (" and well inside the 10-second limit for phone calls" if c["time"] <= 8 else
              " and inside the 10-second limit for phone calls" if c["time"] < 10 else " and over the 10-second limit for phone calls")
-    if same_cost:
+    if PRICING_COMING_SOON:
+        cost_sentence = ""
+    elif same_cost:
         cost_sentence = f"Every model was charged the same, about <strong>{b.money(c['cost'])}</strong> per 1,000 questions."
     else:
         word = "expensive" if c["cost"] >= max(costs) - 1e-9 else "cheap" if c_rank == 1 else "mid-priced"
@@ -268,21 +275,24 @@ def render_model(model: str, lslug: str) -> str:
         host_sentence = "It <strong>cannot be self-hosted</strong>, and no chain we tested can."
     compare_p1 = (f"<strong>{esc(model)}</strong> is <strong>{level}</strong> in {lang} accuracy (score {c['score']}, #{rank} of {N} models) "
                   f"{contrast} <strong>{speed_word}</strong>: it answers in <strong>{c['time']:.1f} seconds</strong>, #{t_rank} of {N}{phone}. "
-                  f"{cost_sentence} {host_sentence}")
+                  + (f"{cost_sentence} " if cost_sentence else "") + host_sentence)
     compare_p2 = ""
     if prev_l:
         ds, dt, dc = c["score"] - prev_l["score"], prev_l["time"] - c["time"], prev_l["cost"] - c["cost"]
         compare_p2 = (f'<p class="md-p2">Compared with <strong>{esc(prev["name"])}</strong>, which it replaced, {esc(model)} is '
                       f"<strong>{abs(ds)} points {'higher' if ds >= 0 else 'lower'}</strong>. It answers <strong>{abs(dt):.1f} seconds "
-                      f"{'faster' if dt >= 0 else 'slower'}</strong> and costs <strong>{b.money(abs(dc))} {'less' if dc >= 0 else 'more'}</strong> "
-                      "per 1,000 questions.</p>")
+                      f"{'faster' if dt >= 0 else 'slower'}</strong>"
+                      + ("." if PRICING_COMING_SOON else f" and costs <strong>{b.money(abs(dc))} {'less' if dc >= 0 else 'more'}</strong> per 1,000 questions.")
+                      + "</p>")
     chips = []
     if t_rank <= max(1, math.ceil(N / 3)):
         chips.append(f"Among the fastest, #{t_rank} of {N}")
     if c["time"] < 10:
         chips.append("Phone-ready, under 10 s")
     chips.append("The most accurate of the " + str(N) if rank == 1 else f"{leader['score'] - c['score']} points below the leader")
-    if not same_cost and c["cost"] >= max(costs) - 1e-9:
+    if PRICING_COMING_SOON:
+        pass
+    elif not same_cost and c["cost"] >= max(costs) - 1e-9:
         chips.append(f"Highest cost of the {N}")
     elif not same_cost and c_rank == 1:
         chips.append(f"Lowest cost of the {N}")
@@ -295,9 +305,11 @@ def render_model(model: str, lslug: str) -> str:
     stats = [
         (f"{lang} answer score" if False else "Answer score", str(c["score"]), f"#{rank} of {N} · out of 100"),
         ("Response time", f"{c['time']:.1f} s", f"{rank_phrase(t_rank, [round(t, 1) for t in times], round(c['time'], 1))} · median per answer"),
+        ("Cost", PENDING, "per 1,000 questions") if PRICING_COMING_SOON else
         ("Cost", b.money(c["cost"]), f"{rank_phrase(c_rank, [round(x, 2) for x in costs], round(c['cost'], 2))} · per 1,000 questions"),
     ]
-    stat_html = "\n".join(f'          <div class="md-stat"><span>{k}</span><b>{v}</b><small>{s}</small></div>' for k, v, s in stats)
+    stat_html = "\n".join(f'          <div class="md-stat{" pricing-pending" if v == PENDING else ""}"><span>{k}</span><b>{v}</b><small>{s}</small></div>'
+                         for k, v, s in stats)
 
     # ---- comparison table
     others = [x for x in ranked if x["model"] != model][:3]
@@ -332,9 +344,13 @@ def render_model(model: str, lslug: str) -> str:
     rows_html.append(f'<div class="md-th-label"><b>Response time</b><small>median per answer</small></div>' + "".join(
         cell(i == 0, f"{x['time']:.1f} s", f"#{t_rank} of {N}" if i == 0 else delta(round(x["time"], 1), round(c["time"], 1), lambda v: f"{v:.1f}", " s"),
              round(x["time"], 1) <= best_time) for i, x in enumerate(cols)))
-    rows_html.append(f'<div class="md-th-label"><b>Cost</b><small>per 1,000 questions</small></div>' + "".join(
-        cell(i == 0, b.money(x["cost"]), f"{rank_phrase(c_rank, [round(v, 2) for v in costs], round(c['cost'], 2))}" if i == 0
-             else delta(round(x["cost"], 2), round(c["cost"], 2), b.money), round(x["cost"], 2) <= best_cost) for i, x in enumerate(cols)))
+    if PRICING_COMING_SOON:
+        rows_html.append('<div class="md-th-label pricing-pending"><b>Cost</b><small>per 1,000 questions</small></div>' + "".join(
+            f'<div class="md-td pricing-pending{" me" if i == 0 else ""}"><b>{PENDING}</b><small></small></div>' for i in range(len(cols))))
+    else:
+        rows_html.append(f'<div class="md-th-label"><b>Cost</b><small>per 1,000 questions</small></div>' + "".join(
+            cell(i == 0, b.money(x["cost"]), f"{rank_phrase(c_rank, [round(v, 2) for v in costs], round(c['cost'], 2))}" if i == 0
+                 else delta(round(x["cost"], 2), round(c["cost"], 2), b.money), round(x["cost"], 2) <= best_cost) for i, x in enumerate(cols)))
     ncol = len(cols)
     table = (f'<div class="md-table-scroll"><div class="md-table" style="--cols:{ncol}" role="table" aria-label="{esc(model)} compared with the top models">\n'
              + "\n".join("            " + r for r in rows_html) + "\n          </div></div>")
@@ -354,10 +370,11 @@ def render_model(model: str, lslug: str) -> str:
              chip(f"{abs(ds)} points {'higher' if ds > 0 else 'lower'}" if ds else "unchanged", "good" if ds > 0 else "")),
             ("Response time", "median per answer", f"{prev_l['time']:.1f} s", f"{c['time']:.1f} s",
              chip(f"{abs(dt):.1f} seconds {'faster' if dt > 0 else 'slower'}" if abs(dt) >= 0.05 else "unchanged", "good" if dt > 0 else "")),
+            ("Cost", "per 1,000 questions", "", PENDING, "") if PRICING_COMING_SOON else
             ("Cost", "per 1,000 questions", b.money(prev_l["cost"]), b.money(c["cost"]),
              chip(f"{b.money(abs(dc))} {'cheaper' if dc > 0 else 'dearer'}" if abs(dc) >= 0.005 else "unchanged", "good" if dc > 0 else "")),
         ]
-        row_html = "\n".join(f'<div class="md-change-row"><span><b>{k}</b><small>{s}</small></span><em>{a}</em><i>→</i><strong>{z}</strong>{d}</div>'
+        row_html = "\n".join(f'<div class="md-change-row{" pricing-pending" if z == PENDING else ""}"><span><b>{k}</b><small>{s}</small></span><em>{a}</em><i>→</i><strong>{z}</strong>{d}</div>'
                              for k, s, a, z, d in rows)
         notes = "".join(f"<li>{esc(n)}</li>" for n in prev_l.get("notes", []))
         history = [*prev.get("history", []), [model, re.sub(r"^([A-Za-z]{3}) \d+, (\d{4})$", r"\1 \2", L["updated"]), c["score"]]]
@@ -400,7 +417,7 @@ def render_model(model: str, lslug: str) -> str:
             <h3>{ICONS['cloud']}{card1_title}</h3>
             <p>{esc(card1_body)}</p>
             {hosted_rows}
-            <small class="md-foot">About {b.money(c['cost'])} per 1,000 questions</small>
+            <small class="md-foot{' pricing-pending' if PRICING_COMING_SOON else ''}">{'Pricing coming soon' if PRICING_COMING_SOON else 'About ' + b.money(c['cost']) + ' per 1,000 questions'}</small>
           </article>
           <article class="md-run">
             <div class="md-diagram md-dg-region"><span class="md-region"><span>{esc(L['country'])}</span></span><span class="md-chip">{'Not yet for ' + esc(L['country']) if meta.get('in_region_note') else 'Ask us'}</span><span class="md-node md-a">{ICONS['mic']}<small>Your app</small></span><i class="md-arrow"></i><span class="md-node md-b">{ICONS['cloud']}<small>Cloud in {esc(L['country'])}</small></span></div>
@@ -423,7 +440,7 @@ def render_model(model: str, lslug: str) -> str:
     ref = host if (host and not own_sov) else None
     ref_full = ref["eco_full"] if ref else None
     ref_cov = bool(ref_full and ref_full.get("coverage") == "text_model_only")
-    cfg = {"subject": {"cost": c["cost"]}, "ref": None, "perMonth": 50000}
+    cfg = {"subject": {} if PRICING_COMING_SOON else {"cost": c["cost"]}, "ref": None, "perMonth": 50000}
     if covered:
         v = full["co2e_g_per_1000"]
         water_l, energy_kwh = full["water_ml_per_1000"] / 1000, full["energy_wh_per_1000"] / 1000
@@ -456,17 +473,19 @@ def render_model(model: str, lslug: str) -> str:
           <div class="md-eco">
             <p class="md-eco-cap">{ICONS['leaf']}Per 1,000 questions · {esc(label)}</p>
             <p class="md-eco-big"><b>Not covered</b></p>
-            <p class="md-eco-note">{esc(reason)} We show cost, but no CO₂e, water or energy figure for this chain.</p>
+            <p class="md-eco-note">{esc(reason)} {'There is' if PRICING_COMING_SOON else 'We show cost, but'} no CO₂e, water or energy figure for this chain.</p>
             <a class="md-link plain" href="../ecocost/">How this is estimated (ecocost)</a>
           </div>"""
     if ref:
-        cfg["ref"] = {"label": host_label, "cost": ref["cost"]}
+        cfg["ref"] = {"label": host_label, **({} if PRICING_COMING_SOON else {"cost": ref["cost"]})}
         if ref_cov and covered:
             rv = ref_full["co2e_g_per_1000"]["value"]
             cfg["ref"].update({"co2e": rv, "waterL": ref_full["water_ml_per_1000"] / 1000, "energyKwh": ref_full["energy_wh_per_1000"] / 1000})
     tiles = [("cost", "coin", "Cost"), ("co2e", "leaf", "CO₂e"), ("waterL", "drop", "Water"), ("energyKwh", "bolt", "Energy")]
     tiles_html = "".join(
-        f'<div class="md-vol-tile" data-k="{k}"><span>{ICONS[i]}{n}</span><b>—</b><div class="md-track"><i></i></div><small></small></div>'
+        (f'<div class="md-vol-tile pricing-pending" data-k="{k}"><span>{ICONS[i]}{n}</span><b>{PENDING}</b><div class="md-track"><i></i></div><small></small></div>'
+         if k == "cost" and PRICING_COMING_SOON else
+         f'<div class="md-vol-tile" data-k="{k}"><span>{ICONS[i]}{n}</span><b>—</b><div class="md-track"><i></i></div><small></small></div>')
         for k, i, n in tiles if k == "cost" or covered)
     ref_note = (f'<p class="md-vol-note"><i class="dot sov"></i>{esc(host_label)}, the best chain you can host yourself. Grey: {esc(label)}.</p>' if ref else
                 f'<p class="md-vol-note">Figures scale linearly with the number of questions.</p>')
@@ -504,7 +523,8 @@ def render_model(model: str, lslug: str) -> str:
     eco_text = (f"Its estimated footprint is {full['co2e_g_per_1000']['value']:.1f} g CO₂e per 1,000 questions for the language-model step (confidence: low)." if covered
                 else "Its carbon footprint is not covered by our EcoCost estimate yet.")
     faq.append((f"What does {model} cost, and what is its carbon footprint?",
-                f"On Gooey.AI the observed charge for {label} was {b.money(c['cost'])} per 1,000 questions. {eco_text}"))
+                (f"Pricing is coming soon. {eco_text}" if PRICING_COMING_SOON else
+                 f"On Gooey.AI the observed charge for {label} was {b.money(c['cost'])} per 1,000 questions. {eco_text}")))
     faq.append(("How often are these results updated?",
                 f"The numbers on this page come from the {L['updated']} run of {L['questions']} questions. We update the page when we re-run the benchmark."))
     faq_items = "\n".join(f"            <details{' open' if i == 0 else ''}><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for i, (q, a) in enumerate(faq))
@@ -550,7 +570,7 @@ def render_model(model: str, lslug: str) -> str:
         raise SystemExit(f"{mslug}/{lslug}: unfilled template slots {sorted(set(left))}")
     title = f"{model} in {lang}: Accuracy, Speed & Cost"
     description = (f"How {model} does on spoken {lang} questions: score {c['score']} out of 100 (#{rank} of {N} models), "
-                   f"{c['time']:.1f} s response, {b.money(c['cost'])} per 1,000 questions.")
+                   f"{c['time']:.1f} s response" + ("." if PRICING_COMING_SOON else f", {b.money(c['cost'])} per 1,000 questions."))
     head = HEAD.format(title=esc(title, quote=False), description=esc(description), mslug=mslug, lslug=lslug, header_css=b.HEADER_CSS)
     config = {"lang": lang, "model": model, "samples": sample_data, "who": {"model": model, "logo": b.js_dict("LOGO_FILES")[model]},
               "volume": cfg}

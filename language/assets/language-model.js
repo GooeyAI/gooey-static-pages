@@ -21,7 +21,8 @@ function update() {
   const k = questions / 1000, { subject, ref } = M.volume;
   range.style.setProperty("--fill", range.value + "%");
   document.getElementById("mdVol").textContent = Math.round(questions).toLocaleString("en-US");
-  document.querySelectorAll(".md-vol-tile").forEach(tile => {
+  // A tile marked pricing-pending ("Coming soon") keeps its text; the others scale with the slider.
+  document.querySelectorAll(".md-vol-tile:not(.pricing-pending)").forEach(tile => {
     const key = tile.dataset.k;
     tile.querySelector("b").textContent = FORMAT[key](subject[key] * k);
     const has = ref && ref[key] != null;

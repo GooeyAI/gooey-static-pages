@@ -997,6 +997,34 @@
   margin-top: 4px;
 }
 
+/* Monetary pricing is not published yet: cost slots read "Coming soon", greyed out (as on the language pages).
+   EcoCost figures stay live. */
+.model .pricing-pending,
+.model .pricing-pending b,
+.model .pricing-pending span,
+.model .pricing-pending small {
+  color: var(--text-tertiary);
+}
+.model .pricing-pending svg {
+  opacity: 0.55;
+}
+.md-stat.pricing-pending b {
+  font-size: 28px;
+  letter-spacing: 0;
+}
+.md-td.pricing-pending b {
+  font-weight: 500;
+}
+.md-vol-tile.pricing-pending {
+  background: #f4f4f4;
+}
+.md-vol-tile.pricing-pending b {
+  font-size: 16px;
+}
+.md-vol-tile.pricing-pending .md-track {
+  visibility: hidden;
+}
+
 /* Sample answers: heading and intro spaced like the other sections; topic tag as a chip in the card head */
 .model .samples-head {
   gap: 0;
