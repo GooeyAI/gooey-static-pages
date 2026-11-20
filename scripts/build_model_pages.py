@@ -65,13 +65,17 @@ CONTACT = "https://gooey.ai/contact/"
 API = "https://gooey.ai/api/"
 esc = html.escape
 
+# The page's own <base> comes before the GOOEY-BASE-HREF placeholder. Only the first <base> in a document counts, and
+# gooey.ai's proxy replaces the placeholder with <base href="<Pages host>/<this page's folder>/">, which would send the
+# relative paths below one or two folders too deep. With ours first, gooey.ai requests <path> on gooey.ai, which
+# redirects to the Pages host (CORS allows the fetch of samples.json).
 HEAD = """<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- GOOEY-BASE-HREF -->
     <base href="../../" />
+    <!-- GOOEY-BASE-HREF -->
 {seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
