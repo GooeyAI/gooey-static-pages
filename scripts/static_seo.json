@@ -30,9 +30,10 @@
     "card": {
       "eyebrow": "Proposal · Research",
       "title": "EcoCost labeling for AI inference",
-      "banner": "ecocost/images/share-banner.webp"
+      "banner": "ecocost/images/ecocost-architecture.webp",
+      "position": "50% 0%"
     },
-    "image_alt": "EcoCost labeling for AI inference: a run label showing a request's cost beside its CO2e, water and energy estimates."
+    "image_alt": "EcoCost labeling architecture: from source data and curation to an open-source estimation engine, an API, and cost and carbon labels in product interfaces."
   },
   "research": {
     "name": "Research",
