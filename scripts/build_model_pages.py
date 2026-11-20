@@ -329,18 +329,19 @@ def render_model(model: str, lslug: str) -> str:
     prev = runs[0] if runs else None
 
     # ---- lead + comparison copy
+    # Each point is a verb phrase ("is …" / "can …"), so any mix reads as one sentence after "It".
     good, bad = [], []
-    (good if c["time"] < 10 else bad).append("fast enough for phone calls" if c["time"] < 10 else "too slow for live phone calls")
+    (good if c["time"] < 10 else bad).append("is fast enough for phone calls" if c["time"] < 10 else "is too slow for live phone calls")
     if not same_cost and not PRICING_COMING_SOON:
         if c_rank == 1:
-            good.append("the cheapest of the " + str(N))
+            good.append("is the cheapest of the " + str(N))
         elif c["cost"] >= max(costs) - 1e-9:
-            bad.append("costly")
+            bad.append("is costly")
     (good if own_sov else bad).append("can be self-hosted" if own_sov else "cannot be self-hosted")
     if good and bad:
-        verdict = f"It is {and_join(good)}, but {and_join(bad)}."
+        verdict = f"It {and_join(good)}, but {and_join(bad)}."
     else:
-        verdict = f"It is {and_join(good or bad)}."
+        verdict = f"It {and_join(good or bad)}."
     lead = (f"<strong>As of {month_year(L['updated'])}, {esc(model)} ranks #{rank} of {N} models on spoken {lang} questions.</strong> "
             f"{esc(verdict)}")
 
@@ -601,8 +602,10 @@ def render_model(model: str, lslug: str) -> str:
                     f"ChatGPT is OpenAI’s app; we test its models directly. {model} scored {c['score']} on spoken {lang} questions, #{rank} of {N}."))
     else:
         faq.append((f"Does {model} understand {lang}?",
-                    f"Partly. {model} scored {c['score']} out of 100 on spoken {lang} questions with {speech}, #{rank} of {N} models; "
-                    f"{leader['model']} scored {leader['score']}."))
+                    (f"{model} scored highest of the {N} models we tested: {c['score']} out of 100 on spoken {lang} questions "
+                     f"with {speech}." if rank == 1 else
+                     f"Partly. {model} scored {c['score']} out of 100 on spoken {lang} questions with {speech}, #{rank} of {N} models; "
+                     f"{leader['model']} scored {leader['score']}.")))
     if prev:
         ds = c["score"] - prev["score"]
         faq.append((f"Is {model} better than {prev['name']} for {lang}?",
@@ -613,7 +616,7 @@ def render_model(model: str, lslug: str) -> str:
     faq.append((f"Can I run {model} on my own servers?",
                 (f"Yes. {model} has open weights, so you can host it yourself, together with an open speech model such as Omnilingual." if own_sov else
                  f"No. {model} is only available from {meta['maker']}’s cloud. " + (f"The best chain you can host yourself is {host_label} (score {host['score']})." if host else "None of the chains we tested can be self-hosted."))))
-    eco_text = (f"Its estimated footprint is {full['co2e_g_per_1000']['value']:.1f} g CO₂e per 1,000 questions for the language-model step (confidence: low)." if covered
+    eco_text = (f"Its estimated footprint is {full['co2e_g_per_1000']['value']:.1f} g CO₂e per 1,000 questions for the language-model step (confidence: {(full.get('confidence') or ['low'])[0]})." if covered
                 else "Its carbon footprint is not covered by our EcoCost estimate yet.")
     faq.append((f"What does {model} cost, and what is its carbon footprint?",
                 (f"Pricing is coming soon. {eco_text}" if PRICING_COMING_SOON else
