@@ -144,6 +144,15 @@ FLAGS = {
 }
 
 
+def hero_art() -> str:
+    """The hero illustration: language/assets/models/hero.{webp,jpg,png} (4:3), else the labelled placeholder."""
+    alt = "Hands holding a phone showing a check mark, in front of terraced hills"
+    for ext in ("webp", "jpg", "png"):
+        if (b.LANG / "assets" / "models" / f"hero.{ext}").exists():
+            return f'<img class="md-art" src="{ASSET}models/hero.{ext}" alt="{alt}" width="399" height="300" fetchpriority="high" />'
+    return f'<div class="md-art" role="img" aria-label="{alt}">Illustration to come</div>'
+
+
 def eco_art() -> str:
     """The EcoCost card's illustration: language/assets/models/ecocost.{webp,jpg,png} (4:3), else a plain placeholder."""
     for ext in ("webp", "jpg", "png"):
@@ -644,7 +653,7 @@ def render_model(model: str, lslug: str) -> str:
         "cta_text": f"Start from {esc(model)} with {esc(speech)}, the best-scoring chain for this model. Free to start.",
         "other_title": f"{model} in other languages", "other_languages": other_languages,
         "email": f"Email me when {model}’s {lang} results change",
-        "art": '<div class="md-art" role="img" aria-label="Illustration of a phone showing a voice note">Illustration to come</div>',
+        "art": hero_art(),
     }
     body = (SRC / "model.tmpl").read_text()
     for key, value in slots.items():

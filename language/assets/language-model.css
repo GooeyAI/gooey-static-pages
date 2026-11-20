@@ -96,6 +96,11 @@
   font-size: 12px;
   font-weight: 500;
 }
+img.md-art {
+  display: block;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
 .md-voice {
   top: auto;
   right: -20px;
@@ -1152,6 +1157,9 @@ img.md-eco-art {
   }
   .md-hero-art {
     height: 260px;
+  }
+  img.md-art {
+    object-position: 50% 48%;
   }
   .md-voice {
     position: absolute;
