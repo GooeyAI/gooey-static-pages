@@ -151,7 +151,8 @@
       .recognition > div:last-child { border-right: 0; }
       .recognition .label { display: block; color: var(--gy-teal-800); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; }
       .recognition strong { font-family: var(--gy-font-serif); font-size: 18px; }
-      .requirements-intro { margin-top: 42px !important; font-family: var(--gy-font-serif); font-size: 20px !important; line-height: 1.5 !important; }
+      .requirements-block { margin-top: 42px; }
+      .requirements-intro { max-width: 900px; margin: 0; font-family: var(--gy-font-serif); font-size: 20px; line-height: 1.5; }
       .requirements { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 22px; }
       .requirement { min-height: 174px; padding: 20px; border: 1px solid var(--gy-line); border-radius: 16px; background: var(--gy-white); }
       .requirement b { display: block; margin-bottom: 17px; color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 22px; line-height: 1; }
@@ -234,24 +235,28 @@
       </section>
 
       <section class="section" id="meaning">
-        <div class="wrap section-grid">
-          <div>
-            <span class="section-num">01</span>
-            <p class="eyebrow">The meaning</p>
-            <figure class="section-side-image">
-              <img src="images/open-digital-ecosystem.png" alt="People collaboratively building an open digital ecosystem from shared blocks of knowledge, media and community infrastructure" loading="lazy" />
-            </figure>
-          </div>
-          <div class="prose">
-            <h2>What does it mean to be a digital public good?</h2>
-            <p class="lede">Digital public goods are open-source software, open data, open AI models, open standards and open content that contribute towards achieving the Sustainable Development Goals.</p>
-            <p>They adhere to applicable laws and best practices, do no harm, and are designed so others can use, adapt and extend them. The Digital Public Goods Alliance promotes the discovery, development and use of these solutions to help create a more equitable world.</p>
-            <p>For Gooey.AI, recognition as a digital public good is an important milestone in our journey to make AI more accessible, adaptable and inclusive. It recognises the value of building open technology for different communities and contexts.</p>
-            <div class="recognition" aria-label="Our DPG recognition">
-              <div><span class="label">Registry</span><strong>Digital Public Goods Alliance</strong></div>
-              <div><span class="label">Category</span><strong>Open Software</strong></div>
-              <div><span class="label">Standard</span><strong><a href="https://www.digitalpublicgoods.net/standard/" target="_blank" rel="noopener">Digital Public Goods Standard</a></strong></div>
+        <div class="wrap">
+          <div class="section-grid">
+            <div>
+              <span class="section-num">01</span>
+              <p class="eyebrow">The meaning</p>
+              <figure class="section-side-image">
+                <img src="images/open-digital-ecosystem.png" alt="People collaboratively building an open digital ecosystem from shared blocks of knowledge, media and community infrastructure" loading="lazy" />
+              </figure>
             </div>
+            <div class="prose">
+              <h2>What does it mean to be a digital public good?</h2>
+              <p class="lede">Digital public goods are open-source software, open data, open AI models, open standards and open content that contribute towards achieving the Sustainable Development Goals.</p>
+              <p>They adhere to applicable laws and best practices, do no harm, and are designed so others can use, adapt and extend them. The Digital Public Goods Alliance promotes the discovery, development and use of these solutions to help create a more equitable world.</p>
+              <p>For Gooey.AI, recognition as a digital public good is an important milestone in our journey to make AI more accessible, adaptable and inclusive. It recognises the value of building open technology for different communities and contexts.</p>
+              <div class="recognition" aria-label="Our DPG recognition">
+                <div><span class="label">Registry</span><strong>Digital Public Goods Alliance</strong></div>
+                <div><span class="label">Category</span><strong>Open Software</strong></div>
+                <div><span class="label">Standard</span><strong><a href="https://www.digitalpublicgoods.net/standard/" target="_blank" rel="noopener">Digital Public Goods Standard</a></strong></div>
+              </div>
+            </div>
+          </div>
+          <div class="requirements-block">
             <p class="requirements-intro">The DPGA sets out nine requirements for software, data, AI systems and content collections to be considered a digital public good:</p>
             <div class="requirements" aria-label="Nine Digital Public Goods Standard requirements">
               <article class="requirement"><b>01</b><h3>SDG relevance</h3><p>Contribute to one or more United Nations Sustainable Development Goals.</p></article>
