@@ -1071,9 +1071,13 @@
     height: 260px;
   }
   .md-voice {
-    left: 12px;
+    position: absolute;
+    top: auto;
     right: 12px;
+    bottom: -13px;
+    left: 12px;
     width: auto;
+    margin: 0;
   }
   .md-stats,
   .md-runs,
