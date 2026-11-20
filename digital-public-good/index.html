@@ -151,6 +151,12 @@
       .recognition > div:last-child { border-right: 0; }
       .recognition .label { display: block; color: var(--gy-teal-800); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 8px; }
       .recognition strong { font-family: var(--gy-font-serif); font-size: 18px; }
+      .requirements-intro { margin-top: 42px !important; font-family: var(--gy-font-serif); font-size: 20px !important; line-height: 1.5 !important; }
+      .requirements { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 22px; }
+      .requirement { min-height: 174px; padding: 20px; border: 1px solid var(--gy-line); border-radius: 16px; background: var(--gy-white); }
+      .requirement b { display: block; margin-bottom: 17px; color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 22px; line-height: 1; }
+      .requirement h3 { margin: 0 0 8px; font-family: var(--gy-font-sans); font-size: 16px; line-height: 1.3; }
+      .requirement p { margin: 0; color: var(--gy-ink-muted); font-size: 14px; line-height: 1.5; }
       .principles { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 28px; }
       .principle { min-height: 142px; padding: 22px; border: 1px solid var(--gy-line); border-radius: 18px; background: white; }
       .principle b { display: block; color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 28px; margin-bottom: 22px; }
@@ -181,6 +187,7 @@
         .hero::after { width: 85vw; opacity: .45; }
         .badge-card { max-width: 520px; }
         .recognition,.principles,.impact-grid { grid-template-columns: 1fr; }
+        .requirements { grid-template-columns: repeat(2,1fr); }
         .recognition > div { border-right: 0; border-bottom: 1px solid var(--gy-line); }
         .recognition > div:last-child { border-bottom: 0; }
       }
@@ -188,6 +195,7 @@
         .site-header { padding: 0 18px; }
         .site-header .login-btn { padding: 8px 15px; }
         .section-grid { grid-template-columns: 1fr; }
+        .requirements { grid-template-columns: 1fr; }
         .actions { flex-direction: column; }
         .btn { width: 100%; }
         h1 { font-size: 40px; }
@@ -243,6 +251,18 @@
               <div><span class="label">Registry</span><strong>Digital Public Goods Alliance</strong></div>
               <div><span class="label">Category</span><strong>Open Software</strong></div>
               <div><span class="label">Standard</span><strong><a href="https://www.digitalpublicgoods.net/standard/" target="_blank" rel="noopener">Digital Public Goods Standard</a></strong></div>
+            </div>
+            <p class="requirements-intro">The DPGA sets out nine requirements for software, data, AI systems and content collections to be considered a digital public good:</p>
+            <div class="requirements" aria-label="Nine Digital Public Goods Standard requirements">
+              <article class="requirement"><b>01</b><h3>SDG relevance</h3><p>Contribute to one or more United Nations Sustainable Development Goals.</p></article>
+              <article class="requirement"><b>02</b><h3>Approved open licensing</h3><p>Use an approved open licence. Open-source software must use an OSI-approved licence.</p></article>
+              <article class="requirement"><b>03</b><h3>Clear ownership</h3><p>Make ownership of the digital solution transparent.</p></article>
+              <article class="requirement"><b>04</b><h3>Platform independence</h3><p>Avoid dependencies that prevent the solution from being independently deployed or adapted.</p></article>
+              <article class="requirement"><b>05</b><h3>Published documentation</h3><p>Document source code, use cases and functional requirements so others can understand and use the solution.</p></article>
+              <article class="requirement"><b>06</b><h3>Data extraction</h3><p>Allow non-personally identifiable data to be exported in non-proprietary formats.</p></article>
+              <article class="requirement"><b>07</b><h3>Privacy and applicable laws</h3><p>Respect privacy obligations and the laws that apply wherever the solution operates.</p></article>
+              <article class="requirement"><b>08</b><h3>Standards and best practices</h3><p>Follow relevant technical standards and established best practices.</p></article>
+              <article class="requirement"><b>09</b><h3>Designed to do no harm</h3><p>Demonstrate data privacy and security, address illegal or inappropriate content, and protect users and contributors from abuse and harassment.</p></article>
             </div>
           </div>
         </div>
