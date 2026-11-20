@@ -144,6 +144,15 @@ FLAGS = {
 }
 
 
+def eco_art() -> str:
+    """The EcoCost card's illustration: language/assets/models/ecocost.{webp,jpg,png} (4:3), else a plain placeholder."""
+    for ext in ("webp", "jpg", "png"):
+        if (b.LANG / "assets" / "models" / f"ecocost.{ext}").exists():
+            return (f'<img class="md-eco-art" src="{ASSET}models/ecocost.{ext}" alt="Cupped hands holding a seedling in soil" '
+                    'width="220" height="165" loading="lazy" decoding="async" />')
+    return '<div class="md-eco-art" role="img" aria-label="Illustration to come"></div>'
+
+
 # ---------------------------------------------------------------------------------------------------------
 # data
 
@@ -532,7 +541,7 @@ def render_model(model: str, lslug: str) -> str:
                 <div class="md-range"><i style="left:{pos * 100:.0f}%"></i></div>
                 <p class="md-eco-cap2">Likely {lo:.1f} to {hi:.1f} g · confidence: {esc(conf)}</p>
               </div>
-              <div class="md-eco-art"></div>
+              {eco_art()}
             </div>
             <div class="md-eco-tiles"><div><span>{ICONS['drop']}Water</span><b>{full['water_ml_per_1000']:.0f} mL</b></div><div><span>{ICONS['bolt']}Energy</span><b>{full['energy_wh_per_1000']:.0f} Wh</b></div></div>
             <div class="md-eco-chips"><span>{ICONS['leaf']}≈ {tree_min:.0f} minutes of one tree’s CO₂ uptake</span><span>{ICONS['bulb']}≈ {led_min:.0f} minutes of a 10 W LED bulb</span></div>
