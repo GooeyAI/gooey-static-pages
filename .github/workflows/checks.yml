@@ -23,3 +23,9 @@ jobs:
         run: python3 scripts/check_language_pages.py
       - name: Test shared language FAQ generation
         run: python3 scripts/test_language_faq.py
+      - name: Check hand-written pages' SEO tags are current
+        run: python3 scripts/build_static_seo.py --check
+      - name: Check share images (og:image) exist
+        run: python3 scripts/check_og_images.py
+      - name: Check the sitemap lists every page
+        run: python3 scripts/build_sitemap.py --check

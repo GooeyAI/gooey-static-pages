@@ -9,10 +9,6 @@
   "updated": "Aug 30, 2026",
   "questions": 24,
   "layout": "wide",
-  "meta": {
-    "description": "Compare 19 AI chains for spoken Swahili by answer quality and response time.",
-    "og_description": "Results for 19 AI chains tested on 24 spoken Swahili questions."
-  },
   "hero": {
     "bulk_url": "https://gooey.ai/bulk/24qs-swahili-audio-to-text-benchmark-deepseek-v4-gemini-37-flash-gpt-56-sol-claude-sonnet-5-kimi-k3-gemini-31-pro-w-omnilingual-intron-gpt-transcribe-rm8ch4x5217y/",
     "map": {

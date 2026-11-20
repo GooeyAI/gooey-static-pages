@@ -9,10 +9,6 @@
   "updated": "Aug 30, 2026",
   "questions": 24,
   "layout": "standard",
-  "meta": {
-    "description": "Compare 11 AI chains for spoken Kinyarwanda by answer quality, response time, cost, hosting and environmental impact.",
-    "og_description": "Independent results for 11 AI chains tested on 24 spoken Kinyarwanda questions."
-  },
   "hero": {
     "bulk_url": "https://gooey.ai/bulk/25qs-kinyarwanda-audio-to-text-benchmark-kimi-k3-gemini-31-pro-gpt-56-sol-claude-sonnet-5-deepseek-v4-w-omnilingual-intron-7j0hktpptk0f/",
     "map": {
