@@ -141,6 +141,8 @@
       .section-num { color: var(--gy-teal-700); font-family: var(--gy-font-serif); font-size: 56px; line-height: 1; }
       .section-side-image { margin: 34px 0 0; border: 1px solid var(--gy-line); border-radius: 20px; overflow: hidden; background: var(--gy-surface-100); box-shadow: 0 18px 50px rgba(10,16,33,.08); }
       .section-side-image img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: center; }
+      .section-side-image.contain { background: var(--gy-white); padding: 18px; }
+      .section-side-image.contain img { aspect-ratio: 1; object-fit: contain; }
       .section h2 { margin: 10px 0 20px; font-size: clamp(30px, 3.5vw, 46px); }
       .lede { margin: 0 0 22px; color: var(--gy-ink-muted); font-family: var(--gy-font-serif); font-size: clamp(18px, 1.55vw, 22px); line-height: 1.52; }
       .prose p { max-width: 760px; margin: 0 0 20px; font-size: 16.5px; line-height: 1.72; }
@@ -284,7 +286,13 @@
 
       <section class="section alt" id="importance">
         <div class="wrap section-grid">
-          <div><span class="section-num">03</span><p class="eyebrow">Why it matters</p></div>
+          <div>
+            <span class="section-num">03</span>
+            <p class="eyebrow">Why it matters</p>
+            <figure class="section-side-image contain">
+              <img src="images/farmer-ai-phones.png" alt="FarmerAI running through phone calls, WhatsApp crop-image analysis and a web conversation" loading="lazy" />
+            </figure>
+          </div>
           <div class="prose">
             <h2>Open technology can create greater impact when it is shared.</h2>
             <p class="lede">For us, this recognition is an affirmation of why we build.</p>
