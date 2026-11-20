@@ -30,6 +30,8 @@ from site_header import HEADER_CSS  # noqa: E402
 
 LANG = build.LANG
 JS = (LANG / "assets" / "language-page.js").read_text(encoding="utf-8")
+# The one inline script a page may carry besides its config: the structured data in <head>, written by scripts/seo.py
+LD_JSON = '<script type="application/ld+json">'
 
 
 def dict_keys(name: str) -> set[str]:
@@ -57,7 +59,7 @@ def check(slug: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put layout CSS in language/assets/language-page.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    if scripts != ["<script>", '<script src="assets/language-samples.js">', '<script src="assets/language-page.js">',
+    if scripts != [LD_JSON, "<script>", '<script src="assets/language-samples.js">', '<script src="assets/language-page.js">',
                    '<script src="assets/language-links.js">']:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")
 
@@ -90,7 +92,7 @@ def check_agent(slug: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-agent.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    if scripts != ["<script>", '<script src="assets/language-agent.js">', '<script src="assets/language-links.js">']:
+    if scripts != [LD_JSON, "<script>", '<script src="assets/language-agent.js">', '<script src="assets/language-links.js">']:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")
     agent = json.loads((build.SRC / slug / "agent.json").read_text())
     for model in agent["models"]:
@@ -114,7 +116,7 @@ def check_stt(slug: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-stt.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    if scripts != ["<script>", '<script src="assets/language-samples.js">', '<script src="assets/language-stt.js">',
+    if scripts != [LD_JSON, "<script>", '<script src="assets/language-samples.js">', '<script src="assets/language-stt.js">',
                    '<script src="assets/language-links.js">']:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")
     for ref in sorted(set(re.findall(r'(?:src|href)="((?:assets|data)/[^"?#]+)"', actual))):
@@ -141,7 +143,7 @@ def check_model(path: pathlib.Path, expected: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-model.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    want = ["<script>", '<script src="../language/assets/language-samples.js">', '<script src="../language/assets/language-model.js">',
+    want = [LD_JSON, "<script>", '<script src="../language/assets/language-samples.js">', '<script src="../language/assets/language-model.js">',
             '<script src="../language/assets/language-links.js">']
     if scripts != want:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")

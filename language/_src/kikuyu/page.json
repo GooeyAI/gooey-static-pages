@@ -9,10 +9,6 @@
   "updated": "Aug 30, 2026",
   "questions": 24,
   "layout": "standard",
-  "meta": {
-    "description": "Compare 13 AI chains for spoken Kikuyu by answer quality and response time.",
-    "og_description": "Results for 13 AI chains tested on 24 spoken Kikuyu questions."
-  },
   "hero": {
     "bulk_url": "https://gooey.ai/bulk/25qs-kikuyu-audio-to-text-benchmark-claude-sonnet-5-gpt-56-sol-deepseek-v4-gemini-31-pro-kimi-k3-gemini-37-flash-w-omnilingual-kikuyu-whisper-v2-g10xcrobgrvl/",
     "map": {
