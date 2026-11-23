@@ -3335,15 +3335,11 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .matrix-col > .pick-card { gap: 12px; padding: 14px 12px; border-radius: 14px; }
   .hub .pick-card .chain { flex-wrap: wrap; gap: 4px 6px; font-size: 13px; line-height: 16px; }
   .hub .pick-card .chain > img:first-child { width: 20px; height: 20px; }
-  .hub .pick-card .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 10px 8px; }
-  .hub .pick-card .stat.big { grid-column: 1 / -1; }
+  .hub .pick-card .stats { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 10px 8px; }
   .hub .pick-card .stat.big b { font-size: 40px; line-height: 1; }
   .hub .pick-card .stat:not(.big) b { font-size: 15px; line-height: 18px; }
   .hub .pick-card .stat { min-width: 0; }
   .hub .pick-card .stat span { font-size: 11px; line-height: 14px; white-space: normal; }
-  /* Cost label: the short form fits on one line in the narrow card */
-  .hub .pick-card .stat:nth-child(3) span { font-size: 0; }
-  .hub .pick-card .stat:nth-child(3) span::after { content: "/ 1k Q's"; font-size: 11px; line-height: 14px; }
   .hub .pick-card hr { margin: 0; }
   /* Link label: the short form fits on one line in the narrow card */
   .hub .pick-card .cta { align-items: center; justify-content: space-between; gap: 4px; font-size: 0; }
@@ -3429,7 +3425,3 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 }
 .hub .select-menu li[aria-disabled="true"] { cursor: not-allowed; background: #f4f4f4; }
 .hub .select-menu li[aria-disabled="true"] small { font-size: 11px; }
-.hub .stat.pricing-pending b { font-size: 16px; line-height: 20px; white-space: normal; }
-@media (max-width: 760px) {
-  .hub .pick-card .stat.pricing-pending { grid-column: 1 / -1; }
-}

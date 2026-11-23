@@ -25,7 +25,7 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-openai-24.svg" alt="" width="24" height="24" /><span>GPT-5.6 Sol</span><span class="plus">+</span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" /><span>Omnilingual</span></div>
               <div class="stats">
                 <div class="stat big"><b>59</b><span>Hausa Index</span></div>
-                <div class="stat"><b>14.4 s</b><span>response</span></div>
+                <div class="stat"><b>14.4s</b><span>response time</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -34,7 +34,7 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span>Gemini 3.1 Pro</span><span class="dir">(direct audio)</span></div>
               <div class="stats">
                 <div class="stat big"><b>71</b><span>Hausa Index</span></div>
-                <div class="stat"><b>16.3 s</b><span>response</span></div>
+                <div class="stat"><b>16.3s</b><span>response time</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -49,7 +49,7 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-kimi.svg" alt="" width="24" height="24" /><span>Kimi K3</span><span class="plus">+</span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" /><span>Omnilingual</span></div>
               <div class="stats">
                 <div class="stat big"><b>63</b><span>Hausa Index</span></div>
-                <div class="stat"><b>20.8 s</b><span>response</span></div>
+                <div class="stat"><b>20.8s</b><span>response time</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
@@ -58,7 +58,7 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-kimi.svg" alt="" width="24" height="24" /><span>Kimi K3</span><span class="plus">+</span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" /><span>Omnilingual</span></div>
               <div class="stats">
                 <div class="stat big"><b>63</b><span>Hausa Index</span></div>
-                <div class="stat"><b>20.8 s</b><span>response</span></div>
+                <div class="stat"><b>20.8s</b><span>response time</span></div>
               </div>
               <hr />
               <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
