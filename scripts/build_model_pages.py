@@ -667,11 +667,14 @@ def render_model(model: str, lslug: str) -> str:
                           f"{model} on spoken {lang} questions: {c['score']}/100 (#{rank} of {N} models), {c['time']:.1f} s response.",
                           lo=seo.DESC_MIN, hi=seo.DESC_MAX, what=f"{model} in {lang} description")
     path = f"models/{mslug}/{lslug}"
-    card = {"eyebrow": f"{lang} evaluation · {meta['maker']}", "title": f"{model} in {lang}", "lead": ["Best chain", label],
-            "stats": [[f"{lang} Index", str(c["score"]), "/ 100", f"#{rank} of {N} models"],
-                      ["Reply time", f"{c['time']:.1f}", "s", f"median, #{t_rank} of {N}"],
-                      ["Self-hosting", "Yes" if own_sov else "No", "", "open weights" if meta.get("open") else "proprietary model"]],
-            "visual": {"kind": "logo", "src": f"language/assets/kinyarwanda/{b.js_dict('LOGO_FILES')[model]}.svg"}}
+    # Share card: whether the model can be self-hosted, and its Index (its best chain's) with its rank among the models.
+    speech_logo = b.js_dict("SPEECH_FILES")[c["speech"]]
+    card = {"eyebrow": f"{lang} evaluation · {meta['maker']}", "title": f"{model} in {lang}", "date": L["updated"],
+            **({"badge": ["Sovereign-deployable", "landmark"]} if own_sov else {}),   # no tag for private models
+            "visual": {"kind": "score", "label": f"{lang} Index", "sub": "Accuracy on spoken questions",
+                       "value": c["score"], "note": f"#{rank} of {N} models", "sovereign": own_sov,
+                       "chain": label, "logos": [f"language/assets/kinyarwanda/{b.logo24(model)}.svg",
+                                                 f"language/assets/kinyarwanda/{'icon-mic-legend' if speech_logo == 'icon-mic' else speech_logo}.svg"]}}
     image = seo.og_image(path, card, f"{model} in {lang}: {lang} Index {c['score']} out of 100, #{rank} of {N} models, "
                                      f"with a {c['time']:.1f} s median reply.")
     lang_page = json.loads((SRC / lslug / "page.json").read_text())
