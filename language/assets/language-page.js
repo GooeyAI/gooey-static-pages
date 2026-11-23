@@ -327,6 +327,12 @@ function renderScatter() {
     }
   });
   root.innerHTML = out.join("");
+  // The selected chip names the model and its speech engine; near the right edge, slide it left to stay in the plot.
+  const chip = root.querySelector(".sc-point.chip.selected");
+  if (chip) {
+    const over = chip.getBoundingClientRect().right - root.getBoundingClientRect().right;
+    if (over > 0) chip.style.transform = `translate(calc(-14px - ${Math.ceil(over)}px), -50%)`;
+  }
   root.querySelectorAll(".sc-point").forEach(button => {
     button.addEventListener("click", () => { selectedChain = chains[Number(button.dataset.i)]; hideTip(); renderScatter(); renderPanel(); });
     button.addEventListener("pointerenter", () => { if (CAN_HOVER.matches) showTip(button); });

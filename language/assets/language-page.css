@@ -1324,6 +1324,7 @@ main {
   color: var(--text-tertiary);
 }
 .sc-point.chip.selected {
+  width: max-content;
   height: 37px;
   padding: 0 12px 0 8px;
   border: 2px solid var(--text-primary);
@@ -2646,9 +2647,6 @@ main {
   .sc-point.chip:not(.selected) > :not(img) {
     display: none;
   }
-  .sc-point.chip.selected .label span {
-    display: none;
-  }
   .panel .p-where {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -3356,7 +3354,8 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .scatter { margin: -24px 0 -42px; }
   .hub .sc-point.chip:not(.selected) { width: 24px; padding: 0; justify-content: center; transform: translate(-50%, -50%); }
   .hub .sc-point.chip:not(.selected) > :not(img), .hub .sc-point.chip:not(.selected) > img ~ img { display: none; }
-  .hub .sc-point.chip.selected .label span { display: none; }
+  /* The selected chip names both halves of the chain (model, then "+ speech engine") so repeated models are
+     told apart */
   /* Chart and date menus share one row: no "Chart" label, no calendar icon, short first option */
   .hub .yaxis { flex-flow: row nowrap; align-items: center; gap: 6px; }
   .hub #yaxisLabel, .hub .select-eval .select-btn img, .hub .wide-only { display: none; }
