@@ -993,7 +993,7 @@ def render_stt(slug: str) -> str:
         "questions": str(page["questions"]),
         "model_cards": "\n".join(cards),
         "art_step1": stt_art(), "rec_label": api["label"], "rec_logo": api["logo"],
-        "sample_audio": esc(sample["audioUrl"]), "sample_english": esc(sample["questionEnglish"]),
+        "sample_english": esc(sample["questionEnglish"]),
         "sample_transcript": esc(sample["transcript"]), "sample_answer": esc(sample["answer"]),
         "sample_speech": sample_speech, "sample_model": sample_model,
         "api_curl": esc(curl), "api_prompt": esc(prompt),

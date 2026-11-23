@@ -9,6 +9,14 @@ initVoiceNote(document.getElementById("heroVoice"), S.lang);
 // Sample transcriptions: the language page's sample questions; pick one and a recognizer to hear and read it.
 renderTranscriptPlayer(document.getElementById("sttPlayer"), S, { dataBase: S.dataBase });
 
+// Step 3: the first sample question, in the sample cards' audio player.
+const convo = document.getElementById("stConvoVoice");
+if (convo) {
+  const q = S.samples[0];
+  convo.innerHTML = voiceHtml({ ...q, audioUrl: /^https?:/.test(q.audioUrl) ? q.audioUrl : S.dataBase + q.audioUrl });
+  initSamplePlayers(convo);
+}
+
 // API: copy a ready-to-paste brief for a coding agent.
 const copy = document.getElementById("stCopy");
 if (copy) {

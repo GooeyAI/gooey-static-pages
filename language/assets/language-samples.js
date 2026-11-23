@@ -144,12 +144,12 @@ function renderTranscriptPlayer(root, data, { assetBase = "assets/", dataBase = 
   const logo = (file, size) => `<img src="${assetBase}kinyarwanda/${file}.svg" alt="" width="${size}" height="${size}" />`;
   const models = data.samples[0].heard;
   root.innerHTML = `<div class="sp-pick">
-      <span class="sp-label" id="spClipsLabel">Voice note</span>
-      <div class="sp-clips" role="group" aria-labelledby="spClipsLabel">${data.samples.map((s, i) =>
-        `<button type="button" class="sp-clip" data-i="${i}"><span>${escapeHtml(s.english)}</span><small>Question ${s.questionNumber} of ${data.totalQuestions}</small></button>`).join("")}</div>
       <span class="sp-label" id="spModelsLabel">Speech model</span>
       <div class="sp-models" role="group" aria-labelledby="spModelsLabel">${models.map((m, i) =>
         `<button type="button" class="sp-model" data-i="${i}">${logo(m.logo, 18)}${escapeHtml(m.label)}${m.recommended ? "<em>Recommended</em>" : ""}</button>`).join("")}</div>
+      <span class="sp-label" id="spClipsLabel">Voice note</span>
+      <div class="sp-clips" role="group" aria-labelledby="spClipsLabel">${data.samples.map((s, i) =>
+        `<button type="button" class="sp-clip" data-i="${i}"><span>${escapeHtml(s.english)}</span><small>Question ${s.questionNumber} of ${data.totalQuestions}</small></button>`).join("")}</div>
     </div>
     <div class="sp-stage">
       <div class="sp-voice"></div>

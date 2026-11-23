@@ -148,7 +148,6 @@
 .sp-clips {
   display: grid;
   gap: 8px;
-  margin-bottom: 8px;
 }
 .sp-clip {
   display: flex;
@@ -183,8 +182,9 @@
 .sp-models {
   display: flex;
   gap: 4px;
+  margin-bottom: 8px;
   padding: 4px;
-  border-radius: 999px;
+  border-radius: 12px;
   background: var(--gy-surface-200);
 }
 .sp-model {
@@ -195,7 +195,7 @@
   gap: 6px;
   padding: 8px 10px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 8px;
   background: transparent;
   color: var(--text-secondary);
   font: inherit;
@@ -455,15 +455,9 @@
 .st-fake-input {
   color: var(--text-tertiary);
 }
-.st-step3 {
+/* Step 3 is a step row like steps 1 and 2 */
+.stt .ag-step.st-step3 {
   margin-top: 48px;
-}
-.st-step3 .ag-step-text {
-  width: auto;
-  max-width: 680px;
-}
-.st-step3 .ag-panel {
-  margin: 20px 0;
 }
 .st-convo {
   display: flex;
@@ -471,13 +465,10 @@
   gap: 12px;
   padding: 20px;
 }
-.st-convo audio {
-  width: 420px;
-  max-width: 100%;
-  height: 44px;
+.st-convo .voice {
+  margin-top: 0;
 }
 .st-bubble {
-  max-width: 640px;
   padding: 12px 16px;
   border-radius: 8px;
   background: var(--bg-panel);
