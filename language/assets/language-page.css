@@ -1324,6 +1324,7 @@ main {
   color: var(--text-tertiary);
 }
 .sc-point.chip.selected {
+  width: max-content;
   height: 37px;
   padding: 0 12px 0 8px;
   border: 2px solid var(--text-primary);
@@ -1625,13 +1626,6 @@ main {
   box-shadow: 0 1px 3px rgba(10, 16, 33, 0.1);
   color: var(--text-primary);
   font-weight: 600;
-}
-.table-legend {
-  margin-top: 16px;
-}
-.sw.hatch {
-  background: repeating-linear-gradient(135deg, var(--icon-muted) 0 1px, transparent 1px 3px);
-  border: 1px solid var(--icon-muted);
 }
 .chain-table {
   margin-top: 16px;
@@ -2646,9 +2640,6 @@ main {
   .sc-point.chip:not(.selected) > :not(img) {
     display: none;
   }
-  .sc-point.chip.selected .label span {
-    display: none;
-  }
   .panel .p-where {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -3054,7 +3045,7 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 
 /* All chains: flex rows with an eval-run column; the hosting key sits under the table */
 .hub .chains { gap: 16px; }
-.hub .chain-table, .hub .table-legend { margin-top: 0; }
+.hub .chain-table { margin-top: 0; }
 .hub .ct-row { display: flex; align-items: center; gap: 16px; padding: 8px 12px; }
 .hub .ct-head { min-height: 0; padding: 0 12px 12px; border-bottom: 1px solid var(--line-soft); color: var(--text-secondary); }
 .hub .c-rank { width: 28px; flex: none; padding: 0; font-weight: 500; }
@@ -3314,6 +3305,10 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .rec-metric small, .hub .rec-metric small.good { grid-area: 2 / 2 / 3 / 4; color: var(--text-secondary); font-size: 12px; line-height: 15px; white-space: normal; }
   .hub .rec-more { display: flex; grid-column: 1 / -1; flex-direction: column; gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; line-height: 17px; }
 
+  /* Leaderboard: the legend and speech key sit right under the title, above the charts */
+  .hub .board-title-row { order: -2; }
+  .hub .board-key { order: -1; }
+
   /* Bar charts: eleven columns share ~290px, so values lose their unit and the slanted names shrink */
   .hub .chart-card { overflow: visible; }
   .hub .chart-sub { white-space: normal; }
@@ -3335,15 +3330,11 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .matrix-col > .pick-card { gap: 12px; padding: 14px 12px; border-radius: 14px; }
   .hub .pick-card .chain { flex-wrap: wrap; gap: 4px 6px; font-size: 13px; line-height: 16px; }
   .hub .pick-card .chain > img:first-child { width: 20px; height: 20px; }
-  .hub .pick-card .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 10px 8px; }
-  .hub .pick-card .stat.big { grid-column: 1 / -1; }
+  .hub .pick-card .stats { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 10px 8px; }
   .hub .pick-card .stat.big b { font-size: 40px; line-height: 1; }
   .hub .pick-card .stat:not(.big) b { font-size: 15px; line-height: 18px; }
   .hub .pick-card .stat { min-width: 0; }
   .hub .pick-card .stat span { font-size: 11px; line-height: 14px; white-space: normal; }
-  /* Cost label: the short form fits on one line in the narrow card */
-  .hub .pick-card .stat:nth-child(3) span { font-size: 0; }
-  .hub .pick-card .stat:nth-child(3) span::after { content: "/ 1k Q's"; font-size: 11px; line-height: 14px; }
   .hub .pick-card hr { margin: 0; }
   /* Link label: the short form fits on one line in the narrow card */
   .hub .pick-card .cta { align-items: center; justify-content: space-between; gap: 4px; font-size: 0; }
@@ -3356,7 +3347,8 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .scatter { margin: -24px 0 -42px; }
   .hub .sc-point.chip:not(.selected) { width: 24px; padding: 0; justify-content: center; transform: translate(-50%, -50%); }
   .hub .sc-point.chip:not(.selected) > :not(img), .hub .sc-point.chip:not(.selected) > img ~ img { display: none; }
-  .hub .sc-point.chip.selected .label span { display: none; }
+  /* The selected chip names both halves of the chain (model, then "+ speech engine") so repeated models are
+     told apart */
   /* Chart and date menus share one row: no "Chart" label, no calendar icon, short first option */
   .hub .yaxis { flex-flow: row nowrap; align-items: center; gap: 6px; }
   .hub #yaxisLabel, .hub .select-eval .select-btn img, .hub .wide-only { display: none; }
@@ -3429,7 +3421,3 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 }
 .hub .select-menu li[aria-disabled="true"] { cursor: not-allowed; background: #f4f4f4; }
 .hub .select-menu li[aria-disabled="true"] small { font-size: 11px; }
-.hub .stat.pricing-pending b { font-size: 16px; line-height: 20px; white-space: normal; }
-@media (max-width: 760px) {
-  .hub .pick-card .stat.pricing-pending { grid-column: 1 / -1; }
-}

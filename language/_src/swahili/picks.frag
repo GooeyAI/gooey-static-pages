@@ -25,19 +25,19 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span>Gemini 3.1 Pro</span><span class="dir">(direct audio)</span></div>
               <div class="stats">
                 <div class="stat big"><b>95</b><span>Swahili Index</span></div>
-                <div class="stat"><b>5.8 s</b><span>response</span></div>
+                <div class="stat"><b>5.8s</b><span>response time</span></div>
               </div>
               <hr />
-              <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
+              <a class="cta" href="{{run}}" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
             </article>
             <article class="pick-card">
               <div class="chain"><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" /><span>Gemini 3.1 Pro</span><span class="dir">(direct audio)</span></div>
               <div class="stats">
                 <div class="stat big"><b>95</b><span>Swahili Index</span></div>
-                <div class="stat"><b>5.8 s</b><span>response</span></div>
+                <div class="stat"><b>5.8s</b><span>response time</span></div>
               </div>
               <hr />
-              <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
+              <a class="cta" href="{{run}}" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
             </article>
             </div>
             <div class="matrix-col sovereign">
@@ -49,19 +49,19 @@
               <div class="chain"><img src="assets/kinyarwanda/logo-deepseek-24.svg" alt="" width="24" height="24" /><span>DeepSeek V4</span><span class="plus">+</span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" /><span>Omnilingual</span></div>
               <div class="stats">
                 <div class="stat big"><b>93</b><span>Swahili Index</span></div>
-                <div class="stat"><b>7.5 s</b><span>response</span></div>
+                <div class="stat"><b>7.5s</b><span>response time</span></div>
               </div>
               <hr />
-              <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
+              <a class="cta" href="{{run}}" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
             </article>
             <article class="pick-card">
               <div class="chain"><img src="assets/kinyarwanda/logo-deepseek-24.svg" alt="" width="24" height="24" /><span>DeepSeek V4</span><span class="plus">+</span><img src="assets/kinyarwanda/logo-meta.svg" alt="" width="16" height="16" /><span>Omnilingual</span></div>
               <div class="stats">
                 <div class="stat big"><b>93</b><span>Swahili Index</span></div>
-                <div class="stat"><b>7.5 s</b><span>response</span></div>
+                <div class="stat"><b>7.5s</b><span>response time</span></div>
               </div>
               <hr />
-              <a class="cta" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
+              <a class="cta" href="{{run}}" target="_blank" rel="noopener noreferrer">Build an agent with this<img src="assets/kinyarwanda/icon-arrow.svg" alt="" width="14" height="14" /></a>
             </article>
             </div>
           </div>
