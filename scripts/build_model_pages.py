@@ -681,7 +681,7 @@ def render_model(model: str, lslug: str) -> str:
              *seo.faq(path, body)]
     tags = seo.head(path=path, title=title, description=description, og_title=base, image=image, graph=graph)
     head = HEAD.format(seo=tags, header_css=b.HEADER_CSS)
-    config = {"lang": lang, "model": model, "samples": sample_data, "who": {"model": model, "logo": b.js_dict("LOGO_FILES")[model]},
+    config = {"lang": lang, "model": model, "samples": sample_data, "who": b.answered_by(model, c["speech"]),
               "volume": cfg}
     return head + body.rstrip("\n") + "\n" + TAIL.format(config=json.dumps(config, ensure_ascii=False, separators=(", ", ": ")))
 

@@ -128,10 +128,6 @@
     }
   },
   "samples_intro": "Three of the 24 questions, sent as WhatsApp voice notes. GPT-5.6 Sol with Omnilingual answers in English, graded against an expert’s answer.",
-  "sample": {
-    "model": "GPT-5.6 Sol",
-    "logo": "logo-openai"
-  },
   "labSpeech": "Intron",
   "archive": [
     {
