@@ -115,18 +115,11 @@
   gap: 16px;
 }
 
-/* Sample transcriptions: the language page's sample cards (language-samples.js), with each recognizer's take */
-/* .agent p resets margins, so this needs the extra class to win */
-.stt .st-intro {
-  margin: 16px 0 24px;
-  color: var(--text-secondary);
-  font-size: 16px;
-  line-height: 24px;
-}
 /* Sample player (renderTranscriptPlayer in language-samples.js): voice notes and speech models on the left; the
    sample cards' audio player and what the chosen model heard on the right. */
 .sp {
   display: grid;
+  margin-top: 24px;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 16px;
   padding: 20px;

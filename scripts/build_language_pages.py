@@ -986,9 +986,6 @@ def render_stt(slug: str) -> str:
         "slug": slug, "lang": lang, "lang_code": st.get("lang_code", ""),
         "voice_note": voice_note(page), "heard_label": shown["label"], "heard_logo": shown["logo"],
         "heard_text": esc(heard_by(hero_q, shown)),
-        "samples_intro": (f"{['One', 'Two', 'Three', 'Four', 'Five'][len(samples['samples']) - 1] if len(samples['samples']) <= 5 else len(samples['samples'])} "
-                          f"of the {samples['totalQuestions']} questions, sent as WhatsApp voice notes. "
-                          "Pick one and a speech model, then press play. Underlined words differ from the expert’s transcript."),
         "copy_svg": COPY_SVG,
         "questions": str(page["questions"]),
         "model_cards": "\n".join(cards),
