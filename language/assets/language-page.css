@@ -1627,13 +1627,6 @@ main {
   color: var(--text-primary);
   font-weight: 600;
 }
-.table-legend {
-  margin-top: 16px;
-}
-.sw.hatch {
-  background: repeating-linear-gradient(135deg, var(--icon-muted) 0 1px, transparent 1px 3px);
-  border: 1px solid var(--icon-muted);
-}
 .chain-table {
   margin-top: 16px;
   font-size: 14px;
@@ -3052,7 +3045,7 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 
 /* All chains: flex rows with an eval-run column; the hosting key sits under the table */
 .hub .chains { gap: 16px; }
-.hub .chain-table, .hub .table-legend { margin-top: 0; }
+.hub .chain-table { margin-top: 0; }
 .hub .ct-row { display: flex; align-items: center; gap: 16px; padding: 8px 12px; }
 .hub .ct-head { min-height: 0; padding: 0 12px 12px; border-bottom: 1px solid var(--line-soft); color: var(--text-secondary); }
 .hub .c-rank { width: 28px; flex: none; padding: 0; font-weight: 500; }
