@@ -3314,6 +3314,10 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
   .hub .rec-metric small, .hub .rec-metric small.good { grid-area: 2 / 2 / 3 / 4; color: var(--text-secondary); font-size: 12px; line-height: 15px; white-space: normal; }
   .hub .rec-more { display: flex; grid-column: 1 / -1; flex-direction: column; gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line-soft); font-size: 13px; line-height: 17px; }
 
+  /* Leaderboard: the legend and speech key sit right under the title, above the charts */
+  .hub .board-title-row { order: -2; }
+  .hub .board-key { order: -1; }
+
   /* Bar charts: eleven columns share ~290px, so values lose their unit and the slanted names shrink */
   .hub .chart-card { overflow: visible; }
   .hub .chart-sub { white-space: normal; }
