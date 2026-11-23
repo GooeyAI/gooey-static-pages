@@ -6,8 +6,8 @@ const S = window.STT_PAGE;
 // Hero: the same voice note as the language page.
 initVoiceNote(document.getElementById("heroVoice"), S.lang);
 
-// Sample transcriptions: the language page's sample questions, with what each recognizer heard.
-renderTranscriptCards(document.getElementById("sttCards"), S, { dataBase: S.dataBase });
+// Sample transcriptions: the language page's sample questions; pick one and a recognizer to hear and read it.
+renderTranscriptPlayer(document.getElementById("sttPlayer"), S, { dataBase: S.dataBase });
 
 // API: copy a ready-to-paste brief for a coding agent.
 const copy = document.getElementById("stCopy");

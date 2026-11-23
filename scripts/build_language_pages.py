@@ -896,12 +896,13 @@ def render_stt(slug: str) -> str:
     if not tpath.exists():
         raise SystemExit(f"{slug} speech-to-text: {tpath.relative_to(ROOT)} is missing; "
                          f"run python3 scripts/fetch_language_transcripts.py {slug}")
-    heard = {(t["question"], t["recognizer"]): t["text"] for t in json.loads(tpath.read_text())["transcripts"]}
-    def heard_by(q: int, r: dict) -> str:
+    heard = {(t["question"], t["recognizer"]): t for t in json.loads(tpath.read_text())["transcripts"]}
+    def heard_entry(q: int, r: dict) -> dict:
         if (q, r["speech"]) not in heard:
             raise SystemExit(f"{slug} speech-to-text: no {r['speech']} transcript for question {q} in {tpath.name}; "
                              f"run python3 scripts/fetch_language_transcripts.py {slug}")
         return heard[(q, r["speech"])]
+    heard_by = lambda q, r: heard_entry(q, r)["text"]
     hero_q = hero_question(page)
     shown = rec if not rec["direct"] else (separate[0] if separate else None)
     if shown is None:
@@ -909,7 +910,10 @@ def render_stt(slug: str) -> str:
     transcript_samples = [{
         "questionNumber": x["questionNumber"], "category": x.get("category", ""), "audioUrl": x["audioUrl"],
         "audioDurationSeconds": x["audioDurationSeconds"], "expert": expert_of(x["questionNumber"]),
-        "heard": [{"label": r["label"], "logo": r["logo"], **compare_words(expert_of(x["questionNumber"]), heard_by(x["questionNumber"], r))}
+        "english": x["questionEnglish"],
+        # The sample player: what each recognizer heard, and the evaluation run it came from.
+        "heard": [{"label": r["label"], "logo": r["logo"], "recommended": r is rec, "run": heard_entry(x["questionNumber"], r)["run"],
+                   **compare_words(expert_of(x["questionNumber"]), heard_by(x["questionNumber"], r))}
                   for r in separate],
     } for x in samples["samples"]]
     stt_config = {"lang": lang, "langCode": st.get("lang_code", ""), "dataBase": f"data/{page['code']}/",
@@ -984,7 +988,7 @@ def render_stt(slug: str) -> str:
         "heard_text": esc(heard_by(hero_q, shown)),
         "samples_intro": (f"{['One', 'Two', 'Three', 'Four', 'Five'][len(samples['samples']) - 1] if len(samples['samples']) <= 5 else len(samples['samples'])} "
                           f"of the {samples['totalQuestions']} questions, sent as WhatsApp voice notes. "
-                          "Underlined words differ from the expert’s transcript."),
+                          "Pick one and a speech model, then press play. Underlined words differ from the expert’s transcript."),
         "copy_svg": COPY_SVG,
         "questions": str(page["questions"]),
         "model_cards": "\n".join(cards),
