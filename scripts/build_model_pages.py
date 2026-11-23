@@ -667,11 +667,13 @@ def render_model(model: str, lslug: str) -> str:
                           f"{model} on spoken {lang} questions: {c['score']}/100 (#{rank} of {N} models), {c['time']:.1f} s response.",
                           lo=seo.DESC_MIN, hi=seo.DESC_MAX, what=f"{model} in {lang} description")
     path = f"models/{mslug}/{lslug}"
-    card = {"eyebrow": f"{lang} evaluation · {meta['maker']}", "title": f"{model} in {lang}", "lead": ["Best chain", label],
-            "stats": [[f"{lang} Index", str(c["score"]), "/ 100", f"#{rank} of {N} models"],
-                      ["Reply time", f"{c['time']:.1f}", "s", f"median, #{t_rank} of {N}"],
-                      ["Self-hosting", "Yes" if own_sov else "No", "", "open weights" if meta.get("open") else "proprietary model"]],
-            "visual": {"kind": "logo", "src": f"language/assets/kinyarwanda/{b.js_dict('LOGO_FILES')[model]}.svg"}}
+    # Share card: whether the model can be self-hosted, and the language's top 10 Index bars with its chains in blue.
+    lang_rows = b.chains_for({**json.loads((SRC / lslug / "page.json").read_text()), "slug": lslug})[0]
+    bars = b.index_bars(lang_rows, mark=lambda r: r[0].replace("GPT 5.6 Sol", "GPT-5.6 Sol") == model)
+    card = {"eyebrow": f"{lang} evaluation · {meta['maker']}", "title": f"{model} in {lang}", "date": L["updated"],
+            **({"badge": ["Sovereign-deployable", "landmark"]} if own_sov else {}),   # no tag for private models
+            "visual": {"kind": "bars", "bars": bars, "label": f"Top {len(bars)} chains",
+                       "legend": [[model, "#2a28ba"], ["Other models", "#b9b9b9"]]}}
     image = seo.og_image(path, card, f"{model} in {lang}: {lang} Index {c['score']} out of 100, #{rank} of {N} models, "
                                      f"with a {c['time']:.1f} s median reply.")
     lang_page = json.loads((SRC / lslug / "page.json").read_text())

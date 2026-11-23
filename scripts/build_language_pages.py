@@ -406,6 +406,30 @@ def render(slug: str) -> str:
     return head + body.rstrip("\n") + "\n" + TAIL.format(config=cfg_json)
 
 
+def eco_tile(eco: dict, ecos: list) -> list | None:
+    """A share card's EcoCost tile for one chain, or None when EcoCost has no value for it (e.g. direct audio)."""
+    if "value" not in eco:
+        return None
+    lowest = eco["value"] <= min(e["value"] for e in ecos if "value" in e)
+    return ["EcoCost", f"{eco['value']:.1f}", "g", f"CO₂e per 1,000 questions{', lowest' if lowest else ''}",
+            "language/assets/kinyarwanda/icon-leaf.svg"]
+
+
+def index_bars(csv_rows: list, mark=lambda row: row[4]) -> list:
+    """The leaderboard's top 10 Index bars for a share card: [score, marked, model logo, speech logo], highest first.
+    Marked bars are drawn in blue: sovereign chains by default, or (model pages) the model's own chains, whose best
+    chain takes the tenth place if it isn't in the top 10. More than 10 bars and the logos are unreadable."""
+    a = "language/assets/kinyarwanda/"
+    speech = js_dict("SPEECH_FILES")
+    rows = sorted(csv_rows, key=lambda r: (-r[2], r[3]))
+    top = rows[:10]
+    best = next((r for r in rows if mark(r)), None)
+    if best is not None and best not in top:
+        top[-1] = best
+    return [[round(acc * 100 + 1e-9), bool(mark(r)), f"{a}{logo24(m.replace('GPT 5.6 Sol', 'GPT-5.6 Sol'))}.svg",
+             f"{a}{'icon-mic-legend' if speech[sp] == 'icon-mic' else speech[sp]}.svg"] for r in top for m, sp, acc, _, _ in [r]]
+
+
 def hub_seo(page: dict, csv_rows: list, body: str) -> str:
     """Search and sharing tags for /language/<slug>: share card, WebPage, Dataset, breadcrumbs and FAQ."""
     lang, q, n, path = page["lang"], page["questions"], len(csv_rows), f"language/{page['slug']}"
@@ -413,11 +437,13 @@ def hub_seo(page: dict, csv_rows: list, body: str) -> str:
     model, speech, acc, time, _ = csv_rows[i]
     top, score = chain_label({"model": model.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), "speech": speech}), round(acc * 100 + 1e-9)
     title = f"Best AI for {lang}"
+    eco_all = chains_for(page)[2]
+    eco_stat = eco_tile(eco_all[i], eco_all)
     image = seo.og_image(path, {
-        "eyebrow": f"AI evaluation · {page['country']}", "title": title, "lead": ["Highest score", top],
-        "stats": [[f"{lang} Index", str(score), "/ 100", f"highest of {n} chains"], ["Reply time", f"{time:.1f}", "s", "median"],
-                  ["Questions", str(q), "", "asked by native speakers"]],
-        "visual": {"kind": "map", "src": f"language/assets/kinyarwanda/{page['hero']['map']['file']}"},
+        "eyebrow": f"AI evaluation · {page['country']}", "title": title, "date": page["updated"], "lead": ["Highest score", top],
+        "stats": [[f"{lang} Index", str(score), "/ 100", f"highest of {n} chains"], ["Reply time", f"{time:.1f}", "s", "median"]]
+                 + ([eco_stat] if eco_stat else []),
+        "visual": {"kind": "bars", "bars": (bars := index_bars(csv_rows)), "label": f"{lang} Index, top {len(bars)}"},
     }, f"{title}: {top} scored {score} out of 100, the highest of {n} AI chains tested on {q} spoken {lang} questions.")
     dataset = {
         "@type": "Dataset", "@id": seo.url(path) + "#dataset", "name": f"{lang} AI evaluation, {page['updated']}",
@@ -708,11 +734,12 @@ def render_agent(slug: str) -> str:
                     f"the most accurate AI in our tests."]
     page = json.loads((SRC / slug / "page.json").read_text())
     title = f"Build a {lang} AI agent"
-    card = {"eyebrow": f"AI agent · {a['country']}", "title": title, "lead": ["Recommended chain", chain_label(top)],
+    card = {"eyebrow": f"AI agent · {a['country']}", "title": title, "date": page["updated"],
+            "lead": ["Recommended chain", chain_label(top)],
             "stats": [[f"{lang} Index", str(top["score"]), "/ 100", "most accurate tested"],
-                      ["Reply time", f"{top['time']:.1f}", "s", "median, phone-ready" if top["time"] < 10 else "median"],
-                      ["Channels", "3", "", "WhatsApp, phone, web"]],
-            "visual": {"kind": "photo", "src": "language/assets/more/ai-agent.png"}}
+                      ["Reply time", f"{top['time']:.1f}", "s", "median, phone-ready" if top["time"] < 10 else "median"]]
+                     + [t for t in [eco_tile(top["eco"], [c["eco"] for c in f["chains"]])] if t],
+            "visual": {"kind": "art", "src": "language/assets/more/ai-agent.png"}}
     alt = (f"{title}: {chain_label(top)}, the most accurate chain tested, scored {top['score']} out of 100 "
            f"with a {top['time']:.1f} s median reply.")
     titles = [f"Build a {lang} AI Agent for WhatsApp & Phone{seo.BRAND}", f"Build a {lang} AI Agent{seo.BRAND}"]
@@ -988,11 +1015,14 @@ def render_stt(slug: str) -> str:
                     f"Turn spoken {lang} into text: {len(recs)} speech recognizers compared on {q} real spoken questions. {best}"]
     titles = [f"{lang} Speech to Text: ASR Models Compared{seo.BRAND}", f"{lang} Speech to Text{seo.BRAND}"]
     title = f"{lang} speech to text"
-    card = {"eyebrow": f"Speech to text · {page['country']}", "title": title, "lead": ["Best recognizer", rec["label"]],
-            "stats": [[f"{lang} Index", str(top["score"]), "/ 100", f"with {top['model']}"],
-                      ["Recognizers", str(len(recs)), "", "compared"],
-                      ["Questions", str(page["questions"]), "", "asked by native speakers"]],
-            "visual": {"kind": "photo", "src": stt_art_file()}}
+    card = {"eyebrow": f"Speech to text · {page['country']}", "title": title, "date": page["updated"],
+            # Top 3 recognizers, ranked by the Index of their best chain (direct audio counts as one).
+            "ranks": {"label": f"Top {min(3, len(recs))} speech recognizers", "rows": [
+                [f"language/assets/kinyarwanda/{r['logo']}.svg", r["label"] + (" (direct audio)" if r["direct"] else ""),
+                 r["best"]["score"], "" if r["direct"] else f"with {r['best']['model']}"]
+                for r in sorted(recs, key=lambda r: (-r["best"]["acc"], r["best"]["time"]))[:3]]},
+
+            "visual": {"kind": "art", "src": stt_art_file()}}
     alt = (f"{title}: {len(recs)} recognizers compared on {page['questions']} spoken questions; the top chain, {name(top)}, "
            f"scored {top['score']} out of 100.")
     seo_tags = sub_seo(page, f"language/{slug}/speech-to-text", titles, descriptions, card, alt, body, "Speech to text")

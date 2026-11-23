@@ -177,12 +177,13 @@ def language(name: str, endonym: str | None = None) -> dict:
 # the top result and up to three numbers, beside the country map, the page's illustration or the model's logo.
 #
 # card = {"eyebrow": str, "title": str,
+#         "date": str,                                  # optional, "bars" layout only: shown after the eyebrow
 #         "lead": [label, text],                        # optional: the line at the top of the panel (text may be "")
 #         "stats": [[label, value, unit, note], ...],   # up to 3
 #         "people": [[name, affiliation], ...],         # instead of stats, up to 3
 #         "paper": {"logo": file or None, "title": str, "byline": str, "marks": [files]},   # a research paper's panel
 #         "wall": {"label": str, "logos": [files], "byline": str, "marks": [files]},      # a full-width row of logos
-#         "visual": {"kind": "map" | "photo" | "logo" | "banner", "src": repo-relative file,
+#         "visual": {"kind": "map" | "photo" | "logo" | "banner", "src": repo-relative file,   (or "bars": see BOARD_CSS)
 #                    "position": CSS object-position (banner only, optional)}}
 # A "banner" fills the whole picture area, as on the hand-written pages (their own 3:1 banner, never cropped badly).
 # Files are repo-relative paths; their bytes are part of the card's hash.
@@ -242,13 +243,125 @@ CARD_HTML = """<!doctype html><html><head><meta charset="utf-8">
 
 WORDMARK = "language/assets/gooey-logo.png"
 
+# The language pages' card ("visual": {"kind": "bars", "bars": [[score, sovereign, model logo, speech logo], ...]}, highest
+# first): the Gooey.AI style guide's flat white hairline cards on the halftone background. Eyebrow and date across the
+# top with the wordmark, the title, top chain and stat tiles on the left, the top Index bars on the right. Bar height is
+# the score out of 100; blue (Blue 800) is sovereign-deployable, grey is private API.
+BOARD_CSS = """
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#eef9f7;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0 auto 0 0;width:640px;background-image:radial-gradient(#3cc9b8 2.4px,transparent 2.9px);background-size:24px 24px;
+  -webkit-mask-image:linear-gradient(90deg,#000 0,rgba(0,0,0,.55) 30%,transparent 100%);opacity:.55}
+.c{position:relative;width:1200px;height:630px;box-sizing:border-box;padding:48px 56px 44px;display:grid;grid-template-columns:520px 1fr;
+  grid-template-rows:auto 1fr;column-gap:40px;font-family:Inter,system-ui,sans-serif;color:#0a1021}
+.top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.top img{height:44px;mix-blend-mode:multiply}
+.meta{font:500 18px/1 Inter,sans-serif;color:#4b587a}
+.meta b{font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#00998a}
+.l{display:flex;flex-direction:column;min-width:0}
+h1{margin:0;font:400 var(--h)/1.05 Domine,serif;letter-spacing:-.01em}
+.win{margin-top:28px;font:500 16px/1 Inter,sans-serif;color:#4b587a}
+.win strong{display:block;margin-top:10px;font:700 26px/1.2 Inter,sans-serif;color:#0a1021;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stats{margin-top:auto;display:flex;gap:12px}
+.s{flex:1 1 auto;background:#fff;border:1px solid #e6e6e6;border-radius:16px;padding:16px 18px}
+.s span{display:flex;align-items:center;gap:6px;font:500 14px/1 Inter,sans-serif;color:#4b587a;white-space:nowrap}
+.s span img{width:16px;height:16px}
+.s b{display:block;margin-top:12px;font:600 40px/1 Inter,sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.s b small{margin-left:4px;font:500 16px/1 Inter,sans-serif;letter-spacing:0;color:#4b587a}
+.s i{display:block;margin-top:8px;font:400 13px/1.3 Inter,sans-serif;font-style:normal;color:#636363}
+.r{background:#fff;border:1px solid #e6e6e6;border-radius:24px;padding:22px 24px 18px;display:flex;flex-direction:column;min-width:0}
+.rh{display:flex;justify-content:space-between;align-items:center;gap:12px;font:500 14px/1 Inter,sans-serif;color:#4b587a}
+.rh h3{margin:0;font:400 22px/1 Domine,serif;color:#0a1021;white-space:nowrap}
+.lg{display:flex;gap:14px}.lg span{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.lg span:before{content:"";width:10px;height:10px;border-radius:2px;background:var(--c)}
+.bars{flex:1;margin-top:14px;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:8px;align-items:end}
+.bars div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.bars b{font:600 14px/1 Inter,sans-serif}
+.bars i{display:block;width:100%;border-radius:4px 4px 0 0;background:#b9b9b9}
+.bars img{width:18px;height:18px;object-fit:contain}
+.bars i+img{margin-top:4px}
+.win strong img{width:26px;height:26px;object-fit:contain;vertical-align:-4px;margin-right:10px}
+.badge{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;margin-top:28px;padding:12px 22px 12px 16px;
+  border-radius:32px;font:400 15px/1 Inter,sans-serif;color:#4b587a;background:#f7f5f2;border:1px solid #e6e6e6;white-space:nowrap}
+.badge b{font:700 20px/1 Inter,sans-serif;color:#0a1021}
+.badge img{width:26px;height:26px}
+.badge.on{background:#ebfffd;border-color:#73fff1;color:#00665c}
+.badge.on b{color:#00332e}
+.ranks{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.ranks>span{font:500 16px/1 Inter,sans-serif;color:#4b587a;margin-bottom:4px}
+.rk{display:grid;grid-template-columns:28px 28px minmax(0,1fr) auto;align-items:center;gap:12px;background:#fff;border:1px solid #e6e6e6;
+  border-radius:16px;padding:14px 18px}
+.rk em{font:600 18px/1 Inter,sans-serif;font-style:normal;color:#8994b1}
+.rk img{width:28px;height:28px;object-fit:contain}
+.rk div{min-width:0;font:700 20px/1.1 Inter,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk div small{display:block;margin-top:4px;font:400 14px/1 Inter,sans-serif;color:#636363}
+.rk b{font:600 28px/1 Inter,sans-serif;letter-spacing:-.02em}
+.rk b small{margin-left:3px;font:500 14px/1 Inter,sans-serif;color:#4b587a;letter-spacing:0}
+.art{background:#fff;border:1px solid #e6e6e6;border-radius:24px;overflow:hidden}
+.art img{display:block;width:100%;height:100%;object-fit:cover}
+"""
+
+BOARD_HTML = """<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>@font-face{{font-family:Domine;src:url("{root}language/assets/fonts/Domine-VariableFont_wght.ttf");font-weight:400 700}}
+{css}</style></head><body><div class="bg"></div><div class="c">
+<div class="top"><div class="meta"><b>{eyebrow}</b>{date}</div><img src="{root}language/assets/gooey-logo.png" alt=""></div>
+<div class="l"><h1 style="--h:{size}px">{title}</h1>{lead}{badge}{ranks}<div class="stats">{stats}</div></div>
+{right}
+</div></body></html>"""
+
+
+BOARD_KINDS = ("bars", "art")
+BOARD_LEGEND = [["Sovereign", "#2a28ba"], ["Private", "#b9b9b9"]]
+
+
+def board_html(card: dict, root: str) -> str:
+    """ranks: {"label": str, "rows": [[logo file, name, score, note], ...]}, a numbered list under the title.
+    badge: [label, "landmark" (sovereign, teal) or "cloud" (private, neutral)], under the title.
+    visual "bars": {"bars": [[score, highlighted, model logo, speech logo], ...], "label": chart title,
+    "legend": [[highlighted label, colour], [other label, colour]] (default sovereign / private)}; visual "art": {"src": image}."""
+    v = card["visual"]
+    # a stat is [label, value, unit, note] or [label, value, unit, note, icon file shown before the label]
+    icon = lambda st: f'<img src="{root}{st[4]}" alt="">' if len(st) > 4 else ""
+    stats = "".join(f'<div class="s"><span>{icon(st)}{esc(st[0])}</span><b>{esc(st[1])}{f"<small>{esc(st[2])}</small>" if st[2] else ""}</b>'
+                    f'<i>{esc(st[3])}</i></div>' for st in card.get("stats", []))
+    if v["kind"] == "bars":
+        (on, on_c), (off, off_c) = v.get("legend", BOARD_LEGEND)
+        cells = "".join(f'<div><b>{s}</b><i style="height:{s * 2.2:.0f}px;background:{on_c if hi else off_c}"></i>'
+                        f'<img src="{root}{m}" alt=""><img src="{root}{a}" alt=""></div>' for s, hi, m, a in v["bars"])
+        right = (f'<div class="r"><div class="rh"><h3>{esc(v.get("label", "Index"))}</h3><div class="lg">'
+                 f'<span style="--c:{on_c}">{esc(on)}</span><span style="--c:{off_c}">{esc(off)}</span></div></div>'
+                 f'<div class="bars" style="--n:{len(v["bars"])}">{cells}</div></div>')
+    else:
+        right = f'<div class="art"><img src="{root}{v["src"]}" alt=""></div>'
+    logos = "".join(f'<img src="{root}{f}" alt="">' for f in card.get("lead_logos", []))
+    lead = (f'<div class="win">{esc(card["lead"][0])}<strong>{logos}{esc(card["lead"][1])}</strong></div>'
+            if card.get("lead") else "")
+    badge = ""
+    if card.get("badge"):
+        label, icon = card["badge"]
+        badge = (f'<div class="badge{" on" if icon == "landmark" else ""}"><img src="{root}language/assets/kinyarwanda/icon-{icon}.svg" alt="">'
+                 f'<b>{esc(label)}</b></div>')
+    ranks = ""
+    if card.get("ranks"):
+        rows = "".join(f'<div class="rk"><em>{n}</em><img src="{root}{logo}" alt=""><div>{esc(label)}'
+                       f'{f"<small>{esc(note)}</small>" if note else ""}</div><b>{score}<small>/ 100</small></b></div>'
+                       for n, (logo, label, score, note) in enumerate(card["ranks"]["rows"], 1))
+        ranks = f'<div class="ranks"><span>{esc(card["ranks"]["label"])}</span>{rows}</div>'
+    t = card["title"]
+    return BOARD_HTML.format(badge=badge, ranks=ranks, root=root, css=BOARD_CSS, eyebrow=esc(card["eyebrow"]),
+                             date=f" &nbsp;·&nbsp; {esc(card['date'])}" if card.get("date") else "",
+                             size=60 if len(t) <= 20 else 52 if len(t) <= 26 else 44, title=esc(t), lead=lead, stats=stats,
+                             right=right)
+
 
 def card_html(card: dict, root: str) -> str:
     """The card as a standalone HTML page; root is the repo folder as a file:// URL ending in '/'."""
+    if (card.get("visual") or {}).get("kind") in BOARD_KINDS:
+        return board_html(card, root)
     v = card.get("visual")
     visual = ""
     if v:
-        src = root + v["src"]
+        src = root + v.get("src", "")
         visual = {"photo": f'<img class="og__photo" src="{src}" alt="">',
                   "map": f'<img class="og__map" src="{src}" alt="">',
                   "logo": f'<div class="og__logo"><img src="{src}" alt=""></div>',
@@ -288,9 +401,13 @@ def card_html(card: dict, root: str) -> str:
 def og_image(path: str, card: dict, alt: str) -> tuple[str, str]:
     """Register a page's share card and return (image URL, alt text) for head()."""
     h = hashlib.sha1()
-    h.update(CARD_CSS.encode() + CARD_HTML.encode())
+    board = (card.get("visual") or {}).get("kind") in BOARD_KINDS
+    h.update((BOARD_CSS + BOARD_HTML).encode() if board else (CARD_CSS + CARD_HTML).encode())
     h.update(json.dumps(card, sort_keys=True, ensure_ascii=False).encode())
-    files = [WORDMARK] + ([card["visual"]["src"]] if card.get("visual") else [])
+    v = card.get("visual") or {}
+    files = ([WORDMARK] + ([v["src"]] if v.get("src") else []) + [f for b in v.get("bars", []) for f in b[2:]]
+             + card.get("lead_logos", []) + [r[0] for r in (card.get("ranks") or {}).get("rows", [])] + [st[4] for st in card.get("stats", []) if len(st) > 4]
+             + ([f"language/assets/kinyarwanda/icon-{card['badge'][1]}.svg"] if card.get("badge") else []))
     if card.get("paper"):
         files += ([card["paper"]["logo"]] if card["paper"].get("logo") else []) + card["paper"]["marks"]
     if card.get("wall"):
