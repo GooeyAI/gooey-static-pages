@@ -145,9 +145,8 @@
 
       <section class="st-samples" aria-labelledby="samples-title">
         <div class="container samples">
-          <h2 id="samples-title">Sample transcriptions</h2>
-          <p class="st-intro">Three of the 24 questions, sent as WhatsApp voice notes. Underlined words differ from the expert’s transcript.</p>
-          <div class="sample-cards st-transcripts" id="sttCards"></div>
+          <h2 id="samples-title">Try Kinyarwanda speech to text</h2>
+          <div class="sp" id="sttPlayer"></div>
         </div>
       </section>
 
@@ -162,7 +161,6 @@
             <article class="st-card"><span class="st-tag">Built-in audio · Private API</span><h3><img src="assets/kinyarwanda/logo-gemini-24.svg" alt="" width="24" height="24" />Gemini 3.1 Pro</h3><p>By Google. It listens to the question and answers in one step: <strong>90 / 100</strong> Kinyarwanda Index, 8.9 s median reply.</p></article>
             <article class="st-card"><span class="st-tag">Regional model · Sovereign</span><h3><img src="assets/kinyarwanda/logo-intron.svg" alt="" width="24" height="24" />Intron</h3><p>Built for African languages. Best paired with Claude Sonnet 5: <strong>87 / 100</strong> Kinyarwanda Index.</p></article>
           </div>
-          <p class="st-note">Kinyarwanda Index: out of 100, averaged over 24 questions. Higher is better. These are complete-workflow results, not standalone speech-recognition scores.</p>
         </div>
       </section>
 
@@ -197,20 +195,20 @@
             </div>
           </div>
 
-          <div class="st-step3">
+          <div class="ag-step st-step3">
             <div class="ag-step-text">
               <span class="ag-step-n">Step 3</span>
               <h3>Use the text in an agent</h3>
               <p>The transcript goes straight to the language model, which answers. Test it side by side with your instructions, then <a href="kinyarwanda/ai-agent/">publish to WhatsApp, a phone line or the web</a>.</p>
+              <div class="ag-cta"><a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a Kinyarwanda agent</a></div>
             </div>
-            <div class="ag-panel">
+            <div class="ag-visual ag-panel">
               <div class="ag-card st-convo">
-                <audio controls preload="none" src="https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav" aria-label="Voice note: What is the official language of Kenya?"></audio>
+                <div class="st-convo-voice" id="stConvoVoice"></div>
                 <div class="st-bubble"><span>Question, as transcribed by Omnilingual</span><p lang="rw">ni uruhe rurimi rwemewe n&#x27;amategeko muri kenya</p><p class="st-en">“What is the official language of Kenya?”</p></div>
                 <div class="st-bubble st-answer"><span>GPT-5.6 Sol’s answer</span><p>The official languages of Kenya are English and Swahili.</p></div>
               </div>
             </div>
-            <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a Kinyarwanda agent</a>
           </div>
         </div>
       </section>
@@ -283,7 +281,7 @@ curl https://api.gooey.ai/v2/speech \
     </footer>
 
     <script>
-      window.STT_PAGE = {"lang": "Kinyarwanda", "langCode": "rw", "dataBase": "data/kin/", "totalQuestions": 24, "samples": [{"questionNumber": 3, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav", "audioDurationSeconds": 4.66425, "expert": "Ni uruhe rurimi rwemewe n’amategeko muri Kenya?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["kenya", true]], "matched": 7, "total": 7}, {"label": "Intron", "logo": "logo-intron", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["Kenya", true]], "matched": 7, "total": 7}]}, {"questionNumber": 11, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav", "audioDurationSeconds": 7.017813, "expert": "Vuga igihugu kimwe mu bihugu bihana imbibi na Kenya.", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["kuvuga", false], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["kenya", true]], "matched": 8, "total": 9}, {"label": "Intron", "logo": "logo-intron", "words": [["vuga", true], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["Kenya", true]], "matched": 9, "total": 9}]}, {"questionNumber": 18, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav", "audioDurationSeconds": 8.554688, "expert": "Ni he hantu ndanga-mateka mu majyaruguru ya Kenya haboneka ibimenyetso by’inkomoko n’ihindagurika rya muntu?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "words": [["ni", true], ["he", true], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 14, "total": 14}, {"label": "Intron", "logo": "logo-intron", "words": [["Ni", true], ["hehe", false], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["Kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 13, "total": 14}]}]};
+      window.STT_PAGE = {"lang": "Kinyarwanda", "langCode": "rw", "dataBase": "data/kin/", "totalQuestions": 24, "samples": [{"questionNumber": 3, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f51c98dc-8f29-11f0-b9e2-02420a0001fa/Generic_Q5_RW_B05.m4a.wav", "audioDurationSeconds": 4.66425, "expert": "Ni uruhe rurimi rwemewe n’amategeko muri Kenya?", "english": "What is the official language of Kenya?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "recommended": true, "run": "https://gooey.ai/agent/?run_id=7bdsan6mfw12&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["kenya", true]], "matched": 7, "total": 7}, {"label": "Intron", "logo": "logo-intron", "recommended": false, "run": "https://gooey.ai/agent/?run_id=3lewcwb049xo&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["ni", true], ["uruhe", true], ["rurimi", true], ["rwemewe", true], ["n'amategeko", true], ["muri", true], ["Kenya", true]], "matched": 7, "total": 7}]}, {"questionNumber": 11, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/2f2ecd18-8f2c-11f0-b8b7-02420a0001f9/Generic_Q14_RW_B06.opus.wav", "audioDurationSeconds": 7.017813, "expert": "Vuga igihugu kimwe mu bihugu bihana imbibi na Kenya.", "english": "Name any one of Kenya’s neighboring countries.", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "recommended": true, "run": "https://gooey.ai/agent/?run_id=21rrh7llf79h&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["kuvuga", false], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["kenya", true]], "matched": 8, "total": 9}, {"label": "Intron", "logo": "logo-intron", "recommended": false, "run": "https://gooey.ai/agent/?run_id=tbgen5rkjoom&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["vuga", true], ["igihugu", true], ["kimwe", true], ["mu", true], ["bihugu", true], ["bihana", true], ["imbibi", true], ["na", true], ["Kenya", true]], "matched": 9, "total": 9}]}, {"questionNumber": 18, "category": "General Q&A", "audioUrl": "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/50f07fe0-8f2d-11f0-ab14-02420a0001fa/Generic_Q22_RW_B10.m4a.wav", "audioDurationSeconds": 8.554688, "expert": "Ni he hantu ndanga-mateka mu majyaruguru ya Kenya haboneka ibimenyetso by’inkomoko n’ihindagurika rya muntu?", "english": "Which major archaeological site in northern Kenya provides evidence of early human evolution?", "heard": [{"label": "Omnilingual", "logo": "logo-meta", "recommended": true, "run": "https://gooey.ai/agent/?run_id=uw6ykbmuaifl&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["ni", true], ["he", true], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 14, "total": 14}, {"label": "Intron", "logo": "logo-intron", "recommended": false, "run": "https://gooey.ai/agent/?run_id=1jn1b23nx2rj&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2", "words": [["Ni", true], ["hehe", false], ["hantu", true], ["ndangamateka", true], ["mu", true], ["majyaruguru", true], ["ya", true], ["Kenya", true], ["haboneka", true], ["ibimenyetso", true], ["by'inkomoko", true], ["n'ihindagurika", true], ["rya", true], ["muntu", true]], "matched": 13, "total": 14}]}]};
     </script>
     <script src="assets/language-samples.js"></script>
     <script src="assets/language-stt.js"></script>

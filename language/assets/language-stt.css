@@ -115,59 +115,196 @@
   gap: 16px;
 }
 
-/* Sample transcriptions: the language page's sample cards (language-samples.js), with each recognizer's take */
-/* .agent p resets margins, so this needs the extra class to win */
-.stt .st-intro {
-  margin: 16px 0 24px;
-  color: var(--text-secondary);
-  font-size: 16px;
-  line-height: 24px;
+/* Sample player (renderTranscriptPlayer in language-samples.js): voice notes and speech models on the left; the
+   sample cards' audio player and what the chosen model heard on the right. */
+.sp {
+  display: grid;
+  margin-top: 24px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px;
+  border-radius: 24px;
+  background: var(--bg-panel);
 }
-.st-transcripts .sample {
-  gap: 12px;
-}
-.st-transcripts .q {
-  margin: 4px 0 0;
-}
-/* Every line of text in a transcription card is 14px */
-.st-transcripts .sample-head,
-.st-transcripts .voice-time,
-.st-transcripts .q-label,
-.st-transcripts .q strong,
-.st-transcripts .heard-head,
-.st-transcripts .a-label,
-.st-transcripts .heard-text {
-  font-size: 14px;
-}
-.st-transcripts .q strong {
-  line-height: 1.45;
-}
-.heard {
+.sp-pick {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.heard + .heard {
-  margin-top: 12px;
+.sp-label {
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-.heard-head {
-  display: flex;
-  align-items: center;
+.sp-clips {
+  display: grid;
   gap: 8px;
 }
-.heard-count {
-  margin-left: auto;
+.sp-clip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.sp-clip span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.sp-clip small {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+.sp-clip:hover {
+  border-color: var(--line-strong);
+}
+.sp-clip[aria-pressed="true"] {
+  border-color: var(--gy-blue);
+  box-shadow: 0 0 0 1px var(--gy-blue);
+}
+.sp-models {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--gy-surface-200);
+}
+.sp-model {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
   color: var(--text-secondary);
-  white-space: nowrap;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }
-.heard-text {
+.sp-model em {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--gy-mint);
+  color: var(--gy-teal);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+}
+.sp-model[aria-pressed="true"] {
+  background: var(--bg-page);
+  box-shadow: 0 1px 2px rgba(10, 16, 33, 0.12);
+  color: var(--text-primary);
+}
+.sp-clip:focus-visible,
+.sp-model:focus-visible {
+  outline: 2px solid var(--gy-blue);
+  outline-offset: 2px;
+}
+.sp-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--bg-page);
+}
+/* The sample cards' audio player (.voice in language-page.css), unchanged apart from its top margin */
+.sp-stage .voice {
+  margin-top: 0;
+}
+.sp-out {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+}
+.sp-out-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+.sp-who {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.sp-score {
+  color: var(--text-tertiary);
+}
+.sp-score.perfect {
+  color: var(--gy-teal);
+}
+.stt .sp-text {
+  position: relative;
+  min-height: 2.8em;
   margin: 0;
-  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
 }
-.heard-text u {
-  color: #b42318;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+.sp-text span {
+  opacity: 0.14;
+  transition: opacity 0.2s;
+}
+.sp-text span.on {
+  opacity: 1;
+}
+.sp-text span.miss.on {
+  text-decoration: underline;
+  text-decoration-color: var(--gy-yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.sp-text.idle span {
+  opacity: 0;
+}
+.sp-text.idle::before {
+  content: "Press play to transcribe";
+  position: absolute;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  font-weight: 400;
+}
+.stt .sp-en {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.sp-expert {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.sp-expert summary {
+  cursor: pointer;
+}
+.stt .sp-expert p {
+  margin: 6px 0 0;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+.sp-run {
+  color: var(--gy-blue);
+  font-size: 13px;
 }
 
 /* Which model works best */
@@ -237,14 +374,6 @@
   color: var(--text-primary);
   font-weight: 600;
 }
-/* 20px below the cards, as in the Figma frame. Padding, because .agent p resets margins. */
-.st-note {
-  margin: 0;
-  padding-top: 20px;
-  color: var(--text-tertiary);
-  font-size: 12px;
-  line-height: 18px;
-}
 
 /* How it works: the step rows come from language-agent.css */
 .st-steps.ag-steps {
@@ -311,15 +440,9 @@
 .st-fake-input {
   color: var(--text-tertiary);
 }
-.st-step3 {
+/* Step 3 is a step row like steps 1 and 2 */
+.stt .ag-step.st-step3 {
   margin-top: 48px;
-}
-.st-step3 .ag-step-text {
-  width: auto;
-  max-width: 680px;
-}
-.st-step3 .ag-panel {
-  margin: 20px 0;
 }
 .st-convo {
   display: flex;
@@ -327,13 +450,10 @@
   gap: 12px;
   padding: 20px;
 }
-.st-convo audio {
-  width: 420px;
-  max-width: 100%;
-  height: 44px;
+.st-convo .voice {
+  margin-top: 0;
 }
 .st-bubble {
-  max-width: 640px;
   padding: 12px 16px;
   border-radius: 8px;
   background: var(--bg-panel);
@@ -434,6 +554,18 @@
 }
 .stt + .page-footer {
   margin-top: 72px;
+}
+
+@media (max-width: 760px) {
+  .sp {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .sp-model em {
+    display: none;
+  }
 }
 
 @media (max-width: 1100px) {

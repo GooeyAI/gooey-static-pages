@@ -134,20 +134,85 @@ function initVoiceNote(note, lang) {
   document.addEventListener("play", e => { if (e.target !== audio) audio.pause(); }, true);
 }
 
-// Speech-to-text cards: the question audio, the expert's transcript, and what each recognizer heard, with the words
-// that differ from the expert's underlined. scripts/build_language_pages.py does the word comparison.
-function renderTranscriptCards(cards, data, { assetBase = "assets/", dataBase = "" } = {}) {
-  const audio = url => (/^https?:/.test(url) ? url : dataBase + url);
+// Speech-to-text sample player: pick one of the sample voice notes and a speech recognizer, press play, and what
+// that recognizer heard appears word by word as the clip plays (spread evenly over the clip; the data has no word
+// timings). Words that differ from the expert's transcript are underlined. The audio player is the sample cards'
+// (voiceHtml + initSamplePlayers). scripts/build_language_pages.py does the word comparison.
+function renderTranscriptPlayer(root, data, { assetBase = "assets/", dataBase = "" } = {}) {
+  const audioUrl = url => (/^https?:/.test(url) ? url : dataBase + url);
   const lang = data.langCode ? ` lang="${escapeHtml(data.langCode)}"` : "";
-  cards.innerHTML = data.samples.map(sample => `<article class="sample transcript">
-    <div class="sample-head">${sample.category ? `<span class="tag">${escapeHtml(sample.category)}</span>` : ""}<span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
-    ${voiceHtml({ ...sample, audioUrl: audio(sample.audioUrl) })}
-    <p class="q"><span class="q-label">Expert transcript</span><strong${lang}>${escapeHtml(sample.expert)}</strong></p>
-    <hr />
-    ${sample.heard.map(h => `<div class="heard">
-      <div class="heard-head"><img src="${assetBase}kinyarwanda/${h.logo}.svg" alt="" width="24" height="24" /><span class="a-label">${escapeHtml(h.label)} heard</span><span class="heard-count">${h.matched} of ${h.total} words</span></div>
-      <p class="heard-text"${lang}>${h.words.map(([word, same]) => (same ? escapeHtml(word) : `<u>${escapeHtml(word)}</u>`)).join(" ")}</p>
-    </div>`).join("")}
-  </article>`).join("");
-  initSamplePlayers(cards);
+  const logo = (file, size) => `<img src="${assetBase}kinyarwanda/${file}.svg" alt="" width="${size}" height="${size}" />`;
+  const models = data.samples[0].heard;
+  root.innerHTML = `<div class="sp-pick">
+      <span class="sp-label" id="spModelsLabel">Speech model</span>
+      <div class="sp-models" role="group" aria-labelledby="spModelsLabel">${models.map((m, i) =>
+        `<button type="button" class="sp-model" data-i="${i}">${logo(m.logo, 18)}${escapeHtml(m.label)}${m.recommended ? "<em>Recommended</em>" : ""}</button>`).join("")}</div>
+      <span class="sp-label" id="spClipsLabel">Voice note</span>
+      <div class="sp-clips" role="group" aria-labelledby="spClipsLabel">${data.samples.map((s, i) =>
+        `<button type="button" class="sp-clip" data-i="${i}"><span>${escapeHtml(s.english)}</span><small>Question ${s.questionNumber} of ${data.totalQuestions}</small></button>`).join("")}</div>
+    </div>
+    <div class="sp-stage">
+      <div class="sp-voice"></div>
+      <div class="sp-out">
+        <div class="sp-out-head"><span class="sp-who"></span><span class="sp-score"></span></div>
+        <p class="sp-text"${lang} aria-live="polite"></p>
+        <p class="sp-en"></p>
+        <details class="sp-expert"><summary>Compare with the expert’s transcript</summary><p${lang}></p></details>
+        <a class="sp-run" target="_blank" rel="noopener noreferrer">Open this run on Gooey.AI ↗</a>
+      </div>
+    </div>`;
+  const $ = selector => root.querySelector(selector);
+  const slot = $(".sp-voice");
+  initSamplePlayers(slot);
+  const audio = () => slot.querySelector("audio");
+  let clip = 0, model = Math.max(0, models.findIndex(m => m.recommended)), frame = 0, done = false;
+
+  const progress = () => {
+    if (done) return 1;
+    const a = audio();
+    return a && a.duration && a.currentTime > 0 ? Math.min(1, a.currentTime / a.duration) : 0;
+  };
+  const renderText = p => {
+    const words = data.samples[clip].heard[model].words;
+    const shown = p >= 1 ? words.length : Math.floor(words.length * p);
+    $(".sp-text").innerHTML = words.map(([word, same], i) =>
+      `<span class="${i < shown ? "on" : ""}${same ? "" : " miss"}">${escapeHtml(word)}</span>`).join(" ");
+    $(".sp-text").classList.toggle("idle", p === 0);
+  };
+  const tick = () => { renderText(progress()); if (!audio().paused) frame = requestAnimationFrame(tick); };
+
+  function select(newClip) {
+    const s = data.samples[clip], h = s.heard[model];
+    root.querySelectorAll(".sp-clip").forEach((b, i) => b.setAttribute("aria-pressed", i === clip));
+    root.querySelectorAll(".sp-model").forEach((b, i) => b.setAttribute("aria-pressed", i === model));
+    if (newClip) {
+      if (audio()) audio().pause();
+      done = false;
+      slot.innerHTML = voiceHtml({ ...s, audioUrl: audioUrl(s.audioUrl) });
+      const a = audio();
+      a.addEventListener("play", () => { done = false; frame = requestAnimationFrame(tick); });
+      a.addEventListener("pause", () => cancelAnimationFrame(frame));
+      // The shared player rewinds to 0 when a clip ends; keep the whole transcript on screen.
+      a.addEventListener("ended", () => { done = true; renderText(1); });
+    }
+    $(".sp-who").innerHTML = `${logo(h.logo, 16)}${escapeHtml(h.label)} heard`;
+    $(".sp-score").textContent = `${h.matched} of ${h.total} words match`;
+    $(".sp-score").classList.toggle("perfect", h.matched === h.total);
+    $(".sp-en").textContent = `“${s.english}”`;
+    $(".sp-expert p").textContent = s.expert;
+    $(".sp-run").href = h.run;
+    renderText(progress());
+  }
+
+  root.addEventListener("click", event => {
+    const c = event.target.closest(".sp-clip"), m = event.target.closest(".sp-model");
+    if (c && +c.dataset.i !== clip) {
+      clip = +c.dataset.i;
+      select(true);
+      document.querySelectorAll("audio").forEach(other => other.pause());
+      slot.querySelector(".play-btn").click();
+    }
+    if (m) { model = +m.dataset.i; select(false); }
+  });
+  select(true);
 }
