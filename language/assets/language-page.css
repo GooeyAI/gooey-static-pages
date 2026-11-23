@@ -2152,9 +2152,19 @@ main {
 }
 .a-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  height: 16px;
+  gap: 4px 6px;
+  min-height: 16px;
+}
+/* The answering chain (model + speech engine) wraps between names, never inside one or away from its logo. */
+.a-head .a-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.a-head .a-label {
+  white-space: nowrap;
 }
 .a-head img {
   width: 16px;

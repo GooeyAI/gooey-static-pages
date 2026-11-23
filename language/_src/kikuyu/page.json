@@ -129,10 +129,6 @@
     }
   },
   "samples_intro": "Three of the 24 questions, spoken in Kikuyu. Answers are from Gemini 3.1 Pro with Kikuyu Whisper v2, the highest-scoring chain, and are graded against a reference answer.",
-  "sample": {
-    "model": "Gemini 3.1 Pro",
-    "logo": "logo-gemini"
-  },
   "labSpeech": "Kikuyu Whisper v2",
   "labSpeechShort": "Whisper"
 }

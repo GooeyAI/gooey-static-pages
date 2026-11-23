@@ -70,15 +70,21 @@ function initSamplePlayers(cards) {
   }, true));
 }
 
+// who: the chain that answered, { model, logo, speech, speechLogo }; speech is null for direct audio.
 // tag: show the question's category as a chip in the card head. runLink: link to the model's public run.
 function renderSampleCards(cards, data, who, { assetBase = "assets/", dataBase = "", tag = false, runLink = true } = {}) {
   const audio = url => (/^https?:/.test(url) ? url : dataBase + url);
+  const logo = file => `<img src="${assetBase}kinyarwanda/${file}.svg" alt="" width="16" height="16" />`;
+  const named = (file, text) => `<span class="a-who">${logo(file)}<span class="a-label">${text}</span></span>`;
+  const answeredBy = who.speech
+    ? `${named(who.logo, escapeHtml(who.model))}<span class="a-label">+</span>${named(who.speechLogo, `${escapeHtml(who.speech)}’s answer`)}`
+    : named(who.logo, `${escapeHtml(who.model)} (direct audio)’s answer`);
   cards.innerHTML = data.samples.map(sample => `<article class="sample">
     <div class="sample-head">${tag && sample.category ? `<span class="tag">${escapeHtml(sample.category)}</span>` : ""}<span>Question ${sample.questionNumber} of ${data.totalQuestions}</span></div>
     ${voiceHtml({ ...sample, audioUrl: audio(sample.audioUrl) })}
     <p class="q"><span class="q-label">Question, as transcribed</span><strong>${escapeHtml(sample.transcript)}</strong><em>“${escapeHtml(sample.questionEnglish)}”</em></p>
     <hr />
-    <div class="a-head"><img src="${assetBase}kinyarwanda/${who.logo}.svg" alt="" width="16" height="16" /><span class="a-label">${who.model}’s answer</span></div>
+    <div class="a-head">${answeredBy}</div>
     <p class="a-text">${escapeHtml(sample.answer)}</p>
     ${runLink ? `<a class="hear" href="${escapeHtml(sample.runUrl)}" target="_blank" rel="noopener noreferrer">View model run · ${sample.runtimeSeconds.toFixed(2)} s</a>` : ""}
     <p class="expert"><b>Expert answer:</b> ${escapeHtml(sample.expertAnswer)}</p>

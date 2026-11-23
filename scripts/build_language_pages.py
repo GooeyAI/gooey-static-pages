@@ -348,7 +348,7 @@ def render(slug: str) -> str:
         "geometry": page["geometry"],
         "scatter": {k: page["scatter"][k] for k in ("x", "xTicks", "labelBestSovereign", "metrics")},
         "archive": archive_for(page),
-        "sample": page["sample"], "labSpeech": page.get("labSpeech"), "labSpeechShort": page.get("labSpeechShort"), "slug": slug, "workflows": workflow_urls(page, csv_rows),
+        "sample": samples_answered_by(page), "labSpeech": page.get("labSpeech"), "labSpeechShort": page.get("labSpeechShort"), "slug": slug, "workflows": workflow_urls(page, csv_rows),
         "modelSlugs": {m: v["slug"] for m, v in json.loads((SRC / "models.json").read_text()).items()},
     }
 
@@ -524,6 +524,19 @@ def js_dict(name: str) -> dict:
     text = (LANG / "assets" / "language-page.js").read_text(encoding="utf-8")
     m = re.search(r"const %s = \{(.*?)\};" % name, text, re.S)
     return {(a or b): c for a, b, c in re.findall(r'(?:"([^"]+)"|(\w+))\s*:\s*"([^"]*)"', m.group(1))}
+
+
+def answered_by(model: str, speech: str) -> dict:
+    """The sample cards' "<model> + <speech>'s answer" heading data (renderSampleCards' `who`)."""
+    direct = speech == DIRECT_AUDIO
+    return {"model": model, "logo": js_dict("LOGO_FILES")[model], "speech": None if direct else speech,
+            "speechLogo": None if direct else js_dict("SPEECH_FILES")[speech]}
+
+
+def samples_answered_by(page: dict) -> dict:
+    """The chain whose answers samples.json holds; its "workflow" is "<model> + <speech>" or just "<model>"."""
+    model, _, speech = json.loads((DATA / page["code"] / "samples.json").read_text())["workflow"].partition(" + ")
+    return answered_by(model, speech or DIRECT_AUDIO)
 
 
 def logo24(model: str) -> str:
