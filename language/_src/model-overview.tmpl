@@ -18,12 +18,10 @@
               <p class="md-lead">{{lead}}</p>
               <div class="md-actions">
                 <a class="hero-btn primary" id="moAgent" href="{{agent}}">Build an agent with this</a>
-                <a class="hero-btn secondary" id="moCompare" href="{{compare}}">Compare</a>
               </div>
             </div>
-            <div class="mo-hero-art">
-              {{art}}
-              {{score_cards}}
+            <div class="mo-hero-side">
+              {{index_chart}}
             </div>
           </div>
 
@@ -51,6 +49,15 @@
           <h2 id="evals-title">Gooey evals</h2>
           <p class="md-sub mo-sub">{{evals_sub}}</p>
           {{evals}}
+        </div>
+      </section>
+
+      <section class="md-section md-faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+{{faq_items}}
+          </div>
         </div>
       </section>
 
