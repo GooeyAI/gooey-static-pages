@@ -15,7 +15,8 @@ What is specific to one language lives in language/_src/<slug>/:
     page.json      names, hero voice note, chart geometry, axis ranges, notes
     picks.frag     "Which chain should you pick?" section (editorial); each card's link is href="{{run}}",
                    filled with that chain's saved workflow by pick_runs()
-    featured.frag  featured lab / "what changed the result?" section (editorial)
+    featured.frag  featured lab carousel, one <article class="lab-slide"> per lab; {{labs_title}}
+                   becomes "Featured lab" or "Featured labs" from the slide count (editorial)
     faq.json       verified dataset context for the shared, data-driven FAQ
 
 The numbers come straight from the data files in language/data/<code>/
@@ -176,6 +177,14 @@ def workflow_urls(page: dict, csv_rows: list) -> list[str]:
             raise SystemExit(f"{page['slug']}: no saved workflow for '{model} + {speech}' in {path.relative_to(ROOT)}")
         out.append(urls[key(model, speech)])
     return out
+
+
+def featured_labs(frag: str) -> str:
+    """Fill the featured section's {{labs_title}}: "Featured lab" for one slide, "Featured labs" for more."""
+    n = frag.count('<article class="lab-slide"')
+    if "{{labs_title}}" not in frag or n == 0:
+        raise SystemExit("featured.frag needs <h2 id=\"labs-title\">{{labs_title}}</h2> and at least one lab-slide")
+    return frag.replace("{{labs_title}}", "Featured lab" if n == 1 else "Featured labs")
 
 
 def pick_runs(frag: str, page: dict, csv_rows: list) -> str:
@@ -377,7 +386,7 @@ def render(slug: str) -> str:
         "n": str(n), "n_sov": str(n_sov), "n_priv": str(n - n_sov), "questions": str(page["questions"]),
         "board_hint": page["board"]["hint"], "speech_key": speech_key,
         "picks_section": pick_runs((d / "picks.frag").read_text().rstrip("\n"), page, csv_rows),
-        "featured_section": (d / "featured.frag").read_text().rstrip("\n"),
+        "featured_section": featured_labs((d / "featured.frag").read_text().rstrip("\n")),
         "faq_section": faq,
         "scatter_aria": " " + page["scatter"]["aria"],
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
