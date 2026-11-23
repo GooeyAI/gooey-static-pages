@@ -73,7 +73,7 @@ def check(slug: str) -> list[str]:
     for missing in sorted(speech - dict_keys("SPEECH_FILES")):
         problems.append(f"{rel}: speech engine {missing!r} is missing from SPEECH_FILES in language/assets/language-page.js")
 
-    # 4. images referenced by the page exist (<base href="../"> makes them relative to language/)
+    # 4. images referenced by the page exist (<base href="/language/"> makes them relative to language/)
     for ref in sorted(set(re.findall(r'(?:src|href)="((?:assets|data)/[^"?#]+)"', actual))):
         if not (LANG / ref).exists():
             problems.append(f"{rel}: {ref} does not exist under language/")
@@ -98,7 +98,7 @@ def check_agent(slug: str) -> list[str]:
     for model in agent["models"]:
         if model not in dict_keys("LOGO_FILES"):
             problems.append(f"{rel}: model {model!r} is missing from LOGO_FILES in language/assets/language-page.js")
-    # <base href="../../"> makes asset and data paths relative to language/
+    # <base href="/language/"> makes asset and data paths relative to language/
     for ref in sorted(set(re.findall(r'(?:src|href)="((?:assets|data)/[^"?#]+)"', actual))):
         if not (LANG / ref).exists():
             problems.append(f"{rel}: {ref} does not exist under language/")
@@ -128,7 +128,10 @@ def check_stt(slug: str) -> list[str]:
 def resolve(page: pathlib.Path, text: str, href: str) -> pathlib.Path:
     """Where an internal href goes, honouring the page's own <base href> (as the proxy and check_links.py do)."""
     m = re.search(r'<base href="([^"]*)"', text)
-    base = (page.parent / m.group(1)).resolve() if m else page.parent
+    if m and m.group(1).startswith("/"):
+        base = (build.ROOT / m.group(1).lstrip("/")).resolve()  # root-absolute: the repo root is the site root
+    else:
+        base = (page.parent / m.group(1)).resolve() if m else page.parent
     target = (base / href.split("#", 1)[0].split("?", 1)[0]).resolve()
     return target / "index.html" if target.is_dir() else target
 

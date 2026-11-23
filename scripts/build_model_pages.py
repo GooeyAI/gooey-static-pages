@@ -68,13 +68,14 @@ esc = html.escape
 # The page's own <base> comes before the GOOEY-BASE-HREF placeholder. Only the first <base> in a document counts, and
 # gooey.ai's proxy replaces the placeholder with <base href="<Pages host>/<this page's folder>/">, which would send the
 # relative paths below one or two folders too deep. With ours first, gooey.ai requests <path> on gooey.ai, which
-# redirects to the Pages host (CORS allows the fetch of samples.json).
+# redirects to the Pages host (CORS allows the fetch of samples.json). It is root-absolute, not "../": gooey.ai
+# serves a page both with and without its trailing slash, and "../" from /language/x (no slash) is the site root.
 HEAD = """<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <base href="../../" />
+    <base href="/models/" />
     <!-- GOOEY-BASE-HREF -->
 {seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,7 +102,7 @@ TAIL = """
 </html>
 """
 
-ASSET = "../language/assets/"  # <base href="../../"> makes paths relative to models/
+ASSET = "../language/assets/"  # <base href="/models/"> makes paths relative to models/
 ICONS = {
     "cloud": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5a3 3 0 0 1-.4-5.97A4 4 0 0 1 11.8 5.6 3.5 3.5 0 0 1 11.5 12.5z"/></svg>',
     "globe": '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c1.7 1.8 2.5 3.8 2.5 6S9.7 12.2 8 14c-1.7-1.8-2.5-3.8-2.5-6S6.3 3.8 8 2z"/></svg>',

@@ -62,13 +62,14 @@ SPEECH_ALIASES = {"Omni": "Omnilingual"}
 # The page's own <base> comes before the GOOEY-BASE-HREF placeholder. Only the first <base> in a document counts, and
 # gooey.ai's proxy replaces the placeholder with <base href="<Pages host>/<this page's folder>/">, which would send the
 # relative paths below one or two folders too deep. With ours first, gooey.ai requests <path> on gooey.ai, which
-# redirects to the Pages host (CORS allows the fetch of samples.json).
+# redirects to the Pages host (CORS allows the fetch of samples.json). It is root-absolute, not "../": gooey.ai
+# serves a page both with and without its trailing slash, and "../" from /language/x (no slash) is the site root.
 HEAD = """<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <base href="../" />
+    <base href="/language/" />
     <!-- GOOEY-BASE-HREF -->
 {seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -449,7 +450,7 @@ AGENT_HEAD = """<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <base href="../../" />
+    <base href="/language/" />
     <!-- GOOEY-BASE-HREF -->
 {seo}    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
