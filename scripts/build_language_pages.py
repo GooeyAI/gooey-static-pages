@@ -13,7 +13,8 @@ Layout and behaviour live in two shared files that every page links to:
 What is specific to one language lives in language/_src/<slug>/:
 
     page.json      names, hero voice note, chart geometry, axis ranges, notes
-    picks.frag     "Which chain should you pick?" section (editorial)
+    picks.frag     "Which chain should you pick?" section (editorial); each card's link is href="{{run}}",
+                   filled with that chain's saved workflow by pick_runs()
     featured.frag  featured lab / "what changed the result?" section (editorial)
     faq.json       verified dataset context for the shared, data-driven FAQ
 
@@ -175,6 +176,26 @@ def workflow_urls(page: dict, csv_rows: list) -> list[str]:
             raise SystemExit(f"{page['slug']}: no saved workflow for '{model} + {speech}' in {path.relative_to(ROOT)}")
         out.append(urls[key(model, speech)])
     return out
+
+
+def pick_runs(frag: str, page: dict, csv_rows: list) -> str:
+    """Fill each pick card's href="{{run}}" with the saved workflow of the chain the card names (the same link the
+    chains table uses), read from the card's own model and speech labels."""
+    runs = dict(zip(((norm(r[0]), r[1]) for r in csv_rows), workflow_urls(page, csv_rows)))
+
+    def card(m: re.Match) -> str:
+        names = re.findall(r"<span>([^<]+)</span>", m.group(1))
+        direct = 'class="dir"' in m.group(1)
+        model, speech = names[0], (DIRECT_AUDIO if direct else names[1])
+        hit = [u for (mo, sp), u in runs.items()
+               if mo == norm(model) and norm(SPEECH_ALIASES.get(sp, sp) if sp else DIRECT_AUDIO) == norm(speech)]
+        if len(hit) != 1:
+            raise SystemExit(f"{page['slug']}: picks.frag card '{model} + {speech}' matches {len(hit)} evaluated chains")
+        if 'href="{{run}}"' not in m.group(0):
+            raise SystemExit(f"{page['slug']}: picks.frag card '{model} + {speech}' must link href=\"{{{{run}}}}\"")
+        return m.group(0).replace('href="{{run}}"', f'href="{hit[0]}"')
+
+    return re.sub(r'<article class="pick-card">\s*(<div class="chain">.*?</div>).*?</article>', card, frag, flags=re.S)
 
 
 def archive_for(page: dict) -> list:
@@ -354,7 +375,7 @@ def render(slug: str) -> str:
         "voice_note": voice_note(page),
         "n": str(n), "n_sov": str(n_sov), "n_priv": str(n - n_sov), "questions": str(page["questions"]),
         "board_hint": page["board"]["hint"], "speech_key": speech_key,
-        "picks_section": (d / "picks.frag").read_text().rstrip("\n"),
+        "picks_section": pick_runs((d / "picks.frag").read_text().rstrip("\n"), page, csv_rows),
         "featured_section": (d / "featured.frag").read_text().rstrip("\n"),
         "faq_section": faq,
         "scatter_aria": " " + page["scatter"]["aria"],
