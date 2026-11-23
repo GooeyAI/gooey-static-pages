@@ -88,7 +88,9 @@ def classify(href: str) -> str | None:
 
 
 def resolve_internal(href: str, page: pathlib.Path, base_href: str | None) -> pathlib.Path:
-    if base_href:
+    if base_href and base_href.startswith("/"):
+        base_dir = (ROOT / base_href.lstrip("/")).resolve()  # root-absolute: the repo root is the site root
+    elif base_href:
         base_dir = (page.parent / base_href).resolve()
     else:
         base_dir = page.parent
