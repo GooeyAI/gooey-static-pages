@@ -235,7 +235,8 @@ def ordinal_date(snapshot: str) -> str:
 
 
 def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[str, str]:
-    """The hero sentence and the recommended-chain card, both about the chain with the highest Index."""
+    """The hero sentence and the recommended-chain card, both about the chain with the highest Index. The card's
+    "Build" button opens that chain's saved workflow."""
     lang, slug = page["lang"], page["slug"]
     i = min(range(len(csv_rows)), key=lambda k: (-csv_rows[k][2], csv_rows[k][3]))
     model, speech, acc, time, sov = csv_rows[i]
@@ -274,7 +275,7 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
                   </div>
                 </div>
                 <div class="top-actions">
-                  <a class="hero-btn primary" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
+                  <a class="hero-btn primary" href="{workflow_urls(page, csv_rows)[i]}" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
                   <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}" target="_blank" rel="noopener noreferrer">View the {lang} AI evaluation<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
                 </div>
               </div>"""
