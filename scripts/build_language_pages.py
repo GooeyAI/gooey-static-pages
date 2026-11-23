@@ -1042,6 +1042,9 @@ def all_pages(only: list[str] | None = None) -> dict[pathlib.Path, str]:
     for path, page in build_model_pages.pages().items():
         if not only or path.parent.name in only:
             pages[path] = page
+    import build_model_overview  # the /models/<model>/ pages, which cover every language
+    if not only:
+        pages.update(build_model_overview.pages())
     return pages
 
 

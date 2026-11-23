@@ -48,6 +48,10 @@
     <loc>https://gooey.ai/lokalibrary/</loc>
   </url>
   <url>
+    <loc>https://gooey.ai/models/claude-sonnet-5/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
     <loc>https://gooey.ai/models/claude-sonnet-5/hausa/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
@@ -61,6 +65,10 @@
   </url>
   <url>
     <loc>https://gooey.ai/models/claude-sonnet-5/swahili/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://gooey.ai/models/deepseek-v4/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
@@ -80,6 +88,10 @@
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
+    <loc>https://gooey.ai/models/gemini-3-1-pro/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
     <loc>https://gooey.ai/models/gemini-3-1-pro/hausa/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
@@ -96,6 +108,10 @@
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
+    <loc>https://gooey.ai/models/gemini-3-7-flash/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
     <loc>https://gooey.ai/models/gemini-3-7-flash/hausa/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
@@ -105,6 +121,10 @@
   </url>
   <url>
     <loc>https://gooey.ai/models/gemini-3-7-flash/swahili/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://gooey.ai/models/gpt-5-6-sol/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
@@ -121,6 +141,10 @@
   </url>
   <url>
     <loc>https://gooey.ai/models/gpt-5-6-sol/swahili/</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://gooey.ai/models/kimi-k3/</loc>
     <lastmod>2026-08-30</lastmod>
   </url>
   <url>
