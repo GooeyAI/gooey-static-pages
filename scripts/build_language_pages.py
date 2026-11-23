@@ -987,7 +987,6 @@ def render_stt(slug: str) -> str:
         "voice_note": voice_note(page), "heard_label": shown["label"], "heard_logo": shown["logo"],
         "heard_text": esc(heard_by(hero_q, shown)),
         "copy_svg": COPY_SVG,
-        "questions": str(page["questions"]),
         "model_cards": "\n".join(cards),
         "art_step1": stt_art(), "rec_label": api["label"], "rec_logo": api["logo"],
         "sample_english": esc(sample["questionEnglish"]),

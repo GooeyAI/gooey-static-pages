@@ -374,14 +374,6 @@
   color: var(--text-primary);
   font-weight: 600;
 }
-/* 20px below the cards, as in the Figma frame. Padding, because .agent p resets margins. */
-.st-note {
-  margin: 0;
-  padding-top: 20px;
-  color: var(--text-tertiary);
-  font-size: 12px;
-  line-height: 18px;
-}
 
 /* How it works: the step rows come from language-agent.css */
 .st-steps.ag-steps {
