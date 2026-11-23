@@ -280,10 +280,10 @@ h1{margin:0;font:400 var(--h)/1.05 Domine,serif;letter-spacing:-.01em}
 .bars img{width:18px;height:18px;object-fit:contain}
 .bars i+img{margin-top:4px}
 .win strong img{width:26px;height:26px;object-fit:contain;vertical-align:-4px;margin-right:10px}
-.badge{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;margin-top:28px;padding:12px 22px 12px 16px;
+.badge{display:inline-flex;align-items:center;gap:14px;align-self:flex-start;margin-top:32px;padding:16px 28px 16px 20px;
   border-radius:32px;font:400 15px/1 Inter,sans-serif;color:#4b587a;background:#f7f5f2;border:1px solid #e6e6e6;white-space:nowrap}
-.badge b{font:700 20px/1 Inter,sans-serif;color:#0a1021}
-.badge img{width:26px;height:26px}
+.badge b{font:700 26px/1 Inter,sans-serif;color:#0a1021}
+.badge img{width:34px;height:34px}
 .badge.on{background:#ebfffd;border-color:#73fff1;color:#00665c}
 .badge.on b{color:#00332e}
 .ranks{margin-top:28px;display:flex;flex-direction:column;gap:10px}
@@ -296,6 +296,20 @@ h1{margin:0;font:400 var(--h)/1.05 Domine,serif;letter-spacing:-.01em}
 .rk div small{display:block;margin-top:4px;font:400 14px/1 Inter,sans-serif;color:#636363}
 .rk b{font:600 28px/1 Inter,sans-serif;letter-spacing:-.02em}
 .rk b small{margin-left:3px;font:500 14px/1 Inter,sans-serif;color:#4b587a;letter-spacing:0}
+.sc{padding:28px 32px}
+.sc h3{margin:0;font:400 26px/1 Domine,serif;color:#0a1021}
+.sc-sub{margin-top:8px;font:400 15px/1 Inter,sans-serif;color:#636363}
+.sc-v{margin-top:auto;font:500 104px/1 Inter,sans-serif;letter-spacing:-.03em}
+.sc-v small{margin-left:8px;font:500 24px/1 Inter,sans-serif;letter-spacing:0;color:#4b587a}
+.sc-m{display:block;margin-top:18px;height:12px;border-radius:6px;background:#ebe7e2;overflow:hidden}
+.sc-m i{display:block;height:100%;border-radius:6px;background:#0a1021}
+.sc.on .sc-m i{background:#2a28ba}
+.sc-n{margin-top:12px;font:600 18px/1 Inter,sans-serif;color:#0a1021}
+.sc.on .sc-n{color:#2a28ba}
+.sc-c{display:flex;align-items:center;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid #e6e6e6}
+.sc-c img{width:22px;height:22px;object-fit:contain}
+.sc-c span{margin-left:6px;font:400 14px/1 Inter,sans-serif;color:#636363;min-width:0}
+.sc-c b{display:block;margin-top:5px;font:700 17px/1.1 Inter,sans-serif;color:#0a1021;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .art{background:#fff;border:1px solid #e6e6e6;border-radius:24px;overflow:hidden}
 .art img{display:block;width:100%;height:100%;object-fit:cover}
 """
@@ -310,12 +324,14 @@ BOARD_HTML = """<!doctype html><html><head><meta charset="utf-8">
 </div></body></html>"""
 
 
-BOARD_KINDS = ("bars", "art")
+BOARD_KINDS = ("bars", "art", "score")
 BOARD_LEGEND = [["Sovereign", "#2a28ba"], ["Private", "#b9b9b9"]]
 
 
 def board_html(card: dict, root: str) -> str:
-    """ranks: {"label": str, "rows": [[logo file, name, score, note], ...]}, a numbered list under the title.
+    """visual "score": {"label", "sub", "value" (out of 100), "note", "chain", "logos", "sovereign"}: one big Index with a
+    meter, blue for a sovereign-deployable model and Ink otherwise.
+    ranks: {"label": str, "rows": [[logo file, name, score, note], ...]}, a numbered list under the title.
     badge: [label, "landmark" (sovereign, teal) or "cloud" (private, neutral)], under the title.
     visual "bars": {"bars": [[score, highlighted, model logo, speech logo], ...], "label": chart title,
     "legend": [[highlighted label, colour], [other label, colour]] (default sovereign / private)}; visual "art": {"src": image}."""
@@ -331,6 +347,13 @@ def board_html(card: dict, root: str) -> str:
         right = (f'<div class="r"><div class="rh"><h3>{esc(v.get("label", "Index"))}</h3><div class="lg">'
                  f'<span style="--c:{on_c}">{esc(on)}</span><span style="--c:{off_c}">{esc(off)}</span></div></div>'
                  f'<div class="bars" style="--n:{len(v["bars"])}">{cells}</div></div>')
+    elif v["kind"] == "score":
+        logos = "".join(f'<img src="{root}{f}" alt="">' for f in v.get("logos", []))
+        on = " on" if v.get("sovereign") else ""   # sovereign models' meter in Blue 800, others in Ink
+        right = (f'<div class="r sc{on}"><h3>{esc(v["label"])}</h3><span class="sc-sub">{esc(v["sub"])}</span>'
+                 f'<b class="sc-v">{v["value"]}<small>/ 100</small></b><i class="sc-m"><i style="width:{v["value"]}%"></i></i>'
+                 f'<span class="sc-n">{esc(v["note"])}</span>'
+                 f'<div class="sc-c">{logos}<span>Best chain<b>{esc(v["chain"])}</b></span></div></div>')
     else:
         right = f'<div class="art"><img src="{root}{v["src"]}" alt=""></div>'
     logos = "".join(f'<img src="{root}{f}" alt="">' for f in card.get("lead_logos", []))
@@ -406,7 +429,7 @@ def og_image(path: str, card: dict, alt: str) -> tuple[str, str]:
     h.update(json.dumps(card, sort_keys=True, ensure_ascii=False).encode())
     v = card.get("visual") or {}
     files = ([WORDMARK] + ([v["src"]] if v.get("src") else []) + [f for b in v.get("bars", []) for f in b[2:]]
-             + card.get("lead_logos", []) + [r[0] for r in (card.get("ranks") or {}).get("rows", [])] + [st[4] for st in card.get("stats", []) if len(st) > 4]
+             + card.get("lead_logos", []) + v.get("logos", []) + [r[0] for r in (card.get("ranks") or {}).get("rows", [])] + [st[4] for st in card.get("stats", []) if len(st) > 4]
              + ([f"language/assets/kinyarwanda/icon-{card['badge'][1]}.svg"] if card.get("badge") else []))
     if card.get("paper"):
         files += ([card["paper"]["logo"]] if card["paper"].get("logo") else []) + card["paper"]["marks"]

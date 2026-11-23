@@ -415,19 +415,14 @@ def eco_tile(eco: dict, ecos: list) -> list | None:
             "language/assets/kinyarwanda/icon-leaf.svg"]
 
 
-def index_bars(csv_rows: list, mark=lambda row: row[4]) -> list:
-    """The leaderboard's top 10 Index bars for a share card: [score, marked, model logo, speech logo], highest first.
-    Marked bars are drawn in blue: sovereign chains by default, or (model pages) the model's own chains, whose best
-    chain takes the tenth place if it isn't in the top 10. More than 10 bars and the logos are unreadable."""
+def index_bars(csv_rows: list) -> list:
+    """The leaderboard's top 10 Index bars for a share card: [score, sovereign, model logo, speech logo], highest first.
+    More than 10 bars and the logos are unreadable."""
     a = "language/assets/kinyarwanda/"
     speech = js_dict("SPEECH_FILES")
-    rows = sorted(csv_rows, key=lambda r: (-r[2], r[3]))
-    top = rows[:10]
-    best = next((r for r in rows if mark(r)), None)
-    if best is not None and best not in top:
-        top[-1] = best
-    return [[round(acc * 100 + 1e-9), bool(mark(r)), f"{a}{logo24(m.replace('GPT 5.6 Sol', 'GPT-5.6 Sol'))}.svg",
-             f"{a}{'icon-mic-legend' if speech[sp] == 'icon-mic' else speech[sp]}.svg"] for r in top for m, sp, acc, _, _ in [r]]
+    rows = sorted(csv_rows, key=lambda r: (-r[2], r[3]))[:10]
+    return [[round(acc * 100 + 1e-9), sov, f"{a}{logo24(m.replace('GPT 5.6 Sol', 'GPT-5.6 Sol'))}.svg",
+             f"{a}{'icon-mic-legend' if speech[sp] == 'icon-mic' else speech[sp]}.svg"] for m, sp, acc, _, sov in rows]
 
 
 def hub_seo(page: dict, csv_rows: list, body: str) -> str:
