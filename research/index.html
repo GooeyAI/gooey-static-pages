@@ -1331,6 +1331,8 @@
       const PAPER_TITLE_LINKS = {
         "Chapter 17.3 in the State of AI Ethics Report, Volume 8":
           "https://montrealethics.ai/wp-content/uploads/2026/11/STATE-OF-AI-ETHICS-REPORT_VOLUME-8_2026_FINAL.pdf",
+        "Beyond Bias: Participatory & Reflective Approaches to Cultural AI":
+          "https://arxiv.org/pdf/2609.05102",
       };
 
       function paperTags(p) {
@@ -1409,9 +1411,9 @@
             const entry =
               PAPER_PAGES[(p.slug || "").trim() || slugify(p.title)] || null;
             const pdf = safePdf(p.pdf_url) || (entry ? entry.pdf : "");
-            const page = entry
-              ? entry.page
-              : safePdf(PAPER_TITLE_LINKS[p.title]) || safePdf(p.pdf_url);
+            const page =
+              safePdf(PAPER_TITLE_LINKS[p.title]) ||
+              (entry ? entry.page : safePdf(p.pdf_url));
             const citation = PAPER_CITATIONS[p.title] || "";
             const citationId = citation
               ? `citation-${slugify(p.title)}`
