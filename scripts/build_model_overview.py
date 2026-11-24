@@ -569,6 +569,8 @@ def render(model: str) -> str:
         "api": mp.API,
         "other_title": f"{esc(model)} in other languages",
         "other_languages": f'<ul class="language-list" aria-label="{esc(model)} in other languages">{"".join(other)}</ul>',
+        "other_models": '<ul class="language-list" aria-label="Other models">' + "".join(
+            f'<li><a href="{MODELS[m]["slug"]}/">{esc(m)}</a></li>' for m in overview_slugs() if m != model) + "</ul>",
         "updated": latest["updated"],
         "email": f"Email me when {esc(model)}’s results change",
     }
