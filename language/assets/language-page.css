@@ -3431,3 +3431,102 @@ body[data-hl="priv"] :is(.col, .val, .ct-row, .sc-point)[data-g="sov"] {
 }
 .hub .select-menu li[aria-disabled="true"] { cursor: not-allowed; background: #f4f4f4; }
 .hub .select-menu li[aria-disabled="true"] small { font-size: 11px; }
+
+/* Contact / Partner calls to action: hero line, featured-lab strip, two-card band, footer links */
+.hero-help {
+  margin: 14px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.hero-help a {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.lab-partner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 16px 20px;
+  border: 1px solid var(--line-default);
+  border-radius: 12px;
+  background: var(--bg-page);
+}
+.lab-partner p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.lab-partner strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+.lab-partner .hero-btn,
+.cta-card .hero-btn {
+  flex: none;
+}
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--bg-panel);
+}
+.cta-card.dark {
+  background: var(--text-primary);
+  color: var(--bg-page);
+}
+.cta-card h3 {
+  margin: 0;
+  font-family: var(--gy-font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.cta-card p {
+  margin: 0 0 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cta-card.dark p {
+  color: #c9ccd6;
+}
+.cta-card .hero-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.cta-card.dark .hero-btn.primary {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.footer-ctas {
+  display: flex;
+  gap: 20px;
+}
+.footer-ctas a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-ctas a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 760px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+  }
+  .lab-partner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -41,6 +41,8 @@ import json
 import pathlib
 import re
 import sys
+from html import escape
+from urllib.parse import quote
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from site_header import HEADER_CSS, HEADER_HTML  # noqa: E402
@@ -179,12 +181,40 @@ def workflow_urls(page: dict, csv_rows: list) -> list[str]:
     return out
 
 
-def featured_labs(frag: str) -> str:
-    """Fill the featured section's {{labs_title}}: "Featured lab" for one slide, "Featured labs" for more."""
+CONTACT_URL = "https://gooey.ai/contact/"
+
+
+def partner_url(lang: str) -> str:
+    """The "Partner with us" link: an email to the research team, with the language in the subject."""
+    return "mailto:research@gooey.ai?subject=" + quote(f"{lang} evaluation — Partner with us")
+
+
+def featured_labs(frag: str, lang: str) -> str:
+    """Fill the featured section's {{labs_title}}: "Featured lab" for one slide, "Featured labs" for more, and add
+    the "Partner with us" strip for labs under the carousel."""
     n = frag.count('<article class="lab-slide"')
-    if "{{labs_title}}" not in frag or n == 0:
-        raise SystemExit("featured.frag needs <h2 id=\"labs-title\">{{labs_title}}</h2> and at least one lab-slide")
-    return frag.replace("{{labs_title}}", "Featured lab" if n == 1 else "Featured labs")
+    end = "\n          </div>\n        </div>\n      </section>"
+    if "{{labs_title}}" not in frag or n == 0 or not frag.endswith(end):
+        raise SystemExit("featured.frag needs <h2 id=\"labs-title\">{{labs_title}}</h2>, at least one lab-slide, "
+                         "and to end with the carousel's closing tags")
+    strip = f"""
+          </div>
+          <div class="lab-partner">
+            <p><strong>Building speech or language models for {lang}?</strong>Get your lab evaluated and featured on this page.</p>
+            <a class="hero-btn secondary" href="{escape(partner_url(lang), quote=True)}">Partner with us<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
+          </div>
+        </div>
+      </section>"""
+    return frag.replace("{{labs_title}}", "Featured lab" if n == 1 else "Featured labs")[: -len(end)] + strip
+
+
+def contact_faq(lang: str) -> tuple[str, str]:
+    """Last FAQ question on a language page: how to get help deploying, or to join the evaluation."""
+    return (f"Can Gooey.AI help us deploy {lang} AI?",
+            "Yes. The Gooey.AI team helps organisations turn a benchmarked chain into a WhatsApp bot, phone line or web "
+            f'agent, including self-hosted setups. <a href="{CONTACT_URL}">Contact us</a> to talk about your use case, '
+            f'or <a href="{escape(partner_url(lang), quote=True)}">partner with us</a> to add your own model or dataset '
+            "to the evaluation.")
 
 
 def pick_runs(frag: str, page: dict, csv_rows: list) -> str:
@@ -375,7 +405,7 @@ def render(slug: str) -> str:
         json.loads((data_dir / f"pricing-{page['snapshot']}.json").read_text()),
         json.loads((data_dir / f"ecocost-{page['snapshot']}.json").read_text()),
         faq_context, models_meta,
-    ))
+    ) + [contact_faq(page["lang"])])
 
     slots = {
         "header": HEADER_HTML.format(title=f"Best AI for {page['lang']}").rstrip("\n"),
@@ -386,8 +416,9 @@ def render(slug: str) -> str:
         "n": str(n), "n_sov": str(n_sov), "n_priv": str(n - n_sov), "questions": str(page["questions"]),
         "board_hint": page["board"]["hint"], "speech_key": speech_key,
         "picks_section": pick_runs((d / "picks.frag").read_text().rstrip("\n"), page, csv_rows),
-        "featured_section": featured_labs((d / "featured.frag").read_text().rstrip("\n")),
+        "featured_section": featured_labs((d / "featured.frag").read_text().rstrip("\n"), page["lang"]),
         "faq_section": faq,
+        "contact_url": CONTACT_URL, "partner_url": escape(partner_url(page["lang"]), quote=True),
         "scatter_aria": " " + page["scatter"]["aria"],
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
         "model_nav": model_nav, "samples_intro": page["samples_intro"],

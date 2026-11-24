@@ -115,12 +115,12 @@ class LanguageFAQTests(unittest.TestCase):
         self.assertIn(CLINICAL_SAFETY_CAVEAT, answer)
         self.assertIn("the dataset is small.", answer)
 
-    def test_all_language_pages_share_eight_questions_and_local_context(self):
+    def test_all_language_pages_share_nine_questions_and_local_context(self):
         for slug in build.slugs():
             with self.subTest(slug=slug):
                 html = build.render(slug)
                 section = html.split('id="faq"', 1)[1].split("</section>", 1)[0]
-                self.assertEqual(section.count("<summary>"), 8)
+                self.assertEqual(section.count("<summary>"), 9)  # eight data questions + "Can Gooey.AI help us deploy"
                 self.assertNotIn("Does ChatGPT", section)
                 self.assertNotIn("still being verified", section)
                 self.assertIn(CLINICAL_SAFETY_CAVEAT, section)
