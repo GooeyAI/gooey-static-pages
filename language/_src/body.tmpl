@@ -24,6 +24,7 @@
               <h1 id="hero-title">Best AI for {{lang}}</h1>
               <p class="lead">{{lead_html}}</p>
               {{rec_card}}
+              <p class="hero-help">Deploying {{lang}} AI for your organisation? <a href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Talk to us</a></p>
             </div>
           </div>
         </div>
@@ -110,11 +111,29 @@
         </div>
       </section>
 
+      <section class="section cta-band" id="work-with-us" aria-labelledby="cta-title">
+        <div class="container">
+          <h2 id="cta-title" class="sr-only">Work with Gooey.AI</h2>
+          <div class="cta-grid">
+            <div class="cta-card dark">
+              <h3>Put {{lang}} AI in front of your users</h3>
+              <p>We help NGOs, governments and companies take the best-scoring chain to a WhatsApp bot, phone line or app, and run it on their own servers if needed.</p>
+              <a class="hero-btn primary" href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Contact us</a>
+            </div>
+            <div class="cta-card">
+              <h3>Add your model, data or language</h3>
+              <p>Labs, dataset owners and language communities: partner with us to add {{lang}} questions, evaluate your model, or bring the next language into the index.</p>
+              <a class="hero-btn secondary" href="{{partner_url}}">Partner with us<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {{faq_section}}
     </main>
 
     <footer class="page-footer">
       <h2>Other languages</h2>
       {{language_list}}
-      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}}</span><span>Email me when {{lang}} rankings change</span></div>
+      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}}</span><span class="footer-ctas"><a href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Contact us</a><a href="{{partner_url}}">Partner with us</a></span></div>
     </footer>
