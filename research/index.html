@@ -421,8 +421,8 @@
       .paper-actions {
         display: flex;
         flex: none;
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: flex-start;
         gap: 4px;
       }
       .pdf-btn,
@@ -743,9 +743,6 @@
       @media (max-width: 519px) {
         .paper-titlerow {
           flex-direction: column;
-        }
-        .paper-actions {
-          flex-direction: row;
         }
       }
       @media (max-width: 779px) {
