@@ -1310,8 +1310,9 @@
       let PAPERS = [],
         activeTag = "All";
 
-      /* Citations are deliberately local rather than Sheet-backed: only these
-         two NeurIPS papers currently expose the Cite interaction. */
+      /* Citations are deliberately local rather than Sheet-backed, keyed by the
+         paper's exact title in the Sheet. Renaming a paper there drops its Cite
+         button, so init() warns in the console when a key matches no paper. */
       const PAPER_CITATIONS = {
         "Rural Journalists as Co-Designers: A Case Study of the AI Journalism Fellowship":
           "Prasad, A., Singh, I., Blagsvedt, S., & Aggarwal, D. (2026). Rural journalists as co-designers: A case study of the AI Journalism Fellowship. GlobalSouthAI Workshop, NeurIPS 2026.",
@@ -1410,7 +1411,8 @@
             /* A paper with a hosted page links to the page; otherwise fall back to its pdf_url so the title stays clickable. */
             const entry =
               PAPER_PAGES[(p.slug || "").trim() || slugify(p.title)] || null;
-            const pdf = safePdf(p.pdf_url) || (entry ? entry.pdf : "");
+            /* Prefer the PDF hosted in this repo; Drive (pdf_url) is the fallback. */
+            const pdf = (entry && entry.pdf) || safePdf(p.pdf_url);
             const page =
               safePdf(PAPER_TITLE_LINKS[p.title]) ||
               (entry ? entry.page : safePdf(p.pdf_url));
@@ -1647,6 +1649,10 @@
         PAPERS = (DATA.papers || []).filter(
           (p) => p.title && !isHidden(p.hidden),
         );
+        const titles = new Set(PAPERS.map((p) => p.title));
+        Object.keys(PAPER_CITATIONS)
+          .filter((t) => !titles.has(t))
+          .forEach((t) => console.warn(`Citation has no matching paper: "${t}"`));
         renderChips();
         renderPapers();
         renderProfiles(
