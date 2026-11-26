@@ -17,6 +17,7 @@
       "pin": true
     },
     "voice": {
+      "question": 24,
       "time": "0:12",
       "text": "Muraho! Umwana wanjye<br />afite umuriro. Nkore iki?",
       "sub": "Hello! My child has a fever.<br />What should I do?"

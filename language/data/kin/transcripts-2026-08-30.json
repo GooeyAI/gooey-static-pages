@@ -1,14 +1,14 @@
 {
   "source": "Public Gooey.AI runs linked from evaluation-latest.csv",
-  "fetched": "2026-11-18",
+  "fetched": "2026-11-26",
   "note": "text is the run's raw_input_text: the speech recognizer's transcript of the question audio, before the language model. The expert transcript is Prompt_Target in evaluation-latest.csv.",
   "transcripts": [
     {
-      "question": 1,
+      "question": 24,
       "recognizer": "Omnilingual",
       "chain": "DeepSeek V4 + Omnilingual",
-      "run": "https://gooey.ai/agent/?run_id=xf04t5ru0ci6&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
-      "text": "umurwa mukuru wa kenya witwa ngo iki"
+      "run": "https://gooey.ai/agent/?run_id=tfhnie47i1l9&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "nigute imiti igabanya ububabare aspirine igira uruhare mu kuvura kw'amaraso"
     },
     {
       "question": 3,
@@ -32,11 +32,11 @@
       "text": "ni he hantu ndangamateka mu majyaruguru ya kenya haboneka ibimenyetso by'inkomoko n'ihindagurika rya muntu"
     },
     {
-      "question": 1,
+      "question": 24,
       "recognizer": "Intron",
       "chain": "DeepSeek V4 + Intron",
-      "run": "https://gooey.ai/agent/?run_id=2z9hzotfe4a5&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
-      "text": "umurwa mukuru wa Kenya witwa ngo"
+      "run": "https://gooey.ai/agent/?run_id=lthcxsbxg0ct&uid=t1ZBqSAGpsV8dgKvqW8n8TPtRhF2",
+      "text": "ni gute imiti igabanya ububabare aspirin igira uruhare mu kuvura kw'amaraso"
     },
     {
       "question": 3,
