@@ -641,7 +641,7 @@ def render_model(model: str, lslug: str) -> str:
         "compare_p1": compare_p1, "compare_p2": compare_p2, "chips": "".join(f"<span>{esc(x)}</span>" for x in chips),
         "table_title": f"Against the top {len(others)}",
         "table": table, "updated": L["updated"], "questions": str(L["questions"]), "docs_eval": DOCS_EVAL,
-        "data_csv": f"../language/data/{L['code']}/evaluation-latest.csv", "contact": CONTACT, "api": API,
+        "contact": CONTACT, "api": API,
         "sample_intro": (f"Three of the {L['questions']} questions. Answers are from {esc(model)} with {esc(speech)}"
                          f"{' speech recognition' if c['speech'] != b.DIRECT_AUDIO else ''}, each graded against an expert’s."),
         "changed": changed, "run": run, "planet_left": planet_left, "planet_right": planet_right,
