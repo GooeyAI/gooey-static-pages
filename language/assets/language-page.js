@@ -133,9 +133,9 @@ const SCATTER = {
   extraLabelled: () => (activeSnap === LATEST && P.scatter.labelBestSovereign ? [bestSovereign] : []),
   rows: [["score", INDEX], ["time", "Response"], ["cost", "Cost"], ["carbon", "CO₂e"]],
   metrics: {
-    score: { label: INDEX, title: INDEX + " vs response time", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
-    cost: { label: "Cost per 1,000 questions", title: "Cost vs response time", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + Math.round(v), beat: "cheaper", hint: "Lower and faster is better" },
-    carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs response time", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
+    score: { label: INDEX, title: INDEX + " vs Latency", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
+    cost: { label: "Cost per 1,000 questions", title: "Cost vs Latency", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + Math.round(v), beat: "cheaper", hint: "Lower and faster is better" },
+    carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs Latency", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
   }
 };
 // Scale for the panel's Eco cost range: 0 to the widest "likely" estimate of any chain.
@@ -366,7 +366,7 @@ let yActive = 0;
 const metricAvailable = key => !(PRICING_COMING_SOON && key === "cost");
 function renderYMenu() {
   const keys = metricKeys();
-  // The language name in "<Language> Index vs response time" is dropped on phones, where the two menus share a row.
+  // The language name in "<Language> Index vs Latency" is dropped on phones, where the two menus share a row.
   const title = k => SCATTER.metrics[k].title.replace(P.lang + " ", `<i class="wide-only">${P.lang} </i>`);
   yBtn.firstElementChild.innerHTML = title(yMetric);
   yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}"${metricAvailable(k) ? "" : ' aria-disabled="true"'} class="${i === yActive ? "active" : ""}${metricAvailable(k) ? "" : " pricing-pending"}"><span>${title(k)}</span>${metricAvailable(k) ? (k === yMetric ? CHECK : "") : "<small>Coming soon</small>"}</li>`).join("");
