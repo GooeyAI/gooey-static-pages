@@ -24,6 +24,7 @@
               <h1 id="hero-title">Best AI for {{lang}}</h1>
               <p class="lead">{{lead_html}}</p>
               {{rec_card}}
+              <p class="hero-help">Deploying {{lang}} AI for your organisation? <a href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Talk to us</a></p>
             </div>
           </div>
         </div>
@@ -53,12 +54,12 @@
       <section class="section" id="tradeoff" aria-labelledby="tradeoff-title">
         <div class="container explore">
           <div class="sec-head">
-            <h2 id="tradeoff-title">{{lang}} Index against response time</h2>
+            <h2 id="tradeoff-title">{{lang}} Index vs Latency</h2>
             <p>Compare {{lang}} AI models by answer accuracy, response time, ecocost and cost.</p>
           </div>
           <div class="evaluation">
             <div class="scatter-card">
-              <div class="yaxis"><span id="yaxisLabel">Chart</span><div class="select select-chart"><button type="button" class="select-btn" id="yselectBtn" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="yselectMenu" aria-labelledby="yaxisLabel yselectBtn"><span>{{lang}} Index vs response time</span></button><ul class="select-menu" id="yselectMenu" role="listbox" aria-labelledby="yaxisLabel" hidden></ul></div><div class="select select-eval"><button type="button" class="select-btn" id="evalBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="evalMenu"><img src="assets/kinyarwanda/icon-calendar-tertiary.svg" alt="" width="16" height="16" /><span>{{updated}}</span></button><ul class="select-menu" id="evalMenu" role="listbox" aria-label="Evaluation date" hidden><li role="option" aria-selected="true"><span>{{updated}}</span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></li></ul></div></div>
+              <div class="yaxis"><span id="yaxisLabel">Chart</span><div class="select select-chart"><button type="button" class="select-btn" id="yselectBtn" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="yselectMenu" aria-labelledby="yaxisLabel yselectBtn"><span>{{lang}} Index vs Latency</span></button><ul class="select-menu" id="yselectMenu" role="listbox" aria-labelledby="yaxisLabel" hidden></ul></div><div class="select select-eval"><button type="button" class="select-btn" id="evalBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="evalMenu"><img src="assets/kinyarwanda/icon-calendar-tertiary.svg" alt="" width="16" height="16" /><span>{{updated}}</span></button><ul class="select-menu" id="evalMenu" role="listbox" aria-label="Evaluation date" hidden><li role="option" aria-selected="true"><span>{{updated}}</span><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg></li></ul></div></div>
               <div class="scatter" id="scatter" role="img" aria-label="{{lang}} Index against response time for {{n}} AI chains.{{scatter_aria}}"></div>
               <p class="scatter-foot"><span class="trade-key"><i></i><span id="tradeText">{{score_front}}</span></span><span class="scatter-hint" id="scatterHint">Higher and faster is better</span></p>
               <p class="scatter-source" id="scatterSource">{{score_note}}</p>
@@ -110,11 +111,29 @@
         </div>
       </section>
 
+      <section class="section cta-band" id="work-with-us" aria-labelledby="cta-title">
+        <div class="container">
+          <h2 id="cta-title" class="sr-only">Work with Gooey.AI</h2>
+          <div class="cta-grid">
+            <div class="cta-card dark">
+              <h3>Put {{lang}} AI in front of your users</h3>
+              <p>We help NGOs, governments and companies take the best-scoring chain to a WhatsApp bot, phone line or app, and run it on their own servers if needed.</p>
+              <a class="hero-btn primary" href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Contact us</a>
+            </div>
+            <div class="cta-card">
+              <h3>Add your model, data or language</h3>
+              <p>Labs, dataset owners and language communities: partner with us to add {{lang}} questions, evaluate your model, or bring the next language into the index.</p>
+              <a class="hero-btn secondary" href="{{partner_url}}">Partner with us<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {{faq_section}}
     </main>
 
     <footer class="page-footer">
       <h2>Other languages</h2>
       {{language_list}}
-      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}}</span><span>Email me when {{lang}} rankings change</span></div>
+      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}}</span><span class="footer-ctas"><a href="{{contact_url}}" target="_blank" rel="noopener noreferrer">Contact us</a><a href="{{partner_url}}">Partner with us</a></span></div>
     </footer>

@@ -85,10 +85,11 @@ function renderMetrics() {
       const center = left + 12;
       plot.push(`<i class="col${c.sovereign ? " sov" : ""}" data-g="${group(c)}" data-i="${chains.indexOf(c)}" style="left:${at(left)};width:${at(24)};top:${212 - h}px;height:${h}px" aria-label="${fullName(c)}"></i><span class="val" data-g="${group(c)}" style="left:calc(${at(center)} - 24px);top:${212 - h - 18}px">${chart.value(c).replace(/\s+([a-z]+)$/i, '<span class="u"> $1</span>')}</span>`);
       const [size, offset] = LABEL_BOX[c.model];
-      labels.push(`<img src="assets/kinyarwanda/${LOGO_FILES[c.model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:2px" /><img src="assets/kinyarwanda/${SPEECH_FILES[c.speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:28px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><span>${c.model}</span></div>`);
+      labels.push(`<img src="assets/kinyarwanda/${SPEECH_FILES[c.speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:4px" /><img src="assets/kinyarwanda/${LOGO_FILES[c.model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:26px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><a href="${c.workflow}" target="_blank" rel="noopener noreferrer" aria-label="Open the ${fullName(c)} ${P.lang} run on Gooey.AI"><span>${c.model}</span></a></div>`);
     });
-    labels.push('<span class="axis-tag" style="top:5.5px">LLM</span><span class="axis-tag" style="top:29.5px">ASR</span>');
-    const best = (c, label, cls) => (c ? `<div><i${cls}></i><span>${label} · <em>${c.model}</em></span><b>${chart.show(c)}</b></div>` : "");
+    labels.push('<span class="axis-tag" style="top:5.5px">ASR</span><span class="axis-tag" style="top:29.5px">LLM</span>');
+    // Always name the full chain (LLM + ASR) and link to the run the evaluation scored, as the chains table does.
+    const best = (c, label, cls) => (c ? `<div><i${cls}></i><span>${label} · <a href="${c.workflow}" target="_blank" rel="noopener noreferrer" aria-label="Open the ${c.model} + ${c.speech} ${P.lang} run on Gooey.AI"><em>${c.model} + ${c.speech}</em></a></span><b>${chart.show(c)}</b></div>` : "");
     const article = document.createElement("article");
     const pending = PRICING_COMING_SOON && chart.icon === "cost";
     article.className = "chart-card" + (pending ? " pricing-pending" : "");
@@ -116,7 +117,7 @@ function renderMetrics() {
 
 function renderTable(sort = "accuracy") {
   const rows = sort === "speed" ? byTime : ranked;
-  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row" data-g="${group(c)}" role="row"><span class="c-rank" role="cell">${i + 1}</span><span class="c-chain" role="cell"><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span></span><span class="c-score" role="cell"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span class="c-time" role="cell">${c.time.toFixed(1)} s</span><span class="c-run" role="cell"><a href="${c.workflow}" target="_blank" rel="noopener noreferrer" aria-label="Try the ${fullName(c)} ${P.lang} agent on Gooey.AI">Try agent ↗</a></span></div>`).join("");
+  document.getElementById("chainRows").innerHTML = rows.map((c, i) => `<div class="ct-row" data-g="${group(c)}" role="row"><span class="c-rank" role="cell">${i + 1}</span><span class="c-chain" role="cell"><span class="c-model">${model(c.model, 24)}<span class="c-name"><a href="../models/${P.modelSlugs[c.model]}/${P.slug}/">${c.model}</a></span></span><span class="c-plus">+</span><span class="c-speech">${speechIcon(c.speech)}${c.speech}</span></span><span class="c-score" role="cell"><span class="bar"><i class="${c.sovereign ? "sovereign" : "private"}" style="width:${c.exact.toFixed(2)}%"></i></span><b class="c-num">${c.score}</b></span><span class="c-time" role="cell">${c.time.toFixed(1)} s</span><span class="c-run" role="cell"><a href="${c.workflow}" target="_blank" rel="noopener noreferrer" aria-label="Open the ${fullName(c)} ${P.lang} agent on Gooey.AI">Open ↗</a></span></div>`).join("");
 }
 
 function renderLabRank() {
@@ -133,9 +134,9 @@ const SCATTER = {
   extraLabelled: () => (activeSnap === LATEST && P.scatter.labelBestSovereign ? [bestSovereign] : []),
   rows: [["score", INDEX], ["time", "Response"], ["cost", "Cost"], ["carbon", "CO₂e"]],
   metrics: {
-    score: { label: INDEX, title: INDEX + " vs response time", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
-    cost: { label: "Cost per 1,000 questions", title: "Cost vs response time", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + Math.round(v), beat: "cheaper", hint: "Lower and faster is better" },
-    carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs response time", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
+    score: { label: INDEX, title: INDEX + " vs Latency", get: c => c.exact, high: true, ...MD.score, tick: v => String(v), beat: "higher on the Index", hint: "Higher and faster is better" },
+    cost: { label: "Cost per 1,000 questions", title: "Cost vs Latency", get: c => c.cost, high: false, ...MD.cost, tick: v => "$" + Math.round(v), beat: "cheaper", hint: "Lower and faster is better" },
+    carbon: { label: "CO₂e per 1,000 questions", title: "CO₂e vs Latency", get: c => c.carbon, high: false, ...MD.carbon, tick: v => v + " g", beat: "lower-carbon", hint: "Lower and faster is better" }
   }
 };
 // Scale for the panel's Eco cost range: 0 to the widest "likely" estimate of any chain.
@@ -195,6 +196,16 @@ tip.setAttribute("role", "tooltip");
 tip.hidden = true;
 document.body.appendChild(tip);
 
+// "Build an agent with this" opens gooey.ai/new/ with a prompt for the selected chain, e.g.
+// "Build Kinyarwanda WhatsApp bot with Claude and Intron" (same wording as new_url in build_language_pages.py).
+function buildUrl(c) {
+  let text = `Build ${P.lang} WhatsApp bot with ${SHORT[c.model] || c.model}`;
+  if (c.speech !== "Built-in audio") text += ` and ${c.speech}`;
+  // UTM tags match utm() in build_language_pages.py.
+  return "https://gooey.ai/new/?text=" + encodeURIComponent(text).replace(/%20/g, "+") +
+    `&amp;utm_source=gooey-pages&amp;utm_medium=cta&amp;utm_campaign=${encodeURIComponent(P.lang.toLowerCase())}&amp;utm_content=language-chain-panel`;
+}
+
 function renderPanel() {
   const c = selectedChain;
   const dominated = chains.some(o => o !== c && scoreOf(o) >= scoreOf(c) && o.time <= c.time && (scoreOf(o) > scoreOf(c) || o.time < c.time));
@@ -206,7 +217,7 @@ function renderPanel() {
     <div class="p-stats"><div class="p-stat"><span>${INDEX}</span><b>${c.score}</b><small>#${scoreRankOf(c)} of ${chains.length}</small></div><div class="p-stat"><span>Response</span><b>${c.time.toFixed(1)} s</b><small>#${timeRankOf(c)} of ${chains.length}</small></div></div>
     <p class="p-desc">${fast}${dominated ? "" : " No other chain is both faster and higher on the Index."}</p>
     ${PANEL_DETAILS(c)}
-    <a class="p-btn" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this</a>`;
+    <a class="p-btn" href="${buildUrl(c)}" target="_blank" rel="noopener noreferrer">Build an agent with this</a>`;
 }
 
 // The panel's content varies with the selected chain (EcoCost text can wrap), but the scatter card and
@@ -356,7 +367,7 @@ let yActive = 0;
 const metricAvailable = key => !(PRICING_COMING_SOON && key === "cost");
 function renderYMenu() {
   const keys = metricKeys();
-  // The language name in "<Language> Index vs response time" is dropped on phones, where the two menus share a row.
+  // The language name in "<Language> Index vs Latency" is dropped on phones, where the two menus share a row.
   const title = k => SCATTER.metrics[k].title.replace(P.lang + " ", `<i class="wide-only">${P.lang} </i>`);
   yBtn.firstElementChild.innerHTML = title(yMetric);
   yMenu.innerHTML = keys.map((k, i) => `<li role="option" id="yopt-${k}" data-k="${k}" aria-selected="${k === yMetric}"${metricAvailable(k) ? "" : ' aria-disabled="true"'} class="${i === yActive ? "active" : ""}${metricAvailable(k) ? "" : " pricing-pending"}"><span>${title(k)}</span>${metricAvailable(k) ? (k === yMetric ? CHECK : "") : "<small>Coming soon</small>"}</li>`).join("");
