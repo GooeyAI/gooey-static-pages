@@ -602,7 +602,8 @@ main {
 }
 .chart-card {
   display: flex;
-  height: 506px;
+  /* At least 506px; grows when the footer's best picks wrap to a second line instead of clipping it. */
+  min-height: 506px;
   flex-direction: column;
   gap: 16px;
   overflow: hidden;
