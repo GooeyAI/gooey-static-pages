@@ -14,7 +14,7 @@ What is specific to one language lives in language/_src/<slug>/:
 
     page.json      names, hero voice note, chart geometry, axis ranges, notes
     picks.frag     "Which chain should you pick?" section (editorial); each card's link is href="{{run}}",
-                   filled with that chain's saved workflow by pick_runs()
+                   filled with a gooey.ai/new/ build prompt for that chain by pick_runs()
     featured.frag  featured lab carousel, one <article class="lab-slide"> per lab; {{labs_title}}
                    becomes "Featured lab" or "Featured labs" from the slide count (editorial)
     faq.json       verified dataset context for the shared, data-driven FAQ
@@ -42,7 +42,7 @@ import pathlib
 import re
 import sys
 from html import escape
-from urllib.parse import quote
+from urllib.parse import quote, quote_plus
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from site_header import HEADER_CSS, HEADER_HTML  # noqa: E402
@@ -218,9 +218,11 @@ def contact_faq(lang: str) -> tuple[str, str]:
 
 
 def pick_runs(frag: str, page: dict, csv_rows: list) -> str:
-    """Fill each pick card's href="{{run}}" with the saved workflow of the chain the card names (the same link the
-    chains table uses), read from the card's own model and speech labels."""
+    """Fill each pick card's href="{{run}}" with a gooey.ai/new/ prompt for the chain the card names, read from the
+    card's own model and speech labels (which must match an evaluated chain). Each matrix column holds a "Voice calls"
+    card then a "WhatsApp" card, so even cards get a voice-agent prompt and odd ones a WhatsApp-bot prompt."""
     runs = dict(zip(((norm(r[0]), r[1]) for r in csv_rows), workflow_urls(page, csv_rows)))
+    seen = [0]
 
     def card(m: re.Match) -> str:
         names = re.findall(r"<span>([^<]+)</span>", m.group(1))
@@ -232,9 +234,14 @@ def pick_runs(frag: str, page: dict, csv_rows: list) -> str:
             raise SystemExit(f"{page['slug']}: picks.frag card '{model} + {speech}' matches {len(hit)} evaluated chains")
         if 'href="{{run}}"' not in m.group(0):
             raise SystemExit(f"{page['slug']}: picks.frag card '{model} + {speech}' must link href=\"{{{{run}}}}\"")
-        return m.group(0).replace('href="{{run}}"', f'href="{hit[0]}"')
+        kind = "voice agent" if seen[0] % 2 == 0 else "WhatsApp bot"
+        seen[0] += 1
+        return m.group(0).replace('href="{{run}}"', f'href="{new_url(page["lang"], {"model": model, "speech": speech}, kind, "language-pick-" + ("voice" if kind == "voice agent" else "whatsapp"))}"')
 
-    return re.sub(r'<article class="pick-card">\s*(<div class="chain">.*?</div>).*?</article>', card, frag, flags=re.S)
+    out = re.sub(r'<article class="pick-card">\s*(<div class="chain">.*?</div>).*?</article>', card, frag, flags=re.S)
+    if seen[0] % 2:
+        raise SystemExit(f"{page['slug']}: picks.frag has {seen[0]} cards; each column needs a Voice calls and a WhatsApp card")
+    return out
 
 
 def archive_for(page: dict) -> list:
@@ -275,7 +282,7 @@ def ordinal_date(snapshot: str) -> str:
 
 def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[str, str]:
     """The hero sentence and the recommended-chain card, both about the chain with the highest Index. The card's
-    "Build" button opens that chain's saved workflow."""
+    "Build" button opens gooey.ai/new/ with a WhatsApp-bot prompt for that chain."""
     lang, slug = page["lang"], page["slug"]
     i = min(range(len(csv_rows)), key=lambda k: (-csv_rows[k][2], csv_rows[k][3]))
     model, speech, acc, time, sov = csv_rows[i]
@@ -310,11 +317,10 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
                   <i class="rec-divider" aria-hidden="true"></i>
                   <div class="rec-more">
                     <span>{icon("icon-stopwatch", 14)}<b>{time:.1f} s</b> median reply</span>
-                    <span{ ' class="pricing-pending"' if PRICING_COMING_SOON else '' }>{icon("icon-dollar", 14)}<b>{"Coming soon" if PRICING_COMING_SOON else money(pricing[i]) + " / 1,000"}</b> {"pricing" if PRICING_COMING_SOON else "questions"}</span>
-                  </div>
+{"" if PRICING_COMING_SOON else f'                    <span>{icon("icon-dollar", 14)}<b>{money(pricing[i])} / 1,000</b> questions</span>' + chr(10)}                  </div>
                 </div>
                 <div class="top-actions">
-                  <a class="hero-btn primary" href="{workflow_urls(page, csv_rows)[i]}" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
+                  <a class="hero-btn primary" href="{new_url(lang, {"model": model, "speech": SPEECH_ALIASES.get(speech, speech)}, cta="language-top-card")}" target="_blank" rel="noopener noreferrer">Build a {lang} agent</a>
                   <a class="hero-btn secondary" href="{page["hero"]["bulk_url"]}" target="_blank" rel="noopener noreferrer">View the {lang} AI evaluation<img src="assets/kinyarwanda/icon-arrow-ur.svg" alt="" width="12" height="12" /></a>
                 </div>
               </div>"""
@@ -608,6 +614,28 @@ def chain_label(c: dict) -> str:
     return c["model"] + (" + built-in audio" if c["speech"] == DIRECT_AUDIO else f" + {c['speech']}")
 
 
+# "Build" CTAs open gooey.ai/new/ with a prompt naming the language and chain, e.g.
+# "Build Kinyarwanda WhatsApp bot with Claude and Intron". Keep SHORT_MODEL in step with SHORT in language-page.js.
+SHORT_MODEL = {"DeepSeek V4": "DeepSeek", "Gemini 3.1 Pro": "Gemini", "Gemini 3.7 Flash": "Gemini Flash",
+               "GPT-5.6 Sol": "GPT", "Claude Sonnet 5": "Claude", "Kimi K3": "Kimi"}
+
+
+def new_url(lang: str, c: dict | None = None, kind: str = "WhatsApp bot", cta: str = "") -> str:
+    text = f"Build {lang} {kind}"
+    if c:
+        text += f" with {SHORT_MODEL.get(c['model'], c['model'])}"
+        if c["speech"] != DIRECT_AUDIO:
+            text += f" and {c['speech']}"
+    return "https://gooey.ai/new/?text=" + quote_plus(text) + utm(lang, cta)
+
+
+def utm(lang: str, cta: str) -> str:
+    """UTM tags on every CTA, so analytics on gooey.ai can tell which page and button sent a visit.
+    utm_content is "<page kind>-<button>", e.g. language-top-card or ai-agent-hero. Keep in step with utm() in
+    language-page.js and the Intron buttons in language/_src/<slug>/featured.frag."""
+    return f"&amp;utm_source=gooey-pages&amp;utm_medium=cta&amp;utm_campaign={quote_plus(lang.lower())}&amp;utm_content={cta}"
+
+
 def money(v: float) -> str:
     return f"${v:,.0f}" if v >= 1000 else f"${v:.2f}"
 
@@ -739,6 +767,7 @@ def render_agent(slug: str) -> str:
     slots = {
         "header": HEADER_HTML.format(title=f"Build a {lang} AI agent").rstrip("\n"),
         "slug": slug, "lang": lang, "art_hero": art("hero"), "art_channel": art("channel"),
+        "build_url": new_url(lang, top, cta="ai-agent-hero"),
         "chain_rows": "\n".join(chain_rows), "model_rows": "\n".join(model_rows), "file_rows": file_rows,
         "channel_whatsapp": channels["whatsapp"],
         "top_label": chain_label(top), "top_logo": logos[top["model"]], "top_cost": money(top["cost"]),
@@ -1026,6 +1055,7 @@ def render_stt(slug: str) -> str:
         "api_curl": esc(curl), "api_prompt": esc(prompt),
         "faq_section": faq_section, "lead_html": lead_html,
         "cta_text": f"Start from {name(top)}, the chain with the highest {lang} Index.",
+        "build_url": new_url(lang, top, cta="stt-step3"), "voice_build_url": new_url(lang, top, "voice agent", "stt-footer"),
         "language_list": language_list(lang, lambda s: f"{s}/speech-to-text/" if (SRC / s / "stt.json").exists() else None),
     }
     body = (SRC / "stt.tmpl").read_text()

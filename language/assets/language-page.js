@@ -195,6 +195,16 @@ tip.setAttribute("role", "tooltip");
 tip.hidden = true;
 document.body.appendChild(tip);
 
+// "Build an agent with this" opens gooey.ai/new/ with a prompt for the selected chain, e.g.
+// "Build Kinyarwanda WhatsApp bot with Claude and Intron" (same wording as new_url in build_language_pages.py).
+function buildUrl(c) {
+  let text = `Build ${P.lang} WhatsApp bot with ${SHORT[c.model] || c.model}`;
+  if (c.speech !== "Built-in audio") text += ` and ${c.speech}`;
+  // UTM tags match utm() in build_language_pages.py.
+  return "https://gooey.ai/new/?text=" + encodeURIComponent(text).replace(/%20/g, "+") +
+    `&amp;utm_source=gooey-pages&amp;utm_medium=cta&amp;utm_campaign=${encodeURIComponent(P.lang.toLowerCase())}&amp;utm_content=language-chain-panel`;
+}
+
 function renderPanel() {
   const c = selectedChain;
   const dominated = chains.some(o => o !== c && scoreOf(o) >= scoreOf(c) && o.time <= c.time && (scoreOf(o) > scoreOf(c) || o.time < c.time));
@@ -206,7 +216,7 @@ function renderPanel() {
     <div class="p-stats"><div class="p-stat"><span>${INDEX}</span><b>${c.score}</b><small>#${scoreRankOf(c)} of ${chains.length}</small></div><div class="p-stat"><span>Response</span><b>${c.time.toFixed(1)} s</b><small>#${timeRankOf(c)} of ${chains.length}</small></div></div>
     <p class="p-desc">${fast}${dominated ? "" : " No other chain is both faster and higher on the Index."}</p>
     ${PANEL_DETAILS(c)}
-    <a class="p-btn" href="https://gooey.ai/agent/" target="_blank" rel="noopener noreferrer">Build an agent with this</a>`;
+    <a class="p-btn" href="${buildUrl(c)}" target="_blank" rel="noopener noreferrer">Build an agent with this</a>`;
 }
 
 // The panel's content varies with the selected chain (EcoCost text can wrap), but the scatter card and
