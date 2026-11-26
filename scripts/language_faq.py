@@ -43,7 +43,7 @@ def faq_items(page: dict, rows: list, pricing: dict, eco: dict, editorial: dict,
     slug, code, snapshot = page["slug"], page["code"], page["snapshot"]
     link = lambda href, text: f'<a href="{escape(href, quote=True)}">{escape(text)}</a>'
     results = link(f"{slug}/#all-chains", "benchmark results")
-    source = link(f"data/{code}/evaluation-latest.csv", "evaluation CSV")
+    source = "evaluation CSV"  # Named in the answers but not linked: the raw CSV is not offered for download here.
     top = min(rows, key=lambda r: (-r[2], r[3]))
     label = lambda r: escape(r[0].replace("GPT 5.6 Sol", "GPT-5.6 Sol") +
                              (" (direct audio)" if r[1] == "Built-in audio" else f" + {r[1]}"))
