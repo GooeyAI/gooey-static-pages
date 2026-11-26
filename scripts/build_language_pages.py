@@ -330,15 +330,25 @@ def hero_top(page: dict, csv_rows: list, pricing: list, ecocost: list) -> tuple[
 AUDIO_RE = re.compile(r"\.(wav|mp3|m4a|opus|ogg)(\?|$)", re.I)
 
 
-def hero_question(page: dict) -> int:
-    """The question the hero voice note plays: evaluation row 1 when its recording is a direct audio file and it
-    has its text, otherwise the first sample card."""
+def hero_row(page: dict) -> tuple[int, dict]:
+    """The evaluation row the hero voice note is built from: `hero.voice.question` in page.json when set (pick a
+    question that is not about one country), otherwise row 1."""
+    n = page["hero"].get("voice", {}).get("question", 1)
     with (DATA / page["code"] / "evaluation-latest.csv").open(encoding="utf-8-sig") as f:
-        row = next(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    if not 1 <= n <= len(rows):
+        raise SystemExit(f"{page['slug']}: hero.voice.question {n} is not an evaluation row (1-{len(rows)})")
+    return n, rows[n - 1]
+
+
+def hero_question(page: dict) -> int:
+    """The question the hero voice note plays: the hero row (see hero_row) when its recording is a direct audio
+    file and it has its text, otherwise the first sample card."""
+    n, row = hero_row(page)
     target = row.get("Prompt_Target") or row.get("Question_Target") or ""
     source = row.get("question") or row.get("Prompt_Source") or row.get("Question_Source") or ""
     if AUDIO_RE.search(row.get("input_audio", "")) and target and source:
-        return 1
+        return n
     return json.loads((DATA / page["code"] / "samples.json").read_text())["samples"][0]["questionNumber"]
 
 
@@ -351,12 +361,11 @@ def voice_note(page: dict) -> str:
 
 
 def hero_voice(page: dict) -> dict:
-    """The hero voice note plays a real question from the evaluation: the first evaluation row when its
+    """The hero voice note plays a real question from the evaluation: the hero row (see hero_row) when its
     recording is a direct audio file, otherwise the first sample card (whose audio is stored with the data)."""
     d = DATA / page["code"]
     esc = lambda t: t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
-    with (d / "evaluation-latest.csv").open(encoding="utf-8-sig") as f:
-        row = next(csv.DictReader(f))
+    _, row = hero_row(page)
     audio = row.get("input_audio", "")
     target = row.get("Prompt_Target") or row.get("Question_Target") or ""
     source = row.get("question") or row.get("Prompt_Source") or row.get("Question_Source") or ""
