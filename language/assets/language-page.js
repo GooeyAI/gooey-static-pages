@@ -85,9 +85,9 @@ function renderMetrics() {
       const center = left + 12;
       plot.push(`<i class="col${c.sovereign ? " sov" : ""}" data-g="${group(c)}" data-i="${chains.indexOf(c)}" style="left:${at(left)};width:${at(24)};top:${212 - h}px;height:${h}px" aria-label="${fullName(c)}"></i><span class="val" data-g="${group(c)}" style="left:calc(${at(center)} - 24px);top:${212 - h - 18}px">${chart.value(c).replace(/\s+([a-z]+)$/i, '<span class="u"> $1</span>')}</span>`);
       const [size, offset] = LABEL_BOX[c.model];
-      labels.push(`<img src="assets/kinyarwanda/${LOGO_FILES[c.model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:2px" /><img src="assets/kinyarwanda/${SPEECH_FILES[c.speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:28px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><span>${c.model}</span></div>`);
+      labels.push(`<img src="assets/kinyarwanda/${SPEECH_FILES[c.speech]}.svg" alt="" width="16" height="16" style="left:calc(${at(left)} + 4px);top:4px" /><img src="assets/kinyarwanda/${LOGO_FILES[c.model]}.svg" alt="" width="20" height="20" style="left:calc(${at(left)} + 2px);top:26px" /><div class="name" style="left:calc(${at(center)} + ${(offset - size).toFixed(2)}px);width:${size}px;height:${size}px"><span>${c.model}</span></div>`);
     });
-    labels.push('<span class="axis-tag" style="top:5.5px">LLM</span><span class="axis-tag" style="top:29.5px">ASR</span>');
+    labels.push('<span class="axis-tag" style="top:5.5px">ASR</span><span class="axis-tag" style="top:29.5px">LLM</span>');
     const best = (c, label, cls) => (c ? `<div><i${cls}></i><span>${label} · <em>${c.model}</em></span><b>${chart.show(c)}</b></div>` : "");
     const article = document.createElement("article");
     const pending = PRICING_COMING_SOON && chart.icon === "cost";
