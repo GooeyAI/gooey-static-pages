@@ -1,6 +1,6 @@
 // Interactions for the /models/<model>/ overview pages. The HTML is written by scripts/build_model_overview.py with
 // every language's numbers in it; this only shows the chosen language (the "Show results for" menu, or #<slug>),
-// points the "Build an agent" buttons at it, highlights it in the hero Index chart, and switches the Cost / CO2e card.
+// points the "Build an agent" buttons at it, and switches the Cost / CO2e card.
 const O = window.MODEL_OVERVIEW;
 const select = document.getElementById("moLang");
 
@@ -10,9 +10,6 @@ function show(slug, push) {
   document.querySelectorAll(".mo-panel[data-lang]").forEach(el => { el.hidden = el.dataset.lang !== slug; });
   const L = O.languages[slug];
   ["moAgent", "moAgent2"].forEach(id => { const a = document.getElementById(id); if (a) a.setAttribute("href", L.agent); });
-  document.querySelectorAll(".mo-hero-chart [data-lang]").forEach(el => el.classList.toggle("on", el.dataset.lang === slug));
-  const sel = document.getElementById("moSelLang");
-  if (sel) sel.textContent = L.lang;
   // An absolute URL: the page's <base href="/models/"> would turn a relative "#slug" into /models/#slug.
   if (push) history.replaceState(null, "", location.origin + location.pathname + location.search + (slug === O.default ? "" : "#" + slug));
 }

@@ -26,7 +26,7 @@
   height: 16px;
 }
 .mo-hero-side {
-  width: 460px;
+  width: 420px;
   flex: none;
 }
 .mo-chip-d {
@@ -762,70 +762,80 @@
   background: var(--bg-page);
 }
 
-/* Hero Index chart: the language pages' leaderboard Index chart (language-page.css), sized to the hero column */
-.mo-hero-chart.chart-card {
-  height: auto;
-  padding: 16px 20px;
-  gap: 10px;
+/* Hero banner (Figma "hero visual"): the illustration, with the chosen language's score card over its lower-left
+   corner, 20px out from the picture's edge */
+.mo-banner {
+  position: relative;
+  width: 420px;
+  max-width: 100%;
+  margin-top: 8px;
+  padding: 0 0 14px 20px;
+  box-sizing: border-box;
 }
-.mo-hero-chart .chart-sub {
-  white-space: normal;
-}
-.mo-hero-chart .chart-body {
-  height: auto;
-  gap: 6px;
-}
-.mo-hero-chart .plot,
-.mo-hero-chart .labels {
+.mo-banner-art {
+  display: block;
   width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
 }
-.mo-hero-chart .col {
-  width: 40px;
-}
-.mo-hero-chart .col.on {
-  background: var(--brand-blue);
-}
-.mo-xlabels.labels {
-  height: 40px;
-}
-.mo-xl {
+.mo-score-card {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   display: flex;
-  width: 100px;
+  width: 284px;
+  max-width: calc(100% - 20px);
   flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--bg-page);
+  box-shadow: 0 6px 16px rgba(10, 16, 33, 0.14);
+  box-sizing: border-box;
+}
+.mo-score-head {
+  display: flex;
   align-items: center;
-  gap: 2px;
-  color: var(--text-primary);
+  gap: 6px;
+  margin: 0;
+  color: var(--text-tertiary);
   font-size: 12px;
   font-weight: 500;
-  text-decoration: none;
+  line-height: 1.2;
 }
-.mo-xl span {
-  display: inline-flex;
+.mo-score-head img {
+  width: 16px;
+  height: 16px;
+}
+.mo-score-row {
+  display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
   white-space: nowrap;
 }
-.mo-xl small {
-  color: var(--text-tertiary);
-  font-size: 11px;
+.mo-score-row strong {
+  color: var(--text-primary);
+  font-family: var(--gy-font-serif);
+  font-size: 40px;
   font-weight: 400;
+  letter-spacing: -0.96px;
 }
-.mo-xl:hover span,
-.mo-xl.on span {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.mo-score-row em {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--bg-panel);
+  color: var(--text-secondary);
+  font-style: normal;
 }
-.mo-hero-chart .best {
-  flex-wrap: wrap;
-  gap: 4px 20px;
-}
-@media (max-width: 520px) {
-  .mo-xlabels.labels {
-    height: 54px;
-  }
-  .mo-xl span {
-    flex-direction: column;
-    gap: 3px;
-    font-size: 11px;
-  }
+.mo-score-row em.ok {
+  background: #e6f2f0;
+  color: #00665c;
 }

@@ -394,33 +394,21 @@ def rounds(model: str, f: dict) -> str:
             </article>"""
 
 
-def index_chart(model: str, mslug: str, tested: list[dict], default: dict) -> str:
-    """The hero's Index chart: one column per language, drawn like the language pages' leaderboard Index chart
-    (language-page.css .chart-card / .plot / .col / .val). The language chosen in "Show results for" is blue."""
-    n = len(tested)
-    step = f"(100% - 26px) / {n}"
-    cols, labels = [], []
-    for i, g in enumerate(tested):
+def hero_banner(model: str, tested: list[dict], default: dict) -> str:
+    """The hero banner (Figma "hero visual"): the illustration with a score card over its lower-left corner. There is
+    one card per language tested; the one for the language chosen in "Show results for" is shown."""
+    cards = []
+    for g in tested:
         L, sc = g["L"], g["c"]["score"]
-        h = sc * 1.9
-        on = " on" if g is default else ""
-        mid = f"26px + {step} * {i + 0.5}"
-        cols.append(f'<i class="col{on}" data-lang="{L["slug"]}" style="left:calc({mid} - 20px);top:{212 - h:.0f}px;height:{h:.0f}px" '
-                    f'aria-label="{esc(L["lang"])} {sc}"></i>'
-                    f'<span class="val" style="left:calc({mid} - 24px);top:{212 - h - 18:.0f}px">{sc}</span>')
-        labels.append(f'<a class="mo-xl" data-lang="{L["slug"]}" href="{mslug}/{L["slug"]}/" style="left:calc({mid} - 50px)">'
-                      f'<span>{LANG_FLAGS.get(L["flag"], "")}{esc(L["lang"])}</span><small>#{g["rank"]} of {g["n"]}</small></a>')
-    return f"""<article class="chart-card mo-hero-chart" aria-label="{esc(model)} Index by language">
-                <div class="chart-head">
-                  <h3 class="chart-title"><img src="{ASSET}kinyarwanda/icon-bullseye.svg" alt="" width="16" height="16" />{esc(model)} Index by language</h3>
-                  <p class="chart-sub">Out of 100, on spoken questions in each language. Higher is better.</p>
-                </div>
-                <div class="chart-body">
-                  <div class="plot"><i class="gl" style="top:117px"></i><i class="gl" style="top:22px"></i><i class="gl base" style="top:212px"></i>{"".join(cols)}</div>
-                  <div class="labels mo-xlabels">{"".join(labels)}</div>
-                </div>
-                <div class="chart-foot"><hr /><div class="best"><div><i class="sov"></i><span>Shown below · <em id="moSelLang">{esc(default["L"]["lang"])}</em></span></div><div><i></i><span>Other languages · ranks are among the models tested in each</span></div></div></div>
-              </article>"""
+        badge = f"Best in {esc(L['lang'])}" if g["rank"] == 1 else f"{rank_text(g)} in {esc(L['lang'])}"
+        hidden = "" if g is default else " hidden"
+        cards.append(f'<div class="mo-panel mo-score-card" data-lang="{L["slug"]}"{hidden}>'
+                     f'<p class="mo-score-head">{logo(model)}{esc(L["lang"])} · Gooey eval</p>'
+                     f'<p class="mo-score-row"><strong>{sc}</strong><span>/ 100</span><em class="{"ok" if g["rank"] == 1 else ""}">{badge}</em></p></div>')
+    return f"""<div class="mo-banner">
+                <img class="mo-banner-art" src="{ASSET}models/overview-hero.webp" alt="" width="400" height="300" fetchpriority="high" />
+                {"".join(cards)}
+              </div>"""
 
 
 def faq_items(model: str, tested: list[dict], default: dict) -> str:
@@ -555,7 +543,7 @@ def render(model: str) -> str:
         "header": b.HEADER_HTML.format(title=model).rstrip("\n"),
         "model": esc(model), "maker": esc(meta["maker"]),
         "meta_line": f'{logo(model)}{esc(meta["maker"])}<span>·</span>{meta["kind"]}<span>·</span>Evaluated {latest["updated"]}',
-        "lead": lead, "index_chart": index_chart(model, mslug, tested, default), "faq_items": faq_items(model, tested, default), "agent": f"../language/{default['L']['slug']}/ai-agent/",
+        "lead": lead, "hero_banner": hero_banner(model, tested, default), "faq_items": faq_items(model, tested, default), "agent": f"../language/{default['L']['slug']}/ai-agent/",
         "options": options, "lang_icon": ICON_LANG, "down": ICON_DOWN,
         "stats": "".join(panel(g, stats(g, model, k, scores), cls=" mo-stats") for g in tested),
         "fine": (f"Index: how closely answers to spoken questions match an expert’s, from 0 to 100, using {esc(model)}’s best "
