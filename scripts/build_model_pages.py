@@ -636,7 +636,7 @@ def render_model(model: str, lslug: str) -> str:
     slots = {
         "header": b.HEADER_HTML.format(title=f"{model} in {lang}").rstrip("\n"),
         "lang": lang, "model": esc(model), "hub": hub, "agent": agent, "bulk_url": L["bulk_url"],
-        "meta_line": f'<img src="{ASSET}kinyarwanda/{b.logo24(model)}.svg" alt="" width="16" height="16" />{esc(meta["maker"])}<span>·</span>{meta["kind"]}<span>·</span>Evaluated {L["updated"]}',
+        "meta_line": f'<img src="{ASSET}kinyarwanda/{b.logo24(model)}.svg" alt="" width="16" height="16" />{esc(meta["maker"])}<span>·</span>{meta["kind"]}<span>·</span>Evaluated {L["updated"]}<span>·</span><a href="{mslug}/">{esc(model)} in every language</a>',
         "lead": lead, "stats": stat_html, "wave": wave, "vn_time": voice["time"], "vn_text": voice["text"], "vn_sub": voice["sub"],
         "compare_p1": compare_p1, "compare_p2": compare_p2, "chips": "".join(f"<span>{esc(x)}</span>" for x in chips),
         "table_title": f"Against the top {len(others)}",

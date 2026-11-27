@@ -13,7 +13,7 @@
           <div class="top-copy">
             <div class="crumb-row">
               <nav class="crumbs" aria-label="Breadcrumb">
-                <span>Language</span>
+                <a href="https://gooey.ai/language/">Language evaluations</a>
                 <img src="assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
                 <strong>{{lang}}</strong>
               </nav>
@@ -77,7 +77,7 @@
           </div>
           <div class="chain-table" role="table" aria-label="All {{n}} AI chains">
             <div class="ct-row ct-head" role="row"><span class="c-rank" role="columnheader">#</span><span class="c-chain"><span class="c-model" role="columnheader">Model</span><span class="c-plus"></span><span class="c-speech" role="columnheader">Speech recognition</span></span><span class="c-score" role="columnheader">Index</span><span class="c-time" role="columnheader">Response</span><span class="c-run" role="columnheader">Agent</span></div>
-            <div id="chainRows" role="rowgroup"></div>
+            <div id="chainRows" role="rowgroup">{{chain_rows}}</div>
           </div>
           {{model_nav}}
         </div>

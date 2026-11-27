@@ -13,7 +13,7 @@ stylesheet and one script. This fails when:
   * a page or the shared script points at an image that doesn't exist.
 
 All generated page kinds are covered: /language/<name>, /language/<name>/ai-agent,
-/language/<name>/speech-to-text and /models/<model>/<language>, and the links between them (every internal link resolves, no page is an orphan, and
+/language/<name>/speech-to-text, /models/<model>/<language> and /models/<model>, and the links between them (every internal link resolves, no page is an orphan, and
 each page links to the ones it should).
 """
 
@@ -146,12 +146,15 @@ def check_model(path: pathlib.Path, expected: str) -> list[str]:
     if len(styles) != 1 or styles[0].strip() != HEADER_CSS.strip():
         problems.append(f"{rel}: has CSS other than the shared header; put it in language/assets/language-model.css")
     scripts = re.findall(r"<script(?: [^>]*)?>", actual)
-    want = [LD_JSON, "<script>", '<script src="../language/assets/language-samples.js">', '<script src="../language/assets/language-model.js">',
-            '<script src="../language/assets/language-links.js">']
+    overview = len(path.relative_to(build.ROOT).parts) == 3   # models/<model>/index.html
+    want = ([LD_JSON, "<script>", '<script src="../language/assets/language-model-overview.js">',
+             '<script src="../language/assets/language-links.js">'] if overview else
+            [LD_JSON, "<script>", '<script src="../language/assets/language-samples.js">', '<script src="../language/assets/language-model.js">',
+             '<script src="../language/assets/language-links.js">'])
     if scripts != want:
         problems.append(f"{rel}: unexpected <script> tags {scripts}")
     for ref in sorted(set(re.findall(r'(?:src|href)="((?:\.\./language/|assets/)[^"?#]+)"', actual))):
-        if not (path.parents[2] / ref).resolve().exists():
+        if not (build.ROOT / "models" / ref).resolve().exists():   # <base href="/models/">
             problems.append(f"{rel}: {ref} does not exist")
     return problems
 
@@ -176,9 +179,11 @@ def check_links(pages: dict[pathlib.Path, str]) -> list[str]:
     for page in pages:
         parts = page.relative_to(build.ROOT).parts
         want = []
-        if parts[0] == "models":
+        if parts[0] == "models" and len(parts) == 3:   # overview: every language's model page
+            want = [q for q in pages if q.relative_to(build.ROOT).parts[:2] == parts[:2] and len(q.relative_to(build.ROOT).parts) == 4]
+        elif parts[0] == "models":
             lslug = parts[2]
-            want = [build.LANG / lslug / "index.html", build.LANG / lslug / "ai-agent" / "index.html"]
+            want = [build.LANG / lslug / "index.html", build.LANG / lslug / "ai-agent" / "index.html", build.ROOT / "models" / parts[1] / "index.html"]
         elif len(parts) == 4 and parts[1] != "assets" and parts[3] == "index.html" and parts[2] == "ai-agent":
             want = [build.LANG / parts[1] / "index.html"]
         elif len(parts) == 4 and parts[3] == "index.html" and parts[2] == "speech-to-text":

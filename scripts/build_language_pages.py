@@ -63,6 +63,40 @@ DIRECT_AUDIO = "Built-in audio"
 # Some summary CSVs abbreviate the speech step; the page always shows the full name.
 SPEECH_ALIASES = {"Omni": "Omnilingual"}
 
+# The evaluation write-up every language page cites (a published Google Doc the team keeps updated).
+PAPER_URL = ("https://docs.google.com/document/d/e/2PACX-1vSAghjRv8whtvZQnt_G9wl5CjyWQbhtanExzJD4JPkRT59_"
+             "lKKL-NaeyCcNZskrhHMBhGE4rPIDhCtq/pub")
+PAPER_TITLE = "State of the Art of AI Understanding for Low-Resource Languages"
+
+
+def chain_rows(page: dict, csv_rows: list, workflows: list, model_slugs: dict) -> str:
+    """The "All chains" table rows, ranked by Index, written into the HTML so crawlers see every model link.
+    Same markup as renderTable() in language-page.js, which re-renders them when the sort changes."""
+    import html as _html
+    esc = lambda s: _html.escape(str(s), quote=True)
+    logos, speech_files = js_dict("LOGO_FILES"), js_dict("SPEECH_FILES")
+    rows = []
+    for i, (m, speech, acc, time, sov) in enumerate(csv_rows):
+        rows.append((m.replace("GPT 5.6 Sol", "GPT-5.6 Sol"), speech, acc, time, sov, workflows[i]))
+    rows.sort(key=lambda r: (-r[2], r[3]))
+    out = []
+    for i, (m, speech, acc, time, sov, wf) in enumerate(rows, 1):
+        if m not in logos or speech not in speech_files:
+            raise SystemExit(f"{page['slug']}: add {m!r} / {speech!r} to LOGO_FILES / SPEECH_FILES in language-page.js")
+        sicon = "icon-mic-legend" if speech_files[speech] == "icon-mic" else speech_files[speech]
+        full = m + ("" if speech == DIRECT_AUDIO else " + " + speech)
+        g = "sov" if sov else "priv"
+        out.append(
+            f'<div class="ct-row" data-g="{g}" role="row"><span class="c-rank" role="cell">{i}</span>'
+            f'<span class="c-chain" role="cell"><span class="c-model"><img src="assets/kinyarwanda/{logos[m]}.svg" alt="" width="24" height="24" />'
+            f'<span class="c-name"><a href="../models/{model_slugs[m]}/{page["slug"]}/">{esc(m)}</a></span></span>'
+            f'<span class="c-plus">+</span><span class="c-speech"><img src="assets/kinyarwanda/{sicon}.svg" alt="" width="16" height="16" />{esc(speech)}</span></span>'
+            f'<span class="c-score" role="cell"><span class="bar"><i class="{"sovereign" if sov else "private"}" style="width:{acc * 100:.2f}%"></i></span>'
+            f'<b class="c-num">{int(acc * 100 + 1e-9 + 0.5)}</b></span><span class="c-time" role="cell">{time:.1f} s</span>'
+            f'<span class="c-run" role="cell"><a href="{esc(wf)}" target="_blank" rel="noopener noreferrer" '
+            f'aria-label="Try the {esc(full)} {esc(page["lang"])} agent on Gooey.AI">Try agent ↗</a></span></div>')
+    return "".join(out)
+
 # The page's own <base> comes before the GOOEY-BASE-HREF placeholder. Only the first <base> in a document counts, and
 # gooey.ai's proxy replaces the placeholder with <base href="<Pages host>/<this page's folder>/">, which would send the
 # relative paths below one or two folders too deep. With ours first, gooey.ai requests <path> on gooey.ai, which
@@ -410,8 +444,12 @@ def render(slug: str) -> str:
         name = row[0].replace("GPT 5.6 Sol", "GPT-5.6 Sol")
         if name not in ranked_models:
             ranked_models.append(name)
-    model_nav = ('<nav class="sr-only" aria-label="Results by model">' + " ".join(
-        f'<a href="../models/{models_meta[m]["slug"]}/{slug}/">{m} in {page["lang"]}</a>' for m in ranked_models) + "</nav>")
+    model_nav = (
+        '<div class="chains-foot-links">'
+        '<p><span>Each model across every language:</span> ' + '<span class="sep">·</span>'.join(
+            f'<a href="../models/{models_meta[m]["slug"]}/">{m}</a>' for m in ranked_models) + '</p>'
+        f'<p><span>How we evaluate:</span> <a href="{PAPER_URL}" target="_blank" rel="noopener noreferrer">{PAPER_TITLE}</a> (paper)</p>'
+        '</div>')
     lead_html, rec_card = hero_top(page, csv_rows, pricing, ecocost)
     faq_context = json.loads((d / "faq.json").read_text()) if (d / "faq.json").exists() else {}
     data_dir = DATA / page["code"]
@@ -436,7 +474,7 @@ def render(slug: str) -> str:
         "contact_url": CONTACT_URL, "partner_url": escape(partner_url(page["lang"]), quote=True),
         "scatter_aria": " " + page["scatter"]["aria"],
         "score_front": metrics["score"]["front"], "score_note": metrics["score"]["note"],
-        "model_nav": model_nav, "samples_intro": page["samples_intro"],
+        "model_nav": model_nav, "chain_rows": chain_rows(page, csv_rows, config["workflows"], config["modelSlugs"]), "samples_intro": page["samples_intro"],
         "language_list": language_list(page["lang"], lambda s: f"{s}/"), "slug": slug,
         "speech_card": speech_card(slug, page["lang"]),
     }
@@ -1112,6 +1150,9 @@ def all_pages(only: list[str] | None = None) -> dict[pathlib.Path, str]:
     for path, page in build_model_pages.pages().items():
         if not only or path.parent.name in only:
             pages[path] = page
+    import build_model_overview  # the /models/<model>/ pages, which cover every language
+    if not only:
+        pages.update(build_model_overview.pages())
     return pages
 
 

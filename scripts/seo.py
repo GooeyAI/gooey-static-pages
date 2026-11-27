@@ -36,7 +36,7 @@ ICON = "https://cdn.prod.website-files.com/6864c89c210135e40bbd6674/68ad67680a9b
 TOUCH = "https://cdn.prod.website-files.com/6864c89c210135e40bbd6674/68ad688f8931b3329a5b2083_webclip.png"
 ORG = {"@type": "Organization", "@id": SITE + "#organization", "name": "Gooey.AI", "url": SITE,
        "logo": {"@type": "ImageObject", "url": TOUCH}}
-EVALS = ("Language evaluations", SITE + "language-evaluation/")
+EVALS = ("Language evaluations", SITE + "language/")
 
 # Lengths Google shows in a result: about 600 px of title (roughly 60 characters) and about 155-160 characters of
 # description on desktop (less on phones). A description shorter than 120 leaves the snippet half empty, and Google is

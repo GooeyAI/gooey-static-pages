@@ -1,0 +1,84 @@
+    <a class="skip-link" href="#main">Skip to main content</a>
+{{header}}
+
+    <main id="main" class="model mo">
+      <section class="md-hero" aria-labelledby="mo-title">
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="https://gooey.ai/language/">Language evaluations</a>
+            <img src="../language/assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <span>{{maker}}</span>
+            <img src="../language/assets/kinyarwanda/chevron-right.svg" alt="" width="12" height="12" />
+            <strong>{{model}}</strong>
+          </nav>
+          <div class="mo-hero-row">
+            <div class="mo-hero-copy">
+              <p class="md-meta">{{meta_line}}</p>
+              <h1 id="mo-title">{{model}}: Languages, Speed &amp; Cost.</h1>
+              <p class="md-lead">{{lead}}</p>
+              <div class="md-actions">
+                <a class="hero-btn primary" id="moAgent" href="{{agent}}">Build an agent with this</a>
+              </div>
+            </div>
+            <div class="mo-hero-side">
+              {{hero_banner}}
+            </div>
+          </div>
+
+          <div class="mo-filter">
+            <span class="mo-filter-label">Show results for</span>
+            <label class="mo-select">
+              {{lang_icon}}<span class="sr-only">Language</span>
+              <select id="moLang">{{options}}</select>
+              {{down}}
+            </label>
+          </div>
+          {{stats}}
+          <p class="mo-fine">{{fine}}</p>
+        </div>
+      </section>
+
+      <section class="md-section" aria-label="What to know and specifications">
+        <div class="container">
+          {{know}}
+        </div>
+      </section>
+{{where}}
+      <section class="md-section" aria-labelledby="evals-title">
+        <div class="container">
+          <h2 id="evals-title">Gooey evals</h2>
+          <p class="md-sub mo-sub">{{evals_sub}}</p>
+          {{evals}}
+        </div>
+      </section>
+
+      <section class="md-section md-faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-list">
+{{faq_items}}
+          </div>
+        </div>
+      </section>
+
+      <section class="md-cta-wrap" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="md-cta">
+            <h2 id="cta-title">{{cta_title}}</h2>
+            <p>{{cta_text}}</p>
+            <div class="md-actions">
+              <a class="hero-btn primary" id="moAgent2" href="{{agent}}">Build an agent with this</a>
+              <a class="md-textlink" href="{{api}}">Use via API</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <h2>{{other_title}}</h2>
+      {{other_languages}}
+      <h2 class="footer-h2-next">Compare with other models</h2>
+      {{other_models}}
+      <div class="legal"><span>Gooey Language Index v1.0 · Source chart, {{updated}} · With support from the Gates Foundation</span><span>{{email}}</span></div>
+    </footer>
